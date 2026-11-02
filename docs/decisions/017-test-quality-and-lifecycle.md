@@ -5,6 +5,8 @@ status: accepted
 ---
 # Separate test coverage, effectiveness, and lifecycle review
 
+[Decision 019: Use spec-driven development with evidence-first verification](019-evidence-first-verification.md) retains these policies while retiring TDD-specific ordering and record-method requirements. Its implementation must preserve relevant observed-failure evidence and migrate existing records; the current record format remains implemented until that migration is complete.
+
 ## Context
 
 Passing tests and scenario links do not establish sufficient cases, effective assertions, or correct test retirement. The approved roadmap puts a bounded design and trials before implementation.

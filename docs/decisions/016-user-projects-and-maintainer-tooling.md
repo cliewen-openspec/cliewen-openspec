@@ -28,3 +28,5 @@ Maintainer tests provide evidence about Cliewen's behavior in the tested fixture
 Review new features against both contexts: what the adopting project receives and what maintainers need to build or evaluate it. Test installed behavior from a separate project fixture where independence from this checkout matters.
 
 The alpha already installs standalone schema bundles and has separate maintainer evaluation and site tooling. This decision establishes the product boundary; it does not claim that every consumer environment or configuration has been validated. Future validators intended for user projects must be delivered as supported product features rather than inferred from checks in this repository.
+
+The [feedback triage guide](../feedback-triage.md) documents this repository's maintainer workflow. It links accepted reports to OpenSpec work and distinguishes fixes in development source from published packages, without imposing triage tooling or service commitments on adopting projects.

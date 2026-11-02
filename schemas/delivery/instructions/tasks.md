@@ -10,3 +10,4 @@ Review whether assertions prove the scenario at the declared boundary, including
 Separate review is optional.
 Do not require post-implementation evidence before implementation.
 Archive is an untracked follow-up.
+After writing tasks and before executing them, retrieve the active change's OpenSpec apply instructions with --json and read their contextFiles. Artifact-generation instructions do not replace apply instructions. If apply is blocked, resolve its prerequisites and retrieve it again before work; retain the response when the project requires instruction records.

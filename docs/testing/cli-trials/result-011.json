@@ -1,0 +1,327 @@
+{
+  "capturedAt": "2026-11-02T19:30:57.602Z",
+  "releaseReady": false,
+  "rawArtifacts": ".tmp/agent-trials/cli-evaluation-011",
+  "trials": {
+    "delivery": {
+      "schema": "cliewen-delivery",
+      "trial": "C:/Users/flemm/AppData/Local/Temp/cliewen-csv-bom-1793646678524",
+      "baseline": "9e9a71570b9c55aa9bc2d167136cc1ee4bcf20fe",
+      "package": {
+        "filename": "cliewen-openspec-0.2.0-alpha.1.tgz",
+        "sha256": "5a2c87e56bc55581129923d680422b988951e0b570f6d966481b9f800abb42f0"
+      },
+      "sourceRevision": "1b6a8ede66a981a4218d11df2bc826c2674ae36f",
+      "sourceStatus": "M plan.md",
+      "finalRevision": "f14350029a70dd6c73b15cc044608a1c1c9dfa93",
+      "phases": {
+        "initial": {
+          "profileId": "opencode-2-2-5-15m",
+          "cliVersion": "opencode v2.2.5",
+          "startedAt": "2026-11-02T19:11:46.638Z",
+          "endedAt": "2026-11-02T19:16:32.918Z",
+          "durationSeconds": 286.279,
+          "exitCode": 0,
+          "stopReason": null,
+          "reportedCostUSD": 0.08514743999999999,
+          "observedModels": [],
+          "requestedModel": "opencode/glm-5.3-flash",
+          "budgets": {
+            "wallTimeSeconds": 900,
+            "outputBytes": 67108864,
+            "reportedCostUSD": 0.5,
+            "tokenLimit": null,
+            "billing": "local reported-cost stop; not a provider-enforced hard spending cap"
+          }
+        }
+      },
+      "independentChecks": false,
+      "failedChecks": [
+        {
+          "label": "saved apply instructions"
+        }
+      ],
+      "recordedPhases": [
+        {
+          "task": "1.1",
+          "phase": "start"
+        },
+        {
+          "task": "1.1",
+          "phase": "red",
+          "exitCode": 1,
+          "reason": "The options argument does not exist yet, so opting in to a BOM still returns output without U+FEFF"
+        },
+        {
+          "task": "1.1",
+          "phase": "green",
+          "exitCode": 0
+        },
+        {
+          "task": "1.2",
+          "phase": "start"
+        },
+        {
+          "task": "1.2",
+          "phase": "baseline",
+          "exitCode": 0,
+          "reason": "The default no-BOM behavior already exists; the new [EXP-009] test documents it against unchanged production"
+        },
+        {
+          "task": "1.2",
+          "phase": "green",
+          "exitCode": 0
+        },
+        {
+          "task": "2.1",
+          "phase": "start"
+        },
+        {
+          "task": "2.1",
+          "phase": "verify",
+          "exitCode": 0,
+          "reason": "Documentation-only task; this check validates the documented API, default, and examples against the implementation"
+        }
+      ],
+      "overallOutcome": "task-failure",
+      "limits": [
+        "One fresh attempt, not repeated release coverage",
+        "OpenCode event stream does not expose actual model identity",
+        "Source-bound writing review is separate from product checks",
+        "New apply/motivation guidance was added after packaging and is not tested by this attempt"
+      ],
+      "reviewFindings": [
+        "Apply instruction response missing; trace shows no retrieval",
+        "Unsupported spreadsheet/mojibake motivation in proposal and consumer claim in PR draft",
+        "Broken relative proposal links",
+        "Documentation verification helper is ignored and omitted from declared inputs; hash checks cannot cover later helper edits"
+      ],
+      "productTests": {
+        "passed": 9,
+        "failed": 0
+      },
+      "productCompletionGate": true
+    },
+    "combined": {
+      "schema": "cliewen-all",
+      "trial": "C:/Users/flemm/AppData/Local/Temp/cliewen-csv-all-1793646817005",
+      "baseline": "942fa38732ed7e95f32829e4e5a58dc3469565e7",
+      "package": {
+        "filename": "cliewen-openspec-0.2.0-alpha.1.tgz",
+        "sha256": "3beeddd83b4b95c41afb80396917f95ef07710d2b4034b69a6601aefde65dd7d"
+      },
+      "sourceRevision": "1b6a8ede66a981a4218d11df2bc826c2674ae36f",
+      "sourceStatus": "M README.md\n M plan.md\n?? docs/feedback-triage.md",
+      "finalRevision": "08a99d1c09344607e8f32c5a406548d3aeab6fa4",
+      "phases": {
+        "initial": {
+          "profileId": "opencode-2-2-5",
+          "cliVersion": "opencode v2.2.5",
+          "startedAt": "2026-11-02T19:13:55.315Z",
+          "endedAt": "2026-11-02T19:19:14.989Z",
+          "durationSeconds": 319.673,
+          "exitCode": 0,
+          "stopReason": null,
+          "reportedCostUSD": 0.043307269999999995,
+          "observedModels": [],
+          "requestedModel": "opencode/glm-5.3-flash",
+          "budgets": {
+            "wallTimeSeconds": 600,
+            "outputBytes": 67108864,
+            "reportedCostUSD": 0.5,
+            "tokenLimit": null,
+            "billing": "local reported-cost stop; not a provider-enforced hard spending cap"
+          }
+        },
+        "approved-continuation": {
+          "profileId": "opencode-2-2-5",
+          "cliVersion": "opencode v2.2.5",
+          "startedAt": "2026-11-02T19:20:39.926Z",
+          "endedAt": "2026-11-02T19:30:40.118Z",
+          "durationSeconds": 600.191,
+          "exitCode": 1,
+          "stopReason": "wall-time-limit",
+          "reportedCostUSD": 0.29775145999999997,
+          "observedModels": [],
+          "requestedModel": "opencode/glm-5.3-flash",
+          "budgets": {
+            "wallTimeSeconds": 600,
+            "outputBytes": 67108864,
+            "reportedCostUSD": 0.5,
+            "tokenLimit": null,
+            "billing": "local reported-cost stop; not a provider-enforced hard spending cap"
+          }
+        }
+      },
+      "independentChecks": false,
+      "failedChecks": [
+        {
+          "label": "active change evidence",
+          "exitCode": 1,
+          "stdout": "{\n  \"ok\": false,\n  \"findings\": [\n    {\n      \"code\": \"tdd-sequence-invalid\",\n      \"message\": \"1.4: test/export.test.mjs changed between recorded task cycles\",\n      \"severity\": \"error\"\n    },\n    {\n      \"code\": \"tdd-sequence-invalid\",\n      \"message\": \"1.3: test/export.test.mjs changed between recorded task cycles\",\n      \"severity\": \"error\"\n    },\n    {\n      \"code\": \"tdd-history-stale\",\n      \"message\": \"test/export.test.mjs: changed after its last recorded run\",\n      \"severity\": \"error\"\n    },\n    {\n      \"code\": \"tdd-history-stale\",\n      \"message\": \"test/export.test.mjs: changed after its last recorded run\",\n      \"severity\": \"error\"\n    },\n    {\n      \"code\": \"tdd-history-stale\",\n      \"message\": \"test/export.test.mjs: changed after its last recorded run\",\n      \"severity\": \"error\"\n    },\n    {\n      \"code\": \"tdd-history-stale\",\n      \"message\": \"test/export.test.mjs: changed after its last recorded run\",\n      \"severity\": \"error\"\n    },\n    {\n      \"code\": \"tdd-history-stale\",\n      \"message\": \"test/export.test.mjs: changed after its last recorded run\",\n      \"severity\": \"error\"\n    },\n    {\n      \"code\": \"tdd-review-required\",\n      \"message\": \"Recorded commands and declared file hashes do not prove assertion quality, failure cause, complete file coverage, or exception suitability. Review the task plan and captured output; local history is not tamper-proof.\",\n      \"severity\": \"info\"\n    },\n    {\n      \"code\": \"test-review-invalid\",\n      \"message\": \".cliewen-openspec/reviews/change-add-optional-csv-bom.yaml: Nested mappings are not allowed in compact mappings at line 44, column 13:\\n\\n    defect: removing the bom: true prefix so the output never starts with U+FEFF\\n            ^\\n\",\n      \"severity\": \"warning\"\n    },\n    {\n      \"code\": \"test-review-invalid\",\n      \"message\": \".cliewen-openspec/reviews/change-add-optional-csv-bom.yaml: Nested mappings are not allowed in compact mappings at line 44, column 13:\\n\\n    defect: removing the bom: true prefix so the output never starts with U+FEFF\\n            ^\\n\",\n      \"severity\": \"warning\"\n    },\n    {\n      \"code\": \"test-review-invalid\",\n      \"message\": \".cliewen-openspec/reviews/change-add-optional-csv-bom.yaml: Nested mappings are not allowed in compact mappings at line 44, column 13:\\n\\n    defect: removing the bom: true prefix so the output never starts with U+FEFF\\n            ^\\n\",\n      \"severity\": \"warning\"\n    },\n    {\n      \"code\": \"coverage-minimum-unmet\",\n      \"message\": \"EXP-007: needs 1 distinct passed positive cases.\",\n      \"severity\": \"warning\"\n    },\n    {\n      \"code\": \"coverage-minimum-unmet\",\n      \"message\": \"EXP-008: needs 1 distinct passed negative cases.\",\n      \"severity\": \"warning\"\n    },\n    {\n      \"code\": \"coverage-minimum-unmet\",\n      \"message\": \"EXP-009: needs 1 distinct passed negative cases.\",\n      \"severity\": \"warning\"\n    },\n    {\n      \"code\": \"coverage-minimum-unmet\",\n      \"message\": \"EXP-010: needs 1 distinct passed negative cases.\",\n      \"severity\": \"warning\"\n    },\n    {\n      \"code\": \"test-policy-review-required\",\n      \"severity\": \"info\",\n      \"message\": \"Record checks cannot prove case distinctness, assertion meaning, complete dependency/impact analysis, or human approval. Review these claims.\"\n    },\n    {\n      \"code\": \"sufficiency-not-assessed\",\n      \"severity\": \"info\",\n      \"message\": \"Execution and linkage do not prove assertion quality; review the assertions against the scenarios.\"\n    }\n  ]\n}\n",
+          "stderr": ""
+        },
+        {
+          "label": "evidence check reports success"
+        },
+        {
+          "label": "saved specs instructions"
+        },
+        {
+          "label": "saved tasks instructions"
+        }
+      ],
+      "recordedPhases": [
+        {
+          "task": "1.1",
+          "phase": "start"
+        },
+        {
+          "task": "1.1",
+          "phase": "verify",
+          "exitCode": 0,
+          "reason": "Change status confirms specs configured after ID placement"
+        },
+        {
+          "task": "1.2",
+          "phase": "start"
+        },
+        {
+          "task": "1.2",
+          "phase": "baseline",
+          "exitCode": 0,
+          "reason": "New default-unchanged test characterizes existing behavior; baseline expected to pass against unchanged production"
+        },
+        {
+          "task": "1.2",
+          "phase": "green",
+          "exitCode": 0
+        },
+        {
+          "task": "1.3",
+          "phase": "start"
+        },
+        {
+          "task": "1.3",
+          "phase": "red",
+          "exitCode": 0,
+          "reason": "The BOM prefix for bom: true is not implemented yet, so the new EXP-008/EXP-009 assertions must fail"
+        },
+        {
+          "task": "1.3",
+          "phase": "start"
+        },
+        {
+          "task": "1.3",
+          "phase": "baseline",
+          "exitCode": 0,
+          "reason": "New BOM tests characterize behavior implemented during task 1.2's green step; baseline expected to pass against unchanged production"
+        },
+        {
+          "task": "1.3",
+          "phase": "green",
+          "exitCode": 0
+        },
+        {
+          "task": "1.4",
+          "phase": "start"
+        },
+        {
+          "task": "1.4",
+          "phase": "baseline",
+          "exitCode": 0,
+          "reason": "New byte-level disk assertions characterize BOM behavior implemented earlier; baseline expected to pass against unchanged production"
+        },
+        {
+          "task": "1.4",
+          "phase": "green",
+          "exitCode": 0
+        },
+        {
+          "task": "1.5",
+          "phase": "start"
+        },
+        {
+          "task": "1.5",
+          "phase": "verify",
+          "exitCode": 0,
+          "reason": "Documentation-only task validated by the suite, including the new README-content test"
+        },
+        {
+          "task": "2.1",
+          "phase": "start"
+        },
+        {
+          "task": "2.1",
+          "phase": "verify",
+          "exitCode": 0,
+          "reason": "Full-suite regression on the committed implementation"
+        },
+        {
+          "task": "2.2",
+          "phase": "start"
+        },
+        {
+          "task": "2.2",
+          "phase": "verify",
+          "exitCode": 0,
+          "reason": "Traceability validation of the change with allocated AC IDs"
+        },
+        {
+          "task": "1.3",
+          "phase": "start"
+        },
+        {
+          "task": "1.3",
+          "phase": "baseline",
+          "exitCode": 0,
+          "reason": "Replacement cycle after the task definition change: the reapplied EXP-008/EXP-009 tests characterize the BOM behavior already present in production; baseline expected to pass"
+        },
+        {
+          "task": "1.3",
+          "phase": "green",
+          "exitCode": 0
+        }
+      ],
+      "overallOutcome": "task-failure",
+      "limits": [
+        "One fresh attempt, not repeated release coverage",
+        "OpenCode event stream does not expose actual model identity",
+        "Source-bound writing review is separate from product checks",
+        "New apply/motivation guidance was added after packaging and is not tested by this attempt"
+      ],
+      "reviewBoundary": true,
+      "approval": "Existing bounded owner authorization relayed by evaluator; not a new human review of generated files. Saved approval.txt gives provenance and requests draft review without supplying evaluator findings.",
+      "productTests": {
+        "passed": 12,
+        "failed": 0
+      },
+      "productCompletionGate": false,
+      "processOutcome": "incomplete",
+      "reviewFindings": [
+        "New BOM behavior was implemented during earlier characterization task 1.2 before its intended failing test; task 1.3 red passed and was reclassified",
+        "Final gate rejects cross-task continuity and stale test hashes",
+        "Review record has an unquoted bom: true scalar and is invalid YAML",
+        "Specs and tasks instruction responses missing; apply retrieved and saved",
+        "Unsupported spreadsheet motivation and broken relative links remain"
+      ]
+    }
+  },
+  "validation": {
+    "tests": 77,
+    "passed": 77,
+    "failed": 0,
+    "documentationPages": 13,
+    "localLinks": 457,
+    "diagrams": 4,
+    "evaluationPlan": "Passed for three shipped schemas",
+    "newDocumentLinks": "Passed"
+  },
+  "changes": [
+    "Task guidance requires apply instruction retrieval before execution and handling of blocked state",
+    "Writing guidance distinguishes sourced motivation from unverified hypotheses",
+    "Maintainer feedback triage guide with reporting links",
+    "Release hold explicitly covers completion of all six agreed priorities",
+    "Clarify that later characterization does not repair early implementation of new behavior"
+  ]
+}

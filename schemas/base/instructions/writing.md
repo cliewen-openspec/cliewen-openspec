@@ -15,4 +15,5 @@ Apply the same diagram guidance across these texts.
 For PR descriptions, include relevant validation and limitations.
 Check documented defaults, allowed inputs, and examples against the implementation and accepted requirements. Exercise the examples and boundary values covered by a claim; correct contradictions before finishing.
 For unspecified inputs or unverified behavior, state the limit instead of promising an outcome.
+Ground motivation and problem claims in the request, inspected project sources, or observed results. Mark an unverified hypothesis explicitly; do not turn plausible background knowledge into an observed project problem.
 Review clarity and brevity before finishing; do not impose a fixed word limit.

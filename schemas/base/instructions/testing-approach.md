@@ -7,6 +7,7 @@ When lifecycle is active, review affected criteria and tests against a baseline.
 Flexible permits tests before or after code within the selected placement.
 For tdd, each implementation task must describe one red-green-refactor cycle: write a focused test first, run it and observe failure for the intended missing behavior, implement the minimum behavior to make it pass, then refactor while keeping relevant tests green.
 Fix setup, import, or syntax errors rather than treating them as the intended red result.
+Keep each task's production edits within its agreed behavior. If an earlier task implements later behavior before its failing test, report the TDD departure and obtain review of the exception. Calling that later test characterization does not establish that the new behavior followed TDD; it is existing only in the modified worktree, not in the change baseline. Preserve the history and do not manufacture a replacement red result.
 Record the red and green commands and observed outcomes in separate paragraphs beneath the task or in a linked results document, not on the checkbox line; if the test already passes, report that instead of claiming a red phase.
 Documentation-only tasks use suitable validation rather than a forced TDD cycle.
 Final passing evidence alone does not prove TDD was followed.

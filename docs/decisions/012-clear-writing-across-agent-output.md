@@ -28,3 +28,5 @@ Adapt the rules to the reader and format. Code comments explain intent, constrai
 Repository agent instructions and every delivery artifact instruction share this guidance, including the implementation stage. The workflow guide explains it to users. Humanizer remains required for this repository's user guides; consumers do not need that skill to receive the schema's writing guidance.
 
 Schema instructions guide agents while they use the workflow. They do not enforce writing quality or automatically govern unrelated agent sessions or external PR tools. Disabling a documentation facility does not disable the general writing rules; Mermaid-specific guidance still respects its feature flag.
+
+[Round 011: Characterization retry and combined TDD boundary](../testing/cli-trials/result-011.md) retained unsupported spreadsheet motivation despite passing formatter tests. Shared writing instructions now require grounding problem claims in the request, inspected sources, or observations, and labeling unverified hypotheses. This clarifies the existing factual-review rule; a compatibility disclaimer does not substantiate an invented project problem.

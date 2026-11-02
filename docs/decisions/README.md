@@ -3,18 +3,18 @@ type: index
 ---
 # Decisions
 
-These accepted records capture choices confirmed in the project conversation. Acceptance describes the intended design, not implementation or release status; each record states relevant limits. Existing accepted records retain their reasoning. Detailed commands live in [configuration](../configuration.md) and [the evidence contract](../testing/evidence.md).
+These records capture choices confirmed in the project conversation. Acceptance describes the intended design, not implementation or release status; each record states relevant limits. Superseded records retain their reasoning and link to their replacements. Detailed commands live in [configuration](../configuration.md) and [the evidence contract](../testing/evidence.md).
 
 ## Accepted decisions
 
 | Record | Decision | Current scope |
 |---|---|---|
+| [Decision 019: Use spec-driven development with evidence-first verification](019-evidence-first-verification.md) | Agree verification before implementation; verify incrementally and maintain effective tests; remove TDD facilities | Accepted; supersedes decisions 004 and 013; implementation and migration pending |
 | [Decision 018: Exercise guides with fresh coding-agent sessions](018-agent-guide-walkthroughs.md) | Recurring first-use guide trials with post-attempt reviews | Accepted; all three CLI adapters implemented and exercised on the prepared CSV guide |
 | [Decision 017: Separate test coverage, effectiveness, and lifecycle review](017-test-quality-and-lifecycle.md) | Independent coverage, effectiveness, and lifecycle policies | Unreleased 0.2; one reviewed Codex delivery and combined observation; other profiles/release checks pending; requirement renames remain unresolved |
 | [001](001-shared-base-and-schemas.md) | A small schema collection shares a common base | Delivery, discovery, and all implemented; full release evaluation incomplete |
 | [002](002-base-and-workflow-names.md) | Base names the internal foundation, not a selectable workflow | Naming and product boundary |
 | [003](003-project-defined-test-types.md) | Default to Unit/Integration/E2E and allow a project-defined replacement | Configuration, Node export, and exact scenario/evidence type checks implemented; task boundaries reviewed |
-| [004](004-incremental-testing-and-optional-tdd.md) | Per-task testing by default, flexible ordering, optional TDD | Configuration and agent guidance implemented in current source |
 | [005](005-capability-owned-ac-identities.md) | Capabilities own sequences across prefix changes | Native allocation implemented; external adapters planned |
 | [006](006-preserve-existing-project-authorities-and-paths.md) | Preserve existing addresses, identities, and authorities | Guidance; full brownfield adapters planned |
 | [007](007-durable-documents-and-general-decision-records.md) | Lightweight docs, general DRs, frontmatter, Mermaid, optional plans | Guidance/templates implemented; user-project structural and diagram validators planned |
@@ -23,7 +23,13 @@ These accepted records capture choices confirmed in the project conversation. Ac
 | [010](010-publish-user-documentation-early.md) | Publish navigable user documentation on GitHub Pages during alpha development | Site, replay fixture, and build/browser checks implemented in source; Pages deploys pushed main commits |
 | [011](011-mermaid-and-plain-text-diagrams.md) | Prefer Mermaid for diagrams and plain text for file trees and simple sketches | Design and implementation guidance; no consumer-project diagram validator |
 | [012](012-clear-writing-across-agent-output.md) | Apply clear writing and diagram guidance to all agent-authored text, including code comments, commits, and PR descriptions | Repository instructions and all delivery stages; advisory guidance |
-| [Decision 013: Enforce TDD for behavior changes with explicit task exceptions](013-tdd-enforcement-and-task-exceptions.md) | Selected TDD requires test-first behavior changes and justified exceptions | Record/check implemented; stable labels and separate notes clarified; delivery TDD/apply verified with a remaining writing-review failure; write blocking planned |
 | [014](014-installer-ownership-and-recoverable-lifecycle.md) | Track generated-resource ownership and recover failed lifecycle changes without losing project data | Alpha init/update/uninstall ownership, conflict, recovery, and default-preservation rules implemented; general migrations planned |
 | [015](015-combined-workflow-and-approval-boundaries.md) | Keep combined investigation/delivery behind explicit agreement, with a genuine no-delivery branch | Graph and metadata/evidence checks implemented; authorization and execution history still require review |
 | [016](016-user-projects-and-maintainer-tooling.md) | Serve adopting projects without making maintainer tooling a user requirement | Accepted product boundary; standalone bundles and separate maintainer tools exist; user-project validation remains project-specific |
+
+## Superseded decisions
+
+| Record | Replacement |
+|---|---|
+| [Decision 004: Test each task and offer TDD as an explicit approach](004-incremental-testing-and-optional-tdd.md) | Decision 019 retains incremental verification and removes the approach selector |
+| [Decision 013: Enforce TDD for behavior changes with explicit task exceptions](013-tdd-enforcement-and-task-exceptions.md) | Decision 019 removes TDD recording, ordering checks, and planned write blocking |

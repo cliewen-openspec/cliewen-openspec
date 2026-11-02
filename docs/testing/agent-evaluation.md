@@ -5,13 +5,15 @@ type: guide
 
 Every shipped schema needs deterministic regression coverage and a reviewed agent trial. [agent-evaluation.yaml](agent-evaluation.yaml) lists the profiles, scenarios, source files, and observed reports. Use the [CLI trial guide](cli-evaluation.md) to run the pinned profiles and capture raw traces. Plan validation alone does not establish that a combination passed.
 
+[Decision 019: Use spec-driven development with evidence-first verification](../decisions/019-evidence-first-verification.md) retires strict TDD as a product and release requirement. The coverage below describes the existing implementation and historical trials. Scenario IDs, prompts, rubrics, and checks still need migration before new release evaluation. Preserve original outcomes; validate the replacement workflow and retain relevant instruction, writing, test-quality, and evidence findings.
+
 ## Current coverage
 
 | Schema | Development trial | Observed coverage | Still needed before release |
 |---|---|---|---|
-| cliewen-delivery | Optional CSV BOM with per-task TDD | Codex CLI and Claude have passing observations; OpenCode 2.2.5 now passes TDD/product and apply checks, with a writing-review failure | Resolve/retest writing findings; flexible and end-of-change variants; repeated current-candidate runs |
+| cliewen-delivery | Optional CSV BOM with per-task TDD | Codex CLI and Claude have passing observations; latest OpenCode retry passes TDD/product checks but omits apply retrieval and fails writing review | Resolve/retest instruction and writing findings; flexible and end-of-change variants; repeated current-candidate runs |
 | cliewen-discovery | Investigate CSV streaming | Codex CLI and Claude have passing observations; OpenCode 2.2.5 passes with a writing note | Targeted no-change and handoff cases; repeated current-candidate runs |
-| cliewen-all | One CSV investigation through delivery with an explicit human review stage | Codex CLI and Claude have passing observations; OpenCode 2.2.5 now respects the approval boundary and final evidence, but fails configured TDD order | Resolve/retest the TDD finding; no-delivery agent coverage; repeated current-candidate runs |
+| cliewen-all | One CSV investigation through delivery with an explicit human review stage | Codex CLI and Claude have passing observations; latest OpenCode retry preserves approval boundary but times out with rejected TDD history | Resolve/retest TDD and instruction findings; no-delivery agent coverage; repeated current-candidate runs |
 
 The [first CLI round](cli-trials/result-001.md) and [Claude retries](cli-trials/result-002.md) retain earlier observations. [OpenCode 1.19.5](cli-trials/result-003.md) exposed content and evidence failures; the [first V2 runs](cli-trials/result-004.md) were interrupted. The [instruction regressions](cli-trials/result-005.md) and [combined retry](cli-trials/result-006.md) record improvements and the remaining TDD failure. Earlier passes do not certify every later instruction candidate.
 
@@ -22,6 +24,8 @@ The [first CLI round](cli-trials/result-001.md) and [Claude retries](cli-trials/
 The common base is checked through every consuming schema, not as a separate user workflow. Existing deterministic tests also cover discovery ending without implementation and creating a separate delivery change. They do not substitute for the missing agent trials.
 
 [Round 010: Longer OpenCode attempt and subscribed Claude Code review](cli-trials/result-010.md) retained another unfinished implementation after 15 minutes. Product tests passed, but characterization history and final evidence failed. Opus through the existing Claude Pro subscription found supported defects while missing cross-task continuity. Updated characterization instructions and a recovery regression now need a fresh agent trial; neither review nor deterministic recovery counts as a release-profile pass. Prefer subscribed Claude Code for ordinary Opus reviews, with a declared usage limit and independent grading.
+
+[Round 011: Characterization retry and combined TDD boundary](cli-trials/result-011.md) adds one positive observation for the clarified delivery characterization sequence. The full delivery rubric still failed on apply retrieval and invented motivation. Combined delivery implemented later behavior during an earlier characterization task, then reclassified already-passing tests; final history checks failed. Neither attempt passed overall. Further source clarifications are tested deterministically but still need native-agent coverage. Keep limits unchanged and separate a green product result from required workflow adherence.
 
 ## Profiles
 

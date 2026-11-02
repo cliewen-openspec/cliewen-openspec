@@ -1,9 +1,11 @@
 ---
 type: decision
 category: process
-status: accepted
+status: superseded
 ---
 # Enforce TDD for behavior changes with explicit task exceptions
+
+Superseded on November 2, 2026 by [Decision 019: Use spec-driven development with evidence-first verification](019-evidence-first-verification.md). TDD recording, ordering checks, and planned write blocking are retired from the product direction. The text below preserves the original reasoning and observations; removal from the implementation is still pending.
 
 ## Context
 
@@ -45,3 +47,5 @@ The clarified candidate passed independent TDD/product checks and apply-instruct
 [Round 009: Identical OpenCode repeat and a controlled review comparison](../testing/cli-trials/result-009.md) further distinguishes a valid behavior-changing cycle from documentation work. README was already at its final hash before task 2.1 started, contrary to the instruction to start before editing declared files. The completion gate cannot reconstruct that earlier write. Keep the original history and this process finding; neither a valid verification command nor a model's review proves all work occurred within the declared window.
 
 [Round 010: Longer OpenCode attempt and subscribed Claude Code review](../testing/cli-trials/result-010.md) exposed an ambiguous characterization instruction and an ineffective recovery attempt. Start before adding the characterization test, then add it before recording baseline; tests stay unchanged through green. A replacement cycle sharing files with earlier tasks must start from their last recorded state in the selected earlier cycles. Restarting on modified files cannot erase an unrecorded gap. Preserve failed history, save pending work, and restore verified contents before starting and reapplying work. Guidance and positive/negative regression controls now cover this sequence without changing runtime acceptance rules. The trial itself remains incomplete.
+
+[Round 011: Characterization retry and combined TDD boundary](../testing/cli-trials/result-011.md) adds one valid delivery characterization observation. Combined delivery instead added new BOM behavior during an earlier characterization task, then observed a passing intended red run and reclassified later tests. That is a TDD departure requiring review, even when reported honestly; the modified worktree is not the change baseline. Shared instructions now make this distinction explicit. The final gate also rejected inconsistent recovery history. Preserve both findings and the original attempts; write blocking and independent semantic review retain their stated roles.

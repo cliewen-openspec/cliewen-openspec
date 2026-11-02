@@ -1,9 +1,11 @@
 ---
 type: decision
 category: process
-status: accepted
+status: superseded
 ---
 # Test each task and offer TDD as an explicit approach
+
+Superseded on November 2, 2026 by [Decision 019: Use spec-driven development with evidence-first verification](019-evidence-first-verification.md). Incremental verification continues; the `tdd`/`flexible` choice and TDD ordering requirements are retired. The text below preserves the original decision and its implementation history. Removal from the product is tracked in decision 019.
 
 ## Context
 

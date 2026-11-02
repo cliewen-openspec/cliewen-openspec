@@ -95,6 +95,8 @@ Build the documentation with `npm run docs:build` and preview it with `npm run d
 
 [Report a bug](https://github.com/flemming-n-larsen/cliewen-openspec/issues/new?template=bug_report.yml) or [suggest an improvement](https://github.com/flemming-n-larsen/cliewen-openspec/issues/new?template=idea.yml). Documentation problems and workflow ideas are welcome. A small example helps us understand the problem; a proposed implementation is optional.
 
+Maintainers use the [feedback triage guide](docs/feedback-triage.md) to reproduce problems, record decisions, and link accepted work to OpenSpec changes.
+
 ## License
 
 [MIT](LICENSE).
