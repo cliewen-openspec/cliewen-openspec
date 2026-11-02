@@ -25,6 +25,8 @@ Keep adoption proportional to the change. Projects should be able to enable stro
 
 Deliver these as separate changes with explicit acceptance criteria. Keep unresolved roadmap items labeled as planned. General migrations and additional integrations retain their existing acceptance requirements below.
 
+Priority 5 now has a [concrete proposal and acceptance cases](openspec/changes/project-learnings-and-humanizer/proposal.md), a [configuration/behavior design](openspec/changes/project-learnings-and-humanizer/design.md), and [proposed Decision 020: Add optional project learnings and Humanizer support](docs/decisions/020-optional-learnings-and-humanizer.md). Detailed defaults and boundaries are ready for review; runtime implementation has not begun. Remaining priority-4 findings stay open and will be revalidated with the combined candidate before release.
+
 Priorities 1 and 2 have reached an unreleased implementation with bounded validation. Maintain affected guides with every increment; priority 3 adds observed user testing.
 
 Priority 3 has [three-agent guide observations](docs/testing/guide-walkthrough/result-002.md): fresh Codex CLI, Claude Code, and OpenCode sessions completed the prepared CSV walkthrough, then reviewed it afterward. Identical guide/package inputs and independent checks were verified; supported clarity findings were addressed. A human usability pass, recovery-path coverage, and agent-authored workflow evaluation remain outstanding.

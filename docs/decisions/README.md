@@ -27,6 +27,12 @@ These records capture choices confirmed in the project conversation. Acceptance 
 | [015](015-combined-workflow-and-approval-boundaries.md) | Keep combined investigation/delivery behind explicit agreement, with a genuine no-delivery branch | Graph and metadata/evidence checks implemented; authorization and execution history still require review |
 | [016](016-user-projects-and-maintainer-tooling.md) | Serve adopting projects without making maintainer tooling a user requirement | Accepted product boundary; standalone bundles and separate maintainer tools exist; user-project validation remains project-specific |
 
+## Proposed decisions
+
+| Record | Review scope |
+|---|---|
+| [Decision 020: Add optional project learnings and Humanizer support](020-optional-learnings-and-humanizer.md) | Proposed priority-5 controls, defaults, lifecycle, and host-capability boundaries; runtime implementation pending |
+
 ## Superseded decisions
 
 | Record | Replacement |
