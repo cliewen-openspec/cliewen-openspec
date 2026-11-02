@@ -72,6 +72,18 @@ test('implementation before the failing test cannot pass the TDD gate', t => {
   assert.ok(f.codes().includes('tdd-sequence-invalid'));
 });
 
+test('separate completion notes preserve TDD history while checkbox-text edits invalidate it', t => {
+  const f = fixture(t); f.start(); f.testValue(1); f.phase('red', 1);
+  f.write('value.mjs', 'export const value = 1;\n'); f.phase('green'); f.tasks(true);
+  const file = 'openspec/changes/add-value/tasks.md';
+  const completed = fs.readFileSync(path.join(f.root, file), 'utf8');
+  const observed = 'Observed: the intended red failed, then green passed.';
+  f.write(file, completed.replace('\n\n```yaml', `\n\n  ${observed}\n\n\`\`\`yaml`));
+  assert.deepEqual(f.codes(), [], 'Notes outside the checkbox label do not change its definition');
+  f.write(file, completed.replace('verify the exported value.', `verify the exported value. ${observed}`));
+  assert.ok(f.codes().includes('tdd-history-stale'), 'Appending results to a checkbox label changes the definition');
+});
+
 test('passing red runs and green runs with modified tests fail completion', t => {
   const f = fixture(t); f.start(); f.testValue(0); f.phase('red'); f.phase('green'); f.tasks(true);
   assert.ok(f.codes().includes('tdd-sequence-invalid'));

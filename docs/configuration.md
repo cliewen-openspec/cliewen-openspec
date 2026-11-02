@@ -213,6 +213,16 @@ With TDD selected, `check --change NAME` also requires task metadata and recorde
 
 Add one `yaml cliewen-tasks` fenced block to the change's `tasks.md`. Every checkbox needs a unique numeric ID and a matching entry. Keep the normal task text and completion check; the block supplies the machine-readable verification details.
 
+Finalize each checkbox's ID and text, along with its metadata, before `tdd start`. The recorder includes them in the task definition; only the checked state is excluded. Put observed results in separate paragraphs or a linked results document. For example, after a real successful run:
+
+```md
+- [x] 1.1 Add quotation-mark escaping and verify exact CSV output.
+
+  Observed: the missing-escaping assertion failed before implementation; the recorded green run passed afterward.
+```
+
+Appending that observation to the checkbox line would change the definition and invalidate the earlier history. Finish changes to any declared documentation input before its final verification run. A genuine definition change needs a new, honestly observed cycle; an already-passing test cannot become a red phase retroactively.
+
 ````markdown
 - [ ] 1.1 Add CSV quoting and verify quotation marks at the Unit function boundary.
 

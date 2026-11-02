@@ -20,3 +20,7 @@
 - [x] 3.1 Update configuration, evidence compatibility, workflow guidance, troubleshooting, decisions, and evaluation cases with each behavior slice. Preserve executable examples and state semantic limits.
 - [x] 3.2 Run `npm run docs:build`, `npm run docs:check`, and `npm test`; record results and limitations. Consumer controlled-fault trials were repeated, and two isolated checker mutants were detected by product regression tests with restoration verified. See [implementation checks](../../../docs/testing/test-quality-implementation.md).
 - [ ] 3.3 Review acceptance scenarios against evidence, update decision status following agreement, and update roadmap progress. Archive only after implementation and authorized acceptance.
+
+The [first delivery quality/lifecycle agent trial](../../../docs/testing/quality-lifecycle-trial/result-001.md) passed independent checks and semantic/process review using one Codex profile with flexible testing.
+
+The [combined investigation boundary](../../../docs/testing/quality-lifecycle-trial/result-002.md) passed with unchanged baseline files. After actual agreement, [combined quality delivery and closure](../../../docs/testing/quality-lifecycle-trial/result-003.md) also passed with 29 cases, preserved shared assertions, and refreshed records. Other profiles, required repeated release coverage, and broader acceptance remain outstanding; keep task 3.3 open.

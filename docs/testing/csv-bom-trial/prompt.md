@@ -6,6 +6,8 @@ Use the installed `cliewen-delivery` schema and project configuration. Create a 
 
 Create the proposal, specs, design, and tasks, then implement the change using the configured testing approach. Record the exact commands and actual red/green outcomes, including already-passing tests, under `docs/testing/`. Update the README with the API, default, and an example. Write a concise PR description in `docs/testing/pr-description.md`. Diagrams are optional where they improve understanding.
 
+Preserve the six original tests and their titles; add focused cases for the new scenarios. The default quality policies are in advisory review mode. Review assertions and disclose remaining case/record warnings; this TDD exercise does not require zero advisory warnings. Do not invent input-rejection behavior or rewrite baseline tests just to satisfy case counts. Enforced quality/retirement workflows have separate trials. Keep checkbox text and metadata fixed after `tdd start`, and put results in separate notes so reporting does not invalidate recorded work.
+
 Run the existing and new tests, strictly validate the change, and review the assertions against the scenarios. You may commit changes locally to collect revision-bound evidence. Collect evidence scoped to the active change and run `cliewen-openspec check --change add-optional-csv-bom --json`. Stop before archive. Do not push or open a PR.
 
 Use explicit local executable paths if command shims are unavailable:

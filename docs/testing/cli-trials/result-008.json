@@ -1,0 +1,307 @@
+{
+  "capturedAt": "2026-11-02T16:07:03.658Z",
+  "releaseReady": false,
+  "rawArtifacts": ".tmp/agent-trials/cli-evaluation-008",
+  "changes": [
+    "Clarify stable checkbox labels and metadata, with separate completion notes.",
+    "Distinguish disclosed advisory quality findings from blocking execution/TDD failures.",
+    "Clarify preservation and advisory scope in the TDD pilot prompt.",
+    "Use prebuilt CLI inputs in fixture tests instead of rebuilding shared dist concurrently."
+  ],
+  "cases": [
+    {
+      "id": "before-clarification",
+      "schema": "cliewen-delivery",
+      "scenario": "csv-bom-tdd",
+      "profile": "opencode-2-2-5",
+      "outcome": "incomplete",
+      "rawArtifacts": ".tmp/agent-trials/cli-evaluation-008/before-clarification",
+      "baseline": {
+        "preparedAt": "2026-11-02T15:39:46.977Z",
+        "sourceRevision": "c0e81038b36bf214fec73713e6ccd0b45ff07d60",
+        "sourceStatus": "M docs/decisions/017-test-quality-and-lifecycle.md\n M docs/decisions/README.md\n M docs/testing/agent-evaluation.md\n M docs/testing/agent-evaluation.yaml\n M docs/testing/test-quality-implementation.md\n M openspec/changes/test-quality-and-lifecycle/tasks.md\n M package.json\n M plan.md\n?? docs/testing/quality-lifecycle-trial/\n?? scripts/check-quality-lifecycle-review.mjs\n?? scripts/check-quality-lifecycle-trial.mjs\n?? scripts/lib/trial-results.mjs\n?? scripts/prepare-combined-quality-trial.mjs\n?? scripts/prepare-quality-lifecycle-trial.mjs\n?? test/quality-trial.test.mjs",
+        "baseline": "5bb0cf957d99492147b586444d5e4206210ad189",
+        "package": {
+          "filename": "cliewen-openspec-0.2.0-alpha.1.tgz",
+          "sha256": "798336326ac72f4eb80d14fc4fa484982d3e89f93dfbd576bed37af7f52de03f"
+        },
+        "node": "v24.0.0",
+        "npm": "11.21.0",
+        "openspec": "1.15.0",
+        "root": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-csv-bom-1793633977241\\project"
+      },
+      "revision": "4626269e2830fb36db26b8cdbacb49478b66a290",
+      "deterministicPassed": false,
+      "failedCheckLabels": [
+        "clean input revision",
+        "baseline preserved: test/export.test.mjs",
+        "active change evidence",
+        "evidence check reports success"
+      ],
+      "phase": {
+        "cliVersion": "opencode v2.2.5",
+        "requestedModel": "opencode/glm-5.3-flash",
+        "effort": "high",
+        "startedAt": "2026-11-02T15:40:06.982Z",
+        "endedAt": "2026-11-02T15:50:07.261Z",
+        "durationSeconds": 600.278,
+        "exitCode": 1,
+        "stopReason": "wall-time-limit",
+        "eventFailure": false,
+        "reportedCostUSD": 0.2833535300000001,
+        "observedModels": []
+      },
+      "tddHistory": [
+        {
+          "task": "1.1",
+          "phase": "start",
+          "time": "2026-11-02T15:41:53.733Z"
+        },
+        {
+          "task": "1.1",
+          "phase": "baseline",
+          "exitCode": 0,
+          "time": "2026-11-02T15:42:02.317Z"
+        },
+        {
+          "task": "1.1",
+          "phase": "green",
+          "exitCode": 0,
+          "time": "2026-11-02T15:42:05.652Z"
+        },
+        {
+          "task": "1.2",
+          "phase": "start",
+          "time": "2026-11-02T15:42:11.614Z"
+        },
+        {
+          "task": "1.2",
+          "phase": "red",
+          "exitCode": 1,
+          "time": "2026-11-02T15:42:17.407Z"
+        },
+        {
+          "task": "1.2",
+          "phase": "green",
+          "exitCode": 0,
+          "time": "2026-11-02T15:42:22.839Z"
+        },
+        {
+          "task": "2.1",
+          "phase": "start",
+          "time": "2026-11-02T15:42:29.108Z"
+        },
+        {
+          "task": "2.1",
+          "phase": "verify",
+          "exitCode": 0,
+          "time": "2026-11-02T15:43:03.903Z"
+        },
+        {
+          "task": "1.1",
+          "phase": "start",
+          "time": "2026-11-02T15:46:26.691Z"
+        },
+        {
+          "task": "1.1",
+          "phase": "baseline",
+          "exitCode": 0,
+          "time": "2026-11-02T15:46:29.889Z"
+        },
+        {
+          "task": "1.1",
+          "phase": "green",
+          "exitCode": 0,
+          "time": "2026-11-02T15:46:32.199Z"
+        },
+        {
+          "task": "1.2",
+          "phase": "start",
+          "time": "2026-11-02T15:46:37.534Z"
+        },
+        {
+          "task": "1.2",
+          "phase": "red",
+          "exitCode": 1,
+          "time": "2026-11-02T15:46:46.219Z"
+        },
+        {
+          "task": "1.2",
+          "phase": "green",
+          "exitCode": 0,
+          "time": "2026-11-02T15:46:51.634Z"
+        },
+        {
+          "task": "2.1",
+          "phase": "start",
+          "time": "2026-11-02T15:47:56.207Z"
+        },
+        {
+          "task": "2.1",
+          "phase": "verify",
+          "exitCode": 0,
+          "time": "2026-11-02T15:47:58.830Z"
+        },
+        {
+          "task": "1.1",
+          "phase": "start",
+          "time": "2026-11-02T15:48:41.080Z"
+        },
+        {
+          "task": "1.1",
+          "phase": "baseline",
+          "exitCode": 1,
+          "time": "2026-11-02T15:48:41.448Z"
+        },
+        {
+          "task": "1.1",
+          "phase": "green",
+          "exitCode": 1,
+          "time": "2026-11-02T15:48:41.799Z"
+        },
+        {
+          "task": "1.1",
+          "phase": "start",
+          "time": "2026-11-02T15:48:51.080Z"
+        },
+        {
+          "task": "1.1",
+          "phase": "baseline",
+          "exitCode": 0,
+          "time": "2026-11-02T15:48:51.459Z"
+        },
+        {
+          "task": "1.1",
+          "phase": "green",
+          "exitCode": 0,
+          "time": "2026-11-02T15:48:54.112Z"
+        },
+        {
+          "task": "1.2",
+          "phase": "start",
+          "time": "2026-11-02T15:49:06.088Z"
+        },
+        {
+          "task": "1.2",
+          "phase": "red",
+          "exitCode": 1,
+          "time": "2026-11-02T15:49:13.963Z"
+        },
+        {
+          "task": "1.2",
+          "phase": "green",
+          "exitCode": 0,
+          "time": "2026-11-02T15:49:19.941Z"
+        },
+        {
+          "task": "2.1",
+          "phase": "start",
+          "time": "2026-11-02T15:49:36.604Z"
+        },
+        {
+          "task": "2.1",
+          "phase": "verify",
+          "exitCode": 0,
+          "time": "2026-11-02T15:49:36.969Z"
+        }
+      ]
+    },
+    {
+      "id": "after-clarification",
+      "schema": "cliewen-delivery",
+      "scenario": "csv-bom-tdd",
+      "profile": "opencode-2-2-5",
+      "outcome": "task-failure",
+      "rawArtifacts": ".tmp/agent-trials/cli-evaluation-008/after-clarification",
+      "baseline": {
+        "preparedAt": "2026-11-02T15:52:00.287Z",
+        "sourceRevision": "c0e81038b36bf214fec73713e6ccd0b45ff07d60",
+        "sourceStatus": "M docs/configuration.md\n M docs/decisions/017-test-quality-and-lifecycle.md\n M docs/decisions/README.md\n M docs/testing/agent-evaluation.md\n M docs/testing/agent-evaluation.yaml\n M docs/testing/csv-bom-trial/prompt.md\n M docs/testing/test-quality-implementation.md\n M openspec/changes/test-quality-and-lifecycle/tasks.md\n M package.json\n M plan.md\n M schemas/base/instructions/testing-approach.md\n M test/tdd.test.mjs\n?? docs/testing/quality-lifecycle-trial/\n?? scripts/check-quality-lifecycle-review.mjs\n?? scripts/check-quality-lifecycle-trial.mjs\n?? scripts/lib/trial-results.mjs\n?? scripts/prepare-combined-quality-trial.mjs\n?? scripts/prepare-quality-lifecycle-trial.mjs\n?? test/quality-trial.test.mjs",
+        "baseline": "9f25578cd6b620d709991e3e93e081b49c3b4742",
+        "package": {
+          "filename": "cliewen-openspec-0.2.0-alpha.1.tgz",
+          "sha256": "ab611632f602b621dcc755d5c03e1868c1ee2b922262f235e88a74880efd66f7"
+        },
+        "node": "v24.0.0",
+        "npm": "11.21.0",
+        "openspec": "1.15.0",
+        "root": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-csv-bom-1793634712937\\project"
+      },
+      "revision": "7b826a67eac5a4b3613e245dd7d042c36e16e982",
+      "deterministicPassed": true,
+      "failedCheckLabels": [],
+      "phase": {
+        "cliVersion": "opencode v2.2.5",
+        "requestedModel": "opencode/glm-5.3-flash",
+        "effort": "high",
+        "startedAt": "2026-11-02T15:52:28.624Z",
+        "endedAt": "2026-11-02T16:01:14.532Z",
+        "durationSeconds": 525.907,
+        "exitCode": 0,
+        "stopReason": null,
+        "eventFailure": false,
+        "reportedCostUSD": 0.07694683,
+        "observedModels": []
+      },
+      "tddHistory": [
+        {
+          "task": "1.1",
+          "phase": "start",
+          "time": "2026-11-02T15:57:00.895Z"
+        },
+        {
+          "task": "1.1",
+          "phase": "red",
+          "exitCode": 1,
+          "time": "2026-11-02T15:57:26.383Z"
+        },
+        {
+          "task": "1.1",
+          "phase": "green",
+          "exitCode": 0,
+          "time": "2026-11-02T15:57:35.939Z"
+        },
+        {
+          "task": "2.1",
+          "phase": "start",
+          "time": "2026-11-02T15:59:20.669Z"
+        },
+        {
+          "task": "2.1",
+          "phase": "verify",
+          "exitCode": 0,
+          "time": "2026-11-02T15:59:26.112Z"
+        }
+      ]
+    }
+  ],
+  "afterReview": {
+    "tdd": "pass: intended behavior failures before production changes, unchanged tests to green",
+    "applyInstructions": "pass: actual retrieval and saved response before implementation",
+    "writing": "fail: unsupported spreadsheet expectation claim and swapped missing-coverage categories",
+    "failureDetails": [
+      {
+        "file": "openspec/changes/add-optional-csv-bom/specs/csv-export/spec.md",
+        "issue": "Purpose introduces spreadsheet-app encoding expectations without supporting evidence; application compatibility is outside this trial."
+      },
+      {
+        "file": "docs/testing/results.md",
+        "issue": "The explanation swaps EXP-007 negative and EXP-008 positive missing minima. Actual JSON has EXP-007 negative, EXP-008 positive, EXP-009 positive and negative."
+      }
+    ]
+  },
+  "validation": {
+    "packageTests": {
+      "passed": 74,
+      "failed": 0
+    },
+    "documentation": {
+      "pages": 13,
+      "localLinks": 457,
+      "diagrams": 4,
+      "browser": "passed desktop/mobile"
+    },
+    "initialTestFailure": "A CLI test observed empty stdout while fixture preparers rebuilt shared dist; fixture tests now use the already completed npm-test build."
+  },
+  "unusedPreparedComparison": "C:/Users/flemm/AppData/Local/Temp/cliewen-csv-bom-repeat-1793634151985; never launched; not counted"
+}

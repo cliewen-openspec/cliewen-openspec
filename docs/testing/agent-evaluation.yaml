@@ -182,6 +182,7 @@ scenarios:
       - docs/testing/cli-trials/result-004.md
       - docs/testing/cli-trials/result-005.md
       - docs/testing/cli-trials/result-007.md
+      - docs/testing/cli-trials/result-008.md
   csv-bom-flexible:
     schema: cliewen-delivery
     readiness: planned
@@ -231,10 +232,25 @@ scenarios:
     readiness: planned
   delivery-quality-and-retirement:
     schema: cliewen-delivery
-    readiness: planned
+    readiness: ready
+    prepare: scripts/prepare-quality-lifecycle-trial.mjs
+    checker: scripts/check-quality-lifecycle-trial.mjs
+    prompt: docs/testing/quality-lifecycle-trial/prompt.md
+    rubric: docs/testing/quality-lifecycle-trial/rubric.md
+    testing: { placement: per-task, approach: flexible }
+    observedResults:
+      - docs/testing/quality-lifecycle-trial/result-001.md
   combined-quality-and-retirement:
     schema: cliewen-all
-    readiness: planned
+    readiness: ready
+    prepare: scripts/prepare-combined-quality-trial.mjs
+    checker: scripts/check-quality-lifecycle-trial.mjs
+    prompt: docs/testing/quality-lifecycle-trial/combined-prompt.md
+    rubric: docs/testing/quality-lifecycle-trial/combined-rubric.md
+    testing: { placement: per-task, approach: flexible }
+    observedResults:
+      - docs/testing/quality-lifecycle-trial/result-002.md
+      - docs/testing/quality-lifecycle-trial/result-003.md
 
 schemas:
   cliewen-delivery:
@@ -243,7 +259,7 @@ schemas:
     developmentScenario: csv-bom-tdd
     releaseVariantProfile: codex-cli-primary
     releaseProfiles: [ codex-cli-primary, claude-code-primary, opencode-2-2-5 ]
-    releaseScenarios: [ csv-bom-tdd, csv-bom-flexible, csv-bom-final-tests ]
+    releaseScenarios: [ csv-bom-tdd, csv-bom-flexible, csv-bom-final-tests, delivery-quality-and-retirement ]
   cliewen-discovery:
     status: implemented
     developmentProfile: codex-cli-primary
@@ -262,4 +278,4 @@ schemas:
     developmentScenario: combined-investigation-and-delivery
     releaseVariantProfile: codex-cli-primary
     releaseProfiles: [ codex-cli-primary, claude-code-primary, opencode-2-2-5 ]
-    releaseScenarios: [ combined-investigation-and-delivery, combined-no-delivery ]
+    releaseScenarios: [ combined-investigation-and-delivery, combined-no-delivery, combined-quality-and-retirement ]
