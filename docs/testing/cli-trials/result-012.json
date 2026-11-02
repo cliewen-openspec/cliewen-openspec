@@ -1,0 +1,344 @@
+{
+  "capturedAt": "2026-11-02T20:37:11.257Z",
+  "releaseReady": false,
+  "rawArtifacts": ".tmp/agent-trials/cli-evaluation-012",
+  "deliveryInputsIdentical": true,
+  "authentication": {
+    "loggedIn": true,
+    "authMethod": "claude.ai",
+    "apiProvider": "firstParty",
+    "subscriptionType": "pro"
+  },
+  "attempts": [
+    {
+      "schema": "cliewen-delivery",
+      "profile": "codex-cli-primary",
+      "project": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-cli-evaluation-1793650590135\\cliewen-delivery\\project",
+      "baseline": "183edcd6ca56f0660ad20cef516804c773b795ed",
+      "finalRevision": "c385ec0ccb4338ab0f6760994402b76438a7526d",
+      "sourceRevision": "16a3e3f9842fd3b8b398e7ca3835885366935f0f",
+      "sourceStatus": "",
+      "package": {
+        "filename": "cliewen-openspec-0.2.0-alpha.1.tgz",
+        "sha256": "8002591a92b45bbb65f7fe2d3cb3f11a97a45649a73429e47da5f243f775b9a2"
+      },
+      "promptSHA256": "59d5d5f6cc7bbdde49d4f9d09199909515b7eef84ca62294a3652dd5e9b578da",
+      "phases": {
+        "initial": {
+          "profileId": "codex-cli-primary",
+          "cliVersion": "codex-cli 0.166.0",
+          "startedAt": "2026-11-02T20:17:27.165Z",
+          "endedAt": "2026-11-02T20:23:06.270Z",
+          "durationSeconds": 339.105,
+          "exitCode": 0,
+          "stopReason": null,
+          "reportedCostUSD": null,
+          "observedModels": [],
+          "sessionId": "01a19de8-e1a0-7ee2-af3f-5e3f5d8e44e3",
+          "requestedModel": "gpt-6.1-sol",
+          "effort": "medium",
+          "budgets": {
+            "wallTimeSeconds": 600,
+            "outputBytes": 67108864,
+            "reportedCostUSD": null,
+            "tokenLimit": null,
+            "billing": "existing ChatGPT entitlement; no purchase"
+          }
+        }
+      },
+      "independentChecks": true,
+      "failedChecks": [],
+      "productTests": {
+        "total": 12,
+        "passed": 12
+      },
+      "productGate": true,
+      "findings": [
+        {
+          "code": "coverage-minimum-unmet",
+          "message": "EXP-007: needs 1 distinct passed positive cases.",
+          "severity": "warning"
+        },
+        {
+          "code": "coverage-minimum-unmet",
+          "message": "EXP-008: needs 1 distinct passed negative cases.",
+          "severity": "warning"
+        },
+        {
+          "code": "coverage-minimum-unmet",
+          "message": "EXP-009: needs 1 distinct passed positive cases.",
+          "severity": "warning"
+        },
+        {
+          "code": "coverage-minimum-unmet",
+          "message": "EXP-009: needs 1 distinct passed negative cases.",
+          "severity": "warning"
+        },
+        {
+          "code": "coverage-minimum-unmet",
+          "message": "EXP-010: needs 1 distinct passed negative cases.",
+          "severity": "warning"
+        },
+        {
+          "code": "test-policy-review-required",
+          "severity": "info",
+          "message": "Record checks cannot prove case distinctness, assertion meaning, complete dependency/impact analysis, or human approval. Review these claims."
+        },
+        {
+          "code": "sufficiency-not-assessed",
+          "severity": "info",
+          "message": "Execution and linkage do not prove assertion quality; review the assertions against the scenarios."
+        }
+      ],
+      "outcome": "pass"
+    },
+    {
+      "schema": "cliewen-delivery",
+      "profile": "claude-code-primary",
+      "project": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-cli-evaluation-1793650590135\\cliewen-delivery\\project-claude-code-primary",
+      "baseline": "183edcd6ca56f0660ad20cef516804c773b795ed",
+      "finalRevision": "6e4cbb55626d51039a3264f120136d304a7a43d7",
+      "sourceRevision": "16a3e3f9842fd3b8b398e7ca3835885366935f0f",
+      "sourceStatus": "",
+      "package": {
+        "filename": "cliewen-openspec-0.2.0-alpha.1.tgz",
+        "sha256": "8002591a92b45bbb65f7fe2d3cb3f11a97a45649a73429e47da5f243f775b9a2"
+      },
+      "promptSHA256": "59d5d5f6cc7bbdde49d4f9d09199909515b7eef84ca62294a3652dd5e9b578da",
+      "phases": {
+        "initial": {
+          "profileId": "claude-code-primary",
+          "cliVersion": "2.1.316 (Claude Code)",
+          "startedAt": "2026-11-02T20:17:27.226Z",
+          "endedAt": "2026-11-02T20:22:56.713Z",
+          "durationSeconds": 329.486,
+          "exitCode": 0,
+          "stopReason": null,
+          "reportedCostUSD": 1.6973574,
+          "observedModels": [
+            "claude-opus-5-5"
+          ],
+          "sessionId": "1c65c0f5-6de8-4964-a546-0240fad9ba61",
+          "requestedModel": "claude-opus-5-5",
+          "effort": "medium",
+          "budgets": {
+            "wallTimeSeconds": 600,
+            "outputBytes": 67108864,
+            "reportedCostUSD": 2,
+            "tokenLimit": null,
+            "billing": "existing subscription; CLI list-equivalent cost is not an invoice"
+          }
+        }
+      },
+      "independentChecks": true,
+      "failedChecks": [],
+      "productTests": {
+        "total": 16,
+        "passed": 16
+      },
+      "productGate": true,
+      "findings": [
+        {
+          "code": "coverage-minimum-unmet",
+          "message": "EXP-008: needs 1 distinct passed negative cases.",
+          "severity": "warning"
+        },
+        {
+          "code": "coverage-minimum-unmet",
+          "message": "EXP-009: needs 1 distinct passed negative cases.",
+          "severity": "warning"
+        },
+        {
+          "code": "coverage-minimum-unmet",
+          "message": "EXP-010: needs 1 distinct passed negative cases.",
+          "severity": "warning"
+        },
+        {
+          "code": "test-policy-review-required",
+          "severity": "info",
+          "message": "Record checks cannot prove case distinctness, assertion meaning, complete dependency/impact analysis, or human approval. Review these claims."
+        },
+        {
+          "code": "sufficiency-not-assessed",
+          "severity": "info",
+          "message": "Execution and linkage do not prove assertion quality; review the assertions against the scenarios."
+        }
+      ],
+      "outcome": "pass"
+    },
+    {
+      "schema": "cliewen-delivery",
+      "profile": "opencode-2-2-5",
+      "project": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-cli-evaluation-1793650590135\\cliewen-delivery\\project-opencode-2-2-5",
+      "baseline": "183edcd6ca56f0660ad20cef516804c773b795ed",
+      "finalRevision": "4cefc0b3a0b2fc8778c29eb0138143be36b47f1c",
+      "sourceRevision": "16a3e3f9842fd3b8b398e7ca3835885366935f0f",
+      "sourceStatus": "",
+      "package": {
+        "filename": "cliewen-openspec-0.2.0-alpha.1.tgz",
+        "sha256": "8002591a92b45bbb65f7fe2d3cb3f11a97a45649a73429e47da5f243f775b9a2"
+      },
+      "promptSHA256": "59d5d5f6cc7bbdde49d4f9d09199909515b7eef84ca62294a3652dd5e9b578da",
+      "phases": {
+        "initial": {
+          "profileId": "opencode-2-2-5",
+          "cliVersion": "opencode v2.2.5",
+          "startedAt": "2026-11-02T20:17:27.536Z",
+          "endedAt": "2026-11-02T20:22:28.876Z",
+          "durationSeconds": 301.339,
+          "exitCode": 0,
+          "stopReason": null,
+          "reportedCostUSD": 0.10289837000000002,
+          "observedModels": [],
+          "sessionId": "ses_e62171a91ffex858vjHQDH25os",
+          "requestedModel": "opencode/glm-5.3-flash",
+          "effort": "high",
+          "budgets": {
+            "wallTimeSeconds": 600,
+            "outputBytes": 67108864,
+            "reportedCostUSD": 0.5,
+            "tokenLimit": null,
+            "billing": "local reported-cost stop; not a provider-enforced hard spending cap"
+          }
+        }
+      },
+      "independentChecks": true,
+      "failedChecks": [],
+      "productTests": {
+        "total": 14,
+        "passed": 14
+      },
+      "productGate": true,
+      "findings": [
+        {
+          "code": "test-policy-review-required",
+          "severity": "info",
+          "message": "Record checks cannot prove case distinctness, assertion meaning, complete dependency/impact analysis, or human approval. Review these claims."
+        },
+        {
+          "code": "sufficiency-not-assessed",
+          "severity": "info",
+          "message": "Execution and linkage do not prove assertion quality; review the assertions against the scenarios."
+        }
+      ],
+      "outcome": "task-failure"
+    },
+    {
+      "schema": "cliewen-all",
+      "profile": "claude-code-primary",
+      "project": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-cli-evaluation-1793650590135\\cliewen-all\\project-claude-code-primary",
+      "baseline": "317d6bb26cd245f977aa828fe5c73d5fe7a737dc",
+      "finalRevision": "cf86fead58c51f2cb8196c167859b8813db29cc5",
+      "sourceRevision": "16a3e3f9842fd3b8b398e7ca3835885366935f0f",
+      "sourceStatus": "",
+      "package": {
+        "filename": "cliewen-openspec-0.2.0-alpha.1.tgz",
+        "sha256": "8002591a92b45bbb65f7fe2d3cb3f11a97a45649a73429e47da5f243f775b9a2"
+      },
+      "promptSHA256": "bbb17b88c5a86880393c387c1df33d1dbfc2be7a4f8da5cfbd0c3f725cbab735",
+      "phases": {
+        "initial": {
+          "profileId": "claude-code-primary",
+          "cliVersion": "2.1.316 (Claude Code)",
+          "startedAt": "2026-11-02T20:22:57.620Z",
+          "endedAt": "2026-11-02T20:27:49.106Z",
+          "durationSeconds": 291.485,
+          "exitCode": 0,
+          "stopReason": null,
+          "reportedCostUSD": 1.4261012,
+          "observedModels": [
+            "claude-opus-5-5"
+          ],
+          "sessionId": "dada693c-3d33-42a8-986a-05c62c2fbefe",
+          "requestedModel": "claude-opus-5-5",
+          "effort": "medium",
+          "budgets": {
+            "wallTimeSeconds": 600,
+            "outputBytes": 67108864,
+            "reportedCostUSD": 2,
+            "tokenLimit": null,
+            "billing": "existing subscription; CLI list-equivalent cost is not an invoice"
+          }
+        },
+        "approved-continuation": {
+          "profileId": "claude-code-primary",
+          "cliVersion": "2.1.316 (Claude Code)",
+          "startedAt": "2026-11-02T20:28:51.426Z",
+          "endedAt": "2026-11-02T20:34:57.257Z",
+          "durationSeconds": 365.83,
+          "exitCode": 0,
+          "stopReason": null,
+          "reportedCostUSD": 1.7082056,
+          "observedModels": [
+            "claude-opus-5-5"
+          ],
+          "sessionId": "b74005a4-935a-4db6-b477-269f8405f75d",
+          "requestedModel": "claude-opus-5-5",
+          "effort": "medium",
+          "budgets": {
+            "wallTimeSeconds": 600,
+            "outputBytes": 67108864,
+            "reportedCostUSD": 2,
+            "tokenLimit": null,
+            "billing": "existing subscription; CLI list-equivalent cost is not an invoice"
+          }
+        }
+      },
+      "independentChecks": true,
+      "failedChecks": [],
+      "productTests": {
+        "total": 16,
+        "passed": 16
+      },
+      "productGate": true,
+      "findings": [
+        {
+          "code": "test-policy-review-required",
+          "severity": "info",
+          "message": "Record checks cannot prove case distinctness, assertion meaning, complete dependency/impact analysis, or human approval. Review these claims."
+        },
+        {
+          "code": "sufficiency-not-assessed",
+          "severity": "info",
+          "message": "Execution and linkage do not prove assertion quality; review the assertions against the scenarios."
+        }
+      ],
+      "outcome": "task-failure",
+      "reviewFindings": [
+        "The results claim neither implementation nor test file contains literal EF BB BF bytes; direct byte inspection finds them in both files.",
+        "The code comment claims an escape representation while the constant contains a literal U+FEFF, contrary to the accepted design constraint.",
+        "The agent disclosed skipped EXP-007 through EXP-012 and preserved the allocator high-water mark rather than resetting it; this is retained as a procedural observation, not identity reuse."
+      ],
+      "approval": "Existing bounded owner authorization relayed by evaluator after proposed-stage review; no new human review of generated files claimed.",
+      "reviewBoundary": true,
+      "literalBomByteOccurrences": {
+        "export.mjs": {
+          "count": 1,
+          "offset": 109
+        },
+        "test/export.test.mjs": {
+          "count": 1,
+          "offset": 2071
+        }
+      }
+    }
+  ],
+  "manualReview": {
+    "codex": "Acceptance plan precedes implementation; exact assertions, observed missing-prefix and always-prefix failures; original tests preserved; claims and declared limits agree with retained outputs.",
+    "claude": "Acceptance cases planned first; 16 tests and six relevant controlled faults verified; original tests preserved; warnings disclosed; self-review statuses distinguished from human approval.",
+    "opencode": "Product/history-free checks pass, but PR draft says six new tests although 14 total minus six originals is eight. Proposal adds unsupported spreadsheet-detection motivation and describes a string formatter as emitting UTF-8."
+  },
+  "limits": [
+    "One attempt per listed combination; no reliability ranking or causal attribution to removing TDD",
+    "Model IDs not exposed for Codex or OpenCode; Claude echoes Opus 5.5",
+    "Reported Claude dollars are list-equivalent subscription usage, not an additional invoice",
+    "Remaining profiles, scenarios, repetitions, human usability and six roadmap priorities remain open"
+  ],
+  "validation": {
+    "repositoryTests": 63,
+    "documentationPages": 13,
+    "localLinks": 454,
+    "diagrams": 4,
+    "browserChecks": "Passed desktop/mobile checks after the guide checkpoint edit"
+  }
+}

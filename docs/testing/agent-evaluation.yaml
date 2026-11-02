@@ -253,6 +253,7 @@ scenarios:
       - docs/testing/cli-trials/result-009.md
       - docs/testing/cli-trials/result-010.md
       - docs/testing/cli-trials/result-011.md
+      - docs/testing/cli-trials/result-012.md
   csv-bom-per-task:
     schema: cliewen-delivery
     readiness: planned
@@ -298,6 +299,7 @@ scenarios:
       - docs/testing/cli-trials/result-006.md
       - docs/testing/cli-trials/result-007.md
       - docs/testing/cli-trials/result-011.md
+      - docs/testing/cli-trials/result-012.md
   combined-no-delivery:
     schema: cliewen-all
     readiness: planned

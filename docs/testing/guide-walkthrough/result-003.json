@@ -1,0 +1,111 @@
+{
+  "capturedAt": "2026-11-02T20:37:11.261Z",
+  "releaseReady": false,
+  "rawArtifacts": ".tmp/agent-trials/cli-evaluation-012/guide",
+  "profile": "codex-guide-walkthrough",
+  "requestedModel": "gpt-6.1-sol",
+  "sourceRevision": "16a3e3f9842fd3b8b398e7ca3835885366935f0f",
+  "sourceStatus": "",
+  "packageSHA256": "8002591a92b45bbb65f7fe2d3cb3f11a97a45649a73429e47da5f243f775b9a2",
+  "guideInputs": {
+    "docs/guide/index.md": "ed7f79cb80cdb8209d12c78f0f14afd904915a380fb35335ad199166a06f16ed",
+    "docs/guide/getting-started.md": "e0664b96f2a6f096026c5e8184e59d3e3e328f835663482ac111d5ddfda9662a",
+    "docs/guide/csv-example.md": "ecba56c786a9c953ae6d1b6102ba0f9f8be3fa435ff073e55c6708e78dcb75db",
+    "docs/guide/workflow.md": "57a22d3d89ebe4cda49481f52f663a50a92f965f2e9ccf67ea56d3cda5856e62",
+    "docs/guide/discovery.md": "b8f563446b2bc34a9b792173641ff4dfccff4f5abb5c4c604eab3f784b736507",
+    "docs/guide/all.md": "a9d1138018f69540b05e3151fa399b6e4a41143f0e04fc9e9c2b2c2a3191b1e4",
+    "docs/configuration.md": "f8cb273cd610f22a1fa8f85c528e69b3e6d8daa075b78626afdb89c8521299cf",
+    "docs/testing/evidence.md": "ee13b11e50e20a43c292be2c6a212afb646bddb760dd1f3ba6149bcc5d773b2a",
+    "docs/testing/test-quality.md": "d43853056f8dba507ec33648794d6cac3d388a1cb0e2acf7c23ae67fc708378c",
+    "docs/guide/cli.md": "06994e8c6438c8c2b3ca1127ba9212c793fb1de956b0434c143aba74066ddb5a",
+    "docs/guide/updating.md": "20f22c6af32987871086715a581a069f9cf78b1cc52dec5a25181796532b506e",
+    "docs/guide/uninstalling.md": "f2510ca7c67d3930cfc643eeb2a24fd4792f126bdc0a50c840b672f83f268ec7",
+    "docs/guide/existing-projects.md": "772fa9ddf88100e5bcc5c287a1a95f7f7c81b5fcf1ef436ff573aa25e203cf23",
+    "docs/testing/pilot-prompt.md": "94b4fa94acbd31474fefccb25db89b5ee5b46eee5f0338306c5973ab8326cb89"
+  },
+  "guideInputsPreserved": true,
+  "walkthrough": {
+    "phase": "walkthrough",
+    "profileId": "codex-guide-walkthrough",
+    "context": "fresh-ephemeral-session",
+    "session": "718768bd-c012-4264-b3ce-8d61515e101f",
+    "observedSession": "01a19de9-f617-7eb3-8fd7-bbea478cbd5c",
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "observedModels": [],
+    "modelVerification": "not-exposed",
+    "environmentControls": {
+      "NO_COLOR": "1",
+      "CI": "1",
+      "OPENSPEC_TELEMETRY": "0",
+      "npm_config_cache": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-guide-evidence-012\\workspace\\.cache\\npm"
+    },
+    "startedAt": "2026-11-02T20:18:37.951Z",
+    "durationSeconds": 185.241,
+    "code": 0,
+    "signal": null,
+    "stopReason": null,
+    "passed": true,
+    "evaluation": "not-graded",
+    "walkthroughReportPreserved": true,
+    "usage": {
+      "input_tokens": 612427,
+      "cached_input_tokens": 554752,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 6276,
+      "reasoning_output_tokens": 251
+    },
+    "stepUsage": [],
+    "reportedCostUSD": null
+  },
+  "review": {
+    "phase": "review",
+    "profileId": "codex-guide-walkthrough",
+    "context": "fresh-session-with-trial-observations",
+    "session": "718768bd-c012-4264-b3ce-8d61515e101f",
+    "observedSession": "01a19ded-1a08-7ac1-ab6f-1f4c1e5f565e",
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "observedModels": [],
+    "modelVerification": "not-exposed",
+    "environmentControls": {
+      "NO_COLOR": "1",
+      "CI": "1",
+      "OPENSPEC_TELEMETRY": "0",
+      "npm_config_cache": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-guide-evidence-012\\workspace\\.cache\\npm"
+    },
+    "startedAt": "2026-11-02T20:22:03.735Z",
+    "durationSeconds": 90.514,
+    "code": 0,
+    "signal": null,
+    "stopReason": null,
+    "passed": true,
+    "evaluation": "not-graded",
+    "walkthroughReportPreserved": true,
+    "usage": {
+      "input_tokens": 264807,
+      "cached_input_tokens": 231296,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 3011,
+      "reasoning_output_tokens": 169
+    },
+    "stepUsage": [],
+    "reportedCostUSD": null
+  },
+  "independentChecks": "passed",
+  "pilotRevision": "1ad13abe2de43d829955760654ca11b497deedd6",
+  "outcome": "pass",
+  "limits": [
+    "Prepared reference journey, not agent-authored implementation or recovery-path testing",
+    "Initial package tests inherited OS temporary-directory settings; full containment not established",
+    "Unexposed Codex model identity and subscription cost",
+    "Review suggestions are not observed blockers; only final-state checkpoint clarification applied"
+  ],
+  "budgets": {
+    "wallTimeSeconds": 600,
+    "outputBytes": 67108864,
+    "reportedCostUSD": null,
+    "tokenLimit": null,
+    "billing": "existing ChatGPT entitlement; cost and hard token cap unavailable"
+  }
+}

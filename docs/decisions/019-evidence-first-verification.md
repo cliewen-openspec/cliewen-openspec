@@ -46,7 +46,7 @@ It is also close to **Acceptance Test-Driven Development (ATDD)** in agreeing on
 
 ## Implementation and migration
 
-Acceptance establishes the new direction. The published alpha retains the old functionality. Development source now removes the recorder, approach selector, task-method metadata requirement, and ordering gates. Legacy configuration is rejected with a migration message; existing files are preserved for explicit review and migration. Effectiveness records use controlled-fault or behavior-failure methods. Native-agent validation of the replacement remains pending.
+Acceptance establishes the new direction. The published alpha retains the old functionality. Development source now removes the recorder, approach selector, task-method metadata requirement, and ordering gates. Legacy configuration is rejected with a migration message; existing files are preserved for explicit review and migration. Effectiveness records use controlled-fault or behavior-failure methods. Initial native observations are linked below; unresolved findings and repeated release coverage remain pending.
 
 The implementation must remove `testing.approach` and its `tdd`/`flexible` values, `tdd start`/`tdd run`, TDD task-method metadata, history-based completion gates, and the proposed write-blocking stage. Remove their active schema instructions, CLI references, examples, and evaluation requirements. Keep ordinary task completion checks and evidence collection. Review existing test-placement options against the four principles during migration rather than silently weakening task verification.
 
@@ -55,3 +55,5 @@ Update the assertion-effectiveness record contract to describe relevant observed
 Revise tests and agent trials around the four principles, retaining controls for ineffective assertions, unrelated failures, stale evidence, and incorrect test retirement. Requiring a passing strict-TDD trial is no longer a release criterion. Historical failures remain failures under their original criteria; existing writing, instruction-following, and evidence defects remain relevant to the new workflow.
 
 Preserve earlier decision filenames, reasoning, and trial reports as history, with links to this replacement. Update current user documentation, changelog, and plan as implementation proceeds. All six roadmap priorities and final release acceptance remain required before another release.
+
+[Round 012: Fresh agent trials with evidence-first verification](../testing/cli-trials/result-012.md) records the first native observations on the replacement: Codex and Claude delivery passed reviewed acceptance; OpenCode delivery and Claude combined delivery passed product checks but retained factual writing errors. [Guide result 003](../testing/guide-walkthrough/result-003.md) completed the prepared walkthrough and retrospective. These support the implemented direction without establishing repeated release coverage or eliminating independent review.

@@ -141,6 +141,15 @@ OpenSpec merges the delta into `openspec/specs/csv-export/spec.md` and moves the
 
 `--yes` skips archive confirmation prompts; it does not replace your review. After archive, omit `--change` because the scenarios now belong to permanent specs. The same advisory quality warnings remain until assessed, now using `.cliewen-openspec/reviews/specs.yaml` for review records.
 
+Expect six passing tests and `"ok": true` with the same advisory warning categories. Confirm the permanent spec is valid and the working tree is clean:
+
+```sh
+npx --no-install openspec validate csv-export --type spec --strict
+git status --porcelain
+```
+
+Validation should pass and Git should print nothing. The permanent spec retains EXP-001 through EXP-006; the active change has moved to a dated directory under `openspec/changes/archive/`.
+
 ```mermaid
 flowchart TB
   A["Commit implementation"] --> B["Collect and check change evidence"]

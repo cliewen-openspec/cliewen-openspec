@@ -11,9 +11,9 @@ Every shipped schema needs deterministic regression coverage and a reviewed agen
 
 | Schema | Development trial | Observed coverage | Still needed before release |
 |---|---|---|---|
-| cliewen-delivery | Optional CSV BOM with evidence-first verification | Codex CLI and Claude have passing observations; latest OpenCode retry passes TDD/product checks but omits apply retrieval and fails writing review | Resolve/retest instruction and writing findings; per-task and end-of-change variants; repeated current-candidate runs |
+| cliewen-delivery | Optional CSV BOM with evidence-first verification | Fresh Codex and Claude passes; OpenCode product checks pass but writing review fails | Resolve writing findings; per-task and end-of-change variants; repeated current-candidate runs |
 | cliewen-discovery | Investigate CSV streaming | Codex CLI and Claude have passing observations; OpenCode 2.2.5 passes with a writing note | Targeted no-change and handoff cases; repeated current-candidate runs |
-| cliewen-all | One CSV investigation through delivery with an explicit human review stage | Codex CLI and Claude have passing observations; latest OpenCode retry preserves approval boundary but times out with rejected TDD history | Validate replacement workflow and instruction following; no-delivery agent coverage; repeated current-candidate runs |
+| cliewen-all | One CSV investigation through delivery with an explicit human review stage | Fresh Claude boundary and delivery product checks pass; source-representation claims fail writing review | Resolve writing findings; remaining profiles, no-delivery coverage, and repetitions |
 
 The [first CLI round](cli-trials/result-001.md) and [Claude retries](cli-trials/result-002.md) retain earlier observations. [OpenCode 1.19.5](cli-trials/result-003.md) exposed content and evidence failures; the [first V2 runs](cli-trials/result-004.md) were interrupted. The [instruction regressions](cli-trials/result-005.md) and [combined retry](cli-trials/result-006.md) record improvements and the remaining TDD failure. Earlier passes do not certify every later instruction candidate.
 
@@ -28,6 +28,8 @@ The common base is checked through every consuming schema, not as a separate use
 [Round 011: Characterization retry and combined TDD boundary](cli-trials/result-011.md) adds one positive observation for the clarified delivery characterization sequence. The full delivery rubric still failed on apply retrieval and invented motivation. Combined delivery implemented later behavior during an earlier characterization task, then reclassified already-passing tests; final history checks failed. Neither attempt passed overall. Further source clarifications are tested deterministically but still need native-agent coverage. Keep limits unchanged and separate a green product result from required workflow adherence.
 
 ## Profiles
+
+[Round 012: Fresh agent trials with evidence-first verification](cli-trials/result-012.md) records the first replacement-workflow observations. All four product checks passed; two attempts also passed the reviewed rubric and two retained writing errors. [Guide result 003](guide-walkthrough/result-003.md) adds a fresh rotating Codex walkthrough and post-attempt review. These are bounded observations, not release acceptance or a causal comparison with TDD.
 
 Use one named profile per schema for routine development, and hold that profile constant while comparing instruction changes. The current reference is `codex-cli-primary`, which passed the primary scenario for each schema. The earlier `codex-collaboration-observed` profile remains a historical reference: it used the inherited `gpt-6.1-sol` session model without exposed agent version, effort, routing, or full instruction isolation.
 

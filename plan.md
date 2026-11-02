@@ -4,7 +4,7 @@ Status: alpha under development. The priority order below is approved; feature d
 
 Release is blocked until all six priorities below are complete and their required acceptance evidence has been reviewed. This applies to every new package release, including alphas, release candidates, and staged npm publications. Passing the current tests or finishing an individual increment does not lift this hold. The owner reaffirmed this boundary on November 2, 2026.
 
-[Decision 019: Use spec-driven development with evidence-first verification](docs/decisions/019-evidence-first-verification.md) supersedes decisions 004 and 013. The next implementation work removes TDD settings, commands, history gates, and active TDD guidance, and updates migration, tests, and agent scenarios around the four accepted principles. Agree expected behavior and verification before implementation; develop and verify small tasks; assess assertion effectiveness; maintain tests against accepted requirements. Development source now implements removal and explicit migration diagnostics; fresh native-agent validation remains pending. Historical TDD reports remain evidence about the previous design, and passing strict-TDD trials is no longer a release requirement.
+[Decision 019: Use spec-driven development with evidence-first verification](docs/decisions/019-evidence-first-verification.md) supersedes decisions 004 and 013. The next implementation work removes TDD settings, commands, history gates, and active TDD guidance, and updates migration, tests, and agent scenarios around the four accepted principles. Agree expected behavior and verification before implementation; develop and verify small tasks; assess assertion effectiveness; maintain tests against accepted requirements. Development source now implements removal and explicit migration diagnostics; fresh observations are recorded in round 012; remaining findings and release coverage are still pending. Historical TDD reports remain evidence about the previous design, and passing strict-TDD trials is no longer a release requirement.
 
 ## Product direction
 
@@ -214,3 +214,7 @@ Validate all schemas and shared-template consistency. Exercise small fixes witho
 Test toggles without reinstall, legacy docs without frontmatter, invalid metadata, broken links and Mermaid syntax. Verify identity through sync/archive and all evidence states. Keep semantic review findings separate from deterministic results.
 
 Defaults: English content, MIT, no Cliewen runtime, global artifact graph or automatic corpus migration. See [practice mapping](docs/cliewen-mapping.md).
+
+## Latest evidence-first observations
+
+[Round 012: Fresh agent trials with evidence-first verification](docs/testing/cli-trials/result-012.md) records four passing product checks. Codex and Claude delivery passed reviewed acceptance; OpenCode delivery and Claude combined delivery retain factual writing errors. [Guide result 003](docs/testing/guide-walkthrough/result-003.md) completed a fresh prepared walkthrough, independent checks, and a post-attempt review without an observed blocker. Its final-state checkpoint suggestion is now in the guide. Preserve these bounded outcomes; remaining profiles, repetitions, human usability, and the six priorities still block release. No additional budget or publication is authorized by these reports.
