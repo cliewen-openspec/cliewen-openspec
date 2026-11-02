@@ -58,7 +58,7 @@ Edit `.cliewen-openspec/config.yaml`: under the existing `ac:` section, replace 
 
 {{include:docs/examples/csv/config.yaml}}
 
-`csv-export` is the capability name and will also be its specs directory name. `EXP` is a prefix chosen for that capability. The generated file already has `padding: 3`, `placement: per-task`, and `approach: flexible`; leave those defaults in place for this exercise.
+`csv-export` is the capability name and will also be its specs directory name. `EXP` is a prefix chosen for that capability. The generated file already has `padding: 3`, `placement: per-task`; leave those defaults in place for this exercise.
 
 Start the change and allocate its six scenario IDs:
 
@@ -91,7 +91,7 @@ node ../cliewen-openspec/scripts/copy-csv-example.mjs implementation
 node --test test/export.test.mjs
 ```
 
-Expect six passing tests and no failures. They cover headers, explicit column order, commas, quotation marks, line breaks, and an empty record list. Inspect the [CSV code and tests](csv-example.md) to see exactly what they assert. Copying finished files does not exercise an agent or demonstrate TDD.
+Expect six passing tests and no failures. They cover headers, explicit column order, commas, quotation marks, line breaks, and an empty record list. Inspect the [CSV code and tests](csv-example.md) to see exactly what they assert. Copying finished files does not exercise an agent or assess its verification quality.
 
 Once the tests pass and you have reviewed the code and assertions, mark the implementation tasks complete. With the prepared example, the last helper mode checks the expected files and marks its task list complete.
 

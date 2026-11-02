@@ -9,14 +9,13 @@ import { deliveryFiles } from './delivery.js';
 import { discoveryFiles } from './discovery.js';
 import { allFiles } from './all.js';
 import { validateRegistry } from './ac.js';
-import { checkTdd } from './tdd.js';
 import { qualityDefaults, configureQuality, checkQuality, type QualitySettings } from './quality.js';
 export { nextId, renamePrefix, capabilityForPrefix } from './ac.js';
 
 export const version = '0.2.0-alpha.1';
 const state = '.cliewen-openspec';
 const features = ['documentation', 'decisions', 'mermaid', 'planning', 'review', 'evidence'];
-export type Config = { docsRoot: string; features: Record<string, boolean>; evidence: { report: string }; ac: { capabilities: Record<string, string>; padding: number }; testing: QualitySettings & { placement: 'per-task' | 'end-of-change'; approach: 'flexible' | 'tdd'; types: Record<string, { description: string }> } };
+export type Config = { docsRoot: string; features: Record<string, boolean>; evidence: { report: string }; ac: { capabilities: Record<string, string>; padding: number }; testing: QualitySettings & { placement: 'per-task' | 'end-of-change'; types: Record<string, { description: string }> } };
 export type Finding = { code: string; severity: 'error' | 'warning' | 'info'; message: string };
 export function local(root: string, relative: string): string {
   if (!relative || path.isAbsolute(relative) || path.win32.parse(relative).root || relative.split(/[\\/]/).includes('..')) throw Error(`Unsafe repository path: ${relative}`);
@@ -38,7 +37,7 @@ const normalize = (s: string) => s.replace(/\r\n/g, '\n');
 const hash = (s: string) => createHash('sha256').update(normalize(s)).digest('hex');
 const read = (p: string) => fs.readFileSync(p, 'utf8');
 export function defaults(): Config {
-  return { docsRoot: 'docs', features: Object.fromEntries(features.map(f => [f, true])), evidence: { report: '.cliewen-openspec/evidence.json' }, ac: { capabilities: {}, padding: 3 }, testing: { ...qualityDefaults(), placement: 'per-task', approach: 'flexible', types: {
+  return { docsRoot: 'docs', features: Object.fromEntries(features.map(f => [f, true])), evidence: { report: '.cliewen-openspec/evidence.json' }, ac: { capabilities: {}, padding: 3 }, testing: { ...qualityDefaults(), placement: 'per-task', types: {
     Unit: { description: 'Isolated behavior without external dependencies' },
     Integration: { description: 'Interaction between components or dependencies' },
     E2E: { description: 'Complete user or system workflow' }
@@ -70,7 +69,8 @@ export function config(root: string): Config {
     }
   }
   if (raw.testing !== undefined) {
-    keys(raw.testing, ['placement', 'approach', 'types', 'quality', 'lifecycle'], 'testing');
+    if (Object.hasOwn(raw.testing, 'approach')) throw Error('testing.approach has been retired. Remove it from .cliewen-openspec/config.yaml; use evidence-first verification. See docs/configuration.md#evidence-first-verification.');
+    keys(raw.testing, ['placement', 'types', 'quality', 'lifecycle'], 'testing');
     configureQuality(c.testing, raw.testing);
     if (raw.testing.types !== undefined) {
       const types = raw.testing.types;
@@ -86,12 +86,7 @@ export function config(root: string): Config {
       if (!['per-task', 'end-of-change'].includes(raw.testing.placement)) throw Error('testing.placement must be per-task or end-of-change');
       c.testing.placement = raw.testing.placement;
     }
-    if (raw.testing.approach !== undefined) {
-      if (!['flexible', 'tdd'].includes(raw.testing.approach)) throw Error('testing.approach must be flexible or tdd');
-      c.testing.approach = raw.testing.approach;
-    }
   }
-  if (c.testing.approach === 'tdd' && c.testing.placement !== 'per-task') throw Error('testing.approach tdd requires testing.placement per-task');
   if (raw.docsRoot !== undefined) { if (typeof raw.docsRoot !== 'string') throw Error('docsRoot must be a string'); c.docsRoot = raw.docsRoot; }
   if (raw.features !== undefined) {
     keys(raw.features, features, 'features');
@@ -309,7 +304,7 @@ export function init(root: string, dryRun: boolean, makeDefault: boolean) {
   const entry = `${docsRoot}/README.md`;
   if (!fs.existsSync(local(root, entry))) writes[entry] = '---\ntype: overview\n---\n# Project documentation\n\nKeep architecture/, design/, decisions/, testing/ and optional plans/ here as needed. Link to OpenSpec specs for behavior. Do not invent project intent.\n';
   const ignore = `${state}/.gitignore`;
-  if (!fs.existsSync(local(root, ignore))) writes[ignore] = 'evidence.json\ntransaction.json\ntdd/\n';
+  if (!fs.existsSync(local(root, ignore))) writes[ignore] = 'evidence.json\ntransaction.json\nreview-output/\n';
   const cfgPath = 'openspec/config.yaml';
   const original = fs.existsSync(local(root, cfgPath)) ? read(local(root, cfgPath)) : '';
   if (makeDefault) {
@@ -391,7 +386,6 @@ export function check(root: string, change?: string, failPending = false): Findi
       if (decision.status !== 'accepted') { add('all-decision-unaccepted', 'Delivery requires an accepted decision following human agreement; artifact completion is not approval'); return findings; }
     }
   }
-  if (c.testing.approach === 'tdd') findings.push(...checkTdd(root, change));
   if (!c.features.evidence) {
     add('evidence-disabled', 'Evidence was explicitly disabled', 'info');
     if ([c.testing.quality.coverage.mode, c.testing.quality.effectiveness.mode, c.testing.lifecycle.mode].includes('review')) add('quality-evidence-unavailable', 'Test policy review remains advisory: enable evidence for execution-backed assessment.', 'warning');

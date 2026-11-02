@@ -92,6 +92,9 @@ test('effectiveness accepts reviewed behavior failures, rejects setup claims, an
   const f = fixture(t, {effectiveness: 'enforce'});
   f.record.effectiveness = [{scenario: 'COUNT-001', cases: ['one', 'invalid'], testFiles: ['count.test.cjs'], sourceFiles: ['count.cjs'], method: 'controlled-fault', assertion: 'Exact parsed value and rejection.', defect: 'Return wrong value and accept malformed input.', command: ['node', '--test', 'count.test.cjs'], observation: 'Target assertions failed with the controlled fault.', failureKind: 'behavior', status: 'reviewed'}];
   f.saveReview(); f.collect(); assert.deepEqual(f.errors(), []);
+  f.record.effectiveness[0].method = 'behavior-failure'; f.saveReview(); f.collect(); assert.deepEqual(f.errors(), []);
+  f.record.effectiveness[0].method = 'tdd'; f.saveReview(); f.collect(); assert.ok(f.errors().some(r => r.code === 'test-review-invalid'));
+  f.record.effectiveness[0].method = 'behavior-failure'; f.saveReview();
   f.collect([f.positive, {...f.negative, caseId: 'one'}]); assert.ok(f.errors().some(r => r.code === 'test-review-invalid'), 'effectiveness still rejects ambiguous case IDs with coverage disabled');
   f.record.effectiveness[0].failureKind = 'setup'; f.saveReview(); f.collect(); assert.ok(f.errors().some(r => r.code === 'effectiveness-unreviewed'));
   f.record.effectiveness[0].failureKind = 'behavior'; f.saveReview(); f.write('count.cjs', 'module.exports = () => 7;\n'); f.commit(); f.collect();

@@ -44,7 +44,7 @@ outcome: delivery
 
 ## Continue with delivery
 
-For `outcome: delivery`, keep native `skip_specs` absent or false in the change's `.openspec.yaml`. Write the behavior deltas using the decision's chosen approach. Then write small implementation tasks with their concrete tests, types, boundaries, and configured testing order. The defaults remain per-task and flexible; optional TDD is unchanged.
+For `outcome: delivery`, keep native `skip_specs` absent or false in the change's `.openspec.yaml`. Write the behavior deltas using the decision's chosen approach. Then write small implementation tasks with their concrete tests, types, boundaries, and configured testing order. Use [evidence-first verification](../configuration.md#evidence-first-verification), with per-task placement by default.
 
 The agent may prepare draft specs or tasks for review while the decision is proposed, with new acceptance IDs left unassigned. It must preserve product inputs, capability mappings, and the AC registry until human agreement is recorded. Then set `status: accepted` with its source and allocate IDs through the CLI before delivery. Request apply instructions:
 

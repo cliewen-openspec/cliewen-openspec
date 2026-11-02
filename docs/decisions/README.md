@@ -9,7 +9,7 @@ These records capture choices confirmed in the project conversation. Acceptance 
 
 | Record | Decision | Current scope |
 |---|---|---|
-| [Decision 019: Use spec-driven development with evidence-first verification](019-evidence-first-verification.md) | Agree verification before implementation; verify incrementally and maintain effective tests; remove TDD facilities | Accepted; supersedes decisions 004 and 013; implementation and migration pending |
+| [Decision 019: Use spec-driven development with evidence-first verification](019-evidence-first-verification.md) | Agree verification before implementation; verify incrementally and maintain effective tests; remove TDD facilities | Accepted; supersedes decisions 004 and 013; removal and migration diagnostics implemented in development source; fresh agent trials pending |
 | [Decision 018: Exercise guides with fresh coding-agent sessions](018-agent-guide-walkthroughs.md) | Recurring first-use guide trials with post-attempt reviews | Accepted; all three CLI adapters implemented and exercised on the prepared CSV guide |
 | [Decision 017: Separate test coverage, effectiveness, and lifecycle review](017-test-quality-and-lifecycle.md) | Independent coverage, effectiveness, and lifecycle policies | Unreleased 0.2; one reviewed Codex delivery and combined observation; other profiles/release checks pending; requirement renames remain unresolved |
 | [001](001-shared-base-and-schemas.md) | A small schema collection shares a common base | Delivery, discovery, and all implemented; full release evaluation incomplete |

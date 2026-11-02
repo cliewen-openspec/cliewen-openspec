@@ -32,7 +32,7 @@ npx playwright install chromium
 npm run docs:check
 ```
 
-Package tests include the documented CSV walkthrough against a packed installation. They check all six references, archive preservation, stale evidence after archive, and the final refreshed report. This is deterministic reference replay; it does not test a coding agent or prove that it followed TDD.
+Package tests include the documented CSV walkthrough against a packed installation. They check all six references, archive preservation, stale evidence after archive, and the final refreshed report. This is deterministic reference replay; it does not test a coding agent or establish assertion quality.
 
 The site build validates local page links and heading anchors, parses shipped Mermaid diagrams, and checks the documented defaults against the CLI defaults. Browser checks exercise search results, appearance switching, rendered diagrams, navigation, code-copy buttons, keyboard access, and narrow-screen layout. GitHub Actions builds and checks before deployment. VitePress configuration and the theme extension live in `site/.vitepress/`. Generated Markdown is ignored under `.tmp/vitepress-content/`, and generated HTML is ignored under `site-dist/`.
 

@@ -61,7 +61,7 @@ node scripts/check-csv-discovery-trial.mjs PROJECT ARTIFACTS
 
 Run the checker matching the case, then review its saved rubric against the files and raw trace. Checkers preserve earlier reports and refuse to overwrite them. If a checker defect requires a recheck, retain the original report under a descriptive name and explain the correction.
 
-For discovery, inspect the experiment's source, scope and limitations. For delivery, check assertion quality and actual red/green observations. An already passing characterization test is useful, but does not demonstrate a red phase. Neither CLI completion nor green tests establish decision acceptance or writing quality.
+For discovery, inspect the experiment's source, scope and limitations. For delivery, check assertion quality and actual planned cases and observed verification. An already passing characterization test is useful, but does not establish sufficient coverage. Neither CLI completion nor green tests establish decision acceptance or writing quality.
 
 Before marking a trial passed, independently reconcile factual claims, counts, categories, and revisions with their actual sources and checker output. Keep an unsupported statement separate from a verified test result. Link or quote structured findings when a paraphrase could change their meaning.
 
@@ -73,7 +73,7 @@ To study self-review, preserve a snapshot of the original attempt first, includi
 node scripts/run-cli-trial.mjs SUITE PROFILE SCHEMA --review REVIEW_PROMPT_FILE
 ```
 
-Replace the uppercase arguments with the saved suite, pinned profile, schema, and prompt path; quote paths with spaces. This starts a new process using the project's own saved attempt. It writes `artifacts/self-review/` logs and an ignored `.cliewen-openspec/tdd/self-review.md` report. An incomplete attempt reviews only work actually done.
+Replace the uppercase arguments with the saved suite, pinned profile, schema, and prompt path; quote paths with spaces. This starts a new process using the project's own saved attempt. It writes `artifacts/self-review/` logs and an ignored `.cliewen-openspec/review-output/self-review.md` report. An incomplete attempt reviews only work actually done.
 
 The runner preserves the initial phase, refuses a second review in the same case, and compares HEAD and project/evidence hashes before and after. Changes to protected inputs make the process fail; they are detected afterward, not prevented by an OS sandbox. Inspect the report and raw actions separately. A clean process and unchanged inputs do not establish that its conclusions are correct.
 

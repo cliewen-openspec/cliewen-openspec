@@ -6,7 +6,7 @@ Read project configuration and retrieve/save JSON instructions for proposal, inv
 
 Stage 1 ends at human review. Leave decision.md status proposed, choose an honest outcome, and explain what approval would authorize. You may prepare draft specs/tasks after the recommendation, but do not implement product code or claim acceptance. Save an exact local instruction for continuing after human agreement in docs/testing/review-request.md. Stop before acceptance, implementation, archive, push, or external PR. You may commit the investigation locally.
 
-If a person later approves delivery, continue in the same change, record the real approval source, set accepted status, write specs and per-task tests using the configured approach, implement, collect scoped evidence, and run check. Retrieve the remaining artifact and apply instructions before that stage. If the agreed outcome is no-change or further-investigation, use native skip_specs: true and genuine closure tasks, without fake product requirements or implementation tasks.
+If a person later approves delivery, continue in the same change, record the real approval source, set accepted status, write specs and per-task tests using evidence-first verification, implement, collect scoped evidence, and run check. Retrieve the remaining artifact and apply instructions before that stage. If the agreed outcome is no-change or further-investigation, use native skip_specs: true and genuine closure tasks, without fake product requirements or implementation tasks.
 
 Local tools:
 

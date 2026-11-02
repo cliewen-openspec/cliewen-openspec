@@ -55,7 +55,7 @@ For an existing installation, install the desired package version and use `cliew
 
 Configure capability-specific AC prefixes and number padding, and choose test placement in `.cliewen-openspec/config.yaml`. Testing each implementation task before moving on is the default. Use `ac rename-prefix` to change an established prefix without resetting its sequence. See [project configuration](docs/configuration.md) for examples and prefix selection.
 
-Optionally set `testing.approach: tdd` with `testing.placement: per-task` to plan red-green-refactor within every implementation task. The default `flexible` approach allows tests before or after code within the selected placement.
+Use **spec-driven development with evidence-first verification**: plan acceptance cases before implementation, verify small tasks, assess assertion effectiveness, and maintain tests as requirements change. See [the workflow and migration guide](docs/configuration.md#evidence-first-verification).
 
 After implementation, commit the project inputs and collect evidence from Node tests:
 

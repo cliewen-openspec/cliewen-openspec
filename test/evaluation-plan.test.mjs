@@ -23,8 +23,8 @@ test('evaluation plan covers shipped schemas without treating planned profiles a
   for (const modify of [
     plan => { delete plan.schemas['cliewen-discovery']; },
     plan => { plan.schemas['cliewen-all'].status = 'planned'; },
-    plan => { plan.scenarios['csv-bom-tdd'].readiness = 'planned'; },
-    plan => { plan.scenarios['csv-bom-tdd'].prompt = 'missing-prompt.md'; },
+    plan => { plan.scenarios['csv-bom-evidence-first'].readiness = 'planned'; },
+    plan => { plan.scenarios['csv-bom-evidence-first'].prompt = 'missing-prompt.md'; },
     plan => { plan.profiles['codex-cli-primary'].effort = null; },
     plan => { plan.schemas['cliewen-delivery'].releaseVariantProfile = 'missing-profile'; },
   ]) {

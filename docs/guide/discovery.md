@@ -47,7 +47,7 @@ Do not allocate product acceptance IDs for unanswered research questions or crea
 
 Discovery reads the same `.cliewen-openspec/config.yaml` as delivery, including `docsRoot` and the feature flags. Writing and diagram guidance is shared. With decisions enabled, create a durable Decision Record only when the choice matters beyond the investigation, then link to that record. With decisions disabled, the change's recommendation artifact still exists; the flag removes the extra durable-record work. Feature flags do not change artifact dependencies.
 
-Discovery does not create implementation tasks. The per-task testing, TDD, test-type, and Node evidence settings govern delivery tests; they do not turn research observations into product test results. Evidence guidance in discovery asks for sources and actual experiment observations, including work not performed.
+Discovery does not create implementation tasks. The per-task testing, test-type, and Node evidence settings govern delivery tests; they do not turn research observations into product test results. Evidence guidance in discovery asks for sources and actual experiment observations, including work not performed.
 
 ```sh
 npx --no-install openspec schema validate cliewen-discovery

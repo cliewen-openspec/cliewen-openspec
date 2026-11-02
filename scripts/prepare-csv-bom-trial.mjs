@@ -43,7 +43,6 @@ const cl = (...argv) => run(process.execPath, ['node_modules/cliewen-openspec/di
 ospec('init', '--tools', 'none', '--no-animation');
 cl('init', '--default');
 copy('docs/examples/csv/config.yaml', '.cliewen-openspec/config.yaml');
-write('.cliewen-openspec/config.yaml', fs.readFileSync(path.join(root, '.cliewen-openspec/config.yaml'), 'utf8').replace('approach: flexible', 'approach: tdd'));
 for (let i = 1; i <= 6; i++) {
   if (cl('ac', 'next', '--capability', 'csv-export') !== `EXP-00${i}`) throw Error('Unexpected baseline AC allocation');
 }

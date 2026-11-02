@@ -91,6 +91,15 @@ test('AC configuration validates capability mappings and test placement', t => {
   fs.writeFileSync(cfg, 'ac:\n  capabilities:\n    csv-export: EXP\n  padding: 1\ntesting:\n  placement: end-of-change\n');
   assert.equal(nextId(root, 'csv-export'), 'EXP-1');
   assert.equal(config(root).testing.placement, 'end-of-change');
+  const history = path.join(root, '.cliewen-openspec/tdd/legacy.jsonl');
+  fs.mkdirSync(path.dirname(history), {recursive: true});
+  fs.writeFileSync(history, 'Retained historical observations.\n');
+  check(root);
+  assert.equal(fs.readFileSync(history, 'utf8'), 'Retained historical observations.\n');
+  const cli = fileURLToPath(new URL('../dist/cli.js', import.meta.url));
+  const result = spawnSync(process.execPath, [cli, 'tdd', 'start', '--root', root], {encoding: 'utf8'});
+  assert.equal(result.status, 2);
+  assert.equal(fs.readFileSync(history, 'utf8'), 'Retained historical observations.\n');
   fs.writeFileSync(cfg, 'ac:\n  capabilities:\n    csv-export: EXP\n  padding: 4\n');
   assert.equal(nextId(root, 'csv-export'), 'EXP-0002');
   assert.equal(config(root).testing.placement, 'per-task');
@@ -99,24 +108,18 @@ test('AC configuration validates capability mappings and test placement', t => {
     assert.throws(() => config(root));
   }
 });
-test('testing approach defaults remain compatible and conflicting TDD placement is rejected', t => {
+test('retired testing approach requires explicit migration without changing project files', t => {
   const root = fixture(t); init(root, false, false);
   const cfg = path.join(root, '.cliewen-openspec/config.yaml');
-  assert.equal(config(root).testing.approach, 'flexible');
-  fs.writeFileSync(cfg, 'testing:\n  approach: tdd\n');
-  assert.deepEqual(config(root).testing, {...defaults().testing, approach: 'tdd'});
-  fs.writeFileSync(cfg, 'testing:\n  placement: end-of-change\n');
-  assert.deepEqual(config(root).testing, {...defaults().testing, placement: 'end-of-change'});
-  fs.writeFileSync(cfg, 'testing:\n  placement: end-of-change\n  approach: tdd\n');
-  assert.throws(() => config(root), /tdd requires.*per-task/);
-  const cli = fileURLToPath(new URL('../dist/cli.js', import.meta.url));
-  const result = spawnSync(process.execPath, [cli, 'check', '--root', root, '--json'], {encoding: 'utf8'});
-  assert.equal(result.status, 2);
-  assert.match(JSON.parse(result.stdout).error, /tdd requires/);
-  for (const approach of ['unknown', 'true', '[]', 'null']) {
-    fs.writeFileSync(cfg, `testing:\n  approach: ${approach}\n`);
-    assert.throws(() => config(root), /approach must be/);
+  assert.equal(Object.hasOwn(config(root).testing, 'approach'), false);
+  for (const value of ['tdd', 'flexible']) {
+    const original = 'testing:\n  approach: ' + value + '\n';
+    fs.writeFileSync(cfg, original);
+    assert.throws(() => config(root), /approach has been retired/);
+    assert.equal(fs.readFileSync(cfg, 'utf8'), original);
   }
+  fs.writeFileSync(cfg, 'testing:\n  placement: end-of-change\n');
+  assert.equal(config(root).testing.placement, 'end-of-change');
 });
 test('missing evidence fails; explicit disable works without reinstall',t=>{
   const root=fixture(t); init(root,false,false); assert.ok(check(root).some(f=>f.code==='evidence-not-configured'));

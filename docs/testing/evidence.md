@@ -85,4 +85,4 @@ Each selected scenario requires exactly one nonempty `Test-type` line. Each resu
 
 The adapter records explicit metadata; it cannot establish whether a test actually exercises the claimed boundary. Review that boundary and task descriptions alongside assertions. See [test-type configuration](../configuration.md#test-types).
 
-TDD execution history is separate from this final-result report. When `testing.approach: tdd` is selected, `check --change NAME` also requires completed task metadata and recorded command/file snapshots, even if product evidence is disabled. A passing report cannot establish a missing red phase. See [TDD recording and completion checks](../configuration.md#test-driven-development); assertion quality and failure causes still require review.
+Execution reports establish observed outcomes and revision freshness. Follow [evidence-first verification](../configuration.md#evidence-first-verification) to plan acceptance cases, assess assertion quality, and maintain tests. Historical recorder logs are preserved but no longer gate completion.

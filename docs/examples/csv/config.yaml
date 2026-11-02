@@ -4,4 +4,3 @@ ac:
     csv-export: EXP
 testing:
   placement: per-task
-  approach: flexible

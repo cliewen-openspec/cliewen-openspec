@@ -21,6 +21,7 @@ test('packed installation → OpenSpec change → real test evidence → archive
   const write=(p,s)=>{fs.mkdirSync(path.dirname(path.join(root,p)),{recursive:true});fs.writeFileSync(path.join(root,p),s);};
   const npm=process.env.npm_execpath; assert.ok(npm,'Run through npm test');
   const pack=JSON.parse(run(process.execPath,[npm,'pack','--json','--ignore-scripts','--pack-destination',root],0,project));
+  assert.ok(!pack[0].files.some(file => /^dist\/tdd\./.test(file.path)), 'Retired recorder outputs must not ship');
   const tar=path.join(root,pack[0].filename);
   write('package.json',JSON.stringify({private:true,type:'module'}));
   run(process.execPath,[npm,'install','--ignore-scripts','--no-audit','--no-fund',tar,'@fission-ai/openspec@1.15.0']);
@@ -66,11 +67,11 @@ test('packed installation → OpenSpec change → real test evidence → archive
   fs.writeFileSync(tasksPath,completedTasks.replace('[x]','[ ]'));
   const instructions=JSON.parse(ospec('instructions','apply','--change','export-data','--json'));
   assert.notEqual(instructions.state,'blocked');
-  assert.match(instructions.instruction, /red-green-refactor/);
+  assert.match(instructions.instruction, /evidence-first verification/);
   const taskInstructions=JSON.parse(ospec('instructions','tasks','--change','export-data','--json'));
-  assert.match(taskInstructions.instruction, /testing.approach/);
-  assert.match(taskInstructions.instruction, /observe failure for the intended missing behavior/);
-  assert.match(taskInstructions.template, /red-green-refactor/);
+  assert.match(taskInstructions.instruction, /evidence-first verification/);
+  assert.match(taskInstructions.instruction, /Before implementation, describe acceptance criteria/);
+  assert.match(taskInstructions.template, /evidence-first verification/);
   fs.writeFileSync(tasksPath,completedTasks);
   run('git',['init','-b','main']); run('git',['config','user.name','Fixture']); run('git',['config','user.email','fixture@example.invalid']);
   const commit=()=>{run('git',['add','.']);run('git',['commit','-m','Fixture revision']);}; commit();

@@ -28,7 +28,7 @@
     "docs/testing/pilot-prompt.md"
   ],
   "scripts": {
-    "build": "tsc",
+    "build": "node scripts/clean-retired-build.mjs && tsc",
     "test": "npm run build && node --test test/*.test.mjs",
     "prepack": "npm run build",
     "docs:build": "npm run build && node scripts/build-docs.mjs",

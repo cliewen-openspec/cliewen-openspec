@@ -5,7 +5,7 @@ status: accepted
 ---
 # Separate test coverage, effectiveness, and lifecycle review
 
-[Decision 019: Use spec-driven development with evidence-first verification](019-evidence-first-verification.md) retains these policies while retiring TDD-specific ordering and record-method requirements. Its implementation must preserve relevant observed-failure evidence and migrate existing records; the current record format remains implemented until that migration is complete.
+[Decision 019: Use spec-driven development with evidence-first verification](019-evidence-first-verification.md) retains these policies while retiring TDD-specific ordering and record-method requirements. Its implementation must preserve relevant observed-failure evidence and migrate existing records; development source now uses behavior-failure in place of the retired method, with migration diagnostics for existing records.
 
 ## Context
 

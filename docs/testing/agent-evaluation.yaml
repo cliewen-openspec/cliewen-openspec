@@ -233,14 +233,14 @@ profiles:
     traceFormat: Claude stream-json with verbose events plus stderr
 
 scenarios:
-  csv-bom-tdd:
+  csv-bom-evidence-first:
     schema: cliewen-delivery
     readiness: ready
     prepare: scripts/prepare-csv-bom-trial.mjs
     checker: scripts/check-csv-bom-trial.mjs
     prompt: docs/testing/csv-bom-trial/prompt.md
     rubric: docs/testing/csv-bom-trial/rubric.md
-    testing: { placement: per-task, approach: tdd }
+    testing: { placement: per-task, approach: evidence-first }
     observedResults:
       - docs/testing/csv-bom-trial/result-001.md
       - docs/testing/cli-trials/result-001.md
@@ -253,14 +253,14 @@ scenarios:
       - docs/testing/cli-trials/result-009.md
       - docs/testing/cli-trials/result-010.md
       - docs/testing/cli-trials/result-011.md
-  csv-bom-flexible:
+  csv-bom-per-task:
     schema: cliewen-delivery
     readiness: planned
-    testing: { placement: per-task, approach: flexible }
+    testing: { placement: per-task, approach: evidence-first }
   csv-bom-final-tests:
     schema: cliewen-delivery
     readiness: planned
-    testing: { placement: end-of-change, approach: flexible }
+    testing: { placement: end-of-change, approach: evidence-first }
   csv-streaming-investigation:
     schema: cliewen-discovery
     readiness: ready
@@ -308,7 +308,7 @@ scenarios:
     checker: scripts/check-quality-lifecycle-trial.mjs
     prompt: docs/testing/quality-lifecycle-trial/prompt.md
     rubric: docs/testing/quality-lifecycle-trial/rubric.md
-    testing: { placement: per-task, approach: flexible }
+    testing: { placement: per-task, approach: evidence-first }
     observedResults:
       - docs/testing/quality-lifecycle-trial/result-001.md
   combined-quality-and-retirement:
@@ -318,7 +318,7 @@ scenarios:
     checker: scripts/check-quality-lifecycle-trial.mjs
     prompt: docs/testing/quality-lifecycle-trial/combined-prompt.md
     rubric: docs/testing/quality-lifecycle-trial/combined-rubric.md
-    testing: { placement: per-task, approach: flexible }
+    testing: { placement: per-task, approach: evidence-first }
     observedResults:
       - docs/testing/quality-lifecycle-trial/result-002.md
       - docs/testing/quality-lifecycle-trial/result-003.md
@@ -327,10 +327,10 @@ schemas:
   cliewen-delivery:
     status: implemented
     developmentProfile: codex-cli-primary
-    developmentScenario: csv-bom-tdd
+    developmentScenario: csv-bom-evidence-first
     releaseVariantProfile: codex-cli-primary
     releaseProfiles: [ codex-cli-primary, claude-code-primary, opencode-2-2-5 ]
-    releaseScenarios: [ csv-bom-tdd, csv-bom-flexible, csv-bom-final-tests, delivery-quality-and-retirement ]
+    releaseScenarios: [ csv-bom-evidence-first, csv-bom-per-task, csv-bom-final-tests, delivery-quality-and-retirement ]
   cliewen-discovery:
     status: implemented
     developmentProfile: codex-cli-primary

@@ -3,7 +3,7 @@ type: guide
 ---
 # CSV example
 
-The [first-change guide](getting-started.md) uses these files. The documentation test installs the packed alpha in a clean repository, copies the same files, runs the tests, collects evidence, and archives the change. This checks the reference workflow. It does not evaluate an agent's ability to write the code or follow TDD.
+The [first-change guide](getting-started.md) uses these files. The documentation test installs the packed alpha in a clean repository, copies the same files, runs the tests, collects evidence, and archives the change. This checks the reference workflow. It does not evaluate an agent's ability to write the code or assess assertion quality.
 
 ## API and scope
 
@@ -21,8 +21,6 @@ Each top-level test title has one bracketed AC ID. The reference adapter uses th
 
 {{include:docs/examples/csv/test/export.test.mjs}}
 
-## Try TDD with an agent
+## Try the workflow with an agent
 
-Use a fresh pilot and set `testing.approach: tdd` before asking the agent to plan the change. Keep `testing.placement: per-task`. Ask it to implement the reviewed tasks using the [task metadata and TDD recorder](../configuration.md#test-driven-development), starting capture before task edits. Do not copy the finished implementation for a TDD trial.
-
-Check that the first failure is an assertion about missing behavior, followed by a passing run after implementation. Some later boundary tests may already pass; record that outcome without inventing a red phase. A final green report alone cannot establish the order of earlier work.
+Use a fresh pilot. Ask the agent to describe acceptance cases and verification before implementing small tasks. Review exact output assertions, relevant negative and boundary cases, actual execution results, and limitations. Follow [evidence-first verification](../configuration.md#evidence-first-verification).

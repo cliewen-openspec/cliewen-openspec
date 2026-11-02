@@ -37,7 +37,7 @@ test('update refreshes old owned content, adds bundles, retires files, and prese
   const root = fixture(t); const manifest = previous(root);
   for (const file of Object.keys(manifest.files)) if (/cliewen-(discovery|all)\//.test(file)) { fs.unlinkSync(path.join(root, file)); delete manifest.files[file]; }
   write(root, manifestFile, JSON.stringify(manifest));
-  write(root, '.cliewen-openspec/config.yaml', '# Keep project choices\nfeatures:\n  evidence: false\nac:\n  capabilities:\n    csv-export: EXP\ntesting:\n  placement: per-task\n  approach: tdd\n');
+  write(root, '.cliewen-openspec/config.yaml', '# Keep project choices\nfeatures:\n  evidence: false\nac:\n  capabilities:\n    csv-export: EXP\ntesting:\n  placement: per-task\n');
   assert.equal(nextId(root, 'csv-export'), 'EXP-001');
   write(root, 'openspec/config.yaml', '# Existing default\nschema: cliewen-discovery\n');
   write(root, 'docs/decisions/adr-059-original.md', '# Keep this external address\n');

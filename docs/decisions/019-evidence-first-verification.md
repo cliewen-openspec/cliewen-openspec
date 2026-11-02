@@ -46,7 +46,7 @@ It is also close to **Acceptance Test-Driven Development (ATDD)** in agreeing on
 
 ## Implementation and migration
 
-Acceptance establishes the new direction. At the time of this decision, the source and published alpha still contain TDD functionality; removal has not been implemented.
+Acceptance establishes the new direction. The published alpha retains the old functionality. Development source now removes the recorder, approach selector, task-method metadata requirement, and ordering gates. Legacy configuration is rejected with a migration message; existing files are preserved for explicit review and migration. Effectiveness records use controlled-fault or behavior-failure methods. Native-agent validation of the replacement remains pending.
 
 The implementation must remove `testing.approach` and its `tdd`/`flexible` values, `tdd start`/`tdd run`, TDD task-method metadata, history-based completion gates, and the proposed write-blocking stage. Remove their active schema instructions, CLI references, examples, and evaluation requirements. Keep ordinary task completion checks and evidence collection. Review existing test-placement options against the four principles during migration rather than silently weakening task verification.
 

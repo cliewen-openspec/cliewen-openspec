@@ -24,7 +24,7 @@ If something fails or the guide is unclear, [report a bug](https://github.com/fl
 | Update | Refresh owned schemas/templates from a supported manifest with conflict checks, preview, and rollback; [guide](updating.md) |
 | Uninstall | Remove unchanged owned resources, preserve project data, and explicitly replace a removed default; [guide](uninstalling.md) |
 | Acceptance IDs | Configure a prefix per capability, allocate numbers, and change a prefix while preserving existing IDs |
-| Task-level testing | Test each implementation task before continuing; optional TDD records commands/file hashes and checks task completion |
+| Task-level testing | Test each implementation task before continuing; plan cases and review actual verification results |
 | Evidence | Run tagged Node tests, record their Git revision, and check outcomes and scenario references |
 | Decision Records | A Markdown template and guidance for recording choices that affect future work |
 | Documentation and Mermaid | Guidance for maintaining explanations and embedded diagrams |
@@ -34,7 +34,7 @@ The published alpha is `0.1.0-alpha.1`. Install it in your project with `npm ins
 
 ## Defaults
 
-Testing uses `placement: per-task` and `approach: flexible`. Each task gets its relevant tests, but you can write those tests before or after the code. TDD is an explicit choice.
+Testing uses evidence-first verification: plan acceptance cases before implementation, verify small tasks, assess assertion effectiveness, and maintain tests as requirements change. Tests can develop alongside code.
 
 Documentation lives under `docs/`. Documentation, decisions, Mermaid, planning, review, and evidence are all enabled. A facility being enabled makes it available; it does not require a new document or a separate review for every change. Acceptance numbers have at least three digits, and each capability needs a prefix mapping before allocation.
 
@@ -48,4 +48,4 @@ All three planned schemas are implemented in source. `cliewen-base` names the sh
 
 The alpha supports configurable test types and checks declared scenario types against evidence. Existing-registry adapters, general version/config migrations, and structural checks for your project's documentation and Mermaid diagrams remain planned.
 
-Cliewen checks test execution, ID linkage, and revision freshness. Optional [TDD completion checks](../configuration.md#test-driven-development) assess recorded task sequences. You still need to review assertions, failure causes, exception reasons, and whether the declared files cover the work. The recorder does not control every write or provide tamper-proof history.
+Cliewen checks test execution, ID linkage, and revision freshness. Follow [evidence-first verification](../configuration.md#evidence-first-verification) and review assertion quality, failure causes, and evidence sufficiency.

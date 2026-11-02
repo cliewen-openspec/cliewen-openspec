@@ -13,7 +13,7 @@ From a checkout with dependencies installed, run:
 npm run trial:prepare
 ```
 
-The command builds and packs the current Cliewen source, installs it with OpenSpec 1.15.0 in a new temporary project, and creates a baseline Git commit. The project contains the CSV formatter, six passing Unit tests, permanent specs, and the native AC registry at EXP-006. Configuration selects per-task testing and TDD. No BOM implementation, proposal, or previous trial observations are included.
+The command builds and packs the current Cliewen source, installs it with OpenSpec 1.15.0 in a new temporary project, and creates a baseline Git commit. The project contains the CSV formatter, six passing Unit tests, permanent specs, and the native AC registry at EXP-006. Configuration selects per-task evidence-first verification. No BOM implementation, proposal, or previous trial observations are included.
 
 The output shows `root` for the agent's project and `artifacts` for the evaluator's files. To choose a location, use `npm run trial:prepare -- ABSOLUTE_NEW_DIRECTORY`, replacing the final argument with an absolute path. The target must not exist and must be outside this checkout. The command refuses to overwrite an earlier run. A failed setup leaves its command log for inspection; use a new directory for a retry.
 
@@ -31,9 +31,9 @@ The prompt permits local commits for evidence collection and stops before archiv
 
 For a comparison from the exact same baseline, clone `baseline.bundle` into a new project and run `npm ci` there while retaining the original artifact directory. Do not point another agent at a completed trial. A new `trial:prepare` run uses the current source and resolves dependencies again; it is a new input, not necessarily the same baseline.
 
-Use the review criteria after the agent finishes. Inspect the diff, commands, original tests, scenario IDs, type declarations, evidence revision, README, and PR draft. Run independent checks for the chosen API. Distinguish a provider or tool failure from an incorrect implementation and record incomplete observations as such. A passing self-authored test suite alone does not establish correct behavior or TDD ordering.
+Use the review criteria after the agent finishes. Inspect the diff, commands, original tests, scenario IDs, type declarations, evidence revision, README, and PR draft. Run independent checks for the chosen API. Distinguish a provider or tool failure from an incorrect implementation and record incomplete observations as such. A passing self-authored test suite alone does not establish correct behavior or assertion quality.
 
-For the third-argument `{bom: true}` API used in the first run, execute `node scripts/check-csv-bom-trial.mjs PROJECT ARTIFACTS` from this checkout, replacing both paths. The checker reruns tests, strict validation, evidence checking, and independent behavior assertions. It also checks preservation of baseline tests/specs and the saved instruction files. It writes `independent-checks.json` and refuses to replace an earlier result. Review another API before adapting these assertions; the prompt does not require this exact signature. The checker does not automatically grade prose or historical TDD ordering.
+For the third-argument `{bom: true}` API used in the first run, execute `node scripts/check-csv-bom-trial.mjs PROJECT ARTIFACTS` from this checkout, replacing both paths. The checker reruns tests, strict validation, evidence checking, and independent behavior assertions. It also checks preservation of baseline tests/specs and the saved instruction files. It writes `independent-checks.json` and refuses to replace an earlier result. Review another API before adapting these assertions; the prompt does not require this exact signature. The checker does not automatically grade prose or verification sufficiency.
 
 The [first fresh-context result](result-001.md) records the profile, review, and limitations.
 

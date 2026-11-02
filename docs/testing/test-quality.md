@@ -40,7 +40,7 @@ After authoring the record, commit project inputs, recollect execution evidence,
 
 ### Assertion effectiveness
 
-Each assessment identifies `scenario`, `cases`, `testFiles`, `sourceFiles`, `method` (`controlled-fault` or `tdd`), `assertion`, `defect`, `command` (an argument list), `observation`, `failureKind`, and `status`.
+Each assessment identifies `scenario`, `cases`, `testFiles`, `sourceFiles`, `method` (`controlled-fault` or `behavior-failure`), `assertion`, `defect`, `command` (an argument list), `observation`, `failureKind`, and `status`.
 
 Only `failureKind: behavior` with `status: reviewed` satisfies the obligation. Setup and unrelated failures do not demonstrate assertion effectiveness. Referenced test/source files must have inspected input digests; case IDs must exist in the report. One relevant experiment can cover several cases. Commands are recorded evidence and are never executed by `check`.
 
@@ -56,7 +56,7 @@ For delivery refactoring with no behavior delta, native `skip_specs: true` selec
 
 ### Scoped exceptions
 
-Exceptions declare `policy`, `scenario`, `reason`, and `status: reviewed`. Coverage exceptions also name `category`. They waive only that category minimum or the named scenario's effectiveness/lifecycle review obligation. Duplicate or unknown references are invalid. Exceptions cannot waive explicit retirement, removal of active assertions, failed execution, stale results, installation checks, or TDD checks.
+Exceptions declare `policy`, `scenario`, `reason`, and `status: reviewed`. Coverage exceptions also name `category`. They waive only that category minimum or the named scenario's effectiveness/lifecycle review obligation. Duplicate or unknown references are invalid. Exceptions cannot waive explicit retirement, removal of active assertions, failed execution, stale results, installation checks.
 
 ## Resolve findings
 

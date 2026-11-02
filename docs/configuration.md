@@ -28,7 +28,6 @@ ac:
   padding: 3
 testing:
   placement: per-task
-  approach: flexible
   quality:
     coverage:
       mode: review
@@ -100,9 +99,9 @@ testing:
 
 Each scenario needs exactly one `Test-type: Component` line beneath its heading. With the Node adapter, give each mapped test a title such as `exports rows [EXPORT-001] [Test-type: Component]`. Tasks should name the concrete test, type, and verification boundary. The checker requires evidence `testType` to match the scenario's declared type exactly; it does not assume one type substitutes for another. Task descriptions and the actual quality of the test boundary still require review.
 
-For existing projects, add types to scenarios and test titles, commit the inputs, then regenerate evidence. Older reports without `testType` fail the check and are not automatically upgraded. Evidence opt-out skips these checks. Testing types do not change per-task placement or TDD ordering.
+For existing projects, add types to scenarios and test titles, commit the inputs, then regenerate evidence. Older reports without `testType` fail the check and are not automatically upgraded. Evidence opt-out skips these checks. Testing types do not change per-task placement or verification quality.
 
-The alpha supplies guidance for documentation, decisions, Mermaid, planning, and review. It does not structurally validate those documents or independently enforce agent behavior. Disabling a facility preserves authored files. Evidence opt-out skips product evidence checks; installation, registry, and explicitly selected TDD completion checks still run.
+The alpha supplies guidance for documentation, decisions, Mermaid, planning, and review. It does not structurally validate those documents or independently enforce agent behavior. Disabling a facility preserves authored files. Evidence opt-out skips product evidence checks; installation, registry still run.
 
 For example, to use a different documentation root and turn off Mermaid guidance:
 
@@ -122,7 +121,6 @@ ac:
   capabilities: {}
 testing:
   placement: per-task
-  approach: flexible
   types:
     Unit:
       description: Isolated behavior without external dependencies
@@ -185,120 +183,28 @@ The earlier experimental `ac.prefix` setting is no longer supported. Replace it 
 
 Both modes retain final regression testing and revision-bound evidence collection. Per-task test runs provide immediate feedback; the evidence adapter records results for the final committed inputs. Disabling evidence does not disable ordinary task-level testing.
 
-In flexible mode, placement is guidance supplied by the installed schema and task template. Selecting TDD also enables the completion checks below. Configuration changes do not rewrite existing task lists; revise the task plan when changing this setting.
+Placement is guidance supplied by the installed schema and task template. Configuration changes do not rewrite existing task lists; revise the task plan when changing this setting.
 
-## Test-driven development
+<a id="test-driven-development"></a>
 
-Test placement and test-driven development (TDD) are separate choices. Enable TDD with:
+## Evidence-first verification
 
-```yaml
-testing:
-  placement: per-task
-  approach: tdd
-```
+Use **spec-driven development with evidence-first verification**: define expected behavior and how to verify it before implementation. Develop code and tests in small steps, check that tests detect relevant faults, and maintain them as requirements change.
 
-`approach: flexible` is the default and permits tests before or after implementation within the selected placement. Existing config files that omit `approach` keep this behavior. `approach: tdd` requires `placement: per-task`; contradictory settings are rejected.
+1. Describe acceptance criteria and positive, negative, and boundary cases before implementation. Executable tests can develop alongside the code.
+2. Verify each task before continuing, using concrete commands and actual results. With end-of-change placement, plan the final automated suite while retaining a suitable check for each task.
+3. Assess assertion effectiveness through relevant failures and review. A setup or syntax failure does not show that a test detects the intended defect.
+4. Keep tests aligned with accepted requirements, preserving active assertions and explicitly reviewing retirement.
 
-With TDD, each implementation task contains one red-green-refactor cycle:
+This approach is close to [Specification by Example](https://martinfowler.com/bliki/SpecificationByExample.html), which uses concrete examples to clarify specifications, and [ATDD](https://agilealliance.org/glossary/atdd/), which agrees acceptance tests before implementation. Evidence-first verification is our descriptive wording; it does not require a particular order of test and production edits.
 
-1. Write a focused test before implementing the behavior. Run it and observe failure for the intended missing behavior. Setup, import, and syntax errors do not establish this red phase.
-2. Implement the minimum behavior needed for the test to pass and run it again.
-3. Refactor with relevant tests remaining green, then continue to the next task.
+### Migrate earlier installations
 
-For example: "Add quotation-mark escaping: write and run the tagged test first and confirm the expected failure; implement escaping until the test passes; refactor and rerun the relevant tests." Record commands and observed red/green outcomes in task completion notes. If a new test already passes against existing code, report that honestly rather than claiming an observed red phase. Documentation-only work uses appropriate validation checks.
+Remove the retired `testing.approach` entry from `.cliewen-openspec/config.yaml`, whether its value is `tdd` or `flexible`. Keep unrelated settings. Configuration validation stops with a migration message until this entry is removed; commands do not rewrite it automatically. Run `update` to refresh unmodified owned instructions, and revise active task plans to the four principles. Resolve locally edited owned-file conflicts before updating.
 
-With TDD selected, `check --change NAME` also requires task metadata and recorded execution history. This applies to delivery and the delivery outcome of `cliewen-all`, including when `features.evidence` is false. Discovery and combined no-delivery closure do not require delivery history. Flexible mode keeps its existing behavior.
+The former recorder commands and task-method metadata are no longer supported or assessed. Preserve authored task notes and old local history as historical evidence; update and uninstall do not delete that history. Remove obsolete metadata from active plans after preserving useful observations. It cannot establish completion under the new workflow.
 
-### Describe each task
-
-Add one `yaml cliewen-tasks` fenced block to the change's `tasks.md`. Every checkbox needs a unique numeric ID and a matching entry. Keep the normal task text and completion check; the block supplies the machine-readable verification details.
-
-Finalize each checkbox's ID and text, along with its metadata, before `tdd start`. The recorder includes them in the task definition; only the checked state is excluded. Put observed results in separate paragraphs or a linked results document. For example, after a real successful run:
-
-```md
-- [x] 1.1 Add quotation-mark escaping and verify exact CSV output.
-
-  Observed: the missing-escaping assertion failed before implementation; the recorded green run passed afterward.
-```
-
-Appending that observation to the checkbox line would change the definition and invalidate the earlier history. Finish changes to any declared documentation input before its final verification run. A genuine definition change needs a new, honestly observed cycle; an already-passing test cannot become a red phase retroactively.
-
-````markdown
-- [ ] 1.1 Add CSV quoting and verify quotation marks at the Unit function boundary.
-
-```yaml cliewen-tasks
-version: 1
-tasks:
-  "1.1":
-    method: tdd
-    command: [node, --test, test/export.test.mjs]
-    tests: [test/export.test.mjs]
-    implementation: [export.mjs]
-```
-````
-
-`command` is an executable followed by its arguments, run from your project root without a shell. Use explicit project-relative file paths, including files that will be created. Globs and directories are not file lists. Test and implementation lists must be distinct and together cover the task's verification boundary. Review that coverage; Cliewen cannot discover omitted production files or infer which assertions a command runs.
-
-Choose a method for each task:
-
-| Method | Recorded sequence | When to use it |
-|---|---|---|
-| `tdd` | start → red → green | New or changed behavior; tests change before red while implementation stays unchanged |
-| `characterization` | start → baseline → green | Add coverage for existing behavior; baseline already passes against unchanged implementation |
-| `refactor` | start → baseline → green | Existing tests pass before and after refactoring; test files stay unchanged |
-| `verification` | start → verify | Work with another suitable completion check, such as documentation links or a build |
-
-Every method uses `command`, `tests`, and `implementation`. TDD requires both file lists to be nonempty; characterization and refactor require test files. Verification can use `tests: []` and list documents under `implementation`. Every method other than `tdd` requires a nonempty `reason` explaining the departure. For example, a documentation task can use `method: verification`, `reason: "Only the command reference changes; build the docs and check links."`, and its documentation build command. Review reasons with the task plan. A configuration or tooling change that changes behavior still needs a behavior test.
-
-### Record actual runs
-
-Run these commands from the adopting project's root. Start before changing the task's declared files:
-
-```sh
-npx --no-install cliewen-openspec tdd start --change add-csv-export --task 1.1
-```
-
-Write the focused test, then record the red run using the exact command argument list from the task:
-
-```sh
-npx --no-install cliewen-openspec tdd run --change add-csv-export --task 1.1 --phase red --reason "Quotation marks are not escaped yet" -- node --test test/export.test.mjs
-```
-
-The recorder returns the test command's exit code. A red run should exit nonzero. Inspect the captured failure before implementing: syntax, import, setup, or wrong-expectation failures do not establish missing behavior. `--reason` records your explanation; it does not validate it.
-
-Implement the behavior and record green:
-
-```sh
-npx --no-install cliewen-openspec tdd run --change add-csv-export --task 1.1 --phase green -- node --test test/export.test.mjs
-```
-
-Keep test files unchanged between red and green. After refactoring production code, record green again. Failed green attempts are retained; the last run must pass. Changing tests requires another start and verification cycle. Do not manufacture a red phase for behavior already implemented; choose the honest method and explain it in the reviewed plan.
-
-If an earlier task implements later behavior before its failing test, record that as a TDD departure requiring review. Characterizing the modified worktree afterward does not establish test-first order for behavior newly introduced by this change.
-
-For characterization, run `tdd start`, add the test, then use `--phase baseline` to show it passes against unchanged production. Keep the test unchanged through `--phase green`. Running the baseline before adding the test does not characterize the new case. For refactoring, record a passing baseline with existing tests before production changes, then green with unchanged tests. For a verification exception, use `--phase verify` after the work.
-
-Each task begins with `tdd start`. If its definition changes, start a new cycle; the recorder appends history and preserves earlier attempts. When tasks share files, a replacement cycle must start from those files' last recorded state in the selected earlier cycles. A restart on already-modified files can still fail with `changed between recorded task cycles`. Save pending work separately, restore the last verified contents, start the replacement cycle, then reapply the work and record its checks. Preserve the failed history. If the earlier contents cannot be recovered, report completion as unverified.
-
-After the task's actual verification succeeds, mark its checkbox complete. Once all tasks are complete, run:
-
-```sh
-npx --no-install cliewen-openspec check --change add-csv-export --json
-```
-
-Keep final evidence collection and this completion check outside numbered task checkboxes and recorded task commands. A final verification task should run the actual regression suite or documentation check. Recording `check` itself would make it assess its own unfinished history while a recorder lock exists.
-
-### Completion checks and limits
-
-The recorder appends JSON events to `.cliewen-openspec/tdd/add-csv-export.jsonl`. Events contain task-definition and file hashes, command arguments, output, exit code, and recording time. It compares snapshots before and after each command; commands that change declared inputs cannot establish the required sequence. It blocks simultaneous recording for the same change. Later tasks can edit shared files if their recorded starting states continue from the earlier task's recorded state.
-
-Missing metadata/history, unchecked tasks, stale definitions/files, malformed history, and incomplete or invalid ordering produce errors. A final passing product evidence report cannot replace this history. `check` reads it without running tests or writing files. Without `--change`, permanent-spec checks report that TDD ordering was not assessed; they do not establish task completion after archive.
-
-History is local verification data, separate from the final revision-bound evidence report. Keep it available until completion review; CI needs the same history as an artifact if it performs this check. Existing installations must add `tdd/` to `.cliewen-openspec/.gitignore` before recording. Update preserves that file. Review captured project output before sharing it; do not hand-edit events or discard failures to obtain a pass.
-
-The history is not tamper-proof and the recorder does not restrict writes through other tools. Review the actual failure cause, assertions, declared file coverage, and exception reasons. These checks establish consistency of the captured sequence, not a guarantee that every edit was observed. Stronger write control remains planned.
-
-Final regression and clean committed-revision evidence collection remain required when evidence is enabled. Finish task notes before committing and collecting evidence. Install the updated package and refresh installed schemas with `update`; older authored task lists need explicit metadata and honest new verification, not reconstructed historical claims.
+For effectiveness reviews with the old `method: tdd`, inspect the actual failure, change the method to `behavior-failure`, refresh inspected input digests, commit, and recollect evidence. A passing run or unrelated failure does not qualify. Old records are retained and produce an actionable validation error until reviewed and migrated. Existing `controlled-fault` records keep their method.
 
 ## Decision filenames
 
