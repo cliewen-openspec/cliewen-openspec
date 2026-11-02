@@ -17,7 +17,11 @@ The [first CLI round](cli-trials/result-001.md) and [Claude retries](cli-trials/
 
 [Round 008: TDD completion notes and an OpenCode delivery retry](cli-trials/result-008.md) clarifies stable task labels, separate observations, and advisory versus blocking findings. A fresh delivery run passed the deterministic and TDD/apply reviews, but unsupported application context and an inaccurate warning explanation prevent an overall rubric pass. The shared testing change affects delivery and combined task/apply guidance; discovery does not consume that instruction. Combined TDD and the required repetitions remain outstanding.
 
+[Round 009: Identical OpenCode repeat and a controlled review comparison](cli-trials/result-009.md) records a timed-out repeat and two reviews of the same completed snapshot. Both missed the reversed warning explanation; Opus found additional supported issues but stopped on reported cost after writing its report. Review also identified README already edited before its recording start. Keep these partial and review-only results separate from implementation passes; self-review does not replace independent checking or justify changing the release model.
+
 The common base is checked through every consuming schema, not as a separate user workflow. Existing deterministic tests also cover discovery ending without implementation and creating a separate delivery change. They do not substitute for the missing agent trials.
+
+[Round 010: Longer OpenCode attempt and subscribed Claude Code review](cli-trials/result-010.md) retained another unfinished implementation after 15 minutes. Product tests passed, but characterization history and final evidence failed. Opus through the existing Claude Pro subscription found supported defects while missing cross-task continuity. Updated characterization instructions and a recovery regression now need a fresh agent trial; neither review nor deterministic recovery counts as a release-profile pass. Prefer subscribed Claude Code for ordinary Opus reviews, with a declared usage limit and independent grading.
 
 ## Profiles
 

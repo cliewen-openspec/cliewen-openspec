@@ -165,6 +165,73 @@ profiles:
       billing: local reported-cost stop; not a provider-enforced hard spending cap
     traceFormat: OpenCode run --standalone --format json; model variant via provider/model#high
 
+
+  # Review comparison only; this does not replace the reference or release profile.
+  opencode-2-2-5-opus-review:
+    readiness: pinned
+    agent: OpenCode
+    runner: cli
+    model: opencode/claude-opus-5-5
+    agentVersion: 2.2.5
+    provider: OpenCode Console/Zen; existing local credentials; provider.use allows only opencode
+    effort: high
+    permissions: V2 ordered rules and hard policies allow local tools; deny
+      external_directory, subagent, question, skill, webfetch and websearch;
+      deny MCP and external plugins; no OS isolation
+    context: fresh standalone server and private config directory per phase;
+      project config and Claude skill discovery disabled; AGENTS read explicitly;
+      system and Console configuration may remain
+    budgets:
+      wallTimeSeconds: 600
+      outputBytes: 67108864
+      reportedCostUSD: 0.5
+      tokenLimit: null
+      billing: local reported-cost stop; not a provider-enforced hard spending cap
+    traceFormat: OpenCode run --standalone --format json; model variant via provider/model#high
+
+  opencode-2-2-5-15m:
+    readiness: pinned
+    agent: OpenCode
+    runner: cli
+    model: opencode/glm-5.3-flash
+    agentVersion: 2.2.5
+    provider: OpenCode Console/Zen; existing local credentials; provider.use allows only opencode
+    effort: high
+    permissions: V2 ordered rules and hard policies allow local tools; deny
+      external_directory, subagent, question, skill, webfetch and websearch;
+      deny MCP and external plugins; no OS isolation
+    context: fresh standalone server and private config directory per phase;
+      project config and Claude skill discovery disabled; AGENTS read explicitly;
+      system and Console configuration may remain
+    budgets:
+      wallTimeSeconds: 900
+      outputBytes: 67108864
+      reportedCostUSD: 0.5
+      tokenLimit: null
+      billing: local reported-cost stop; not a provider-enforced hard spending cap
+    traceFormat: OpenCode run --standalone --format json; model variant via provider/model#high
+
+
+  claude-code-opus-review-1usd:
+    readiness: pinned
+    agent: Claude Code
+    runner: cli
+    model: claude-opus-5-5
+    agentVersion: 2.1.316
+    provider: Anthropic firstParty; existing claude.ai Pro authentication
+    effort: medium
+    permissions: dontAsk with explicit local read/edit/write/shell tools;
+      Agent/Task/Web tools denied; no OS isolation
+    context: fresh print process; safe-mode and no session persistence; project
+      AGENTS explicitly read
+    budgets:
+      wallTimeSeconds: 600
+      outputBytes: 67108864
+      reportedCostUSD: 1
+      tokenLimit: null
+      billing: existing Claude subscription; reported budget limits list-equivalent usage, not an additional invoice
+    traceFormat: Claude stream-json with verbose events plus stderr
+
 scenarios:
   csv-bom-tdd:
     schema: cliewen-delivery
@@ -183,6 +250,8 @@ scenarios:
       - docs/testing/cli-trials/result-005.md
       - docs/testing/cli-trials/result-007.md
       - docs/testing/cli-trials/result-008.md
+      - docs/testing/cli-trials/result-009.md
+      - docs/testing/cli-trials/result-010.md
   csv-bom-flexible:
     schema: cliewen-delivery
     readiness: planned

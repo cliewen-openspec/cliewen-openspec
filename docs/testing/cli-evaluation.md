@@ -39,6 +39,15 @@ Each run saves `prompt.txt`, `events.jsonl`, `stderr.txt`, and `run.json` in the
 
 The defaults are a 600-second wall limit and 64 MiB of combined logs per phase. Claude has a $2 reported-cost limit; OpenCode has a $0.50 local stop based on reported events. The OpenCode limit can overshoot because it acts after a response; it is not a provider spending limit. Claude's reported list-equivalent cost is not a subscription invoice. Codex cost and hard token limits are unavailable and recorded as unknown. Combined-schema continuation starts another phase with its own limits.
 
+The owner approved these distinct profiles for the next targeted retry and independent review:
+
+| Profile | Purpose | Wall limit | Reported-cost limit and access |
+|---|---|---|---|
+| `opencode-2-2-5-15m` | GLM delivery retry | 15 minutes | $0.50 local stop through existing OpenCode access |
+| `claude-code-opus-review-1usd` | Opus evidence review | 10 minutes | $1 list-equivalent budget through the existing Claude subscription |
+
+Prefer the subscribed Claude Code route for ordinary independent Opus reviews. An Opus call through OpenCode remains a separate provider-billed experiment when holding the agent tool constant matters. A Claude Code review changes both tool and model, so it assesses the handoff without isolating the model's effect. Report subscription usage separately from provider costs and never treat CLI list-equivalent dollars as an additional invoice. Confirm the selected CLI authentication route without logging credentials. The suite must name the chosen profile; earlier profiles and attempts retain their original budgets.
+
 The runner rejects CLI version mismatches and preserves every attempt. Authentication failures are infrastructure failures, not evidence that a schema failed. Correct the setup and prepare a fresh suite for a retry; keep the failed logs. Do not silently switch provider or model.
 
 ## Check and review the result
@@ -53,6 +62,24 @@ node scripts/check-csv-discovery-trial.mjs PROJECT ARTIFACTS
 Run the checker matching the case, then review its saved rubric against the files and raw trace. Checkers preserve earlier reports and refuse to overwrite them. If a checker defect requires a recheck, retain the original report under a descriptive name and explain the correction.
 
 For discovery, inspect the experiment's source, scope and limitations. For delivery, check assertion quality and actual red/green observations. An already passing characterization test is useful, but does not demonstrate a red phase. Neither CLI completion nor green tests establish decision acceptance or writing quality.
+
+Before marking a trial passed, independently reconcile factual claims, counts, categories, and revisions with their actual sources and checker output. Keep an unsupported statement separate from a verified test result. Link or quote structured findings when a paraphrase could change their meaning.
+
+### Optional read-only self-review
+
+To study self-review, preserve a snapshot of the original attempt first, including dirty files and ignored evidence/history. Copy [the generic review prompt](cli-trials/self-review-prompt.md) into the case's evaluator artifacts without adding earlier findings or solutions. After the initial process has ended, invoke the runner directly so the review flag reaches Node:
+
+```powershell
+node scripts/run-cli-trial.mjs SUITE PROFILE SCHEMA --review REVIEW_PROMPT_FILE
+```
+
+Replace the uppercase arguments with the saved suite, pinned profile, schema, and prompt path; quote paths with spaces. This starts a new process using the project's own saved attempt. It writes `artifacts/self-review/` logs and an ignored `.cliewen-openspec/tdd/self-review.md` report. An incomplete attempt reviews only work actually done.
+
+The runner preserves the initial phase, refuses a second review in the same case, and compares HEAD and project/evidence hashes before and after. Changes to protected inputs make the process fail; they are detected afterward, not prevented by an OS sandbox. Inspect the report and raw actions separately. A clean process and unchanged inputs do not establish that its conclusions are correct.
+
+[Round 009: Identical OpenCode repeat and a controlled review comparison](cli-trials/result-009.md) found useful model-dependent review differences, but both reviewers endorsed a reversed coverage explanation. Self-review is supporting evidence, not a replacement for independent grading. A review by a different model needs its own pinned profile, the same frozen input snapshot, and explicitly recorded budgets; it is not another implementation pass.
+
+[Round 010: Longer OpenCode attempt and subscribed Claude Code review](cli-trials/result-010.md) used the owner's existing Claude Pro subscription for Opus. Authentication and model identity were confirmed without retaining credentials. The report identified real defects, but missed a cross-task history failure and was saved before a reported-usage stop. Treat its list-equivalent cost separately from provider bills and inspect both process completion and report accuracy.
 
 ## Continue the combined scenario after agreement
 

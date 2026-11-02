@@ -1,0 +1,112 @@
+{
+  "capturedAt": "2026-11-02T18:52:58.673Z",
+  "releaseReady": false,
+  "rawArtifacts": ".tmp/agent-trials/cli-evaluation-010",
+  "implementation": {
+    "trial": "C:/Users/flemm/AppData/Local/Temp/cliewen-tdd-15m-1793638623182",
+    "profile": "opencode-2-2-5-15m",
+    "requestedModel": "opencode/glm-5.3-flash",
+    "baseline": "9f25578cd6b620d709991e3e93e081b49c3b4742",
+    "finalRevision": "9f25578cd6b620d709991e3e93e081b49c3b4742",
+    "packageSHA256": "ab611632f602b621dcc755d5c03e1868c1ee2b922262f235e88a74880efd66f7",
+    "startedAt": "2026-11-02T16:57:13.644Z",
+    "endedAt": "2026-11-02T17:12:13.818Z",
+    "durationSeconds": 900.173,
+    "budgets": {
+      "wallTimeSeconds": 900,
+      "outputBytes": 67108864,
+      "reportedCostUSD": 0.5,
+      "tokenLimit": null,
+      "billing": "local reported-cost stop; not a provider-enforced hard spending cap"
+    },
+    "reportedCostUSD": 0.14151908000000007,
+    "observedModels": [],
+    "exitCode": 1,
+    "stopReason": "wall-time-limit",
+    "outcome": "incomplete",
+    "independentChecks": false,
+    "productTests": {
+      "passed": 10,
+      "failed": 0
+    },
+    "changesFromRound009": [
+      "900-second limit instead of 600",
+      "Targeted prompt clarifies documentation input boundaries, source-bound rationale, and structured findings"
+    ],
+    "limits": [
+      "Prompt and time changed together; not an identical controlled repeat",
+      "Product assertions pass but completion history and final evidence fail",
+      "Unsupported proposal claims and ineffective fault-probe interpretation remain"
+    ]
+  },
+  "review": {
+    "trial": "C:/Users/flemm/AppData/Local/Temp/cliewen-claude-subscription-review-1793639655316",
+    "profile": "claude-code-opus-review-1usd",
+    "agent": "Claude Code",
+    "cliVersion": "2.1.316 (Claude Code)",
+    "requestedModel": "claude-opus-5-5",
+    "observedModels": [
+      "claude-opus-5-5"
+    ],
+    "sessionId": "b9a062c8-c060-4981-b31d-04b6b64725f7",
+    "authentication": {
+      "checkedAt": "2026-11-02T17:01:43.639Z",
+      "cliVersion": "2.1.316",
+      "loggedIn": true,
+      "authMethod": "claude.ai",
+      "apiProvider": "firstParty",
+      "subscriptionType": "pro",
+      "source": "Claude CLI auth status; credential/account identifiers excluded",
+      "purpose": "Independent Opus review uses the existing subscription"
+    },
+    "billingInterpretation": "Reported list-equivalent usage under existing Claude Pro subscription, not an additional invoice",
+    "startedAt": "2026-11-02T17:16:55.661Z",
+    "endedAt": "2026-11-02T17:19:46.339Z",
+    "durationSeconds": 170.677,
+    "budgets": {
+      "wallTimeSeconds": 600,
+      "outputBytes": 67108864,
+      "reportedCostUSD": 1,
+      "tokenLimit": null,
+      "billing": "existing Claude subscription; reported budget limits list-equivalent usage, not an additional invoice"
+    },
+    "reportedCostUSD": 1.0314775999999999,
+    "exitCode": 1,
+    "stopReason": "reported-cost-limit",
+    "reportWritten": true,
+    "reviewInputsPreserved": true,
+    "independentlyFrozenFiles": 45,
+    "independentlyChangedInputs": [],
+    "processOutcome": "Stopped on reported cost after saving report; not a clean completed process",
+    "verifiedFindings": [
+      "FORCED-BOM probe causes a ReferenceError rather than testing an always-on marker",
+      "PR draft claims committed-revision validation although HEAD remains baseline and evidence is absent",
+      "Characterization baseline was recorded before the new empty-list test",
+      "Unsupported proposal motivation remains",
+      "Apply response was saved after implementation started"
+    ],
+    "reviewLimits": [
+      "Reviewer called the second characterization cycle valid but missed cross-task continuity rejection",
+      "Claims about absent command output apply only to the supplied snapshot; external evaluator trace contains baseline, probe, check, and other outputs",
+      "Suggested extra cases require judgment about the accepted boundary, not automatic adoption",
+      "Different tool and model; no causal model comparison"
+    ]
+  },
+  "changes": [
+    "Prefer subscribed Claude Code for ordinary Opus reviews",
+    "Pin separate experimental budgets and preserve historical profiles",
+    "Parse Claude session IDs and support named Claude review profiles",
+    "Clarify characterization test-before-baseline order and continuity recovery without relaxing runtime checks",
+    "Add positive and negative regression controls preserving failed history"
+  ],
+  "validation": {
+    "tests": 77,
+    "passed": 77,
+    "failed": 0,
+    "documentationPages": 13,
+    "localLinks": 457,
+    "diagrams": 4,
+    "browserChecks": "Passed desktop/mobile navigation, search, appearance, diagrams, keyboard access, and clipboard",
+    "evaluationPlan": "Passed for three shipped schemas"
+  }
+}

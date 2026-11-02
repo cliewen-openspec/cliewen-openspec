@@ -4,10 +4,14 @@ import os from 'node:os';
 import {spawn, spawnSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import {parse} from 'yaml';
+import {createHash} from 'node:crypto';
 
 const source = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const [suiteFile, profileId, schema, approvalFile, ...extra] = process.argv.slice(2);
-if (!suiteFile || !profileId || !schema || extra.length) throw Error('Use npm run trial:cli -- SUITE PROFILE SCHEMA [APPROVAL_FILE]');
+const [suiteFile, profileId, schema, continuation, ...extra] = process.argv.slice(2);
+const reviewing = continuation === '--review';
+const approvalFile = reviewing ? undefined : continuation;
+const reviewFile = reviewing ? extra[0] : undefined;
+if (!suiteFile || !profileId || !schema || (reviewing ? !reviewFile || extra.length !== 1 : extra.length)) throw Error('Use npm run trial:cli -- SUITE PROFILE SCHEMA [APPROVAL_FILE | --review PROMPT_FILE]');
 const plan = parse(fs.readFileSync(path.join(source, 'docs/testing/agent-evaluation.yaml'), 'utf8'));
 const profile = plan.profiles[profileId];
 if (profile?.readiness !== 'pinned') throw Error('Select a pinned CLI profile');
@@ -20,11 +24,25 @@ const relativeArtifacts = path.relative(path.resolve(trial.project), path.resolv
 if (!relativeArtifacts || (!relativeArtifacts.startsWith(`..${path.sep}`) && relativeArtifacts !== '..' && !path.isAbsolute(relativeArtifacts))) throw Error('Evaluator artifacts must be outside the agent project');
 const gitState = spawnSync('git', ['rev-parse', 'HEAD'], {cwd: trial.project, encoding: 'utf8'});
 if (gitState.status !== 0) throw Error('Trial project must be an existing Git baseline');
-if (!approvalFile) {
+if (!approvalFile && !reviewing) {
   const dirty = spawnSync('git', ['status', '--porcelain', '--untracked-files=all'], {cwd: trial.project, encoding: 'utf8'});
   if (gitState.stdout.trim() !== trial.baseline || dirty.status !== 0 || dirty.stdout.trim()) throw Error('Initial run requires the exact clean baseline; preserve attempts and prepare a fresh clone');
 }
-const phase = approvalFile ? 'approved-continuation' : 'initial';
+if (reviewing) {
+  const previous = JSON.parse(fs.readFileSync(path.join(trial.artifacts, 'initial/run.json'), 'utf8'));
+  if (!previous.endedAt) throw Error('Finish and preserve the initial attempt before review');
+}
+function reviewInputs() {
+  const files = spawnSync('git', ['ls-files', '-z', '--cached', '--others', '--exclude-standard'], {cwd: trial.project, encoding: 'utf8'});
+  if (files.status !== 0) throw Error('Cannot snapshot review inputs');
+  const paths = new Set(files.stdout.split('\0').filter(Boolean));
+  paths.add('.cliewen-openspec/evidence.json');
+  const histories = path.join(trial.project, '.cliewen-openspec/tdd');
+  if (fs.existsSync(histories)) for (const file of fs.readdirSync(histories)) if (/\.jsonl?$/.test(file)) paths.add(`.cliewen-openspec/tdd/${file}`);
+  return JSON.stringify([...paths].sort().map(file => { const full = path.join(trial.project, file); return [file, fs.existsSync(full) ? createHash('sha256').update(fs.readFileSync(full)).digest('hex') : null]; }));
+}
+const beforeReview = reviewing ? reviewInputs() : undefined;
+const phase = reviewing ? 'self-review' : approvalFile ? 'approved-continuation' : 'initial';
 const dir = path.join(trial.artifacts, phase);
 if (fs.existsSync(dir)) throw Error(`Retain prior attempts; this phase already exists: ${dir}`);
 fs.mkdirSync(dir);
@@ -33,15 +51,17 @@ const npmGlobal = process.env.APPDATA ? path.join(process.env.APPDATA, 'npm/node
 let exe, args, versionArgs, prefix = [];
 const env = {...process.env, NO_COLOR: '1', OPENSPEC_TELEMETRY: '0', CI: '1'};
 const wrapper = 'Work only in the current project. Keep even temporary helper scripts, probes, and backups inside this project; use a project-local ignored directory when needed, not a shared system temporary directory. Read AGENTS.md and project configuration. Do not read sibling evaluator files, other repositories, credentials, or earlier solutions. Do not spawn additional agents, contact external services, push, or open a PR. Model-provider requests from this CLI are allowed. Use existing local tools and dependencies. Report actual results and inherited instructions.\n\n';
-const prompt = wrapper + (approvalFile ? fs.readFileSync(approvalFile, 'utf8') : fs.readFileSync(path.join(trial.artifacts, 'prompt.md'), 'utf8'));
+const prompt = wrapper + (reviewing ? fs.readFileSync(reviewFile, 'utf8') : approvalFile ? fs.readFileSync(approvalFile, 'utf8') : fs.readFileSync(path.join(trial.artifacts, 'prompt.md'), 'utf8'));
 fs.writeFileSync(path.join(dir, 'prompt.txt'), prompt);
+if (reviewing) fs.writeFileSync(path.join(dir, 'inputs-before.json'), beforeReview + '\n');
 if (profileId === 'codex-cli-primary') {
   const cli = process.env.CLIEWEN_CODEX_CLI ?? (npmGlobal ? path.join(npmGlobal, '@openai/codex/bin/codex.js') : 'codex');
   if (/\.(?:mjs|cjs|js)$/i.test(cli)) { exe = process.execPath; prefix = [cli]; } else exe = cli;
   args = ['exec', '--ignore-user-config', '--ignore-rules', '--ephemeral', '--json', '--sandbox', 'danger-full-access', '-c', 'approval_policy="never"', '-c', 'model_provider="openai"', '-c', `model_reasoning_effort="${profile.effort}"`, '--model', profile.model, '-'];
   versionArgs = ['--version'];
-} else if (profileId === 'claude-code-primary') {
-  exe = process.env.CLIEWEN_CLAUDE_CLI ?? path.join(home, '.local/bin', process.platform === 'win32' ? 'claude.exe' : 'claude');
+} else if (profile.agent === 'Claude Code' && profile.runner === 'cli') {
+  const cli = process.env.CLIEWEN_CLAUDE_CLI ?? path.join(home, '.local/bin', process.platform === 'win32' ? 'claude.exe' : 'claude');
+  if (/\.(?:mjs|cjs|js)$/i.test(cli)) { exe = process.execPath; prefix = [cli]; } else exe = cli;
   args = ['-p', prompt, '--model', profile.model, '--effort', profile.effort, '--output-format', 'stream-json', '--verbose', '--safe-mode', '--no-session-persistence', '--permission-mode', 'dontAsk', '--allowedTools', 'Read,Edit,Write,Bash,PowerShell,Glob,Grep', '--disallowedTools', 'Agent,Task,WebFetch,WebSearch', '--max-budget-usd', String(profile.budgets.reportedCostUSD)];
   versionArgs = ['--version'];
 } else if (profile.agent === 'OpenCode' && profile.runner === 'cli') {
@@ -100,7 +120,7 @@ function stop(reason) {
 }
 function event(line) {
   let e; try { e = JSON.parse(line); } catch { return; }
-  if (e.sessionID || e.thread_id) sessionId = e.sessionID ?? e.thread_id;
+  if (e.sessionID || e.session_id || e.thread_id) sessionId = e.sessionID ?? e.session_id ?? e.thread_id;
   if (e.type === 'error' || e.type === 'turn.failed' || (e.type === 'result' && (e.is_error || e.subtype !== 'success'))) eventFailure = true;
   if (e.type === 'turn.completed') usage = e.usage;
   if (e.type === 'result') { usage = e.usage; reportedCostUSD = e.total_cost_usd ?? reportedCostUSD; for (const model of Object.keys(e.modelUsage ?? {})) models.add(model); }
@@ -123,7 +143,8 @@ const result = await new Promise(resolve => {
 });
 clearTimeout(timer); clearInterval(progress); if (buffer) event(buffer);
 await Promise.all([new Promise(resolve => stdout.end(resolve)), new Promise(resolve => stderr.end(resolve))]);
-const summary = {...metadata, ...result, endedAt: new Date().toISOString(), durationSeconds: (Date.now() - started) / 1000, stopReason: stopReason ?? null, eventFailure, sessionId: sessionId ?? null, usage: usage ?? null, stepUsage, reportedCostUSD: profileId === 'codex-cli-primary' ? null : reportedCostUSD, observedModels: [...models], evaluation: 'not-graded'};
+const reviewInputsPreserved = !reviewing || (beforeReview === reviewInputs() && spawnSync('git', ['rev-parse', 'HEAD'], {cwd: trial.project, encoding: 'utf8'}).stdout.trim() === gitState.stdout.trim());
+const summary = {...metadata, ...result, endedAt: new Date().toISOString(), durationSeconds: (Date.now() - started) / 1000, stopReason: stopReason ?? null, eventFailure, sessionId: sessionId ?? null, usage: usage ?? null, stepUsage, reportedCostUSD: profileId === 'codex-cli-primary' ? null : reportedCostUSD, observedModels: [...models], reviewInputsPreserved, evaluation: 'not-graded'};
 fs.writeFileSync(path.join(dir, 'run.json'), JSON.stringify(summary, null, 2) + '\n');
 console.log(JSON.stringify({schema, profileId, phase, exitCode: summary.exitCode, stopReason: summary.stopReason, durationSeconds: summary.durationSeconds, reportedCostUSD: summary.reportedCostUSD, observedModels: summary.observedModels, artifacts: dir}, null, 2));
-process.exitCode = summary.exitCode === 0 && !stopReason && !eventFailure ? 0 : 1;
+process.exitCode = summary.exitCode === 0 && !stopReason && !eventFailure && reviewInputsPreserved ? 0 : 1;

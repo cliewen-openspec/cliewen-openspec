@@ -6,7 +6,7 @@ Changes that matter to projects using Cliewen for OpenSpec.
 
 - Independently configurable checks for positive/negative case coverage, assertion-effectiveness reviews, and test maintenance when requirements change or are retired. The default warns about missing assessments; projects can disable individual policies or make them blocking.
 - Case IDs and coverage categories in Node test reports, plus scoped exceptions and review records tied to inspected file contents. Passing record checks still require review of assertion meaning and approval claims. See [test quality and lifecycle](docs/testing/test-quality.md) for development-source usage and limitations.
-- TDD instructions explain where to record completion notes without invalidating earlier verification.
+- TDD instructions explain where to record completion notes, when to add characterization tests, and how to restart verification without losing file-history consistency. See the [TDD guide](docs/configuration.md#test-driven-development).
 - Development package version `0.2.0-alpha.1`; it is not published. Updating an installation from `0.1.0-alpha.1` preserves authored resources and configuration. Other historical versions remain unsupported.
 
 ## 0.1.0-alpha.1 (2026-11-01)

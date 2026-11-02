@@ -1,0 +1,93 @@
+{
+  "capturedAt": "2026-11-02T16:39:13.182Z",
+  "releaseReady": false,
+  "rawArtifacts": ".tmp/agent-trials/cli-evaluation-009",
+  "repeat": {
+    "referenceTrial": "C:/Users/flemm/AppData/Local/Temp/cliewen-csv-bom-1793634712937",
+    "trial": "C:/Users/flemm/AppData/Local/Temp/cliewen-opencode-repeat-1793636203579",
+    "baseline": "9f25578cd6b620d709991e3e93e081b49c3b4742",
+    "package": {
+      "filename": "cliewen-openspec-0.2.0-alpha.1.tgz",
+      "sha256": "ab611632f602b621dcc755d5c03e1868c1ee2b922262f235e88a74880efd66f7"
+    },
+    "fullPromptSHA256": "d4df4e401f3d14de3d3b969e116f4526edbb355f86b977d27209861853532da7",
+    "fullPromptIdentical": true,
+    "profileIdentical": true,
+    "durationSeconds": 600.181,
+    "exitCode": 1,
+    "stopReason": "wall-time-limit",
+    "reportedCostUSD": 0.06865371,
+    "outcome": "incomplete",
+    "independentChecks": false
+  },
+  "comparison": {
+    "scope": "Read-only evidence review, not generation or whole-agent ranking",
+    "sourceAttempt": "C:/Users/flemm/AppData/Local/Temp/cliewen-csv-bom-1793634712937",
+    "sourceRevision": "7b826a67eac5a4b3613e245dd7d042c36e16e982",
+    "inputFiles": 49,
+    "promptIdentical": true,
+    "groundTruth": [
+      {
+        "finding": "Unsupported consumer/spreadsheet encoding assumptions",
+        "glm": "missed",
+        "opus": "identified"
+      },
+      {
+        "finding": "EXP-007/EXP-008 missing minima reversed in results prose",
+        "glm": "missed; incorrectly approved the prose",
+        "opus": "missed; incorrectly approved the prose"
+      }
+    ],
+    "additionalVerifiedObservations": [
+      "Both identified a design claim about truthy non-boolean options contradicting strict equality in implementation.",
+      "Opus identified README already at its final hash before task 2.1 start; the record confirms that window deviation.",
+      "GLM incorrectly claimed the red record lacked a reason field; the original JSONL contains it."
+    ],
+    "limits": [
+      "One frozen example, requested model identities not echoed by the event stream.",
+      "Opus wrote the report but was stopped by the 0.50 local cost guard at 0.5809212; this is not a clean completed process.",
+      "Local cost limits act after reported steps and can overshoot; no purchase or budget increase.",
+      "Provider/model adapters and requested effort semantics may vary by model.",
+      "Neither self-review nor a different model replaces independent checking."
+    ],
+    "reviews": [
+      {
+        "profile": "opencode-2-2-5",
+        "requestedModel": "opencode/glm-5.3-flash",
+        "cliVersion": "opencode v2.2.5",
+        "effort": "high",
+        "observedModels": [],
+        "durationSeconds": 235.1,
+        "exitCode": 0,
+        "stopReason": null,
+        "reportedCostUSD": 0.022773400000000003,
+        "reviewInputsPreserved": true,
+        "independentInputChanges": [],
+        "reportWritten": true,
+        "inputFiles": 49
+      },
+      {
+        "profile": "opencode-2-2-5-opus-review",
+        "requestedModel": "opencode/claude-opus-5-5",
+        "cliVersion": "opencode v2.2.5",
+        "effort": "high",
+        "observedModels": [],
+        "durationSeconds": 151.292,
+        "exitCode": 1,
+        "stopReason": "reported-cost-limit",
+        "reportedCostUSD": 0.5809211999999999,
+        "reviewInputsPreserved": true,
+        "independentInputChanges": [],
+        "reportWritten": true,
+        "inputFiles": 49
+      }
+    ]
+  },
+  "validation": {
+    "tests": 75,
+    "passed": 75,
+    "failed": 0,
+    "focusedRunnerTests": 6
+  },
+  "preModelInfrastructure": "npm did not forward --review in two invocations; no model calls occurred; direct Node calls launched the preserved reviews"
+}

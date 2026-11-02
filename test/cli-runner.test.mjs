@@ -10,7 +10,7 @@ import {parse} from 'yaml';
 const source = fileURLToPath(new URL('../', import.meta.url));
 const profiles = parse(fs.readFileSync(path.join(source, 'docs/testing/agent-evaluation.yaml'), 'utf8')).profiles;
 const profile = profiles['codex-cli-primary'];
-function fixture(t, {version, failEvent = false, profileId = 'codex-cli-primary'} = {}) {
+function fixture(t, {version, failEvent = false, profileId = 'codex-cli-primary', editReview = false} = {}) {
   const selected = profiles[profileId];
   version ??= selected.agentVersion;
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'cliewen-cli-runner-test-'));
@@ -18,15 +18,24 @@ function fixture(t, {version, failEvent = false, profileId = 'codex-cli-primary'
   const project = path.join(root, 'project'), artifacts = path.join(root, 'artifacts');
   fs.mkdirSync(project); fs.mkdirSync(artifacts);
   fs.writeFileSync(path.join(project, 'AGENTS.md'), 'Test fixture only.\n');
+  if (editReview === 'machine-check') {
+    fs.mkdirSync(path.join(project, '.cliewen-openspec/tdd'), {recursive: true});
+    fs.writeFileSync(path.join(project, '.gitignore'), '.cliewen-openspec/tdd/\n');
+    fs.writeFileSync(path.join(project, '.cliewen-openspec/tdd/check.json'), '{"ok":false}\n');
+  }
   const git = (...args) => { const r = spawnSync('git', args, {cwd: project, encoding: 'utf8'}); assert.equal(r.status, 0, r.stderr); return r.stdout.trim(); };
   git('init'); git('add', '.'); git('-c', 'user.name=Fixture', '-c', 'user.email=fixture@example.invalid', 'commit', '-m', 'Fixture');
   const suite = path.join(root, 'suite.json');
   fs.writeFileSync(suite, JSON.stringify({cases: [{profile: profileId, schema: 'cliewen-delivery', project, artifacts, baseline: git('rev-parse', 'HEAD')}]}));
   fs.writeFileSync(path.join(artifacts, 'prompt.md'), 'Do not call any model. This is a fake CLI test.');
   const fake = path.join(root, 'fake-cli.mjs');
-  fs.writeFileSync(fake, `if(process.argv.includes('--version')) {console.log(${JSON.stringify(version)});} else {process.stdin.resume();process.stdin.on('end',()=>{console.log(JSON.stringify({type:'thread.started',thread_id:'fixture-session'})); console.log(JSON.stringify(${JSON.stringify(failEvent ? {type: 'turn.failed', error: {message: 'Fixture failure'}} : {type: 'turn.completed', usage: {input_tokens: 10, output_tokens: 4}})}));process.stderr.write('fixture diagnostic');});}\n`);
-  const override = selected.agent === 'OpenCode' ? 'CLIEWEN_OPENCODE_CLI' : 'CLIEWEN_CODEX_CLI';
-  const run = () => spawnSync(process.execPath, ['scripts/run-cli-trial.mjs', suite, profileId, 'cliewen-delivery'], {cwd: source, encoding: 'utf8', timeout: 15000, env: {...process.env, [override]: fake, FAKE_PRIVATE_TOKEN: 'must-not-appear'}});
+  const events = selected.agent === 'Claude Code'
+    ? [{type: 'system', subtype: 'init', session_id: 'fixture-session', model: selected.model}, {type: 'result', subtype: 'success', session_id: 'fixture-session', total_cost_usd: 0.1, usage: {input_tokens: 10, output_tokens: 4}, modelUsage: {[selected.model]: {inputTokens: 10}}}]
+    : [{type: 'thread.started', thread_id: 'fixture-session'}, failEvent ? {type: 'turn.failed', error: {message: 'Fixture failure'}} : {type: 'turn.completed', usage: {input_tokens: 10, output_tokens: 4}}];
+  fs.writeFileSync(fake, `if(process.argv.includes('--version')) {console.log(${JSON.stringify(version)});} else {process.stdin.resume();process.stdin.on('end',()=>{for(const event of ${JSON.stringify(events)})console.log(JSON.stringify(event));process.stderr.write('fixture diagnostic');});}\n`);
+  const override = selected.agent === 'OpenCode' ? 'CLIEWEN_OPENCODE_CLI' : selected.agent === 'Claude Code' ? 'CLIEWEN_CLAUDE_CLI' : 'CLIEWEN_CODEX_CLI';
+  const run = (...args) => spawnSync(process.execPath, ['scripts/run-cli-trial.mjs', suite, profileId, 'cliewen-delivery', ...args], {cwd: source, encoding: 'utf8', timeout: 15000, env: {...process.env, [override]: fake, FAKE_PRIVATE_TOKEN: 'must-not-appear'}});
+  if (editReview) fs.appendFileSync(fake, `\nimport fs from 'node:fs'; if (!process.argv.includes('--version') && fs.existsSync('mutate-on-review')) fs.appendFileSync(${JSON.stringify(editReview === 'machine-check' ? '.cliewen-openspec/tdd/check.json' : 'AGENTS.md')}, 'changed');\n`);
   return {project, artifacts, run};
 }
 
@@ -44,6 +53,23 @@ test('CLI runner preserves raw logs and requested profile without treating CLI c
   assert.notEqual(f.run().status, 0, 'earlier logs must not be overwritten');
 });
 
+test('CLI self-review follows a retained attempt and cannot change its inputs or overwrite the initial phase', t => {
+  const f = fixture(t); const prompt = path.join(f.artifacts, 'review.md'); fs.writeFileSync(prompt, 'Review saved evidence only.');
+  assert.notEqual(f.run('--review', prompt).status, 0);
+  assert.equal(f.run().status, 0);
+  const initial = fs.readFileSync(path.join(f.artifacts, 'initial/run.json'), 'utf8');
+  assert.equal(f.run('--review', prompt).status, 0);
+  assert.equal(fs.readFileSync(path.join(f.artifacts, 'initial/run.json'), 'utf8'), initial);
+  assert.equal(JSON.parse(fs.readFileSync(path.join(f.artifacts, 'self-review/run.json'))).reviewInputsPreserved, true);
+  assert.notEqual(f.run('--review', prompt).status, 0);
+  for (const editReview of [true, 'machine-check']) {
+    const changed = fixture(t, {editReview}); const otherPrompt = path.join(changed.artifacts, 'review.md'); fs.writeFileSync(otherPrompt, 'Review only.');
+    assert.equal(changed.run().status, 0); fs.writeFileSync(path.join(changed.project, 'mutate-on-review'), 'fixture control');
+    assert.notEqual(changed.run('--review', otherPrompt).status, 0);
+    assert.equal(JSON.parse(fs.readFileSync(path.join(changed.artifacts, 'self-review/run.json'))).reviewInputsPreserved, false);
+  }
+});
+
 test('CLI runner records version failure and detects semantic failure despite exit zero', t => {
   const wrong = fixture(t, {version: '0.0.0'});
   assert.notEqual(wrong.run().status, 0);
@@ -53,6 +79,21 @@ test('CLI runner records version failure and detects semantic failure despite ex
   assert.notEqual(semantic.run().status, 0);
   const failedTurn = JSON.parse(fs.readFileSync(path.join(semantic.artifacts, 'initial/run.json'), 'utf8'));
   assert.equal(failedTurn.exitCode, 0); assert.equal(failedTurn.eventFailure, true);
+});
+
+test('subscription review and longer OpenCode profiles keep their own declared budgets', t => {
+  for (const profileId of ['claude-code-opus-review-1usd', 'opencode-2-2-5-15m']) {
+    const f = fixture(t, {profileId}); assert.equal(f.run().status, 0);
+    const result = JSON.parse(fs.readFileSync(path.join(f.artifacts, 'initial/run.json')));
+    if (profileId.startsWith('claude')) {
+      assert.ok(result.args.includes('--safe-mode')); assert.ok(result.args.includes('--no-session-persistence'));
+      assert.equal(result.args[result.args.indexOf('--max-budget-usd') + 1], '1');
+      assert.match(result.profile.budgets.billing, /subscription/);
+      assert.equal(result.sessionId, 'fixture-session'); assert.deepEqual(result.observedModels, ['claude-opus-5-5']);
+    } else {
+      assert.equal(result.profile.budgets.wallTimeSeconds, 900); assert.equal(result.profile.budgets.reportedCostUSD, 0.5);
+    }
+  }
 });
 
 test('CLI runner refuses changed initial baselines before launching a model', t => {

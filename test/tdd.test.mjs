@@ -118,6 +118,32 @@ test('TDD metadata rejects missing tasks, duplicate IDs, unsafe files and trunca
   assert.ok(f.codes().includes('tdd-history-invalid'));
 });
 
+test('characterization retry preserves continuity by starting before reapplying new coverage', t => {
+  const f = fixture(t);
+  f.start(); f.testValue(1); f.phase('red', 1);
+  f.write('value.mjs', 'export const value = 1;\n'); f.phase('green');
+  const prior = fs.readFileSync(path.join(f.root, 'test/value.test.mjs'), 'utf8');
+  const expanded = prior + "test('also covers the existing type', () => assert.equal(typeof value, 'number'));\n";
+  const second = {...f.definition, method: 'characterization', reason: 'Add coverage for the existing number type.'};
+  f.write('openspec/changes/add-value/tasks.md', '# Tasks\n- [x] 1.1 Return one and verify the exported value.\n- [x] 1.2 Characterize the existing type.\n\n```yaml cliewen-tasks\n' + stringify({version: 1, tasks: {'1.1': f.definition, '1.2': second}}) + '```\n');
+  const start = () => f.run(['tdd', 'start', '--change', 'add-value', '--task', '1.2']);
+  const phase = name => {
+    const env = {...process.env}; delete env.NODE_TEST_CONTEXT;
+    const r = spawnSync(process.execPath, [cli, 'tdd', 'run', '--root', f.root, '--change', 'add-value', '--task', '1.2', '--phase', name, '--', ...second.command], {encoding: 'utf8', env});
+    assert.equal(r.status, 0, r.stdout + r.stderr);
+  };
+  start(); phase('baseline'); f.write('test/value.test.mjs', expanded); phase('green');
+  assert.ok(f.codes().includes('tdd-sequence-invalid'), 'The new test must precede the characterization baseline');
+  start(); phase('baseline'); phase('green');
+  assert.ok(check(f.root, 'add-value').some(f => f.message.includes('changed between recorded task cycles')), 'Restarting on the modified file loses continuity with task 1.1');
+  const historyFile = path.join(f.root, '.cliewen-openspec/tdd/add-value.jsonl');
+  const failedHistory = fs.readFileSync(historyFile, 'utf8');
+  f.write('test/value.test.mjs', prior); start();
+  f.write('test/value.test.mjs', expanded); phase('baseline'); phase('green');
+  assert.deepEqual(f.codes(), []);
+  assert.ok(fs.readFileSync(historyFile, 'utf8').startsWith(failedHistory), 'Recovery appends checks without rewriting failed attempts');
+});
+
 test('TDD requires an explicit change and does not assess discovery or no-delivery work', t => {
   const f = fixture(t);
   assert.ok(check(f.root).some(f => f.code === 'tdd-change-required'));

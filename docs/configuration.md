@@ -274,7 +274,9 @@ npx --no-install cliewen-openspec tdd run --change add-csv-export --task 1.1 --p
 
 Keep test files unchanged between red and green. After refactoring production code, record green again. Failed green attempts are retained; the last run must pass. Changing tests requires another start and verification cycle. Do not manufacture a red phase for behavior already implemented; choose the honest method and explain it in the reviewed plan.
 
-For characterization or refactoring, use `--phase baseline` for the passing run before production changes, then `--phase green`. For a verification exception, use `--phase verify` after the work. Each task begins with `tdd start`. If its definition changes, start a new cycle; the recorder appends history and preserves earlier attempts.
+For characterization, run `tdd start`, add the test, then use `--phase baseline` to show it passes against unchanged production. Keep the test unchanged through `--phase green`. Running the baseline before adding the test does not characterize the new case. For refactoring, record a passing baseline with existing tests before production changes, then green with unchanged tests. For a verification exception, use `--phase verify` after the work.
+
+Each task begins with `tdd start`. If its definition changes, start a new cycle; the recorder appends history and preserves earlier attempts. When tasks share files, a replacement cycle must start from those files' last recorded state in the selected earlier cycles. A restart on already-modified files can still fail with `changed between recorded task cycles`. Save pending work separately, restore the last verified contents, start the replacement cycle, then reapply the work and record its checks. Preserve the failed history. If the earlier contents cannot be recovered, report completion as unverified.
 
 After the task's actual verification succeeds, mark its checkbox complete. Once all tasks are complete, run:
 
