@@ -45,6 +45,6 @@ Apply recovers a leftover valid transaction first, then checks conflicts and ref
 
 ## What remains
 
-`.cliewen-openspec/config.yaml`, its registry, evidence, and local ignore file remain, along with authored project files. Their contents are not migrated or validated as a prerequisite to removal. Keep the registry to preserve identity history. The command currently supports `0.1.0-alpha.1` manifests; other versions require an explicit supported migration. Without a manifest, it refuses removal rather than guessing ownership. A repeated uninstall therefore reports a missing manifest.
+`.cliewen-openspec/config.yaml`, its registry, evidence, and local ignore file remain, along with authored project files. Their contents are not migrated or validated as a prerequisite to removal. Keep the registry to preserve identity history. This candidate supports only `0.1.0` manifests; alpha and other versions are rejected without automatic migration. Without a manifest, it refuses removal rather than guessing ownership. A repeated uninstall therefore reports a missing manifest.
 
 Review the resulting Git diff. `check` reports not-installed after removal; run `init` again if you want to restore the schemas. Reinstallation retains configuration and the AC high-water marks, rather than restarting numbering. Removing the npm dependency is a separate choice, performed after the resource command if desired.

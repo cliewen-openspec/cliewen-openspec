@@ -22,3 +22,7 @@ Concentrate new development on the OpenSpec-based project. The earlier `clue` pr
 [The first-release checklist](../plans/first-release.md) owns readiness and execution status. The repository transfer and Pages deployment do not authorize npm publication. Priority 4's final-candidate checks and the remaining plan still govern release acceptance. The OpenSpec introduction is prepared locally and sent only after release acceptance and explicit outreach authorization.
 
 This supersedes the roadmap's earlier requirements to preserve old public addresses and provide an alpha/user migration path. It does not supersede [Decision 006: Preserve existing project authorities and paths](006-preserve-existing-project-authorities-and-paths.md) or [Decision 014: Own generated resources and recover failed installation changes](014-installer-ownership-and-recoverable-lifecycle.md): those protect adopting projects' authored data and existing authorities.
+
+## Implementation status
+
+Package, lockfile, runtime, and active guides now identify the unpublished `0.1.0` candidate. Lifecycle commands accept only its own manifest version; `check` reports other versions as blocking rather than healthy installations. A regression verifies rejected versions leave installed/authored files unchanged in ordinary and dry-run operations. The packed workflow continues to exercise supported refresh, recovery, and removal. Candidate preparation does not authorize a tag, npm publication, or release acceptance.

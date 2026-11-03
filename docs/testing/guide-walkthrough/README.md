@@ -9,7 +9,7 @@ Use these pinned profiles from [the evaluation manifest](../agent-evaluation.yam
 
 | Profile | CLI | Requested model / effort |
 |---|---|---|
-| `claude-guide-walkthrough` | Claude Code 2.1.316 | `claude-opus-5-5` / medium |
+| `claude-guide-walkthrough` | Claude Code 2.1.317 | `claude-opus-5-5` / medium |
 | `codex-guide-walkthrough` | Codex CLI 0.166.0 | `gpt-6.1-sol` / medium |
 | `opencode-guide-walkthrough` | OpenCode 2.2.5 | `opencode/glm-5.3-flash` / high |
 

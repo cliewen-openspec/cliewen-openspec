@@ -5,7 +5,7 @@ type: reference
 
 Cliewen reads project settings from `.cliewen-openspec/config.yaml`.
 
-This reference describes the development source for `0.2.0-alpha.1`. The published `0.1.0-alpha.1` does not accept the `quality`, `lifecycle`, `learnings`, or `writing` settings below. Use that package's bundled reference when working with the published alpha.
+This reference describes the local `0.1.0` release candidate, which is not yet published on npm. The earlier published `0.1.0-alpha.1` does not accept the `quality`, `lifecycle`, `learnings`, or `writing` settings below. Use that package's bundled reference when working with the alpha; its installation manifest is unsupported by this candidate.
 
 ## Full defaults
 
@@ -162,7 +162,7 @@ Each scenario needs exactly one `Test-type: Component` line beneath its heading.
 
 For existing projects, add types to scenarios and test titles, commit the inputs, then regenerate evidence. Older reports without `testType` fail the check and are not automatically upgraded. Evidence opt-out skips these checks. Testing types do not change per-task placement or verification quality.
 
-The alpha supplies guidance for documentation, decisions, Mermaid, planning, and review. It does not structurally validate those documents or independently enforce agent behavior. Disabling a facility preserves authored files. Evidence opt-out skips product evidence checks; installation, registry still run.
+The candidate supplies guidance for documentation, decisions, Mermaid, planning, and review. It does not structurally validate those documents or independently enforce agent behavior. Disabling a facility preserves authored files. Evidence opt-out skips product evidence checks; installation and registry checks still run.
 
 For example, to use a different documentation root and turn off Mermaid guidance:
 
@@ -231,7 +231,7 @@ If the highest allocated number was `EXP-017`, the next ID is `EXPORT-018`. Exis
 
 Current and historical prefixes remain reserved to their original capability, even if its config mapping is removed. Allocation using a retired prefix is rejected with guidance to use the current capability. Previously used prefixes cannot be reassigned, including renaming back to a historical prefix. The command also rejects target prefixes already appearing in OpenSpec documents.
 
-The registry records each capability's current prefix, previous prefixes, and highest allocated number. Existing flat alpha registries are adopted on the next allocation or rename: first map each used prefix to its original capability. Unmapped legacy counters remain reserved; they are never silently discarded or assigned to new capabilities. `check` validates this state without writing it. Removing the registry loses allocation history, so retain it in version control.
+The registry records each capability's current prefix, previous prefixes, and highest allocated number. `check` validates this state without writing it. Removing the registry loses allocation history, so retain it in version control. Do not use the native registry as a second authority for IDs allocated by another tool.
 
 The earlier experimental `ac.prefix` setting is no longer supported. Replace it with `ac.capabilities` before using this version. Existing bracketed IDs remain valid evidence references regardless of prefix history.
 
@@ -259,20 +259,18 @@ Use **spec-driven development with evidence-first verification**: define expecte
 
 This approach is close to [Specification by Example](https://martinfowler.com/bliki/SpecificationByExample.html), which uses concrete examples to clarify specifications, and [ATDD](https://agilealliance.org/glossary/atdd/), which agrees acceptance tests before implementation. Evidence-first verification is our descriptive wording; it does not require a particular order of test and production edits.
 
-### Migrate earlier installations
+### Earlier formats
 
-Remove the retired `testing.approach` entry from `.cliewen-openspec/config.yaml`, whether its value is `tdd` or `flexible`. Keep unrelated settings. Configuration validation stops with a migration message until this entry is removed; commands do not rewrite it automatically. Run `update` to refresh unmodified owned instructions, and revise active task plans to the four principles. Resolve locally edited owned-file conflicts before updating.
+The first non-prerelease release supports fresh configuration and its own `0.1.0` installation manifests. It does not migrate earlier alpha installations. Retired `testing.approach` values and effectiveness records using `method: tdd` remain invalid; do not copy them into a new project.
 
-The former recorder commands and task-method metadata are no longer supported or assessed. Preserve authored task notes and old local history as historical evidence; update and uninstall do not delete that history. Remove obsolete metadata from active plans after preserving useful observations. It cannot establish completion under the new workflow.
-
-For effectiveness reviews with the old `method: tdd`, inspect the actual failure, change the method to `behavior-failure`, refresh inspected input digests, commit, and recollect evidence. A passing run or unrelated failure does not qualify. Old records are retained and produce an actionable validation error until reviewed and migrated. Existing `controlled-fault` records keep their method.
+Existing authored history remains project-owned. Recorder commands and task-method metadata from earlier development builds do not establish completion under evidence-first verification. General format migration is outside this release's scope.
 
 ## Decision filenames
 
 New projects use `NNN-short-title.md`, such as `001-use-a-shared-base.md`, for new Decision Records. The sequence starts at 1, padded to a minimum of three digits for filename sorting. Numbers above 999 grow naturally. This is a naming convention in the schema guidance, not a configurable setting or an implemented decision allocator.
 
-Existing filenames and paths are stable public addresses: never rename, move, or renumber documents to normalize naming, titles, categories, or padding. External systems such as GitHub may link to them. Edit content and metadata in place, even when a title or category changes. Existing projects retain conventions such as `ADR-059-title.md` and `PDR-074-title.md`; read their allocation rules and use their existing ID authority rather than starting a competing counter. These conventions are not yet configurable in the alpha. The project owner explicitly authorized normalizing this repository's first two decision filenames to three digits; that local exception does not authorize renaming documents in other projects.
+Existing filenames and paths are stable public addresses: never rename, move, or renumber documents to normalize naming, titles, categories, or padding. External systems such as GitHub may link to them. Edit content and metadata in place, even when a title or category changes. Existing projects retain conventions such as `ADR-059-title.md` and `PDR-074-title.md`; read their allocation rules and use their existing ID authority rather than starting a competing counter. These conventions are not configurable in `0.1.0`. This repository's earlier owner-approved filename normalization does not authorize renaming documents in other projects.
 
-## Existing alpha installations
+## Installed resource versions
 
-Install the new package, then use [update](guide/updating.md) to preview and refresh owned schema files and templates. Development source accepts `0.2.0-alpha.1` and `0.1.0-alpha.1` manifests; the published 0.1 package accepts its own manifests only. Configuration, registry, authored artifacts, and document paths are preserved. Adding config settings alone does not replace installed instructions. Other manifest versions and general config/registry migrations are not supported automatically.
+The `0.1.0` candidate's `init`, `update`, and `uninstall` accept only `0.1.0` installation manifests. `check` reports other manifest versions as unsupported; changing the recorded version by hand does not migrate an installation. Use a fresh project for candidate evaluation. [Update](guide/updating.md) refreshes or repairs owned resources within the supported version while preserving configuration, registry, authored artifacts, and document paths. Adding config settings alone does not replace installed instructions. General version/config/registry migrations are outside this release's scope.

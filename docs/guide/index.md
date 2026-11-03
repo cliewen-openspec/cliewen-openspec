@@ -5,7 +5,7 @@ type: guide
 
 Cliewen adds project documentation, Decision Records, stable acceptance criterion IDs, and test evidence to an OpenSpec workflow. Use it when you want an agent to leave behind an explanation of what changed and a record of which scenarios were tested.
 
-The current alpha provides three workflows. `cliewen-delivery` takes an understood change through proposal, behavior specs, design, implementation tasks, and verification. [Discovery](discovery.md) investigates a question and produces a recommendation, including the option to make no change. [The combined workflow](all.md) keeps investigation and delivery in one change, with explicit no-delivery closure. OpenSpec owns the change files, spec synchronization, and archive. Your coding agent writes the artifacts and implementation; Cliewen supplies instructions, templates, configuration, ID allocation, and evidence checks.
+The local `0.1.0` candidate provides three workflows. `cliewen-delivery` takes an understood change through proposal, behavior specs, design, implementation tasks, and verification. [Discovery](discovery.md) investigates a question and produces a recommendation, including the option to make no change. [The combined workflow](all.md) keeps investigation and delivery in one change, with explicit no-delivery closure. OpenSpec owns the change files, spec synchronization, and archive. Your coding agent writes the artifacts and implementation; Cliewen supplies instructions, templates, configuration, ID allocation, and evidence checks.
 
 [Start with your first change](getting-started.md). It uses a small CSV exporter and ends with an archived change and fresh evidence.
 
@@ -29,10 +29,11 @@ If something fails or the guide is unclear, [report a bug](https://github.com/cl
 | Decision Records | A Markdown template and guidance for recording choices that affect future work |
 | Documentation and Mermaid | Guidance for maintaining explanations and embedded diagrams |
 | Recovery | Restore files from an interrupted installer transaction |
-| Project learnings (development 0.2) | Optional indexed lessons with retrieval, verification, and retirement guidance; authored notes are preserved |
-| Humanizer (development 0.2) | Agent-mediated discovery and use, one status per session, and nonblocking fallback; no automatic installation |
+| Test quality and lifecycle | Configurable case-coverage, assertion-effectiveness, and test-maintenance checks; meaning and sufficiency still need review |
+| Project learnings | Optional indexed lessons with retrieval, verification, and retirement guidance; authored notes are preserved |
+| Humanizer | Agent-mediated discovery and use, one status per session, and nonblocking fallback; no automatic installation |
 
-The published alpha is `0.1.0-alpha.1`. Install it in your project with `npm install --save-dev cliewen-openspec@0.1.0-alpha.1`. Use an explicit version or `@alpha`; npm's `latest` tag currently points to a staging placeholder. The deterministic workflow test uses OpenSpec 1.15.0; package CI exercises Node 22 and 24 on Windows and Linux.
+The `0.1.0` candidate is not yet published; [build its local tarball](getting-started.md) for this guide. The earlier published `0.1.0-alpha.1` remains available but lacks the new quality, learnings, and writing facilities. Its manifest is unsupported by this candidate. The deterministic workflow test uses OpenSpec 1.15.0; package CI exercises Node 22 and 24 on Windows and Linux.
 
 ## Defaults
 
@@ -44,10 +45,8 @@ The [configuration reference](../configuration.md) lists every accepted setting 
 
 ## What is still planned?
 
-The development source for `0.2.0-alpha.1` adds configurable [test quality and lifecycle checks](../testing/test-quality.md). They are not available in the published 0.1 package. General release evaluation remains incomplete.
-
 All three planned schemas are implemented in source. `cliewen-base` names the shared internal foundation and is not a selectable schema. Release-profile agent evaluation remains pending.
 
-The alpha supports configurable test types and checks declared scenario types against evidence. Existing-registry adapters, general version/config migrations, and structural checks for your project's documentation and Mermaid diagrams remain planned.
+The candidate supports configurable test types and checks declared scenario types against evidence. Existing-registry adapters, general version/config migrations, and structural checks for your project's documentation and Mermaid diagrams remain planned.
 
 Cliewen checks test execution, ID linkage, and revision freshness. Follow [evidence-first verification](../configuration.md#evidence-first-verification) and review assertion quality, failure causes, and evidence sufficiency.

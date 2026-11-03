@@ -13,7 +13,7 @@ import { validateRegistry } from './ac.js';
 import { qualityDefaults, configureQuality, checkQuality, type QualitySettings } from './quality.js';
 export { nextId, renamePrefix, capabilityForPrefix } from './ac.js';
 
-export const version = '0.2.0-alpha.1';
+export const version = '0.1.0';
 const state = '.cliewen-openspec';
 const features = ['documentation', 'decisions', 'mermaid', 'planning', 'review', 'evidence'];
 export type Config = { docsRoot: string; learnings: {enabled: boolean; directory: string}; writing: {humanizer: 'auto' | 'on' | 'off'}; features: Record<string, boolean>; evidence: { report: string }; ac: { capabilities: Record<string, string>; padding: number }; testing: QualitySettings & { placement: 'per-task' | 'end-of-change'; types: Record<string, { description: string }> } };
@@ -169,7 +169,7 @@ function ownedManifest(root: string, operation: 'update' | 'uninstall'): Manifes
     : 'No Cliewen installation manifest; no files removed. Uninstall requires recorded ownership.');
   const previous = JSON.parse(read(mp));
   keys(previous, ['version', 'files'], 'manifest');
-  if (![version, '0.1.0-alpha.1'].includes(previous.version)) throw Error(`Unsupported installed version: ${previous.version}; ${operation} supports ${version} and 0.1.0-alpha.1 manifests only`);
+  if (previous.version !== version) throw Error(`Unsupported installed version: ${previous.version}; ${operation} supports ${version} manifests only. This package does not migrate other versions.`);
   if (!previous.files || typeof previous.files !== 'object' || Array.isArray(previous.files) || !Object.keys(previous.files).length) throw Error('Manifest files must be a nonempty ownership mapping');
   for (const [file, digest] of Object.entries(previous.files)) {
     local(root, file);
@@ -311,7 +311,7 @@ export function init(root: string, dryRun: boolean, makeDefault: boolean) {
   if (!dryRun) recover(root);
   const mp = local(root, `${state}/manifest.json`);
   const previous: Manifest | undefined = fs.existsSync(mp) ? JSON.parse(read(mp)) : undefined;
-  if (previous && previous.version !== version) throw Error('Installed version differs; use update for a supported installation or review migration requirements.');
+  if (previous && previous.version !== version) throw Error(`Installed version differs; init supports ${version} manifests only and does not migrate other versions.`);
   const files = bundledFiles(); const writes: Record<string, string> = {};
   for (const [p, content] of Object.entries(files)) {
     const dest = local(root, p);
@@ -380,6 +380,7 @@ export function check(root: string, change?: string, failPending = false): Findi
   if (!fs.existsSync(mp)) add('not-installed', 'Run init');
   else {
     const m: Manifest = JSON.parse(read(mp));
+    if (m.version !== version) add('unsupported-installed-version', `Installed manifest ${m.version}; this package supports ${version} only. No automatic migration is available.`);
     for (const [p, h] of Object.entries(m.files)) if (!fs.existsSync(local(root, p)) || hash(read(local(root, p))) !== h) add('owned-file-modified', p);
   }
   try { validateRegistry(root, c); } catch (e) { add('invalid-ac-registry', e instanceof Error ? e.message : String(e)); }

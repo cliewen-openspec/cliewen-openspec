@@ -3,7 +3,7 @@ type: reference
 ---
 # Test quality and lifecycle
 
-These checks are available in the development source for `0.2.0-alpha.1`, not the published 0.1 alpha. They assess case declarations and review records. You still review whether assertions prove the intended behavior.
+These checks are available in the local `0.1.0` release candidate, which is not yet published on npm. The earlier published `0.1.0-alpha.1` does not include them. They assess case declarations and review records. You still review whether assertions prove the intended behavior.
 
 ## Choose the checks your project needs
 

@@ -29,7 +29,9 @@ try {
   revision = git('rev-parse', 'HEAD'); assert.equal(git('status', '--porcelain', '--untracked-files=all'), '');
   git('merge-base', '--is-ancestor', baseline.baseline, 'HEAD');
   const installed = JSON.parse(read('node_modules/cliewen-openspec/package.json'));
-  assert.equal(installed.version, '0.2.0-alpha.1');
+  const expectedVersion = baseline.package.version ?? baseline.package.filename.match(/^cliewen-openspec-(.+)\.tgz$/)?.[1];
+  assert.ok(expectedVersion, 'Baseline must identify its packed package version');
+  assert.equal(installed.version, expectedVersion);
   const settings = parse(read('.cliewen-openspec/config.yaml'));
   assert.equal(settings.features.evidence, true);
   assert.equal(settings.testing.quality.coverage.mode, 'enforce');

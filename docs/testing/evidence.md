@@ -1,13 +1,13 @@
 ---
 type: testing
 ---
-# Evidence alpha contract
+# Execution evidence and review
 
-The published 0.1 alpha provides the execution checks below. Development source for `0.2.0-alpha.1` additionally implements [test quality and lifecycle checks](test-quality.md), using optional case metadata in the same version-1 report. Its policies default to advisory review. Case counts and reviewed statuses do not establish semantic correctness.
+The local `0.1.0` candidate provides the execution checks below and [test quality and lifecycle checks](test-quality.md), using optional case metadata in the same version-1 report. It is not yet published on npm. Policies default to advisory review. Case counts and reviewed statuses do not establish semantic correctness.
 
-The alpha supports `init`, `update`, `uninstall`, `ac next`, `ac rename-prefix`, `check`, and `recover`, and installs `cliewen-delivery`, `cliewen-discovery`, and `cliewen-all`. Package CI exercises OpenSpec 1.15.0 on Windows and Linux. Existing-registry adapters, structural checks for your project's documentation and Mermaid, and independent review tooling remain planned.
+The candidate supports `init`, `update`, `uninstall`, `ac next`, `ac rename-prefix`, `check`, and `recover`, and installs `cliewen-delivery`, `cliewen-discovery`, and `cliewen-all`. Package CI exercises OpenSpec 1.15.0 on Windows and Linux. Existing-registry adapters, structural checks for your project's documentation and Mermaid, and independent review tooling remain planned.
 
-Initialize OpenSpec first. Install the published alpha with `npm install --save-dev cliewen-openspec@0.1.0-alpha.1`, or use a locally built tarball. Run `cliewen-openspec init --default` to explicitly select delivery; omit `--default` to preserve the existing schema. `--root PATH` supports an explicit target, and `init --dry-run` makes no changes.
+Initialize OpenSpec first, then install the local `cliewen-openspec-0.1.0.tgz` built in [Your first change](../guide/getting-started.md). Run `cliewen-openspec init --default` to explicitly select delivery; omit `--default` to preserve the existing schema. `--root PATH` supports an explicit target, and `init --dry-run` makes no changes. The earlier npm alpha is not the package exercised by this contract.
 
 Register a capability-to-prefix mapping, then allocate IDs using `cliewen-openspec ac next --capability export`. Keep the committed `.cliewen-openspec/ac-registry.json`; numbers are never reclaimed. This initial allocator supports sequential work; parallel branches must resolve collisions. Do not use it alongside another allocator until an adapter exists.
 
@@ -54,7 +54,7 @@ Without the adapter flag, collection retains all mapped results and omits `scope
 
 The adapter exits 0 when the runner passes, 1 when it fails with reportable results, and 2 for collection errors. Missing change specs, invalid names or options, no selected scenarios, no matching results, and incomplete runner execution are collection errors. Once collection starts from valid clean inputs and an ignored output path, an earlier report is removed before scope validation and execution, so failed recollection cannot reuse a previous pass. Scenario completeness and exact test-type matching remain the checker's responsibility.
 
-The current alpha validates installation hashes and evidence only. Enabling other features supplies schema guidance, not implemented structural validators. The schema does not add a post-implementation artifact as an apply prerequisite. Archive is deliberately performed with OpenSpec, after reviewing evidence.
+The candidate validates installation version/hashes, registry state, execution evidence, and configured test-policy records. It does not authenticate the semantic quality or approval of a review. Enabling documentation features supplies schema guidance, not document-structure validators. The schema does not add a post-implementation artifact as an apply prerequisite. Archive is deliberately performed with OpenSpec, after reviewing evidence.
 
 For `cliewen-discovery` changes, `check --change NAME` reads the schema selection from OpenSpec metadata and checks installation and registry health only. With evidence enabled, it reports `discovery-review-required` instead of requesting a product test report. Review research sources, actual observations, uncertainty, and the recommendation yourself. An `ok: true` result does not validate discovery documents or prove product behavior. See [the discovery guide](../guide/discovery.md).
 

@@ -66,7 +66,7 @@ const baseline = run('git', ['rev-parse', 'HEAD']);
 run(process.execPath, ['node_modules/cliewen-openspec/adapters/node-test.mjs', 'test/count.test.mjs', 'test/shared.test.mjs', 'test/limit.test.mjs']);
 const initialCheck = JSON.parse(run(process.execPath, ['node_modules/cliewen-openspec/dist/cli.js', 'check', '--json'], root, 1));
 if (initialCheck.ok || !initialCheck.findings.some(f => f.code === 'coverage-minimum-unmet')) throw Error('Baseline must expose the quality gap');
-const metadata = {preparedAt: new Date().toISOString(), sourceRevision: run('git', ['rev-parse', 'HEAD'], source), sourceStatus: run('git', ['status', '--porcelain'], source), schema, baseline, package: {filename: pack.filename, sha256: createHash('sha256').update(fs.readFileSync(tar)).digest('hex')}, node: process.version, npm: run(process.execPath, [npm, '--version']), openspec: '1.15.0', root};
+const metadata = {preparedAt: new Date().toISOString(), sourceRevision: run('git', ['rev-parse', 'HEAD'], source), sourceStatus: run('git', ['status', '--porcelain'], source), schema, baseline, package: {version: pack.version, filename: pack.filename, sha256: createHash('sha256').update(fs.readFileSync(tar)).digest('hex')}, node: process.version, npm: run(process.execPath, [npm, '--version']), openspec: '1.15.0', root};
 fs.writeFileSync(path.join(artifacts, 'baseline.json'), JSON.stringify(metadata, null, 2) + '\n');
 fs.writeFileSync(path.join(artifacts, 'baseline-check.json'), JSON.stringify(initialCheck, null, 2) + '\n');
 fs.copyFileSync(path.join(root, '.cliewen-openspec/evidence.json'), path.join(artifacts, 'baseline-evidence.json'));

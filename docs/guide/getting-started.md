@@ -3,11 +3,11 @@ type: guide
 ---
 # Your first change
 
-This guide takes a small CSV exporter from a new project to archived OpenSpec specs. Use a separate repository so you can review everything the alpha installs. You need Git, npm, and Node.js 20.19 or newer. Node 22 or 24 matches the versions used in package CI. Configure a Git name and email before the commit steps.
+This guide takes a small CSV exporter from a new project to archived OpenSpec specs. Use a separate repository so you can review everything the candidate installs. You need Git, npm, and Node.js 20.19 or newer. Node 22 or 24 matches the versions used in package CI. Configure a Git name and email before the commit steps.
 
-## 1. Build the alpha package
+## 1. Build the candidate package
 
-The alpha is available on npm: existing projects can install it with `npm install --save-dev cliewen-openspec@0.1.0-alpha.1`. Use this explicit version or `@alpha`, because npm's `latest` tag currently points to a staging placeholder. This worked example builds the development source, currently `0.2.0-alpha.1`, and uses its prepared CSV files. That development version is not published.
+This worked example builds the local `0.1.0` release candidate and uses its prepared CSV files. That version is not yet published on npm. The earlier published `0.1.0-alpha.1` has a different feature set and is not the package exercised by this guide; do not substitute it into these candidate checks.
 
 From an empty parent directory, clone the source repository and build the package:
 
@@ -19,7 +19,7 @@ npm test
 npm pack
 ```
 
-The result is `cliewen-openspec-0.2.0-alpha.1.tgz`. The commands below assume that the clone and pilot are sibling directories. To use the published package instead, replace the tarball argument in the install command with `cliewen-openspec@0.1.0-alpha.1`; keep the checkout for the example helper and files.
+The result is `cliewen-openspec-0.1.0.tgz`. The commands below assume that the clone and pilot are sibling directories.
 
 ## 2. Create the pilot
 
@@ -32,7 +32,7 @@ cd cliewen-pilot
 git init -b main
 npm init -y
 npm install --save-dev @fission-ai/openspec@1.15.0
-npm install --save-dev ../cliewen-openspec/cliewen-openspec-0.2.0-alpha.1.tgz
+npm install --save-dev ../cliewen-openspec/cliewen-openspec-0.1.0.tgz
 node -e "require('node:fs').writeFileSync('.gitignore', 'node_modules/\n')"
 ```
 
@@ -46,7 +46,7 @@ git add .
 git commit -m "Install OpenSpec and Cliewen"
 ```
 
-`npx --no-install` runs the locally installed command. OpenSpec creates the change/spec structure. Cliewen's dry run lists proposed writes. Its `init` installs the delivery, discovery, and combined schemas, the DR template, project configuration, a documentation entry point, and an ownership manifest. `--default` sets `schema: cliewen-delivery` in `openspec/config.yaml`; omit it to preserve your current default.
+`npx --no-install` runs the locally installed command. OpenSpec creates the change/spec structure. Cliewen's dry run lists proposed writes. Its `init` installs the delivery, discovery, and combined schemas, Decision Record and learning templates, project configuration, a documentation entry point, and an ownership manifest. `--default` sets `schema: cliewen-delivery` in `openspec/config.yaml`; omit it to preserve your current default.
 
 Both Cliewen commands select the same default, so the preview includes that configuration change. The commit records installation separately from the feature you will implement next.
 
@@ -121,7 +121,7 @@ npx --no-install cliewen-openspec check --change add-csv-export --json
 
 The adapter runs every test in the file again and writes an ignored report for the current Git revision, scoped to `add-csv-export`. Failures outside the selected change still block verification.
 
-With the development 0.2 package and unchanged reference example, expect exit 0 and `"ok": true` alongside warnings about missing case tags, unmet case minimums, and missing review records. The informational findings `sufficiency-not-assessed` and `test-policy-review-required` remind you to review assertion quality. `ok` means no blocking finding; it does not establish that the tests are sufficient.
+With the `0.1.0` candidate and unchanged reference example, expect exit 0 and `"ok": true` alongside warnings about missing case tags, unmet case minimums, and missing review records. The informational findings `sufficiency-not-assessed` and `test-policy-review-required` remind you to review assertion quality. `ok` means no blocking finding; it does not establish that the tests are sufficient.
 
 These advisory warnings do not prevent continuing this exercise after reviewing the code and assertions. Follow [test quality and lifecycle](../testing/test-quality.md) to add assessments or disable individual policies. The published 0.1 alpha does not produce the new policy findings. If a check fails, use [evidence troubleshooting](../testing/evidence.md#troubleshooting).
 

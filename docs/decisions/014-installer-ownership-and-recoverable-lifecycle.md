@@ -23,6 +23,6 @@ Preserve the selected OpenSpec default unless the user explicitly changes it. Un
 
 ## Consequences and implementation status
 
-The alpha implements ownership/conflict checks, update, uninstall, rollback, and interrupted-transaction recovery. General manifest-version and project-config migrations remain planned. This contract protects adopting projects; it grants no permission to normalize authored document paths or reset identity ledgers.
+The `0.1.0` candidate implements ownership/conflict checks, update, uninstall, rollback, and interrupted-transaction recovery. Under [Decision 021: Ship 0.1.0 first and use a direct transition](021-first-release-and-direct-transition.md), lifecycle operations support only `0.1.0` manifests; general manifest-version and project-config migrations remain outside this release. This contract protects adopting projects; it grants no permission to normalize authored document paths or reset identity ledgers.
 
 Detailed commands, conflict cases, and current format limits live in [updating an installation](../guide/updating.md) and [removing installed resources](../guide/uninstalling.md). Maintainer package tests exercise these behaviors in fixtures; project-specific customizations and migration decisions still need review.

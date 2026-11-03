@@ -3,18 +3,18 @@ type: guide
 ---
 # Update an existing installation
 
-Installing a new Cliewen npm package updates the CLI, but an existing project keeps its installed schema files. Run `update` to refresh installer-owned schema definitions and templates. The command preserves project configuration, the selected OpenSpec default, authored change artifacts and documents, and the AC registry.
+Installing a Cliewen npm package updates the CLI, while an existing project keeps its installed schema files. Run `update` to refresh or repair installer-owned schema definitions and templates. The command preserves project configuration, the selected OpenSpec default, authored change artifacts and documents, and the AC registry. This candidate accepts only `0.1.0` manifests; it does not migrate earlier alpha installations.
 
 ## Install, preview, and apply
 
-In your project, install the published alpha and preview the schema update:
+First [build the local candidate](getting-started.md#1-build-the-candidate-package). In a project initialized with that candidate, install its tarball and preview the resource update. This example uses the guide's sibling-directory layout; substitute the actual tarball path for another project:
 
 ```sh
-npm install --save-dev cliewen-openspec@0.1.0-alpha.1
+npm install --save-dev ../cliewen-openspec/cliewen-openspec-0.1.0.tgz
 npx --no-install cliewen-openspec update --dry-run --json
 ```
 
-The explicit version selects the published alpha; `@alpha` selects the current alpha tag. Avoid an unqualified installation while `latest` points to npm's staging placeholder. For a local build, run `npm pack` in the source checkout and install the resulting tarball instead. The npm install changes package metadata and dependencies as usual; the Cliewen update command is a separate operation on installed resources.
+The tarball selects the unpublished `0.1.0` candidate rather than a registry tag. The npm install changes package metadata and dependencies as usual; the Cliewen update command is a separate operation on installed resources. An unchanged installation reports no resource changes; missing owned files can be repaired.
 
 Review the preview's `writes` and `deletes` lists. `writes` includes templates/schema files to create or replace and the ownership manifest when it changes. `deletes` contains only retired installer-owned files. A dry run applies no writes, deletions, or interrupted-transaction recovery.
 
@@ -36,9 +36,9 @@ The existing `.cliewen-openspec/manifest.json` records the hashes of files insta
 
 There is no force option. Review a conflict and retain useful custom instructions in a project-owned location before deliberately restoring an installer-owned file. Do not delete the manifest, registry, or authored artifacts to bypass ownership checks. Custom schemas outside Cliewen's owned paths are preserved.
 
-The command validates manifest ownership paths/hashes and current project config/registry before changing resources. A missing manifest requires `init`; update will not reconstruct ownership from filenames. Development source for `0.2.0-alpha.1` accepts its own manifests and those from `0.1.0-alpha.1`, including earlier builds with fewer schemas. The published 0.1 package supports its own manifests only. Other versions and general configuration/registry migrations remain unsupported. New omitted policy settings use their defaults without rewriting existing configuration.
+The command validates manifest ownership paths/hashes and current project config/registry before changing resources. A missing manifest requires `init`; update will not reconstruct ownership from filenames. Only `0.1.0` manifests are supported. Other versions, including `0.1.0-alpha.1` and the unpublished `0.2.0-alpha.1`, are rejected without automatic migration. Do not edit a manifest version to bypass this check. Omitted policy settings use their defaults without rewriting existing configuration.
 
-On the development version, the new test-quality policies default to `review`, so existing projects may see additional warnings. They become blocking only when you select `enforce`. See [policy configuration](../configuration.md#test-quality-and-lifecycle) to adopt or disable each independently.
+Test-quality policies default to `review`, so projects may see warnings about incomplete assessments. They become blocking only when you select `enforce`. See [policy configuration](../configuration.md#test-quality-and-lifecycle) to adopt or disable each independently.
 
 ## Recovery and verification
 
@@ -55,4 +55,4 @@ Use `cliewen-discovery` or `cliewen-all` in the validation command for another w
 
 Commit the intended inputs before collecting fresh evidence for a delivery change. An old report is not rewritten or removed by update; revision freshness and contract checks can require recollection. Discovery and combined no-delivery outcomes retain their documented review-only evidence behavior. The [evidence guide](../testing/evidence.md) explains collection and scope.
 
-The development 0.2 bundle adds an owned learning template and shared learnings/Humanizer instructions. Existing configuration can omit both settings; learnings default off and Humanizer defaults to auto. Update does not create a knowledge collection, rewrite notes, or install an external skill. See [the settings and host limits](../configuration.md#project-learnings) before opting in.
+The bundle includes an owned learning template and shared learnings/Humanizer instructions. Configuration can omit both settings; learnings default off and Humanizer defaults to auto. Update does not create a knowledge collection, rewrite notes, or install an external skill. See [the settings and host limits](../configuration.md#project-learnings) before opting in.

@@ -39,7 +39,6 @@ test('packed installation → OpenSpec change → real test evidence → archive
   const installedTemplate = fs.readFileSync(path.join(root, ownedTemplate), 'utf8');
   const manifestPath = path.join(root, '.cliewen-openspec/manifest.json');
   const oldManifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
-  oldManifest.version = '0.1.0-alpha.1';
   const olderTemplate = '# Earlier owned task template\n';
   write(ownedTemplate, olderTemplate);
   oldManifest.files[ownedTemplate] = createHash('sha256').update(olderTemplate).digest('hex');

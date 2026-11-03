@@ -3,13 +3,13 @@ type: guide
 ---
 # Existing projects and agents
 
-Review the alpha's generated files in a branch or separate pilot before using it in a working project. `init --dry-run` previews changes. Omit `--default` to preserve your existing default schema, and select `cliewen-delivery` explicitly for a trial change.
+Review the candidate's generated files in a branch or separate pilot before using it in a working project. `init --dry-run` previews changes. Omit `--default` to preserve your existing default schema, and select `cliewen-delivery` explicitly for a trial change. The `0.1.0` candidate does not migrate earlier alpha installations; evaluate it in a fresh project.
 
 ## Keep existing decisions and IDs
 
 Preserve existing document paths, titles, links, and lifecycle meanings. A project may use files such as `ADR-059-storage.md` and `PDR-074-review-process.md`. Do not rename those files to match the new-project `001-title.md` convention. Existing external links may depend on the exact paths.
 
-If an existing tool owns ID allocation, keep using it. The alpha's native registry is not an adapter for another ledger, and it must not become a second authority for the same IDs. Full ledger, naming, and lifecycle adapters remain planned. You can reference existing decisions while evaluating the delivery instructions in a separate pilot.
+If an existing tool owns ID allocation, keep using it. The native registry is not an adapter for another ledger, and it must not become a second authority for the same IDs. Full ledger, naming, and lifecycle adapters remain planned. You can reference existing decisions while evaluating the delivery instructions in a separate pilot.
 
 Existing documents do not need an immediate frontmatter migration. Use type metadata for newly authored durable documents and preserve the existing project's status vocabulary. Cliewen's proposed/accepted guidance does not automatically translate another method's inferred/verified statuses.
 

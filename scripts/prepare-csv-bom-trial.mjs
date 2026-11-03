@@ -64,7 +64,7 @@ const baseline = run('git', ['rev-parse', 'HEAD']);
 const metadata = {
   preparedAt: new Date().toISOString(), sourceRevision: run('git', ['rev-parse', 'HEAD'], source),
   sourceStatus: run('git', ['status', '--porcelain'], source), baseline,
-  package: {filename: pack.filename, sha256: createHash('sha256').update(fs.readFileSync(tar)).digest('hex')},
+  package: {version: pack.version, filename: pack.filename, sha256: createHash('sha256').update(fs.readFileSync(tar)).digest('hex')},
   node: process.version, npm: run(process.execPath, [npm, '--version']), openspec: '1.15.0', root,
 };
 fs.writeFileSync(path.join(artifacts, 'baseline.json'), JSON.stringify(metadata, null, 2) + '\n');

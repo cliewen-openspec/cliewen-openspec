@@ -3,7 +3,7 @@ type: guide
 ---
 # CSV example
 
-The [first-change guide](getting-started.md) uses these files. The documentation test installs the packed alpha in a clean repository, copies the same files, runs the tests, collects evidence, and archives the change. This checks the reference workflow. It does not evaluate an agent's ability to write the code or assess assertion quality.
+The [first-change guide](getting-started.md) uses these files. The documentation test installs the packed candidate in a clean repository, copies the same files, runs the tests, collects evidence, and archives the change. This checks the reference workflow. It does not evaluate an agent's ability to write the code or assess assertion quality.
 
 ## API and scope
 

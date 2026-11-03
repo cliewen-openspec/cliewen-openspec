@@ -13,7 +13,7 @@ cliewen-openspec init
 cliewen-openspec init --default
 ```
 
-Requires OpenSpec's `specs` and `changes` directories. Installs `cliewen-delivery`, `cliewen-discovery`, `cliewen-all`, the Decision Record template, default project config, a docs entry point if missing, a local ignore file, and an owned-file manifest. Repeating an unchanged installation produces an empty writes list. Conflicting owned files stop installation.
+Requires OpenSpec's `specs` and `changes` directories. Installs `cliewen-delivery`, `cliewen-discovery`, `cliewen-all`, Decision Record and learning templates, default project config, a docs entry point if missing, a local ignore file, and an owned-file manifest. Repeating an unchanged installation produces an empty writes list. Conflicting owned files or another manifest version stop installation.
 
 `--default` selects `cliewen-delivery` as the default schema in `openspec/config.yaml`; without it the current selection is preserved. Select discovery explicitly when creating a change with OpenSpec. `--dry-run` lists writes without applying them. Init prints its writes as JSON; `--json` also requests JSON errors. `--default` is supported only for init. Dry-run also works with update.
 
@@ -26,7 +26,7 @@ cliewen-openspec update --dry-run --json
 cliewen-openspec update --json
 ```
 
-Refreshes owned schema files/templates using the installed package. Output contains `dryRun`, `writes`, and `deletes`. It adds new bundle files, replaces unchanged owned content, and deletes unchanged retired owned files. Edited files conflict unless already identical to the new content. Unowned paths are never adopted. Current alpha updates support `0.1.0-alpha.1` manifests; other versions require an explicit future migration.
+Refreshes or repairs owned schema files/templates using the installed package. Output contains `dryRun`, `writes`, and `deletes`. It adds new bundle files, replaces unchanged owned content, and deletes unchanged retired owned files. Edited files conflict unless already identical to the new content. Unowned paths are never adopted. Only `0.1.0` manifests are supported; alpha and other versions are rejected without automatic migration.
 
 Configuration, default schema, AC registry, authored changes/docs, and evidence are preserved. Apply recovers an interrupted transaction first and uses rollback; dry-run does neither. The command has no `--default` or force option. Usage, config, ownership, or write failures exit 2; success exits 0. See [the update guide](updating.md) for the full workflow and conflict rules.
 
@@ -39,7 +39,7 @@ cliewen-openspec uninstall --default-schema spec-driven --json
 
 Removes only unchanged installer-owned resources and the ownership manifest, preserving authored files, config, registry, evidence, and custom resources. If the project default is not being removed, omit `--default-schema`; an unnecessary replacement flag is rejected. Otherwise an explicit replacement must validate through the public OpenSpec CLI. Active changes using removed schemas block uninstall, including inherited-default references. No change metadata is rewritten.
 
-Output includes `dryRun`, `writes`, and `deletes`. Apply supports recovery/rollback; dry-run does neither. Missing owned files are tolerated; edited owned files conflict. No force option or automatic npm dependency removal is provided. Supported manifest version is `0.1.0-alpha.1`; a missing manifest is an error. Success exits 0 and usage, validation, conflict, or operation failures exit 2. See [the uninstall guide](uninstalling.md).
+Output includes `dryRun`, `writes`, and `deletes`. Apply supports recovery/rollback; dry-run does neither. Missing owned files are tolerated; edited owned files conflict. No force option or automatic npm dependency removal is provided. The supported manifest version is `0.1.0`; a missing manifest is an error. Success exits 0 and usage, validation, conflict, or operation failures exit 2. See [the uninstall guide](uninstalling.md).
 
 ## ac next
 

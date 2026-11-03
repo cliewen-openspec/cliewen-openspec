@@ -30,7 +30,7 @@ Preserve historical trial reports and their original URLs as observations. No re
 
 [Practice mapping](../cliewen-mapping.md) compares the current legacy product with the OpenSpec extension. Existing users and inbound-link migration are not release gates: the owner reports no users and accepts a direct switch. Keep the old `clue` runtime outside the new product; do not describe the npm package as a drop-in replacement for it.
 
-The authoritative reproducible example is [Your first change](../guide/getting-started.md), backed by [the CSV files](../examples/csv/README.md) and the packed guide replay in `test/docs.test.mjs`. Reuse these rather than maintain a second introduction-only implementation. Until candidate preparation, its tarball name accurately reflects the internal `0.2.0-alpha.1` build; update executable examples together with the actual package version.
+The authoritative reproducible example is [Your first change](../guide/getting-started.md), backed by [the CSV files](../examples/csv/README.md) and the packed guide replay in `test/docs.test.mjs`. Reuse these rather than maintain a second introduction-only implementation. Active examples now build and install `cliewen-openspec-0.1.0.tgz`; historical `0.2.0-alpha.1` guide/agent observations retain their original inputs.
 
 - [x] Review legacy capabilities and document what transfers and what remains outside scope.
 - [x] Re-run the packed guide example and record the observed result.
@@ -41,8 +41,8 @@ The authoritative reproducible example is [Your first change](../guide/getting-s
 
 These items remain after priority 6 preparation and source relocation:
 
-- [ ] Set package/runtime/lockfile versions to `0.1.0`; align active guides, tarball commands, and changelog. Earlier alpha migrations are unsupported rather than a required compatibility project.
-- [ ] Make the documented fresh-install/update/uninstall behavior match the candidate. Retain authored-file preservation and conflict/recovery guarantees; no requirement to accept older alpha manifests is implied.
+- [x] Set package/runtime/lockfile versions to `0.1.0`; align active guides, tarball commands, and changelog. Earlier alpha migrations are unsupported rather than a required compatibility project.
+- [x] Make the documented fresh-install/update/uninstall behavior match the candidate. Retain authored-file preservation and conflict/recovery guarantees; lifecycle commands accept only `0.1.0` manifests and `check` reports other versions as unsupported.
 - [ ] Run the required Windows/Linux and Node/OpenSpec compatibility checks against the exact candidate, with repeated agent/profile and affected guide observations from [the evaluation plan](../testing/agent-evaluation.md).
 - [ ] Review remaining findings, document actual host-support limits, and finish or explicitly disposition outstanding source changes before archive.
 - [ ] Obtain final release acceptance after reviewing all six priorities. Only then stage/publish npm and create release/tag material as authorized.

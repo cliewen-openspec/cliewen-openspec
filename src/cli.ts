@@ -40,7 +40,7 @@ try {
     const findings = check(root, change, failPending); const ok = !findings.some(f => f.severity === 'error');
     console.log(json ? JSON.stringify({ ok, findings }, null, 2) : findings.map(f => `${f.severity.toUpperCase()} ${f.code}: ${f.message}`).join('\n'));
     process.exitCode = ok ? 0 : 1;
-  } else if (!command || command === '--help') console.log('cliewen-openspec (alpha)\ninit [--default] [--dry-run]\nupdate [--dry-run] [--json]\nuninstall [--default-schema NAME] [--dry-run] [--json]\nac next --capability NAME\nac next PREFIX (registered active prefix only)\nac rename-prefix CAPABILITY PREFIX\ncheck [--change NAME] [--json] [--fail-on-pending]\nrecover\nAll commands accept --root PATH.');
+  } else if (!command || command === '--help') console.log('cliewen-openspec\ninit [--default] [--dry-run]\nupdate [--dry-run] [--json]\nuninstall [--default-schema NAME] [--dry-run] [--json]\nac next --capability NAME\nac next PREFIX (registered active prefix only)\nac rename-prefix CAPABILITY PREFIX\ncheck [--change NAME] [--json] [--fail-on-pending]\nrecover\nAll commands accept --root PATH.');
   else throw Error(`Unknown command: ${command}`);
 } catch (e) {
   const message = e instanceof Error ? e.message : String(e);
