@@ -25,7 +25,7 @@ Keep adoption proportional to the change. Projects should be able to enable stro
 
 Deliver these as separate changes with explicit acceptance criteria. Keep unresolved roadmap items labeled as planned. General migrations and additional integrations retain their existing acceptance requirements below.
 
-Priority 5 now has a [concrete proposal and acceptance cases](openspec/changes/project-learnings-and-humanizer/proposal.md), a [configuration/behavior design](openspec/changes/project-learnings-and-humanizer/design.md), and [proposed Decision 020: Add optional project learnings and Humanizer support](docs/decisions/020-optional-learnings-and-humanizer.md). Detailed defaults and boundaries are ready for review; runtime implementation has not begun. Remaining priority-4 findings stay open and will be revalidated with the combined candidate before release.
+Priority 5 has an accepted [proposal and acceptance cases](openspec/changes/project-learnings-and-humanizer/proposal.md), a [configuration/behavior design](openspec/changes/project-learnings-and-humanizer/design.md), and [Decision 020: Add optional project learnings and Humanizer support](docs/decisions/020-optional-learnings-and-humanizer.md). Development source implements settings, a learning template, shared instructions, and user guidance. [Result 001: First learnings and Humanizer observations](docs/testing/knowledge-writing-trial/result-001.md) records 68 passing package tests and six bounded agent attempts: three passed, two loaded unrelated or retired notes, and one produced unsupported claims. Selective retrieval, remaining host states, and learning-maintenance acceptance remain open. Remaining priority-4 findings stay open and will be revalidated with the combined candidate before release.
 
 Priorities 1 and 2 have reached an unreleased implementation with bounded validation. Maintain affected guides with every increment; priority 3 adds observed user testing.
 
@@ -55,7 +55,7 @@ Before shipping, exercise positive/negative coverage, multiple distinct cases, j
 
 ### Project learnings
 
-Propose an optional `learnings/` directory under the configured documentation root, normally `docs/learnings/`. Create it only when enabled and a useful lesson exists. Reuse an existing project knowledge location where possible.
+Provide an optional `learnings/` directory under the configured documentation root, normally `docs/learnings/`. Create it only when enabled and a useful lesson exists. Reuse an existing project knowledge location where possible.
 
 Keep each lesson short: the situation, observed mistake, evidence or source change, corrective action, scope, and last verification. Distinguish tentative observations from verified guidance. An index should help agents retrieve relevant lessons before planning or changing affected code without loading the entire collection. Review new lessons at change closure, merge duplicates, and retire outdated guidance. Disabling the facility stops its workflow guidance and preserves authored files.
 
@@ -63,7 +63,7 @@ Lessons must not become a second requirements or decision authority. Link to spe
 
 ### Optional Humanizer integration
 
-Propose consumer-project modes for using [Humanizer](https://github.com/blader/humanizer): disabled, automatic, and enabled. Recommend automatic as the default: the agent checks the host's available skills and uses Humanizer when available. Enabled explicitly requests its use; disabled skips detection and installation suggestions. Exact configuration keys remain planned.
+Provide consumer-project modes for using [Humanizer](https://github.com/blader/humanizer): disabled, automatic, and enabled. Recommend automatic as the default: the agent checks the host's available skills and uses Humanizer when available. Enabled explicitly requests its use; disabled skips detection and installation suggestions. The implemented controls are documented in the development configuration reference.
 
 If Humanizer is missing in automatic or enabled mode, suggest installation with a link to its source and verified instructions for the current agent host. Make the suggestion once per session, respect a refusal, and continue with the shared writing guidance. Do not install it automatically or block documentation work. If the host cannot expose installed skills, report that detection is unavailable rather than claiming the skill is absent. Verify discovery and invocation separately for each supported host before claiming support.
 
@@ -75,7 +75,7 @@ Prefer an informative illustration or diagram when it replaces a longer explanat
 
 ### Configuration contract for new facilities
 
-Coverage policy, test lifecycle review, learnings, and external writing skills need separate controls. Their exact keys, defaults, exception format, and interaction with existing evidence and documentation flags remain design work. Document which checks are deterministic and which request agent or human review. Test opt-outs without reinstalling and preserve user-authored files. Do not add speculative settings to the executable [configuration reference](docs/configuration.md); the current parser rejects unknown keys.
+Coverage policy, test lifecycle review, learnings, and external writing skills need separate controls. The development configuration reference documents the implemented controls and defaults; further extensions need their own design and acceptance evidence. Document which checks are deterministic and which request agent or human review. Test opt-outs without reinstalling and preserve user-authored files. Do not add speculative settings to the executable [configuration reference](docs/configuration.md); the current parser rejects unknown keys.
 
 ### Feedback and community
 
@@ -88,6 +88,8 @@ Add direct reporting links to the README and guide. Later, consider page-specifi
 Recommend concentrating new development on cliewen-openspec while preparing an orderly retirement of cliewen.dev in its current form. Reusing OpenSpec's lifecycle lets this project focus on its added practices, but also makes compatibility and upstream changes an ongoing maintenance responsibility. Greater adoption potential is a hypothesis to test through user trials and feedback.
 
 Before retiring the existing offering, inventory its useful capabilities, users, and inbound links; document what transfers, what remains unavailable, and how existing users can migrate. Keep historical material accessible and preserve URLs or provide specific redirects. Switch the public entry point after the replacement guide and release path are verified. Domain changes, archival, and publication are separate execution tasks.
+
+The owner requested a later transfer of the source repository to `https://github.com/cliewen-openspec/cliewen-openspec` and relocation of the guide to that organization's GitHub Pages. Prepare this within priority 6 once the project is ready. Before execution, confirm access and the final Pages address/base path, preserve repository history and existing links where possible, update remotes, npm metadata, reporting links, and deployment configuration, then verify the old and new public entry points. The request records the intended destination; no transfer or Pages move has occurred. Keep current executable URLs until the migration is performed and verified.
 
 OpenSpec already lists community schemas in its [customization catalog](https://github.com/Fission-AI/OpenSpec/blob/main/docs/customization.md#community-schemas). Its documented submission route is an issue containing a repository link and a one-line description. Its [schema documentation](https://github.com/Fission-AI/OpenSpec/blob/main/docs-lab/customize/schemas.md#sharing-schemas) describes installation by copying bundles and a registry as future work; recheck this before outreach. These sources were reviewed on November 1, 2026.
 
@@ -117,7 +119,7 @@ The durable contract is [015: Keep combined investigation and delivery behind ex
 
 Name the internal shared foundation `cliewen-base`. It supplies common definitions, templates, documentation conventions, decisions, AC identities, evidence, and configuration to the standalone bundles. It is not a user-selectable schema or a replacement name for `cliewen-discovery`. See [the naming decision](docs/decisions/002-base-and-workflow-names.md).
 
-Default documentation root: `docs/`, configurable as a whole. Fixed internal locations: `README.md`, optional `vision.md`, `goals.md`, `constraints.md`, and `architecture/`, `design/`, `decisions/`, `testing/`, `plans/`. Optional learnings are proposed above. Create documents only when needed. Installation never invents project intent or moves existing documents.
+Default documentation root: `docs/`, configurable as a whole. Fixed internal locations: `README.md`, optional `vision.md`, `goals.md`, `constraints.md`, and `architecture/`, `design/`, `decisions/`, `testing/`, `plans/`. Optional learnings are configured as described above. Create documents only when needed. Installation never invents project intent or moves existing documents.
 
 New durable documents carry YAML frontmatter with nonempty `type`; custom types are allowed. Existing documents adopt metadata gradually. OpenSpec artifacts retain native formatting.
 
@@ -218,5 +220,6 @@ Test toggles without reinstall, legacy docs without frontmatter, invalid metadat
 Defaults: English content, MIT, no Cliewen runtime, global artifact graph or automatic corpus migration. See [practice mapping](docs/cliewen-mapping.md).
 
 ## Latest evidence-first observations
+
 
 [Round 012: Fresh agent trials with evidence-first verification](docs/testing/cli-trials/result-012.md) records four passing product checks. Codex and Claude delivery passed reviewed acceptance; OpenCode delivery and Claude combined delivery retain factual writing errors. [Guide result 003](docs/testing/guide-walkthrough/result-003.md) completed a fresh prepared walkthrough, independent checks, and a post-attempt review without an observed blocker. Its final-state checkpoint suggestion is now in the guide. Preserve these bounded outcomes; remaining profiles, repetitions, human usability, and the six priorities still block release. No additional budget or publication is authorized by these reports.

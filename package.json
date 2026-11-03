@@ -35,6 +35,7 @@
     "docs:serve": "node scripts/serve-docs.mjs",
     "docs:check": "node scripts/check-docs-browser.mjs",
     "trial:prepare": "node scripts/prepare-csv-bom-trial.mjs",
+    "trial:knowledge:prepare": "node scripts/prepare-knowledge-writing-trial.mjs",
     "trial:quality:prepare": "node scripts/prepare-quality-lifecycle-trial.mjs",
     "trial:quality:combined": "node scripts/prepare-combined-quality-trial.mjs",
     "trial:discovery": "node scripts/prepare-csv-discovery-trial.mjs",

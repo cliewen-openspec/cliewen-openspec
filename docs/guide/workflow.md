@@ -35,6 +35,8 @@ Specs and design both depend on the proposal. Tasks depend on both. Implementati
 
 ## Write a concrete request
 
+The development 0.2 package also offers [project learnings](../configuration.md#project-learnings) and [optional Humanizer use](../configuration.md#humanizer-and-writing). Enable learnings to retrieve relevant lessons before planning and review useful new observations at closure. Current specs and accepted decisions take precedence over old notes. Humanizer defaults to host-mediated automatic discovery, with one short status per session and clear-writing fallback when unavailable. These facilities are independent and are not included in the published 0.1 alpha.
+
 Describe the desired behavior and where you want the agent to stop. The installed schema provides the method guidance. For example:
 
 > Create a change proposal for CSV export with a header, explicit column order, escaped commas and quotation marks, and header-only output for an empty list. Use the existing change `add-csv-export`. Stop after proposal, specs, design, and tasks so I can review them before implementation.

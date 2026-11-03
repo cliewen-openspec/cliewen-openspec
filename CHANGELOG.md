@@ -4,6 +4,9 @@ Changes that matter to projects using Cliewen for OpenSpec.
 
 ## 0.2 (unreleased)
 
+- Optional indexed project learnings help agents retrieve relevant lessons and maintain or retire stale guidance. Notes remain project-owned and survive disabling the facility, updates, and uninstall. Learnings are off by default.
+- Optional Humanizer guidance defaults to automatic host discovery, with explicit on/off modes, one status per session, and a clear-writing fallback. Missing skills never block writing or install automatically. See [configuration and host limits](docs/configuration.md#humanizer-and-writing).
+
 - Evidence-first verification replaces optional TDD recording. Plan acceptance cases before implementation, verify small tasks, review effective assertions, and maintain tests as requirements change. The TDD commands and approach setting are removed. Existing configurations and effectiveness records need the [documented migration](docs/configuration.md#evidence-first-verification); authored history is preserved.
 
 - Independently configurable checks for positive/negative case coverage, assertion-effectiveness reviews, and test maintenance when requirements change or are retired. The default warns about missing assessments; projects can disable individual policies or make them blocking.

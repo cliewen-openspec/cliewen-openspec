@@ -5,7 +5,7 @@ type: reference
 
 Cliewen reads project settings from `.cliewen-openspec/config.yaml`.
 
-This reference describes the development source for `0.2.0-alpha.1`. The published `0.1.0-alpha.1` does not accept the `quality` or `lifecycle` settings below. Use that package's bundled reference when working with the published alpha.
+This reference describes the development source for `0.2.0-alpha.1`. The published `0.1.0-alpha.1` does not accept the `quality`, `lifecycle`, `learnings`, or `writing` settings below. Use that package's bundled reference when working with the published alpha.
 
 ## Full defaults
 
@@ -14,6 +14,11 @@ This is the complete configuration written by `init`. Omitted fields use these v
 <!-- defaults -->
 ```yaml
 docsRoot: docs
+learnings:
+  enabled: false
+  directory: learnings
+writing:
+  humanizer: auto
 features:
   documentation: true
   decisions: true
@@ -81,6 +86,48 @@ This requires two positive and one negative case per scenario. It does not count
 | `evidence.report` | `.cliewen-openspec/evidence.json` | Repository-local path to the execution report |
 
 All paths must stay inside the project; absolute paths, parent traversal, and symlink components are rejected. A custom evidence report path must be Git-ignored and untracked before the reference adapter can write it. New installations ignore the default `evidence.json` report, `transaction.json`, and local `tdd/` history in `.cliewen-openspec/.gitignore`. Existing ignore files are preserved.
+
+## Project learnings
+
+Set `learnings.enabled: true` to ask the coding agent to retrieve and maintain reusable project lessons. `learnings.directory` is relative to `docsRoot`. For example:
+
+```yaml
+docsRoot: notes
+learnings:
+  enabled: true
+  directory: lessons
+```
+
+This selects `notes/lessons/`. The installer does not create that directory or an empty index. When a useful lesson exists, the agent follows the existing collection's conventions or uses `.cliewen-openspec/templates/learning.md` and a short `README.md` index. The index lists titles, scope, status, and links; the agent reads relevant notes before planning or changing that scope.
+
+New notes distinguish `tentative`, `verified`, and `retired` guidance and record the situation, observation, evidence, correction, scope, and limits. Verified notes include a `lastVerified` date. Recheck applicability: a lesson never overrides current specs or accepted decisions. At closure, merge duplicates through links, retire stale notes in place, and promote recurring guidance into tests or durable rules where useful. Routine work need not produce a lesson.
+
+Disabling learnings stops retrieval and maintenance guidance while preserving authored content. `features.documentation: false` also suppresses this workflow, even if learnings are enabled. Update and uninstall preserve authored notes and indexes; the installed template remains an owned resource. Existing knowledge outside the selected directory can be referenced without copying or moving it. Absolute, escaping, and empty directory settings are rejected; symlinks in the collection path are rejected when learnings are active. Disabled learnings do not inspect an unused collection path.
+
+These are agent instructions, not a content validator. `check` cannot establish that a lesson is true, relevant, or actually retrieved. Changing settings requires no reinstall, but upgrading from an older package requires [updating its installed instructions](guide/updating.md).
+
+## Humanizer and writing
+
+`writing.humanizer` controls the coding agent's use of an external skill:
+
+| Value | Behavior |
+|---|---|
+| `auto` (default) | Inspect the host's exposed inventory and use a usable Humanizer skill when available |
+| `"on"` | Explicitly request use, with the same nonblocking fallback when unavailable |
+| `"off"` | Skip Cliewen's discovery, use, status messages, and installation suggestions |
+
+For example, to disable this integration independently of learnings:
+
+```yaml
+writing:
+  humanizer: "off"
+```
+
+In auto/on mode, the agent gives one short status per session: used, detected but inaccessible, confirmed absent, or availability unknown. It claims use only after reading and applying the skill's instructions. It does not repeat the status in each artifact or PR description. If absence is confirmed, it may combine the status with one installation suggestion, respecting a refusal. An unavailable inventory is reported as unknown, not as a missing skill.
+
+Cliewen does not scan global skill directories, install software, enable plugins, or cache availability across sessions. Installation is a deliberate user action using [Humanizer's current host-specific instructions](https://github.com/blader/humanizer#installation). Availability depends on the host's inventory and permissions; finding a file does not prove the agent can invoke it. No universal detection command or cross-host success guarantee is provided.
+
+The skill applies to prose across proposals, specs, tasks, guides, comments, docstrings, commits, PR descriptions, messages, and replies. Preserve technical meaning, code behavior, commands, identifiers, and structured data; verify factual claims after rewriting. Baseline clear-writing rules apply in every mode and when the skill is absent. Disabling documentation guidance does not disable these writing rules or Humanizer. Independent repository or host requirements still apply.
 
 ## Test types
 

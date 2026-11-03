@@ -8,6 +8,7 @@ import { parse, parseDocument, stringify, isMap } from 'yaml';
 import { deliveryFiles } from './delivery.js';
 import { discoveryFiles } from './discovery.js';
 import { allFiles } from './all.js';
+import { template } from './schema-source.js';
 import { validateRegistry } from './ac.js';
 import { qualityDefaults, configureQuality, checkQuality, type QualitySettings } from './quality.js';
 export { nextId, renamePrefix, capabilityForPrefix } from './ac.js';
@@ -15,7 +16,7 @@ export { nextId, renamePrefix, capabilityForPrefix } from './ac.js';
 export const version = '0.2.0-alpha.1';
 const state = '.cliewen-openspec';
 const features = ['documentation', 'decisions', 'mermaid', 'planning', 'review', 'evidence'];
-export type Config = { docsRoot: string; features: Record<string, boolean>; evidence: { report: string }; ac: { capabilities: Record<string, string>; padding: number }; testing: QualitySettings & { placement: 'per-task' | 'end-of-change'; types: Record<string, { description: string }> } };
+export type Config = { docsRoot: string; learnings: {enabled: boolean; directory: string}; writing: {humanizer: 'auto' | 'on' | 'off'}; features: Record<string, boolean>; evidence: { report: string }; ac: { capabilities: Record<string, string>; padding: number }; testing: QualitySettings & { placement: 'per-task' | 'end-of-change'; types: Record<string, { description: string }> } };
 export type Finding = { code: string; severity: 'error' | 'warning' | 'info'; message: string };
 export function local(root: string, relative: string): string {
   if (!relative || path.isAbsolute(relative) || path.win32.parse(relative).root || relative.split(/[\\/]/).includes('..')) throw Error(`Unsafe repository path: ${relative}`);
@@ -37,7 +38,7 @@ const normalize = (s: string) => s.replace(/\r\n/g, '\n');
 const hash = (s: string) => createHash('sha256').update(normalize(s)).digest('hex');
 const read = (p: string) => fs.readFileSync(p, 'utf8');
 export function defaults(): Config {
-  return { docsRoot: 'docs', features: Object.fromEntries(features.map(f => [f, true])), evidence: { report: '.cliewen-openspec/evidence.json' }, ac: { capabilities: {}, padding: 3 }, testing: { ...qualityDefaults(), placement: 'per-task', types: {
+  return { docsRoot: 'docs', learnings: {enabled: false, directory: 'learnings'}, writing: {humanizer: 'auto'}, features: Object.fromEntries(features.map(f => [f, true])), evidence: { report: '.cliewen-openspec/evidence.json' }, ac: { capabilities: {}, padding: 3 }, testing: { ...qualityDefaults(), placement: 'per-task', types: {
     Unit: { description: 'Isolated behavior without external dependencies' },
     Integration: { description: 'Interaction between components or dependencies' },
     E2E: { description: 'Complete user or system workflow' }
@@ -49,8 +50,28 @@ function keys(o: unknown, allowed: string[], label: string): asserts o is Record
 }
 export function config(root: string): Config {
   const p = local(root, `${state}/config.yaml`);
-  const raw = parse(read(p)); keys(raw, ['docsRoot', 'features', 'evidence', 'ac', 'testing'], 'config');
+  const raw = parse(read(p)); keys(raw, ['docsRoot', 'learnings', 'writing', 'features', 'evidence', 'ac', 'testing'], 'config');
   const c = defaults();
+  if (raw.learnings !== undefined) {
+    keys(raw.learnings, ['enabled', 'directory'], 'learnings');
+    if (raw.learnings.enabled !== undefined) {
+      if (typeof raw.learnings.enabled !== 'boolean') throw Error('learnings.enabled must be boolean');
+      c.learnings.enabled = raw.learnings.enabled;
+    }
+    if (raw.learnings.directory !== undefined) {
+      const directory = raw.learnings.directory;
+      if (typeof directory !== 'string' || !directory.trim() || directory !== directory.trim()) throw Error('learnings.directory must be a nonempty trimmed relative path');
+      if (path.isAbsolute(directory) || path.win32.parse(directory).root || directory.split(/[\\/]/).includes('..')) throw Error('learnings.directory must stay within docsRoot');
+      c.learnings.directory = directory;
+    }
+  }
+  if (raw.writing !== undefined) {
+    keys(raw.writing, ['humanizer'], 'writing');
+    if (raw.writing.humanizer !== undefined) {
+      if (!['auto', 'on', 'off'].includes(raw.writing.humanizer)) throw Error('writing.humanizer must be auto, on, or off');
+      c.writing.humanizer = raw.writing.humanizer;
+    }
+  }
   if (raw.ac !== undefined) {
     keys(raw.ac, ['capabilities', 'padding'], 'ac');
     if (raw.ac.capabilities !== undefined) {
@@ -98,7 +119,9 @@ export function config(root: string): Config {
     c.evidence.report = raw.evidence.report;
   }
   if (!c.features.evidence && [c.testing.quality.coverage.mode, c.testing.quality.effectiveness.mode, c.testing.lifecycle.mode].includes('enforce')) throw Error('Test policy enforcement requires features.evidence: true; enable evidence or use review/off mode.');
-  local(root, c.docsRoot); local(root, c.evidence.report); return c;
+  local(root, c.docsRoot);
+  if (c.learnings.enabled && c.features.documentation) local(root, `${c.docsRoot}/${c.learnings.directory}`);
+  local(root, c.evidence.report); return c;
 }
 type Journal = { files: Record<string, string | null> };
 export function transaction(root: string, writes: Record<string, string | null>, dryRun = false) {
@@ -134,7 +157,7 @@ export function recover(root: string) {
   fs.unlinkSync(jp);
 }
 type Manifest = { version: string; files: Record<string, string> };
-function bundledFiles(): Record<string, string> { return {...deliveryFiles(), ...discoveryFiles(), ...allFiles()}; }
+function bundledFiles(): Record<string, string> { return {...deliveryFiles(), ...discoveryFiles(), ...allFiles(), [`${state}/templates/learning.md`]: template('base/templates/learning.md')}; }
 function manifestText(files: Record<string, string>): string {
   return JSON.stringify({version, files: Object.fromEntries(Object.entries(files).map(([file, content]) => [file, hash(content)]))}, null, 2) + '\n';
 }
@@ -150,7 +173,7 @@ function ownedManifest(root: string, operation: 'update' | 'uninstall'): Manifes
   if (!previous.files || typeof previous.files !== 'object' || Array.isArray(previous.files) || !Object.keys(previous.files).length) throw Error('Manifest files must be a nonempty ownership mapping');
   for (const [file, digest] of Object.entries(previous.files)) {
     local(root, file);
-    const owned = file === `${state}/templates/decision.md` || /^openspec\/schemas\/cliewen-(delivery|discovery|all)\/(schema\.yaml|templates\/[a-z0-9][a-z0-9-]*\.md)$/.test(file);
+    const owned = [`${state}/templates/decision.md`, `${state}/templates/learning.md`].includes(file) || /^openspec\/schemas\/cliewen-(delivery|discovery|all)\/(schema\.yaml|templates\/[a-z0-9][a-z0-9-]*\.md)$/.test(file);
     if (!owned || typeof digest !== 'string' || !/^[a-f0-9]{64}$/.test(digest)) throw Error(`Invalid owned-file entry in manifest: ${file}`);
   }
   return previous as Manifest;

@@ -325,6 +325,16 @@ scenarios:
       - docs/testing/quality-lifecycle-trial/result-002.md
       - docs/testing/quality-lifecycle-trial/result-003.md
 
+  knowledge-and-writing:
+    schema: cliewen-delivery
+    readiness: ready
+    prepare: scripts/prepare-knowledge-writing-trial.mjs
+    checker: scripts/check-knowledge-writing-trial.mjs
+    prompt: docs/testing/knowledge-writing-trial/prompt.md
+    rubric: docs/testing/knowledge-writing-trial/rubric.md
+    observedResults:
+      - docs/testing/knowledge-writing-trial/result-001.md
+
 schemas:
   cliewen-delivery:
     status: implemented

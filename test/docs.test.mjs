@@ -53,13 +53,15 @@ test('documented CSV consumer commands pass from packed install through archive'
   for (const command of blocks[3]) line(command);
   const allocate = blocks[3].at(-1);
   for (let n = 2; n <= 6; n++) assert.equal(line(allocate).trim(), `EXP-${String(n).padStart(3, '0')}`);
-  for (const block of blocks.slice(4, -1)) for (const command of block) line(command);
+  const archiveIndex = blocks.findIndex(block => block.some(command => command.startsWith('npx --no-install openspec archive ')));
+  assert.ok(archiveIndex > 3, 'Guide must contain a distinct archive block');
+  for (const block of blocks.slice(4, archiveIndex)) for (const command of block) line(command);
   const reportPath = path.join(pilot, '.cliewen-openspec/evidence.json');
   const report = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
   assert.equal(report.results.length, 6);
   assert.deepEqual(report.scope, {change: 'add-csv-export'});
   assert.ok(report.results.every(r => r.outcome === 'passed'));
-  const archive = blocks.at(-1);
+  const archive = blocks[archiveIndex];
   for (const command of archive.slice(0, 3)) line(command);
   const cli = path.join(pilot, 'node_modules/cliewen-openspec/dist/cli.js');
   const stale = JSON.parse(run(process.execPath, [cli, 'check', '--json'], 1));
@@ -67,6 +69,7 @@ test('documented CSV consumer commands pass from packed install through archive'
   for (const command of archive.slice(3)) line(command);
   const final = JSON.parse(run(process.execPath, [cli, 'check', '--json']));
   assert.equal(final.ok, true);
+  for (const block of blocks.slice(archiveIndex + 1)) for (const command of block) line(command);
   const permanent = fs.readFileSync(path.join(pilot, 'openspec/specs/csv-export/spec.md'), 'utf8');
   for (let n = 1; n <= 6; n++) assert.ok(permanent.includes(`[EXP-${String(n).padStart(3, '0')}]`));
   assert.equal(run('git', ['status', '--porcelain']).trim(), '');

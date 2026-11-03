@@ -1,0 +1,1069 @@
+{
+  "sourceRevision": "1096208e969eb8537a5d5b00588698285b207ef1",
+  "sourceIncludesUncommittedChanges": true,
+  "preservedArtifacts": ".tmp/agent-trials/knowledge-writing-001",
+  "results": [
+    {
+      "candidate": "A",
+      "mode": "auto",
+      "outcome": "pass",
+      "baseline": {
+        "preparedAt": "2026-11-02T21:15:22.019Z",
+        "sourceRevision": "1096208e969eb8537a5d5b00588698285b207ef1",
+        "sourceStatus": "M CHANGELOG.md\n M docs/configuration.md\n M docs/decisions/020-optional-learnings-and-humanizer.md\n M docs/guide/index.md\n M docs/guide/updating.md\n M docs/guide/workflow.md\n M package.json\n M src/core.ts\n M src/schema-source.ts\n M test/docs.test.mjs\n?? schemas/base/instructions/humanizer.md\n?? schemas/base/instructions/learnings.md\n?? schemas/base/templates/learning.md\n?? scripts/prepare-knowledge-writing-trial.mjs\n?? test/knowledge-writing.test.mjs",
+        "baseline": "1ecbbfd060f2022368bf5715615e09f0e79189db",
+        "package": {
+          "filename": "cliewen-openspec-0.2.0-alpha.1.tgz",
+          "sha256": "0abc859006bf4e51070b4f6579253cb2aed9af895b7fdd3828019b0e3a1bed48"
+        },
+        "node": "v24.0.0",
+        "npm": "11.21.0",
+        "openspec": "1.15.0",
+        "root": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-knowledge-writing-1793654112657\\project",
+        "fixture": "knowledge-writing",
+        "mode": "auto",
+        "protectedFiles": [
+          ".cliewen-openspec/.gitignore",
+          ".cliewen-openspec/ac-registry.json",
+          ".cliewen-openspec/config.yaml",
+          ".cliewen-openspec/manifest.json",
+          ".cliewen-openspec/templates/decision.md",
+          ".cliewen-openspec/templates/learning.md",
+          ".gitignore",
+          "AGENTS.md",
+          "README.md",
+          "docs/README.md",
+          "docs/learnings/README.md",
+          "docs/learnings/formatter-bytes.md",
+          "docs/learnings/mandatory-marker.md",
+          "docs/learnings/pool-tuning.md",
+          "docs/testing/formatter-probe.md",
+          "export.mjs",
+          "openspec/changes/archive/.gitkeep",
+          "openspec/config.yaml",
+          "openspec/schemas/cliewen-all/schema.yaml",
+          "openspec/schemas/cliewen-all/templates/decision.md",
+          "openspec/schemas/cliewen-all/templates/investigation.md",
+          "openspec/schemas/cliewen-all/templates/proposal.md",
+          "openspec/schemas/cliewen-all/templates/spec.md",
+          "openspec/schemas/cliewen-all/templates/tasks.md",
+          "openspec/schemas/cliewen-delivery/schema.yaml",
+          "openspec/schemas/cliewen-delivery/templates/design.md",
+          "openspec/schemas/cliewen-delivery/templates/proposal.md",
+          "openspec/schemas/cliewen-delivery/templates/spec.md",
+          "openspec/schemas/cliewen-delivery/templates/tasks.md",
+          "openspec/schemas/cliewen-discovery/schema.yaml",
+          "openspec/schemas/cliewen-discovery/templates/decision.md",
+          "openspec/schemas/cliewen-discovery/templates/investigation.md",
+          "openspec/schemas/cliewen-discovery/templates/proposal.md",
+          "openspec/specs/.gitkeep",
+          "openspec/specs/csv-export/spec.md",
+          "package-lock.json",
+          "package.json",
+          "test/export.test.mjs"
+        ]
+      },
+      "run": {
+        "schema": "cliewen-delivery",
+        "profileId": "codex-cli-primary",
+        "phase": "initial",
+        "project": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-knowledge-writing-1793654112657\\project",
+        "baseline": "1ecbbfd060f2022368bf5715615e09f0e79189db",
+        "profile": {
+          "readiness": "pinned",
+          "agent": "Codex CLI",
+          "runner": "cli",
+          "model": "gpt-6.1-sol",
+          "agentVersion": "0.166.0",
+          "provider": "openai; existing ChatGPT CLI authentication",
+          "effort": "medium",
+          "permissions": "danger-full-access, approval never; project scope is an instruction, not OS isolation",
+          "context": "fresh process; ignore user config and execpolicy rules; project AGENTS and managed/global instructions may remain",
+          "budgets": {
+            "wallTimeSeconds": 600,
+            "outputBytes": 67108864,
+            "reportedCostUSD": null,
+            "tokenLimit": null,
+            "billing": "existing ChatGPT entitlement; no purchase"
+          },
+          "traceFormat": "codex exec --json JSONL plus stderr"
+        },
+        "exe": "C:\\Program Files\\nodejs\\node.exe",
+        "args": [
+          "C:\\Users\\flemm\\AppData\\Roaming\\npm\\node_modules\\@openai\\codex\\bin\\codex.js",
+          "exec",
+          "--ignore-user-config",
+          "--ignore-rules",
+          "--ephemeral",
+          "--json",
+          "--sandbox",
+          "danger-full-access",
+          "-c",
+          "approval_policy=\"never\"",
+          "-c",
+          "model_provider=\"openai\"",
+          "-c",
+          "model_reasoning_effort=\"medium\"",
+          "--model",
+          "gpt-6.1-sol",
+          "-"
+        ],
+        "cliVersion": "codex-cli 0.166.0",
+        "startedAt": "2026-11-03T14:48:51.550Z",
+        "promptFile": "prompt.txt",
+        "environmentControls": {
+          "NO_COLOR": "1",
+          "OPENSPEC_TELEMETRY": "0",
+          "CI": "1"
+        },
+        "exitCode": 0,
+        "signal": null,
+        "endedAt": "2026-11-03T14:50:18.150Z",
+        "durationSeconds": 86.599,
+        "stopReason": null,
+        "eventFailure": false,
+        "sessionId": "01a1a1e2-677c-7d10-8b88-f43e052ad96e",
+        "usage": {
+          "input_tokens": 257485,
+          "cached_input_tokens": 230016,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 2579,
+          "reasoning_output_tokens": 154
+        },
+        "stepUsage": [],
+        "reportedCostUSD": null,
+        "observedModels": [],
+        "reviewInputsPreserved": true,
+        "evaluation": "not-graded"
+      },
+      "structuralChecksPassed": true,
+      "artifacts": "A/artifacts/auto"
+    },
+    {
+      "candidate": "A",
+      "mode": "off",
+      "outcome": "pass",
+      "baseline": {
+        "preparedAt": "2026-11-02T21:15:22.019Z",
+        "sourceRevision": "1096208e969eb8537a5d5b00588698285b207ef1",
+        "sourceStatus": "M CHANGELOG.md\n M docs/configuration.md\n M docs/decisions/020-optional-learnings-and-humanizer.md\n M docs/guide/index.md\n M docs/guide/updating.md\n M docs/guide/workflow.md\n M package.json\n M src/core.ts\n M src/schema-source.ts\n M test/docs.test.mjs\n?? schemas/base/instructions/humanizer.md\n?? schemas/base/instructions/learnings.md\n?? schemas/base/templates/learning.md\n?? scripts/prepare-knowledge-writing-trial.mjs\n?? test/knowledge-writing.test.mjs",
+        "baseline": "6b82e9d9d24529f9f3b28e5028f38329558be3f2",
+        "package": {
+          "filename": "cliewen-openspec-0.2.0-alpha.1.tgz",
+          "sha256": "0abc859006bf4e51070b4f6579253cb2aed9af895b7fdd3828019b0e3a1bed48"
+        },
+        "node": "v24.0.0",
+        "npm": "11.21.0",
+        "openspec": "1.15.0",
+        "root": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-knowledge-writing-1793654112657\\project-off",
+        "fixture": "knowledge-writing",
+        "mode": "off",
+        "protectedFiles": [
+          ".cliewen-openspec/.gitignore",
+          ".cliewen-openspec/ac-registry.json",
+          ".cliewen-openspec/config.yaml",
+          ".cliewen-openspec/manifest.json",
+          ".cliewen-openspec/templates/decision.md",
+          ".cliewen-openspec/templates/learning.md",
+          ".gitignore",
+          "AGENTS.md",
+          "README.md",
+          "docs/README.md",
+          "docs/learnings/README.md",
+          "docs/learnings/formatter-bytes.md",
+          "docs/learnings/mandatory-marker.md",
+          "docs/learnings/pool-tuning.md",
+          "docs/testing/formatter-probe.md",
+          "export.mjs",
+          "openspec/changes/archive/.gitkeep",
+          "openspec/config.yaml",
+          "openspec/schemas/cliewen-all/schema.yaml",
+          "openspec/schemas/cliewen-all/templates/decision.md",
+          "openspec/schemas/cliewen-all/templates/investigation.md",
+          "openspec/schemas/cliewen-all/templates/proposal.md",
+          "openspec/schemas/cliewen-all/templates/spec.md",
+          "openspec/schemas/cliewen-all/templates/tasks.md",
+          "openspec/schemas/cliewen-delivery/schema.yaml",
+          "openspec/schemas/cliewen-delivery/templates/design.md",
+          "openspec/schemas/cliewen-delivery/templates/proposal.md",
+          "openspec/schemas/cliewen-delivery/templates/spec.md",
+          "openspec/schemas/cliewen-delivery/templates/tasks.md",
+          "openspec/schemas/cliewen-discovery/schema.yaml",
+          "openspec/schemas/cliewen-discovery/templates/decision.md",
+          "openspec/schemas/cliewen-discovery/templates/investigation.md",
+          "openspec/schemas/cliewen-discovery/templates/proposal.md",
+          "openspec/specs/.gitkeep",
+          "openspec/specs/csv-export/spec.md",
+          "package-lock.json",
+          "package.json",
+          "test/export.test.mjs"
+        ]
+      },
+      "run": {
+        "schema": "cliewen-delivery",
+        "profileId": "codex-cli-primary",
+        "phase": "initial",
+        "project": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-knowledge-writing-1793654112657\\project-off",
+        "baseline": "6b82e9d9d24529f9f3b28e5028f38329558be3f2",
+        "profile": {
+          "readiness": "pinned",
+          "agent": "Codex CLI",
+          "runner": "cli",
+          "model": "gpt-6.1-sol",
+          "agentVersion": "0.166.0",
+          "provider": "openai; existing ChatGPT CLI authentication",
+          "effort": "medium",
+          "permissions": "danger-full-access, approval never; project scope is an instruction, not OS isolation",
+          "context": "fresh process; ignore user config and execpolicy rules; project AGENTS and managed/global instructions may remain",
+          "budgets": {
+            "wallTimeSeconds": 600,
+            "outputBytes": 67108864,
+            "reportedCostUSD": null,
+            "tokenLimit": null,
+            "billing": "existing ChatGPT entitlement; no purchase"
+          },
+          "traceFormat": "codex exec --json JSONL plus stderr"
+        },
+        "exe": "C:\\Program Files\\nodejs\\node.exe",
+        "args": [
+          "C:\\Users\\flemm\\AppData\\Roaming\\npm\\node_modules\\@openai\\codex\\bin\\codex.js",
+          "exec",
+          "--ignore-user-config",
+          "--ignore-rules",
+          "--ephemeral",
+          "--json",
+          "--sandbox",
+          "danger-full-access",
+          "-c",
+          "approval_policy=\"never\"",
+          "-c",
+          "model_provider=\"openai\"",
+          "-c",
+          "model_reasoning_effort=\"medium\"",
+          "--model",
+          "gpt-6.1-sol",
+          "-"
+        ],
+        "cliVersion": "codex-cli 0.166.0",
+        "startedAt": "2026-11-03T14:48:51.597Z",
+        "promptFile": "prompt.txt",
+        "environmentControls": {
+          "NO_COLOR": "1",
+          "OPENSPEC_TELEMETRY": "0",
+          "CI": "1"
+        },
+        "exitCode": 0,
+        "signal": null,
+        "endedAt": "2026-11-03T14:50:06.934Z",
+        "durationSeconds": 75.337,
+        "stopReason": null,
+        "eventFailure": false,
+        "sessionId": "01a1a1e2-67a7-7270-84b7-15a5a16df1ce",
+        "usage": {
+          "input_tokens": 175419,
+          "cached_input_tokens": 148736,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 2433,
+          "reasoning_output_tokens": 214
+        },
+        "stepUsage": [],
+        "reportedCostUSD": null,
+        "observedModels": [],
+        "reviewInputsPreserved": true,
+        "evaluation": "not-graded"
+      },
+      "structuralChecksPassed": true,
+      "artifacts": "A/artifacts/off"
+    },
+    {
+      "candidate": "A",
+      "mode": "on",
+      "outcome": "task-failure",
+      "baseline": {
+        "preparedAt": "2026-11-02T21:15:22.019Z",
+        "sourceRevision": "1096208e969eb8537a5d5b00588698285b207ef1",
+        "sourceStatus": "M CHANGELOG.md\n M docs/configuration.md\n M docs/decisions/020-optional-learnings-and-humanizer.md\n M docs/guide/index.md\n M docs/guide/updating.md\n M docs/guide/workflow.md\n M package.json\n M src/core.ts\n M src/schema-source.ts\n M test/docs.test.mjs\n?? schemas/base/instructions/humanizer.md\n?? schemas/base/instructions/learnings.md\n?? schemas/base/templates/learning.md\n?? scripts/prepare-knowledge-writing-trial.mjs\n?? test/knowledge-writing.test.mjs",
+        "baseline": "5530b00248c81d4c90f18c25d8e7d90da7329f5d",
+        "package": {
+          "filename": "cliewen-openspec-0.2.0-alpha.1.tgz",
+          "sha256": "0abc859006bf4e51070b4f6579253cb2aed9af895b7fdd3828019b0e3a1bed48"
+        },
+        "node": "v24.0.0",
+        "npm": "11.21.0",
+        "openspec": "1.15.0",
+        "root": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-knowledge-writing-1793654112657\\project-on",
+        "fixture": "knowledge-writing",
+        "mode": "on",
+        "protectedFiles": [
+          ".cliewen-openspec/.gitignore",
+          ".cliewen-openspec/ac-registry.json",
+          ".cliewen-openspec/config.yaml",
+          ".cliewen-openspec/manifest.json",
+          ".cliewen-openspec/templates/decision.md",
+          ".cliewen-openspec/templates/learning.md",
+          ".gitignore",
+          "AGENTS.md",
+          "README.md",
+          "docs/README.md",
+          "docs/learnings/README.md",
+          "docs/learnings/formatter-bytes.md",
+          "docs/learnings/mandatory-marker.md",
+          "docs/learnings/pool-tuning.md",
+          "docs/testing/formatter-probe.md",
+          "export.mjs",
+          "openspec/changes/archive/.gitkeep",
+          "openspec/config.yaml",
+          "openspec/schemas/cliewen-all/schema.yaml",
+          "openspec/schemas/cliewen-all/templates/decision.md",
+          "openspec/schemas/cliewen-all/templates/investigation.md",
+          "openspec/schemas/cliewen-all/templates/proposal.md",
+          "openspec/schemas/cliewen-all/templates/spec.md",
+          "openspec/schemas/cliewen-all/templates/tasks.md",
+          "openspec/schemas/cliewen-delivery/schema.yaml",
+          "openspec/schemas/cliewen-delivery/templates/design.md",
+          "openspec/schemas/cliewen-delivery/templates/proposal.md",
+          "openspec/schemas/cliewen-delivery/templates/spec.md",
+          "openspec/schemas/cliewen-delivery/templates/tasks.md",
+          "openspec/schemas/cliewen-discovery/schema.yaml",
+          "openspec/schemas/cliewen-discovery/templates/decision.md",
+          "openspec/schemas/cliewen-discovery/templates/investigation.md",
+          "openspec/schemas/cliewen-discovery/templates/proposal.md",
+          "openspec/specs/.gitkeep",
+          "openspec/specs/csv-export/spec.md",
+          "package-lock.json",
+          "package.json",
+          "test/export.test.mjs"
+        ]
+      },
+      "run": {
+        "schema": "cliewen-delivery",
+        "profileId": "codex-cli-primary",
+        "phase": "initial",
+        "project": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-knowledge-writing-1793654112657\\project-on",
+        "baseline": "5530b00248c81d4c90f18c25d8e7d90da7329f5d",
+        "profile": {
+          "readiness": "pinned",
+          "agent": "Codex CLI",
+          "runner": "cli",
+          "model": "gpt-6.1-sol",
+          "agentVersion": "0.166.0",
+          "provider": "openai; existing ChatGPT CLI authentication",
+          "effort": "medium",
+          "permissions": "danger-full-access, approval never; project scope is an instruction, not OS isolation",
+          "context": "fresh process; ignore user config and execpolicy rules; project AGENTS and managed/global instructions may remain",
+          "budgets": {
+            "wallTimeSeconds": 600,
+            "outputBytes": 67108864,
+            "reportedCostUSD": null,
+            "tokenLimit": null,
+            "billing": "existing ChatGPT entitlement; no purchase"
+          },
+          "traceFormat": "codex exec --json JSONL plus stderr"
+        },
+        "exe": "C:\\Program Files\\nodejs\\node.exe",
+        "args": [
+          "C:\\Users\\flemm\\AppData\\Roaming\\npm\\node_modules\\@openai\\codex\\bin\\codex.js",
+          "exec",
+          "--ignore-user-config",
+          "--ignore-rules",
+          "--ephemeral",
+          "--json",
+          "--sandbox",
+          "danger-full-access",
+          "-c",
+          "approval_policy=\"never\"",
+          "-c",
+          "model_provider=\"openai\"",
+          "-c",
+          "model_reasoning_effort=\"medium\"",
+          "--model",
+          "gpt-6.1-sol",
+          "-"
+        ],
+        "cliVersion": "codex-cli 0.166.0",
+        "startedAt": "2026-11-03T14:48:51.419Z",
+        "promptFile": "prompt.txt",
+        "environmentControls": {
+          "NO_COLOR": "1",
+          "OPENSPEC_TELEMETRY": "0",
+          "CI": "1"
+        },
+        "exitCode": 0,
+        "signal": null,
+        "endedAt": "2026-11-03T14:50:21.090Z",
+        "durationSeconds": 89.67,
+        "stopReason": null,
+        "eventFailure": false,
+        "sessionId": "01a1a1e2-66f3-7f11-8ae0-83f0129cd83e",
+        "usage": {
+          "input_tokens": 388447,
+          "cached_input_tokens": 350592,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 3820,
+          "reasoning_output_tokens": 321
+        },
+        "stepUsage": [],
+        "reportedCostUSD": null,
+        "observedModels": [],
+        "reviewInputsPreserved": true,
+        "evaluation": "not-graded"
+      },
+      "structuralChecksPassed": true,
+      "artifacts": "A/artifacts/on"
+    },
+    {
+      "candidate": "B",
+      "mode": "on",
+      "outcome": "pass",
+      "baseline": {
+        "preparedAt": "2026-11-03T14:58:52.815Z",
+        "sourceRevision": "1096208e969eb8537a5d5b00588698285b207ef1",
+        "sourceStatus": "M CHANGELOG.md\n M docs/configuration.md\n M docs/decisions/020-optional-learnings-and-humanizer.md\n M docs/decisions/README.md\n M docs/guide/index.md\n M docs/guide/updating.md\n M docs/guide/workflow.md\n M openspec/changes/project-learnings-and-humanizer/design.md\n M openspec/changes/project-learnings-and-humanizer/proposal.md\n M openspec/changes/project-learnings-and-humanizer/tasks.md\n M package.json\n M plan.md\n M src/core.ts\n M src/schema-source.ts\n M test/docs.test.mjs\n?? docs/testing/knowledge-writing-trial/\n?? schemas/base/instructions/humanizer.md\n?? schemas/base/instructions/learnings.md\n?? schemas/base/templates/learning.md\n?? scripts/check-knowledge-writing-trial.mjs\n?? scripts/prepare-knowledge-writing-trial.mjs\n?? test/knowledge-writing.test.mjs",
+        "baseline": "e46be53d007cd18ffc780bc1ef014d537eaa3b52",
+        "package": {
+          "filename": "cliewen-openspec-0.2.0-alpha.1.tgz",
+          "sha256": "ce012bbc7ecbd8d87a72aa928de1a5b875c1f42f7490309842aaffcd960a73a4"
+        },
+        "node": "v24.0.0",
+        "npm": "11.21.0",
+        "openspec": "1.15.0",
+        "root": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-knowledge-writing-1793717926065\\project-on",
+        "fixture": "knowledge-writing",
+        "mode": "on",
+        "protectedFiles": [
+          ".cliewen-openspec/.gitignore",
+          ".cliewen-openspec/ac-registry.json",
+          ".cliewen-openspec/config.yaml",
+          ".cliewen-openspec/manifest.json",
+          ".cliewen-openspec/templates/decision.md",
+          ".cliewen-openspec/templates/learning.md",
+          ".gitignore",
+          "AGENTS.md",
+          "README.md",
+          "docs/README.md",
+          "docs/learnings/README.md",
+          "docs/learnings/formatter-bytes.md",
+          "docs/learnings/mandatory-marker.md",
+          "docs/learnings/pool-tuning.md",
+          "docs/testing/formatter-probe.md",
+          "export.mjs",
+          "openspec/changes/archive/.gitkeep",
+          "openspec/config.yaml",
+          "openspec/schemas/cliewen-all/schema.yaml",
+          "openspec/schemas/cliewen-all/templates/decision.md",
+          "openspec/schemas/cliewen-all/templates/investigation.md",
+          "openspec/schemas/cliewen-all/templates/proposal.md",
+          "openspec/schemas/cliewen-all/templates/spec.md",
+          "openspec/schemas/cliewen-all/templates/tasks.md",
+          "openspec/schemas/cliewen-delivery/schema.yaml",
+          "openspec/schemas/cliewen-delivery/templates/design.md",
+          "openspec/schemas/cliewen-delivery/templates/proposal.md",
+          "openspec/schemas/cliewen-delivery/templates/spec.md",
+          "openspec/schemas/cliewen-delivery/templates/tasks.md",
+          "openspec/schemas/cliewen-discovery/schema.yaml",
+          "openspec/schemas/cliewen-discovery/templates/decision.md",
+          "openspec/schemas/cliewen-discovery/templates/investigation.md",
+          "openspec/schemas/cliewen-discovery/templates/proposal.md",
+          "openspec/specs/.gitkeep",
+          "openspec/specs/csv-export/spec.md",
+          "package-lock.json",
+          "package.json",
+          "test/export.test.mjs"
+        ]
+      },
+      "run": {
+        "schema": "cliewen-delivery",
+        "profileId": "codex-cli-primary",
+        "phase": "initial",
+        "project": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-knowledge-writing-1793717926065\\project-on",
+        "baseline": "e46be53d007cd18ffc780bc1ef014d537eaa3b52",
+        "profile": {
+          "readiness": "pinned",
+          "agent": "Codex CLI",
+          "runner": "cli",
+          "model": "gpt-6.1-sol",
+          "agentVersion": "0.166.0",
+          "provider": "openai; existing ChatGPT CLI authentication",
+          "effort": "medium",
+          "permissions": "danger-full-access, approval never; project scope is an instruction, not OS isolation",
+          "context": "fresh process; ignore user config and execpolicy rules; project AGENTS and managed/global instructions may remain",
+          "budgets": {
+            "wallTimeSeconds": 600,
+            "outputBytes": 67108864,
+            "reportedCostUSD": null,
+            "tokenLimit": null,
+            "billing": "existing ChatGPT entitlement; no purchase"
+          },
+          "traceFormat": "codex exec --json JSONL plus stderr"
+        },
+        "exe": "C:\\Program Files\\nodejs\\node.exe",
+        "args": [
+          "C:\\Users\\flemm\\AppData\\Roaming\\npm\\node_modules\\@openai\\codex\\bin\\codex.js",
+          "exec",
+          "--ignore-user-config",
+          "--ignore-rules",
+          "--ephemeral",
+          "--json",
+          "--sandbox",
+          "danger-full-access",
+          "-c",
+          "approval_policy=\"never\"",
+          "-c",
+          "model_provider=\"openai\"",
+          "-c",
+          "model_reasoning_effort=\"medium\"",
+          "--model",
+          "gpt-6.1-sol",
+          "-"
+        ],
+        "cliVersion": "codex-cli 0.166.0",
+        "startedAt": "2026-11-03T15:01:21.924Z",
+        "promptFile": "prompt.txt",
+        "environmentControls": {
+          "NO_COLOR": "1",
+          "OPENSPEC_TELEMETRY": "0",
+          "CI": "1"
+        },
+        "exitCode": 0,
+        "signal": null,
+        "endedAt": "2026-11-03T15:02:30.486Z",
+        "durationSeconds": 68.561,
+        "stopReason": null,
+        "eventFailure": false,
+        "sessionId": "01a1a1ed-daa7-7413-801f-c0c49418efa2",
+        "usage": {
+          "input_tokens": 436467,
+          "cached_input_tokens": 399616,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 2991,
+          "reasoning_output_tokens": 237
+        },
+        "stepUsage": [],
+        "reportedCostUSD": null,
+        "observedModels": [],
+        "reviewInputsPreserved": true,
+        "evaluation": "not-graded"
+      },
+      "structuralChecksPassed": true,
+      "artifacts": "B/artifacts/on"
+    },
+    {
+      "candidate": "B",
+      "mode": "auto-opencode",
+      "outcome": "task-failure",
+      "baseline": {
+        "preparedAt": "2026-11-03T14:58:52.815Z",
+        "sourceRevision": "1096208e969eb8537a5d5b00588698285b207ef1",
+        "sourceStatus": "M CHANGELOG.md\n M docs/configuration.md\n M docs/decisions/020-optional-learnings-and-humanizer.md\n M docs/decisions/README.md\n M docs/guide/index.md\n M docs/guide/updating.md\n M docs/guide/workflow.md\n M openspec/changes/project-learnings-and-humanizer/design.md\n M openspec/changes/project-learnings-and-humanizer/proposal.md\n M openspec/changes/project-learnings-and-humanizer/tasks.md\n M package.json\n M plan.md\n M src/core.ts\n M src/schema-source.ts\n M test/docs.test.mjs\n?? docs/testing/knowledge-writing-trial/\n?? schemas/base/instructions/humanizer.md\n?? schemas/base/instructions/learnings.md\n?? schemas/base/templates/learning.md\n?? scripts/check-knowledge-writing-trial.mjs\n?? scripts/prepare-knowledge-writing-trial.mjs\n?? test/knowledge-writing.test.mjs",
+        "baseline": "29a0ec52a97b9c29ce3092659e783c951f5db93a",
+        "package": {
+          "filename": "cliewen-openspec-0.2.0-alpha.1.tgz",
+          "sha256": "ce012bbc7ecbd8d87a72aa928de1a5b875c1f42f7490309842aaffcd960a73a4"
+        },
+        "node": "v24.0.0",
+        "npm": "11.21.0",
+        "openspec": "1.15.0",
+        "root": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-knowledge-writing-1793717926065\\project",
+        "fixture": "knowledge-writing",
+        "mode": "auto",
+        "protectedFiles": [
+          ".cliewen-openspec/.gitignore",
+          ".cliewen-openspec/ac-registry.json",
+          ".cliewen-openspec/config.yaml",
+          ".cliewen-openspec/manifest.json",
+          ".cliewen-openspec/templates/decision.md",
+          ".cliewen-openspec/templates/learning.md",
+          ".gitignore",
+          "AGENTS.md",
+          "README.md",
+          "docs/README.md",
+          "docs/learnings/README.md",
+          "docs/learnings/formatter-bytes.md",
+          "docs/learnings/mandatory-marker.md",
+          "docs/learnings/pool-tuning.md",
+          "docs/testing/formatter-probe.md",
+          "export.mjs",
+          "openspec/changes/archive/.gitkeep",
+          "openspec/config.yaml",
+          "openspec/schemas/cliewen-all/schema.yaml",
+          "openspec/schemas/cliewen-all/templates/decision.md",
+          "openspec/schemas/cliewen-all/templates/investigation.md",
+          "openspec/schemas/cliewen-all/templates/proposal.md",
+          "openspec/schemas/cliewen-all/templates/spec.md",
+          "openspec/schemas/cliewen-all/templates/tasks.md",
+          "openspec/schemas/cliewen-delivery/schema.yaml",
+          "openspec/schemas/cliewen-delivery/templates/design.md",
+          "openspec/schemas/cliewen-delivery/templates/proposal.md",
+          "openspec/schemas/cliewen-delivery/templates/spec.md",
+          "openspec/schemas/cliewen-delivery/templates/tasks.md",
+          "openspec/schemas/cliewen-discovery/schema.yaml",
+          "openspec/schemas/cliewen-discovery/templates/decision.md",
+          "openspec/schemas/cliewen-discovery/templates/investigation.md",
+          "openspec/schemas/cliewen-discovery/templates/proposal.md",
+          "openspec/specs/.gitkeep",
+          "openspec/specs/csv-export/spec.md",
+          "package-lock.json",
+          "package.json",
+          "test/export.test.mjs"
+        ]
+      },
+      "run": {
+        "schema": "cliewen-delivery",
+        "profileId": "opencode-2-2-5",
+        "phase": "initial",
+        "project": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-knowledge-writing-1793717926065\\project",
+        "baseline": "29a0ec52a97b9c29ce3092659e783c951f5db93a",
+        "profile": {
+          "readiness": "pinned",
+          "supersedes": "opencode-1-19-5",
+          "agent": "OpenCode",
+          "runner": "cli",
+          "model": "opencode/glm-5.3-flash",
+          "agentVersion": "2.2.5",
+          "provider": "OpenCode Console/Zen; existing local credentials; provider.use allows only opencode",
+          "effort": "high",
+          "permissions": "V2 ordered rules and hard policies allow local tools; deny external_directory, subagent, question, skill, webfetch and websearch; deny MCP and external plugins; no OS isolation",
+          "context": "fresh standalone server and private config directory per phase; project config and Claude skill discovery disabled; AGENTS read explicitly; system and Console configuration may remain",
+          "budgets": {
+            "wallTimeSeconds": 600,
+            "outputBytes": 67108864,
+            "reportedCostUSD": 0.5,
+            "tokenLimit": null,
+            "billing": "local reported-cost stop; not a provider-enforced hard spending cap"
+          },
+          "traceFormat": "OpenCode run --standalone --format json; model variant via provider/model#high"
+        },
+        "exe": "C:\\Users\\flemm\\AppData\\Roaming\\npm\\node_modules\\@opencode\\cli\\bin\\opencode.exe",
+        "args": [
+          "run",
+          "--standalone",
+          "--format",
+          "json",
+          "--model",
+          "opencode/glm-5.3-flash#high",
+          "Work only in the current project. Keep even temporary helper scripts, probes, and backups inside this project; use a project-local ignored directory when needed, not a shared system temporary directory. Read AGENTS.md and project configuration. Do not read sibling evaluator files, other repositories, credentials, or earlier solutions. Do not spawn additional agents, contact external services, push, or open a PR. Model-provider requests from this CLI are allowed. Use existing local tools and dependencies. Report actual results and inherited instructions.\n\nCreate only a draft proposal for an optional CSV BOM, off by default, preserving the current output, plus a concise PR-style summary at docs/testing/proposal-summary.md. Use the installed cliewen-delivery proposal instructions for a new change named plan-optional-csv-bom and save their JSON response under docs/testing/instructions/. Read current configuration and follow the configured knowledge and writing guidance. Keep code, tests, specs, configuration, and authored lessons unchanged. Do not allocate IDs, implement, archive, collect product evidence, push, or install anything. A skill path explicitly supplied by this session's host inventory may be read; do not scan global directories or other repositories. Explain the actual lesson paths used and any host capability limitation in your final handoff. You may commit proposal files locally.\n"
+        ],
+        "cliVersion": "opencode v2.2.5",
+        "startedAt": "2026-11-03T15:01:22.119Z",
+        "promptFile": "prompt.txt",
+        "environmentControls": {
+          "OPENCODE_CONFIG_CONTENT": "{\"model\":\"opencode/glm-5.3-flash\",\"permissions\":[{\"action\":\"*\",\"resource\":\"*\",\"effect\":\"allow\"},{\"action\":\"external_directory\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"subagent\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"question\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"skill\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"webfetch\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"websearch\",\"resource\":\"*\",\"effect\":\"deny\"}],\"policies\":[{\"action\":\"provider.use\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"provider.use\",\"resource\":\"opencode\",\"effect\":\"allow\"},{\"action\":\"mcp.use\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"skill.use\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"plugin.use\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"plugin.use\",\"resource\":\"opencode.*\",\"effect\":\"allow\"},{\"action\":\"tool.use\",\"resource\":\"external_directory:*\",\"effect\":\"deny\"},{\"action\":\"tool.use\",\"resource\":\"subagent:*\",\"effect\":\"deny\"},{\"action\":\"tool.use\",\"resource\":\"question:*\",\"effect\":\"deny\"},{\"action\":\"tool.use\",\"resource\":\"skill:*\",\"effect\":\"deny\"},{\"action\":\"tool.use\",\"resource\":\"webfetch:*\",\"effect\":\"deny\"},{\"action\":\"tool.use\",\"resource\":\"websearch:*\",\"effect\":\"deny\"}],\"plugins\":[\"-*\",\"opencode.*\"]}",
+          "OPENCODE_CONFIG_DIR": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-knowledge-writing-1793717926065\\artifacts\\auto-opencode\\initial\\config",
+          "OPENCODE_CONFIG_PROJECT_DISABLE": "true",
+          "OPENCODE_DISABLE_FILEWATCHER": "true",
+          "OPENCODE_DISABLE_CLAUDE_CODE": "true",
+          "OPENCODE_DISABLE_MODELS_FETCH": "true"
+        },
+        "exitCode": 0,
+        "signal": null,
+        "endedAt": "2026-11-03T15:02:29.145Z",
+        "durationSeconds": 67.025,
+        "stopReason": null,
+        "eventFailure": false,
+        "sessionId": "ses_e5e122203ffeCEhtBtH0KuBj16",
+        "usage": null,
+        "stepUsage": [
+          {
+            "cost": 0.00066845,
+            "tokens": {
+              "input": 4343,
+              "output": 22,
+              "reasoning": 12,
+              "cache": {
+                "read": 0,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00017854,
+            "tokens": {
+              "input": 206,
+              "output": 38,
+              "reasoning": 0,
+              "cache": {
+                "read": 4288,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00022985,
+            "tokens": {
+              "input": 303,
+              "output": 37,
+              "reasoning": 63,
+              "cache": {
+                "read": 4480,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00020028,
+            "tokens": {
+              "input": 228,
+              "output": 48,
+              "reasoning": 0,
+              "cache": {
+                "read": 4736,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00039949,
+            "tokens": {
+              "input": 1261,
+              "output": 38,
+              "reasoning": 87,
+              "cache": {
+                "read": 4928,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00075324,
+            "tokens": {
+              "input": 2034,
+              "output": 72,
+              "reasoning": 453,
+              "cache": {
+                "read": 6188,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00038121,
+            "tokens": {
+              "input": 743,
+              "output": 48,
+              "reasoning": 0,
+              "cache": {
+                "read": 8192,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00032078,
+            "tokens": {
+              "input": 236,
+              "output": 37,
+              "reasoning": 0,
+              "cache": {
+                "read": 8896,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00225894,
+            "tokens": {
+              "input": 12072,
+              "output": 67,
+              "reasoning": 284,
+              "cache": {
+                "read": 9088,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.0007959,
+            "tokens": {
+              "input": 862,
+              "output": 66,
+              "reasoning": 0,
+              "cache": {
+                "read": 21120,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00073141,
+            "tokens": {
+              "input": 259,
+              "output": 68,
+              "reasoning": 0,
+              "cache": {
+                "read": 21952,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00075999,
+            "tokens": {
+              "input": 145,
+              "output": 144,
+              "reasoning": 0,
+              "cache": {
+                "read": 22208,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00074916,
+            "tokens": {
+              "input": 204,
+              "output": 96,
+              "reasoning": 0,
+              "cache": {
+                "read": 22352,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00070799,
+            "tokens": {
+              "input": 131,
+              "output": 25,
+              "reasoning": 0,
+              "cache": {
+                "read": 22528,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00094133,
+            "tokens": {
+              "input": 851,
+              "output": 110,
+              "reasoning": 158,
+              "cache": {
+                "read": 22656,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00081704,
+            "tokens": {
+              "input": 586,
+              "output": 13,
+              "reasoning": 36,
+              "cache": {
+                "read": 23488,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00153342,
+            "tokens": {
+              "input": 180,
+              "output": 717,
+              "reasoning": 852,
+              "cache": {
+                "read": 24064,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00112586,
+            "tokens": {
+              "input": 1644,
+              "output": 307,
+              "reasoning": 0,
+              "cache": {
+                "read": 24192,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00088951,
+            "tokens": {
+              "input": 365,
+              "output": 95,
+              "reasoning": 27,
+              "cache": {
+                "read": 25792,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00088908,
+            "tokens": {
+              "input": 166,
+              "output": 159,
+              "reasoning": 0,
+              "cache": {
+                "read": 26156,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00121147,
+            "tokens": {
+              "input": 319,
+              "output": 550,
+              "reasoning": 199,
+              "cache": {
+                "read": 26304,
+                "write": 0
+              }
+            }
+          }
+        ],
+        "reportedCostUSD": 0.016542940000000003,
+        "observedModels": [],
+        "reviewInputsPreserved": true,
+        "evaluation": "not-graded"
+      },
+      "structuralChecksPassed": true,
+      "artifacts": "B/artifacts/auto-opencode"
+    },
+    {
+      "candidate": "C",
+      "mode": "custom-root",
+      "outcome": "task-failure",
+      "baseline": {
+        "preparedAt": "2026-11-03T15:09:49.267Z",
+        "sourceRevision": "1096208e969eb8537a5d5b00588698285b207ef1",
+        "sourceStatus": "M CHANGELOG.md\n M docs/configuration.md\n M docs/decisions/020-optional-learnings-and-humanizer.md\n M docs/decisions/README.md\n M docs/guide/index.md\n M docs/guide/updating.md\n M docs/guide/workflow.md\n M openspec/changes/project-learnings-and-humanizer/design.md\n M openspec/changes/project-learnings-and-humanizer/proposal.md\n M openspec/changes/project-learnings-and-humanizer/tasks.md\n M package.json\n M plan.md\n M src/core.ts\n M src/schema-source.ts\n M test/docs.test.mjs\n?? docs/testing/knowledge-writing-trial/\n?? schemas/base/instructions/humanizer.md\n?? schemas/base/instructions/learnings.md\n?? schemas/base/templates/learning.md\n?? scripts/check-knowledge-writing-trial.mjs\n?? scripts/prepare-knowledge-writing-trial.mjs\n?? test/knowledge-writing.test.mjs",
+        "baseline": "e423e380a7e64dcdc96fae87d64eda901682f1d8",
+        "package": {
+          "filename": "cliewen-openspec-0.2.0-alpha.1.tgz",
+          "sha256": "f8a04c90ecba4f35f1172c25f478ddfb35436507ff6f06d647ed3c42ce9ee3ef"
+        },
+        "node": "v24.0.0",
+        "npm": "11.21.0",
+        "openspec": "1.15.0",
+        "root": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-knowledge-writing-1793718578747\\project-custom-root",
+        "fixture": "knowledge-writing",
+        "mode": "off",
+        "variant": "custom-root",
+        "protectedFiles": [
+          ".cliewen-openspec/.gitignore",
+          ".cliewen-openspec/ac-registry.json",
+          ".cliewen-openspec/config.yaml",
+          ".cliewen-openspec/manifest.json",
+          ".cliewen-openspec/templates/decision.md",
+          ".cliewen-openspec/templates/learning.md",
+          ".gitignore",
+          "AGENTS.md",
+          "README.md",
+          "docs/README.md",
+          "docs/learnings/README.md",
+          "docs/learnings/formatter-bytes.md",
+          "docs/learnings/mandatory-marker.md",
+          "docs/learnings/pool-tuning.md",
+          "docs/testing/formatter-probe.md",
+          "export.mjs",
+          "notes/lessons/README.md",
+          "notes/lessons/formatter-bytes.md",
+          "notes/lessons/mandatory-marker.md",
+          "notes/lessons/pool-tuning.md",
+          "openspec/changes/archive/.gitkeep",
+          "openspec/config.yaml",
+          "openspec/schemas/cliewen-all/schema.yaml",
+          "openspec/schemas/cliewen-all/templates/decision.md",
+          "openspec/schemas/cliewen-all/templates/investigation.md",
+          "openspec/schemas/cliewen-all/templates/proposal.md",
+          "openspec/schemas/cliewen-all/templates/spec.md",
+          "openspec/schemas/cliewen-all/templates/tasks.md",
+          "openspec/schemas/cliewen-delivery/schema.yaml",
+          "openspec/schemas/cliewen-delivery/templates/design.md",
+          "openspec/schemas/cliewen-delivery/templates/proposal.md",
+          "openspec/schemas/cliewen-delivery/templates/spec.md",
+          "openspec/schemas/cliewen-delivery/templates/tasks.md",
+          "openspec/schemas/cliewen-discovery/schema.yaml",
+          "openspec/schemas/cliewen-discovery/templates/decision.md",
+          "openspec/schemas/cliewen-discovery/templates/investigation.md",
+          "openspec/schemas/cliewen-discovery/templates/proposal.md",
+          "openspec/specs/.gitkeep",
+          "openspec/specs/csv-export/spec.md",
+          "package-lock.json",
+          "package.json",
+          "test/export.test.mjs"
+        ]
+      },
+      "run": {
+        "schema": "cliewen-delivery",
+        "profileId": "codex-cli-primary",
+        "phase": "initial",
+        "project": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-knowledge-writing-1793718578747\\project-custom-root",
+        "baseline": "e423e380a7e64dcdc96fae87d64eda901682f1d8",
+        "profile": {
+          "readiness": "pinned",
+          "agent": "Codex CLI",
+          "runner": "cli",
+          "model": "gpt-6.1-sol",
+          "agentVersion": "0.166.0",
+          "provider": "openai; existing ChatGPT CLI authentication",
+          "effort": "medium",
+          "permissions": "danger-full-access, approval never; project scope is an instruction, not OS isolation",
+          "context": "fresh process; ignore user config and execpolicy rules; project AGENTS and managed/global instructions may remain",
+          "budgets": {
+            "wallTimeSeconds": 600,
+            "outputBytes": 67108864,
+            "reportedCostUSD": null,
+            "tokenLimit": null,
+            "billing": "existing ChatGPT entitlement; no purchase"
+          },
+          "traceFormat": "codex exec --json JSONL plus stderr"
+        },
+        "exe": "C:\\Program Files\\nodejs\\node.exe",
+        "args": [
+          "C:\\Users\\flemm\\AppData\\Roaming\\npm\\node_modules\\@openai\\codex\\bin\\codex.js",
+          "exec",
+          "--ignore-user-config",
+          "--ignore-rules",
+          "--ephemeral",
+          "--json",
+          "--sandbox",
+          "danger-full-access",
+          "-c",
+          "approval_policy=\"never\"",
+          "-c",
+          "model_provider=\"openai\"",
+          "-c",
+          "model_reasoning_effort=\"medium\"",
+          "--model",
+          "gpt-6.1-sol",
+          "-"
+        ],
+        "cliVersion": "codex-cli 0.166.0",
+        "startedAt": "2026-11-03T15:12:19.408Z",
+        "promptFile": "prompt.txt",
+        "environmentControls": {
+          "NO_COLOR": "1",
+          "OPENSPEC_TELEMETRY": "0",
+          "CI": "1"
+        },
+        "exitCode": 0,
+        "signal": null,
+        "endedAt": "2026-11-03T15:13:19.491Z",
+        "durationSeconds": 60.082,
+        "stopReason": null,
+        "eventFailure": false,
+        "sessionId": "01a1a1f7-e302-7521-b73a-2aa76cd43015",
+        "usage": {
+          "input_tokens": 303334,
+          "cached_input_tokens": 275712,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 2709,
+          "reasoning_output_tokens": 174
+        },
+        "stepUsage": [],
+        "reportedCostUSD": null,
+        "observedModels": [],
+        "reviewInputsPreserved": true,
+        "evaluation": "not-graded"
+      },
+      "structuralChecksPassed": true,
+      "artifacts": "C/artifacts/custom-root"
+    }
+  ]
+}

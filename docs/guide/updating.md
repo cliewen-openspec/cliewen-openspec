@@ -54,3 +54,5 @@ npm test
 Use `cliewen-discovery` or `cliewen-all` in the validation command for another workflow. Existing proposals, specs, decisions, tasks, and test titles are not rewritten by update. If a new contract requires metadata such as test types, review and add it in authored files yourself. Defaults for omitted config fields are read by the current CLI; update does not fill them into your config.
 
 Commit the intended inputs before collecting fresh evidence for a delivery change. An old report is not rewritten or removed by update; revision freshness and contract checks can require recollection. Discovery and combined no-delivery outcomes retain their documented review-only evidence behavior. The [evidence guide](../testing/evidence.md) explains collection and scope.
+
+The development 0.2 bundle adds an owned learning template and shared learnings/Humanizer instructions. Existing configuration can omit both settings; learnings default off and Humanizer defaults to auto. Update does not create a knowledge collection, rewrite notes, or install an external skill. See [the settings and host limits](../configuration.md#project-learnings) before opting in.

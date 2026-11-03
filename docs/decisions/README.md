@@ -9,6 +9,7 @@ These records capture choices confirmed in the project conversation. Acceptance 
 
 | Record | Decision | Current scope |
 |---|---|---|
+| [Decision 020: Add optional project learnings and Humanizer support](020-optional-learnings-and-humanizer.md) | Independent learning retrieval and host-mediated writing-skill guidance | Accepted; implemented in development source; 68 package tests pass; retrieval and writing acceptance findings remain open |
 | [Decision 019: Use spec-driven development with evidence-first verification](019-evidence-first-verification.md) | Agree verification before implementation; verify incrementally and maintain effective tests; remove TDD facilities | Accepted; supersedes decisions 004 and 013; removal and migration diagnostics implemented in development source; fresh agent trials pending |
 | [Decision 018: Exercise guides with fresh coding-agent sessions](018-agent-guide-walkthroughs.md) | Recurring first-use guide trials with post-attempt reviews | Accepted; all three CLI adapters implemented and exercised on the prepared CSV guide |
 | [Decision 017: Separate test coverage, effectiveness, and lifecycle review](017-test-quality-and-lifecycle.md) | Independent coverage, effectiveness, and lifecycle policies | Unreleased 0.2; one reviewed Codex delivery and combined observation; other profiles/release checks pending; requirement renames remain unresolved |
@@ -26,12 +27,6 @@ These records capture choices confirmed in the project conversation. Acceptance 
 | [014](014-installer-ownership-and-recoverable-lifecycle.md) | Track generated-resource ownership and recover failed lifecycle changes without losing project data | Alpha init/update/uninstall ownership, conflict, recovery, and default-preservation rules implemented; general migrations planned |
 | [015](015-combined-workflow-and-approval-boundaries.md) | Keep combined investigation/delivery behind explicit agreement, with a genuine no-delivery branch | Graph and metadata/evidence checks implemented; authorization and execution history still require review |
 | [016](016-user-projects-and-maintainer-tooling.md) | Serve adopting projects without making maintainer tooling a user requirement | Accepted product boundary; standalone bundles and separate maintainer tools exist; user-project validation remains project-specific |
-
-## Proposed decisions
-
-| Record | Review scope |
-|---|---|
-| [Decision 020: Add optional project learnings and Humanizer support](020-optional-learnings-and-humanizer.md) | Proposed priority-5 controls, defaults, lifecycle, and host-capability boundaries; runtime implementation pending |
 
 ## Superseded decisions
 

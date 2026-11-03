@@ -1,27 +1,27 @@
 ---
 type: decision
 category: process
-status: proposed
+status: accepted
 ---
 # Add optional project learnings and Humanizer support
 
 ## Context
 
-The owner approved a roadmap for reusable project lessons and optional Humanizer use. Agents need to find relevant lessons without loading an entire history, and writing guidance must work when an external skill is unavailable. The detailed settings and defaults below are proposed for review; no runtime implementation is claimed.
+The owner approved the roadmap and subsequently accepted the detailed design, including its status-reporting rules, in the project conversation. Agents need to find relevant lessons without loading an entire history, and writing guidance must work when an external skill is unavailable.
 
 ## Considered options
 
 Relying only on host memory makes reusable lessons host-dependent. Loading every lesson adds unrelated context. Bundling or installing Humanizer would couple Cliewen to an external skill's distribution and host-specific lifecycle.
 
-## Proposed decision
+## Decision
 
-Provide independently configurable, opt-in project learnings and automatic Humanizer discovery by the coding agent. The [change design](../../openspec/changes/project-learnings-and-humanizer/design.md) owns the proposed keys, defaults, mode behavior, and validation cases.
+Provide independently configurable, opt-in project learnings and automatic Humanizer discovery by the coding agent. The [change design](../../openspec/changes/project-learnings-and-humanizer/design.md) owns the keys, defaults, mode behavior, and validation cases.
 
 Use a small index to retrieve relevant lessons before planning or editing. Record only useful observations, distinguish tentative guidance from verified guidance, and retire stale lessons without deleting their history. Current requirements and accepted decisions remain authoritative. Prefer promoting recurring lessons into tests, rules, or durable documentation when appropriate.
 
 Use Humanizer when the configured mode requests it and the host exposes a usable skill. Preserve baseline clear-writing guidance in every mode. Missing or inaccessible skills do not block work; suggestions are limited to once per session and respect a refusal. Installation remains an explicit user action.
 
-The owner approved the status-reporting detail on November 2, 2026: in auto/on mode, report one brief Humanizer status per session, distinguishing actual use, detected but inaccessible, confirmed absent, and unknown availability. Claim use only after reading and applying the skill's instructions. Off mode requests no Humanizer status. This approval covers the reporting detail; the rest of this proposed design retains its review status.
+In auto/on mode, report one brief Humanizer status per session, distinguishing actual use, detected but inaccessible, confirmed absent, and unknown availability. Claim use only after reading and applying the skill's instructions. Off mode requests no Humanizer status.
 
 ## Consequences
 
@@ -35,4 +35,4 @@ This extends [Decision 012: Apply clear writing and diagram guidance across agen
 
 [Humanizer's upstream README](https://github.com/blader/humanizer#installation), reviewed November 2, 2026, documents host-specific installation and skill use. Link to current upstream instructions rather than embedding an installer command that may drift. Cliewen will not bundle the skill or copy its rules.
 
-Acceptance of the roadmap authorized this design work. This record remains proposed until the detailed design is agreed; implementation, fresh-agent trials, and release acceptance remain open.
+The owner accepted the complete design after its initial status-reporting approval. Development source implements settings, path validation, shared instructions, and template ownership. [Result 001: First learnings and Humanizer observations](../testing/knowledge-writing-trial/result-001.md) records 68 passing package tests and six bounded agent attempts. Selective retrieval failed in two attempts, and one fallback produced unsupported claims. Acceptance remains open; the published alpha is unchanged. This decision establishes no general host-support or release-acceptance claim.

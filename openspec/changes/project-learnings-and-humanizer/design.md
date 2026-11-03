@@ -1,6 +1,6 @@
 # Optional knowledge and writing support
 
-## Proposed configuration
+## Configuration
 
 ```yaml
 learnings:
@@ -12,7 +12,7 @@ writing:
 
 Omitted settings use these defaults. Unknown keys and invalid types fail configuration validation. Humanizer accepts `auto`, `"on"`, or `"off"`. Existing installations need no new entries. Settings are read on the next workflow operation without reinstalling.
 
-`learnings.directory` is relative to `docsRoot`, so a custom root such as `notes` produces `notes/learnings`. A project can select an existing directory within that root. Reuse existing content and conventions; if another knowledge authority lives elsewhere, reference it rather than copying its contents. Reject empty, absolute, escaping, or symlinked paths through the existing repository-path rules.
+`learnings.directory` is relative to `docsRoot`, so a custom root such as `notes` produces `notes/learnings`. A project can select an existing directory within that root. Reuse existing content and conventions; if another knowledge authority lives elsewhere, reference it rather than copying its contents. Reject empty, absolute, and escaping settings. Validate active collection paths with the existing symlink rules; disabled or documentation-suppressed learnings must not inspect an unused authored collection.
 
 Learnings are opt-in to keep the default workflow small. Humanizer follows the roadmap's automatic default. Both controls are independent of each other and of testing policies. `features.documentation: false` suppresses learnings workflow guidance even if learnings are enabled, preserves notes, and leaves general writing guidance/Humanizer available. Document this precedence explicitly.
 
