@@ -9,6 +9,7 @@ These records capture choices confirmed in the project conversation. Acceptance 
 
 | Record | Decision | Current scope |
 |---|---|---|
+| [Decision 021: Ship 0.1.0 first and use a direct transition](021-first-release-and-direct-transition.md) | First non-prerelease target and no legacy-user compatibility obligation | Accepted by the owner; source/Pages relocation and first-release preparation tracked separately from publication |
 | [Decision 020: Add optional project learnings and Humanizer support](020-optional-learnings-and-humanizer.md) | Independent learning retrieval and host-mediated writing-skill guidance | Accepted; implemented with bounded development review; 68 package tests pass; actual host gaps and final-candidate checks remain documented |
 | [Decision 019: Use spec-driven development with evidence-first verification](019-evidence-first-verification.md) | Agree verification before implementation; verify incrementally and maintain effective tests; remove TDD facilities | Accepted; supersedes decisions 004 and 013; removal and migration diagnostics implemented in development source; fresh agent trials pending |
 | [Decision 018: Exercise guides with fresh coding-agent sessions](018-agent-guide-walkthroughs.md) | Recurring first-use guide trials with post-attempt reviews | Accepted; all three CLI adapters implemented and exercised on the prepared CSV guide |

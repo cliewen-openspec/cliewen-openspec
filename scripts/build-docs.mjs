@@ -38,7 +38,7 @@ for (const p of pages) {
     const source = path.posix.normalize(path.posix.join(path.posix.dirname(p.source), filename));
     if (!fs.existsSync(path.join(root, source))) throw Error('Missing source link: ' + p.source + ' -> ' + href);
     const target = bySource.get(source);
-    const destination = target ? './' + target.replace(/\.html$/, '.md') : 'https://github.com/flemming-n-larsen/cliewen-openspec/blob/main/' + source;
+    const destination = target ? './' + target.replace(/\.html$/, '.md') : 'https://github.com/cliewen-openspec/cliewen-openspec/blob/main/' + source;
     return '](' + destination + (anchor ? '#' + anchor : '') + ')';
   });
   for (const token of md.parse(content, {})) if (token.type === 'fence' && token.info.trim() === 'mermaid') diagrams.push(token.content);

@@ -35,10 +35,10 @@ export default defineConfig({
     sidebar,
     search: {provider: 'local'},
     outline: {level: [2, 3], label: 'On this page'},
-    socialLinks: [{icon: 'github', link: 'https://github.com/flemming-n-larsen/cliewen-openspec'}],
+    socialLinks: [{icon: 'github', link: 'https://github.com/cliewen-openspec/cliewen-openspec'}],
     editLink: {
-      pattern: ({frontmatter}) => `https://github.com/flemming-n-larsen/cliewen-openspec/edit/main/${frontmatter.sourcePath}`,
+      pattern: ({frontmatter}) => `https://github.com/cliewen-openspec/cliewen-openspec/edit/main/${frontmatter.sourcePath}`,
     },
-    footer: {message: 'Independent community project. MIT license. No npm release yet.'},
+    footer: {message: 'Independent community project. MIT license.'},
   },
 });

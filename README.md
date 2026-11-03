@@ -70,7 +70,7 @@ After reviewing the assertions and evidence, archive with OpenSpec. Commit the a
 
 ## Project documents
 
-- [User guide source](docs/guide/index.md) and [published documentation](https://flemming-n-larsen.github.io/cliewen-openspec/)
+- [User guide source](docs/guide/index.md) and [published documentation](https://cliewen-openspec.github.io/cliewen-openspec/)
 - [Decisions](docs/decisions/README.md)
 - [Changelog](CHANGELOG.md)
 - [Project configuration](docs/configuration.md)
@@ -78,7 +78,7 @@ After reviewing the assertions and evidence, archive with OpenSpec. Commit the a
 - [Implementation plan](plan.md)
 - [Practice mapping](docs/cliewen-mapping.md)
 - [Alpha architecture](docs/architecture/README.md)
-- [Website](https://flemming-n-larsen.github.io/cliewen-openspec/)
+- [Website](https://cliewen-openspec.github.io/cliewen-openspec/)
 - [Credits](CREDITS.md)
 
 Implemented commands: `init`, `update`, `uninstall`, `ac next`, `ac rename-prefix`, `check` and `recover`. Review generated/resource changes before applying them. [Uninstall](docs/guide/uninstalling.md) preserves project data and requires an explicit replacement when removing the selected default. Tests never establish assertion quality automatically.
@@ -93,7 +93,7 @@ Build the documentation with `npm run docs:build` and preview it with `npm run d
 
 ## Feedback
 
-[Report a bug](https://github.com/flemming-n-larsen/cliewen-openspec/issues/new?template=bug_report.yml) or [suggest an improvement](https://github.com/flemming-n-larsen/cliewen-openspec/issues/new?template=idea.yml). Documentation problems and workflow ideas are welcome. A small example helps us understand the problem; a proposed implementation is optional.
+[Report a bug](https://github.com/cliewen-openspec/cliewen-openspec/issues/new?template=bug_report.yml) or [suggest an improvement](https://github.com/cliewen-openspec/cliewen-openspec/issues/new?template=idea.yml). Documentation problems and workflow ideas are welcome. A small example helps us understand the problem; a proposed implementation is optional.
 
 Maintainers use the [feedback triage guide](docs/feedback-triage.md) to reproduce problems, record decisions, and link accepted work to OpenSpec changes.
 

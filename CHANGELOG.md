@@ -2,7 +2,7 @@
 
 Changes that matter to projects using Cliewen for OpenSpec.
 
-## 0.2 (unreleased)
+## 0.1.0 (unreleased)
 
 - Optional indexed project learnings help agents retrieve relevant lessons and maintain or retire stale guidance. Notes remain project-owned and survive disabling the facility, updates, and uninstall. Learnings are off by default. Agents that gather context before reading schema instructions may need the [project instruction example](docs/configuration.md#instructions-before-context-collection).
 - Optional Humanizer guidance defaults to automatic host discovery, with explicit on/off modes, one status per session, and a clear-writing fallback. Missing skills never block writing or install automatically. See [configuration and host limits](docs/configuration.md#humanizer-and-writing).
@@ -12,7 +12,7 @@ Changes that matter to projects using Cliewen for OpenSpec.
 
 - Independently configurable checks for positive/negative case coverage, assertion-effectiveness reviews, and test maintenance when requirements change or are retired. The default warns about missing assessments; projects can disable individual policies or make them blocking.
 - Case IDs and coverage categories in Node test reports, plus scoped exceptions and review records tied to inspected file contents. Passing record checks still require review of assertion meaning and approval claims. See [test quality and lifecycle](docs/testing/test-quality.md) for development-source usage and limitations.
-- Development package version `0.2.0-alpha.1`; it is not published. Updating an installation from `0.1.0-alpha.1` preserves authored resources and configuration. Other historical versions remain unsupported.
+- The first non-prerelease release starts with the current configuration. Upgrading earlier alpha installations is outside its supported scope; authored-file preservation remains part of the installer contract.
 
 ## 0.1.0-alpha.1 (2026-11-01)
 

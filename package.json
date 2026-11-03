@@ -6,9 +6,9 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/flemming-n-larsen/cliewen-openspec.git"
+    "url": "git+https://github.com/cliewen-openspec/cliewen-openspec.git"
   },
-  "homepage": "https://flemming-n-larsen.github.io/cliewen-openspec/",
+  "homepage": "https://cliewen-openspec.github.io/cliewen-openspec/",
   "engines": {
     "node": ">=20.19.0"
   },

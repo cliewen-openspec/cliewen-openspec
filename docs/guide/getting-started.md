@@ -12,7 +12,7 @@ The alpha is available on npm: existing projects can install it with `npm instal
 From an empty parent directory, clone the source repository and build the package:
 
 ```sh
-git clone https://github.com/flemming-n-larsen/cliewen-openspec.git
+git clone https://github.com/cliewen-openspec/cliewen-openspec.git
 cd cliewen-openspec
 npm ci
 npm test
