@@ -47,3 +47,9 @@ All 69 package tests passed after the executable guide corrections. [Package run
 [The machine-readable record](release-candidate-001.json) retains exact inputs, profiles, limits, durations, checks, and graded outcomes. Original traces, guide snapshots, reports, candidate archives, final project Git bundles, and quality baseline are preserved locally under `.tmp/agent-trials/release-candidate-001/`. Raw native traces are not published in the repository. Quality trial final revision: `32dd7bc9ea98adee9e18eb4d18060a11990f2feb`; first guide final revision: `e857e3989686c411b3d5f08c0ceb3f56cab4a718`.
 
 Required repeated schema/profile combinations, remaining planned variants, all affected guide profiles, host-specific support limits, and source-change disposition still block final release acceptance. No npm publication, tag, upstream contact, or release approval occurred.
+
+## Follow-up: nested OpenCode environment
+
+A fresh OpenCode walkthrough of source `a95755a` exposed two failing guide-runner tests. The runner tried to create an inherited, already-existing `OPENCODE_CONFIG_DIR` even when launching a Codex or Claude fixture. A regression reproduces the `EEXIST` failure with an existing parent configuration directory; creation is now limited to the selected OpenCode profile's private directory. The four focused runner tests and all 69 package tests pass after the fix. Package runtime and packed files are unaffected.
+
+The original OpenCode attempt continued after the failing source tests. Its prepared CSV project passed independent archive, behavior, and evidence checks, but that does not excuse the failed source build prerequisite. Preserve this attempt as a process failure and test the correction in a fresh session. Subsequent trial reports own the completed follow-up results.

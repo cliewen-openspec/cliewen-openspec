@@ -55,7 +55,7 @@ if (phase === 'prepare') {
   write(path.join(folder, 'prompt.txt'), prompt);
   const invocation = guideInvocation(metadata.profile, phase, prompt, metadata.session, folder);
   const {exe, prefix, args, env} = invocation;
-  if (env.OPENCODE_CONFIG_DIR) fs.mkdirSync(env.OPENCODE_CONFIG_DIR);
+  if (metadata.profile.agent === 'OpenCode') fs.mkdirSync(env.OPENCODE_CONFIG_DIR);
   const cli = spawnSync(exe, [...prefix, '--version'], {encoding: 'utf8', windowsHide: true, timeout: 15000});
   if (cli.status !== 0 || cli.stdout.match(/\bv?(\d+\.\d+\.\d+)\b/)?.[1] !== metadata.profile.agentVersion) {
     write(path.join(folder, 'run.json'), JSON.stringify({phase, code: cli.status, passed: false, failure: 'version-preflight', cliVersion: cli.stdout, expectedVersion: metadata.profile.agentVersion, evaluation: 'infrastructure-failure'}, null, 2) + '\n');

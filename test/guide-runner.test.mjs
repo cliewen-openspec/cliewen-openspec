@@ -14,6 +14,8 @@ function fixture(t, id, options = {}) {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'cliewen-guide-runner-test-'));
   t.after(() => fs.rmSync(root, {recursive: true, force: true}));
   const trial = path.join(root, 'trial'), fake = path.join(root, 'fake.mjs');
+  const inheritedConfig = path.join(root, 'parent-opencode-config');
+  fs.mkdirSync(inheritedConfig);
   const profile = profiles[id];
   fs.writeFileSync(fake, `import fs from 'node:fs';
 const args=process.argv.slice(2); if(args.includes('--version')){console.log(process.env.FAKE_VERSION);process.exit(0);}
@@ -27,7 +29,7 @@ if(agent==='Claude Code'){const option=args.includes('--resume')?'--resume':'--s
 else if(agent==='Codex CLI'){console.log(JSON.stringify({type:'thread.started',thread_id:'fixture-thread'}));console.log(JSON.stringify({type:'turn.completed',usage:{input_tokens:10,output_tokens:4}}));}
 else{console.log(JSON.stringify({type:'text',sessionID:'fixture-session',model,part:{text:'fixture'}}));console.log(JSON.stringify({type:'step_finish',sessionID:'fixture-session',part:{cost:Number(process.env.FAKE_COST||0.01),tokens:{input:10,output:4}}}));}
 });`);
-  const env = {...process.env, CLIEWEN_CLAUDE_CLI: fake, CLIEWEN_CODEX_CLI: fake, CLIEWEN_OPENCODE_CLI: fake, FAKE_AGENT: profile.agent, FAKE_VERSION: options.version ?? (profile.agent === 'OpenCode' ? `opencode v${profile.agentVersion}` : profile.agentVersion), FAKE_MODEL: options.model ?? profile.model, FAKE_FAIL: options.fail ? '1' : '', FAKE_EDIT_REPORT: options.editReport ? '1' : '', FAKE_COST: options.cost ?? '', FAKE_PRIVATE_TOKEN: 'never-serialize-this'};
+  const env = {...process.env, OPENCODE_CONFIG_DIR: inheritedConfig, CLIEWEN_CLAUDE_CLI: fake, CLIEWEN_CODEX_CLI: fake, CLIEWEN_OPENCODE_CLI: fake, FAKE_AGENT: profile.agent, FAKE_VERSION: options.version ?? (profile.agent === 'OpenCode' ? `opencode v${profile.agentVersion}` : profile.agentVersion), FAKE_MODEL: options.model ?? profile.model, FAKE_FAIL: options.fail ? '1' : '', FAKE_EDIT_REPORT: options.editReport ? '1' : '', FAKE_COST: options.cost ?? '', FAKE_PRIVATE_TOKEN: 'never-serialize-this'};
   const run = phase => spawnSync(process.execPath, ['scripts/run-guide-walkthrough.mjs', phase, trial, ...(phase === 'prepare' ? [id] : [])], {cwd: source, env, encoding: 'utf8', timeout: 15000});
   const prepared = run('prepare'); assert.equal(prepared.status, 0, prepared.stderr);
   const read = phase => JSON.parse(fs.readFileSync(path.join(trial, 'artifacts', phase, 'run.json'), 'utf8'));
@@ -39,7 +41,8 @@ test('all guide adapters preserve phases and snapshots, with an explicit context
     const f = fixture(t, id);
     assert.notEqual(f.run('review').status, 0, 'review cannot precede walkthrough completion');
     assert.equal(fs.existsSync(path.join(f.trial, 'artifacts/review')), false);
-    assert.equal(f.run('walkthrough').status, 0); assert.equal(f.read('walkthrough').passed, true);
+    const walkthrough = f.run('walkthrough');
+    assert.equal(walkthrough.status, 0, walkthrough.stderr); assert.equal(f.read('walkthrough').passed, true);
     assert.equal(f.run('review').status, 0); const result = f.read('review');
     assert.equal(result.walkthroughReportPreserved, true);
     assert.equal(result.evaluation, 'not-graded');
