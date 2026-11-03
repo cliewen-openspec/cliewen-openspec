@@ -27,9 +27,9 @@ A companion npm CLI installs the schemas, allocates acceptance IDs, and checks e
 
 The first non-prerelease target is `0.1.0`; it is not yet released. Development checks exercise OpenSpec 1.15.0, with Windows/Linux and Node 22/24 package CI. A worked CSV example takes a project from installation through archive. Repeated final-candidate profile checks are still part of release preparation.
 
-Repository: `https://github.com/cliewen-openspec/cliewen-openspec`
+Repository: [Cliewen for OpenSpec](https://github.com/cliewen-openspec/cliewen-openspec).
 
-Guide and worked example: `https://cliewen-openspec.github.io/cliewen-openspec/getting-started.html`
+Guide and worked example: [Your first change](https://cliewen-openspec.github.io/cliewen-openspec/getting-started.html).
 
 Would this collection fit the community catalog, and would you prefer one entry for the repository or one per schema? The npm installer writes project-local schema bundles; please let me know if you prefer a different distribution shape for future registry support.
 
