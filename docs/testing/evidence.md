@@ -38,7 +38,7 @@ Tests use titles such as `exports rows [EXPORT-001] [Test-type: Unit]`. The refe
 }
 ```
 
-Allowed outcomes: passed, failed, skipped, pending and manual. Pending requires a reason; `--fail-on-pending` makes it blocking. Manual results are reported as warnings and are never described as automated proof. Report schema failures exit 2; failed checks exit 1; checks without errors exit 0. Reviewed sufficiency remains explicitly unassessed in this slice.
+Allowed outcomes: passed, failed, skipped, pending and manual. Pending requires a reason; `--fail-on-pending` makes it blocking. Manual results are reported as warnings and are never described as automated proof. Report schema failures exit 2; failed checks exit 1; checks without errors exit 0. Reviewed sufficiency remains explicitly unassessed.
 
 `check --change NAME` checks active delta scenarios (REMOVED scenarios are excluded). Without it, check all permanent specs. OpenSpec retains responsibility for semantic merging. After archive changes the tree, commit and regenerate evidence without the adapter's `--change` before checking permanent specs.
 

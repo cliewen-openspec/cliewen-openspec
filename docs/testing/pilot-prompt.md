@@ -17,4 +17,4 @@ The prompt describes the task and the review boundary. The schema supplies the w
 
 During review, assess whether the agent follows the schema without additional workflow instructions, whether the scenarios cover the requested behavior, and whether uncertainties become visible before implementation. With the default testing configuration, each implementation task should include its own tests and completion check.
 
-The user reported that the first pilot worked. This is informal feedback; detailed pilot results have not been recorded here.
+A successful copied example does not establish that an agent can implement or verify a new change. Review an agent-authored result against the requested behavior and actual evidence.

@@ -4,6 +4,8 @@
 
 Each task below uses a Unit test in `test/export.test.mjs` at the pure `exportCsv` function boundary, without external dependencies. Each test title carries its AC ID and `[Test-type: Unit]`.
 
+The focused commands below describe incremental implementation. For the prepared walkthrough only, copying finished code replaces those edits, and `node --test test/export.test.mjs` plus strict change validation below are the declared batch verification route. Run both and review all assertions before marking tasks complete. This checks reference behavior without claiming the focused commands or task-by-task development occurred.
+
 - [ ] 1.1 Add the header and record path (EXP-001). Add an exact-output test and run `node --test --test-name-pattern="EXP-001" test/export.test.mjs`. Add an API example to README.md. Fix failures before continuing.
 - [ ] 1.2 Select and order explicit columns (EXP-002). Test reordered properties, multiple records, and ignored unselected fields. Run `node --test --test-name-pattern="EXP-00[12]" test/export.test.mjs` and fix failures.
 - [ ] 1.3 Quote comma-containing fields in headers and values (EXP-003), with a plain-field control. Run `node --test --test-name-pattern="EXP-00[123]" test/export.test.mjs` and fix failures.
@@ -13,7 +15,7 @@ Each task below uses a Unit test in `test/export.test.mjs` at the pure `exportCs
 
 ## 2. Review
 
-- [ ] 2.1 Review assertions against all six scenarios, run the full test file, and validate the OpenSpec change strictly. Document the example's input scope in README.md.
+- [ ] 2.1 Review assertions against all six scenarios, run `node --test test/export.test.mjs`, and validate with `npx --no-install openspec validate add-csv-export --type change --strict`. Document the example's input scope in README.md.
 
 ## Workflow follow-up
 

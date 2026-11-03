@@ -40,36 +40,47 @@ test('documented CSV consumer commands pass from packed install through archive'
     throw Error(`Unsupported guide command: ${command}`);
   }
   // The source checkout is represented by this build's packed tarball; replay the consumer blocks verbatim.
-  for (const command of blocks[1]) line(command);
+  const commands = blocks.flat();
+  const consumerStart = commands.indexOf('cd ..');
+  const changeStart = commands.findIndex(command => command.startsWith('npx --no-install openspec new change add-csv-export '));
+  const allocation = commands.indexOf('npx --no-install cliewen-openspec ac next --capability csv-export');
+  const archiveStart = commands.findIndex(command => command.startsWith('npx --no-install openspec archive '));
+  const archiveCommit = commands.indexOf('git commit -m "Archive CSV export"');
+  assert.ok(consumerStart > 0 && changeStart > consumerStart && allocation > changeStart && archiveStart > allocation && archiveCommit > archiveStart, 'Guide workflow boundaries must be identifiable');
+  for (const command of commands.slice(consumerStart, changeStart)) {
+    line(command);
+    if (command === 'git init -b main') {
+      run('git', ['config', 'user.name', 'Documentation fixture']);
+      run('git', ['config', 'user.email', 'docs@example.invalid']);
+    }
+  }
   assert.equal(cwd, pilot);
-  run('git', ['config', 'user.name', 'Documentation fixture']);
-  run('git', ['config', 'user.email', 'docs@example.invalid']);
-  fs.writeFileSync(path.join(pilot, '.gitignore'), 'node_modules/\n');
-  for (const command of blocks[2]) line(command);
   const configPath = path.join(pilot, '.cliewen-openspec/config.yaml');
   const config = parse(fs.readFileSync(configPath, 'utf8'));
   Object.assign(config, parse(fs.readFileSync(path.join(checkout, 'docs/examples/csv/config.yaml'), 'utf8')));
   fs.writeFileSync(configPath, stringify(config));
-  for (const command of blocks[3]) line(command);
-  const allocate = blocks[3].at(-1);
+  for (const command of commands.slice(changeStart, allocation + 1)) line(command);
+  const allocate = commands[allocation];
   for (let n = 2; n <= 6; n++) assert.equal(line(allocate).trim(), `EXP-${String(n).padStart(3, '0')}`);
-  const archiveIndex = blocks.findIndex(block => block.some(command => command.startsWith('npx --no-install openspec archive ')));
-  assert.ok(archiveIndex > 3, 'Guide must contain a distinct archive block');
-  for (const block of blocks.slice(4, archiveIndex)) for (const command of block) line(command);
+  let scopedCheck;
+  for (const command of commands.slice(allocation + 1, archiveStart)) {
+    const output = line(command);
+    if (command === 'npx --no-install cliewen-openspec check --change add-csv-export --json') scopedCheck = JSON.parse(output);
+  }
+  assert.ok(scopedCheck?.ok);
+  for (const [code, count] of Object.entries({'coverage-metadata-missing': 6, 'coverage-minimum-unmet': 12, 'test-review-missing': 2})) assert.equal(scopedCheck.findings.filter(f => f.code === code).length, count, 'Documented warning count: ' + code);
   const reportPath = path.join(pilot, '.cliewen-openspec/evidence.json');
   const report = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
   assert.equal(report.results.length, 6);
   assert.deepEqual(report.scope, {change: 'add-csv-export'});
   assert.ok(report.results.every(r => r.outcome === 'passed'));
-  const archive = blocks[archiveIndex];
-  for (const command of archive.slice(0, 3)) line(command);
+  for (const command of commands.slice(archiveStart, archiveCommit + 1)) line(command);
   const cli = path.join(pilot, 'node_modules/cliewen-openspec/dist/cli.js');
   const stale = JSON.parse(run(process.execPath, [cli, 'check', '--json'], 1));
   assert.ok(stale.findings.some(f => f.code === 'stale-evidence'));
-  for (const command of archive.slice(3)) line(command);
+  for (const command of commands.slice(archiveCommit + 1)) line(command);
   const final = JSON.parse(run(process.execPath, [cli, 'check', '--json']));
   assert.equal(final.ok, true);
-  for (const block of blocks.slice(archiveIndex + 1)) for (const command of block) line(command);
   const permanent = fs.readFileSync(path.join(pilot, 'openspec/specs/csv-export/spec.md'), 'utf8');
   for (let n = 1; n <= 6; n++) assert.ok(permanent.includes(`[EXP-${String(n).padStart(3, '0')}]`));
   assert.equal(run('git', ['status', '--porcelain']).trim(), '');

@@ -14,12 +14,19 @@ From an empty parent directory, clone the source repository and build the packag
 ```sh
 git clone https://github.com/cliewen-openspec/cliewen-openspec.git
 cd cliewen-openspec
+npm pkg get version
+git rev-parse HEAD
+```
+
+Expect version `"0.1.0"`; stop before building if the checkout differs. Record its Git revision because the default branch can change before release. Then build the candidate:
+
+```sh
 npm ci
 npm test
 npm pack
 ```
 
-The result is `cliewen-openspec-0.1.0.tgz`. The commands below assume that the clone and pilot are sibling directories.
+`npm test` should exit successfully with no failing tests; `npm pack` produces `cliewen-openspec-0.1.0.tgz`. The commands below assume that the clone and pilot are sibling directories.
 
 ## 2. Create the pilot
 
@@ -41,6 +48,11 @@ The last command creates `.gitignore` for this new pilot, excluding installed de
 ```sh
 npx --no-install openspec init --tools none --no-animation
 npx --no-install cliewen-openspec init --default --dry-run
+```
+
+Stop and read the preview before applying. Confirm that it lists only the intended schema/template, configuration, and documentation writes. `--default` includes a change to `openspec/config.yaml`. Run the following commands only after reviewing that output:
+
+```sh
 npx --no-install cliewen-openspec init --default
 git add .
 git commit -m "Install OpenSpec and Cliewen"
@@ -80,7 +92,7 @@ node ../cliewen-openspec/scripts/copy-csv-example.mjs plan
 npx --no-install openspec validate add-csv-export --type change --strict
 ```
 
-The helper copies the example proposal, design, tasks, and delta spec into the existing change. It refuses to overwrite a file. The example uses string-valued fields, explicit column names, and CRLF row separators. Review those choices before implementation. If you have already allocated these IDs in another exercise, use a fresh pilot or update every scenario/test reference to your actual allocated IDs.
+The helper copies the example proposal, design, tasks, and delta spec into the existing change. It refuses to overwrite a file. Stop here and read those files before running an implementation command. Review the string-valued fields, explicit column names, CRLF separators, and the verification commands in `tasks.md`. If validation or copying fails, read the error and preserve the pilot for inspection; use a fresh pilot for a clean retry instead of deleting ownership or identity records.
 
 ## 5. Implement and test
 
@@ -91,11 +103,17 @@ node ../cliewen-openspec/scripts/copy-csv-example.mjs implementation
 node --test test/export.test.mjs
 ```
 
-Expect six passing tests and no failures. They cover headers, explicit column order, commas, quotation marks, line breaks, and an empty record list. Inspect the [CSV code and tests](csv-example.md) to see exactly what they assert. Copying finished files does not exercise an agent or assess its verification quality.
+The implementation helper creates `export.mjs`, `test/export.test.mjs`, and `README.md`. Expect six passing tests and no failures. They cover headers, explicit column order, commas, quotation marks, line breaks, and an empty record list. Inspect the [CSV code and tests](csv-example.md) to see exactly what they assert. Copying finished files does not exercise an agent's implementation process or prove task-by-task development.
 
 Once the tests pass and you have reviewed the code and assertions, mark the implementation tasks complete. With the prepared example, the last helper mode checks the expected files and marks its task list complete.
 
-Stop and read `export.mjs` and `test/export.test.mjs`. Compare the assertions with the six scenarios in `openspec/changes/add-csv-export/specs/csv-export/spec.md` before running the completion helper.
+Stop and read `export.mjs`, `test/export.test.mjs`, and `README.md`. Compare the assertions with the six scenarios in `openspec/changes/add-csv-export/specs/csv-export/spec.md`. For the prepared path, the full suite above verifies all six behaviors together; the task file explicitly allows that batch check instead of its incremental focused commands. This shortcut does not claim those focused runs or task-by-task development. After implementation, validate again:
+
+```sh
+npx --no-install openspec validate add-csv-export --type change --strict
+```
+
+The completion helper is only for the supplied reference files. It checks their contents, not test execution or review. Use it after the checks and review above; it marks all reference tasks complete:
 
 ```sh
 node ../cliewen-openspec/scripts/copy-csv-example.mjs complete
@@ -108,8 +126,6 @@ git add .
 git commit -m "Implement CSV export"
 ```
 
-The helper is for this known reference example, not a general task validator. It checks file contents, not test execution; run the tests yourself first.
-
 ## 6. Collect evidence
 
 Collect from a clean, committed tree: `git status --porcelain` should print nothing. Keep any collection logs outside the pilot or in an ignored directory.
@@ -119,9 +135,17 @@ node node_modules/cliewen-openspec/adapters/node-test.mjs --change add-csv-expor
 npx --no-install cliewen-openspec check --change add-csv-export --json
 ```
 
-The adapter runs every test in the file again and writes an ignored report for the current Git revision, scoped to `add-csv-export`. Failures outside the selected change still block verification.
+The adapter runs every test in the file again and writes `.cliewen-openspec/evidence.json`, ignored by Git. Open it and compare its `revision` with `git rev-parse HEAD`; its scope is `add-csv-export`. Failures outside the selected change still block verification.
 
-With the `0.1.0` candidate and unchanged reference example, expect exit 0 and `"ok": true` alongside warnings about missing case tags, unmet case minimums, and missing review records. The informational findings `sufficiency-not-assessed` and `test-policy-review-required` remind you to review assertion quality. `ok` means no blocking finding; it does not establish that the tests are sufficient.
+With the `0.1.0` candidate and unchanged reference example, expect exit 0 and `"ok": true` with these warnings:
+
+| Code | Count | Reason |
+|---|---|---|
+| `coverage-metadata-missing` | 6 | The six tagged tests have no Case/Coverage metadata |
+| `coverage-minimum-unmet` | 12 | Untagged tests count as zero declared cases, leaving one positive and one negative case missing per scenario |
+| `test-review-missing` | 2 | Effectiveness and lifecycle assessments are absent |
+
+The informational findings `sufficiency-not-assessed` and `test-policy-review-required` remind you to review assertion quality. `ok` means no blocking finding; it does not establish that the tests are sufficient.
 
 These advisory warnings do not prevent continuing this exercise after reviewing the code and assertions. Follow [test quality and lifecycle](../testing/test-quality.md) to add assessments or disable individual policies. The published 0.1 alpha does not produce the new policy findings. If a check fails, use [evidence troubleshooting](../testing/evidence.md#troubleshooting).
 
@@ -137,9 +161,9 @@ node node_modules/cliewen-openspec/adapters/node-test.mjs test/export.test.mjs
 npx --no-install cliewen-openspec check --json
 ```
 
-OpenSpec merges the delta into `openspec/specs/csv-export/spec.md` and moves the change into its archive. Its scenario IDs survive. Archive changes the Git revision, so the previous report becomes stale. The last two commands regenerate evidence and check the permanent specs.
+OpenSpec merges the delta into `openspec/specs/csv-export/spec.md` and moves the change into its archive. Its `+ 3 added` summary counts requirements, not the six scenarios. Archive changes the Git revision, so the previous report becomes stale. The last two commands regenerate evidence and check the permanent specs. For stale or scope-mismatch failures, follow [evidence troubleshooting](../testing/evidence.md#troubleshooting).
 
-`--yes` skips archive confirmation prompts; it does not replace your review. After archive, omit `--change` because the scenarios now belong to permanent specs. The same advisory quality warnings remain until assessed, now using `.cliewen-openspec/reviews/specs.yaml` for review records.
+`--yes` skips archive confirmation prompts; it does not replace your review. OpenSpec archive does not run Cliewen's evidence checker, so review the preceding check before archiving. After archive, omit `--change` because the scenarios now belong to permanent specs. The same advisory quality warnings remain until assessed, now using `.cliewen-openspec/reviews/specs.yaml` for review records.
 
 Expect six passing tests and `"ok": true` with the same advisory warning categories. Confirm the permanent spec is valid and the working tree is clean:
 
