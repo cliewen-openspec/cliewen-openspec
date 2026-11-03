@@ -137,7 +137,11 @@ In auto/on mode, the agent gives one short status per session: used, detected bu
 
 Cliewen does not scan global skill directories, install software, enable plugins, or cache availability across sessions. Installation is a deliberate user action using [Humanizer's current host-specific instructions](https://github.com/blader/humanizer#installation). Availability depends on the host's inventory and permissions; finding a file does not prove the agent can invoke it. No universal detection command or cross-host success guarantee is provided.
 
+A failed attempt to load a skill by name does not establish that the host detected it. When inventory is unavailable, report availability as unknown and describe the failed invocation separately. Reserve "detected but inaccessible" for a skill the host actually identifies.
+
 The skill applies to prose across proposals, specs, tasks, guides, comments, docstrings, commits, PR descriptions, messages, and replies. Preserve technical meaning, code behavior, commands, identifiers, and structured data; verify factual claims after rewriting. Baseline clear-writing rules apply in every mode and when the skill is absent. Disabling documentation guidance does not disable these writing rules or Humanizer. Independent repository or host requirements still apply.
+
+Shared writing guidance also asks the agent to check local document links before handoff, using each containing file's directory as the base. For example, a proposal at `openspec/changes/example/proposal.md` reaches `docs/` through `../../../docs/`. Verify targets and fragments with the project's available link or rendering checks. Describe future files as planned paths until they exist. This is agent guidance; Cliewen's `check` command does not validate every Markdown link or authenticate the agent's validation claims.
 
 ## Test types
 

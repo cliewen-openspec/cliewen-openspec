@@ -1,0 +1,1090 @@
+{
+  "sourceRevision": "b5dd44bf724b358bcf1290f9375fcbb8ad8f82ea",
+  "sourceIncludesUncommittedChanges": true,
+  "preservedArtifacts": ".tmp/agent-trials/knowledge-writing-003",
+  "results": [
+    {
+      "id": "initial",
+      "outcome": "task-failure",
+      "baseline": {
+        "preparedAt": "2026-11-03T15:51:37.868Z",
+        "sourceRevision": "b5dd44bf724b358bcf1290f9375fcbb8ad8f82ea",
+        "sourceStatus": "M schemas/base/instructions/writing.md",
+        "baseline": "aa6933b7f024bb07059bc6599d32803c8eec309a",
+        "package": {
+          "filename": "cliewen-openspec-0.2.0-alpha.1.tgz",
+          "sha256": "50377369dc84cfdd071de15de38c86ce8725c641b5db3b05c6f4f92d2c6b4afc"
+        },
+        "node": "v24.0.0",
+        "npm": "11.21.0",
+        "openspec": "1.15.0",
+        "root": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-knowledge-writing-1793721088750\\project-bootstrap",
+        "fixture": "knowledge-writing",
+        "mode": "auto",
+        "variant": "bootstrap",
+        "protectedFiles": [
+          ".cliewen-openspec/.gitignore",
+          ".cliewen-openspec/ac-registry.json",
+          ".cliewen-openspec/config.yaml",
+          ".cliewen-openspec/manifest.json",
+          ".cliewen-openspec/templates/decision.md",
+          ".cliewen-openspec/templates/learning.md",
+          ".gitignore",
+          "AGENTS.md",
+          "README.md",
+          "docs/README.md",
+          "docs/learnings/README.md",
+          "docs/learnings/formatter-bytes.md",
+          "docs/learnings/mandatory-marker.md",
+          "docs/learnings/pool-tuning.md",
+          "docs/testing/formatter-probe.md",
+          "export.mjs",
+          "openspec/changes/archive/.gitkeep",
+          "openspec/config.yaml",
+          "openspec/schemas/cliewen-all/schema.yaml",
+          "openspec/schemas/cliewen-all/templates/decision.md",
+          "openspec/schemas/cliewen-all/templates/investigation.md",
+          "openspec/schemas/cliewen-all/templates/proposal.md",
+          "openspec/schemas/cliewen-all/templates/spec.md",
+          "openspec/schemas/cliewen-all/templates/tasks.md",
+          "openspec/schemas/cliewen-delivery/schema.yaml",
+          "openspec/schemas/cliewen-delivery/templates/design.md",
+          "openspec/schemas/cliewen-delivery/templates/proposal.md",
+          "openspec/schemas/cliewen-delivery/templates/spec.md",
+          "openspec/schemas/cliewen-delivery/templates/tasks.md",
+          "openspec/schemas/cliewen-discovery/schema.yaml",
+          "openspec/schemas/cliewen-discovery/templates/decision.md",
+          "openspec/schemas/cliewen-discovery/templates/investigation.md",
+          "openspec/schemas/cliewen-discovery/templates/proposal.md",
+          "openspec/specs/.gitkeep",
+          "openspec/specs/csv-export/spec.md",
+          "package-lock.json",
+          "package.json",
+          "test/export.test.mjs"
+        ]
+      },
+      "run": {
+        "schema": "cliewen-delivery",
+        "profileId": "opencode-2-2-5",
+        "phase": "initial",
+        "project": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-knowledge-writing-1793721088750\\project-bootstrap",
+        "baseline": "aa6933b7f024bb07059bc6599d32803c8eec309a",
+        "profile": {
+          "readiness": "pinned",
+          "supersedes": "opencode-1-19-5",
+          "agent": "OpenCode",
+          "runner": "cli",
+          "model": "opencode/glm-5.3-flash",
+          "agentVersion": "2.2.5",
+          "provider": "OpenCode Console/Zen; existing local credentials; provider.use allows only opencode",
+          "effort": "high",
+          "permissions": "V2 ordered rules and hard policies allow local tools; deny external_directory, subagent, question, skill, webfetch and websearch; deny MCP and external plugins; no OS isolation",
+          "context": "fresh standalone server and private config directory per phase; project config and Claude skill discovery disabled; AGENTS read explicitly; system and Console configuration may remain",
+          "budgets": {
+            "wallTimeSeconds": 600,
+            "outputBytes": 67108864,
+            "reportedCostUSD": 0.5,
+            "tokenLimit": null,
+            "billing": "local reported-cost stop; not a provider-enforced hard spending cap"
+          },
+          "traceFormat": "OpenCode run --standalone --format json; model variant via provider/model#high"
+        },
+        "exe": "C:\\Users\\flemm\\AppData\\Roaming\\npm\\node_modules\\@opencode\\cli\\bin\\opencode.exe",
+        "args": [
+          "run",
+          "--standalone",
+          "--format",
+          "json",
+          "--model",
+          "opencode/glm-5.3-flash#high",
+          "Work only in the current project. Keep even temporary helper scripts, probes, and backups inside this project; use a project-local ignored directory when needed, not a shared system temporary directory. Read AGENTS.md and project configuration. Do not read sibling evaluator files, other repositories, credentials, or earlier solutions. Do not spawn additional agents, contact external services, push, or open a PR. Model-provider requests from this CLI are allowed. Use existing local tools and dependencies. Report actual results and inherited instructions.\n\nCreate only a draft proposal for an optional CSV BOM, off by default, preserving the current output, plus a concise PR-style summary at docs/testing/proposal-summary.md. Use the installed cliewen-delivery proposal instructions for a new change named plan-optional-csv-bom and save their JSON response under docs/testing/instructions/. Read current configuration and follow the configured knowledge and writing guidance. Keep code, tests, specs, configuration, and authored lessons unchanged. Do not allocate IDs, implement, archive, collect product evidence, push, or install anything. A skill path explicitly supplied by this session's host inventory may be read; do not scan global directories or other repositories. Explain the actual lesson paths used and any host capability limitation in your final handoff. You may commit proposal files locally.\n"
+        ],
+        "cliVersion": "opencode v2.2.5",
+        "startedAt": "2026-11-03T15:52:24.920Z",
+        "promptFile": "prompt.txt",
+        "environmentControls": {
+          "OPENCODE_CONFIG_CONTENT": "{\"model\":\"opencode/glm-5.3-flash\",\"permissions\":[{\"action\":\"*\",\"resource\":\"*\",\"effect\":\"allow\"},{\"action\":\"external_directory\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"subagent\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"question\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"skill\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"webfetch\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"websearch\",\"resource\":\"*\",\"effect\":\"deny\"}],\"policies\":[{\"action\":\"provider.use\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"provider.use\",\"resource\":\"opencode\",\"effect\":\"allow\"},{\"action\":\"mcp.use\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"skill.use\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"plugin.use\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"plugin.use\",\"resource\":\"opencode.*\",\"effect\":\"allow\"},{\"action\":\"tool.use\",\"resource\":\"external_directory:*\",\"effect\":\"deny\"},{\"action\":\"tool.use\",\"resource\":\"subagent:*\",\"effect\":\"deny\"},{\"action\":\"tool.use\",\"resource\":\"question:*\",\"effect\":\"deny\"},{\"action\":\"tool.use\",\"resource\":\"skill:*\",\"effect\":\"deny\"},{\"action\":\"tool.use\",\"resource\":\"webfetch:*\",\"effect\":\"deny\"},{\"action\":\"tool.use\",\"resource\":\"websearch:*\",\"effect\":\"deny\"}],\"plugins\":[\"-*\",\"opencode.*\"]}",
+          "OPENCODE_CONFIG_DIR": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-knowledge-writing-1793721088750\\artifacts\\bootstrap\\initial\\config",
+          "OPENCODE_CONFIG_PROJECT_DISABLE": "true",
+          "OPENCODE_DISABLE_FILEWATCHER": "true",
+          "OPENCODE_DISABLE_CLAUDE_CODE": "true",
+          "OPENCODE_DISABLE_MODELS_FETCH": "true"
+        },
+        "exitCode": 0,
+        "signal": null,
+        "endedAt": "2026-11-03T15:53:49.248Z",
+        "durationSeconds": 84.327,
+        "stopReason": null,
+        "eventFailure": false,
+        "sessionId": "ses_e5de36580ffeN2uNiXNVx74Aa9",
+        "usage": null,
+        "stepUsage": [
+          {
+            "cost": 0.00066845,
+            "tokens": {
+              "input": 4343,
+              "output": 22,
+              "reasoning": 12,
+              "cache": {
+                "read": 0,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00019094,
+            "tokens": {
+              "input": 322,
+              "output": 28,
+              "reasoning": 0,
+              "cache": {
+                "read": 4288,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00025204,
+            "tokens": {
+              "input": 262,
+              "output": 37,
+              "reasoning": 112,
+              "cache": {
+                "read": 4608,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00020252,
+            "tokens": {
+              "input": 234,
+              "output": 43,
+              "reasoning": 0,
+              "cache": {
+                "read": 4864,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00049948,
+            "tokens": {
+              "input": 1962,
+              "output": 33,
+              "reasoning": 74,
+              "cache": {
+                "read": 5056,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00032253,
+            "tokens": {
+              "input": 255,
+              "output": 65,
+              "reasoning": 85,
+              "cache": {
+                "read": 6976,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00028634,
+            "tokens": {
+              "input": 382,
+              "output": 28,
+              "reasoning": 0,
+              "cache": {
+                "read": 7168,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00035549,
+            "tokens": {
+              "input": 329,
+              "output": 30,
+              "reasoning": 133,
+              "cache": {
+                "read": 7488,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00029033,
+            "tokens": {
+              "input": 219,
+              "output": 46,
+              "reasoning": 0,
+              "cache": {
+                "read": 7816,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.0003162,
+            "tokens": {
+              "input": 428,
+              "output": 24,
+              "reasoning": 0,
+              "cache": {
+                "read": 8000,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00028137,
+            "tokens": {
+              "input": 109,
+              "output": 27,
+              "reasoning": 0,
+              "cache": {
+                "read": 8384,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00035966,
+            "tokens": {
+              "input": 96,
+              "output": 42,
+              "reasoning": 139,
+              "cache": {
+                "read": 8492,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00036688,
+            "tokens": {
+              "input": 664,
+              "output": 20,
+              "reasoning": 0,
+              "cache": {
+                "read": 8576,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00042198,
+            "tokens": {
+              "input": 150,
+              "output": 30,
+              "reasoning": 216,
+              "cache": {
+                "read": 9216,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00039002,
+            "tokens": {
+              "input": 338,
+              "output": 50,
+              "reasoning": 68,
+              "cache": {
+                "read": 9344,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00033642,
+            "tokens": {
+              "input": 210,
+              "output": 30,
+              "reasoning": 0,
+              "cache": {
+                "read": 9664,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00087263,
+            "tokens": {
+              "input": 1943,
+              "output": 145,
+              "reasoning": 426,
+              "cache": {
+                "read": 9856,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00045953,
+            "tokens": {
+              "input": 655,
+              "output": 16,
+              "reasoning": 0,
+              "cache": {
+                "read": 11776,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00038928,
+            "tokens": {
+              "input": 52,
+              "output": 18,
+              "reasoning": 0,
+              "cache": {
+                "read": 12416,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00058048,
+            "tokens": {
+              "input": 690,
+              "output": 45,
+              "reasoning": 164,
+              "cache": {
+                "read": 12416,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00054828,
+            "tokens": {
+              "input": 554,
+              "output": 36,
+              "reasoning": 111,
+              "cache": {
+                "read": 13056,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00119849,
+            "tokens": {
+              "input": 213,
+              "output": 694,
+              "reasoning": 825,
+              "cache": {
+                "read": 13568,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00084135,
+            "tokens": {
+              "input": 1543,
+              "output": 393,
+              "reasoning": 0,
+              "cache": {
+                "read": 13780,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00067048,
+            "tokens": {
+              "input": 434,
+              "output": 86,
+              "reasoning": 207,
+              "cache": {
+                "read": 15296,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.000535,
+            "tokens": {
+              "input": 354,
+              "output": 23,
+              "reasoning": 0,
+              "cache": {
+                "read": 15680,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00055205,
+            "tokens": {
+              "input": 127,
+              "output": 106,
+              "reasoning": 0,
+              "cache": {
+                "read": 16000,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00084312,
+            "tokens": {
+              "input": 288,
+              "output": 609,
+              "reasoning": 27,
+              "cache": {
+                "read": 16064,
+                "write": 0
+              }
+            }
+          }
+        ],
+        "reportedCostUSD": 0.013031339999999997,
+        "observedModels": [],
+        "reviewInputsPreserved": true,
+        "evaluation": "not-graded"
+      },
+      "checks": {
+        "passed": true,
+        "baseline": "aa6933b7f024bb07059bc6599d32803c8eec309a",
+        "revision": "d6f46b8d2f6c824b6319ceff19dcd548e2b9b5dd",
+        "mode": "auto",
+        "checks": [
+          {
+            "label": "baseline files preserved",
+            "exe": "git",
+            "args": [
+              "diff",
+              "--exit-code",
+              "aa6933b7f024bb07059bc6599d32803c8eec309a",
+              "--",
+              ".cliewen-openspec/.gitignore",
+              ".cliewen-openspec/ac-registry.json",
+              ".cliewen-openspec/config.yaml",
+              ".cliewen-openspec/manifest.json",
+              ".cliewen-openspec/templates/decision.md",
+              ".cliewen-openspec/templates/learning.md",
+              ".gitignore",
+              "AGENTS.md",
+              "README.md",
+              "docs/README.md",
+              "docs/learnings/README.md",
+              "docs/learnings/formatter-bytes.md",
+              "docs/learnings/mandatory-marker.md",
+              "docs/learnings/pool-tuning.md",
+              "docs/testing/formatter-probe.md",
+              "export.mjs",
+              "openspec/changes/archive/.gitkeep",
+              "openspec/config.yaml",
+              "openspec/schemas/cliewen-all/schema.yaml",
+              "openspec/schemas/cliewen-all/templates/decision.md",
+              "openspec/schemas/cliewen-all/templates/investigation.md",
+              "openspec/schemas/cliewen-all/templates/proposal.md",
+              "openspec/schemas/cliewen-all/templates/spec.md",
+              "openspec/schemas/cliewen-all/templates/tasks.md",
+              "openspec/schemas/cliewen-delivery/schema.yaml",
+              "openspec/schemas/cliewen-delivery/templates/design.md",
+              "openspec/schemas/cliewen-delivery/templates/proposal.md",
+              "openspec/schemas/cliewen-delivery/templates/spec.md",
+              "openspec/schemas/cliewen-delivery/templates/tasks.md",
+              "openspec/schemas/cliewen-discovery/schema.yaml",
+              "openspec/schemas/cliewen-discovery/templates/decision.md",
+              "openspec/schemas/cliewen-discovery/templates/investigation.md",
+              "openspec/schemas/cliewen-discovery/templates/proposal.md",
+              "openspec/specs/.gitkeep",
+              "openspec/specs/csv-export/spec.md",
+              "package-lock.json",
+              "package.json",
+              "test/export.test.mjs"
+            ],
+            "exitCode": 0,
+            "stdout": "",
+            "stderr": ""
+          },
+          {
+            "label": "six baseline tests",
+            "exe": "C:\\Program Files\\nodejs\\node.exe",
+            "args": [
+              "--test",
+              "test/export.test.mjs"
+            ],
+            "exitCode": 0,
+            "stdout": "✔ exports a header and one record [EXP-001] [Test-type: Unit] (0.4405ms)\n✔ selects and orders explicit columns for every record [EXP-002] [Test-type: Unit] (0.4513ms)\n✔ quotes comma fields in values and headers and leaves plain fields unquoted [EXP-003] [Test-type: Unit] (0.0674ms)\n✔ doubles embedded quotes in values and headers [EXP-004] [Test-type: Unit] (0.1001ms)\n✔ preserves LF, CR, and CRLF inside quoted fields [EXP-005] [Test-type: Unit] (0.1103ms)\n✔ exports only the escaped header for an empty record list [EXP-006] [Test-type: Unit] (0.0551ms)\nℹ tests 6\nℹ suites 0\nℹ pass 6\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 104.7115\n",
+            "stderr": ""
+          },
+          {
+            "label": "proposal exists",
+            "passed": true
+          },
+          {
+            "label": "PR-style summary exists",
+            "passed": true
+          },
+          {
+            "label": "local Markdown link targets exist within project",
+            "passed": true,
+            "brokenLinks": []
+          },
+          {
+            "label": "saved proposal instruction response",
+            "passed": true
+          },
+          {
+            "label": "not archived",
+            "passed": true
+          },
+          {
+            "label": "revision",
+            "exe": "git",
+            "args": [
+              "rev-parse",
+              "HEAD"
+            ],
+            "exitCode": 0,
+            "stdout": "d6f46b8d2f6c824b6319ceff19dcd548e2b9b5dd\n",
+            "stderr": ""
+          }
+        ],
+        "manualReviewRequired": [
+          "scoped lesson retrieval and no unrelated-note loading",
+          "current authority over tentative/retired notes",
+          "host inventory and actual skill-read/use evidence",
+          "one status for auto/on; no Humanizer status or suggestions for off",
+          "natural prose, preserved claims, and task scope"
+        ]
+      },
+      "manualReview": {
+        "localLinkTargets": "pass",
+        "lessonSelection": "pass",
+        "availabilityClassification": "fail: unknown combined with detected but inaccessible without detection",
+        "motivationAttribution": "fail: inferred reason attributed to requester"
+      }
+    },
+    {
+      "id": "final",
+      "outcome": "pass",
+      "baseline": {
+        "preparedAt": "2026-11-03T15:55:33.517Z",
+        "sourceRevision": "b5dd44bf724b358bcf1290f9375fcbb8ad8f82ea",
+        "sourceStatus": "M CHANGELOG.md\n M docs/configuration.md\n M docs/testing/knowledge-writing-trial/rubric.md\n M schemas/base/instructions/humanizer.md\n M schemas/base/instructions/writing.md",
+        "baseline": "48ab509facfd7548bd4c800327f5066845289f70",
+        "package": {
+          "filename": "cliewen-openspec-0.2.0-alpha.1.tgz",
+          "sha256": "1632ebbe20292c287b6966a99c34a2c4f03de5738e12128e64c3ccb9fd017679"
+        },
+        "node": "v24.0.0",
+        "npm": "11.21.0",
+        "openspec": "1.15.0",
+        "root": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-knowledge-writing-1793721326175\\project-bootstrap",
+        "fixture": "knowledge-writing",
+        "mode": "auto",
+        "variant": "bootstrap",
+        "protectedFiles": [
+          ".cliewen-openspec/.gitignore",
+          ".cliewen-openspec/ac-registry.json",
+          ".cliewen-openspec/config.yaml",
+          ".cliewen-openspec/manifest.json",
+          ".cliewen-openspec/templates/decision.md",
+          ".cliewen-openspec/templates/learning.md",
+          ".gitignore",
+          "AGENTS.md",
+          "README.md",
+          "docs/README.md",
+          "docs/learnings/README.md",
+          "docs/learnings/formatter-bytes.md",
+          "docs/learnings/mandatory-marker.md",
+          "docs/learnings/pool-tuning.md",
+          "docs/testing/formatter-probe.md",
+          "export.mjs",
+          "openspec/changes/archive/.gitkeep",
+          "openspec/config.yaml",
+          "openspec/schemas/cliewen-all/schema.yaml",
+          "openspec/schemas/cliewen-all/templates/decision.md",
+          "openspec/schemas/cliewen-all/templates/investigation.md",
+          "openspec/schemas/cliewen-all/templates/proposal.md",
+          "openspec/schemas/cliewen-all/templates/spec.md",
+          "openspec/schemas/cliewen-all/templates/tasks.md",
+          "openspec/schemas/cliewen-delivery/schema.yaml",
+          "openspec/schemas/cliewen-delivery/templates/design.md",
+          "openspec/schemas/cliewen-delivery/templates/proposal.md",
+          "openspec/schemas/cliewen-delivery/templates/spec.md",
+          "openspec/schemas/cliewen-delivery/templates/tasks.md",
+          "openspec/schemas/cliewen-discovery/schema.yaml",
+          "openspec/schemas/cliewen-discovery/templates/decision.md",
+          "openspec/schemas/cliewen-discovery/templates/investigation.md",
+          "openspec/schemas/cliewen-discovery/templates/proposal.md",
+          "openspec/specs/.gitkeep",
+          "openspec/specs/csv-export/spec.md",
+          "package-lock.json",
+          "package.json",
+          "test/export.test.mjs"
+        ]
+      },
+      "run": {
+        "schema": "cliewen-delivery",
+        "profileId": "opencode-2-2-5",
+        "phase": "initial",
+        "project": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-knowledge-writing-1793721326175\\project-bootstrap",
+        "baseline": "48ab509facfd7548bd4c800327f5066845289f70",
+        "profile": {
+          "readiness": "pinned",
+          "supersedes": "opencode-1-19-5",
+          "agent": "OpenCode",
+          "runner": "cli",
+          "model": "opencode/glm-5.3-flash",
+          "agentVersion": "2.2.5",
+          "provider": "OpenCode Console/Zen; existing local credentials; provider.use allows only opencode",
+          "effort": "high",
+          "permissions": "V2 ordered rules and hard policies allow local tools; deny external_directory, subagent, question, skill, webfetch and websearch; deny MCP and external plugins; no OS isolation",
+          "context": "fresh standalone server and private config directory per phase; project config and Claude skill discovery disabled; AGENTS read explicitly; system and Console configuration may remain",
+          "budgets": {
+            "wallTimeSeconds": 600,
+            "outputBytes": 67108864,
+            "reportedCostUSD": 0.5,
+            "tokenLimit": null,
+            "billing": "local reported-cost stop; not a provider-enforced hard spending cap"
+          },
+          "traceFormat": "OpenCode run --standalone --format json; model variant via provider/model#high"
+        },
+        "exe": "C:\\Users\\flemm\\AppData\\Roaming\\npm\\node_modules\\@opencode\\cli\\bin\\opencode.exe",
+        "args": [
+          "run",
+          "--standalone",
+          "--format",
+          "json",
+          "--model",
+          "opencode/glm-5.3-flash#high",
+          "Work only in the current project. Keep even temporary helper scripts, probes, and backups inside this project; use a project-local ignored directory when needed, not a shared system temporary directory. Read AGENTS.md and project configuration. Do not read sibling evaluator files, other repositories, credentials, or earlier solutions. Do not spawn additional agents, contact external services, push, or open a PR. Model-provider requests from this CLI are allowed. Use existing local tools and dependencies. Report actual results and inherited instructions.\n\nCreate only a draft proposal for an optional CSV BOM, off by default, preserving the current output, plus a concise PR-style summary at docs/testing/proposal-summary.md. Use the installed cliewen-delivery proposal instructions for a new change named plan-optional-csv-bom and save their JSON response under docs/testing/instructions/. Read current configuration and follow the configured knowledge and writing guidance. Keep code, tests, specs, configuration, and authored lessons unchanged. Do not allocate IDs, implement, archive, collect product evidence, push, or install anything. A skill path explicitly supplied by this session's host inventory may be read; do not scan global directories or other repositories. Explain the actual lesson paths used and any host capability limitation in your final handoff. You may commit proposal files locally.\n"
+        ],
+        "cliVersion": "opencode v2.2.5",
+        "startedAt": "2026-11-03T15:56:36.367Z",
+        "promptFile": "prompt.txt",
+        "environmentControls": {
+          "OPENCODE_CONFIG_CONTENT": "{\"model\":\"opencode/glm-5.3-flash\",\"permissions\":[{\"action\":\"*\",\"resource\":\"*\",\"effect\":\"allow\"},{\"action\":\"external_directory\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"subagent\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"question\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"skill\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"webfetch\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"websearch\",\"resource\":\"*\",\"effect\":\"deny\"}],\"policies\":[{\"action\":\"provider.use\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"provider.use\",\"resource\":\"opencode\",\"effect\":\"allow\"},{\"action\":\"mcp.use\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"skill.use\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"plugin.use\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"plugin.use\",\"resource\":\"opencode.*\",\"effect\":\"allow\"},{\"action\":\"tool.use\",\"resource\":\"external_directory:*\",\"effect\":\"deny\"},{\"action\":\"tool.use\",\"resource\":\"subagent:*\",\"effect\":\"deny\"},{\"action\":\"tool.use\",\"resource\":\"question:*\",\"effect\":\"deny\"},{\"action\":\"tool.use\",\"resource\":\"skill:*\",\"effect\":\"deny\"},{\"action\":\"tool.use\",\"resource\":\"webfetch:*\",\"effect\":\"deny\"},{\"action\":\"tool.use\",\"resource\":\"websearch:*\",\"effect\":\"deny\"}],\"plugins\":[\"-*\",\"opencode.*\"]}",
+          "OPENCODE_CONFIG_DIR": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-knowledge-writing-1793721326175\\artifacts\\bootstrap\\initial\\config",
+          "OPENCODE_CONFIG_PROJECT_DISABLE": "true",
+          "OPENCODE_DISABLE_FILEWATCHER": "true",
+          "OPENCODE_DISABLE_CLAUDE_CODE": "true",
+          "OPENCODE_DISABLE_MODELS_FETCH": "true"
+        },
+        "exitCode": 0,
+        "signal": null,
+        "endedAt": "2026-11-03T15:58:03.104Z",
+        "durationSeconds": 86.736,
+        "stopReason": null,
+        "eventFailure": false,
+        "sessionId": "ses_e5ddf8fb0ffelCii9CcYneiNtB",
+        "usage": null,
+        "stepUsage": [
+          {
+            "cost": 0.00068145,
+            "tokens": {
+              "input": 4343,
+              "output": 48,
+              "reasoning": 12,
+              "cache": {
+                "read": 0,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00020024,
+            "tokens": {
+              "input": 384,
+              "output": 28,
+              "reasoning": 0,
+              "cache": {
+                "read": 4288,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00028034,
+            "tokens": {
+              "input": 324,
+              "output": 69,
+              "reasoning": 118,
+              "cache": {
+                "read": 4608,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00051954,
+            "tokens": {
+              "input": 1988,
+              "output": 58,
+              "reasoning": 89,
+              "cache": {
+                "read": 4928,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00044306,
+            "tokens": {
+              "input": 558,
+              "output": 100,
+              "reasoning": 204,
+              "cache": {
+                "read": 6912,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00057617,
+            "tokens": {
+              "input": 2203,
+              "output": 30,
+              "reasoning": 16,
+              "cache": {
+                "read": 7424,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.0003205,
+            "tokens": {
+              "input": 80,
+              "output": 41,
+              "reasoning": 0,
+              "cache": {
+                "read": 9600,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00041622,
+            "tokens": {
+              "input": 772,
+              "output": 21,
+              "reasoning": 0,
+              "cache": {
+                "read": 9664,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00070456,
+            "tokens": {
+              "input": 1854,
+              "output": 34,
+              "reasoning": 193,
+              "cache": {
+                "read": 10432,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00049072,
+            "tokens": {
+              "input": 760,
+              "output": 20,
+              "reasoning": 0,
+              "cache": {
+                "read": 12224,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00051614,
+            "tokens": {
+              "input": 182,
+              "output": 37,
+              "reasoning": 165,
+              "cache": {
+                "read": 12928,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00048708,
+            "tokens": {
+              "input": 326,
+              "output": 36,
+              "reasoning": 57,
+              "cache": {
+                "read": 13056,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00044178,
+            "tokens": {
+              "input": 160,
+              "output": 33,
+              "reasoning": 0,
+              "cache": {
+                "read": 13376,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00044097,
+            "tokens": {
+              "input": 139,
+              "output": 30,
+              "reasoning": 0,
+              "cache": {
+                "read": 13504,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00097726,
+            "tokens": {
+              "input": 2042,
+              "output": 109,
+              "reasoning": 415,
+              "cache": {
+                "read": 13632,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00142948,
+            "tokens": {
+              "input": 2240,
+              "output": 151,
+              "reasoning": 1099,
+              "cache": {
+                "read": 15616,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00077921,
+            "tokens": {
+              "input": 1423,
+              "output": 32,
+              "reasoning": 32,
+              "cache": {
+                "read": 17792,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00138415,
+            "tokens": {
+              "input": 161,
+              "output": 47,
+              "reasoning": 1521,
+              "cache": {
+                "read": 19200,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00124705,
+            "tokens": {
+              "input": 1815,
+              "output": 776,
+              "reasoning": 12,
+              "cache": {
+                "read": 19360,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.0009865,
+            "tokens": {
+              "input": 866,
+              "output": 446,
+              "reasoning": 0,
+              "cache": {
+                "read": 21120,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00089016,
+            "tokens": {
+              "input": 494,
+              "output": 142,
+              "reasoning": 173,
+              "cache": {
+                "read": 21952,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00079105,
+            "tokens": {
+              "input": 377,
+              "output": 125,
+              "reasoning": 0,
+              "cache": {
+                "read": 22400,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00099278,
+            "tokens": {
+              "input": 280,
+              "output": 509,
+              "reasoning": 26,
+              "cache": {
+                "read": 22776,
+                "write": 0
+              }
+            }
+          }
+        ],
+        "reportedCostUSD": 0.01599641,
+        "observedModels": [],
+        "reviewInputsPreserved": true,
+        "evaluation": "not-graded"
+      },
+      "checks": {
+        "passed": true,
+        "baseline": "48ab509facfd7548bd4c800327f5066845289f70",
+        "revision": "28f37d7a0ef7ad5ccf586f663c3507456e391fbb",
+        "mode": "auto",
+        "checks": [
+          {
+            "label": "baseline files preserved",
+            "exe": "git",
+            "args": [
+              "diff",
+              "--exit-code",
+              "48ab509facfd7548bd4c800327f5066845289f70",
+              "--",
+              ".cliewen-openspec/.gitignore",
+              ".cliewen-openspec/ac-registry.json",
+              ".cliewen-openspec/config.yaml",
+              ".cliewen-openspec/manifest.json",
+              ".cliewen-openspec/templates/decision.md",
+              ".cliewen-openspec/templates/learning.md",
+              ".gitignore",
+              "AGENTS.md",
+              "README.md",
+              "docs/README.md",
+              "docs/learnings/README.md",
+              "docs/learnings/formatter-bytes.md",
+              "docs/learnings/mandatory-marker.md",
+              "docs/learnings/pool-tuning.md",
+              "docs/testing/formatter-probe.md",
+              "export.mjs",
+              "openspec/changes/archive/.gitkeep",
+              "openspec/config.yaml",
+              "openspec/schemas/cliewen-all/schema.yaml",
+              "openspec/schemas/cliewen-all/templates/decision.md",
+              "openspec/schemas/cliewen-all/templates/investigation.md",
+              "openspec/schemas/cliewen-all/templates/proposal.md",
+              "openspec/schemas/cliewen-all/templates/spec.md",
+              "openspec/schemas/cliewen-all/templates/tasks.md",
+              "openspec/schemas/cliewen-delivery/schema.yaml",
+              "openspec/schemas/cliewen-delivery/templates/design.md",
+              "openspec/schemas/cliewen-delivery/templates/proposal.md",
+              "openspec/schemas/cliewen-delivery/templates/spec.md",
+              "openspec/schemas/cliewen-delivery/templates/tasks.md",
+              "openspec/schemas/cliewen-discovery/schema.yaml",
+              "openspec/schemas/cliewen-discovery/templates/decision.md",
+              "openspec/schemas/cliewen-discovery/templates/investigation.md",
+              "openspec/schemas/cliewen-discovery/templates/proposal.md",
+              "openspec/specs/.gitkeep",
+              "openspec/specs/csv-export/spec.md",
+              "package-lock.json",
+              "package.json",
+              "test/export.test.mjs"
+            ],
+            "exitCode": 0,
+            "stdout": "",
+            "stderr": ""
+          },
+          {
+            "label": "six baseline tests",
+            "exe": "C:\\Program Files\\nodejs\\node.exe",
+            "args": [
+              "--test",
+              "test/export.test.mjs"
+            ],
+            "exitCode": 0,
+            "stdout": "✔ exports a header and one record [EXP-001] [Test-type: Unit] (0.4524ms)\n✔ selects and orders explicit columns for every record [EXP-002] [Test-type: Unit] (0.5215ms)\n✔ quotes comma fields in values and headers and leaves plain fields unquoted [EXP-003] [Test-type: Unit] (0.0712ms)\n✔ doubles embedded quotes in values and headers [EXP-004] [Test-type: Unit] (0.1028ms)\n✔ preserves LF, CR, and CRLF inside quoted fields [EXP-005] [Test-type: Unit] (0.1188ms)\n✔ exports only the escaped header for an empty record list [EXP-006] [Test-type: Unit] (0.0528ms)\nℹ tests 6\nℹ suites 0\nℹ pass 6\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 107.2571\n",
+            "stderr": ""
+          },
+          {
+            "label": "proposal exists",
+            "passed": true
+          },
+          {
+            "label": "PR-style summary exists",
+            "passed": true
+          },
+          {
+            "label": "local Markdown link targets exist within project",
+            "passed": true,
+            "brokenLinks": []
+          },
+          {
+            "label": "saved proposal instruction response",
+            "passed": true
+          },
+          {
+            "label": "not archived",
+            "passed": true
+          },
+          {
+            "label": "revision",
+            "exe": "git",
+            "args": [
+              "rev-parse",
+              "HEAD"
+            ],
+            "exitCode": 0,
+            "stdout": "28f37d7a0ef7ad5ccf586f663c3507456e391fbb\n",
+            "stderr": ""
+          }
+        ],
+        "manualReviewRequired": [
+          "scoped lesson retrieval and no unrelated-note loading",
+          "current authority over tentative/retired notes",
+          "host inventory and actual skill-read/use evidence",
+          "one status for auto/on; no Humanizer status or suggestions for off",
+          "natural prose, preserved claims, and task scope"
+        ]
+      },
+      "manualReview": {
+        "localLinkTargets": "pass: six, checked from containing files",
+        "linkFragments": "none in authored links; not exercised",
+        "lessonSelection": "pass: separate index and selected relevant note only",
+        "availabilityClassification": "pass: unknown, no detection/absence/use claim",
+        "motivationAttribution": "pass: request distinguished from unverified technical background",
+        "brevityFinding": "Unknown-inventory detail repeated in the same final handoff; one user-facing status message and no artifact annotations."
+      }
+    }
+  ],
+  "limitations": [
+    "Actual confirmed absence, confirmed detected-but-inaccessible, refusal, and cross-session host behavior remain unobserved.",
+    "A passing targeted retry is not universal model or host certification.",
+    "No authored links contained fragments; the fixture checker verifies file targets, not renderer anchors."
+  ]
+}

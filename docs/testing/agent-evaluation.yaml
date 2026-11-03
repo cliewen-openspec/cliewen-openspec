@@ -335,6 +335,7 @@ scenarios:
     observedResults:
       - docs/testing/knowledge-writing-trial/result-001.md
       - docs/testing/knowledge-writing-trial/result-002.md
+      - docs/testing/knowledge-writing-trial/result-003.md
 
 schemas:
   cliewen-delivery:

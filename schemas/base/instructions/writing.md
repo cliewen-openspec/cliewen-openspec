@@ -13,7 +13,9 @@ Use diagrams only where the format supports them and they improve understanding.
 Preserve code behavior, structured data, required syntax, and exact identifiers.
 Apply the same diagram guidance across these texts.
 For PR descriptions, include relevant validation and limitations.
+Before handing off authored or edited documents, resolve local Markdown links relative to each containing file, verify existing targets and any fragments with available link/render checks, and correct broken links. A proposal under openspec/changes/CHANGE/ reaches project-root docs/ with ../../../docs/, not ../../../../docs/. Describe planned files as planned paths until they exist instead of making broken links. Report the checks actually run and any unchecked link limits; passing tests alone does not validate document links.
 Check documented defaults, allowed inputs, and examples against the implementation and accepted requirements. Exercise the examples and boundary values covered by a claim; correct contradictions before finishing.
 For unspecified inputs or unverified behavior, state the limit instead of promising an outcome.
 Ground motivation and problem claims in the request, inspected project sources, or observed results. Mark an unverified hypothesis explicitly; do not turn plausible background knowledge into an observed project problem.
+When a request only asks for an option or capability, that request is sufficient motivation. Do not attribute consumer failures, business needs, or other inferred reasons to the requester. Label relevant technical background as unverified context rather than as a reported project defect or the requester's stated reason.
 Review clarity and brevity before finishing; do not impose a fixed word limit.

@@ -9,6 +9,8 @@ This maintainer fixture checks whether a fresh agent can use the installed propo
 
 [Result 002: Index-first retrieval, maintenance, and fallback review](result-002.md) adds actual maintenance, a hypothetical host-policy exercise, and a project-bootstrap comparison. It preserves a CLI-version mismatch and remaining retrieval/link failures. Future preparations correct two unsupported claims in the earlier seeded notes; compare package hashes and fixture inputs before treating runs as equivalent.
 
+[Result 003: Validate document links before handoff](result-003.md) retains a failed classification/attribution attempt and a passing final retry with six checked links. The [acceptance review](acceptance.md) maps the increment's scenarios to evidence and keeps actual host gaps separate from policy interpretation.
+
 ```sh
 npm run trial:knowledge:prepare
 ```

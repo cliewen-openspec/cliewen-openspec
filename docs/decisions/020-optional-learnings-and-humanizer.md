@@ -23,6 +23,8 @@ Use Humanizer when the configured mode requests it and the host exposes a usable
 
 In auto/on mode, report one brief Humanizer status per session, distinguishing actual use, detected but inaccessible, confirmed absent, and unknown availability. Claim use only after reading and applying the skill's instructions. Off mode requests no Humanizer status.
 
+A failed load without a host inventory entry is not detection or confirmed absence. Report unknown availability and the failed invocation separately. [Result 003: Validate document links before handoff](../testing/knowledge-writing-trial/result-003.md) retains an ambiguous classification and its corrected retry.
+
 ## Consequences
 
 Configuration validation and package delivery can be tested deterministically. Lesson relevance, factual accuracy, and actual host discovery/invocation need agent observations and review. Cliewen will not claim to authenticate learned facts, guarantee natural prose, or detect skills through a universal CLI probe.
@@ -37,4 +39,4 @@ This extends [Decision 012: Apply clear writing and diagram guidance across agen
 
 [Humanizer's upstream README](https://github.com/blader/humanizer#installation), reviewed November 2, 2026, documents host-specific installation and skill use. Link to current upstream instructions rather than embedding an installer command that may drift. Cliewen will not bundle the skill or copy its rules.
 
-The owner accepted the complete design after its initial status-reporting approval. Development source implements settings, path validation, shared instructions, and template ownership. [Result 001: First learnings and Humanizer observations](../testing/knowledge-writing-trial/result-001.md) retains the initial failures. Result 002 adds passing scoped retrieval and maintenance observations, 11 correct hypothetical fallback answers, and remaining OpenCode retrieval/writing/link findings. All 68 package tests pass. Acceptance remains open; the published alpha is unchanged. This decision establishes no general host-support or release-acceptance claim.
+The owner accepted the complete design after its initial status-reporting approval. Development source implements settings, path validation, shared instructions, and template ownership. [The acceptance review](../testing/knowledge-writing-trial/acceptance.md) completes bounded development review using Results 001 through 003, retaining every failed attempt and actual host gap. All 68 package tests pass. Required final-candidate/profile observations remain under priority 4; the published alpha is unchanged. This records implementation review, not new human agreement, general host certification, archive authorization, or release acceptance.
