@@ -9,6 +9,8 @@ Every shipped schema needs deterministic regression coverage and a reviewed agen
 
 ## Current coverage
 
+[The local 0.1.0 candidate observations](release-candidate-001.md) add a fresh Codex delivery-quality pass and a corrected Claude prepared-guide walkthrough. The first guide attempt retained process failures despite green technical checks. Repeated release combinations and affected guide profiles remain incomplete.
+
 | Schema | Development trial | Observed coverage | Still needed before release |
 |---|---|---|---|
 | cliewen-delivery | Optional CSV BOM with evidence-first verification | Fresh Codex and Claude passes; OpenCode product checks pass but writing review fails | Resolve writing findings; per-task and end-of-change variants; repeated current-candidate runs |

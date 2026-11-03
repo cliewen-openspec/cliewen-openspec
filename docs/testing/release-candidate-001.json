@@ -1,0 +1,536 @@
+{
+  "version": "0.1.0",
+  "published": false,
+  "releaseAccepted": false,
+  "recordedAt": "2026-11-03T21:18:25.222Z",
+  "candidates": [
+    {
+      "preparedAt": "2026-11-03T20:36:53.416Z",
+      "sourceRevision": "5a658129b0fdc172666aa9ada723b7fd5b3b75ac",
+      "sourceStatus": "",
+      "version": "0.1.0",
+      "filename": "cliewen-openspec-0.1.0.tgz",
+      "sha256": "e81e8e31c6f85f84e3d64f597ce2cfe8f6c14e07269034544f6e296aae7603b3",
+      "integrity": "sha512-Lw727pEk1m76feNBc/SyyrSLIf3+zxcuphnr/hLDnCXPlgK+at3+4f1P0rVELuhBjjsSU+0ISyLiDZlblNPo3A==",
+      "unpackedSize": 173206,
+      "files": 60,
+      "published": false
+    },
+    {
+      "preparedAt": "2026-11-03T21:03:54.638Z",
+      "sourceRevision": "2faf1a6498f767c614d68992977ddaa714b93ee5",
+      "sourceStatus": "",
+      "version": "0.1.0",
+      "filename": "cliewen-openspec-0.1.0.tgz",
+      "sha256": "65eaab8a0cf6f621eb100f5035f570c50b55af2580ba94f3264d82e4c44783aa",
+      "integrity": "sha512-q31YjlFN7m+Lr5RvStontITTEArjPZKAvKbcEE6oyHN97t+2ocdCtADpmOeff82L5EIj1dCAa5I4L1RY9dMI8A==",
+      "unpackedSize": 173249,
+      "files": 60,
+      "published": false
+    }
+  ],
+  "comparison": {
+    "changed": [
+      "docs/testing/evidence.md",
+      "docs/testing/pilot-prompt.md"
+    ],
+    "runtimeChanged": [],
+    "initial": {
+      "preparedAt": "2026-11-03T20:36:53.416Z",
+      "sourceRevision": "5a658129b0fdc172666aa9ada723b7fd5b3b75ac",
+      "sourceStatus": "",
+      "version": "0.1.0",
+      "filename": "cliewen-openspec-0.1.0.tgz",
+      "sha256": "e81e8e31c6f85f84e3d64f597ce2cfe8f6c14e07269034544f6e296aae7603b3",
+      "integrity": "sha512-Lw727pEk1m76feNBc/SyyrSLIf3+zxcuphnr/hLDnCXPlgK+at3+4f1P0rVELuhBjjsSU+0ISyLiDZlblNPo3A==",
+      "unpackedSize": 173206,
+      "files": 60,
+      "published": false
+    },
+    "revised": {
+      "preparedAt": "2026-11-03T21:03:54.638Z",
+      "sourceRevision": "2faf1a6498f767c614d68992977ddaa714b93ee5",
+      "sourceStatus": "",
+      "version": "0.1.0",
+      "filename": "cliewen-openspec-0.1.0.tgz",
+      "sha256": "65eaab8a0cf6f621eb100f5035f570c50b55af2580ba94f3264d82e4c44783aa",
+      "integrity": "sha512-q31YjlFN7m+Lr5RvStontITTEArjPZKAvKbcEE6oyHN97t+2ocdCtADpmOeff82L5EIj1dCAa5I4L1RY9dMI8A==",
+      "unpackedSize": 173249,
+      "files": 60,
+      "published": false
+    }
+  },
+  "observations": [
+    {
+      "id": "guide-initial",
+      "sourceDirectory": "C:/Users/flemm/AppData/Local/Temp/cliewen-guide-010-1793738086054",
+      "preservedDirectory": ".tmp/agent-trials/release-candidate-001/guide-initial",
+      "finalRevision": "e857e3989686c411b3d5f08c0ceb3f56cab4a718",
+      "independentStatus": "passed",
+      "trial": {
+        "createdAt": "2026-11-03T20:34:49.198Z",
+        "workspace": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-guide-010-1793738086054\\workspace",
+        "session": "eb56fbb3-ce97-4384-b6d3-2e5af3170b67",
+        "sourceRevision": "5a658129b0fdc172666aa9ada723b7fd5b3b75ac",
+        "sourceStatus": "",
+        "profileId": "claude-guide-walkthrough",
+        "profile": {
+          "readiness": "pinned",
+          "agent": "Claude Code",
+          "runner": "cli",
+          "model": "claude-opus-5-5",
+          "agentVersion": "2.1.317",
+          "provider": "Anthropic firstParty; existing claude.ai Pro authentication",
+          "effort": "medium",
+          "permissions": "dontAsk with local read/edit/write/shell tools; no extra agents or web tools; no OS isolation",
+          "context": "fresh UUID with safe mode; only the retrospective resumes this trial's persisted session",
+          "budgets": {
+            "wallTimeSeconds": 600,
+            "outputBytes": 67108864,
+            "reportedCostUSD": 2,
+            "tokenLimit": null,
+            "billing": "per phase; existing subscription; reported list-equivalent cost is not an invoice"
+          },
+          "traceFormat": "Claude stream-json with verbose events plus stderr"
+        },
+        "guideInputs": {
+          "docs/guide/index.md": "1807ab550f54e047ac191bc73a0235bca8786dc3803fec8c611c1f9d4be3f4df",
+          "docs/guide/getting-started.md": "4f20a06c54b04983318352695eee5c7962083b94cd9ffb3fa5922d98f9a2b700",
+          "docs/guide/csv-example.md": "b8cba194d6ee0eedd542b6c68acb4bdbb854a207b13dd938274bfee8e40eb7d5",
+          "docs/guide/workflow.md": "bb5bbcd00d2131f3feaa0020a5841fe822e8f8f81f44bad15fb080faa5ea29ad",
+          "docs/guide/discovery.md": "b8f563446b2bc34a9b792173641ff4dfccff4f5abb5c4c604eab3f784b736507",
+          "docs/guide/all.md": "a9d1138018f69540b05e3151fa399b6e4a41143f0e04fc9e9c2b2c2a3191b1e4",
+          "docs/configuration.md": "e881ccc85a09da5300e0bbadcc93f3e8a21e4e555efe34df47beb8ee0eb7c062",
+          "docs/testing/evidence.md": "cf345e4e411113054151fbbb6eda8290ea4f4f3d09f235b8c13f2f8cc3e2a644",
+          "docs/testing/test-quality.md": "1be0cecf557b249a484465068320609511fa094f1d73815b719a3192981db622",
+          "docs/guide/cli.md": "c43fafdd2878b510227d2aa0a5a116a93e5b9778be716e89f35c81713412db86",
+          "docs/guide/updating.md": "7d9ec13ae1ffa9a676054ddcc2a729e78924717aed0d7bb0415caa71b351d415",
+          "docs/guide/uninstalling.md": "b14de9cb7b14458e771fd6cee758054022c3fc91d35f76099c9013c23195f9ac",
+          "docs/guide/existing-projects.md": "ae4b8945fce1d6fe95d7a2733f688ae04da8a88de961eff44bde100fd6884949",
+          "docs/testing/pilot-prompt.md": "94b4fa94acbd31474fefccb25db89b5ee5b46eee5f0338306c5973ab8326cb89"
+        }
+      },
+      "phases": [
+        {
+          "phase": "review",
+          "record": {
+            "phase": "review",
+            "profileId": "claude-guide-walkthrough",
+            "context": "resume-trial-session",
+            "session": "eb56fbb3-ce97-4384-b6d3-2e5af3170b67",
+            "observedSession": "eb56fbb3-ce97-4384-b6d3-2e5af3170b67",
+            "cliVersion": "2.1.317 (Claude Code)",
+            "requestedModel": "claude-opus-5-5",
+            "observedModels": [
+              "claude-opus-5-5"
+            ],
+            "modelVerification": "observed",
+            "environmentControls": {
+              "NO_COLOR": "1",
+              "CI": "1",
+              "OPENSPEC_TELEMETRY": "0",
+              "npm_config_cache": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-guide-010-1793738086054\\workspace\\.cache\\npm"
+            },
+            "startedAt": "2026-11-03T20:39:59.510Z",
+            "durationSeconds": 148.168,
+            "code": 0,
+            "signal": null,
+            "stopReason": null,
+            "passed": true,
+            "evaluation": "not-graded",
+            "walkthroughReportPreserved": true,
+            "usage": {
+              "input_tokens": 12,
+              "cache_creation_input_tokens": 29060,
+              "cache_read_input_tokens": 367874,
+              "output_tokens": 14523,
+              "output_tokens_details": {
+                "thinking_tokens": 7554
+              },
+              "server_tool_use": {
+                "web_search_requests": 0,
+                "web_fetch_requests": 0
+              },
+              "service_tier": "standard",
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 29060,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "inference_geo": "global",
+              "iterations": [
+                {
+                  "input_tokens": 2,
+                  "output_tokens": 623,
+                  "cache_read_input_tokens": 77974,
+                  "cache_creation_input_tokens": 534,
+                  "cache_creation": {
+                    "ephemeral_5m_input_tokens": 0,
+                    "ephemeral_1h_input_tokens": 534
+                  },
+                  "type": "message"
+                }
+              ],
+              "speed": "standard",
+              "fallback_credit": null
+            },
+            "stepUsage": [],
+            "reportedCostUSD": 1.2531122
+          },
+          "reportedCostUSD": 1.2531122
+        },
+        {
+          "phase": "walkthrough",
+          "record": {
+            "phase": "walkthrough",
+            "profileId": "claude-guide-walkthrough",
+            "context": "fresh-session",
+            "session": "eb56fbb3-ce97-4384-b6d3-2e5af3170b67",
+            "observedSession": "eb56fbb3-ce97-4384-b6d3-2e5af3170b67",
+            "cliVersion": "2.1.317 (Claude Code)",
+            "requestedModel": "claude-opus-5-5",
+            "observedModels": [
+              "claude-opus-5-5"
+            ],
+            "modelVerification": "observed",
+            "environmentControls": {
+              "NO_COLOR": "1",
+              "CI": "1",
+              "OPENSPEC_TELEMETRY": "0",
+              "npm_config_cache": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-guide-010-1793738086054\\workspace\\.cache\\npm"
+            },
+            "startedAt": "2026-11-03T20:34:54.553Z",
+            "durationSeconds": 160.54,
+            "code": 0,
+            "signal": null,
+            "stopReason": null,
+            "passed": true,
+            "evaluation": "not-graded",
+            "walkthroughReportPreserved": true,
+            "usage": {
+              "input_tokens": 20,
+              "cache_creation_input_tokens": 49448,
+              "cache_read_input_tokens": 270727,
+              "output_tokens": 10337,
+              "output_tokens_details": {
+                "thinking_tokens": 1907
+              },
+              "server_tool_use": {
+                "web_search_requests": 0,
+                "web_fetch_requests": 0
+              },
+              "service_tier": "standard",
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 49448,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "inference_geo": "global",
+              "iterations": [
+                {
+                  "input_tokens": 2,
+                  "output_tokens": 662,
+                  "cache_read_input_tokens": 45008,
+                  "cache_creation_input_tokens": 4440,
+                  "cache_creation": {
+                    "ephemeral_5m_input_tokens": 0,
+                    "ephemeral_1h_input_tokens": 4440
+                  },
+                  "type": "message"
+                }
+              ],
+              "speed": "standard",
+              "fallback_credit": null
+            },
+            "stepUsage": [],
+            "reportedCostUSD": 0.6565494
+          },
+          "reportedCostUSD": 0.6565494
+        }
+      ]
+    },
+    {
+      "id": "quality",
+      "sourceDirectory": "C:/Users/flemm/AppData/Local/Temp/cliewen-quality-lifecycle-1793738094535",
+      "preservedDirectory": ".tmp/agent-trials/release-candidate-001/quality",
+      "finalRevision": "32dd7bc9ea98adee9e18eb4d18060a11990f2feb",
+      "independentStatus": "passed",
+      "trial": null,
+      "phases": [
+        {
+          "phase": "initial",
+          "record": {
+            "schema": "cliewen-delivery",
+            "profileId": "codex-cli-primary",
+            "phase": "initial",
+            "project": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-quality-lifecycle-1793738094535\\project",
+            "baseline": "7c16f719e15347113282656c09bd8bbafbd2d069",
+            "profile": {
+              "readiness": "pinned",
+              "agent": "Codex CLI",
+              "runner": "cli",
+              "model": "gpt-6.1-sol",
+              "agentVersion": "0.166.0",
+              "provider": "openai; existing ChatGPT CLI authentication",
+              "effort": "medium",
+              "permissions": "danger-full-access, approval never; project scope is an instruction, not OS isolation",
+              "context": "fresh process; ignore user config and execpolicy rules; project AGENTS and managed/global instructions may remain",
+              "budgets": {
+                "wallTimeSeconds": 600,
+                "outputBytes": 67108864,
+                "reportedCostUSD": null,
+                "tokenLimit": null,
+                "billing": "existing ChatGPT entitlement; no purchase"
+              },
+              "traceFormat": "codex exec --json JSONL plus stderr"
+            },
+            "exe": "C:\\Program Files\\nodejs\\node.exe",
+            "cliVersion": "codex-cli 0.166.0",
+            "startedAt": "2026-11-03T20:36:24.188Z",
+            "promptFile": "prompt.txt",
+            "environmentControls": {
+              "NO_COLOR": "1",
+              "OPENSPEC_TELEMETRY": "0",
+              "CI": "1"
+            },
+            "exitCode": 0,
+            "signal": null,
+            "endedAt": "2026-11-03T20:41:58.750Z",
+            "durationSeconds": 334.561,
+            "stopReason": null,
+            "eventFailure": false,
+            "sessionId": "01a1a320-9759-7d11-a728-91152c4ca8b6",
+            "usage": {
+              "input_tokens": 1355899,
+              "cached_input_tokens": 1191552,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 14209,
+              "reasoning_output_tokens": 2352
+            },
+            "stepUsage": [],
+            "reportedCostUSD": null,
+            "observedModels": [],
+            "reviewInputsPreserved": true,
+            "evaluation": "not-graded"
+          },
+          "reportedCostUSD": null
+        }
+      ]
+    },
+    {
+      "id": "guide-retry",
+      "sourceDirectory": "C:/Users/flemm/AppData/Local/Temp/cliewen-guide-010-retry-1793739834919",
+      "preservedDirectory": ".tmp/agent-trials/release-candidate-001/guide-retry",
+      "finalRevision": "2cb6286d9a9797d9c4f1df4280f32156db8f6a42",
+      "independentStatus": "passed",
+      "trial": {
+        "createdAt": "2026-11-03T21:03:55.089Z",
+        "workspace": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-guide-010-retry-1793739834919\\workspace",
+        "session": "d1891362-d11d-4166-9bec-bbfdc26036e0",
+        "sourceRevision": "2faf1a6498f767c614d68992977ddaa714b93ee5",
+        "sourceStatus": "",
+        "profileId": "claude-guide-walkthrough",
+        "profile": {
+          "readiness": "pinned",
+          "agent": "Claude Code",
+          "runner": "cli",
+          "model": "claude-opus-5-5",
+          "agentVersion": "2.1.317",
+          "provider": "Anthropic firstParty; existing claude.ai Pro authentication",
+          "effort": "medium",
+          "permissions": "dontAsk with local read/edit/write/shell tools; no extra agents or web tools; no OS isolation",
+          "context": "fresh UUID with safe mode; only the retrospective resumes this trial's persisted session",
+          "budgets": {
+            "wallTimeSeconds": 600,
+            "outputBytes": 67108864,
+            "reportedCostUSD": 2,
+            "tokenLimit": null,
+            "billing": "per phase; existing subscription; reported list-equivalent cost is not an invoice"
+          },
+          "traceFormat": "Claude stream-json with verbose events plus stderr"
+        },
+        "guideInputs": {
+          "docs/guide/index.md": "1807ab550f54e047ac191bc73a0235bca8786dc3803fec8c611c1f9d4be3f4df",
+          "docs/guide/getting-started.md": "979ee3c57c402a4662ccf9c3c2fe2244d7672da8b8ae35117adc409898b4ea7a",
+          "docs/guide/csv-example.md": "b8cba194d6ee0eedd542b6c68acb4bdbb854a207b13dd938274bfee8e40eb7d5",
+          "docs/guide/workflow.md": "bb5bbcd00d2131f3feaa0020a5841fe822e8f8f81f44bad15fb080faa5ea29ad",
+          "docs/guide/discovery.md": "b8f563446b2bc34a9b792173641ff4dfccff4f5abb5c4c604eab3f784b736507",
+          "docs/guide/all.md": "a9d1138018f69540b05e3151fa399b6e4a41143f0e04fc9e9c2b2c2a3191b1e4",
+          "docs/configuration.md": "e881ccc85a09da5300e0bbadcc93f3e8a21e4e555efe34df47beb8ee0eb7c062",
+          "docs/testing/evidence.md": "909f9c27e347b5d0fbc34c0e3b10ad201a0815219da323fdbf568e52b69227fe",
+          "docs/testing/test-quality.md": "1be0cecf557b249a484465068320609511fa094f1d73815b719a3192981db622",
+          "docs/guide/cli.md": "c43fafdd2878b510227d2aa0a5a116a93e5b9778be716e89f35c81713412db86",
+          "docs/guide/updating.md": "7d9ec13ae1ffa9a676054ddcc2a729e78924717aed0d7bb0415caa71b351d415",
+          "docs/guide/uninstalling.md": "b14de9cb7b14458e771fd6cee758054022c3fc91d35f76099c9013c23195f9ac",
+          "docs/guide/existing-projects.md": "ae4b8945fce1d6fe95d7a2733f688ae04da8a88de961eff44bde100fd6884949",
+          "docs/testing/pilot-prompt.md": "bd65fbea17752cc6b3d356fa8e16641a8df70763a355b1ed728df0933057c064"
+        }
+      },
+      "phases": [
+        {
+          "phase": "review",
+          "record": {
+            "phase": "review",
+            "profileId": "claude-guide-walkthrough",
+            "context": "resume-trial-session",
+            "session": "d1891362-d11d-4166-9bec-bbfdc26036e0",
+            "observedSession": "d1891362-d11d-4166-9bec-bbfdc26036e0",
+            "cliVersion": "2.1.317 (Claude Code)",
+            "requestedModel": "claude-opus-5-5",
+            "observedModels": [
+              "claude-opus-5-5"
+            ],
+            "modelVerification": "observed",
+            "environmentControls": {
+              "NO_COLOR": "1",
+              "CI": "1",
+              "OPENSPEC_TELEMETRY": "0",
+              "npm_config_cache": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-guide-010-retry-1793739834919\\workspace\\.cache\\npm"
+            },
+            "startedAt": "2026-11-03T21:07:47.330Z",
+            "durationSeconds": 159.48,
+            "code": 0,
+            "signal": null,
+            "stopReason": null,
+            "passed": true,
+            "evaluation": "not-graded",
+            "walkthroughReportPreserved": true,
+            "usage": {
+              "input_tokens": 10,
+              "cache_creation_input_tokens": 28036,
+              "cache_read_input_tokens": 259923,
+              "output_tokens": 15679,
+              "output_tokens_details": {
+                "thinking_tokens": 7140
+              },
+              "server_tool_use": {
+                "web_search_requests": 0,
+                "web_fetch_requests": 0
+              },
+              "service_tier": "standard",
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 28036,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "inference_geo": "global",
+              "iterations": [
+                {
+                  "input_tokens": 2,
+                  "output_tokens": 647,
+                  "cache_read_input_tokens": 65359,
+                  "cache_creation_input_tokens": 6524,
+                  "cache_creation": {
+                    "ephemeral_5m_input_tokens": 0,
+                    "ephemeral_1h_input_tokens": 6524
+                  },
+                  "type": "message"
+                }
+              ],
+              "speed": "standard",
+              "fallback_credit": null
+            },
+            "stepUsage": [],
+            "reportedCostUSD": 1.2204614
+          },
+          "reportedCostUSD": 1.2204614
+        },
+        {
+          "phase": "walkthrough",
+          "record": {
+            "phase": "walkthrough",
+            "profileId": "claude-guide-walkthrough",
+            "context": "fresh-session",
+            "session": "d1891362-d11d-4166-9bec-bbfdc26036e0",
+            "observedSession": "d1891362-d11d-4166-9bec-bbfdc26036e0",
+            "cliVersion": "2.1.317 (Claude Code)",
+            "requestedModel": "claude-opus-5-5",
+            "observedModels": [
+              "claude-opus-5-5"
+            ],
+            "modelVerification": "observed",
+            "environmentControls": {
+              "NO_COLOR": "1",
+              "CI": "1",
+              "OPENSPEC_TELEMETRY": "0",
+              "npm_config_cache": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-guide-010-retry-1793739834919\\workspace\\.cache\\npm"
+            },
+            "startedAt": "2026-11-03T21:03:55.406Z",
+            "durationSeconds": 156.922,
+            "code": 0,
+            "signal": null,
+            "stopReason": null,
+            "passed": true,
+            "evaluation": "not-graded",
+            "walkthroughReportPreserved": true,
+            "usage": {
+              "input_tokens": 26,
+              "cache_creation_input_tokens": 43847,
+              "cache_read_input_tokens": 343744,
+              "output_tokens": 10547,
+              "output_tokens_details": {
+                "thinking_tokens": 2196
+              },
+              "server_tool_use": {
+                "web_search_requests": 0,
+                "web_fetch_requests": 0
+              },
+              "service_tier": "standard",
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 43847,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "inference_geo": "global",
+              "iterations": [
+                {
+                  "input_tokens": 2,
+                  "output_tokens": 573,
+                  "cache_read_input_tokens": 39153,
+                  "cache_creation_input_tokens": 4694,
+                  "cache_creation": {
+                    "ephemeral_5m_input_tokens": 0,
+                    "ephemeral_1h_input_tokens": 4694
+                  },
+                  "type": "message"
+                }
+              ],
+              "speed": "standard",
+              "fallback_credit": null
+            },
+            "stepUsage": [],
+            "reportedCostUSD": 0.6305688
+          },
+          "reportedCostUSD": 0.6305688
+        }
+      ]
+    }
+  ],
+  "reviewedOutcomes": {
+    "guide-initial": "task-failure: technical checks passed; preview/apply and plan/implementation review boundaries were violated",
+    "quality": "passed: bounded delivery-quality observation",
+    "guide-retry": "passed: prepared technical route and critical review boundaries; limited aggregate evidence review"
+  },
+  "limits": [
+    "No human usability or agent-authored guide journey observed.",
+    "Required repeated schema/profile runs and release variants remain incomplete.",
+    "Final guide wording clarifies scope, metadata names and evidence checks without changing prepared commands, defaults, prerequisites or review boundaries; prior native evidence reused under decision 018.",
+    "Latest guide prose is not the verbatim trial snapshot.",
+    "Reported Claude costs are list-equivalent, not subscription invoices."
+  ],
+  "ci": [
+    {
+      "source": "5a658129b0fdc172666aa9ada723b7fd5b3b75ac",
+      "packageRun": 41713791738,
+      "pagesRun": 41713791384
+    },
+    {
+      "source": "2faf1a6498f767c614d68992977ddaa714b93ee5",
+      "packageRun": 41718198799,
+      "pagesRun": 41718198812
+    }
+  ],
+  "localValidation": {
+    "tests": 69,
+    "pages": 13,
+    "links": 464,
+    "diagrams": 4,
+    "browser": "passed desktop/mobile"
+  }
+}

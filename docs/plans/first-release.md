@@ -41,6 +41,8 @@ The authoritative reproducible example is [Your first change](../guide/getting-s
 
 These items remain after priority 6 preparation and source relocation:
 
+[The local 0.1.0 candidate report](../testing/release-candidate-001.md) records both immutable archives, passing platform CI, fresh Codex quality/lifecycle evidence, and the corrected Claude prepared-guide observation. These bounded results do not complete the repeated-profile release gate below.
+
 - [x] Set package/runtime/lockfile versions to `0.1.0`; align active guides, tarball commands, and changelog. Earlier alpha migrations are unsupported rather than a required compatibility project.
 - [x] Make the documented fresh-install/update/uninstall behavior match the candidate. Retain authored-file preservation and conflict/recovery guarantees; lifecycle commands accept only `0.1.0` manifests and `check` reports other versions as unsupported.
 - [ ] Run the required Windows/Linux and Node/OpenSpec compatibility checks against the exact candidate, with repeated agent/profile and affected guide observations from [the evaluation plan](../testing/agent-evaluation.md).

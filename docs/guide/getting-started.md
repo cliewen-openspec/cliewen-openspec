@@ -5,6 +5,8 @@ type: guide
 
 This guide takes a small CSV exporter from a new project to archived OpenSpec specs. Use a separate repository so you can review everything the candidate installs. You need Git, npm, and Node.js 20.19 or newer. Node 22 or 24 matches the versions used in package CI. Configure a Git name and email before the commit steps.
 
+The commands follow a prepared example without a coding agent. For an agent-authored change, choose [agent setup](existing-projects.md#coding-agents) before initialization and use the [reference prompt](../testing/pilot-prompt.md#prompt). Allocate IDs for that agent's reviewed scenarios; the fixed six-ID allocation and copy helpers below belong to the prepared path.
+
 ## 1. Build the candidate package
 
 This worked example builds the local `0.1.0` release candidate and uses its prepared CSV files. That version is not yet published on npm. The earlier published `0.1.0-alpha.1` has a different feature set and is not the package exercised by this guide; do not substitute it into these candidate checks.
@@ -50,7 +52,7 @@ npx --no-install openspec init --tools none --no-animation
 npx --no-install cliewen-openspec init --default --dry-run
 ```
 
-Stop and read the preview before applying. Confirm that it lists only the intended schema/template, configuration, and documentation writes. `--default` includes a change to `openspec/config.yaml`. Run the following commands only after reviewing that output:
+Stop and read the preview before applying. Confirm the intended schema/template, configuration, and documentation writes, plus the ownership manifest and `.cliewen-openspec/.gitignore`. The ignore file keeps generated reports and transaction state out of Git. `--default` includes a change to `openspec/config.yaml`. Run the following commands only after reviewing that output:
 
 ```sh
 npx --no-install cliewen-openspec init --default
@@ -61,8 +63,6 @@ git commit -m "Install OpenSpec and Cliewen"
 `npx --no-install` runs the locally installed command. OpenSpec creates the change/spec structure. Cliewen's dry run lists proposed writes. Its `init` installs the delivery, discovery, and combined schemas, Decision Record and learning templates, project configuration, a documentation entry point, and an ownership manifest. `--default` sets `schema: cliewen-delivery` in `openspec/config.yaml`; omit it to preserve your current default.
 
 Both Cliewen commands select the same default, so the preview includes that configuration change. The commit records installation separately from the feature you will implement next.
-
-For agent-authored work, select your agent during OpenSpec initialization instead of `--tools none`. See [agent setup](existing-projects.md#coding-agents).
 
 ## 3. Configure acceptance IDs
 
@@ -83,7 +83,7 @@ The first allocation prints `EXP-001`. Run the allocation command five more time
 
 ## 4. Write and review the proposal
 
-Give your coding agent the [reference prompt](../testing/pilot-prompt.md#prompt), then review its proposal, specs, design, and tasks. Each scenario heading should carry its allocated ID and have one `Test-type` line below it. Each implementation task should name its concrete tests, type, boundary, and completion check. The default types are Unit, Integration, and E2E; [configure your own types](../configuration.md#test-types) to preserve project terminology. For the Node adapter, tag each mapped test title with its AC ID and `[Test-type: Unit]`, or the matching configured type.
+Review the proposal, specs, design, and tasks. Each scenario heading should carry its allocated ID and have one `Test-type` line below it. Each implementation task should name its concrete tests, type, boundary, and completion check. The default types are Unit, Integration, and E2E; [configure your own types](../configuration.md#test-types) to preserve project terminology. For the Node adapter, tag each mapped test title with its AC ID and `[Test-type: Unit]`, or the matching configured type.
 
 For a repeatable walkthrough without an agent, copy the prepared artifacts from the source clone:
 
@@ -142,7 +142,7 @@ With the `0.1.0` candidate and unchanged reference example, expect exit 0 and `"
 | Code | Count | Reason |
 |---|---|---|
 | `coverage-metadata-missing` | 6 | The six tagged tests have no Case/Coverage metadata |
-| `coverage-minimum-unmet` | 12 | Untagged tests count as zero declared cases, leaving one positive and one negative case missing per scenario |
+| `coverage-minimum-unmet` | 12 | Tests without Case/Coverage metadata count as zero declared cases, leaving one positive and one negative case missing per scenario |
 | `test-review-missing` | 2 | Effectiveness and lifecycle assessments are absent |
 
 The informational findings `sufficiency-not-assessed` and `test-policy-review-required` remind you to review assertion quality. `ok` means no blocking finding; it does not establish that the tests are sufficient.
@@ -173,6 +173,8 @@ git status --porcelain
 ```
 
 Validation should pass and Git should print nothing. The permanent spec retains EXP-001 through EXP-006; the active change has moved to a dated directory under `openspec/changes/archive/`.
+
+Open `.cliewen-openspec/evidence.json` again: its `revision` should match the new `git rev-parse HEAD`, with no `scope` key because it now covers permanent specs.
 
 ```mermaid
 flowchart TB
