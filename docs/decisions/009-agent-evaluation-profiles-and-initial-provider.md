@@ -37,6 +37,8 @@ On November 2, 2026, the owner approved 15 minutes with the existing $0.50 repor
 
 [Round 010: Longer OpenCode attempt and subscribed Claude Code review](../testing/cli-trials/result-010.md) exercised these profiles. OpenCode reached the time limit at $0.1415; Claude confirmed Opus 5.5 and saved a useful report before the reported-usage stop. The reviewer still missed a cross-task history failure. Keep independent checking and the original limits; these observations do not justify another budget increase or a release-profile change.
 
+[Round 013: Repeated delivery and discovery trials on 0.1.0](../testing/cli-trials/result-013.md) records a provider transport failure and a late local stop: 3,014.545 observed seconds against a configured 600-second limit. Limits were not raised. Runners now record wall-clock and monotonic duration and reject completion beyond either limit, including when the timer callback is delayed. The cause of the original delay remains unresolved; local timers and reported-cost stops must not be described as provider-enforced hard caps.
+
 ## References
 
 - [Harbor agent integrations](https://docs.harborframework.com/agents/pre-integrated-agents) support selecting agents and models separately; profile details still need verification in our environment.

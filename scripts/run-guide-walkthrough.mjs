@@ -64,6 +64,7 @@ if (phase === 'prepare') {
   const out = fs.createWriteStream(path.join(folder, 'events.jsonl'), {flags: 'wx'});
   const err = fs.createWriteStream(path.join(folder, 'stderr.txt'), {flags: 'wx'});
   const started = Date.now(); let bytes = 0, buffer = '', stopReason;
+  const monotonicStarted = performance.now();
   const decoder = new StringDecoder('utf8');
   const parser = guideEvents(metadata.profile, metadata.session), state = parser.state;
   const child = spawn(exe, [...prefix, ...args], {cwd: workspace, env, windowsHide: true, stdio: ['pipe', 'pipe', 'pipe']});
@@ -84,8 +85,12 @@ if (phase === 'prepare') {
   const reportPreserved = reportHash === undefined || (fs.existsSync(reportFile) && createHash('sha256').update(fs.readFileSync(reportFile)).digest('hex') === reportHash);
   const modelMismatch = [...state.models].some(model => model !== metadata.profile.model && !(metadata.profile.agent === 'OpenCode' && model === metadata.profile.model.split('/').at(-1)));
   const expectedReport = phase === 'review' ? 'guide-review.md' : 'walkthrough-result.md';
+  const durationSeconds = (Date.now() - started) / 1000;
+  const monotonicDurationSeconds = (performance.now() - monotonicStarted) / 1000;
+  const deadlineExceededBySeconds = Math.max(0, Math.max(durationSeconds, monotonicDurationSeconds) - metadata.profile.budgets.wallTimeSeconds);
+  if (deadlineExceededBySeconds > 0 && !stopReason) stopReason = 'wall-time-limit';
   const passed = ended.code === 0 && !stopReason && !state.failure && state.completion && !modelMismatch && reportPreserved && fs.existsSync(path.join(workspace, expectedReport)) && (metadata.profile.agent !== 'Claude Code' || state.models.size > 0);
-  const summary = {phase, profileId: metadata.profileId, context: invocation.context, session: metadata.session, observedSession: state.session, cliVersion: cli.stdout.trim(), requestedModel: metadata.profile.model, observedModels: [...state.models], modelVerification: state.models.size ? 'observed' : 'not-exposed', args: [...prefix, ...args], environmentControls: invocation.controls, startedAt: new Date(started).toISOString(), durationSeconds: (Date.now() - started) / 1000, ...ended, stopReason: stopReason ?? null, passed, evaluation: 'not-graded', walkthroughReportPreserved: reportPreserved, result: state.result, usage: state.usage, stepUsage: state.stepUsage, reportedCostUSD: state.reportedCostUSD};
+  const summary = {phase, profileId: metadata.profileId, context: invocation.context, session: metadata.session, observedSession: state.session, cliVersion: cli.stdout.trim(), requestedModel: metadata.profile.model, observedModels: [...state.models], modelVerification: state.models.size ? 'observed' : 'not-exposed', args: [...prefix, ...args], environmentControls: invocation.controls, startedAt: new Date(started).toISOString(), durationSeconds, monotonicDurationSeconds, deadlineExceededBySeconds, ...ended, stopReason: stopReason ?? null, passed, evaluation: 'not-graded', walkthroughReportPreserved: reportPreserved, result: state.result, usage: state.usage, stepUsage: state.stepUsage, reportedCostUSD: state.reportedCostUSD};
   write(path.join(folder, 'run.json'), JSON.stringify(summary, null, 2) + '\n');
   console.log(JSON.stringify({phase, ...ended, stopReason, passed, durationSeconds: summary.durationSeconds, observedModels: summary.observedModels, reportedCostUSD: summary.reportedCostUSD, artifacts: folder}));
   process.exitCode = passed ? 0 : 1;

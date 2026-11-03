@@ -43,6 +43,8 @@ These items remain after priority 6 preparation and source relocation:
 
 [The local 0.1.0 candidate report](../testing/release-candidate-001.md) records both immutable archives, passing platform CI, fresh Codex quality/lifecycle evidence, and the corrected Claude prepared-guide observation. These bounded results do not complete the repeated-profile release gate below.
 
+[Round 013: Repeated delivery and discovery trials on 0.1.0](../testing/cli-trials/result-013.md) now records twelve primary attempts: nine reviewed passes, two factual writing failures, and one provider/late-stop failure. [Guide result 004](../testing/guide-walkthrough/result-004.md) adds current Codex/OpenCode observations and the corrected nested-environment regression. The final local suite passes 71 tests. Both writing failures and missing completion remain open; the latest native trials do not test the new elapsed-time reporting guard, which has separate deterministic coverage.
+
 - [x] Set package/runtime/lockfile versions to `0.1.0`; align active guides, tarball commands, and changelog. Earlier alpha migrations are unsupported rather than a required compatibility project.
 - [x] Make the documented fresh-install/update/uninstall behavior match the candidate. Retain authored-file preservation and conflict/recovery guarantees; lifecycle commands accept only `0.1.0` manifests and `check` reports other versions as unsupported.
 - [ ] Run the required Windows/Linux and Node/OpenSpec compatibility checks against the exact candidate, with repeated agent/profile and affected guide observations from [the evaluation plan](../testing/agent-evaluation.md).

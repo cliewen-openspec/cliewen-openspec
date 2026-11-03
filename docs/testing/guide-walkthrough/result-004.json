@@ -1,0 +1,469 @@
+{
+  "capturedAt": "2026-11-03T21:41:56.417Z",
+  "releaseReady": false,
+  "rawArtifacts": ".tmp/agent-trials/guide-walkthrough-004",
+  "identicalGuideSnapshots": true,
+  "identicalPackedArtifacts": true,
+  "attempts": [
+    {
+      "id": "codex",
+      "outcome": "pass",
+      "sourceDirectory": "C:/Users/flemm/AppData/Local/Temp/cliewen-guide-010-codex-1793741218667",
+      "preservedDirectory": ".tmp/agent-trials/guide-walkthrough-004/codex",
+      "trial": {
+        "createdAt": "2026-11-03T21:26:58.857Z",
+        "workspace": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-guide-010-codex-1793741218667\\workspace",
+        "session": "90f0c4f1-ebc7-43a5-8153-e6264b0e6ea4",
+        "sourceRevision": "a95755aa2a256792d739b4295c43724a41b4e54f",
+        "sourceStatus": "",
+        "profileId": "codex-guide-walkthrough",
+        "profile": {
+          "readiness": "pinned",
+          "agent": "Codex CLI",
+          "runner": "cli",
+          "model": "gpt-6.1-sol",
+          "agentVersion": "0.166.0",
+          "provider": "openai; existing ChatGPT CLI authentication",
+          "effort": "medium",
+          "permissions": "local shell with approval never; multi_agent disabled; project scope is instructional, not OS isolation",
+          "context": "new ephemeral process; user config and rules ignored; retrospective receives only this trial's saved observations; managed/global instructions may remain",
+          "budgets": {
+            "wallTimeSeconds": 600,
+            "outputBytes": 67108864,
+            "reportedCostUSD": null,
+            "tokenLimit": null,
+            "billing": "existing ChatGPT entitlement; cost and hard token cap unavailable"
+          },
+          "traceFormat": "codex exec --json JSONL plus stderr; model identity may not be exposed"
+        },
+        "guideInputs": {
+          "docs/guide/index.md": "1807ab550f54e047ac191bc73a0235bca8786dc3803fec8c611c1f9d4be3f4df",
+          "docs/guide/getting-started.md": "f74a30f5187ab28db1a4c104998e7b6fd1d9b4eca4daefee02b1dcdf011b0c4e",
+          "docs/guide/csv-example.md": "b8cba194d6ee0eedd542b6c68acb4bdbb854a207b13dd938274bfee8e40eb7d5",
+          "docs/guide/workflow.md": "bb5bbcd00d2131f3feaa0020a5841fe822e8f8f81f44bad15fb080faa5ea29ad",
+          "docs/guide/discovery.md": "b8f563446b2bc34a9b792173641ff4dfccff4f5abb5c4c604eab3f784b736507",
+          "docs/guide/all.md": "a9d1138018f69540b05e3151fa399b6e4a41143f0e04fc9e9c2b2c2a3191b1e4",
+          "docs/configuration.md": "e881ccc85a09da5300e0bbadcc93f3e8a21e4e555efe34df47beb8ee0eb7c062",
+          "docs/testing/evidence.md": "909f9c27e347b5d0fbc34c0e3b10ad201a0815219da323fdbf568e52b69227fe",
+          "docs/testing/test-quality.md": "1be0cecf557b249a484465068320609511fa094f1d73815b719a3192981db622",
+          "docs/guide/cli.md": "c43fafdd2878b510227d2aa0a5a116a93e5b9778be716e89f35c81713412db86",
+          "docs/guide/updating.md": "7d9ec13ae1ffa9a676054ddcc2a729e78924717aed0d7bb0415caa71b351d415",
+          "docs/guide/uninstalling.md": "b14de9cb7b14458e771fd6cee758054022c3fc91d35f76099c9013c23195f9ac",
+          "docs/guide/existing-projects.md": "ae4b8945fce1d6fe95d7a2733f688ae04da8a88de961eff44bde100fd6884949",
+          "docs/testing/pilot-prompt.md": "bd65fbea17752cc6b3d356fa8e16641a8df70763a355b1ed728df0933057c064"
+        }
+      },
+      "phases": [
+        {
+          "phase": "walkthrough",
+          "profileId": "codex-guide-walkthrough",
+          "context": "fresh-ephemeral-session",
+          "session": "90f0c4f1-ebc7-43a5-8153-e6264b0e6ea4",
+          "observedSession": "01a1a34f-00b8-7e80-9efc-7694771cec39",
+          "cliVersion": "codex-cli 0.166.0",
+          "requestedModel": "gpt-6.1-sol",
+          "observedModels": [],
+          "modelVerification": "not-exposed",
+          "environmentControls": {
+            "NO_COLOR": "1",
+            "CI": "1",
+            "OPENSPEC_TELEMETRY": "0",
+            "npm_config_cache": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-guide-010-codex-1793741218667\\workspace\\.cache\\npm"
+          },
+          "startedAt": "2026-11-03T21:27:05.875Z",
+          "durationSeconds": 241.248,
+          "code": 0,
+          "signal": null,
+          "stopReason": null,
+          "passed": true,
+          "evaluation": "not-graded",
+          "walkthroughReportPreserved": true,
+          "usage": {
+            "input_tokens": 596910,
+            "cached_input_tokens": 563328,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 6946,
+            "reasoning_output_tokens": 291
+          },
+          "reportedCostUSD": null
+        },
+        {
+          "phase": "review",
+          "profileId": "codex-guide-walkthrough",
+          "context": "fresh-session-with-trial-observations",
+          "session": "90f0c4f1-ebc7-43a5-8153-e6264b0e6ea4",
+          "observedSession": "01a1a353-f882-79e2-9a39-fbee4dd41345",
+          "cliVersion": "codex-cli 0.166.0",
+          "requestedModel": "gpt-6.1-sol",
+          "observedModels": [],
+          "modelVerification": "not-exposed",
+          "environmentControls": {
+            "NO_COLOR": "1",
+            "CI": "1",
+            "OPENSPEC_TELEMETRY": "0",
+            "npm_config_cache": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-guide-010-codex-1793741218667\\workspace\\.cache\\npm"
+          },
+          "startedAt": "2026-11-03T21:32:31.476Z",
+          "durationSeconds": 77.355,
+          "code": 0,
+          "signal": null,
+          "stopReason": null,
+          "passed": true,
+          "evaluation": "not-graded",
+          "walkthroughReportPreserved": true,
+          "usage": {
+            "input_tokens": 210304,
+            "cached_input_tokens": 185344,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 3096,
+            "reasoning_output_tokens": 118
+          },
+          "reportedCostUSD": null
+        }
+      ],
+      "packageSHA256": "65eaab8a0cf6f621eb100f5035f570c50b55af2580ba94f3264d82e4c44783aa",
+      "independentStatus": "passed",
+      "finalRevision": "2453eb598fcb109acee4a287cff87e6dbabd89d3"
+    },
+    {
+      "id": "opencode-initial",
+      "outcome": "task-failure",
+      "sourceDirectory": "C:/Users/flemm/AppData/Local/Temp/cliewen-guide-010-opencode-1793741218965",
+      "preservedDirectory": ".tmp/agent-trials/guide-walkthrough-004/opencode-initial",
+      "trial": {
+        "createdAt": "2026-11-03T21:26:59.113Z",
+        "workspace": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-guide-010-opencode-1793741218965\\workspace",
+        "session": "bf10a446-f2b2-407d-89e3-672ea5592feb",
+        "sourceRevision": "a95755aa2a256792d739b4295c43724a41b4e54f",
+        "sourceStatus": "",
+        "profileId": "opencode-guide-walkthrough",
+        "profile": {
+          "readiness": "pinned",
+          "agent": "OpenCode",
+          "runner": "cli",
+          "model": "opencode/glm-5.3-flash",
+          "agentVersion": "2.2.5",
+          "provider": "OpenCode Console/Zen; existing local credentials; only opencode provider allowed",
+          "effort": "high",
+          "permissions": "local tools with V2 permissions/policies; deny other agents, MCP, external plugins, and external directories; no OS isolation",
+          "context": "fresh standalone server/private config per phase; project/Claude config disabled; retrospective receives this trial's saved observations; system/Console settings may remain",
+          "budgets": {
+            "wallTimeSeconds": 600,
+            "outputBytes": 67108864,
+            "reportedCostUSD": 0.5,
+            "tokenLimit": null,
+            "billing": "local reported-cost stop per phase; may overshoot; not a provider-enforced spending cap"
+          },
+          "traceFormat": "opencode run --standalone --format json; provider/model#variant"
+        },
+        "guideInputs": {
+          "docs/guide/index.md": "1807ab550f54e047ac191bc73a0235bca8786dc3803fec8c611c1f9d4be3f4df",
+          "docs/guide/getting-started.md": "f74a30f5187ab28db1a4c104998e7b6fd1d9b4eca4daefee02b1dcdf011b0c4e",
+          "docs/guide/csv-example.md": "b8cba194d6ee0eedd542b6c68acb4bdbb854a207b13dd938274bfee8e40eb7d5",
+          "docs/guide/workflow.md": "bb5bbcd00d2131f3feaa0020a5841fe822e8f8f81f44bad15fb080faa5ea29ad",
+          "docs/guide/discovery.md": "b8f563446b2bc34a9b792173641ff4dfccff4f5abb5c4c604eab3f784b736507",
+          "docs/guide/all.md": "a9d1138018f69540b05e3151fa399b6e4a41143f0e04fc9e9c2b2c2a3191b1e4",
+          "docs/configuration.md": "e881ccc85a09da5300e0bbadcc93f3e8a21e4e555efe34df47beb8ee0eb7c062",
+          "docs/testing/evidence.md": "909f9c27e347b5d0fbc34c0e3b10ad201a0815219da323fdbf568e52b69227fe",
+          "docs/testing/test-quality.md": "1be0cecf557b249a484465068320609511fa094f1d73815b719a3192981db622",
+          "docs/guide/cli.md": "c43fafdd2878b510227d2aa0a5a116a93e5b9778be716e89f35c81713412db86",
+          "docs/guide/updating.md": "7d9ec13ae1ffa9a676054ddcc2a729e78924717aed0d7bb0415caa71b351d415",
+          "docs/guide/uninstalling.md": "b14de9cb7b14458e771fd6cee758054022c3fc91d35f76099c9013c23195f9ac",
+          "docs/guide/existing-projects.md": "ae4b8945fce1d6fe95d7a2733f688ae04da8a88de961eff44bde100fd6884949",
+          "docs/testing/pilot-prompt.md": "bd65fbea17752cc6b3d356fa8e16641a8df70763a355b1ed728df0933057c064"
+        }
+      },
+      "phases": [
+        {
+          "phase": "walkthrough",
+          "profileId": "opencode-guide-walkthrough",
+          "context": "fresh-standalone-server",
+          "session": "bf10a446-f2b2-407d-89e3-672ea5592feb",
+          "observedSession": "ses_e5cb0f9d6ffeGbPrGmBLqhHvut",
+          "cliVersion": "opencode v2.2.5",
+          "requestedModel": "opencode/glm-5.3-flash",
+          "observedModels": [],
+          "modelVerification": "not-exposed",
+          "environmentControls": {
+            "NO_COLOR": "1",
+            "CI": "1",
+            "OPENSPEC_TELEMETRY": "0",
+            "npm_config_cache": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-guide-010-opencode-1793741218965\\workspace\\.cache\\npm",
+            "OPENCODE_CONFIG_DIR": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-guide-010-opencode-1793741218965\\artifacts\\walkthrough\\config",
+            "OPENCODE_CONFIG_CONTENT": "{\"model\":\"opencode/glm-5.3-flash\",\"permissions\":[{\"action\":\"*\",\"resource\":\"*\",\"effect\":\"allow\"},{\"action\":\"external_directory\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"subagent\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"question\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"skill\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"webfetch\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"websearch\",\"resource\":\"*\",\"effect\":\"deny\"}],\"policies\":[{\"action\":\"provider.use\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"provider.use\",\"resource\":\"opencode\",\"effect\":\"allow\"},{\"action\":\"mcp.use\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"skill.use\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"plugin.use\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"plugin.use\",\"resource\":\"opencode.*\",\"effect\":\"allow\"},{\"action\":\"tool.use\",\"resource\":\"external_directory:*\",\"effect\":\"deny\"},{\"action\":\"tool.use\",\"resource\":\"subagent:*\",\"effect\":\"deny\"},{\"action\":\"tool.use\",\"resource\":\"question:*\",\"effect\":\"deny\"},{\"action\":\"tool.use\",\"resource\":\"skill:*\",\"effect\":\"deny\"},{\"action\":\"tool.use\",\"resource\":\"webfetch:*\",\"effect\":\"deny\"},{\"action\":\"tool.use\",\"resource\":\"websearch:*\",\"effect\":\"deny\"}],\"plugins\":[\"-*\",\"opencode.*\"]}",
+            "OPENCODE_CONFIG_PROJECT_DISABLE": "true",
+            "OPENCODE_DISABLE_CLAUDE_CODE": "true",
+            "OPENCODE_DISABLE_MODELS_FETCH": "true",
+            "OPENCODE_DISABLE_FILEWATCHER": "true"
+          },
+          "startedAt": "2026-11-03T21:27:05.991Z",
+          "durationSeconds": 171.014,
+          "code": 0,
+          "signal": null,
+          "stopReason": null,
+          "passed": true,
+          "evaluation": "not-graded",
+          "walkthroughReportPreserved": true,
+          "usage": {
+            "input": 3017,
+            "output": 325,
+            "reasoning": 7,
+            "cache": {
+              "read": 34944,
+              "write": 0
+            }
+          },
+          "reportedCostUSD": 0.03320086,
+          "reportedStepUsageSummary": {
+            "steps": 34,
+            "reportedCostUSD": 0.03320086,
+            "tokens": {
+              "input": 38680,
+              "output": 5430,
+              "reasoning": 2801,
+              "cache": {
+                "read": 776112,
+                "write": 0
+              }
+            }
+          }
+        },
+        {
+          "phase": "review",
+          "profileId": "opencode-guide-walkthrough",
+          "context": "fresh-standalone-with-trial-observations",
+          "session": "bf10a446-f2b2-407d-89e3-672ea5592feb",
+          "observedSession": "ses_e5caca390ffefVby78ugkBi7LX",
+          "cliVersion": "opencode v2.2.5",
+          "requestedModel": "opencode/glm-5.3-flash",
+          "observedModels": [],
+          "modelVerification": "not-exposed",
+          "environmentControls": {
+            "NO_COLOR": "1",
+            "CI": "1",
+            "OPENSPEC_TELEMETRY": "0",
+            "npm_config_cache": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-guide-010-opencode-1793741218965\\workspace\\.cache\\npm",
+            "OPENCODE_CONFIG_DIR": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-guide-010-opencode-1793741218965\\artifacts\\review\\config",
+            "OPENCODE_CONFIG_CONTENT": "{\"model\":\"opencode/glm-5.3-flash\",\"permissions\":[{\"action\":\"*\",\"resource\":\"*\",\"effect\":\"allow\"},{\"action\":\"external_directory\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"subagent\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"question\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"skill\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"webfetch\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"websearch\",\"resource\":\"*\",\"effect\":\"deny\"}],\"policies\":[{\"action\":\"provider.use\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"provider.use\",\"resource\":\"opencode\",\"effect\":\"allow\"},{\"action\":\"mcp.use\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"skill.use\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"plugin.use\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"plugin.use\",\"resource\":\"opencode.*\",\"effect\":\"allow\"},{\"action\":\"tool.use\",\"resource\":\"external_directory:*\",\"effect\":\"deny\"},{\"action\":\"tool.use\",\"resource\":\"subagent:*\",\"effect\":\"deny\"},{\"action\":\"tool.use\",\"resource\":\"question:*\",\"effect\":\"deny\"},{\"action\":\"tool.use\",\"resource\":\"skill:*\",\"effect\":\"deny\"},{\"action\":\"tool.use\",\"resource\":\"webfetch:*\",\"effect\":\"deny\"},{\"action\":\"tool.use\",\"resource\":\"websearch:*\",\"effect\":\"deny\"}],\"plugins\":[\"-*\",\"opencode.*\"]}",
+            "OPENCODE_CONFIG_PROJECT_DISABLE": "true",
+            "OPENCODE_DISABLE_CLAUDE_CODE": "true",
+            "OPENCODE_DISABLE_MODELS_FETCH": "true",
+            "OPENCODE_DISABLE_FILEWATCHER": "true"
+          },
+          "startedAt": "2026-11-03T21:31:50.988Z",
+          "durationSeconds": 141.687,
+          "code": 0,
+          "signal": null,
+          "stopReason": null,
+          "passed": true,
+          "evaluation": "not-graded",
+          "walkthroughReportPreserved": true,
+          "usage": {
+            "input": 418,
+            "output": 555,
+            "reasoning": 0,
+            "cache": {
+              "read": 33728,
+              "write": 0
+            }
+          },
+          "reportedCostUSD": 0.017208479999999998,
+          "reportedStepUsageSummary": {
+            "steps": 11,
+            "reportedCostUSD": 0.017208479999999998,
+            "tokens": {
+              "input": 39984,
+              "output": 4747,
+              "reasoning": 5141,
+              "cache": {
+                "read": 208896,
+                "write": 0
+              }
+            }
+          }
+        }
+      ],
+      "packageSHA256": "65eaab8a0cf6f621eb100f5035f570c50b55af2580ba94f3264d82e4c44783aa",
+      "independentStatus": "passed",
+      "finalRevision": "b50da73a5e164b5ae137fd1fe5d052b3d108794a"
+    },
+    {
+      "id": "opencode-retry",
+      "outcome": "task-failure",
+      "sourceDirectory": "C:/Users/flemm/AppData/Local/Temp/cliewen-guide-010-opencode-retry-1793741655776",
+      "preservedDirectory": ".tmp/agent-trials/guide-walkthrough-004/opencode-retry",
+      "trial": {
+        "createdAt": "2026-11-03T21:34:15.970Z",
+        "workspace": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-guide-010-opencode-retry-1793741655776\\workspace",
+        "session": "2495b1f6-d979-45d3-a10e-d06c8d456be8",
+        "sourceRevision": "a230a9b2a31609f7bbeeec454a74e6b4e3446172",
+        "sourceStatus": "",
+        "profileId": "opencode-guide-walkthrough",
+        "profile": {
+          "readiness": "pinned",
+          "agent": "OpenCode",
+          "runner": "cli",
+          "model": "opencode/glm-5.3-flash",
+          "agentVersion": "2.2.5",
+          "provider": "OpenCode Console/Zen; existing local credentials; only opencode provider allowed",
+          "effort": "high",
+          "permissions": "local tools with V2 permissions/policies; deny other agents, MCP, external plugins, and external directories; no OS isolation",
+          "context": "fresh standalone server/private config per phase; project/Claude config disabled; retrospective receives this trial's saved observations; system/Console settings may remain",
+          "budgets": {
+            "wallTimeSeconds": 600,
+            "outputBytes": 67108864,
+            "reportedCostUSD": 0.5,
+            "tokenLimit": null,
+            "billing": "local reported-cost stop per phase; may overshoot; not a provider-enforced spending cap"
+          },
+          "traceFormat": "opencode run --standalone --format json; provider/model#variant"
+        },
+        "guideInputs": {
+          "docs/guide/index.md": "1807ab550f54e047ac191bc73a0235bca8786dc3803fec8c611c1f9d4be3f4df",
+          "docs/guide/getting-started.md": "f74a30f5187ab28db1a4c104998e7b6fd1d9b4eca4daefee02b1dcdf011b0c4e",
+          "docs/guide/csv-example.md": "b8cba194d6ee0eedd542b6c68acb4bdbb854a207b13dd938274bfee8e40eb7d5",
+          "docs/guide/workflow.md": "bb5bbcd00d2131f3feaa0020a5841fe822e8f8f81f44bad15fb080faa5ea29ad",
+          "docs/guide/discovery.md": "b8f563446b2bc34a9b792173641ff4dfccff4f5abb5c4c604eab3f784b736507",
+          "docs/guide/all.md": "a9d1138018f69540b05e3151fa399b6e4a41143f0e04fc9e9c2b2c2a3191b1e4",
+          "docs/configuration.md": "e881ccc85a09da5300e0bbadcc93f3e8a21e4e555efe34df47beb8ee0eb7c062",
+          "docs/testing/evidence.md": "909f9c27e347b5d0fbc34c0e3b10ad201a0815219da323fdbf568e52b69227fe",
+          "docs/testing/test-quality.md": "1be0cecf557b249a484465068320609511fa094f1d73815b719a3192981db622",
+          "docs/guide/cli.md": "c43fafdd2878b510227d2aa0a5a116a93e5b9778be716e89f35c81713412db86",
+          "docs/guide/updating.md": "7d9ec13ae1ffa9a676054ddcc2a729e78924717aed0d7bb0415caa71b351d415",
+          "docs/guide/uninstalling.md": "b14de9cb7b14458e771fd6cee758054022c3fc91d35f76099c9013c23195f9ac",
+          "docs/guide/existing-projects.md": "ae4b8945fce1d6fe95d7a2733f688ae04da8a88de961eff44bde100fd6884949",
+          "docs/testing/pilot-prompt.md": "bd65fbea17752cc6b3d356fa8e16641a8df70763a355b1ed728df0933057c064"
+        }
+      },
+      "phases": [
+        {
+          "phase": "walkthrough",
+          "profileId": "opencode-guide-walkthrough",
+          "context": "fresh-standalone-server",
+          "session": "2495b1f6-d979-45d3-a10e-d06c8d456be8",
+          "observedSession": "ses_e5caa6b8bffeAqTOTHND4wJoPQ",
+          "cliVersion": "opencode v2.2.5",
+          "requestedModel": "opencode/glm-5.3-flash",
+          "observedModels": [],
+          "modelVerification": "not-exposed",
+          "environmentControls": {
+            "NO_COLOR": "1",
+            "CI": "1",
+            "OPENSPEC_TELEMETRY": "0",
+            "npm_config_cache": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-guide-010-opencode-retry-1793741655776\\workspace\\.cache\\npm",
+            "OPENCODE_CONFIG_DIR": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-guide-010-opencode-retry-1793741655776\\artifacts\\walkthrough\\config",
+            "OPENCODE_CONFIG_CONTENT": "{\"model\":\"opencode/glm-5.3-flash\",\"permissions\":[{\"action\":\"*\",\"resource\":\"*\",\"effect\":\"allow\"},{\"action\":\"external_directory\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"subagent\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"question\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"skill\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"webfetch\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"websearch\",\"resource\":\"*\",\"effect\":\"deny\"}],\"policies\":[{\"action\":\"provider.use\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"provider.use\",\"resource\":\"opencode\",\"effect\":\"allow\"},{\"action\":\"mcp.use\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"skill.use\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"plugin.use\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"plugin.use\",\"resource\":\"opencode.*\",\"effect\":\"allow\"},{\"action\":\"tool.use\",\"resource\":\"external_directory:*\",\"effect\":\"deny\"},{\"action\":\"tool.use\",\"resource\":\"subagent:*\",\"effect\":\"deny\"},{\"action\":\"tool.use\",\"resource\":\"question:*\",\"effect\":\"deny\"},{\"action\":\"tool.use\",\"resource\":\"skill:*\",\"effect\":\"deny\"},{\"action\":\"tool.use\",\"resource\":\"webfetch:*\",\"effect\":\"deny\"},{\"action\":\"tool.use\",\"resource\":\"websearch:*\",\"effect\":\"deny\"}],\"plugins\":[\"-*\",\"opencode.*\"]}",
+            "OPENCODE_CONFIG_PROJECT_DISABLE": "true",
+            "OPENCODE_DISABLE_CLAUDE_CODE": "true",
+            "OPENCODE_DISABLE_MODELS_FETCH": "true",
+            "OPENCODE_DISABLE_FILEWATCHER": "true"
+          },
+          "startedAt": "2026-11-03T21:34:16.374Z",
+          "durationSeconds": 198.902,
+          "code": 0,
+          "signal": null,
+          "stopReason": null,
+          "passed": true,
+          "evaluation": "not-graded",
+          "walkthroughReportPreserved": true,
+          "usage": {
+            "input": 3507,
+            "output": 422,
+            "reasoning": 0,
+            "cache": {
+              "read": 34816,
+              "write": 0
+            }
+          },
+          "reportedCostUSD": 0.03853476,
+          "reportedStepUsageSummary": {
+            "steps": 38,
+            "reportedCostUSD": 0.03853476,
+            "tokens": {
+              "input": 56988,
+              "output": 6008,
+              "reasoning": 1480,
+              "cache": {
+                "read": 874752,
+                "write": 0
+              }
+            }
+          }
+        },
+        {
+          "phase": "review",
+          "profileId": "opencode-guide-walkthrough",
+          "context": "fresh-standalone-with-trial-observations",
+          "session": "2495b1f6-d979-45d3-a10e-d06c8d456be8",
+          "observedSession": "ses_e5ca6ed31ffe7P7XyE05HydeHN",
+          "cliVersion": "opencode v2.2.5",
+          "requestedModel": "opencode/glm-5.3-flash",
+          "observedModels": [],
+          "modelVerification": "not-exposed",
+          "environmentControls": {
+            "NO_COLOR": "1",
+            "CI": "1",
+            "OPENSPEC_TELEMETRY": "0",
+            "npm_config_cache": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-guide-010-opencode-retry-1793741655776\\workspace\\.cache\\npm",
+            "OPENCODE_CONFIG_DIR": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-guide-010-opencode-retry-1793741655776\\artifacts\\review\\config",
+            "OPENCODE_CONFIG_CONTENT": "{\"model\":\"opencode/glm-5.3-flash\",\"permissions\":[{\"action\":\"*\",\"resource\":\"*\",\"effect\":\"allow\"},{\"action\":\"external_directory\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"subagent\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"question\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"skill\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"webfetch\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"websearch\",\"resource\":\"*\",\"effect\":\"deny\"}],\"policies\":[{\"action\":\"provider.use\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"provider.use\",\"resource\":\"opencode\",\"effect\":\"allow\"},{\"action\":\"mcp.use\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"skill.use\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"plugin.use\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"plugin.use\",\"resource\":\"opencode.*\",\"effect\":\"allow\"},{\"action\":\"tool.use\",\"resource\":\"external_directory:*\",\"effect\":\"deny\"},{\"action\":\"tool.use\",\"resource\":\"subagent:*\",\"effect\":\"deny\"},{\"action\":\"tool.use\",\"resource\":\"question:*\",\"effect\":\"deny\"},{\"action\":\"tool.use\",\"resource\":\"skill:*\",\"effect\":\"deny\"},{\"action\":\"tool.use\",\"resource\":\"webfetch:*\",\"effect\":\"deny\"},{\"action\":\"tool.use\",\"resource\":\"websearch:*\",\"effect\":\"deny\"}],\"plugins\":[\"-*\",\"opencode.*\"]}",
+            "OPENCODE_CONFIG_PROJECT_DISABLE": "true",
+            "OPENCODE_DISABLE_CLAUDE_CODE": "true",
+            "OPENCODE_DISABLE_MODELS_FETCH": "true",
+            "OPENCODE_DISABLE_FILEWATCHER": "true"
+          },
+          "startedAt": "2026-11-03T21:38:05.282Z",
+          "durationSeconds": 61.767,
+          "code": 0,
+          "signal": null,
+          "stopReason": null,
+          "passed": true,
+          "evaluation": "not-graded",
+          "walkthroughReportPreserved": true,
+          "usage": {
+            "input": 6340,
+            "output": 439,
+            "reasoning": 0,
+            "cache": {
+              "read": 21568,
+              "write": 0
+            }
+          },
+          "reportedCostUSD": 0.012880019999999999,
+          "reportedStepUsageSummary": {
+            "steps": 11,
+            "reportedCostUSD": 0.012880019999999999,
+            "tokens": {
+              "input": 28226,
+              "output": 4790,
+              "reasoning": 3658,
+              "cache": {
+                "read": 147404,
+                "write": 0
+              }
+            }
+          }
+        }
+      ],
+      "packageSHA256": "65eaab8a0cf6f621eb100f5035f570c50b55af2580ba94f3264d82e4c44783aa",
+      "independentStatus": "passed",
+      "finalRevision": "c37fde093a75d012104b893ea9172c73f97aa594"
+    }
+  ],
+  "reviewFindings": {
+    "codex": [
+      "Prepared route passed; supplemental scope-object comparison mistake corrected."
+    ],
+    "opencode-initial": [
+      "Continued after two failing source tests.",
+      "Inspected prepared code/reference tests but did not read back all copied artifacts required by the guide."
+    ],
+    "opencode-retry": [
+      "Source suite passed after runner correction.",
+      "Read the reference test listing before copying, but did not read back the actual copied test file before completing tasks.",
+      "Aggregate evidence review does not establish semantic sufficiency."
+    ]
+  },
+  "evidenceReuse": "Subsequent wording clarifies existing successful-build prerequisites, prepared-route scope, local Git identity, and scope.change. Commands, defaults, prerequisites and required review boundaries remain unchanged; native snapshots predate these edits. Decision 018 permits reuse for these minor clarifications.",
+  "rawUsageDetails": "Per-event usage remains in the private original run.json and events.jsonl; the public record retains reported totals and terminal usage without raw step arrays."
+}

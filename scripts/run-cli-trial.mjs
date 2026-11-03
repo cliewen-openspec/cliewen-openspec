@@ -104,6 +104,7 @@ if (version.status !== 0 || versionText?.match(/\bv?(\d+\.\d+\.\d+(?:-[a-zA-Z0-9
 }
 const startedAt = new Date().toISOString();
 const started = Date.now();
+const monotonicStarted = performance.now();
 const controlledKeys = ['OPENCODE_CONFIG_CONTENT', 'OPENCODE_CONFIG_DIR', 'OPENCODE_CONFIG_PROJECT_DISABLE', 'OPENCODE_DISABLE_FILEWATCHER', 'OPENCODE_DISABLE_AUTOUPDATE', 'OPENCODE_DISABLE_LSP_DOWNLOAD', 'OPENCODE_DISABLE_CLAUDE_CODE', 'OPENCODE_DISABLE_EXTERNAL_SKILLS', 'OPENCODE_DISABLE_MODELS_FETCH', 'OPENCODE_DISABLE_DEFAULT_PLUGINS'];
 const metadata = {schema, profileId, phase, project: trial.project, baseline: trial.baseline, profile, exe, args: [...prefix, ...args], cliVersion: versionText, startedAt, promptFile: 'prompt.txt', environmentControls: profile.agent === 'OpenCode' ? Object.fromEntries(controlledKeys.filter(key => env[key] !== undefined).map(key => [key, env[key]])) : {NO_COLOR: '1', OPENSPEC_TELEMETRY: '0', CI: '1'}};
 fs.writeFileSync(path.join(dir, 'run.json'), JSON.stringify(metadata, null, 2) + '\n');
@@ -144,7 +145,11 @@ const result = await new Promise(resolve => {
 clearTimeout(timer); clearInterval(progress); if (buffer) event(buffer);
 await Promise.all([new Promise(resolve => stdout.end(resolve)), new Promise(resolve => stderr.end(resolve))]);
 const reviewInputsPreserved = !reviewing || (beforeReview === reviewInputs() && spawnSync('git', ['rev-parse', 'HEAD'], {cwd: trial.project, encoding: 'utf8'}).stdout.trim() === gitState.stdout.trim());
-const summary = {...metadata, ...result, endedAt: new Date().toISOString(), durationSeconds: (Date.now() - started) / 1000, stopReason: stopReason ?? null, eventFailure, sessionId: sessionId ?? null, usage: usage ?? null, stepUsage, reportedCostUSD: profileId === 'codex-cli-primary' ? null : reportedCostUSD, observedModels: [...models], reviewInputsPreserved, evaluation: 'not-graded'};
+const durationSeconds = (Date.now() - started) / 1000;
+const monotonicDurationSeconds = (performance.now() - monotonicStarted) / 1000;
+const deadlineExceededBySeconds = Math.max(0, Math.max(durationSeconds, monotonicDurationSeconds) - profile.budgets.wallTimeSeconds);
+if (deadlineExceededBySeconds > 0 && !stopReason) stopReason = 'wall-time-limit';
+const summary = {...metadata, ...result, endedAt: new Date().toISOString(), durationSeconds, monotonicDurationSeconds, deadlineExceededBySeconds, stopReason: stopReason ?? null, eventFailure, sessionId: sessionId ?? null, usage: usage ?? null, stepUsage, reportedCostUSD: profileId === 'codex-cli-primary' ? null : reportedCostUSD, observedModels: [...models], reviewInputsPreserved, evaluation: 'not-graded'};
 fs.writeFileSync(path.join(dir, 'run.json'), JSON.stringify(summary, null, 2) + '\n');
 console.log(JSON.stringify({schema, profileId, phase, exitCode: summary.exitCode, stopReason: summary.stopReason, durationSeconds: summary.durationSeconds, reportedCostUSD: summary.reportedCostUSD, observedModels: summary.observedModels, artifacts: dir}, null, 2));
 process.exitCode = summary.exitCode === 0 && !stopReason && !eventFailure && reviewInputsPreserved ? 0 : 1;

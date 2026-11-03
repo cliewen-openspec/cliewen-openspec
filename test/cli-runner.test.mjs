@@ -3,14 +3,14 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import {fileURLToPath} from 'node:url';
+import {fileURLToPath, pathToFileURL} from 'node:url';
 import {spawnSync} from 'node:child_process';
 import {parse} from 'yaml';
 
 const source = fileURLToPath(new URL('../', import.meta.url));
 const profiles = parse(fs.readFileSync(path.join(source, 'docs/testing/agent-evaluation.yaml'), 'utf8')).profiles;
 const profile = profiles['codex-cli-primary'];
-function fixture(t, {version, failEvent = false, profileId = 'codex-cli-primary', editReview = false} = {}) {
+function fixture(t, {version, failEvent = false, profileId = 'codex-cli-primary', editReview = false, clockAdvance = false} = {}) {
   const selected = profiles[profileId];
   version ??= selected.agentVersion;
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'cliewen-cli-runner-test-'));
@@ -34,7 +34,13 @@ function fixture(t, {version, failEvent = false, profileId = 'codex-cli-primary'
     : [{type: 'thread.started', thread_id: 'fixture-session'}, failEvent ? {type: 'turn.failed', error: {message: 'Fixture failure'}} : {type: 'turn.completed', usage: {input_tokens: 10, output_tokens: 4}}];
   fs.writeFileSync(fake, `if(process.argv.includes('--version')) {console.log(${JSON.stringify(version)});} else {process.stdin.resume();process.stdin.on('end',()=>{for(const event of ${JSON.stringify(events)})console.log(JSON.stringify(event));process.stderr.write('fixture diagnostic');});}\n`);
   const override = selected.agent === 'OpenCode' ? 'CLIEWEN_OPENCODE_CLI' : selected.agent === 'Claude Code' ? 'CLIEWEN_CLAUDE_CLI' : 'CLIEWEN_CODEX_CLI';
-  const run = (...args) => spawnSync(process.execPath, ['scripts/run-cli-trial.mjs', suite, profileId, 'cliewen-delivery', ...args], {cwd: source, encoding: 'utf8', timeout: 15000, env: {...process.env, [override]: fake, FAKE_PRIVATE_TOKEN: 'must-not-appear'}});
+  const env = {...process.env, [override]: fake, FAKE_PRIVATE_TOKEN: 'must-not-appear'};
+  if (clockAdvance) {
+    const clock = path.join(root, 'clock.mjs');
+    fs.writeFileSync(clock, `if(process.argv[1]?.endsWith('run-cli-trial.mjs')){const now=Date.now;let calls=0;Date.now=()=>now()+(calls++?601000:0);}`);
+    env.NODE_OPTIONS = `${env.NODE_OPTIONS ?? ''} --import=${pathToFileURL(clock).href}`;
+  }
+  const run = (...args) => spawnSync(process.execPath, ['scripts/run-cli-trial.mjs', suite, profileId, 'cliewen-delivery', ...args], {cwd: source, encoding: 'utf8', timeout: 15000, env});
   if (editReview) fs.appendFileSync(fake, `\nimport fs from 'node:fs'; if (!process.argv.includes('--version') && fs.existsSync('mutate-on-review')) fs.appendFileSync(${JSON.stringify(editReview === 'machine-check' ? '.cliewen-openspec/tdd/check.json' : 'AGENTS.md')}, 'changed');\n`);
   return {project, artifacts, run};
 }
@@ -51,6 +57,16 @@ test('CLI runner preserves raw logs and requested profile without treating CLI c
   assert.equal(run.sessionId, 'fixture-session'); assert.equal(run.reportedCostUSD, null);
   assert.ok(!JSON.stringify(run).includes('must-not-appear'));
   assert.notEqual(f.run().status, 0, 'earlier logs must not be overwritten');
+});
+
+test('CLI runner rejects completion beyond the elapsed-time budget even if its timer did not fire', t => {
+  const f = fixture(t, {clockAdvance: true});
+  assert.notEqual(f.run().status, 0);
+  const result = JSON.parse(fs.readFileSync(path.join(f.artifacts, 'initial/run.json'), 'utf8'));
+  assert.equal(result.exitCode, 0);
+  assert.equal(result.stopReason, 'wall-time-limit');
+  assert.ok(result.deadlineExceededBySeconds > 0);
+  assert.ok(result.monotonicDurationSeconds < 600);
 });
 
 test('CLI self-review follows a retained attempt and cannot change its inputs or overwrite the initial phase', t => {

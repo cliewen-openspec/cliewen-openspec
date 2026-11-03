@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import {spawnSync} from 'node:child_process';
-import {fileURLToPath} from 'node:url';
+import {fileURLToPath, pathToFileURL} from 'node:url';
 import {parse} from 'yaml';
 import {expandDocumentation} from '../scripts/lib/doc-includes.mjs';
 
@@ -30,6 +30,11 @@ else if(agent==='Codex CLI'){console.log(JSON.stringify({type:'thread.started',t
 else{console.log(JSON.stringify({type:'text',sessionID:'fixture-session',model,part:{text:'fixture'}}));console.log(JSON.stringify({type:'step_finish',sessionID:'fixture-session',part:{cost:Number(process.env.FAKE_COST||0.01),tokens:{input:10,output:4}}}));}
 });`);
   const env = {...process.env, OPENCODE_CONFIG_DIR: inheritedConfig, CLIEWEN_CLAUDE_CLI: fake, CLIEWEN_CODEX_CLI: fake, CLIEWEN_OPENCODE_CLI: fake, FAKE_AGENT: profile.agent, FAKE_VERSION: options.version ?? (profile.agent === 'OpenCode' ? `opencode v${profile.agentVersion}` : profile.agentVersion), FAKE_MODEL: options.model ?? profile.model, FAKE_FAIL: options.fail ? '1' : '', FAKE_EDIT_REPORT: options.editReport ? '1' : '', FAKE_COST: options.cost ?? '', FAKE_PRIVATE_TOKEN: 'never-serialize-this'};
+  if (options.clockAdvance) {
+    const clock = path.join(root, 'clock.mjs');
+    fs.writeFileSync(clock, `if(process.argv[1]?.endsWith('run-guide-walkthrough.mjs')&&process.argv[2]==='walkthrough'){const now=Date.now;let calls=0;Date.now=()=>now()+(calls++?601000:0);}`);
+    env.NODE_OPTIONS = `${env.NODE_OPTIONS ?? ''} --import=${pathToFileURL(clock).href}`;
+  }
   const run = phase => spawnSync(process.execPath, ['scripts/run-guide-walkthrough.mjs', phase, trial, ...(phase === 'prepare' ? [id] : [])], {cwd: source, env, encoding: 'utf8', timeout: 15000});
   const prepared = run('prepare'); assert.equal(prepared.status, 0, prepared.stderr);
   const read = phase => JSON.parse(fs.readFileSync(path.join(trial, 'artifacts', phase, 'run.json'), 'utf8'));
@@ -79,6 +84,17 @@ test('guide runner rejects version drift, misleading success events, model drift
 test('OpenCode guide runner records a reported-cost stop without approving the attempt', t => {
   const f = fixture(t, 'opencode-guide-walkthrough', {cost: '0.75'});
   assert.notEqual(f.run('walkthrough').status, 0); assert.equal(f.read('walkthrough').stopReason, 'reported-cost-limit');
+});
+
+test('guide runner rejects completion beyond the elapsed-time budget even if its timer did not fire', t => {
+  const f = fixture(t, 'codex-guide-walkthrough', {clockAdvance: true});
+  assert.notEqual(f.run('walkthrough').status, 0);
+  const result = f.read('walkthrough');
+  assert.equal(result.code, 0);
+  assert.equal(result.passed, false);
+  assert.equal(result.stopReason, 'wall-time-limit');
+  assert.ok(result.deadlineExceededBySeconds > 0);
+  assert.ok(result.monotonicDurationSeconds < 600);
 });
 
 test('guide snapshots share website include rendering instead of nesting Markdown inside JavaScript', t => {

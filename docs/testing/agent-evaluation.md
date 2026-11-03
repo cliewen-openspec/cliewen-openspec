@@ -11,10 +11,12 @@ Every shipped schema needs deterministic regression coverage and a reviewed agen
 
 [The local 0.1.0 candidate observations](release-candidate-001.md) add a fresh Codex delivery-quality pass and a corrected Claude prepared-guide walkthrough. The first guide attempt retained process failures despite green technical checks. Repeated release combinations and affected guide profiles remain incomplete.
 
+[Round 013: Repeated delivery and discovery trials on 0.1.0](cli-trials/result-013.md) attempts both primary scenarios twice with all three profiles: nine reviewed passes, two factual writing failures, and one infrastructure failure with incomplete final evidence. [Guide result 004](guide-walkthrough/result-004.md) records a passing Codex journey and an OpenCode technical retry with incomplete test-file readback. Remaining failed combinations, combined coverage, and planned variants still block release acceptance.
+
 | Schema | Development trial | Observed coverage | Still needed before release |
 |---|---|---|---|
-| cliewen-delivery | Optional CSV BOM with evidence-first verification | Fresh Codex and Claude passes; OpenCode product checks pass but writing review fails | Resolve writing findings; per-task and end-of-change variants; repeated current-candidate runs |
-| cliewen-discovery | Investigate CSV streaming | Codex CLI and Claude have passing observations; OpenCode 2.2.5 passes with a writing note | Targeted no-change and handoff cases; repeated current-candidate runs |
+| cliewen-delivery | Optional CSV BOM with evidence-first verification | Current candidate: two Codex and two Claude reviewed passes; OpenCode has a writing failure and an incomplete repeat | Two reviewed OpenCode passes; per-task and end-of-change variants |
+| cliewen-discovery | Investigate CSV streaming | Current candidate: two Codex and two OpenCode reviewed passes; Claude has one pass and one source-fact failure | Another reviewed Claude pass; targeted no-change and handoff cases |
 | cliewen-all | One CSV investigation through delivery with an explicit human review stage | Fresh Claude boundary and delivery product checks pass; source-representation claims fail writing review | Resolve writing findings; remaining profiles, no-delivery coverage, and repetitions |
 
 The [first CLI round](cli-trials/result-001.md) and [Claude retries](cli-trials/result-002.md) retain earlier observations. [OpenCode 1.19.5](cli-trials/result-003.md) exposed content and evidence failures; the [first V2 runs](cli-trials/result-004.md) were interrupted. The [instruction regressions](cli-trials/result-005.md) and [combined retry](cli-trials/result-006.md) record improvements and the remaining TDD failure. Earlier passes do not certify every later instruction candidate.
@@ -68,7 +70,7 @@ Each preparer prints project and evaluator artifact paths and saves a baseline b
 
 Use the scenario's checker after completion and review its rubric. Snapshot the implementation or investigation, actual observations, instruction responses, and evaluator output. Preserve raw traces when available. Credentials do not belong in fixtures or reports.
 
-The flexible and end-of-change delivery variants, targeted discovery outcomes, and combined no-delivery agent variant remain planned. The combined primary scenario is staged: its first prompt stops at a proposed decision, and actual human agreement is required before the agent's delivery stage. A correct approval-boundary stop does not complete end-to-end coverage. A no-change case must permit an honest recommendation, rather than reward reaching a predetermined answer.
+The per-task and end-of-change delivery variants, targeted discovery outcomes, and combined no-delivery agent variant remain planned. The combined primary scenario is staged: its first prompt stops at a proposed decision, and actual human agreement is required before the agent's delivery stage. A correct approval-boundary stop does not complete end-to-end coverage. A no-change case must permit an honest recommendation, rather than reward reaching a predetermined answer.
 
 ## Assess and report
 

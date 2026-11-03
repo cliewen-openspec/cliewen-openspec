@@ -28,7 +28,7 @@ npm test
 npm pack
 ```
 
-`npm test` should exit successfully with no failing tests; `npm pack` produces `cliewen-openspec-0.1.0.tgz`. The commands below assume that the clone and pilot are sibling directories.
+Each build command must succeed before you continue. `npm test` must have no failing tests; `npm pack` produces `cliewen-openspec-0.1.0.tgz`. If a command fails, preserve its output and stop to resolve or report it. The commands below assume that the clone and pilot are sibling directories.
 
 ## 2. Create the pilot
 
@@ -45,7 +45,7 @@ npm install --save-dev ../cliewen-openspec/cliewen-openspec-0.1.0.tgz
 node -e "require('node:fs').writeFileSync('.gitignore', 'node_modules/\n')"
 ```
 
-The last command creates `.gitignore` for this new pilot, excluding installed dependencies from commits. Initialize OpenSpec without agent integrations for the reproducible example:
+The last command creates `.gitignore` for this new pilot, excluding installed dependencies from commits. If the pilot needs a Git identity, set it locally with `git config --local user.name "Your Name"` and `git config --local user.email "you@example.com"`, using your own values. Initialize OpenSpec without agent integrations for the reproducible example:
 
 ```sh
 npx --no-install openspec init --tools none --no-animation
@@ -96,7 +96,7 @@ The helper copies the example proposal, design, tasks, and delta spec into the e
 
 ## 5. Implement and test
 
-After approving the plan, ask your agent to implement the tasks and run each task's tests before proceeding. To use the finished reference implementation instead:
+After reviewing the plan, copy and test the prepared implementation:
 
 ```sh
 node ../cliewen-openspec/scripts/copy-csv-example.mjs implementation
@@ -104,8 +104,6 @@ node --test test/export.test.mjs
 ```
 
 The implementation helper creates `export.mjs`, `test/export.test.mjs`, and `README.md`. Expect six passing tests and no failures. They cover headers, explicit column order, commas, quotation marks, line breaks, and an empty record list. Inspect the [CSV code and tests](csv-example.md) to see exactly what they assert. Copying finished files does not exercise an agent's implementation process or prove task-by-task development.
-
-Once the tests pass and you have reviewed the code and assertions, mark the implementation tasks complete. With the prepared example, the last helper mode checks the expected files and marks its task list complete.
 
 Stop and read `export.mjs`, `test/export.test.mjs`, and `README.md`. Compare the assertions with the six scenarios in `openspec/changes/add-csv-export/specs/csv-export/spec.md`. For the prepared path, the full suite above verifies all six behaviors together; the task file explicitly allows that batch check instead of its incremental focused commands. This shortcut does not claim those focused runs or task-by-task development. After implementation, validate again:
 
@@ -135,7 +133,7 @@ node node_modules/cliewen-openspec/adapters/node-test.mjs --change add-csv-expor
 npx --no-install cliewen-openspec check --change add-csv-export --json
 ```
 
-The adapter runs every test in the file again and writes `.cliewen-openspec/evidence.json`, ignored by Git. Open it and compare its `revision` with `git rev-parse HEAD`; its scope is `add-csv-export`. Failures outside the selected change still block verification.
+The adapter runs every test in the file again and writes `.cliewen-openspec/evidence.json`, ignored by Git. Open it and compare its `revision` with `git rev-parse HEAD`; `scope.change` should be `add-csv-export` (the `scope` value is an object). Failures outside the selected change still block verification.
 
 With the `0.1.0` candidate and unchanged reference example, expect exit 0 and `"ok": true` with these warnings:
 

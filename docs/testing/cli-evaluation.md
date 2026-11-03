@@ -39,6 +39,8 @@ Each run saves `prompt.txt`, `events.jsonl`, `stderr.txt`, and `run.json` in the
 
 The defaults are a 600-second wall limit and 64 MiB of combined logs per phase. Claude has a $2 reported-cost limit; OpenCode has a $0.50 local stop based on reported events. The OpenCode limit can overshoot because it acts after a response; it is not a provider spending limit. Claude's reported list-equivalent cost is not a subscription invoice. Codex cost and hard token limits are unavailable and recorded as unknown. Combined-schema continuation starts another phase with its own limits.
 
+These are local stop mechanisms. A stalled or suspended runner may act late; it is not a provider-enforced deadline. Results record wall-clock and monotonic duration plus any overrun, and completion beyond either elapsed limit is rejected. [Round 013: Repeated delivery and discovery trials on 0.1.0](cli-trials/result-013.md) retains an actual late stop whose cause remains unresolved.
+
 The owner approved these distinct profiles for the next targeted retry and independent review:
 
 | Profile | Purpose | Wall limit | Reported-cost limit and access |
