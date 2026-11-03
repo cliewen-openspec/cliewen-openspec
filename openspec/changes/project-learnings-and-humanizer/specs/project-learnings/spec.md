@@ -10,7 +10,7 @@ When enabled and documentation guidance is active, the schemas SHALL guide agent
 
 #### Scenario: Relevant lesson in a custom documentation root
 - **WHEN** learnings are enabled under a custom docsRoot with an existing index
-- **THEN** the agent loads relevant notes without loading the entire collection
+- **THEN** the agent reads the index in a separate tool call before opening selected relevant notes and excludes unselected notes from broad context reads and content searches
 
 #### Scenario: Conflicting or retired guidance
 - **WHEN** a lesson conflicts with a current accepted decision or is retired
@@ -27,3 +27,7 @@ The workflow SHALL guide evidence-backed lessons, tentative/verified distinction
 #### Scenario: No reusable observation
 - **WHEN** routine work produces no useful lesson
 - **THEN** the workflow does not require creating a note or an empty index
+
+#### Scenario: Explicit maintenance of historical notes
+- **WHEN** the task reviews overlapping or obsolete lessons
+- **THEN** the agent selects affected current and historical notes from the index, preserves their paths and history, and verifies corrections against current sources without changing unrelated notes

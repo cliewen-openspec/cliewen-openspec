@@ -98,11 +98,21 @@ learnings:
   directory: lessons
 ```
 
-This selects `notes/lessons/`. The installer does not create that directory or an empty index. When a useful lesson exists, the agent follows the existing collection's conventions or uses `.cliewen-openspec/templates/learning.md` and a short `README.md` index. The index lists titles, scope, status, and links; the agent reads relevant notes before planning or changing that scope.
+This selects `notes/lessons/`. The installer does not create that directory or an empty index. When a useful lesson exists, the agent follows the existing collection's conventions or uses `.cliewen-openspec/templates/learning.md` and a short `README.md` index. The index lists titles, scope, status, and links. The agent reads the index first, then opens selected relevant notes in a later tool call. Broad content searches exclude unselected notes. Missing or unclear index information is a limitation to report, rather than a reason to load the whole collection.
 
-New notes distinguish `tentative`, `verified`, and `retired` guidance and record the situation, observation, evidence, correction, scope, and limits. Verified notes include a `lastVerified` date. Recheck applicability: a lesson never overrides current specs or accepted decisions. At closure, merge duplicates through links, retire stale notes in place, and promote recurring guidance into tests or durable rules where useful. Routine work need not produce a lesson.
+New notes distinguish `tentative`, `verified`, and `retired` guidance and record the situation, observation, evidence, correction, scope, and limits. Verified notes include a `lastVerified` date. Recheck applicability: a lesson never overrides current specs or accepted decisions. At closure, merge duplicates through links, retire stale notes in place, and promote recurring guidance into tests or durable rules where useful. Explicit maintenance may read affected historical notes selected from the index; ordinary work skips retired and unrelated contents. Routine work need not produce a lesson.
 
 Disabling learnings stops retrieval and maintenance guidance while preserving authored content. `features.documentation: false` also suppresses this workflow, even if learnings are enabled. Update and uninstall preserve authored notes and indexes; the installed template remains an owned resource. Existing knowledge outside the selected directory can be referenced without copying or moving it. Absolute, escaping, and empty directory settings are rejected; symlinks in the collection path are rejected when learnings are active. Disabled learnings do not inspect an unused collection path.
+
+### Instructions before context collection
+
+Some agents gather project context before requesting OpenSpec instructions. Schema guidance becomes available when those instructions are read; it cannot prevent earlier reads. To request the intended order from the start, add this rule to the project's existing agent instruction file, such as `AGENTS.md` or the host's equivalent:
+
+```text
+For Cliewen operations, read .cliewen-openspec/config.yaml and obtain the selected OpenSpec artifact or apply instructions before broad project-content reads or searches. Resolve the learning policy first: when enabled and documentation guidance is active, read only the configured collection's index in one tool call, then select relevant notes before opening them in a later call. Exclude unselected, unrelated, and retired notes from ordinary context reads and content searches. Explicit maintenance may select affected historical notes. When disabled, skip the collection. Report limitations rather than loading everything.
+```
+
+The installer does not add or replace this project-owned rule. It requests an order; agent behavior still needs review. A trace that shows an unwanted read takes precedence over an agent's claim that it skipped the file.
 
 These are agent instructions, not a content validator. `check` cannot establish that a lesson is true, relevant, or actually retrieved. Changing settings requires no reinstall, but upgrading from an older package requires [updating its installed instructions](guide/updating.md).
 

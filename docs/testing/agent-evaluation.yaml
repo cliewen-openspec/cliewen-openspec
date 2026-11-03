@@ -37,7 +37,7 @@ profiles:
     agent: Claude Code
     runner: cli
     model: claude-opus-5-5
-    agentVersion: 2.1.316
+    agentVersion: 2.1.317
     provider: Anthropic firstParty; existing claude.ai Pro authentication
     effort: medium
     permissions: dontAsk with explicit local read/edit/write/shell tools;
@@ -56,7 +56,7 @@ profiles:
     agent: Claude Code
     runner: cli
     model: claude-opus-5-5
-    agentVersion: 2.1.316
+    agentVersion: 2.1.317
     provider: Anthropic firstParty; existing claude.ai Pro authentication
     effort: medium
     permissions: dontAsk with local read/edit/write/shell tools; no extra agents or web tools; no OS isolation
@@ -334,6 +334,7 @@ scenarios:
     rubric: docs/testing/knowledge-writing-trial/rubric.md
     observedResults:
       - docs/testing/knowledge-writing-trial/result-001.md
+      - docs/testing/knowledge-writing-trial/result-002.md
 
 schemas:
   cliewen-delivery:
