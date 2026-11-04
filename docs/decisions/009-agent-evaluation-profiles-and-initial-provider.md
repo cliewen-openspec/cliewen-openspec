@@ -39,6 +39,8 @@ On November 2, 2026, the owner approved 15 minutes with the existing $0.50 repor
 
 [Round 013: Repeated delivery and discovery trials on 0.1.0](../testing/cli-trials/result-013.md) records a provider transport failure and a late local stop: 3,014.545 observed seconds against a configured 600-second limit. Limits were not raised. Runners now record wall-clock and monotonic duration and reject completion beyond either limit, including when the timer callback is delayed. The cause of the original delay remains unresolved; local timers and reported-cost stops must not be described as provider-enforced hard caps.
 
+[Round 014: Host interruption diagnosis and factual-writing follow-up](../testing/cli-trials/result-014.md) identifies host sleep and a 2,503.372-second clock correction during the interrupted round 013 attempt. The late wall-clock reading does not establish that much active agent work. Preserve the infrastructure failure and use the existing timing diagnostics; do not change system power settings or raise budgets to turn the attempt into a pass.
+
 ## References
 
 - [Harbor agent integrations](https://docs.harborframework.com/agents/pre-integrated-agents) support selecting agents and models separately; profile details still need verification in our environment.

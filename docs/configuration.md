@@ -118,6 +118,8 @@ These are agent instructions, not a content validator. `check` cannot establish 
 
 ## Humanizer and writing
 
+Baseline writing guidance applies in every mode. Agents should distinguish the accepted contract from runtime observations, describe the output representation actually checked, and name what each verification command establishes. These requests need review; neither Humanizer nor `check` validates every factual claim.
+
 `writing.humanizer` controls the coding agent's use of an external skill:
 
 | Value | Behavior |

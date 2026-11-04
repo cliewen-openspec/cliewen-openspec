@@ -7,6 +7,7 @@ Changes that matter to projects using Cliewen for OpenSpec.
 - Optional indexed project learnings help agents retrieve relevant lessons and maintain or retire stale guidance. Notes remain project-owned and survive disabling the facility, updates, and uninstall. Learnings are off by default. Agents that gather context before reading schema instructions may need the [project instruction example](docs/configuration.md#instructions-before-context-collection).
 - Optional Humanizer guidance defaults to automatic host discovery, with explicit on/off modes, one status per session, and a clear-writing fallback. Missing skills never block writing or install automatically. See [configuration and host limits](docs/configuration.md#humanizer-and-writing).
 - Shared writing guidance asks agents to validate local document links before handoff and describe future files as planned paths until they exist. This requests an agent check; the CLI does not validate every Markdown link.
+- Technical explanations should distinguish supported inputs from observed runtime behavior and describe what each verification command actually checked. These are review instructions, not an automatic guarantee of factual correctness.
 
 - Evidence-first verification plans acceptance cases before implementation, verifies small tasks, reviews effective assertions, and maintains tests as requirements change. It records execution evidence without requiring an order of test and production edits. See [the verification approach](docs/configuration.md#evidence-first-verification).
 

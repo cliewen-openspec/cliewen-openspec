@@ -42,6 +42,8 @@ The first Claude investigation nevertheless claims that calling `records.map` re
 
 The last OpenCode event reports `provider.transport: Timed out waiting for response data`. Its runner recorded `wall-time-limit` and 3,014.545 seconds, exceeding the configured 600 seconds by about 2,414.5 seconds. Why the timer acted late is unresolved: the saved attempt lacks independent monotonic timing. A local timer is not proof of a provider-enforced hard deadline, and this attempt did not remain within its configured elapsed limit.
 
+Subsequent [host-event diagnosis in round 014](result-014.md#host-evidence) identifies sleep and a clock correction during this interval. The original run record and outcome remain unchanged; the unresolved assessment above records what was known before those system events were inspected.
+
 Both runners now record monotonic duration alongside wall-clock duration and the observed overrun. They reject a late completion even if the timer callback did not fire before a successful child exit. New fake-CLI regressions reproduced that false-success path before the guard and pass afterward. This improves classification and future diagnostics; it does not explain or guarantee immediate termination of the original transport stall. No new model calls were made to test this reporting correction.
 
 All 71 package tests pass locally after these guards. The updated public guide builds with 13 pages, 464 local links, four diagrams, and checked CLI defaults; desktop/mobile browser checks pass.

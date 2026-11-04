@@ -17,6 +17,7 @@ Agents can repeat mistakes when useful observations remain in an earlier session
 
 - `project-learnings`: retrieve and maintain reusable lessons without creating another requirements authority.
 - `optional-humanizer`: configure host-mediated skill discovery and use across agent-authored prose.
+- `factual-writing`: distinguish accepted contracts, observed behavior, representation boundaries, and the scope of verification claims.
 
 ### Modified Capabilities
 

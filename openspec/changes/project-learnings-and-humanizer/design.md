@@ -59,6 +59,8 @@ If the inventory confirms absence in auto/on mode, suggest [upstream installatio
 
 Apply the skill to prose across proposals, specs, task notes, guides, comments, docstrings, commits, PR descriptions, messages, and replies. Preserve code behavior, commands, identifiers, examples, links, and structured data. Check factual claims after rewriting. Clear writing remains required when the skill is disabled, absent, or inaccessible. Host mandates outside Cliewen retain their authority.
 
+Round 013's factual failures refine that baseline review: separate accepted input contracts from runtime observations, identify the representation actually produced, and name what each executed check establishes. Plan counterexample probes for inferred restrictions and retain runtime limits. These instructions apply in every Humanizer mode; neither the skill nor `check` proves their semantic correctness. The factual-writing scenarios cover those boundaries. Validate distribution through the existing installed-schema checks and fresh delivery/discovery observations, with the combined investigation stopping at its human-review boundary.
+
 ## Verification before implementation
 
 | Boundary | Cases and expected observations |
