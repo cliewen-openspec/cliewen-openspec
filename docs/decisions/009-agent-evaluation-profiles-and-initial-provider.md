@@ -43,6 +43,8 @@ On November 2, 2026, the owner approved 15 minutes with the existing $0.50 repor
 
 That follow-up also retains a separate 829.678-second monotonic timeout with no matching sleep events. Its precise stall cause remains unresolved. A controlled Windows unread-pipe regression reproduces blocked deadline callbacks; runners now keep periodic progress in files and record stop requests before termination. This corrects an observed logging risk without claiming a provider-enforced deadline or assigning that mechanism as the proven cause of the native stall.
 
+The owner later explicitly accepted the linked isolated BOM design. Its approved Codex continuation passed independent checks with 21 tests and current scoped evidence, while preserving the proposed checkpoint and original approval source. This completes one combined-workflow observation, not release acceptance or a blanket approval for other designs. Normal native file-based progress was observed; the stop path remains covered by the controlled regression.
+
 ## References
 
 - [Harbor agent integrations](https://docs.harborframework.com/agents/pre-integrated-agents) support selecting agents and models separately; profile details still need verification in our environment.

@@ -650,14 +650,177 @@
         "failed": []
       },
       "stageOutcome": "pass",
-      "endToEndDelivery": "awaiting actual human acceptance"
+      "endToEndDelivery": "Initial checkpoint only; see combinedContinuation for the approved delivery stage."
     }
   ],
   "combinedContinuation": {
-    "status": "awaiting-user",
-    "approvalInferred": false,
-    "project": "C:/Users/flemm/AppData/Local/Temp/cliewen-csv-all-1793813654689/project",
-    "boundaryRevision": "6fb390a966c2bbea9abd02381097dfa050b6c4fd"
+    "status": "completed",
+    "overall": "pass",
+    "scope": "One approved Codex combined workflow; not release acceptance.",
+    "approval": {
+      "source": "Explicit owner acceptance in the coordinating conversation after the linked design question.",
+      "ownerMessageEnglishTranslation": "I accept",
+      "recordedAtUtc": "2026-11-04T19:08:38.282Z",
+      "reviewedCheckpoint": "6fb390a966c2bbea9abd02381097dfa050b6c4fd",
+      "reviewedDecisionSHA256": "7f21bad1851e2df1c2646f8fa6b913a3cbab1e394e3d68c600c2441aeb452130",
+      "approvalPromptSHA256": "7f72ed60f781223c9631fce25ae0f4b30eed59ddad6685a1f1b99738ba7a6c67",
+      "approvalInferred": false,
+      "scope": "Local implementation, tests, documentation, commits and evidence in this isolated project only.",
+      "excluded": [
+        "archive",
+        "push",
+        "publication",
+        "external PR"
+      ]
+    },
+    "project": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-csv-all-1793813654689\\project",
+    "artifacts": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-csv-all-1793813654689\\artifacts",
+    "preservedDirectory": ".tmp/agent-trials/cli-evaluation-014/case-6-approved-continuation",
+    "runnerRevision": "ea970a597136f7779b4ae8175fa583febc80ec13",
+    "profile": "codex-cli-primary",
+    "run": {
+      "schema": "cliewen-all",
+      "profileId": "codex-cli-primary",
+      "phase": "approved-continuation",
+      "project": "C:/Users/flemm/AppData/Local/Temp/cliewen-csv-all-1793813654689/project",
+      "baseline": "af0e2b43e96e163709f9682ebd39b210183c94d5",
+      "profile": {
+        "readiness": "pinned",
+        "agent": "Codex CLI",
+        "runner": "cli",
+        "model": "gpt-6.1-sol",
+        "agentVersion": "0.166.0",
+        "provider": "openai; existing ChatGPT CLI authentication",
+        "effort": "medium",
+        "permissions": "danger-full-access, approval never; project scope is an instruction, not OS isolation",
+        "context": "fresh process; ignore user config and execpolicy rules; project AGENTS and managed/global instructions may remain",
+        "budgets": {
+          "wallTimeSeconds": 600,
+          "outputBytes": 67108864,
+          "reportedCostUSD": null,
+          "tokenLimit": null,
+          "billing": "existing ChatGPT entitlement; no purchase"
+        },
+        "traceFormat": "codex exec --json JSONL plus stderr"
+      },
+      "exe": "C:\\Program Files\\nodejs\\node.exe",
+      "cliVersion": "codex-cli 0.166.0",
+      "startedAt": "2026-11-04T19:08:38.967Z",
+      "promptFile": "prompt.txt",
+      "environmentControls": {
+        "NO_COLOR": "1",
+        "OPENSPEC_TELEMETRY": "0",
+        "CI": "1"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "endedAt": "2026-11-04T19:14:54.907Z",
+      "durationSeconds": 375.939,
+      "monotonicDurationSeconds": 375.9376668,
+      "deadlineExceededBySeconds": 0,
+      "stopReason": null,
+      "stopRequestedAt": null,
+      "stopRequestedAfterSeconds": null,
+      "terminationDelaySeconds": null,
+      "eventFailure": false,
+      "sessionId": "01a1a7f6-9bd5-7a41-bd61-43e2ebf76d19",
+      "usage": {
+        "input_tokens": 1311410,
+        "cached_input_tokens": 1254400,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 13025,
+        "reasoning_output_tokens": 896
+      },
+      "reportedCostUSD": null,
+      "observedModels": [],
+      "reviewInputsPreserved": true,
+      "evaluation": "not-graded"
+    },
+    "finalRevision": "e9effcf70cf481736e085253e3731cebd04f7560",
+    "workingTreeStatus": "",
+    "testCount": 21,
+    "scopedPassedResults": 15,
+    "newAcceptanceIDs": [
+      "EXP-007",
+      "EXP-008",
+      "EXP-009"
+    ],
+    "independentChecks": {
+      "passed": true,
+      "acceptedDesignProbe": {
+        "passed": true,
+        "node": "v24.0.0",
+        "fixtures": [
+          "ordinary",
+          "escaped-empty-header",
+          "unicode-and-newlines",
+          "preserve-content-marker"
+        ],
+        "scope": "Independent accepted-option, exact-string, UTF-8, escaped-header, Unicode and content-marker controls; not an exhaustive input or consumer-compatibility assessment."
+      },
+      "localLinks": [],
+      "findings": [
+        {
+          "code": "coverage-minimum-unmet",
+          "message": "EXP-007: needs 1 distinct passed positive cases.",
+          "severity": "warning"
+        },
+        {
+          "code": "coverage-minimum-unmet",
+          "message": "EXP-008: needs 1 distinct passed negative cases.",
+          "severity": "warning"
+        },
+        {
+          "code": "coverage-minimum-unmet",
+          "message": "EXP-009: needs 1 distinct passed negative cases.",
+          "severity": "warning"
+        },
+        {
+          "code": "test-policy-review-required",
+          "severity": "info",
+          "message": "Record checks cannot prove case distinctness, assertion meaning, complete dependency/impact analysis, or human approval. Review these claims."
+        },
+        {
+          "code": "sufficiency-not-assessed",
+          "severity": "info",
+          "message": "Execution and linkage do not prove assertion quality; review the assertions against the scenarios."
+        }
+      ]
+    },
+    "effectiveness": [
+      {
+        "name": "truthy-activation",
+        "exitCode": 1,
+        "failedAssertions": 1
+      },
+      {
+        "name": "duplicate-prefix",
+        "exitCode": 1,
+        "failedAssertions": 14
+      },
+      {
+        "name": "misplaced-prefix",
+        "exitCode": 1,
+        "failedAssertions": 14
+      },
+      {
+        "name": "strip-content",
+        "exitCode": 1,
+        "failedAssertions": 2
+      },
+      {
+        "name": "corrupt-suffix",
+        "exitCode": 1,
+        "failedAssertions": 14
+      }
+    ],
+    "reviewedOutcome": "Pass for the approved BOM workflow: actual approval preceded allocation and implementation, original assertions/specs retained, agreed options and content preservation verified, current scoped evidence and meaningful fault logs retained.",
+    "limits": [
+      "Advisory category minima remain unfilled; no policy was disabled to suppress them.",
+      "One runtime and host observed; no spreadsheet or downstream compatibility established.",
+      "No archive, publication, external PR or push in the trial project.",
+      "Approval provenance was relayed to the CLI; it did not have direct access to the owner conversation."
+    ]
   },
   "hostDiagnosis": {
     "previousAttempt": "Host sleep and clock correction supported by Windows System events.",
@@ -672,7 +835,7 @@
       },
       "limit": "Controlled large-output reproduction; does not establish the cause of the original native stall."
     },
-    "runnerCorrection": "Progress is written to phase-local progress.json; stop requests are recorded before termination. Windows unread-pipe regression and 72 package tests pass. No subsequent native call has tested this maintainer correction.",
+    "runnerCorrection": "Progress is written to phase-local progress.json; stop requests are recorded before termination. The Windows unread-pipe regression and 72 package tests pass. Approved continuation observed normal native file-based progress and timely completion; it did not exercise the stop path.",
     "currentSystemLogQuery": {
       "queriedAtUtc": "2026-11-04T17:52:43.9628215Z",
       "startUtc": "2026-11-04T17:25:37.2460000Z",
@@ -695,7 +858,9 @@
       "cliewen-discovery",
       "cliewen-all"
     ],
-    "meaning": "The requested factual guidance appears in retrieved instructions; this does not establish compliance."
+    "meaning": "The requested factual guidance appears in retrieved instructions; this does not establish compliance.",
+    "approvedContinuationResponsesChecked": 3,
+    "totalSavedResponsesChecked": 27
   },
   "maintainerValidation": {
     "packageTestsPassed": 72,
@@ -707,7 +872,17 @@
       "browser": "passed desktop/mobile"
     },
     "strictOpenSpecChange": "project-learnings-and-humanizer passed",
-    "nativeValidationOfProgressFix": false
+    "nativeValidationOfProgressFix": true,
+    "nativeProgressObservation": {
+      "phase": "approved-continuation",
+      "progressFileObserved": true,
+      "wallSeconds": 375.939,
+      "monotonicSeconds": 375.9376668,
+      "overrunSeconds": 0,
+      "stopPathExercised": false,
+      "scope": "Normal native progress/completion observed. Adversarial unread-pipe/deadline behavior remains covered by the fake-CLI regression."
+    },
+    "nativeValidationScope": "Normal file-based progress and completion in the approved continuation only. Adversarial unread-pipe and stop behavior remain validated by the fake-CLI regression."
   },
   "ci": {
     "revision": "4caac0dedaaea1c85c2874e3e16e8eee03697feb",
@@ -738,5 +913,12 @@
     "case-6": [
       "Explicit clean-checkpoint prompt followed; product inputs and AC registry unchanged; proposed outcome remains unaccepted."
     ]
+  },
+  "maintainerRunnerCI": {
+    "revision": "ea970a597136f7779b4ae8175fa583febc80ec13",
+    "packageRun": 41883724196,
+    "packageJobs": "four passed: Windows/Linux with Node 22/24",
+    "pagesRun": 41883724025,
+    "pages": "success"
   }
 }

@@ -33,7 +33,7 @@ The fresh candidate was packed from clean source `4caac0dedaaea1c85c2874e3e16e8e
 | Claude discovery | 400.199 s | Passed; six original tests preserved | Complete workflow pass |
 | OpenCode delivery | 829.546 s | Tests and independent behavior passed; clean/current evidence failed | Incomplete at the time limit; draft findings retained |
 | Initial Codex combined investigation | 302.400 s | Only clean-checkpoint check failed | Prompt/checker mismatch; no approved delivery |
-| Fresh Codex combined investigation | 307.885 s | Clean review boundary passed | Investigation-stage pass; delivery awaits actual human acceptance |
+| Fresh Codex combined investigation | 307.885 s | Clean review boundary passed | Investigation-stage pass; approved delivery is recorded below |
 
 Profiles remained Codex CLI 0.166.0 with requested `gpt-6.1-sol`/medium, OpenCode 2.2.5 with requested `opencode/glm-5.3-flash`/high, and Claude Code 2.1.317 with requested and observed `claude-opus-5-5`/medium. The default Claude binary had advanced to 2.1.318; the retained 2.1.317 executable passed version preflight and preserved the pinned comparison. Codex and OpenCode did not expose actual model identity. Claude reported $1.61032 list-equivalent usage through the existing subscription; OpenCode reported $0.12473. All configured budgets stayed unchanged; OpenCode exceeded its elapsed limit, as detailed below.
 
@@ -45,7 +45,19 @@ OpenCode's unfinished draft still contains unsupported spreadsheet motivation an
 
 The initial combined observation found a fixture mismatch: its checker requires a clean recorded review checkpoint, but the prompt allowed an uncommitted investigation. Product files were preserved and the decision stayed proposed; only the clean-checkpoint check failed. Preserve that result as an evaluator/prompt setup problem, without retroactively imposing a revised instruction. The retry made the commit requirement explicit; the checker and its clean-state requirement were unchanged.
 
-The retry stopped at clean revision `6fb390a966c2bbea9abd02381097dfa050b6c4fd`. It recommends a third options argument activated only by literal `bom: true`, preserving CSV content and default output. String output and explicit UTF-8 encoding are distinguished; investigation probes are not product acceptance evidence. No new AC IDs or product implementation were created. Actual owner acceptance of that concrete design has been requested and remains pending. No delivery approval is inferred from the general instruction to continue this work.
+The retry stopped at clean revision `6fb390a966c2bbea9abd02381097dfa050b6c4fd`. It recommended a third options argument activated only by literal `bom: true`, preserving CSV content and default output. String output and explicit UTF-8 encoding were distinguished; investigation probes were not product acceptance evidence. No new AC IDs or product implementation existed at that checkpoint. The owner subsequently accepted the linked design explicitly; approval was not inferred from the general instruction to continue.
+
+## Approved combined delivery
+
+Before continuation, the coordinator verified the clean checkpoint and byte-identical reviewed decision (SHA-256 `7f21bad1851e2df1c2646f8fa6b913a3cbab1e394e3d68c600c2441aeb452130`). The saved approval prompt relayed the owner's acceptance and limited it to local implementation, tests, documentation, commits, and evidence in this disposable project. The CLI recorded that provenance without claiming direct access to the conversation. Accepted status preceded AC allocation and implementation.
+
+The fresh continuation process retained Codex CLI 0.166.0 with requested `gpt-6.1-sol`/medium and the unchanged 600-second budget. It completed in 375.939 wall-clock seconds and 375.938 monotonic seconds, with no overrun or event failure. Actual model identity and monetary cost were not exposed. The existing investigation remains preserved separately; this is a delivery phase of the same trial, not another independent attempt.
+
+Grade: pass for the approved combined workflow at final clean trial revision `e9effcf70cf481736e085253e3731cebd04f7560`. All 21 tests passed, retaining the six original assertions and scenarios. EXP-007 through EXP-009 were allocated through the registry. Five isolated faults triggered assertion failures for truthy activation, duplicate/misplaced prefixes, stripped U+FEFF content, and a corrupted suffix. Strict OpenSpec validation, fresh change-scoped evidence, and Cliewen check passed. The scoped report contains 15 passing results for the new criteria while the runner executes all 21 tests.
+
+Independent checks also exercised inactive option forms, unknown keys, escaped empty headers, Unicode/newlines, and preserved U+FEFF content against fixed string and UTF-8 expectations. Local Markdown targets were checked without rendering; no broken target was found. Three advisory minimum-count findings remain in the original structured checker output. No policy was disabled to silence them, and owner design acceptance does not authenticate assertion sufficiency or the implementing agent's review records.
+
+The completed snapshot, approval, raw traces, ignored evidence/fault logs, independent probes, and final bundle are retained under `.tmp/agent-trials/cli-evaluation-014/case-6-approved-continuation/`. The original proposed checkpoint is unchanged. No trial archive, push, publication, external PR, or dependency installation occurred. Other runtimes, spreadsheet applications, and consumer integrations remain untested.
 
 ## A separate live-clock timeout and logging defect
 
@@ -53,12 +65,14 @@ The new OpenCode attempt recorded 829.546 wall-clock seconds and 829.678 monoton
 
 A controlled local probe exposed a blocking-output risk: with a paused reader, a 4-MiB stdout write delayed a 100-ms timer to about 1,459 ms. [Node 24's process I/O documentation](https://nodejs.org/docs/latest-v24.x/api/process.html#a-note-on-process-io) describes synchronous Windows pipe writes and their effect on the event loop. This reproduces a mechanism, not the original native stall's exact cause.
 
-Both runners now write periodic progress to phase-local `progress.json` instead of stdout. Stops save `stop-request.json` before termination; final metadata separates callback timing from termination delay. An accelerated fake-CLI test held the parent's stdout unread: it failed before the correction and passed afterward. All 72 package tests pass locally on Windows. No further native call has validated this maintainer-only correction, and it is not a provider-enforced hard deadline.
+Both runners now write periodic progress to phase-local `progress.json` instead of stdout. Stops save `stop-request.json` before termination; final metadata separates callback timing from termination delay. An accelerated fake-CLI test held the parent's stdout unread: it failed before the correction and passed afterward. All 72 package tests pass locally on Windows. The approved continuation observed normal native file-based progress and timely completion; it did not exercise the stop path or prove a provider-enforced hard deadline.
 
 ## Validation and remaining scope
 
 The source change passes strict OpenSpec validation. The updated public documentation builds with 13 pages, 464 local links, four diagrams, and checked CLI defaults; desktop/mobile browser checks pass. [Package CI 41877556049](https://github.com/cliewen-openspec/cliewen-openspec/actions/runs/41877556049) passed all four Windows/Linux and Node 22/24 jobs for `4caac0d`; [Pages run 41877556100](https://github.com/cliewen-openspec/cliewen-openspec/actions/runs/41877556100) deployed that revision. These CI results predate the progress-logging correction and its additional regression.
 
+[Package CI 41883724196](https://github.com/cliewen-openspec/cliewen-openspec/actions/runs/41883724196) subsequently passed all four platform/Node jobs at `ea970a5`, including the corrected runner and its regression. [Pages run 41883724025](https://github.com/cliewen-openspec/cliewen-openspec/actions/runs/41883724025) also succeeded. These repository checks remain separate from the disposable project's delivery evidence.
+
 [Package run 41732147817](https://github.com/cliewen-openspec/cliewen-openspec/actions/runs/41732147817) at `7d9c427` retained two npm-install timeouts on Windows/Node 24 at the unchanged 60-second command limit. Later green jobs do not erase those infrastructure observations. No assertion or budget was relaxed.
 
-Remaining work includes complete OpenCode delivery observations, required repetitions on affected final inputs, combined delivery after actual design acceptance, planned release variants, affected guide coverage, and source-change disposition. This round provides bounded development evidence, not release or archive acceptance. No npm package, tag, external PR, or upstream message was published.
+Remaining work includes complete OpenCode delivery observations, required repetitions on affected final inputs, other combined profiles and variants, affected guide coverage, and source-change disposition. One approved combined Codex workflow is now complete. This round provides bounded development evidence, not release or archive acceptance. No npm package, tag, external PR, or upstream message was published.
