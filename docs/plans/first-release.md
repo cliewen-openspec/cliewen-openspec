@@ -41,6 +41,8 @@ The authoritative reproducible example is [Your first change](../guide/getting-s
 
 These items remain after priority 6 preparation and source relocation:
 
+Use [Remaining checks before 0.1.0](../testing/release-gaps.md) as the operational register for missing scenario/profile repetitions, guide observations, support limits, and source-change disposition. The checklist below remains the release acceptance gate; the register grants no trial-budget increase, archive, or publication authority.
+
 [The local 0.1.0 candidate report](../testing/release-candidate-001.md) records both immutable archives, passing platform CI, fresh Codex quality/lifecycle evidence, and the corrected Claude prepared-guide observation. These bounded results do not complete the repeated-profile release gate below.
 
 [Round 013: Repeated delivery and discovery trials on 0.1.0](../testing/cli-trials/result-013.md) now records twelve primary attempts: nine reviewed passes, two factual writing failures, and one provider/late-stop failure. [Guide result 004](../testing/guide-walkthrough/result-004.md) adds current Codex/OpenCode observations and the corrected nested-environment regression. The final local suite passes 71 tests. Both writing failures and missing completion remain open; the latest native trials do not test the new elapsed-time reporting guard, which has separate deterministic coverage.

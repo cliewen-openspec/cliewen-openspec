@@ -9,6 +9,8 @@ Every shipped schema needs deterministic regression coverage and a reviewed agen
 
 ## Current coverage
 
+Use [Remaining checks before 0.1.0](release-gaps.md) for the current schema/profile counts, required variants, guide gaps, source-change disposition, and next execution order. It is the operational status register; the reports below preserve observations on their original inputs.
+
 [The local 0.1.0 candidate observations](release-candidate-001.md) add a fresh Codex delivery-quality pass and a corrected Claude prepared-guide walkthrough. The first guide attempt retained process failures despite green technical checks. Repeated release combinations and affected guide profiles remain incomplete.
 
 [Round 013: Repeated delivery and discovery trials on 0.1.0](cli-trials/result-013.md) attempts both primary scenarios twice with all three profiles: nine reviewed passes, two factual writing failures, and one infrastructure failure with incomplete final evidence. [Guide result 004](guide-walkthrough/result-004.md) records a passing Codex journey and an OpenCode technical retry with incomplete test-file readback. Remaining failed combinations, combined coverage, and planned variants still block release acceptance.
@@ -18,12 +20,6 @@ Every shipped schema needs deterministic regression coverage and a reviewed agen
 [Round 015: OpenCode completes within budget but fails semantic review](cli-trials/result-015.md) completes delivery in 203.761 seconds with the same package, prompt, profile, and budget. Technical checks passed, but an invalid universal spec claim, incorrect test counts, and a broken handoff link prevent an overall pass. A targeted data-loss fault survived all 12 tests in an isolated copy; an independent valid-input assertion detected it. The original implementation preserves that input correctly.
 
 The [round 015 follow-up: Strengthen independent review and reuse the npm cache](cli-trials/result-015-follow-up.md) adds preservation assertions and targeted fault regressions to the evaluator, and explicit spec/count/link review criteria. It also removes the guide replay's forced empty npm cache while preserving its commands and timeout. These checks do not supply another agent observation or turn the failed attempt into a pass.
-
-| Schema | Development trial | Observed coverage | Still needed before release |
-|---|---|---|---|
-| cliewen-delivery | Optional CSV BOM with evidence-first verification | Latest guidance: one Codex pass; OpenCode completed but failed semantic and handoff review. Earlier candidate: two Codex and two Claude passes | Current-input Claude/OpenCode passes and repetitions; per-task and end-of-change variants |
-| cliewen-discovery | Investigate CSV streaming | Latest guidance: one Codex and one Claude pass. Earlier candidate: two reviewed OpenCode passes | Current-input OpenCode passes and repetitions; targeted no-change and handoff cases |
-| cliewen-all | One CSV investigation through delivery with an explicit human review stage | Latest guidance: one Codex investigation and approved delivery pass. Earlier Claude delivery retained factual writing failures | Other current profiles, no-delivery coverage, and repetitions |
 
 The [first CLI round](cli-trials/result-001.md) and [Claude retries](cli-trials/result-002.md) retain earlier observations. [OpenCode 1.19.5](cli-trials/result-003.md) exposed content and evidence failures; the [first V2 runs](cli-trials/result-004.md) were interrupted. The [instruction regressions](cli-trials/result-005.md) and [combined retry](cli-trials/result-006.md) record improvements and the remaining TDD failure. Earlier passes do not certify every later instruction candidate.
 
