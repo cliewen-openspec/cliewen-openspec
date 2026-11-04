@@ -1,0 +1,742 @@
+{
+  "capturedAt": "2026-11-04T17:52:47.988Z",
+  "releaseReady": false,
+  "rawArtifacts": ".tmp/agent-trials/cli-evaluation-014",
+  "candidate": {
+    "preparedAt": "2026-11-04T17:25:34.592Z",
+    "sourceRevision": "4caac0dedaaea1c85c2874e3e16e8eee03697feb",
+    "sourceStatus": "",
+    "version": "0.1.0",
+    "filename": "cliewen-openspec-0.1.0.tgz",
+    "sha256": "3a2ca738562274b38e1047ac3195bf70de0b931748b2fdd393ea472616cf3c4f",
+    "integrity": "sha512-vw/YpEctD/J+KrpW2Qnj33KkrASG+QePM1xDIJpEO1M3Lk+X4FSOyXdqSdlY1pQjFrLNaQeKuouSwV9l/d27hQ==",
+    "unpackedSize": 174380,
+    "files": 60,
+    "published": false
+  },
+  "comparison": {
+    "changed": [
+      "CHANGELOG.md",
+      "docs/configuration.md",
+      "schemas/base/instructions/writing.md"
+    ],
+    "runtimeChanged": [],
+    "previous": {
+      "preparedAt": "2026-11-03T21:03:54.638Z",
+      "sourceRevision": "2faf1a6498f767c614d68992977ddaa714b93ee5",
+      "sourceStatus": "",
+      "version": "0.1.0",
+      "filename": "cliewen-openspec-0.1.0.tgz",
+      "sha256": "65eaab8a0cf6f621eb100f5035f570c50b55af2580ba94f3264d82e4c44783aa",
+      "integrity": "sha512-q31YjlFN7m+Lr5RvStontITTEArjPZKAvKbcEE6oyHN97t+2ocdCtADpmOeff82L5EIj1dCAa5I4L1RY9dMI8A==",
+      "unpackedSize": 173249,
+      "files": 60,
+      "published": false
+    },
+    "current": {
+      "preparedAt": "2026-11-04T17:25:34.592Z",
+      "sourceRevision": "4caac0dedaaea1c85c2874e3e16e8eee03697feb",
+      "sourceStatus": "",
+      "version": "0.1.0",
+      "filename": "cliewen-openspec-0.1.0.tgz",
+      "sha256": "3a2ca738562274b38e1047ac3195bf70de0b931748b2fdd393ea472616cf3c4f",
+      "integrity": "sha512-vw/YpEctD/J+KrpW2Qnj33KkrASG+QePM1xDIJpEO1M3Lk+X4FSOyXdqSdlY1pQjFrLNaQeKuouSwV9l/d27hQ==",
+      "unpackedSize": 174380,
+      "files": 60,
+      "published": false
+    }
+  },
+  "attempts": [
+    {
+      "id": "case-1",
+      "schema": "cliewen-delivery",
+      "profile": "codex-cli-primary",
+      "stage": "complete-workflow",
+      "overall": "pass",
+      "project": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-cli-evaluation-1793813135018\\cliewen-delivery\\project",
+      "artifacts": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-cli-evaluation-1793813135018\\cliewen-delivery\\artifacts\\cli\\codex-cli-primary",
+      "preservedDirectory": ".tmp/agent-trials/cli-evaluation-014/case-1",
+      "baseline": {
+        "preparedAt": "2026-11-04T17:25:43.326Z",
+        "sourceRevision": "4caac0dedaaea1c85c2874e3e16e8eee03697feb",
+        "sourceStatus": "",
+        "baseline": "33f0f380b1c2cfcc35413487fbb1a783ca074cd2",
+        "package": {
+          "version": "0.1.0",
+          "filename": "cliewen-openspec-0.1.0.tgz",
+          "sha256": "3a2ca738562274b38e1047ac3195bf70de0b931748b2fdd393ea472616cf3c4f"
+        },
+        "node": "v24.0.0",
+        "npm": "11.21.0",
+        "openspec": "1.15.0",
+        "root": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-cli-evaluation-1793813135018\\cliewen-delivery\\project"
+      },
+      "finalRevision": "0b1f65a2d21aceeef13e7a2dd1c20fd0a80d3f0b",
+      "workingTreeStatus": "",
+      "promptSHA256": "59d5d5f6cc7bbdde49d4f9d09199909515b7eef84ca62294a3652dd5e9b578da",
+      "testCount": 10,
+      "run": {
+        "schema": "cliewen-delivery",
+        "profileId": "codex-cli-primary",
+        "phase": "initial",
+        "project": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-cli-evaluation-1793813135018\\cliewen-delivery\\project",
+        "baseline": "33f0f380b1c2cfcc35413487fbb1a783ca074cd2",
+        "profile": {
+          "readiness": "pinned",
+          "agent": "Codex CLI",
+          "runner": "cli",
+          "model": "gpt-6.1-sol",
+          "agentVersion": "0.166.0",
+          "provider": "openai; existing ChatGPT CLI authentication",
+          "effort": "medium",
+          "permissions": "danger-full-access, approval never; project scope is an instruction, not OS isolation",
+          "context": "fresh process; ignore user config and execpolicy rules; project AGENTS and managed/global instructions may remain",
+          "budgets": {
+            "wallTimeSeconds": 600,
+            "outputBytes": 67108864,
+            "reportedCostUSD": null,
+            "tokenLimit": null,
+            "billing": "existing ChatGPT entitlement; no purchase"
+          },
+          "traceFormat": "codex exec --json JSONL plus stderr"
+        },
+        "exe": "C:\\Program Files\\nodejs\\node.exe",
+        "cliVersion": "codex-cli 0.166.0",
+        "startedAt": "2026-11-04T17:26:37.001Z",
+        "promptFile": "prompt.txt",
+        "environmentControls": {
+          "NO_COLOR": "1",
+          "OPENSPEC_TELEMETRY": "0",
+          "CI": "1"
+        },
+        "exitCode": 0,
+        "signal": null,
+        "endedAt": "2026-11-04T17:31:11.377Z",
+        "durationSeconds": 274.375,
+        "monotonicDurationSeconds": 274.3745846,
+        "deadlineExceededBySeconds": 0,
+        "stopReason": null,
+        "eventFailure": false,
+        "sessionId": "01a1a799-325d-7c43-87c0-5fb716a935ac",
+        "usage": {
+          "input_tokens": 905404,
+          "cached_input_tokens": 860928,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 10172,
+          "reasoning_output_tokens": 711
+        },
+        "reportedCostUSD": null,
+        "observedModels": [],
+        "reviewInputsPreserved": true,
+        "evaluation": "not-graded",
+        "reportedSteps": {
+          "count": 0,
+          "costUSD": 0
+        }
+      },
+      "independent": {
+        "passed": true,
+        "phase": null,
+        "failed": []
+      }
+    },
+    {
+      "id": "case-2",
+      "schema": "cliewen-delivery",
+      "profile": "opencode-2-2-5",
+      "stage": "complete-workflow",
+      "overall": "incomplete",
+      "project": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-cli-evaluation-1793813135018\\cliewen-delivery\\project-opencode-2-2-5",
+      "artifacts": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-cli-evaluation-1793813135018\\cliewen-delivery\\artifacts\\cli\\opencode-2-2-5",
+      "preservedDirectory": ".tmp/agent-trials/cli-evaluation-014/case-2",
+      "baseline": {
+        "preparedAt": "2026-11-04T17:25:43.326Z",
+        "sourceRevision": "4caac0dedaaea1c85c2874e3e16e8eee03697feb",
+        "sourceStatus": "",
+        "baseline": "33f0f380b1c2cfcc35413487fbb1a783ca074cd2",
+        "package": {
+          "version": "0.1.0",
+          "filename": "cliewen-openspec-0.1.0.tgz",
+          "sha256": "3a2ca738562274b38e1047ac3195bf70de0b931748b2fdd393ea472616cf3c4f"
+        },
+        "node": "v24.0.0",
+        "npm": "11.21.0",
+        "openspec": "1.15.0",
+        "root": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-cli-evaluation-1793813135018\\cliewen-delivery\\project"
+      },
+      "finalRevision": "33f0f380b1c2cfcc35413487fbb1a783ca074cd2",
+      "workingTreeStatus": "M  .cliewen-openspec/ac-registry.json\nA  .cliewen-openspec/reviews/change-add-optional-csv-bom.yaml\nM  README.md\nA  docs/testing/instructions/apply.json\nA  docs/testing/instructions/design.json\nA  docs/testing/instructions/proposal.json\nA  docs/testing/instructions/specs.json\nA  docs/testing/instructions/tasks.json\nA  docs/testing/pr-description.md\nA  docs/testing/results-add-optional-csv-bom.md\nM  export.mjs\nA  openspec/changes/add-optional-csv-bom/.openspec.yaml\nA  openspec/changes/add-optional-csv-bom/README.md\nA  openspec/changes/add-optional-csv-bom/design.md\nA  openspec/changes/add-optional-csv-bom/proposal.md\nA  openspec/changes/add-optional-csv-bom/specs/csv-export/spec.md\nA  openspec/changes/add-optional-csv-bom/tasks.md\nM  test/export.test.mjs",
+      "promptSHA256": "59d5d5f6cc7bbdde49d4f9d09199909515b7eef84ca62294a3652dd5e9b578da",
+      "testCount": 16,
+      "run": {
+        "schema": "cliewen-delivery",
+        "profileId": "opencode-2-2-5",
+        "phase": "initial",
+        "project": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-cli-evaluation-1793813135018\\cliewen-delivery\\project-opencode-2-2-5",
+        "baseline": "33f0f380b1c2cfcc35413487fbb1a783ca074cd2",
+        "profile": {
+          "readiness": "pinned",
+          "supersedes": "opencode-1-19-5",
+          "agent": "OpenCode",
+          "runner": "cli",
+          "model": "opencode/glm-5.3-flash",
+          "agentVersion": "2.2.5",
+          "provider": "OpenCode Console/Zen; existing local credentials; provider.use allows only opencode",
+          "effort": "high",
+          "permissions": "V2 ordered rules and hard policies allow local tools; deny external_directory, subagent, question, skill, webfetch and websearch; deny MCP and external plugins; no OS isolation",
+          "context": "fresh standalone server and private config directory per phase; project config and Claude skill discovery disabled; AGENTS read explicitly; system and Console configuration may remain",
+          "budgets": {
+            "wallTimeSeconds": 600,
+            "outputBytes": 67108864,
+            "reportedCostUSD": 0.5,
+            "tokenLimit": null,
+            "billing": "local reported-cost stop; not a provider-enforced hard spending cap"
+          },
+          "traceFormat": "OpenCode run --standalone --format json; model variant via provider/model#high"
+        },
+        "exe": "C:\\Users\\flemm\\AppData\\Roaming\\npm\\node_modules\\@opencode\\cli\\bin\\opencode.exe",
+        "cliVersion": "opencode v2.2.5",
+        "startedAt": "2026-11-04T17:26:37.246Z",
+        "promptFile": "prompt.txt",
+        "environmentControls": {
+          "OPENCODE_CONFIG_CONTENT": "{\"model\":\"opencode/glm-5.3-flash\",\"permissions\":[{\"action\":\"*\",\"resource\":\"*\",\"effect\":\"allow\"},{\"action\":\"external_directory\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"subagent\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"question\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"skill\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"webfetch\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"websearch\",\"resource\":\"*\",\"effect\":\"deny\"}],\"policies\":[{\"action\":\"provider.use\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"provider.use\",\"resource\":\"opencode\",\"effect\":\"allow\"},{\"action\":\"mcp.use\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"skill.use\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"plugin.use\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"plugin.use\",\"resource\":\"opencode.*\",\"effect\":\"allow\"},{\"action\":\"tool.use\",\"resource\":\"external_directory:*\",\"effect\":\"deny\"},{\"action\":\"tool.use\",\"resource\":\"subagent:*\",\"effect\":\"deny\"},{\"action\":\"tool.use\",\"resource\":\"question:*\",\"effect\":\"deny\"},{\"action\":\"tool.use\",\"resource\":\"skill:*\",\"effect\":\"deny\"},{\"action\":\"tool.use\",\"resource\":\"webfetch:*\",\"effect\":\"deny\"},{\"action\":\"tool.use\",\"resource\":\"websearch:*\",\"effect\":\"deny\"}],\"plugins\":[\"-*\",\"opencode.*\"]}",
+          "OPENCODE_CONFIG_DIR": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-cli-evaluation-1793813135018\\cliewen-delivery\\artifacts\\cli\\opencode-2-2-5\\initial\\config",
+          "OPENCODE_CONFIG_PROJECT_DISABLE": "true",
+          "OPENCODE_DISABLE_FILEWATCHER": "true",
+          "OPENCODE_DISABLE_CLAUDE_CODE": "true",
+          "OPENCODE_DISABLE_MODELS_FETCH": "true"
+        },
+        "exitCode": 1,
+        "signal": null,
+        "endedAt": "2026-11-04T17:40:26.793Z",
+        "durationSeconds": 829.546,
+        "monotonicDurationSeconds": 829.6783935,
+        "deadlineExceededBySeconds": 229.67839349999997,
+        "stopReason": "wall-time-limit",
+        "eventFailure": false,
+        "sessionId": "ses_e5866c9f3ffe7qwFeSRmAcn3hM",
+        "usage": null,
+        "reportedCostUSD": 0.12473027,
+        "observedModels": [],
+        "reviewInputsPreserved": true,
+        "evaluation": "not-graded",
+        "reportedSteps": {
+          "count": 73,
+          "costUSD": 0.12473027
+        }
+      },
+      "independent": {
+        "passed": false,
+        "phase": null,
+        "failed": [
+          "clean input revision",
+          "active change evidence",
+          "evidence check reports success"
+        ]
+      }
+    },
+    {
+      "id": "case-3",
+      "schema": "cliewen-discovery",
+      "profile": "codex-cli-primary",
+      "stage": "complete-workflow",
+      "overall": "pass",
+      "project": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-cli-evaluation-1793813135018\\cliewen-discovery\\project",
+      "artifacts": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-cli-evaluation-1793813135018\\cliewen-discovery\\artifacts\\cli\\codex-cli-primary",
+      "preservedDirectory": ".tmp/agent-trials/cli-evaluation-014/case-3",
+      "baseline": {
+        "preparedAt": "2026-11-04T17:25:57.524Z",
+        "sourceRevision": "4caac0dedaaea1c85c2874e3e16e8eee03697feb",
+        "sourceStatus": "",
+        "baseline": "9077f0a1173416ae3e67b8f9992ba086da0c2281",
+        "package": {
+          "version": "0.1.0",
+          "filename": "cliewen-openspec-0.1.0.tgz",
+          "sha256": "3a2ca738562274b38e1047ac3195bf70de0b931748b2fdd393ea472616cf3c4f"
+        },
+        "node": "v24.0.0",
+        "npm": "11.21.0",
+        "openspec": "1.15.0",
+        "root": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-cli-evaluation-1793813135018\\cliewen-discovery\\project",
+        "fixture": "csv-streaming-discovery",
+        "preparationBaseline": "5ac2cf6adeb00d52a8b3d1de1c3dd098f2ede3fd"
+      },
+      "finalRevision": "9077f0a1173416ae3e67b8f9992ba086da0c2281",
+      "workingTreeStatus": "?? docs/decisions/001-csv-streaming.md\n?? docs/testing/artifact-status.json\n?? docs/testing/artifact-validation.json\n?? docs/testing/check-discovery-links.mjs\n?? docs/testing/cliewen-health.json\n?? docs/testing/csv-streaming-investigation.md\n?? docs/testing/csv-streaming-probe-output.json\n?? docs/testing/csv-streaming-probe.mjs\n?? docs/testing/existing-tests.txt\n?? docs/testing/instructions/apply.json\n?? docs/testing/instructions/decision.json\n?? docs/testing/instructions/investigation.json\n?? docs/testing/instructions/proposal.json\n?? docs/testing/link-check.txt\n?? docs/testing/schema-validation.txt\n?? openspec/changes/investigate-csv-streaming/.openspec.yaml\n?? openspec/changes/investigate-csv-streaming/decision.md\n?? openspec/changes/investigate-csv-streaming/investigation.md\n?? openspec/changes/investigate-csv-streaming/proposal.md",
+      "promptSHA256": "4cdfcf9dc7fe7de90f1c45a134949706ac4adc6e4d80aef4d784b540cbc5976f",
+      "testCount": 6,
+      "run": {
+        "schema": "cliewen-discovery",
+        "profileId": "codex-cli-primary",
+        "phase": "initial",
+        "project": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-cli-evaluation-1793813135018\\cliewen-discovery\\project",
+        "baseline": "9077f0a1173416ae3e67b8f9992ba086da0c2281",
+        "profile": {
+          "readiness": "pinned",
+          "agent": "Codex CLI",
+          "runner": "cli",
+          "model": "gpt-6.1-sol",
+          "agentVersion": "0.166.0",
+          "provider": "openai; existing ChatGPT CLI authentication",
+          "effort": "medium",
+          "permissions": "danger-full-access, approval never; project scope is an instruction, not OS isolation",
+          "context": "fresh process; ignore user config and execpolicy rules; project AGENTS and managed/global instructions may remain",
+          "budgets": {
+            "wallTimeSeconds": 600,
+            "outputBytes": 67108864,
+            "reportedCostUSD": null,
+            "tokenLimit": null,
+            "billing": "existing ChatGPT entitlement; no purchase"
+          },
+          "traceFormat": "codex exec --json JSONL plus stderr"
+        },
+        "exe": "C:\\Program Files\\nodejs\\node.exe",
+        "cliVersion": "codex-cli 0.166.0",
+        "startedAt": "2026-11-04T17:26:37.064Z",
+        "promptFile": "prompt.txt",
+        "environmentControls": {
+          "NO_COLOR": "1",
+          "OPENSPEC_TELEMETRY": "0",
+          "CI": "1"
+        },
+        "exitCode": 0,
+        "signal": null,
+        "endedAt": "2026-11-04T17:30:15.489Z",
+        "durationSeconds": 218.424,
+        "monotonicDurationSeconds": 218.42398369999998,
+        "deadlineExceededBySeconds": 0,
+        "stopReason": null,
+        "eventFailure": false,
+        "sessionId": "01a1a799-32b7-7922-b0ba-775dc4e9ae9d",
+        "usage": {
+          "input_tokens": 308861,
+          "cached_input_tokens": 269312,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 8453,
+          "reasoning_output_tokens": 1417
+        },
+        "reportedCostUSD": null,
+        "observedModels": [],
+        "reviewInputsPreserved": true,
+        "evaluation": "not-graded",
+        "reportedSteps": {
+          "count": 0,
+          "costUSD": 0
+        }
+      },
+      "independent": {
+        "passed": true,
+        "phase": null,
+        "failed": []
+      }
+    },
+    {
+      "id": "case-4",
+      "schema": "cliewen-discovery",
+      "profile": "claude-code-primary",
+      "stage": "complete-workflow",
+      "overall": "pass",
+      "project": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-cli-evaluation-1793813135018\\cliewen-discovery\\project-claude-code-primary",
+      "artifacts": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-cli-evaluation-1793813135018\\cliewen-discovery\\artifacts\\cli\\claude-code-primary",
+      "preservedDirectory": ".tmp/agent-trials/cli-evaluation-014/case-4",
+      "baseline": {
+        "preparedAt": "2026-11-04T17:25:57.524Z",
+        "sourceRevision": "4caac0dedaaea1c85c2874e3e16e8eee03697feb",
+        "sourceStatus": "",
+        "baseline": "9077f0a1173416ae3e67b8f9992ba086da0c2281",
+        "package": {
+          "version": "0.1.0",
+          "filename": "cliewen-openspec-0.1.0.tgz",
+          "sha256": "3a2ca738562274b38e1047ac3195bf70de0b931748b2fdd393ea472616cf3c4f"
+        },
+        "node": "v24.0.0",
+        "npm": "11.21.0",
+        "openspec": "1.15.0",
+        "root": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-cli-evaluation-1793813135018\\cliewen-discovery\\project",
+        "fixture": "csv-streaming-discovery",
+        "preparationBaseline": "5ac2cf6adeb00d52a8b3d1de1c3dd098f2ede3fd"
+      },
+      "finalRevision": "bf3b058d2924883bfa85d07fd5a258e13d58aa1e",
+      "workingTreeStatus": "",
+      "promptSHA256": "4cdfcf9dc7fe7de90f1c45a134949706ac4adc6e4d80aef4d784b540cbc5976f",
+      "testCount": 6,
+      "run": {
+        "schema": "cliewen-discovery",
+        "profileId": "claude-code-primary",
+        "phase": "initial",
+        "project": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-cli-evaluation-1793813135018\\cliewen-discovery\\project-claude-code-primary",
+        "baseline": "9077f0a1173416ae3e67b8f9992ba086da0c2281",
+        "profile": {
+          "readiness": "pinned",
+          "agent": "Claude Code",
+          "runner": "cli",
+          "model": "claude-opus-5-5",
+          "agentVersion": "2.1.317",
+          "provider": "Anthropic firstParty; existing claude.ai Pro authentication",
+          "effort": "medium",
+          "permissions": "dontAsk with explicit local read/edit/write/shell tools; Agent/Task/Web tools denied; no OS isolation",
+          "context": "fresh print process; safe-mode and no session persistence; project AGENTS explicitly read",
+          "budgets": {
+            "wallTimeSeconds": 600,
+            "outputBytes": 67108864,
+            "reportedCostUSD": 2,
+            "tokenLimit": null,
+            "billing": "existing subscription; CLI list-equivalent cost is not an invoice"
+          },
+          "traceFormat": "Claude stream-json with verbose events plus stderr"
+        },
+        "exe": "C:/Users/flemm/.local/share/claude/versions/2.1.317",
+        "cliVersion": "2.1.317 (Claude Code)",
+        "startedAt": "2026-11-04T17:26:39.556Z",
+        "promptFile": "prompt.txt",
+        "environmentControls": {
+          "NO_COLOR": "1",
+          "OPENSPEC_TELEMETRY": "0",
+          "CI": "1"
+        },
+        "exitCode": 0,
+        "signal": null,
+        "endedAt": "2026-11-04T17:33:19.756Z",
+        "durationSeconds": 400.199,
+        "monotonicDurationSeconds": 400.19785709999996,
+        "deadlineExceededBySeconds": 0,
+        "stopReason": null,
+        "eventFailure": false,
+        "sessionId": "be66491d-3318-44a6-8a65-1094cbfda345",
+        "usage": {
+          "input_tokens": 20,
+          "cache_creation_input_tokens": 84330,
+          "cache_read_input_tokens": 512681,
+          "output_tokens": 41653,
+          "output_tokens_details": {
+            "thinking_tokens": 15045
+          },
+          "server_tool_use": {
+            "web_search_requests": 0,
+            "web_fetch_requests": 0
+          },
+          "service_tier": "standard",
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 84330,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "inference_geo": "global",
+          "iterations": [
+            {
+              "input_tokens": 2,
+              "output_tokens": 2527,
+              "cache_read_input_tokens": 90142,
+              "cache_creation_input_tokens": 7031,
+              "cache_creation": {
+                "ephemeral_5m_input_tokens": 0,
+                "ephemeral_1h_input_tokens": 7031
+              },
+              "type": "message"
+            }
+          ],
+          "speed": "standard",
+          "fallback_credit": null
+        },
+        "reportedCostUSD": 1.6103162000000002,
+        "observedModels": [
+          "claude-opus-5-5"
+        ],
+        "reviewInputsPreserved": true,
+        "evaluation": "not-graded",
+        "reportedSteps": {
+          "count": 0,
+          "costUSD": 0
+        }
+      },
+      "independent": {
+        "passed": true,
+        "phase": null,
+        "failed": []
+      }
+    },
+    {
+      "id": "case-5",
+      "schema": "cliewen-all",
+      "profile": "codex-cli-primary",
+      "stage": "investigation-boundary",
+      "overall": "infrastructure-failure",
+      "project": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-cli-evaluation-1793813135018\\cliewen-all\\project",
+      "artifacts": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-cli-evaluation-1793813135018\\cliewen-all\\artifacts\\cli\\codex-cli-primary",
+      "preservedDirectory": ".tmp/agent-trials/cli-evaluation-014/case-5",
+      "baseline": {
+        "preparedAt": "2026-11-04T17:26:11.749Z",
+        "sourceRevision": "4caac0dedaaea1c85c2874e3e16e8eee03697feb",
+        "sourceStatus": "",
+        "baseline": "72e0500599c367e69031dd22b3d80b673733cddc",
+        "package": {
+          "version": "0.1.0",
+          "filename": "cliewen-openspec-0.1.0.tgz",
+          "sha256": "3a2ca738562274b38e1047ac3195bf70de0b931748b2fdd393ea472616cf3c4f"
+        },
+        "node": "v24.0.0",
+        "npm": "11.21.0",
+        "openspec": "1.15.0",
+        "root": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-cli-evaluation-1793813135018\\cliewen-all\\project",
+        "fixture": "csv-bom-combined",
+        "preparationBaseline": "a1ae07bdaeedfae3ed673cce489397d91451d7f8"
+      },
+      "finalRevision": "72e0500599c367e69031dd22b3d80b673733cddc",
+      "workingTreeStatus": "?? docs/testing/baseline-test-results.txt\n?? docs/testing/csv-bom-observations.json\n?? docs/testing/instructions/decision.json\n?? docs/testing/instructions/investigation.json\n?? docs/testing/instructions/proposal.json\n?? docs/testing/review-request.md\n?? docs/testing/review-results.md\n?? docs/testing/stage-1-check.json\n?? docs/testing/stage-1-status.json\n?? openspec/changes/add-optional-csv-bom/.openspec.yaml\n?? openspec/changes/add-optional-csv-bom/decision.md\n?? openspec/changes/add-optional-csv-bom/investigation.md\n?? openspec/changes/add-optional-csv-bom/proposal.md",
+      "promptSHA256": "bbb17b88c5a86880393c387c1df33d1dbfc2be7a4f8da5cfbd0c3f725cbab735",
+      "testCount": 6,
+      "run": {
+        "schema": "cliewen-all",
+        "profileId": "codex-cli-primary",
+        "phase": "initial",
+        "project": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-cli-evaluation-1793813135018\\cliewen-all\\project",
+        "baseline": "72e0500599c367e69031dd22b3d80b673733cddc",
+        "profile": {
+          "readiness": "pinned",
+          "agent": "Codex CLI",
+          "runner": "cli",
+          "model": "gpt-6.1-sol",
+          "agentVersion": "0.166.0",
+          "provider": "openai; existing ChatGPT CLI authentication",
+          "effort": "medium",
+          "permissions": "danger-full-access, approval never; project scope is an instruction, not OS isolation",
+          "context": "fresh process; ignore user config and execpolicy rules; project AGENTS and managed/global instructions may remain",
+          "budgets": {
+            "wallTimeSeconds": 600,
+            "outputBytes": 67108864,
+            "reportedCostUSD": null,
+            "tokenLimit": null,
+            "billing": "existing ChatGPT entitlement; no purchase"
+          },
+          "traceFormat": "codex exec --json JSONL plus stderr"
+        },
+        "exe": "C:\\Program Files\\nodejs\\node.exe",
+        "cliVersion": "codex-cli 0.166.0",
+        "startedAt": "2026-11-04T17:26:36.985Z",
+        "promptFile": "prompt.txt",
+        "environmentControls": {
+          "NO_COLOR": "1",
+          "OPENSPEC_TELEMETRY": "0",
+          "CI": "1"
+        },
+        "exitCode": 0,
+        "signal": null,
+        "endedAt": "2026-11-04T17:31:39.385Z",
+        "durationSeconds": 302.4,
+        "monotonicDurationSeconds": 302.39884470000004,
+        "deadlineExceededBySeconds": 0,
+        "stopReason": null,
+        "eventFailure": false,
+        "sessionId": "01a1a799-325f-74f3-9b08-81fb1d152c8b",
+        "usage": {
+          "input_tokens": 515488,
+          "cached_input_tokens": 461184,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 11944,
+          "reasoning_output_tokens": 2115
+        },
+        "reportedCostUSD": null,
+        "observedModels": [],
+        "reviewInputsPreserved": true,
+        "evaluation": "not-graded",
+        "reportedSteps": {
+          "count": 0,
+          "costUSD": 0
+        }
+      },
+      "independent": {
+        "passed": false,
+        "phase": "human-review-boundary",
+        "endToEndDelivery": "incomplete",
+        "failed": [
+          "clean recorded result"
+        ]
+      },
+      "findingType": "prompt-checker-mismatch",
+      "stageOutcome": "incomplete"
+    },
+    {
+      "id": "case-6",
+      "schema": "cliewen-all",
+      "profile": "codex-cli-primary",
+      "stage": "investigation-boundary",
+      "overall": "incomplete",
+      "project": "C:/Users/flemm/AppData/Local/Temp/cliewen-csv-all-1793813654689/project",
+      "artifacts": "C:/Users/flemm/AppData/Local/Temp/cliewen-csv-all-1793813654689/artifacts",
+      "preservedDirectory": ".tmp/agent-trials/cli-evaluation-014/case-6",
+      "baseline": {
+        "preparedAt": "2026-11-04T17:34:24.834Z",
+        "sourceRevision": "3256a47ac24682cc0b69b26ccefe13bc250d2a45",
+        "sourceStatus": "",
+        "baseline": "af0e2b43e96e163709f9682ebd39b210183c94d5",
+        "package": {
+          "version": "0.1.0",
+          "filename": "cliewen-openspec-0.1.0.tgz",
+          "sha256": "3a2ca738562274b38e1047ac3195bf70de0b931748b2fdd393ea472616cf3c4f"
+        },
+        "node": "v24.0.0",
+        "npm": "11.21.0",
+        "openspec": "1.15.0",
+        "root": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-csv-all-1793813654689\\project",
+        "fixture": "csv-bom-combined",
+        "preparationBaseline": "081ffadf46b73d46f71d7758c805c8d31c116175"
+      },
+      "finalRevision": "6fb390a966c2bbea9abd02381097dfa050b6c4fd",
+      "workingTreeStatus": "",
+      "promptSHA256": "de1696b0b9505f0219126707b199f93f6111f20f837d757d108780736f837894",
+      "testCount": 6,
+      "run": {
+        "schema": "cliewen-all",
+        "profileId": "codex-cli-primary",
+        "phase": "initial",
+        "project": "C:/Users/flemm/AppData/Local/Temp/cliewen-csv-all-1793813654689/project",
+        "baseline": "af0e2b43e96e163709f9682ebd39b210183c94d5",
+        "profile": {
+          "readiness": "pinned",
+          "agent": "Codex CLI",
+          "runner": "cli",
+          "model": "gpt-6.1-sol",
+          "agentVersion": "0.166.0",
+          "provider": "openai; existing ChatGPT CLI authentication",
+          "effort": "medium",
+          "permissions": "danger-full-access, approval never; project scope is an instruction, not OS isolation",
+          "context": "fresh process; ignore user config and execpolicy rules; project AGENTS and managed/global instructions may remain",
+          "budgets": {
+            "wallTimeSeconds": 600,
+            "outputBytes": 67108864,
+            "reportedCostUSD": null,
+            "tokenLimit": null,
+            "billing": "existing ChatGPT entitlement; no purchase"
+          },
+          "traceFormat": "codex exec --json JSONL plus stderr"
+        },
+        "exe": "C:\\Program Files\\nodejs\\node.exe",
+        "cliVersion": "codex-cli 0.166.0",
+        "startedAt": "2026-11-04T17:40:47.858Z",
+        "promptFile": "prompt.txt",
+        "environmentControls": {
+          "NO_COLOR": "1",
+          "OPENSPEC_TELEMETRY": "0",
+          "CI": "1"
+        },
+        "exitCode": 0,
+        "signal": null,
+        "endedAt": "2026-11-04T17:45:55.743Z",
+        "durationSeconds": 307.885,
+        "monotonicDurationSeconds": 307.883975,
+        "deadlineExceededBySeconds": 0,
+        "stopReason": null,
+        "eventFailure": false,
+        "sessionId": "01a1a7a6-2d8c-78d2-a092-bfcbb547e650",
+        "usage": {
+          "input_tokens": 614210,
+          "cached_input_tokens": 567168,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 11383,
+          "reasoning_output_tokens": 2540
+        },
+        "reportedCostUSD": null,
+        "observedModels": [],
+        "reviewInputsPreserved": true,
+        "evaluation": "not-graded",
+        "reportedSteps": {
+          "count": 0,
+          "costUSD": 0
+        }
+      },
+      "independent": {
+        "passed": true,
+        "phase": "human-review-boundary",
+        "endToEndDelivery": "incomplete",
+        "failed": []
+      },
+      "stageOutcome": "pass",
+      "endToEndDelivery": "awaiting actual human acceptance"
+    }
+  ],
+  "combinedContinuation": {
+    "status": "awaiting-user",
+    "approvalInferred": false,
+    "project": "C:/Users/flemm/AppData/Local/Temp/cliewen-csv-all-1793813654689/project",
+    "boundaryRevision": "6fb390a966c2bbea9abd02381097dfa050b6c4fd"
+  },
+  "hostDiagnosis": {
+    "previousAttempt": "Host sleep and clock correction supported by Windows System events.",
+    "currentAttempt": "No matching sleep/wake/clock-change events in the bounded query; actual stall cause unresolved.",
+    "stdoutReproduction": {
+      "platform": "win32",
+      "configuredTimerMs": 100,
+      "readerPausedMs": 1500,
+      "firedWhileUnread": false,
+      "timer": {
+        "elapsed": 1459.1821
+      },
+      "limit": "Controlled large-output reproduction; does not establish the cause of the original native stall."
+    },
+    "runnerCorrection": "Progress is written to phase-local progress.json; stop requests are recorded before termination. Windows unread-pipe regression and 72 package tests pass. No subsequent native call has tested this maintainer correction.",
+    "currentSystemLogQuery": {
+      "queriedAtUtc": "2026-11-04T17:52:43.9628215Z",
+      "startUtc": "2026-11-04T17:25:37.2460000Z",
+      "endUtc": "2026-11-04T17:41:26.7930000Z",
+      "events": []
+    }
+  },
+  "limits": [
+    "Three complete primary passes and one clean combined-boundary pass do not certify the release matrix.",
+    "OpenCode handoff remains incomplete with draft writing/link findings; no repair was made.",
+    "Original failed combined checkpoint is a prompt/checker mismatch, not a retroactive failure to follow the revised prompt.",
+    "Claude default binary had advanced to 2.1.318; the retained 2.1.317 executable was used and verified to keep the existing profile.",
+    "Raw per-step usage and complete transcripts remain private.",
+    "Uncommitted outputs and ignored helpers are retained in filesystem snapshots; bundles alone do not contain them."
+  ],
+  "instructionDistribution": {
+    "savedResponsesChecked": 24,
+    "schemas": [
+      "cliewen-delivery",
+      "cliewen-discovery",
+      "cliewen-all"
+    ],
+    "meaning": "The requested factual guidance appears in retrieved instructions; this does not establish compliance."
+  },
+  "maintainerValidation": {
+    "packageTestsPassed": 72,
+    "focusedRunnerTestsPassed": 14,
+    "docs": {
+      "pages": 13,
+      "links": 464,
+      "diagrams": 4,
+      "browser": "passed desktop/mobile"
+    },
+    "strictOpenSpecChange": "project-learnings-and-humanizer passed",
+    "nativeValidationOfProgressFix": false
+  },
+  "ci": {
+    "revision": "4caac0dedaaea1c85c2874e3e16e8eee03697feb",
+    "packageRun": 41877556049,
+    "packageJobs": "four passed: Windows/Linux with Node 22/24",
+    "pagesRun": 41877556100,
+    "pages": "success",
+    "scope": "Predates the progress-file correction and 72nd regression."
+  },
+  "reviewFindings": {
+    "case-1": [
+      "Exact strings/UTF-8 bytes, content preservation, scoped fresh evidence and declared advisory limits reviewed."
+    ],
+    "case-2": [
+      "Timeout left dirty inputs and no current scoped evidence.",
+      "Draft proposal retains unsupported spreadsheet motivation and broken relative links.",
+      "Not graded as a completed handoff; original project was not repaired."
+    ],
+    "case-3": [
+      "Proposed further-investigation outcome with preserved product inputs and bounded prototype evidence."
+    ],
+    "case-4": [
+      "Generator and Set probes scoped to Node 24, separate from documented array input; no production thresholds invented."
+    ],
+    "case-5": [
+      "Only clean-checkpoint check failed under an optional-commit prompt; evaluator setup mismatch retained."
+    ],
+    "case-6": [
+      "Explicit clean-checkpoint prompt followed; product inputs and AC registry unchanged; proposed outcome remains unaccepted."
+    ]
+  }
+}

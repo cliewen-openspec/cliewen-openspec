@@ -65,6 +65,7 @@ if (phase === 'prepare') {
   const err = fs.createWriteStream(path.join(folder, 'stderr.txt'), {flags: 'wx'});
   const started = Date.now(); let bytes = 0, buffer = '', stopReason;
   const monotonicStarted = performance.now();
+  let stopRequestedAt, stopRequestedAfterSeconds;
   const decoder = new StringDecoder('utf8');
   const parser = guideEvents(metadata.profile, metadata.session), state = parser.state;
   const child = spawn(exe, [...prefix, ...args], {cwd: workspace, env, windowsHide: true, stdio: ['pipe', 'pipe', 'pipe']});
@@ -72,13 +73,17 @@ if (phase === 'prepare') {
   child.stdin.end(invocation.stdin);
   const stop = reason => {
     if (stopReason) return; stopReason = reason;
+    stopRequestedAt = new Date().toISOString();
+    stopRequestedAfterSeconds = (performance.now() - monotonicStarted) / 1000;
+    write(path.join(folder, 'stop-request.json'), JSON.stringify({reason, stopRequestedAt, stopRequestedAfterSeconds}) + '\n');
     if (process.platform === 'win32') spawnSync('taskkill', ['/PID', String(child.pid), '/T', '/F'], {windowsHide: true, stdio: 'ignore'}); else child.kill('SIGTERM');
   };
   const event = line => { let value; try { value = JSON.parse(line); } catch { return; } parser.event(value); if (metadata.profile.agent === 'OpenCode' && state.reportedCostUSD >= metadata.profile.budgets.reportedCostUSD) stop('reported-cost-limit'); };
   child.stdout.on('data', chunk => { bytes += chunk.length; out.write(chunk); buffer += decoder.write(chunk); let end; while ((end = buffer.indexOf('\n')) !== -1) { event(buffer.slice(0, end)); buffer = buffer.slice(end + 1); } if (bytes > metadata.profile.budgets.outputBytes) stop('log-limit'); });
   child.stderr.on('data', chunk => { bytes += chunk.length; err.write(chunk); if (bytes > metadata.profile.budgets.outputBytes) stop('log-limit'); });
   const timer = setTimeout(() => stop('wall-time-limit'), metadata.profile.budgets.wallTimeSeconds * 1000);
-  const progress = setInterval(() => console.log(JSON.stringify({phase, elapsedSeconds: Math.round((Date.now() - started) / 1000), logBytes: bytes})), 30000);
+  // Keep progress available without blocking deadline callbacks on stdout.
+  const progress = setInterval(() => write(path.join(folder, 'progress.json'), JSON.stringify({phase, elapsedSeconds: Math.round((Date.now() - started) / 1000), logBytes: bytes}) + '\n'), 30000);
   const ended = await new Promise(resolve => { child.on('error', error => resolve({error: error.message})); child.on('close', (code, signal) => resolve({code, signal})); });
   clearTimeout(timer); clearInterval(progress); buffer += decoder.end(); if (buffer) event(buffer);
   await Promise.all([new Promise(resolve => out.end(resolve)), new Promise(resolve => err.end(resolve))]);
@@ -90,7 +95,7 @@ if (phase === 'prepare') {
   const deadlineExceededBySeconds = Math.max(0, Math.max(durationSeconds, monotonicDurationSeconds) - metadata.profile.budgets.wallTimeSeconds);
   if (deadlineExceededBySeconds > 0 && !stopReason) stopReason = 'wall-time-limit';
   const passed = ended.code === 0 && !stopReason && !state.failure && state.completion && !modelMismatch && reportPreserved && fs.existsSync(path.join(workspace, expectedReport)) && (metadata.profile.agent !== 'Claude Code' || state.models.size > 0);
-  const summary = {phase, profileId: metadata.profileId, context: invocation.context, session: metadata.session, observedSession: state.session, cliVersion: cli.stdout.trim(), requestedModel: metadata.profile.model, observedModels: [...state.models], modelVerification: state.models.size ? 'observed' : 'not-exposed', args: [...prefix, ...args], environmentControls: invocation.controls, startedAt: new Date(started).toISOString(), durationSeconds, monotonicDurationSeconds, deadlineExceededBySeconds, ...ended, stopReason: stopReason ?? null, passed, evaluation: 'not-graded', walkthroughReportPreserved: reportPreserved, result: state.result, usage: state.usage, stepUsage: state.stepUsage, reportedCostUSD: state.reportedCostUSD};
+  const summary = {phase, profileId: metadata.profileId, context: invocation.context, session: metadata.session, observedSession: state.session, cliVersion: cli.stdout.trim(), requestedModel: metadata.profile.model, observedModels: [...state.models], modelVerification: state.models.size ? 'observed' : 'not-exposed', args: [...prefix, ...args], environmentControls: invocation.controls, startedAt: new Date(started).toISOString(), durationSeconds, monotonicDurationSeconds, deadlineExceededBySeconds, ...ended, stopReason: stopReason ?? null, stopRequestedAt: stopRequestedAt ?? null, stopRequestedAfterSeconds: stopRequestedAfterSeconds ?? null, terminationDelaySeconds: stopRequestedAfterSeconds === undefined ? null : Math.max(0, monotonicDurationSeconds - stopRequestedAfterSeconds), passed, evaluation: 'not-graded', walkthroughReportPreserved: reportPreserved, result: state.result, usage: state.usage, stepUsage: state.stepUsage, reportedCostUSD: state.reportedCostUSD};
   write(path.join(folder, 'run.json'), JSON.stringify(summary, null, 2) + '\n');
   console.log(JSON.stringify({phase, ...ended, stopReason, passed, durationSeconds: summary.durationSeconds, observedModels: summary.observedModels, reportedCostUSD: summary.reportedCostUSD, artifacts: folder}));
   process.exitCode = passed ? 0 : 1;

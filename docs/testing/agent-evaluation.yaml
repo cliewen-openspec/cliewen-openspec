@@ -255,6 +255,7 @@ scenarios:
       - docs/testing/cli-trials/result-011.md
       - docs/testing/cli-trials/result-012.md
       - docs/testing/cli-trials/result-013.md
+      - docs/testing/cli-trials/result-014.md
   csv-bom-per-task:
     schema: cliewen-delivery
     readiness: planned
@@ -273,6 +274,7 @@ scenarios:
     observedResults:
       - docs/testing/csv-discovery-trial/result-001.md
       - docs/testing/cli-trials/result-013.md
+      - docs/testing/cli-trials/result-014.md
       - docs/testing/cli-trials/result-001.md
       - docs/testing/cli-trials/result-003.md
       - docs/testing/cli-trials/result-004.md
@@ -293,6 +295,7 @@ scenarios:
     observedResults:
       - docs/testing/csv-all-trial/result-001.md
       - docs/testing/csv-all-trial/result-002.md
+      - docs/testing/cli-trials/result-014.md
       - docs/testing/cli-trials/result-001.md
       - docs/testing/cli-trials/result-002.md
       - docs/testing/cli-trials/result-003.md

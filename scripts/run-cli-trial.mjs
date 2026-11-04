@@ -112,10 +112,14 @@ const stdout = fs.createWriteStream(path.join(dir, 'events.jsonl'), {flags: 'wx'
 const stderr = fs.createWriteStream(path.join(dir, 'stderr.txt'), {flags: 'wx'});
 const child = spawn(exe, [...prefix, ...args], {cwd: trial.project, env, windowsHide: true, stdio: ['pipe', 'pipe', 'pipe']});
 let bytes = 0, buffer = '', stopReason, usage, reportedCostUSD = 0, eventFailure = false, sessionId;
+let stopRequestedAt, stopRequestedAfterSeconds;
 const stepUsage = [];
 const models = new Set();
 function stop(reason) {
   if (stopReason) return; stopReason = reason;
+  stopRequestedAt = new Date().toISOString();
+  stopRequestedAfterSeconds = (performance.now() - monotonicStarted) / 1000;
+  fs.writeFileSync(path.join(dir, 'stop-request.json'), JSON.stringify({reason, stopRequestedAt, stopRequestedAfterSeconds}) + '\n');
   if (process.platform === 'win32') spawnSync('taskkill', ['/PID', String(child.pid), '/T', '/F'], {windowsHide: true, stdio: 'ignore'});
   else child.kill('SIGTERM');
 }
@@ -137,7 +141,8 @@ child.stdout.on('data', chunk => {
 child.stderr.on('data', chunk => { bytes += chunk.length; stderr.write(chunk); if (bytes > profile.budgets.outputBytes) stop('log-size-limit'); });
 child.stdin.end(profileId === 'codex-cli-primary' ? prompt : undefined);
 const timer = setTimeout(() => stop('wall-time-limit'), profile.budgets.wallTimeSeconds * 1000);
-const progress = setInterval(() => console.log(JSON.stringify({schema, profileId, phase, elapsedSeconds: Math.round((Date.now() - started) / 1000), logBytes: bytes})), 30000);
+// A Windows stdout pipe can block the event loop when its reader pauses.
+const progress = setInterval(() => fs.writeFileSync(path.join(dir, 'progress.json'), JSON.stringify({schema, profileId, phase, elapsedSeconds: Math.round((Date.now() - started) / 1000), logBytes: bytes}) + '\n'), 30000);
 const result = await new Promise(resolve => {
   child.on('error', error => resolve({exitCode: null, spawnError: error.message}));
   child.on('close', (exitCode, signal) => resolve({exitCode, signal}));
@@ -149,7 +154,7 @@ const durationSeconds = (Date.now() - started) / 1000;
 const monotonicDurationSeconds = (performance.now() - monotonicStarted) / 1000;
 const deadlineExceededBySeconds = Math.max(0, Math.max(durationSeconds, monotonicDurationSeconds) - profile.budgets.wallTimeSeconds);
 if (deadlineExceededBySeconds > 0 && !stopReason) stopReason = 'wall-time-limit';
-const summary = {...metadata, ...result, endedAt: new Date().toISOString(), durationSeconds, monotonicDurationSeconds, deadlineExceededBySeconds, stopReason: stopReason ?? null, eventFailure, sessionId: sessionId ?? null, usage: usage ?? null, stepUsage, reportedCostUSD: profileId === 'codex-cli-primary' ? null : reportedCostUSD, observedModels: [...models], reviewInputsPreserved, evaluation: 'not-graded'};
+const summary = {...metadata, ...result, endedAt: new Date().toISOString(), durationSeconds, monotonicDurationSeconds, deadlineExceededBySeconds, stopReason: stopReason ?? null, stopRequestedAt: stopRequestedAt ?? null, stopRequestedAfterSeconds: stopRequestedAfterSeconds ?? null, terminationDelaySeconds: stopRequestedAfterSeconds === undefined ? null : Math.max(0, monotonicDurationSeconds - stopRequestedAfterSeconds), eventFailure, sessionId: sessionId ?? null, usage: usage ?? null, stepUsage, reportedCostUSD: profileId === 'codex-cli-primary' ? null : reportedCostUSD, observedModels: [...models], reviewInputsPreserved, evaluation: 'not-graded'};
 fs.writeFileSync(path.join(dir, 'run.json'), JSON.stringify(summary, null, 2) + '\n');
 console.log(JSON.stringify({schema, profileId, phase, exitCode: summary.exitCode, stopReason: summary.stopReason, durationSeconds: summary.durationSeconds, reportedCostUSD: summary.reportedCostUSD, observedModels: summary.observedModels, artifacts: dir}, null, 2));
 process.exitCode = summary.exitCode === 0 && !stopReason && !eventFailure && reviewInputsPreserved ? 0 : 1;
