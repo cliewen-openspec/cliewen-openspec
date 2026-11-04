@@ -1,0 +1,148 @@
+{
+  "reviewedAt": "2026-11-04T21:43:19.079Z",
+  "sourceRevision": "83da1bf19b613d27bddca1aa80c612f92cb0ae00",
+  "kind": "review-of-preserved-attempts",
+  "rawArtifacts": ".tmp/agent-trials/release-pass-review-001",
+  "packageSHA256": "3a2ca738562274b38e1047ac3195bf70de0b931748b2fdd393ea472616cf3c4f",
+  "newAgentCalls": 0,
+  "newIndependentRepetitions": 0,
+  "retainedPrimaryPasses": 4,
+  "additionalPrimaryPassesRequired": 14,
+  "additionalVariantPassesRequired": 14,
+  "attempts": [
+    {
+      "id": "case-1",
+      "revision": "0b1f65a2d21aceeef13e7a2dd1c20fd0a80d3f0b",
+      "overall": "pass",
+      "retainedAsExistingPrimaryPass": true,
+      "newRepetition": false,
+      "packageSHA256": "3a2ca738562274b38e1047ac3195bf70de0b931748b2fdd393ea472616cf3c4f",
+      "tests": 10,
+      "independentChecks": ".tmp/agent-trials/release-pass-review-001/case-1/after-index-refresh/independent-checks.json",
+      "reviewedMarkdownFiles": [
+        "README.md",
+        "docs/testing/acceptance.md",
+        "docs/testing/pr-description.md",
+        "docs/testing/results.md",
+        "openspec/changes/add-optional-csv-bom/design.md",
+        "openspec/changes/add-optional-csv-bom/proposal.md",
+        "openspec/changes/add-optional-csv-bom/specs/csv-export/spec.md",
+        "openspec/changes/add-optional-csv-bom/tasks.md"
+      ],
+      "localLinkCount": 5,
+      "missingLocalTargets": 0,
+      "originalFilesUnchanged": 83,
+      "sourceFilesEdited": false,
+      "targetedStrippingFault": {
+        "suiteExitCode": 1,
+        "failedTests": 1,
+        "failure": "ERR_ASSERTION",
+        "scope": "One isolated targeted fault, not a general mutation score"
+      }
+    },
+    {
+      "id": "case-3",
+      "revision": "9077f0a1173416ae3e67b8f9992ba086da0c2281",
+      "overall": "pass",
+      "retainedAsExistingPrimaryPass": true,
+      "newRepetition": false,
+      "packageSHA256": "3a2ca738562274b38e1047ac3195bf70de0b931748b2fdd393ea472616cf3c4f",
+      "tests": 6,
+      "independentChecks": ".tmp/agent-trials/release-pass-review-001/case-3/independent-checks.json",
+      "reviewedMarkdownFiles": [
+        "docs/decisions/001-csv-streaming.md",
+        "docs/testing/csv-streaming-investigation.md",
+        "openspec/changes/investigate-csv-streaming/decision.md",
+        "openspec/changes/investigate-csv-streaming/investigation.md",
+        "openspec/changes/investigate-csv-streaming/proposal.md"
+      ],
+      "localLinkCount": 36,
+      "missingLocalTargets": 0,
+      "originalFilesUnchanged": 64,
+      "sourceFilesEdited": false,
+      "experimentRecheck": {
+        "output": ".tmp/agent-trials/release-pass-review-001/case-3/experiment-recheck.json",
+        "scope": "Bounded parity/hash/header probe"
+      }
+    },
+    {
+      "id": "case-4",
+      "revision": "bf3b058d2924883bfa85d07fd5a258e13d58aa1e",
+      "overall": "pass",
+      "retainedAsExistingPrimaryPass": true,
+      "newRepetition": false,
+      "packageSHA256": "3a2ca738562274b38e1047ac3195bf70de0b931748b2fdd393ea472616cf3c4f",
+      "tests": 6,
+      "independentChecks": ".tmp/agent-trials/release-pass-review-001/case-4/independent-checks.json",
+      "reviewedMarkdownFiles": [
+        "docs/testing/csv-streaming-investigation.md",
+        "openspec/changes/investigate-csv-streaming/decision.md",
+        "openspec/changes/investigate-csv-streaming/investigation.md",
+        "openspec/changes/investigate-csv-streaming/proposal.md"
+      ],
+      "localLinkCount": 26,
+      "missingLocalTargets": 0,
+      "originalFilesUnchanged": 69,
+      "sourceFilesEdited": false,
+      "experimentRecheck": {
+        "output": ".tmp/agent-trials/release-pass-review-001/case-4/experiment-recheck.json",
+        "scope": "Semantics and input-shape probe; resource benchmarks and string ceiling not rerun"
+      }
+    },
+    {
+      "id": "case-6-approved-continuation",
+      "revision": "e9effcf70cf481736e085253e3731cebd04f7560",
+      "overall": "pass",
+      "retainedAsExistingPrimaryPass": true,
+      "newRepetition": false,
+      "packageSHA256": "3a2ca738562274b38e1047ac3195bf70de0b931748b2fdd393ea472616cf3c4f",
+      "tests": 21,
+      "independentChecks": ".tmp/agent-trials/release-pass-review-001/case-6-approved-continuation/independent-checks.json",
+      "reviewedMarkdownFiles": [
+        "README.md",
+        "docs/testing/delivery-review.md",
+        "docs/testing/pr-description.md",
+        "docs/testing/review-request.md",
+        "openspec/changes/add-optional-csv-bom/decision.md",
+        "openspec/changes/add-optional-csv-bom/investigation.md",
+        "openspec/changes/add-optional-csv-bom/proposal.md",
+        "openspec/changes/add-optional-csv-bom/specs/csv-export/spec.md",
+        "openspec/changes/add-optional-csv-bom/tasks.md"
+      ],
+      "localLinkCount": 45,
+      "missingLocalTargets": 0,
+      "originalFilesUnchanged": 99,
+      "sourceFilesEdited": false,
+      "targetedStrippingFault": {
+        "suiteExitCode": 1,
+        "failedTests": 2,
+        "failure": "ERR_ASSERTION",
+        "scope": "One isolated targeted fault, not a general mutation score"
+      }
+    }
+  ],
+  "evaluatorFiles": {
+    "scripts/check-csv-bom-trial.mjs": "89877f25b94c2944aa23688efcf74bdc058cfda759c359ad51332e1b94bd12cd",
+    "scripts/lib/csv-bom-verification.mjs": "f59465577476c53567860ab66a6085c8218f463cf73166d4ba6444ad3865b63f",
+    "scripts/check-csv-discovery-trial.mjs": "3d8159021b9b673eeb9ac31ed6f16a2cfe26233bf3082995f8bcda0862bc6637",
+    "docs/testing/csv-bom-trial/rubric.md": "1dd7134fa2257c942588f61e822a61f7059715e649cca063b403cce75cf5d4fe",
+    "docs/testing/csv-discovery-trial/rubric.md": "e1e73cc48e408421e07ed03bfa103934bcd565a2f66884b4ae54fa988a253c6a",
+    "docs/testing/csv-all-trial/rubric.md": "df61326b92927890990b2f44ad73b34fcde4398305a78faabc30e516f68b3350"
+  },
+  "restoration": {
+    "attempt": "case-1",
+    "initialCheck": "Failed on copied working-tree status and consequent evidence check",
+    "diagnosis": "Copied mixed-line-ending files appeared modified although Git content diff was empty",
+    "correction": "Refreshed only the disposable copy index with git add -u; index tree equals HEAD tree, source bytes unchanged",
+    "indexTree": "8afd80ed0440161aa47a11b8c804825bd9f9af4f",
+    "originalOutcomeChanged": false,
+    "failedCheckRetained": true
+  },
+  "limits": [
+    "Review by coordinating Codex agent; no separate reviewer model or new human acceptance inferred.",
+    "Local Markdown paths and heading targets checked without rendering or external URL verification.",
+    "Original profile, context, timing, budget, and model-identity limits remain.",
+    "Discovery resource measurements and string ceiling assessed from retained source/raw results, not rerun.",
+    "No original report overwritten, source repaired, evidence recollected, archive, release, or publication performed."
+  ]
+}

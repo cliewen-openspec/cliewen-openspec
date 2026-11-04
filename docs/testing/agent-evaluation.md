@@ -11,6 +11,8 @@ Every shipped schema needs deterministic regression coverage and a reviewed agen
 
 Use [Remaining checks before 0.1.0](release-gaps.md) for the current schema/profile counts, required variants, guide gaps, source-change disposition, and next execution order. It is the operational status register; the reports below preserve observations on their original inputs.
 
+[Four preserved primary passes remain usable](release-pass-review-001.md) records expanded checks and semantic review of the four latest-candidate passes. All remain credited as existing attempts; no fresh agent execution or repetition is added.
+
 [The local 0.1.0 candidate observations](release-candidate-001.md) add a fresh Codex delivery-quality pass and a corrected Claude prepared-guide walkthrough. The first guide attempt retained process failures despite green technical checks. Repeated release combinations and affected guide profiles remain incomplete.
 
 [Round 013: Repeated delivery and discovery trials on 0.1.0](cli-trials/result-013.md) attempts both primary scenarios twice with all three profiles: nine reviewed passes, two factual writing failures, and one infrastructure failure with incomplete final evidence. [Guide result 004](guide-walkthrough/result-004.md) records a passing Codex journey and an OpenCode technical retry with incomplete test-file readback. Remaining failed combinations, combined coverage, and planned variants still block release acceptance.

@@ -3,7 +3,7 @@ type: plan
 ---
 # Remaining checks before 0.1.0
 
-This is the current release-gap register, reconciled through the [round 015 follow-up: Strengthen independent review and reuse the npm cache](cli-trials/result-015-follow-up.md). The [evaluation manifest](agent-evaluation.yaml) defines scenarios and pinned profiles; [the evaluation policy](agent-evaluation.md#when-to-run-trials) requires two fresh repetitions of each required combination. The [first-release checklist](../plans/first-release.md) owns final acceptance and publication. This register changes neither policy nor budgets and launches no agents.
+This is the current release-gap register, reconciled through [Four preserved primary passes remain usable](release-pass-review-001.md). The [evaluation manifest](agent-evaluation.yaml) defines scenarios and pinned profiles; [the evaluation policy](agent-evaluation.md#when-to-run-trials) requires two fresh repetitions of each required combination. The [first-release checklist](../plans/first-release.md) owns final acceptance and publication. This register changes neither policy nor budgets and launches no agents.
 
 ## Primary schema trials
 
@@ -21,7 +21,7 @@ The latest instruction candidate is `0.1.0`, SHA-256 `3a2ca738562274b38e1047ac31
 | Combined / `combined-investigation-and-delivery` | Claude | 0 / 2 | 2 | No complete pass on this archive; earlier writing failures retained |
 | Combined / `combined-investigation-and-delivery` | OpenCode | 0 / 2 | 2 | No complete pass on this archive |
 
-That is **14 additional passing primary attempts**, provided the four recorded passes remain applicable after checking saved inputs and the expanded rubric. A separate recheck of an existing snapshot is not another repetition. Keep every failed attempt and review its disposition; reaching a pass count does not erase failures. Changed package inputs require an impact assessment before carrying counts forward.
+That is **14 additional passing primary attempts**. The [preserved-pass review](release-pass-review-001.md) checked the four saved attempts against the expanded criteria and retained all four. That recheck adds no repetitions. Keep every failed attempt and review its disposition; reaching a pass count does not erase failures. Changed package inputs require an impact assessment before carrying counts forward.
 
 A combined attempt includes investigation, actual human acceptance of its concrete recommendation, delivery, and independent review. An investigation-only stop is not a full pass. Previous acceptance applies only to the previously reviewed design; new recommendations need their own acceptance.
 
@@ -66,9 +66,10 @@ Complete or explicitly disposition these changes, review all six roadmap priorit
 
 ## Next execution order
 
-1. Check the four saved primary passes against the expanded review criteria and record which counts can carry forward.
-2. Run one fresh OpenCode delivery attempt with unchanged profile/budget and independent semantic, assertion, count, and link review. Classify any failure before deciding on another retry.
-3. Define the five planned variant fixtures and the per-task overlap. Then fill the remaining primary/variant rows in bounded batches, preserving actual combined approval boundaries.
-4. Close the OpenCode guide gap, final-input reuse reviews, source-change dispositions, and final compatibility/acceptance checklist.
+The four saved primary passes have been rechecked and retained. Continue with:
+
+1. Run one fresh OpenCode delivery attempt with unchanged profile/budget and independent semantic, assertion, count, and link review. Classify any failure before deciding on another retry.
+2. Define the five planned variant fixtures and the per-task overlap. Then fill the remaining primary/variant rows in bounded batches, preserving actual combined approval boundaries.
+3. Close the OpenCode guide gap, final-input reuse reviews, source-change dispositions, and final compatibility/acceptance checklist.
 
 Update this register after each reviewed batch. No new agent attempt was run to create it.
