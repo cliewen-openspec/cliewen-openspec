@@ -15,9 +15,11 @@ Every shipped schema needs deterministic regression coverage and a reviewed agen
 
 [Round 014: Host interruption diagnosis and factual-writing follow-up](cli-trials/result-014.md) uses the refined writing guidance: three complete primary workflow passes, an incomplete OpenCode delivery, a combined prompt/checker mismatch, and a fresh combined trial completed after explicit owner acceptance. Earlier candidate observations remain historical inputs; they are not repetitions of the changed guidance.
 
+[Round 015: OpenCode completes within budget but fails semantic review](cli-trials/result-015.md) completes delivery in 203.761 seconds with the same package, prompt, profile, and budget. Technical checks passed, but an invalid universal spec claim, incorrect test counts, and a broken handoff link prevent an overall pass. A targeted data-loss fault survived all 12 tests in an isolated copy; an independent valid-input assertion detected it. The original implementation preserves that input correctly.
+
 | Schema | Development trial | Observed coverage | Still needed before release |
 |---|---|---|---|
-| cliewen-delivery | Optional CSV BOM with evidence-first verification | Latest guidance: one Codex pass; OpenCode incomplete. Earlier candidate: two Codex and two Claude passes | Current-input Claude/OpenCode passes and repetitions; per-task and end-of-change variants |
+| cliewen-delivery | Optional CSV BOM with evidence-first verification | Latest guidance: one Codex pass; OpenCode completed but failed semantic and handoff review. Earlier candidate: two Codex and two Claude passes | Current-input Claude/OpenCode passes and repetitions; per-task and end-of-change variants |
 | cliewen-discovery | Investigate CSV streaming | Latest guidance: one Codex and one Claude pass. Earlier candidate: two reviewed OpenCode passes | Current-input OpenCode passes and repetitions; targeted no-change and handoff cases |
 | cliewen-all | One CSV investigation through delivery with an explicit human review stage | Latest guidance: one Codex investigation and approved delivery pass. Earlier Claude delivery retained factual writing failures | Other current profiles, no-delivery coverage, and repetitions |
 
