@@ -17,6 +17,8 @@ Every shipped schema needs deterministic regression coverage and a reviewed agen
 
 [Round 015: OpenCode completes within budget but fails semantic review](cli-trials/result-015.md) completes delivery in 203.761 seconds with the same package, prompt, profile, and budget. Technical checks passed, but an invalid universal spec claim, incorrect test counts, and a broken handoff link prevent an overall pass. A targeted data-loss fault survived all 12 tests in an isolated copy; an independent valid-input assertion detected it. The original implementation preserves that input correctly.
 
+The [round 015 follow-up: Strengthen independent review and reuse the npm cache](cli-trials/result-015-follow-up.md) adds preservation assertions and targeted fault regressions to the evaluator, and explicit spec/count/link review criteria. It also removes the guide replay's forced empty npm cache while preserving its commands and timeout. These checks do not supply another agent observation or turn the failed attempt into a pass.
+
 | Schema | Development trial | Observed coverage | Still needed before release |
 |---|---|---|---|
 | cliewen-delivery | Optional CSV BOM with evidence-first verification | Latest guidance: one Codex pass; OpenCode completed but failed semantic and handoff review. Earlier candidate: two Codex and two Claude passes | Current-input Claude/OpenCode passes and repetitions; per-task and end-of-change variants |

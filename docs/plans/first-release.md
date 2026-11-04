@@ -49,6 +49,8 @@ These items remain after priority 6 preparation and source relocation:
 
 [Round 015: OpenCode completes within budget but fails semantic review](../testing/cli-trials/result-015.md) retains a completed attempt with 12 passing tests and fresh evidence, but a contradictory spec and factual handoff errors prevent a reviewed delivery pass. A targeted data-loss fault survived the suite in an isolated copy. Separately, both Windows jobs at source `eec8047` hit the unchanged 60-second npm-install limit in the guide fixture; both Linux jobs passed. Platform stability and semantic review remain open.
 
+The [round 015 follow-up: Strengthen independent review and reuse the npm cache](../testing/cli-trials/result-015-follow-up.md) adds evaluator preservation/fault checks and explicit semantic handoff review. The guide replay now reuses npm's configured cache with unchanged commands and timeout; all 75 local tests pass. CI confirmation and a reviewed OpenCode delivery pass remain outstanding.
+
 - [x] Set package/runtime/lockfile versions to `0.1.0`; align active guides, tarball commands, and changelog. Earlier alpha migrations are unsupported rather than a required compatibility project.
 - [x] Make the documented fresh-install/update/uninstall behavior match the candidate. Retain authored-file preservation and conflict/recovery guarantees; lifecycle commands accept only `0.1.0` manifests and `check` reports other versions as unsupported.
 - [ ] Run the required Windows/Linux and Node/OpenSpec compatibility checks against the exact candidate, with repeated agent/profile and affected guide observations from [the evaluation plan](../testing/agent-evaluation.md).

@@ -20,9 +20,13 @@ test('documented CSV consumer commands pass from packed install through archive'
   const npx = path.join(path.dirname(npm), 'npx-cli.js');
   let cwd = checkout;
   function run(exe, args, expected = 0, directory = cwd) {
-    const env = {...process.env, OPENSPEC_TELEMETRY: '0', CI: '1', npm_config_cache: path.join(checkout, 'node_modules/.cache/npm')}; delete env.NODE_TEST_CONTEXT;
+    // Keep npm's configured cache; the pilot still has its own fresh installation.
+    const env = {...process.env, OPENSPEC_TELEMETRY: '0', CI: '1'}; delete env.NODE_TEST_CONTEXT;
+    const started = performance.now();
     const r = spawnSync(exe, args, {cwd: directory, env, encoding: 'utf8', timeout: 60000});
-    assert.equal(r.status, expected, `${exe} ${args.join(' ')}\n${r.stdout}\n${r.stderr}\n${r.error ?? ''}`);
+    const elapsed = ((performance.now() - started) / 1000).toFixed(3);
+    if (exe === process.execPath && args[0] === npm && args[1] === 'install') t.diagnostic(`Guide ${args.slice(1).join(' ')}: ${elapsed}s`);
+    assert.equal(r.status, expected, `${exe} ${args.join(' ')} (${elapsed}s; 60s limit)\n${r.stdout}\n${r.stderr}\n${r.error ?? ''}`);
     return r.stdout;
   }
   run(process.execPath, [npm, 'pack', '--ignore-scripts', '--pack-destination', checkout], 0, project);

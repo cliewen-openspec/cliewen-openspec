@@ -35,7 +35,9 @@ The unpublished 0.1.0 candidate now includes the factual-writing clarification. 
 
 [Round 015: OpenCode completes within budget but fails semantic review](docs/testing/cli-trials/result-015.md) adds one completed delivery attempt on the same package and profile. All 12 tests and fresh evidence passed, but the new spec contradicts valid-input preservation. An isolated data-loss fault also survived all 12 tests. Incorrect test counts and a broken handoff link remain in the original output. This is not a reviewed delivery pass.
 
-Next, address semantic and handoff review findings, recurring Windows fixture-install timeouts, current-input profile repetitions, OpenCode guide process coverage, remaining combined profiles, and planned release variants. Review host-support limits and source-change disposition before archive. Host-specific states need actual observations to support claims; hypothetical fallback answers remain hypothetical. Final release acceptance remains open.
+The [round 015 follow-up: Strengthen independent review and reuse the npm cache](docs/testing/cli-trials/result-015-follow-up.md) adds evaluator assertions and fault regressions for valid input content, plus explicit semantic/count/link review criteria. The guide replay inherits npm's configured cache and reports installation times, retaining its commands and 60-second limit. All 75 local tests pass; CI confirmation is pending. The original agent outcome remains failed.
+
+Next, confirm platform validation, complete current-input profile repetitions and OpenCode guide process coverage, remaining combined profiles, and planned release variants. Review host-support limits and source-change disposition before archive. Host-specific states need actual observations to support claims; hypothetical fallback answers remain hypothetical. Final release acceptance remains open.
 
 Priorities 1 and 2 have reached an unreleased implementation with bounded validation. Maintain affected guides with every increment; priority 3 adds observed user testing.
 
