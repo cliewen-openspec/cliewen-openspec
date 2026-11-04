@@ -3,7 +3,7 @@ type: plan
 ---
 # Remaining checks before 0.1.0
 
-This is the current release-gap register, reconciled through [Four preserved primary passes remain usable](release-pass-review-001.md). The [evaluation manifest](agent-evaluation.yaml) defines scenarios and pinned profiles; [the evaluation policy](agent-evaluation.md#when-to-run-trials) requires two fresh repetitions of each required combination. The [first-release checklist](../plans/first-release.md) owns final acceptance and publication. This register changes neither policy nor budgets and launches no agents.
+This is the current release-gap register, reconciled through [round 016: OpenCode reaches fresh evidence but times out before handoff](cli-trials/result-016.md). The [evaluation manifest](agent-evaluation.yaml) defines scenarios and pinned profiles; [the evaluation policy](agent-evaluation.md#when-to-run-trials) requires two fresh repetitions of each required combination. The [first-release checklist](../plans/first-release.md) owns final acceptance and publication. This register changes neither policy nor budgets and launches no agents.
 
 ## Primary schema trials
 
@@ -13,7 +13,7 @@ The latest instruction candidate is `0.1.0`, SHA-256 `3a2ca738562274b38e1047ac31
 |---|---|---:|---:|---|
 | Delivery / `csv-bom-evidence-first` | Codex | 1 / 2 | 1 | [Round 014: factual-writing follow-up](cli-trials/result-014.md#candidate-and-follow-up-results) |
 | Delivery / `csv-bom-evidence-first` | Claude | 0 / 2 | 2 | Earlier candidate passes remain historical |
-| Delivery / `csv-bom-evidence-first` | OpenCode | 0 / 2 | 2 | [Round 015: semantic review failure](cli-trials/result-015.md); spec contradiction, surviving data-loss fault, wrong counts, broken link |
+| Delivery / `csv-bom-evidence-first` | OpenCode | 0 / 2 | 2 | [Round 016: timeout before handoff](cli-trials/result-016.md); technical checks pass, but a data-loss fault survives all 16 tests and draft documentation findings remain. Earlier failures retained |
 | Discovery / `csv-streaming-investigation` | Codex | 1 / 2 | 1 | [Round 014: factual-writing follow-up](cli-trials/result-014.md#candidate-and-follow-up-results) |
 | Discovery / `csv-streaming-investigation` | Claude | 1 / 2 | 1 | Same round; runtime probe distinguished from accepted input contract |
 | Discovery / `csv-streaming-investigation` | OpenCode | 0 / 2 | 2 | Earlier candidate passes remain historical |
@@ -66,10 +66,10 @@ Complete or explicitly disposition these changes, review all six roadmap priorit
 
 ## Next execution order
 
-The four saved primary passes have been rechecked and retained. Continue with:
+The four saved primary passes have been rechecked and retained. The next bounded OpenCode attempt was run and classified incomplete in round 016; it adds no pass. Continue with:
 
-1. Run one fresh OpenCode delivery attempt with unchanged profile/budget and independent semantic, assertion, count, and link review. Classify any failure before deciding on another retry.
-2. Define the five planned variant fixtures and the per-task overlap. Then fill the remaining primary/variant rows in bounded batches, preserving actual combined approval boundaries.
+1. Define the five planned variant fixtures and resolve the per-task overlap. State the purpose and input changes, if any, before another OpenCode retry; do not increase budgets or change profiles implicitly.
+2. Fill the remaining primary/variant rows in bounded batches, preserving actual combined approval boundaries and every failed attempt.
 3. Close the OpenCode guide gap, final-input reuse reviews, source-change dispositions, and final compatibility/acceptance checklist.
 
-Update this register after each reviewed batch. No new agent attempt was run to create it.
+Update this register after each reviewed batch. Trial reports own the actual execution records.

@@ -1,0 +1,179 @@
+{
+  "recordedAt": "2026-11-04T22:16:20.236Z",
+  "overall": "incomplete",
+  "releaseReady": false,
+  "newCreditedPrimaryPasses": 0,
+  "scenario": "csv-bom-evidence-first",
+  "schema": "cliewen-delivery",
+  "profile": "opencode-2-2-5",
+  "rawArtifacts": ".tmp/agent-trials/cli-evaluation-016",
+  "baseline": {
+    "preparedAt": "2026-11-04T22:03:48.052Z",
+    "sourceRevision": "502122e8c3b1fcb7cf5b09408153eb9178355014",
+    "sourceStatus": "",
+    "baseline": "82ea51f7b0737bbbf3f2a53c036c1266245754da",
+    "package": {
+      "version": "0.1.0",
+      "filename": "cliewen-openspec-0.1.0.tgz",
+      "sha256": "3a2ca738562274b38e1047ac3195bf70de0b931748b2fdd393ea472616cf3c4f"
+    },
+    "node": "v24.0.0",
+    "npm": "11.21.0",
+    "openspec": "1.15.0",
+    "root": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-csv-bom-1793829817613\\project"
+  },
+  "finalRevision": "b0115bbde96e3b2990197f3f1537472cb9c4fccf",
+  "workingTreeStatus": "",
+  "promptSHA256": "59d5d5f6cc7bbdde49d4f9d09199909515b7eef84ca62294a3652dd5e9b578da",
+  "sameExecutedPromptAsRound015": true,
+  "samePackageAndProfileAsRound015": true,
+  "run": {
+    "schema": "cliewen-delivery",
+    "profileId": "opencode-2-2-5",
+    "phase": "initial",
+    "project": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-csv-bom-1793829817613\\project",
+    "baseline": "82ea51f7b0737bbbf3f2a53c036c1266245754da",
+    "profile": {
+      "readiness": "pinned",
+      "supersedes": "opencode-1-19-5",
+      "agent": "OpenCode",
+      "runner": "cli",
+      "model": "opencode/glm-5.3-flash",
+      "agentVersion": "2.2.5",
+      "provider": "OpenCode Console/Zen; existing local credentials; provider.use allows only opencode",
+      "effort": "high",
+      "permissions": "V2 ordered rules and hard policies allow local tools; deny external_directory, subagent, question, skill, webfetch and websearch; deny MCP and external plugins; no OS isolation",
+      "context": "fresh standalone server and private config directory per phase; project config and Claude skill discovery disabled; AGENTS read explicitly; system and Console configuration may remain",
+      "budgets": {
+        "wallTimeSeconds": 600,
+        "outputBytes": 67108864,
+        "reportedCostUSD": 0.5,
+        "tokenLimit": null,
+        "billing": "local reported-cost stop; not a provider-enforced hard spending cap"
+      },
+      "traceFormat": "OpenCode run --standalone --format json; model variant via provider/model#high"
+    },
+    "exe": "C:\\Users\\flemm\\AppData\\Roaming\\npm\\node_modules\\@opencode\\cli\\bin\\opencode.exe",
+    "cliVersion": "opencode v2.2.5",
+    "startedAt": "2026-11-04T22:04:12.362Z",
+    "promptFile": "prompt.txt",
+    "environmentControls": {
+      "OPENCODE_CONFIG_CONTENT": "{\"model\":\"opencode/glm-5.3-flash\",\"permissions\":[{\"action\":\"*\",\"resource\":\"*\",\"effect\":\"allow\"},{\"action\":\"external_directory\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"subagent\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"question\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"skill\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"webfetch\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"websearch\",\"resource\":\"*\",\"effect\":\"deny\"}],\"policies\":[{\"action\":\"provider.use\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"provider.use\",\"resource\":\"opencode\",\"effect\":\"allow\"},{\"action\":\"mcp.use\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"skill.use\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"plugin.use\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"plugin.use\",\"resource\":\"opencode.*\",\"effect\":\"allow\"},{\"action\":\"tool.use\",\"resource\":\"external_directory:*\",\"effect\":\"deny\"},{\"action\":\"tool.use\",\"resource\":\"subagent:*\",\"effect\":\"deny\"},{\"action\":\"tool.use\",\"resource\":\"question:*\",\"effect\":\"deny\"},{\"action\":\"tool.use\",\"resource\":\"skill:*\",\"effect\":\"deny\"},{\"action\":\"tool.use\",\"resource\":\"webfetch:*\",\"effect\":\"deny\"},{\"action\":\"tool.use\",\"resource\":\"websearch:*\",\"effect\":\"deny\"}],\"plugins\":[\"-*\",\"opencode.*\"]}",
+      "OPENCODE_CONFIG_DIR": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-csv-bom-1793829817613\\artifacts\\initial\\config",
+      "OPENCODE_CONFIG_PROJECT_DISABLE": "true",
+      "OPENCODE_DISABLE_FILEWATCHER": "true",
+      "OPENCODE_DISABLE_CLAUDE_CODE": "true",
+      "OPENCODE_DISABLE_MODELS_FETCH": "true"
+    },
+    "exitCode": 1,
+    "signal": null,
+    "endedAt": "2026-11-04T22:14:12.556Z",
+    "durationSeconds": 600.193,
+    "monotonicDurationSeconds": 600.1843559,
+    "deadlineExceededBySeconds": 0.19299999999998363,
+    "stopReason": "wall-time-limit",
+    "stopRequestedAt": "2026-11-04T22:14:12.399Z",
+    "stopRequestedAfterSeconds": 600.0280072999999,
+    "terminationDelaySeconds": 0.15634860000011486,
+    "eventFailure": false,
+    "sessionId": "ses_e5768a7d2ffemQrO7JihUot9LU",
+    "usage": null,
+    "reportedCostUSD": 0.16160809,
+    "observedModels": [],
+    "reviewInputsPreserved": true,
+    "evaluation": "not-graded",
+    "reportedStepUsageSummary": {
+      "count": 83,
+      "costUSD": 0.16160809
+    }
+  },
+  "technicalChecks": {
+    "passed": true,
+    "testCount": 16,
+    "originalTests": 6,
+    "newTests": 10,
+    "newAcceptanceIDs": [
+      "EXP-007",
+      "EXP-008",
+      "EXP-009",
+      "EXP-010",
+      "EXP-011"
+    ],
+    "strictValidation": "passed",
+    "freshScopedEvidence": "passed",
+    "expandedIndependentBehavior": "passed",
+    "findings": [
+      {
+        "code": "test-review-stale",
+        "message": ".cliewen-openspec/reviews/change-add-optional-csv-bom.yaml: test-review-stale: node_modules/cliewen-openspec/adapters/node-test.mjs",
+        "severity": "warning"
+      },
+      {
+        "code": "test-review-stale",
+        "message": ".cliewen-openspec/reviews/change-add-optional-csv-bom.yaml: test-review-stale: node_modules/cliewen-openspec/adapters/node-test.mjs",
+        "severity": "warning"
+      },
+      {
+        "code": "test-review-stale",
+        "message": ".cliewen-openspec/reviews/change-add-optional-csv-bom.yaml: test-review-stale: node_modules/cliewen-openspec/adapters/node-test.mjs",
+        "severity": "warning"
+      },
+      {
+        "code": "test-policy-review-required",
+        "severity": "info",
+        "message": "Record checks cannot prove case distinctness, assertion meaning, complete dependency/impact analysis, or human approval. Review these claims."
+      },
+      {
+        "code": "sufficiency-not-assessed",
+        "severity": "info",
+        "message": "Execution and linkage do not prove assertion quality; review the assertions against the scenarios."
+      }
+    ]
+  },
+  "independentFault": {
+    "fault": "Strip caller-supplied U+FEFF from default/false output in an isolated copy",
+    "agentSuiteExitCode": 0,
+    "agentSuitePassed": 16,
+    "independentAssertionDetectedFault": true,
+    "originalImplementationPreservesInput": true,
+    "originalProjectUnchanged": true,
+    "scope": "One targeted surviving fault, not a mutation score or recollected evidence claim"
+  },
+  "manualReview": {
+    "status": "findings-retained-on-timed-out-attempt",
+    "localMarkdownLinksChecked": 22,
+    "missingLocalTargets": [],
+    "findings": [
+      {
+        "id": "default-content-assertion-gap",
+        "file": "test/export.test.mjs",
+        "issue": "All 16 tests pass after stripping valid U+FEFF content from default output; expanded independent assertions reject this fault."
+      },
+      {
+        "id": "misdirected-api-link",
+        "file": "docs/testing/pr-description.md",
+        "target": "../README.md",
+        "issue": "Existing target is docs/README.md, the generic documentation index; the claimed API/default/example is in ../../README.md."
+      },
+      {
+        "id": "stale-scenario-count",
+        "file": "README.md",
+        "issue": "README says six tagged scenarios; final test titles cover eleven distinct IDs, EXP-001 through EXP-011."
+      },
+      {
+        "id": "setup-failure-conflated-with-assertion-failure",
+        "file": "docs/testing/pr-description.md",
+        "issue": "The draft says four controlled-fault runs failed corresponding assertions while including a discarded syntax/module-load failure; the detailed test record correctly excludes that setup failure from effectiveness evidence."
+      }
+    ]
+  },
+  "limits": [
+    "The runner timed out without a completed final CLI handoff; passing technical checks do not create an overall pass.",
+    "Actual model identity was not exposed.",
+    "Only Boolean option behavior from the primary request was independently required; the separate combined strict-true/null contract was not imposed.",
+    "One near-deadline stop exercises this local runner path, not a provider-enforced hard cap or an explanation of earlier stalls.",
+    "Three adapter-input test-review-stale warnings remain advisory under default policy.",
+    "Existing local targets do not prove the link points to its claimed subject; no rendering/external URL checks performed.",
+    "No original project file repaired, evidence recollected, extra agent launched, archive, release, or publication performed."
+  ]
+}

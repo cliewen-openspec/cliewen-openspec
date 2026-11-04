@@ -13,6 +13,8 @@ Use [Remaining checks before 0.1.0](release-gaps.md) for the current schema/prof
 
 [Four preserved primary passes remain usable](release-pass-review-001.md) records expanded checks and semantic review of the four latest-candidate passes. All remain credited as existing attempts; no fresh agent execution or repetition is added.
 
+[Round 016: OpenCode reaches fresh evidence but times out before handoff](cli-trials/result-016.md) retains a fresh attempt stopped after 600.193 seconds. Sixteen tests and independent technical checks pass on clean current evidence, but a targeted data-loss fault survives the suite and draft documentation findings remain. It adds no credited pass; profile and limits stayed unchanged.
+
 [The local 0.1.0 candidate observations](release-candidate-001.md) add a fresh Codex delivery-quality pass and a corrected Claude prepared-guide walkthrough. The first guide attempt retained process failures despite green technical checks. Repeated release combinations and affected guide profiles remain incomplete.
 
 [Round 013: Repeated delivery and discovery trials on 0.1.0](cli-trials/result-013.md) attempts both primary scenarios twice with all three profiles: nine reviewed passes, two factual writing failures, and one infrastructure failure with incomplete final evidence. [Guide result 004](guide-walkthrough/result-004.md) records a passing Codex journey and an OpenCode technical retry with incomplete test-file readback. Remaining failed combinations, combined coverage, and planned variants still block release acceptance.
