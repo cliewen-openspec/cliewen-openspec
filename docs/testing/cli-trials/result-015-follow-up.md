@@ -23,6 +23,8 @@ A local Windows probe ran the same OpenSpec install once per cache configuration
 
 ## Validation and remaining work
 
-All 75 local package tests passed. The guide replay completed in 23.444 seconds, with OpenSpec installation taking 4.674 seconds and Cliewen installation 1.327 seconds. The evaluation-plan check passed. The documentation build checked 13 pages, 464 local links, four diagrams, and CLI defaults. Windows/Linux CI confirmation remains pending; local success does not establish that registry timeouts are resolved.
+All 75 local package tests passed. The guide replay completed in 23.444 seconds, with OpenSpec installation taking 4.674 seconds and Cliewen installation 1.327 seconds. The evaluation-plan check passed. The documentation build checked 13 pages, 464 local links, four diagrams, and CLI defaults.
+
+At `ce2d6951f3c13a0edfebfa7913503f9b208cda31`, [package run 41915333084](https://github.com/cliewen-openspec/cliewen-openspec/actions/runs/41915333084) passed all four Windows/Linux and Node 22/24 jobs, with 75 tests per job. Windows OpenSpec installations took 50.610 seconds on Node 22 and 36.714 seconds on Node 24; Cliewen installations took 3.095 and 2.408 seconds respectively. [Pages run 41915332985](https://github.com/cliewen-openspec/cliewen-openspec/actions/runs/41915332985) built and deployed successfully. This is one passing platform run after the adjustment; registry timeouts remain a risk, particularly with the observed Node 22 duration near the unchanged 60-second limit.
 
 No user-guide command, installed package behavior, agent profile, or budget changed. Existing guide-agent observations remain applicable to those unchanged commands under [Decision 018: Exercise guides with fresh coding-agent sessions](../../decisions/018-agent-guide-walkthroughs.md). Required agent repetitions, source-change disposition, and release acceptance remain open.
