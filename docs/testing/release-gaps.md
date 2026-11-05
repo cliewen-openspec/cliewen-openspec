@@ -3,7 +3,7 @@ type: plan
 ---
 # Remaining checks before 0.1.0
 
-This is the current release-gap register, reconciled through [Four release variants are prepared for native trials](release-variants/validation-001.md). The [evaluation manifest](agent-evaluation.yaml) defines scenarios and pinned profiles; [the evaluation policy](agent-evaluation.md#when-to-run-trials) requires two fresh repetitions of each distinct required combination. The [first-release checklist](../plans/first-release.md) owns final acceptance and publication. No agent calls or budget increases follow from this register.
+This is the current release-gap register, reconciled through [Codex completes delivery with final-suite verification](release-variants/result-001.md). The [evaluation manifest](agent-evaluation.yaml) defines scenarios and pinned profiles; [the evaluation policy](agent-evaluation.md#when-to-run-trials) requires two fresh repetitions of each distinct required combination. The [first-release checklist](../plans/first-release.md) owns final acceptance and publication. No agent calls or budget increases follow from this register.
 
 ## Primary schema trials
 
@@ -27,18 +27,18 @@ A combined attempt includes investigation, actual human acceptance of its concre
 
 ## Required variants
 
-The manifest assigns these to Codex, with two fresh repetitions each. None has a reviewed pass on the latest archive. Historical quality trials remain useful development evidence.
+The manifest assigns these to Codex, with two fresh repetitions each. Final-suite delivery has one reviewed pass on the latest archive; other rows have none. Historical quality trials remain useful development evidence.
 
 | Schema | Scenario | Fixture status | Remaining action |
 |---|---|---|---|
-| Delivery | `csv-bom-final-tests` | Ready | Run twice with final-suite placement and independently review task-to-test mapping |
+| Delivery | `csv-bom-final-tests` | Ready; 1 / 2 passes | [First native observation passed](release-variants/result-001.md); one fresh repetition remains |
 | Delivery | `delivery-quality-and-retirement` | Ready | Run twice on current inputs; [earlier candidate observation](release-candidate-001.md#codex-test-quality-and-lifecycle-attempt) is not a current-input repetition |
 | Discovery | `discovery-no-change` | Ready | Run twice; review reasoning without rewarding a predetermined answer |
 | Discovery | `discovery-delivery-handoff` | Ready | Run twice with a separate proposal-only delivery handoff |
 | Combined | `combined-no-delivery` | Ready | Run twice with native `skip_specs` and genuine closure checks |
 | Combined | `combined-quality-and-retirement` | Ready | Run twice with actual design acceptance; [earlier combined quality trial](quality-lifecycle-trial/result-003.md) used the historical alpha |
 
-These rows add **12 passing variant attempts**. The owner approved consolidating the duplicate per-task row on November 5, 2026: `csv-bom-per-task` remains an alias covered by the primary scenario, adding no runs. [Fixture validation](release-variants/validation-001.md) records the rationale and deterministic controls; [the variant guide](release-variants/README.md) documents preparation and checking. No native variant pass is added. Totals exclude guide phases, retries, setup, and review time; they are not a spending estimate or approval to run the whole matrix.
+These rows require 12 passing variant attempts, of which one is credited; **11 remain**. The owner approved consolidating the duplicate per-task row on November 5, 2026: `csv-bom-per-task` remains an alias covered by the primary scenario, adding no runs. [Fixture validation](release-variants/validation-001.md) records the rationale and deterministic controls; [the variant guide](release-variants/README.md) documents preparation and checking. Totals exclude guide phases, retries, setup, and review time; they are not a spending estimate or approval to run the whole matrix.
 
 ## Guide, platform, and support gaps
 
@@ -67,7 +67,7 @@ Complete or explicitly disposition these changes, review all six roadmap priorit
 
 The four saved primary passes have been rechecked and retained. The next bounded OpenCode attempt was run and classified incomplete in round 016; it adds no pass. Continue with:
 
-1. Run the ready variant scenarios in bounded Codex batches, starting with end-of-change delivery. Apply their rubrics and independent checks before crediting any observation.
+1. Repeat end-of-change delivery once from a fresh baseline, then exercise the ready discovery and combined no-delivery variants in bounded Codex batches. Apply their rubrics and independent checks before crediting any observation.
 2. Fill the remaining primary rows and quality/lifecycle variants, preserving actual combined approval boundaries and every failed attempt. State the purpose and input changes, if any, before another OpenCode retry; do not increase budgets or change profiles implicitly.
 3. Close the OpenCode guide gap, final-input reuse reviews, source-change dispositions, and final compatibility/acceptance checklist.
 

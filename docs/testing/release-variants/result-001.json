@@ -1,0 +1,202 @@
+{
+  "recordedAt": "2026-11-05T17:37:50.905Z",
+  "overall": "pass",
+  "scenario": "csv-bom-final-tests",
+  "schema": "cliewen-delivery",
+  "profile": "codex-cli-primary",
+  "releaseReady": false,
+  "newCreditedVariantPasses": 1,
+  "newCreditedPrimaryPasses": 0,
+  "remainingScenarioRepetitions": 1,
+  "rawArtifacts": ".tmp/agent-trials/release-variant-001",
+  "baseline": {
+    "preparedAt": "2026-11-05T17:28:33.855Z",
+    "sourceRevision": "b45cb84f66009650adadb8635957a61676ef16df",
+    "sourceStatus": "",
+    "baseline": "54152d9bbef3deaccc4f9e986dd61b803fa025c2",
+    "package": {
+      "version": "0.1.0",
+      "filename": "cliewen-openspec-0.1.0.tgz",
+      "sha256": "3a2ca738562274b38e1047ac3195bf70de0b931748b2fdd393ea472616cf3c4f"
+    },
+    "node": "v24.0.0",
+    "npm": "11.21.0",
+    "openspec": "1.15.0",
+    "root": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-csv-bom-final-tests-1793899705919\\project",
+    "variantPreparationBaseline": "d3bb0dce72f031fed69630b89e5632c7a00b1b43",
+    "scenario": "csv-bom-final-tests"
+  },
+  "finalRevision": "7c52432b2e72aac30e0b8ffc0c7499926eb2347b",
+  "workingTreeStatus": "",
+  "promptSHA256": "ccdbc77f0e9a559f2f0c061909b34a9a9873c94381ec8e6ed3a1b3b17c0796d0",
+  "run": {
+    "schema": "cliewen-delivery",
+    "profileId": "codex-cli-primary",
+    "phase": "initial",
+    "project": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-csv-bom-final-tests-1793899705919\\project",
+    "baseline": "54152d9bbef3deaccc4f9e986dd61b803fa025c2",
+    "profile": {
+      "readiness": "pinned",
+      "agent": "Codex CLI",
+      "runner": "cli",
+      "model": "gpt-6.1-sol",
+      "agentVersion": "0.166.0",
+      "provider": "openai; existing ChatGPT CLI authentication",
+      "effort": "medium",
+      "permissions": "danger-full-access, approval never; project scope is an instruction, not OS isolation",
+      "context": "fresh process; ignore user config and execpolicy rules; project AGENTS and managed/global instructions may remain",
+      "budgets": {
+        "wallTimeSeconds": 600,
+        "outputBytes": 67108864,
+        "reportedCostUSD": null,
+        "tokenLimit": null,
+        "billing": "existing ChatGPT entitlement; no purchase"
+      },
+      "traceFormat": "codex exec --json JSONL plus stderr"
+    },
+    "exe": "C:\\Program Files\\nodejs\\node.exe",
+    "cliVersion": "codex-cli 0.166.0",
+    "startedAt": "2026-11-05T17:28:49.416Z",
+    "promptFile": "prompt.txt",
+    "environmentControls": {
+      "NO_COLOR": "1",
+      "OPENSPEC_TELEMETRY": "0",
+      "CI": "1"
+    },
+    "exitCode": 0,
+    "signal": null,
+    "endedAt": "2026-11-05T17:35:08.631Z",
+    "durationSeconds": 379.214,
+    "monotonicDurationSeconds": 379.21262269999994,
+    "deadlineExceededBySeconds": 0,
+    "stopReason": null,
+    "stopRequestedAt": null,
+    "stopRequestedAfterSeconds": null,
+    "terminationDelaySeconds": null,
+    "eventFailure": false,
+    "sessionId": "01a1acc1-936c-7b21-9f80-c3848d7bc35a",
+    "usage": {
+      "input_tokens": 958149,
+      "cached_input_tokens": 891264,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 12869,
+      "reasoning_output_tokens": 1595
+    },
+    "stepUsage": [],
+    "reportedCostUSD": null,
+    "observedModels": [],
+    "reviewInputsPreserved": true,
+    "evaluation": "not-graded"
+  },
+  "technicalChecks": {
+    "variantPassed": true,
+    "branchObserved": true,
+    "primaryPassed": true,
+    "testCount": 12,
+    "originalTests": 6,
+    "newCases": 6,
+    "newScenarioIDs": [
+      "EXP-007",
+      "EXP-008",
+      "EXP-009"
+    ],
+    "strictValidation": "passed",
+    "freshScopedEvidence": "passed",
+    "findings": [
+      {
+        "code": "test-policy-review-required",
+        "severity": "info",
+        "message": "Record checks cannot prove case distinctness, assertion meaning, complete dependency/impact analysis, or human approval. Review these claims."
+      },
+      {
+        "code": "sufficiency-not-assessed",
+        "severity": "info",
+        "message": "Execution and linkage do not prove assertion quality; review the assertions against the scenarios."
+      }
+    ]
+  },
+  "processReview": {
+    "acceptancePlanBeforeImplementation": {
+      "planFileChangeEvent": 19,
+      "readyApplyContextReadEvent": 21,
+      "formatterFileChangeEvent": 24
+    },
+    "taskChecks": [
+      {
+        "task": "1.1",
+        "event": 26,
+        "observation": "Syntax and formatter diff"
+      },
+      {
+        "task": "1.2",
+        "event": 28,
+        "observation": "Test syntax and original byte-prefix preservation"
+      },
+      {
+        "task": "1.3",
+        "event": 36,
+        "observation": "Authored local links and whitespace"
+      }
+    ],
+    "finalVerification": [
+      {
+        "event": 39,
+        "observation": "Full suite: 12 passed"
+      },
+      {
+        "events": [
+          41,
+          45
+        ],
+        "observation": "README examples, isolated faults, and strict validation; initial reporting/validation defects corrected and disclosed"
+      }
+    ],
+    "revisionBoundEvidence": [
+      {
+        "event": 58,
+        "revision": "5dfa30d391a95124d0b90630d9b9d1263c8b5de6",
+        "observation": "Initial clean collection/check"
+      },
+      {
+        "event": 63,
+        "revision": "7c52432b2e72aac30e0b8ffc0c7499926eb2347b",
+        "observation": "Final documentation/review refresh committed; collection/check rerun clean"
+      }
+    ],
+    "taskToTestMapping": "Implementation tasks link to final suite, fault, and example checks"
+  },
+  "semanticReview": {
+    "outcome": "pass-with-stated-limits",
+    "reviewer": "coordinating Codex agent",
+    "newBlockingFindings": [],
+    "observations": [
+      "Spec, tests, and README preserve caller-supplied U+FEFF and distinguish returned text from explicit UTF-8 encoding.",
+      "Final counts match six unchanged originals and six new cases across three new scenario IDs.",
+      "All local Markdown destinations match their stated subject.",
+      "Null and non-Boolean options remain unspecified; the separate combined strict-true/null contract was not imposed."
+    ],
+    "localMarkdownFiles": 8,
+    "localLinks": 7,
+    "missingTargets": 0,
+    "rendered": false,
+    "externalURLsChecked": false
+  },
+  "evaluatorFault": {
+    "description": "Strip valid caller U+FEFF from default/false output in an isolated copy",
+    "suiteExitCode": 1,
+    "assertionFailure": true,
+    "tests": 12,
+    "passed": 11,
+    "failed": 1,
+    "originalProjectUnchanged": true,
+    "scope": "One targeted fault, not a mutation score"
+  },
+  "limits": [
+    "One fresh variant observation, not the second required repetition or a primary-schema pass.",
+    "Requested model identity and monetary cost were not exposed independently; usage counters are not invoices.",
+    "Implementing-agent record status does not authenticate human acceptance or complete assertion sufficiency.",
+    "Existing original test titles lack Case/Coverage metadata; no permanent-scope coverage pass was claimed.",
+    "Initial fault-output counting and long-requirement validation failures remain preserved; corrected results support the handoff.",
+    "No evaluator repair, recollection, extra agent, archive, push from the trial, npm publication, release, or external PR."
+  ]
+}
