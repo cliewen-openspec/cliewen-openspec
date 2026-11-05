@@ -302,6 +302,8 @@ scenarios:
     checker: scripts/check-release-variant.mjs
     prompt: docs/testing/release-variants/discovery-no-change/prompt.md
     rubric: docs/testing/release-variants/discovery-no-change/rubric.md
+    observedResults:
+      - docs/testing/release-variants/result-003.md
   discovery-delivery-handoff:
     schema: cliewen-discovery
     readiness: ready
