@@ -304,6 +304,7 @@ scenarios:
     rubric: docs/testing/release-variants/discovery-no-change/rubric.md
     observedResults:
       - docs/testing/release-variants/result-003.md
+      - docs/testing/release-variants/result-004.md
   discovery-delivery-handoff:
     schema: cliewen-discovery
     readiness: ready

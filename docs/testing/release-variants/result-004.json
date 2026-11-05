@@ -1,0 +1,195 @@
+{
+  "recordedAt": "2026-11-05T18:21:06.183Z",
+  "overall": "pass",
+  "scenario": "discovery-no-change",
+  "schema": "cliewen-discovery",
+  "profile": "codex-cli-primary",
+  "releaseReady": false,
+  "newCreditedVariantPasses": 1,
+  "newCreditedPrimaryPasses": 0,
+  "creditedScenarioObservations": 2,
+  "remainingScenarioRepetitions": 0,
+  "rawArtifacts": ".tmp/agent-trials/release-variant-004",
+  "baseline": {
+    "preparedAt": "2026-11-05T18:12:18.859Z",
+    "sourceRevision": "431246f22d0580919546cebd1405a2c5c42c7eb3",
+    "sourceStatus": "",
+    "baseline": "89a15e7d5b27a401d124fdd5dcbc97b4e972d03c",
+    "package": {
+      "version": "0.1.0",
+      "filename": "cliewen-openspec-0.1.0.tgz",
+      "sha256": "3a2ca738562274b38e1047ac3195bf70de0b931748b2fdd393ea472616cf3c4f"
+    },
+    "node": "v24.0.0",
+    "npm": "11.21.0",
+    "openspec": "1.15.0",
+    "root": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-discovery-no-change-1793902329625\\project",
+    "fixture": "csv-streaming-discovery",
+    "preparationBaseline": "e091d7b16f1e7b1b0c681503ed7379de8662704d",
+    "variantPreparationBaseline": "0630dc673f2b0c90056afaa8aa2d1b822daf8019",
+    "scenario": "discovery-no-change"
+  },
+  "finalRevision": "89a15e7d5b27a401d124fdd5dcbc97b4e972d03c",
+  "workingTreeStatus": "?? docs/decisions/001-retain-csv-string-api.md\n?? docs/testing/check-docs.mjs\n?? docs/testing/contract-initial-results.json\n?? docs/testing/contract-results.json\n?? docs/testing/instructions/apply.json\n?? docs/testing/instructions/decision.json\n?? docs/testing/instructions/investigation.json\n?? docs/testing/instructions/proposal.json\n?? docs/testing/reproduce.mjs\n?? docs/testing/review-csv-export.md\n?? docs/testing/review-results.json\n?? openspec/changes/review-csv-export/.openspec.yaml\n?? openspec/changes/review-csv-export/decision.md\n?? openspec/changes/review-csv-export/investigation.md\n?? openspec/changes/review-csv-export/proposal.md",
+  "committedInvestigation": false,
+  "untrackedResultsPreservedInSnapshot": true,
+  "promptSHA256": "c77ff3c9cffaae4263a264b8fd8de98efd02488cecc3680be27acef5e624fd62",
+  "comparisonWithFirstAttempt": {
+    "sameArchive": true,
+    "samePrompt": true,
+    "sameBrief": true,
+    "sameConfiguration": true,
+    "sameResolvedDependencyVersionsAndIntegrity": true,
+    "localTarballLocationsDiffer": true,
+    "newBaseline": "89a15e7d5b27a401d124fdd5dcbc97b4e972d03c",
+    "sameExecutedPrompt": true,
+    "samePinnedProfile": true
+  },
+  "run": {
+    "schema": "cliewen-discovery",
+    "profileId": "codex-cli-primary",
+    "phase": "initial",
+    "project": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-discovery-no-change-1793902329625\\project",
+    "baseline": "89a15e7d5b27a401d124fdd5dcbc97b4e972d03c",
+    "profile": {
+      "readiness": "pinned",
+      "agent": "Codex CLI",
+      "runner": "cli",
+      "model": "gpt-6.1-sol",
+      "agentVersion": "0.166.0",
+      "provider": "openai; existing ChatGPT CLI authentication",
+      "effort": "medium",
+      "permissions": "danger-full-access, approval never; project scope is an instruction, not OS isolation",
+      "context": "fresh process; ignore user config and execpolicy rules; project AGENTS and managed/global instructions may remain",
+      "budgets": {
+        "wallTimeSeconds": 600,
+        "outputBytes": 67108864,
+        "reportedCostUSD": null,
+        "tokenLimit": null,
+        "billing": "existing ChatGPT entitlement; no purchase"
+      },
+      "traceFormat": "codex exec --json JSONL plus stderr"
+    },
+    "exe": "C:\\Program Files\\nodejs\\node.exe",
+    "cliVersion": "codex-cli 0.166.0",
+    "startedAt": "2026-11-05T18:12:43.845Z",
+    "promptFile": "prompt.txt",
+    "environmentControls": {
+      "NO_COLOR": "1",
+      "OPENSPEC_TELEMETRY": "0",
+      "CI": "1"
+    },
+    "exitCode": 0,
+    "signal": null,
+    "endedAt": "2026-11-05T18:15:52.964Z",
+    "durationSeconds": 189.118,
+    "monotonicDurationSeconds": 189.11726259999998,
+    "deadlineExceededBySeconds": 0,
+    "stopReason": null,
+    "stopRequestedAt": null,
+    "stopRequestedAfterSeconds": null,
+    "terminationDelaySeconds": null,
+    "eventFailure": false,
+    "sessionId": "01a1ace9-c5f6-7a80-8b47-d28b6e623c10",
+    "usage": {
+      "input_tokens": 457442,
+      "cached_input_tokens": 418048,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 7398,
+      "reasoning_output_tokens": 546
+    },
+    "stepUsage": [],
+    "reportedCostUSD": null,
+    "observedModels": [],
+    "reviewInputsPreserved": true,
+    "evaluation": "not-graded"
+  },
+  "technicalChecks": {
+    "passed": true,
+    "branchObserved": true,
+    "testCount": 6,
+    "newTests": 0,
+    "newScenarioIDs": [],
+    "baselineTrackedInputsPreserved": true,
+    "preservedTrackedFiles": 34,
+    "decision": {
+      "type": "decision",
+      "status": "proposed",
+      "outcome": "no-change"
+    },
+    "durableDecision": {
+      "type": "decision",
+      "category": "architecture",
+      "status": "proposed",
+      "outcome": "no-change"
+    },
+    "strictValidation": "passed",
+    "schemaValidation": "passed",
+    "artifactStatus": "complete",
+    "findings": [
+      {
+        "code": "discovery-review-required",
+        "severity": "info",
+        "message": "Installation and registry checks only: review investigation sources, experiment outcomes, uncertainty, and the decision. Discovery findings do not prove product behavior."
+      }
+    ],
+    "productEvidenceCreated": false,
+    "deliveryChangeCreated": false,
+    "archived": false,
+    "retainedVerifierRecheck": "passed"
+  },
+  "processReview": {
+    "proposalInstructionsEvent": 15,
+    "investigationInstructionsEvent": 19,
+    "initialContractRunEvent": 23,
+    "correctedContractRunEvent": 27,
+    "decisionInstructionsEvent": 32,
+    "applyInstructionsAndReviewEvent": 36,
+    "finalReviewEvent": 41,
+    "performanceExperimentExecuted": false,
+    "initialContractWallTimeMs": 260,
+    "correctedContractWallTimeMs": 247,
+    "totalRecordedContractWallTimeMs": 507,
+    "productFilesChanged": false
+  },
+  "semanticReview": {
+    "outcome": "pass-with-minor-factual-finding",
+    "reviewer": "coordinating Codex agent",
+    "newBlockingFindings": [],
+    "findings": [
+      {
+        "finding": "test-input-row-count",
+        "claimedMaximumRows": 2,
+        "actualMaximumRows": 3,
+        "source": "test/export.test.mjs: doubles embedded quotes in values and headers [EXP-004]",
+        "budgetMaximumRows": 50000,
+        "budgetExceeded": false,
+        "originalCorrected": false,
+        "disposition": "Minor factual error retained; actual inputs remain bounded and the scoped no-change conclusion is unaffected",
+        "severity": "minor",
+        "blocking": false,
+        "reason": "The actual maximum of three records remains far below the agreed limit and does not alter the source-based no-change conclusion. This is retained, not a claim of flawless documentation."
+      }
+    ],
+    "observations": [
+      "The accepted fixture requirements remain distinct from unknown production needs.",
+      "Keeping, optimizing, extending, and replacing the API are compared without invented measurements.",
+      "Both workflow and durable decisions remain proposed, with concrete reopening conditions.",
+      "Contract execution durations are explicitly not presented as production latency measurements."
+    ],
+    "localMarkdownFiles": 5,
+    "localLinks": 33,
+    "missingTargets": 0,
+    "rendered": false,
+    "externalURLsChecked": false
+  },
+  "limits": [
+    "Two no-change observations complete only this variant/profile row, not primary coverage, human product acceptance, or release acceptance.",
+    "One ancillary input-size statement remains inaccurate in the original record; grading does not certify error-free documentation.",
+    "No performance, capacity, prototype, encoding, or downstream-consumer experiment was run.",
+    "Optional local commits were not made; the filesystem snapshot retains untracked artifacts that bundles alone omit.",
+    "The initial README probe had a syntax error and did not exercise product code; both initial and corrected runs remain preserved.",
+    "Actual model identity and monetary cost were not independently exposed; usage counters are not invoices.",
+    "No evaluator repair, added commit, product evidence collection, extra agent, archive, trial push, publication, tag, release, or external PR."
+  ]
+}
