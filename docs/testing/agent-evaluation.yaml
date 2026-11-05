@@ -315,6 +315,7 @@ scenarios:
     rubric: docs/testing/release-variants/discovery-delivery-handoff/rubric.md
     observedResults:
       - docs/testing/release-variants/result-005.md
+      - docs/testing/release-variants/result-006.md
   combined-investigation-and-delivery:
     schema: cliewen-all
     readiness: ready
