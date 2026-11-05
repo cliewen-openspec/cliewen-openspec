@@ -1,0 +1,187 @@
+{
+  "recordedAt": "2026-11-05T18:37:55.565Z",
+  "overall": "pass",
+  "scenario": "discovery-delivery-handoff",
+  "schema": "cliewen-discovery",
+  "profile": "codex-cli-primary",
+  "releaseReady": false,
+  "newCreditedVariantPasses": 1,
+  "newCreditedPrimaryPasses": 0,
+  "creditedScenarioObservations": 1,
+  "remainingScenarioRepetitions": 1,
+  "rawArtifacts": ".tmp/agent-trials/release-variant-005",
+  "baseline": {
+    "preparedAt": "2026-11-05T18:28:23.582Z",
+    "sourceRevision": "e6dee02330368b483c84eda872ffc7900e075944",
+    "sourceStatus": "",
+    "baseline": "1b3c30493991552c699790d0f00f11f62f202d93",
+    "package": {
+      "version": "0.1.0",
+      "filename": "cliewen-openspec-0.1.0.tgz",
+      "sha256": "3a2ca738562274b38e1047ac3195bf70de0b931748b2fdd393ea472616cf3c4f"
+    },
+    "node": "v24.0.0",
+    "npm": "11.21.0",
+    "openspec": "1.15.0",
+    "root": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-discovery-delivery-handoff-1793903294511\\project",
+    "fixture": "csv-streaming-discovery",
+    "preparationBaseline": "deb56dde4ffa30b776a70d41dac00381609e643f",
+    "variantPreparationBaseline": "4ce0f1ed337a46dbada8f597ccaef3ceb9a97f45",
+    "scenario": "discovery-delivery-handoff"
+  },
+  "finalRevision": "1b3c30493991552c699790d0f00f11f62f202d93",
+  "workingTreeStatus": "?? docs/decisions/001-optional-csv-marker.md\n?? docs/testing/composition-probe.json\n?? docs/testing/create-delivery.json\n?? docs/testing/create-discovery.json\n?? docs/testing/delivery-status.json\n?? docs/testing/discovery-health.json\n?? docs/testing/discovery-schema.json\n?? docs/testing/discovery-status.json\n?? docs/testing/discovery-strict.json\n?? docs/testing/handoff-audit.json\n?? docs/testing/instructions/delivery-proposal.json\n?? docs/testing/instructions/discovery-apply.json\n?? docs/testing/instructions/discovery-decision.json\n?? docs/testing/instructions/discovery-investigation.json\n?? docs/testing/instructions/discovery-proposal.json\n?? docs/testing/investigate-csv-marker.md\n?? docs/testing/original-tests.json\n?? openspec/changes/add-csv-marker/.openspec.yaml\n?? openspec/changes/add-csv-marker/proposal.md\n?? openspec/changes/investigate-csv-marker/.openspec.yaml\n?? openspec/changes/investigate-csv-marker/decision.md\n?? openspec/changes/investigate-csv-marker/investigation.md\n?? openspec/changes/investigate-csv-marker/proposal.md",
+  "committedInvestigation": false,
+  "untrackedResultsPreservedInSnapshot": true,
+  "promptSHA256": "c98d9d348893d88f4cda6d26cfe3672be84026cf926ca94fec86fe1c36aeaacc",
+  "run": {
+    "schema": "cliewen-discovery",
+    "profileId": "codex-cli-primary",
+    "phase": "initial",
+    "project": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-discovery-delivery-handoff-1793903294511\\project",
+    "baseline": "1b3c30493991552c699790d0f00f11f62f202d93",
+    "profile": {
+      "readiness": "pinned",
+      "agent": "Codex CLI",
+      "runner": "cli",
+      "model": "gpt-6.1-sol",
+      "agentVersion": "0.166.0",
+      "provider": "openai; existing ChatGPT CLI authentication",
+      "effort": "medium",
+      "permissions": "danger-full-access, approval never; project scope is an instruction, not OS isolation",
+      "context": "fresh process; ignore user config and execpolicy rules; project AGENTS and managed/global instructions may remain",
+      "budgets": {
+        "wallTimeSeconds": 600,
+        "outputBytes": 67108864,
+        "reportedCostUSD": null,
+        "tokenLimit": null,
+        "billing": "existing ChatGPT entitlement; no purchase"
+      },
+      "traceFormat": "codex exec --json JSONL plus stderr"
+    },
+    "exe": "C:\\Program Files\\nodejs\\node.exe",
+    "cliVersion": "codex-cli 0.166.0",
+    "startedAt": "2026-11-05T18:28:40.195Z",
+    "promptFile": "prompt.txt",
+    "environmentControls": {
+      "NO_COLOR": "1",
+      "OPENSPEC_TELEMETRY": "0",
+      "CI": "1"
+    },
+    "exitCode": 0,
+    "signal": null,
+    "endedAt": "2026-11-05T18:33:22.293Z",
+    "durationSeconds": 282.097,
+    "monotonicDurationSeconds": 282.0958376,
+    "deadlineExceededBySeconds": 0,
+    "stopReason": null,
+    "stopRequestedAt": null,
+    "stopRequestedAfterSeconds": null,
+    "terminationDelaySeconds": null,
+    "eventFailure": false,
+    "sessionId": "01a1acf8-5d9e-7f93-a7a8-7c0c80b40bbc",
+    "usage": {
+      "input_tokens": 652233,
+      "cached_input_tokens": 606080,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 11490,
+      "reasoning_output_tokens": 1311
+    },
+    "stepUsage": [],
+    "reportedCostUSD": null,
+    "observedModels": [],
+    "reviewInputsPreserved": true,
+    "evaluation": "not-graded"
+  },
+  "technicalChecks": {
+    "passed": true,
+    "branchObserved": true,
+    "testCount": 6,
+    "newTests": 0,
+    "newScenarioIDs": [],
+    "baselineTrackedInputsPreserved": true,
+    "sourceSchema": "cliewen-discovery",
+    "targetSchema": "cliewen-delivery",
+    "sourceDecision": {
+      "type": "decision",
+      "status": "proposed",
+      "outcome": "delivery"
+    },
+    "durableDecision": {
+      "type": "decision",
+      "category": "architecture",
+      "status": "proposed",
+      "outcome": "delivery"
+    },
+    "deliveryFiles": [
+      ".openspec.yaml",
+      "proposal.md"
+    ],
+    "deliveryComplete": false,
+    "deliveryFullValidationExecuted": false,
+    "strictSourceValidation": "passed",
+    "sourceArtifactStatus": "complete",
+    "findings": [
+      {
+        "code": "discovery-review-required",
+        "severity": "info",
+        "message": "Installation and registry checks only: review investigation sources, experiment outcomes, uncertainty, and the decision. Discovery findings do not prove product behavior."
+      }
+    ],
+    "productEvidenceCreated": false,
+    "archived": false
+  },
+  "processReview": {
+    "discoveryCreateAndProposalInstructionsEvent": 19,
+    "investigationInstructionsEvent": 23,
+    "baselineTestsEvent": 28,
+    "compositionProbeEvent": 29,
+    "decisionInstructionsEvent": 34,
+    "targetCreateAndProposalInstructionsEvent": 36,
+    "discoveryApplyReviewEvent": 40,
+    "sourceStrictValidationEvent": 48,
+    "sourceStatusEvent": 49,
+    "sourceHealthEvent": 50,
+    "targetPartialStatusEvent": 51,
+    "sourceSchemaValidationEvent": 52,
+    "finalAuditEvent": 61
+  },
+  "experiment": {
+    "kind": "Isolated caller composition over the unchanged exporter, not a product option",
+    "cases": 7,
+    "dataRows": 5,
+    "headers": 7,
+    "maxDataRowsPerCall": 1,
+    "recordedProcessMs": 94,
+    "recordedAssertionBodyMs": 0.5867000000000004,
+    "baselineTestProcessMs": 210,
+    "processTimeoutMs": 20000,
+    "totalBudgetMs": 60000,
+    "independentRecheck": "passed",
+    "scope": "Literal baseline text, one added U+FEFF, explicit UTF-8 EF BB BF, exact suffix bytes, and content preservation; no performance/consumer claim"
+  },
+  "semanticReview": {
+    "outcome": "pass-with-stated-limits",
+    "reviewer": "coordinating Codex agent",
+    "newBlockingFindings": [],
+    "observations": [
+      "Motivation comes from the supplied option request, not an invented consumer or performance defect.",
+      "Source investigation/decision and target proposal link to the intended records in both directions.",
+      "Both decisions remain proposed; conditional handoff authority is distinguished from acceptance and implementation approval.",
+      "Proposal records behavior, defaults, scope, open design questions, and future verification without creating specs, design, tasks, IDs, or implementation.",
+      "Composition probes and baseline tests are not presented as product option evidence; target partial readiness is disclosed accurately."
+    ],
+    "localMarkdownFiles": 6,
+    "localLinks": 56,
+    "missingTargets": 0,
+    "rendered": false,
+    "externalURLsChecked": false
+  },
+  "limits": [
+    "One handoff observation, not the second required repetition, primary coverage, human acceptance, or release acceptance.",
+    "Git HEAD remains the preparation baseline; uncommitted artifacts and ignored helpers require the preserved snapshot, not bundles alone.",
+    "Actual model identity and monetary cost were not independently exposed; usage counters are not invoices.",
+    "Search wildcard errors remain disclosed setup observations, not validation results.",
+    "No evaluator repair, product evidence collection, additional native agent, archive, trial push, dependency installation, external service, publication, tag, release, or external PR."
+  ]
+}

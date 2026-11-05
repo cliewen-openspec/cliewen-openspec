@@ -82,6 +82,8 @@ The [release variants](release-variants/README.md) have ready preparers, prompts
 
 [Codex recommends no change without inventing product work](release-variants/result-003.md) and [Codex repeats no-change discovery with a minor documentation finding](release-variants/result-004.md) complete the two no-change variant observations. Baseline product inputs remain unchanged; six existing tests and independent checks pass in both. Recommendations stay proposed and distinguish supplied acceptance from unknown production needs. The repeat's ancillary two-versus-three input-row error remains documented and was assessed as nonblocking for the bounded branch.
 
+[Codex hands discovery to a separate delivery proposal](release-variants/result-005.md) adds one reviewed handoff observation. Source and target retain their own schemas; proposed decisions and reciprocal links remain intact. The delivery change stops at proposal, without IDs, specs, design, tasks, implementation, or product evidence. One fresh repetition remains.
+
 The combined primary scenario is staged: its first prompt stops at a proposed decision, and actual human agreement is required before the agent's delivery stage. A correct approval-boundary stop does not complete end-to-end coverage. A no-change case must permit an honest recommendation, rather than reward reaching a predetermined answer. Variant checks therefore report technical validity separately from observation of the target branch; both still need independent semantic/process review.
 
 ## Assess and report

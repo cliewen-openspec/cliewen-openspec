@@ -313,6 +313,8 @@ scenarios:
     checker: scripts/check-release-variant.mjs
     prompt: docs/testing/release-variants/discovery-delivery-handoff/prompt.md
     rubric: docs/testing/release-variants/discovery-delivery-handoff/rubric.md
+    observedResults:
+      - docs/testing/release-variants/result-005.md
   combined-investigation-and-delivery:
     schema: cliewen-all
     readiness: ready
