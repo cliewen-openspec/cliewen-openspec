@@ -93,6 +93,7 @@ test('variant checkers preserve boundaries and distinguish branch coverage from 
   investigate(handoff, 'discovery-delivery-handoff', 'delivery');
   handoff.ospec('new', 'change', 'add-csv-marker', '--schema', 'cliewen-delivery'); handoff.instruction('add-csv-marker', 'proposal');
   write(handoff.root, 'openspec/changes/add-csv-marker/proposal.md', '# Proposal\nReview a later additive option from the proposed investigation. No implementation or IDs are authorized.\n');
+  fs.renameSync(path.join(handoff.root, 'docs/testing/instructions'), path.join(handoff.root, 'docs/testing/retained-responses'));
   assert.equal(handoff.check().result.branchObserved, true);
   write(handoff.root, 'openspec/changes/add-csv-marker/tasks.md', '# Unauthorized delivery tasks\n');
   assert.ok(handoff.check(1).result.checks.some(c => c.label === 'handoff stops at proposal' && !c.passed));
@@ -100,6 +101,15 @@ test('variant checkers preserve boundaries and distinguish branch coverage from 
   const combined = fixture('combined-no-delivery');
   const combinedBase = investigate(combined, 'combined-no-delivery', 'no-change');
   assert.equal(combined.check().result.branchObserved, true);
+  // The prompt requires saved responses, without prescribing their directory.
+  const retained = path.join(combined.root, 'docs/testing/retained-responses');
+  fs.renameSync(path.join(combined.root, 'docs/testing/instructions'), retained);
+  assert.equal(combined.check().result.passed, true);
+  const taskResponse = path.join(retained, 'review-csv-export/tasks.json');
+  const savedTaskResponse = fs.readFileSync(taskResponse, 'utf8');
+  fs.writeFileSync(taskResponse, savedTaskResponse.replace('"artifactId": "tasks"', '"artifactId": "wrong-artifact"'));
+  assert.ok(combined.check(1).result.checks.some(c => c.label === 'saved tasks instructions' && !c.passed));
+  fs.writeFileSync(taskResponse, savedTaskResponse);
   const metadataFile = path.join(combined.root, combinedBase, '.openspec.yaml');
   const metadata = parse(fs.readFileSync(metadataFile, 'utf8')); metadata.skip_specs = false; fs.writeFileSync(metadataFile, stringify(metadata));
   assert.equal(combined.check(1).result.passed, false);

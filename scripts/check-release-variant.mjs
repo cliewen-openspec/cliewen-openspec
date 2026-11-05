@@ -51,7 +51,7 @@ if (definition.placement) {
   add('correct source schema', metadata(definition.change).schema === definition.schema);
   const deferredDelivery = definition.schema === 'cliewen-all' && decision.outcome === 'delivery';
   const required = deferredDelivery ? ['proposal', 'investigation', 'decision'] : definition.schema === 'cliewen-all' ? ['proposal', 'investigation', 'decision', 'tasks', 'apply'] : ['proposal', 'investigation', 'decision', 'apply'];
-  for (const artifact of required) add(`saved ${artifact} instructions`, hasInstruction(root, artifact, definition.schema, definition.change));
+  for (const artifact of required) add(`saved ${artifact} instructions`, hasInstruction(root, artifact, definition.schema, definition.change, {searchProject: true}));
   if (definition.schema === 'cliewen-all') {
     add('outcome-specific spec skipping', deferredDelivery ? metadata(definition.change).skip_specs !== true : metadata(definition.change).skip_specs === true);
     add('no duplicate design', !fs.existsSync(path.join(change, 'design.md')));
@@ -70,7 +70,7 @@ if (definition.placement) {
     add('separate delivery schema', metadata(definition.handoff).schema === 'cliewen-delivery');
     add('handoff proposal exists', fs.existsSync(path.join(target, 'proposal.md')));
     add('handoff stops at proposal', ['design.md', 'decision.md', 'tasks.md', 'specs'].every(file => !fs.existsSync(path.join(target, file))));
-    add('saved handoff proposal instructions', hasInstruction(root, 'proposal', 'cliewen-delivery', definition.handoff));
+    add('saved handoff proposal instructions', hasInstruction(root, 'proposal', 'cliewen-delivery', definition.handoff, {searchProject: true}));
   }
 }
 const passed = checks.every(c => c.passed !== false && (c.exitCode === undefined || c.exitCode === c.expectedExitCode));

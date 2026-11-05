@@ -344,6 +344,8 @@ scenarios:
     checker: scripts/check-release-variant.mjs
     prompt: docs/testing/release-variants/combined-no-delivery/prompt.md
     rubric: docs/testing/release-variants/combined-no-delivery/rubric.md
+    observedResults:
+      - docs/testing/release-variants/result-007.md
   delivery-quality-and-retirement:
     schema: cliewen-delivery
     readiness: ready
