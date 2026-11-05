@@ -30,6 +30,13 @@ for (const [id, scenario] of Object.entries(plan.scenarios)) {
     for (const field of ['prepare', 'checker', 'prompt', 'rubric']) reference(scenario[field], `${id}.${field}`);
   }
   for (const report of scenario.observedResults ?? []) reference(report, `${id}.observedResults`);
+  if (scenario.coveredBy) {
+    const target = plan.scenarios[scenario.coveredBy];
+    assert.ok(target && !target.coveredBy && target.schema === scenario.schema, `${id}: coveredBy must reference a direct scenario in the same schema`);
+    assert.deepEqual(scenario.testing, target.testing, `${id}: coveredBy testing configuration differs`);
+    assert.ok(!plan.schemas[scenario.schema].releaseScenarios.includes(id), `${id}: covered alias must not add duplicate release coverage`);
+  }
+  if (scenario.prepareArgs !== undefined) assert.ok(Array.isArray(scenario.prepareArgs) && scenario.prepareArgs.every(arg => typeof arg === 'string' && arg), `${id}: prepareArgs must be nonempty strings`);
 }
 const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'cliewen-evaluation-plan-'));
 let shipped;

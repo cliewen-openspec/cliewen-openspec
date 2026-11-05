@@ -260,11 +260,21 @@ scenarios:
       - docs/testing/cli-trials/result-016.md
   csv-bom-per-task:
     schema: cliewen-delivery
-    readiness: planned
+    readiness: ready
+    coveredBy: csv-bom-evidence-first
+    prepare: scripts/prepare-csv-bom-trial.mjs
+    checker: scripts/check-csv-bom-trial.mjs
+    prompt: docs/testing/csv-bom-trial/prompt.md
+    rubric: docs/testing/csv-bom-trial/rubric.md
     testing: { placement: per-task, approach: evidence-first }
   csv-bom-final-tests:
     schema: cliewen-delivery
-    readiness: planned
+    readiness: ready
+    prepare: scripts/prepare-release-variant.mjs
+    prepareArgs: [csv-bom-final-tests]
+    checker: scripts/check-release-variant.mjs
+    prompt: docs/testing/release-variants/csv-bom-final-tests/prompt.md
+    rubric: docs/testing/release-variants/csv-bom-final-tests/rubric.md
     testing: { placement: end-of-change, approach: evidence-first }
   csv-streaming-investigation:
     schema: cliewen-discovery
@@ -283,10 +293,20 @@ scenarios:
       - docs/testing/cli-trials/result-005.md
   discovery-no-change:
     schema: cliewen-discovery
-    readiness: planned
+    readiness: ready
+    prepare: scripts/prepare-release-variant.mjs
+    prepareArgs: [discovery-no-change]
+    checker: scripts/check-release-variant.mjs
+    prompt: docs/testing/release-variants/discovery-no-change/prompt.md
+    rubric: docs/testing/release-variants/discovery-no-change/rubric.md
   discovery-delivery-handoff:
     schema: cliewen-discovery
-    readiness: planned
+    readiness: ready
+    prepare: scripts/prepare-release-variant.mjs
+    prepareArgs: [discovery-delivery-handoff]
+    checker: scripts/check-release-variant.mjs
+    prompt: docs/testing/release-variants/discovery-delivery-handoff/prompt.md
+    rubric: docs/testing/release-variants/discovery-delivery-handoff/rubric.md
   combined-investigation-and-delivery:
     schema: cliewen-all
     readiness: ready
@@ -309,7 +329,12 @@ scenarios:
       - docs/testing/cli-trials/result-012.md
   combined-no-delivery:
     schema: cliewen-all
-    readiness: planned
+    readiness: ready
+    prepare: scripts/prepare-release-variant.mjs
+    prepareArgs: [combined-no-delivery]
+    checker: scripts/check-release-variant.mjs
+    prompt: docs/testing/release-variants/combined-no-delivery/prompt.md
+    rubric: docs/testing/release-variants/combined-no-delivery/rubric.md
   delivery-quality-and-retirement:
     schema: cliewen-delivery
     readiness: ready
@@ -352,7 +377,7 @@ schemas:
     developmentScenario: csv-bom-evidence-first
     releaseVariantProfile: codex-cli-primary
     releaseProfiles: [ codex-cli-primary, claude-code-primary, opencode-2-2-5 ]
-    releaseScenarios: [ csv-bom-evidence-first, csv-bom-per-task, csv-bom-final-tests, delivery-quality-and-retirement ]
+    releaseScenarios: [ csv-bom-evidence-first, csv-bom-final-tests, delivery-quality-and-retirement ]
   cliewen-discovery:
     status: implemented
     developmentProfile: codex-cli-primary

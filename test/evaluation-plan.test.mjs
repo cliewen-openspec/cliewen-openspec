@@ -27,6 +27,8 @@ test('evaluation plan covers shipped schemas without treating planned profiles a
     plan => { plan.scenarios['csv-bom-evidence-first'].prompt = 'missing-prompt.md'; },
     plan => { plan.profiles['codex-cli-primary'].effort = null; },
     plan => { plan.schemas['cliewen-delivery'].releaseVariantProfile = 'missing-profile'; },
+    plan => { plan.schemas['cliewen-delivery'].releaseScenarios.push('csv-bom-per-task'); },
+    plan => { plan.scenarios['csv-bom-per-task'].coveredBy = 'csv-streaming-investigation'; },
   ]) {
     const changed = structuredClone(source); modify(changed); run(changed, 1);
   }

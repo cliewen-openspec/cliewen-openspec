@@ -76,7 +76,9 @@ Each preparer prints project and evaluator artifact paths and saves a baseline b
 
 Use the scenario's checker after completion and review its rubric. Snapshot the implementation or investigation, actual observations, instruction responses, and evaluator output. Preserve raw traces when available. Credentials do not belong in fixtures or reports.
 
-The per-task and end-of-change delivery variants, targeted discovery outcomes, and combined no-delivery agent variant remain planned. The combined primary scenario is staged: its first prompt stops at a proposed decision, and actual human agreement is required before the agent's delivery stage. A correct approval-boundary stop does not complete end-to-end coverage. A no-change case must permit an honest recommendation, rather than reward reaching a predetermined answer.
+The [release variants](release-variants/README.md) have ready preparers, prompts, rubrics, and independent technical checkers; native observations remain missing. The owner approved consolidating the duplicate per-task variant into the primary scenario, retaining its ID as a covered alias. End-of-change delivery, targeted discovery outcomes, and combined no-delivery remain distinct required rows. [Fixture validation](release-variants/validation-001.md) separates deterministic controls from agent coverage.
+
+The combined primary scenario is staged: its first prompt stops at a proposed decision, and actual human agreement is required before the agent's delivery stage. A correct approval-boundary stop does not complete end-to-end coverage. A no-change case must permit an honest recommendation, rather than reward reaching a predetermined answer. Variant checks therefore report technical validity separately from observation of the target branch; both still need independent semantic/process review.
 
 ## Assess and report
 

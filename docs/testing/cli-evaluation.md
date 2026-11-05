@@ -43,6 +43,8 @@ The defaults are a 600-second wall limit and 64 MiB of combined logs per phase. 
 
 These are local stop mechanisms. A stalled or suspended runner may act late; it is not a provider-enforced deadline. Results record wall-clock and monotonic duration plus any overrun, and completion beyond either elapsed limit is rejected. [Round 014: Host interruption diagnosis and factual-writing follow-up](cli-trials/result-014.md) explains the host sleep and clock correction behind the retained round 013 interruption. Use an awake host for unattended trials; an interrupted attempt needs a fresh baseline rather than a higher budget.
 
+For one distinct release variant, use `npm run trial:cli:prepare -- variant SCENARIO` instead of preparing the nine primary cases. It creates a one-case Codex suite without running an agent. [Prepare a release variant](release-variants/README.md) lists scenario IDs, configuration changes, the checker command, and branch/review limits.
+
 The owner approved these distinct profiles for the next targeted retry and independent review:
 
 | Profile | Purpose | Wall limit | Reported-cost limit and access |

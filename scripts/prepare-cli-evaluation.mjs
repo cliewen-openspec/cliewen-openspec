@@ -6,7 +6,14 @@ import {fileURLToPath} from 'node:url';
 import {parse} from 'yaml';
 
 const source = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const [output, ...extra] = process.argv.slice(2);
+const argv = process.argv.slice(2);
+if (argv[0] === 'variant') {
+  const result = spawnSync(process.execPath, [path.join(source, 'scripts/prepare-release-variant.mjs'), ...argv.slice(1)], {cwd: source, env: process.env, encoding: 'utf8', timeout: 240000});
+  process.stdout.write(result.stdout ?? '');
+  process.stderr.write(result.stderr ?? '');
+  process.exit(result.status ?? 1);
+}
+const [output, ...extra] = argv;
 if (extra.length || (output && !path.isAbsolute(output))) throw Error('Use npm run trial:cli:prepare -- [ABSOLUTE_NEW_DIRECTORY]');
 const root = output ?? path.join(os.tmpdir(), `cliewen-cli-evaluation-${Date.now()}`);
 const relative = path.relative(source, root);
