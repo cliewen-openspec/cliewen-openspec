@@ -278,6 +278,7 @@ scenarios:
     testing: { placement: end-of-change, approach: evidence-first }
     observedResults:
       - docs/testing/release-variants/result-001.md
+      - docs/testing/release-variants/result-002.md
   csv-streaming-investigation:
     schema: cliewen-discovery
     readiness: ready

@@ -1,0 +1,249 @@
+{
+  "recordedAt": "2026-11-05T17:52:29.492Z",
+  "overall": "pass",
+  "scenario": "csv-bom-final-tests",
+  "schema": "cliewen-delivery",
+  "profile": "codex-cli-primary",
+  "releaseReady": false,
+  "newCreditedVariantPasses": 1,
+  "newCreditedPrimaryPasses": 0,
+  "creditedScenarioObservations": 2,
+  "remainingScenarioRepetitions": 0,
+  "rawArtifacts": ".tmp/agent-trials/release-variant-002",
+  "baseline": {
+    "preparedAt": "2026-11-05T17:43:55.247Z",
+    "sourceRevision": "5e7619481c7a5ac8b67695a44cf1bf391aa0a7c2",
+    "sourceStatus": "",
+    "baseline": "dea010133dd11944161971ded1e8296c50adafc0",
+    "package": {
+      "version": "0.1.0",
+      "filename": "cliewen-openspec-0.1.0.tgz",
+      "sha256": "3a2ca738562274b38e1047ac3195bf70de0b931748b2fdd393ea472616cf3c4f"
+    },
+    "node": "v24.0.0",
+    "npm": "11.21.0",
+    "openspec": "1.15.0",
+    "root": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-csv-bom-final-tests-1793900626585\\project",
+    "variantPreparationBaseline": "3032f089563f1613d033f548b9b9fcc051b38b31",
+    "scenario": "csv-bom-final-tests"
+  },
+  "finalRevision": "37a37466d550e74ac7d948b3a6cc951e84d83761",
+  "workingTreeStatus": "",
+  "promptSHA256": "ccdbc77f0e9a559f2f0c061909b34a9a9873c94381ec8e6ed3a1b3b17c0796d0",
+  "comparisonWithFirstAttempt": {
+    "samePackage": true,
+    "samePrompt": true,
+    "sameBrief": true,
+    "sameConfiguration": true,
+    "sameResolvedDependencyVersionsAndIntegrity": true,
+    "localTarballLocationsDiffer": true,
+    "sameExecutedPrompt": true,
+    "samePinnedProfile": true,
+    "newBaseline": true,
+    "previousResult": "docs/testing/release-variants/result-001.json"
+  },
+  "run": {
+    "schema": "cliewen-delivery",
+    "profileId": "codex-cli-primary",
+    "phase": "initial",
+    "project": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-csv-bom-final-tests-1793900626585\\project",
+    "baseline": "dea010133dd11944161971ded1e8296c50adafc0",
+    "profile": {
+      "readiness": "pinned",
+      "agent": "Codex CLI",
+      "runner": "cli",
+      "model": "gpt-6.1-sol",
+      "agentVersion": "0.166.0",
+      "provider": "openai; existing ChatGPT CLI authentication",
+      "effort": "medium",
+      "permissions": "danger-full-access, approval never; project scope is an instruction, not OS isolation",
+      "context": "fresh process; ignore user config and execpolicy rules; project AGENTS and managed/global instructions may remain",
+      "budgets": {
+        "wallTimeSeconds": 600,
+        "outputBytes": 67108864,
+        "reportedCostUSD": null,
+        "tokenLimit": null,
+        "billing": "existing ChatGPT entitlement; no purchase"
+      },
+      "traceFormat": "codex exec --json JSONL plus stderr"
+    },
+    "exe": "C:\\Program Files\\nodejs\\node.exe",
+    "cliVersion": "codex-cli 0.166.0",
+    "startedAt": "2026-11-05T17:44:12.132Z",
+    "promptFile": "prompt.txt",
+    "environmentControls": {
+      "NO_COLOR": "1",
+      "OPENSPEC_TELEMETRY": "0",
+      "CI": "1"
+    },
+    "exitCode": 0,
+    "signal": null,
+    "endedAt": "2026-11-05T17:49:25.956Z",
+    "durationSeconds": 313.823,
+    "monotonicDurationSeconds": 313.8229165,
+    "deadlineExceededBySeconds": 0,
+    "stopReason": null,
+    "stopRequestedAt": null,
+    "stopRequestedAfterSeconds": null,
+    "terminationDelaySeconds": null,
+    "eventFailure": false,
+    "sessionId": "01a1accf-a78f-7df1-80ef-e95098e2476b",
+    "usage": {
+      "input_tokens": 916974,
+      "cached_input_tokens": 830464,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 12523,
+      "reasoning_output_tokens": 1071
+    },
+    "stepUsage": [],
+    "reportedCostUSD": null,
+    "observedModels": [],
+    "reviewInputsPreserved": true,
+    "evaluation": "not-graded"
+  },
+  "technicalChecks": {
+    "variantPassed": true,
+    "branchObserved": true,
+    "primaryPassed": true,
+    "testCount": 14,
+    "originalTests": 6,
+    "newCases": 8,
+    "testFiles": [
+      "test/export.test.mjs",
+      "test/bom.test.mjs"
+    ],
+    "newScenarioIDs": [
+      "EXP-007",
+      "EXP-008",
+      "EXP-009",
+      "EXP-010",
+      "EXP-011"
+    ],
+    "strictValidation": "passed",
+    "freshScopedEvidence": "passed",
+    "findings": [
+      {
+        "code": "coverage-minimum-unmet",
+        "message": "EXP-008: needs 1 distinct passed negative cases.",
+        "severity": "warning"
+      },
+      {
+        "code": "coverage-minimum-unmet",
+        "message": "EXP-009: needs 1 distinct passed positive cases.",
+        "severity": "warning"
+      },
+      {
+        "code": "coverage-minimum-unmet",
+        "message": "EXP-009: needs 1 distinct passed negative cases.",
+        "severity": "warning"
+      },
+      {
+        "code": "coverage-minimum-unmet",
+        "message": "EXP-010: needs 1 distinct passed positive cases.",
+        "severity": "warning"
+      },
+      {
+        "code": "coverage-minimum-unmet",
+        "message": "EXP-010: needs 1 distinct passed negative cases.",
+        "severity": "warning"
+      },
+      {
+        "code": "test-policy-review-required",
+        "severity": "info",
+        "message": "Record checks cannot prove case distinctness, assertion meaning, complete dependency/impact analysis, or human approval. Review these claims."
+      },
+      {
+        "code": "sufficiency-not-assessed",
+        "severity": "info",
+        "message": "Execution and linkage do not prove assertion quality; review the assertions against the scenarios."
+      }
+    ]
+  },
+  "processReview": {
+    "acceptancePlanBeforeImplementation": {
+      "planFileChangeEvent": 19,
+      "readyApplyContextReadEvent": 21,
+      "formatterFileChangeEvent": 24
+    },
+    "taskChecks": [
+      {
+        "task": "1.1",
+        "event": 26,
+        "observation": "Formatter and README diff inspected"
+      },
+      {
+        "task": "1.2",
+        "event": 30,
+        "observation": "New test syntax and unchanged original test-file comparison"
+      },
+      {
+        "task": "1.3",
+        "event": 34,
+        "observation": "Executable README examples checked before the suite in the same command batch"
+      }
+    ],
+    "finalVerification": [
+      {
+        "event": 34,
+        "observation": "Complete suite: 14 passed; isolated missing/unconditional-prefix faults"
+      },
+      {
+        "events": [
+          39,
+          41,
+          49
+        ],
+        "observation": "Strict validation, preserved fault logs, and local links; long requirement corrected before successful validation"
+      }
+    ],
+    "revisionBoundEvidence": [
+      {
+        "event": 58,
+        "revision": "533daf8803da357e537014afe2dd92e6058e7b64",
+        "observation": "Initial clean collection/check"
+      },
+      {
+        "event": 65,
+        "revision": "37a37466d550e74ac7d948b3a6cc951e84d83761",
+        "observation": "Final committed docs/review updates followed by fresh collection/check"
+      }
+    ],
+    "taskToTestMapping": "Implementation/documentation tasks link to final suite and validation tasks"
+  },
+  "semanticReview": {
+    "outcome": "pass-with-advisory-findings",
+    "reviewer": "coordinating Codex agent",
+    "newBlockingFindings": [],
+    "observations": [
+      "Spec, tests, examples, and handoff preserve U+FEFF content and distinguish text from UTF-8 bytes.",
+      "Counts match six unchanged originals plus eight new cases covering five new IDs.",
+      "Five advisory category minima are retained with their actual scenario/category mapping; no mode was disabled or warning claimed resolved.",
+      "Non-Boolean and null options remain outside the required Boolean contract."
+    ],
+    "localMarkdownFiles": 8,
+    "localLinks": 8,
+    "missingTargets": 0,
+    "rendered": false,
+    "externalURLsChecked": false
+  },
+  "evaluatorFault": {
+    "description": "Strip valid caller U+FEFF from default/false output in an isolated copy",
+    "scopeOfExecution": "Entire test directory copied and discovered, including the new BOM file",
+    "suiteExitCode": 1,
+    "assertionFailure": true,
+    "tests": 14,
+    "passed": 13,
+    "failed": 1,
+    "originalProjectUnchanged": true,
+    "scope": "One targeted fault, not a mutation score"
+  },
+  "limits": [
+    "Two observations complete only this scenario/profile row, not all release coverage or primary repetitions.",
+    "Freshly resolved dependency versions/integrity match; local tarball paths and Git baselines differ.",
+    "Actual model identity and monetary cost were not independently exposed; usage counters are not invoices.",
+    "Record status does not authenticate human approval or exhaustive assertion sufficiency.",
+    "Original titles lack optional case metadata; no permanent-scope coverage pass is claimed.",
+    "The initial long-requirement validation warning and later whitespace correction remain disclosed.",
+    "No evaluator repair, evidence recollection, extra native agent, archive, trial push, publication, tag, release, or external PR."
+  ]
+}

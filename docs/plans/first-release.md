@@ -49,7 +49,7 @@ Use [Remaining checks before 0.1.0](../testing/release-gaps.md) as the operation
 
 [Four release variants are prepared for native trials](../testing/release-variants/validation-001.md) records ready fixtures and deterministic checker controls. All 76 local tests and four platform CI jobs pass at `64b9cc5`; Pages deployed. The owner-approved per-task consolidation removes two duplicate runs; six distinct variants each require two observations. No agent coverage or release acceptance follows from fixture preparation alone.
 
-[Codex completes delivery with final-suite verification](../testing/release-variants/result-001.md) credits one of those variant attempts. Eleven variant and 14 primary passing attempts remain; required final compatibility, source-change disposition, and release acceptance are still open.
+[The first](../testing/release-variants/result-001.md) and [second final-suite delivery observations](../testing/release-variants/result-002.md) complete that variant's two required passes. Ten variant and 14 primary passing attempts remain; required final compatibility, source-change disposition, and release acceptance are still open.
 
 [The local 0.1.0 candidate report](../testing/release-candidate-001.md) records both immutable archives, passing platform CI, fresh Codex quality/lifecycle evidence, and the corrected Claude prepared-guide observation. These bounded results do not complete the repeated-profile release gate below.
 
