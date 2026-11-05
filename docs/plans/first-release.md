@@ -47,7 +47,7 @@ Use [Remaining checks before 0.1.0](../testing/release-gaps.md) as the operation
 
 [Round 016: OpenCode reaches fresh evidence but times out before handoff](../testing/cli-trials/result-016.md) adds an incomplete attempt at the unchanged 600-second limit. Technical checks pass, while a data-loss fault survives all 16 tests and draft documentation findings remain. No new release-profile pass is credited.
 
-[Four release variants are prepared for native trials](../testing/release-variants/validation-001.md) records ready fixtures and deterministic checker controls. The owner-approved per-task consolidation removes two duplicate runs; six distinct variants still require 12 passing attempts, alongside the 14 remaining primary attempts. No new agent coverage or release acceptance follows from fixture preparation.
+[Four release variants are prepared for native trials](../testing/release-variants/validation-001.md) records ready fixtures and deterministic checker controls. All 76 local tests and four platform CI jobs pass at `64b9cc5`; Pages deployed. The owner-approved per-task consolidation removes two duplicate runs; six distinct variants still require 12 passing attempts, alongside the 14 remaining primary attempts. No new agent coverage or release acceptance follows from fixture preparation.
 
 [The local 0.1.0 candidate report](../testing/release-candidate-001.md) records both immutable archives, passing platform CI, fresh Codex quality/lifecycle evidence, and the corrected Claude prepared-guide observation. These bounded results do not complete the repeated-profile release gate below.
 

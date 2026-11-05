@@ -39,6 +39,8 @@ The focused deterministic test passes six valid controls and rejects seven viola
 
 ## Remaining coverage
 
-All 76 local package tests passed. After final checker hardening, both focused variant/manifest tests passed again. The evaluation-plan check passed; the documentation build checked 13 pages, 464 local links, four diagrams, and CLI defaults. CI confirmation of this increment remains pending.
+All 76 local package tests passed. After final checker hardening, both focused variant/manifest tests passed again. The evaluation-plan check passed; the documentation build checked 13 pages, 464 local links, four diagrams, and CLI defaults. Local targets and heading references were also checked across all 20 changed/new Markdown documents.
+
+At `64b9cc571b907be0fe0818e09f9cdbc186424b39`, [package run 42070602290](https://github.com/cliewen-openspec/cliewen-openspec/actions/runs/42070602290) passed all four Windows/Linux and Node 22/24 jobs. [Pages run 42070602277](https://github.com/cliewen-openspec/cliewen-openspec/actions/runs/42070602277) built and deployed successfully. These CI results validate repository tooling and deterministic fixtures, not a native agent attempt or permanent resolution of intermittent registry-install timeouts.
 
 The [release-gap register](../release-gaps.md) now has six distinct variant rows requiring 12 passing attempts, instead of seven rows requiring 14. Four retained primary passes and their remaining 14 required passing attempts are unchanged. Preparation and checker tests add zero native passes. Run ready variants in bounded batches with the existing pinned Codex profile and budget; retain every failure and review actual outcomes before crediting coverage.

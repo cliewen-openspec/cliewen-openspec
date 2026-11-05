@@ -47,7 +47,7 @@ These rows add **12 passing variant attempts**. The owner approved consolidating
 | Prepared guide / Codex | [Guide result 004: candidate guide checks](guide-walkthrough/result-004.md) passed on the earlier candidate | Record input-impact/evidence-reuse review for the final guide and package; rerun if the journey changed |
 | Prepared guide / Claude | [Candidate guide retry](release-candidate-001.md#revised-candidate-and-guide-retry) passed within its stated review limits | Same final-input review; preserve the initial failed attempt |
 | Prepared guide / OpenCode | Technical checks passed; required test-file readback was missing | Fresh compliant walkthrough, then retrospective and independent process review |
-| Windows/Linux, Node 22/24, OpenSpec 1.15.0 | All 75 tests passed in four CI jobs at `ce2d695`; Pages deployed | Revalidate the final candidate and record exact inputs; retain periodic npm-install timeout observations |
+| Windows/Linux, Node 22/24, OpenSpec 1.15.0 | All 76 tests pass locally; four CI jobs pass at `64b9cc5`, and Pages deployed; see [fixture validation](release-variants/validation-001.md) | Revalidate the final candidate and record exact inputs; retain periodic npm-install timeout observations |
 | Real-host learnings/Humanizer states | [Bounded acceptance review](knowledge-writing-trial/acceptance.md) separates actual and hypothetical observations | Obtain evidence for any broader support claim or explicitly disposition its documented limit |
 | Human usability, recovery, agent-authored guide route | Not established by the prepared walkthrough | Review whether to obtain observations or accept explicitly limited release claims; no waiver is recorded here |
 
