@@ -35,6 +35,13 @@ test('quality checker recognizes captured scoped output without accepting failed
   const change = 'allow-nonnegative-counts';
   assert.equal(successfulScopedCheck(result, change), true);
   assert.equal(successfulScopedCheck(captured, change), true);
+  const {exitCode, ...withoutExitCode} = captured;
+  assert.equal(successfulScopedCheck({...withoutExitCode, exit: 0}, change), true);
+  assert.equal(successfulScopedCheck({...withoutExitCode, exit: 1}, change), false);
+  assert.equal(successfulScopedCheck({...captured, exit: 1}, change), false);
+  assert.equal(successfulScopedCheck({...captured, exitCode: null, exit: 0}, change), false);
+  assert.equal(successfulScopedCheck(withoutExitCode, change), false);
+  assert.equal(successfulScopedCheck({...result, exit: 1}, change), false);
   assert.equal(successfulScopedCheck({...captured, exitCode: 1}, change), false);
   assert.equal(successfulScopedCheck(captured, 'another-change'), false);
   assert.equal(successfulScopedCheck({...captured, command: ['node', 'probe.mjs']}, change), false);

@@ -6,6 +6,7 @@ import {createHash} from 'node:crypto';
 import {parse} from 'yaml';
 import {hasInstruction} from './lib/trial-instructions.mjs';
 import {successfulScopedCheck} from './lib/trial-results.mjs';
+import {readAcceptedCombinedDecision} from './lib/trial-decisions.mjs';
 
 const [project, artifacts, filename = 'independent-checks.json', ...extra] = process.argv.slice(2);
 if (!project || !artifacts || extra.length || !/^[a-z0-9][a-z0-9.-]*\.json$/.test(filename)) throw Error('Use node scripts/check-quality-lifecycle-trial.mjs PROJECT ARTIFACTS [RESULT_NAME.json]');
@@ -58,12 +59,10 @@ try {
   const archived = fs.readdirSync(path.join(root, 'openspec/changes/archive')).filter(n => new RegExp(`^\\d{4}-\\d{2}-\\d{2}-${change}$`).test(n));
   assert.equal(archived.length, 1);
   if (schema === 'cliewen-all') {
-    const decisionFile = path.join(root, 'openspec/changes/archive', archived[0], 'decision.md');
-    const decisionText = fs.readFileSync(decisionFile, 'utf8');
-    const decision = parse(decisionText.match(/^---\r?\n([\s\S]*?)\r?\n---/)?.[1] ?? '');
-    assert.equal(decision?.status, 'accepted'); assert.equal(decision.outcome, 'delivery');
-    assert.equal(fs.existsSync(path.join(path.dirname(decisionFile), 'design.md')), false);
-    assert.ok(fs.readdirSync(path.join(root, settings.docsRoot, 'decisions')).some(f => f.endsWith('.md')), 'Preserve a durable decision reference');
+    const folder = path.join(root, 'openspec/changes/archive', archived[0]);
+    const decision = readAcceptedCombinedDecision(folder);
+    // A separate durable reference is conditional in the instructions, not a required directory.
+    checks.push({label: 'archived combined decision authority', file: path.relative(root, path.join(folder, 'decision.md')), decision});
   }
   const instructionIds = schema === 'cliewen-all' ? ['proposal', 'investigation', 'decision', 'specs', 'tasks', 'apply'] : ['proposal', 'specs', 'design', 'tasks', 'apply'];
   for (const artifact of instructionIds) assert.ok(hasInstruction(root, artifact, schema, change), `Missing saved ${artifact} instructions`);
