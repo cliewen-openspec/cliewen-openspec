@@ -1,0 +1,283 @@
+{
+  "recordedAt": "2026-11-06T15:27:59.967Z",
+  "overall": "pass",
+  "scenario": "delivery-quality-and-retirement",
+  "schema": "cliewen-delivery",
+  "profile": "codex-cli-primary",
+  "releaseReady": false,
+  "newCreditedVariantPasses": 1,
+  "newCreditedPrimaryPasses": 0,
+  "creditedScenarioObservations": 1,
+  "remainingScenarioRepetitions": 1,
+  "rawArtifacts": ".tmp/agent-trials/release-variant-009",
+  "baseline": {
+    "preparedAt": "2026-11-06T15:13:54.277Z",
+    "sourceRevision": "d7d029a20ac43f2e5618650edfe95d37194e20dd",
+    "sourceStatus": "",
+    "schema": "cliewen-delivery",
+    "baseline": "ed9acda8ba3179c78dd938a025b1e7e49f53d0ae",
+    "package": {
+      "version": "0.1.0",
+      "filename": "cliewen-openspec-0.1.0.tgz",
+      "sha256": "3a2ca738562274b38e1047ac3195bf70de0b931748b2fdd393ea472616cf3c4f"
+    },
+    "node": "v24.0.0",
+    "npm": "11.21.0",
+    "openspec": "1.15.0",
+    "root": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-quality-lifecycle-1793978024862\\project"
+  },
+  "finalRevision": "b02ece95a26c31265b6596db8caa3c70ab9c0244",
+  "workingTreeStatus": "",
+  "promptSHA256": "3c1fdbcf2202b3959c6c6e7e2d395e9a1c5cb6fcb25c2e6c535bda97932800dd",
+  "run": {
+    "schema": "cliewen-delivery",
+    "profileId": "codex-cli-primary",
+    "phase": "initial",
+    "project": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-quality-lifecycle-1793978024862\\project",
+    "baseline": "ed9acda8ba3179c78dd938a025b1e7e49f53d0ae",
+    "profile": {
+      "readiness": "pinned",
+      "agent": "Codex CLI",
+      "runner": "cli",
+      "model": "gpt-6.1-sol",
+      "agentVersion": "0.166.0",
+      "provider": "openai; existing ChatGPT CLI authentication",
+      "effort": "medium",
+      "permissions": "danger-full-access, approval never; project scope is an instruction, not OS isolation",
+      "context": "fresh process; ignore user config and execpolicy rules; project AGENTS and managed/global instructions may remain",
+      "budgets": {
+        "wallTimeSeconds": 600,
+        "outputBytes": 67108864,
+        "reportedCostUSD": null,
+        "tokenLimit": null,
+        "billing": "existing ChatGPT entitlement; no purchase"
+      },
+      "traceFormat": "codex exec --json JSONL plus stderr"
+    },
+    "exe": "C:\\Program Files\\nodejs\\node.exe",
+    "cliVersion": "codex-cli 0.166.0",
+    "startedAt": "2026-11-06T15:14:07.788Z",
+    "promptFile": "prompt.txt",
+    "environmentControls": {
+      "NO_COLOR": "1",
+      "OPENSPEC_TELEMETRY": "0",
+      "CI": "1"
+    },
+    "exitCode": 0,
+    "signal": null,
+    "endedAt": "2026-11-06T15:22:35.564Z",
+    "durationSeconds": 507.775,
+    "monotonicDurationSeconds": 507.77483490000003,
+    "deadlineExceededBySeconds": 0,
+    "stopReason": null,
+    "stopRequestedAt": null,
+    "stopRequestedAfterSeconds": null,
+    "terminationDelaySeconds": null,
+    "eventFailure": false,
+    "sessionId": "01a1b16c-9e5a-7361-8b15-54e8451fb0dc",
+    "usage": {
+      "input_tokens": 1256796,
+      "cached_input_tokens": 1197568,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 18845,
+      "reasoning_output_tokens": 4303
+    },
+    "stepUsage": [],
+    "reportedCostUSD": null,
+    "observedModels": [],
+    "reviewInputsPreserved": true,
+    "evaluation": "not-graded"
+  },
+  "technicalChecks": {
+    "status": "passed",
+    "nativeBaselineTests": 6,
+    "finalTests": 12,
+    "strictChangeValidation": "passed",
+    "strictPermanentValidation": "passed",
+    "enforcedActiveCheck": true,
+    "enforcedPermanentCheck": true,
+    "activeRevision": "2d312d92720b7830dd004ee0fbf2c873236c230b",
+    "permanentRevision": "b02ece95a26c31265b6596db8caa3c70ab9c0244",
+    "archive": "openspec/changes/archive/2026-11-06-allow-nonnegative-counts",
+    "archiveAuthority": "Unchanged docs/accepted-change.md applies only to the disposable project",
+    "registryPreserved": true,
+    "retiredIDs": [
+      "COUNT-003"
+    ],
+    "newIDs": [],
+    "testFilesPreserved": [
+      "test/count.test.mjs",
+      "test/limit.test.mjs",
+      "test/shared.test.mjs"
+    ],
+    "coverage": {
+      "COUNT-001": {
+        "positive": 2,
+        "negative": 4,
+        "boundary": 1
+      },
+      "COUNT-002": {
+        "positive": 4,
+        "negative": 0,
+        "boundary": 1
+      }
+    },
+    "exceptions": [
+      {
+        "policy": "coverage",
+        "scenario": "COUNT-002",
+        "category": "negative",
+        "reason": "docs/accepted-change.md permits only this category exception: zero is accepted; invalid text/non-strings and unsafe integers remain rejected and tested under COUNT-001. No positive, boundary, effectiveness, lifecycle, failure, or freshness waiver.",
+        "status": "reviewed"
+      }
+    ],
+    "activeInputHashesChecked": 38,
+    "permanentInputHashesChecked": 44,
+    "originalProjectHashesUnchanged": true,
+    "findings": [
+      {
+        "code": "test-policy-review-required",
+        "severity": "info",
+        "message": "Record checks cannot prove case distinctness, assertion meaning, complete dependency/impact analysis, or human approval. Review these claims."
+      },
+      {
+        "code": "sufficiency-not-assessed",
+        "severity": "info",
+        "message": "Execution and linkage do not prove assertion quality; review the assertions against the scenarios."
+      }
+    ]
+  },
+  "processReview": {
+    "baselineTestsEvent": 6,
+    "configurationAndAssertionReviewEvent": 8,
+    "baselineCheckAndProposalInstructionsEvent": 10,
+    "cleanBaselineCollectionEvent": 13,
+    "weakStrongAndSetupExperimentEvent": 17,
+    "tasksInstructionsEvent": 21,
+    "applyInstructionsEvent": 26,
+    "contextReviewEvent": 28,
+    "implementationTaskTestsEvent": 32,
+    "finalFaultsAndRestorationEvent": 36,
+    "correctedFaultClassificationEvent": 40,
+    "activeReviewCommitCollectionAndCheckEvent": 55,
+    "activeEvidenceSemanticReviewAndArchiveEvent": 57,
+    "archiveLinkRepairEvent": 60,
+    "permanentReviewCommitAndCollectionEvent": 62,
+    "finalDocumentationReviewEvent": 66,
+    "finalCommitCollectionAndCheckEvent": 69
+  },
+  "effectivenessReview": {
+    "baselineExperimentIndependentlyReproduced": true,
+    "weakFaultExit": 0,
+    "correctedFaultExit": 1,
+    "correctedFaultAssertion": "3 !== 2",
+    "unrelatedSetupExit": 1,
+    "setupFailure": "ERR_MODULE_NOT_FOUND; excluded from effectiveness evidence",
+    "nativeFaults": [
+      {
+        "name": "numeric",
+        "failedCases": [
+          "parses text [COUNT-001] [Test-type: Unit] [Case: two] [Coverage: positive]",
+          "parses multiple digits [COUNT-001] [Test-type: Unit] [Case: multi-digit] [Coverage: positive]",
+          "accepts positive counts [COUNT-002] [Test-type: Unit] [Case: one] [Coverage: positive]",
+          "accepts larger positive counts [COUNT-002] [Test-type: Unit] [Case: larger] [Coverage: positive]",
+          "accepts zero [COUNT-002] [Test-type: Unit] [Case: zero] [Coverage: boundary]",
+          "accepts former limit [COUNT-002] [Test-type: Unit] [Case: maximum] [Coverage: positive]",
+          "accepts above former limit [COUNT-002] [Test-type: Unit] [Case: above-maximum] [Coverage: positive]",
+          "accepts safe maximum [COUNT-001] [Test-type: Unit] [Case: safe-maximum] [Coverage: boundary]"
+        ]
+      },
+      {
+        "name": "malformed",
+        "failedCases": [
+          "rejects noncanonical forms [COUNT-001] [Test-type: Unit] [Case: malformed] [Coverage: negative]",
+          "rejects non-string input [COUNT-001] [Test-type: Unit] [Case: non-string] [Coverage: negative]",
+          "rejects malformed input [COUNT-001] [Test-type: Unit] [Case: shared] [Coverage: negative]"
+        ]
+      },
+      {
+        "name": "unsafe",
+        "failedCases": [
+          "rejects unsafe integers [COUNT-001] [Test-type: Unit] [Case: unsafe] [Coverage: negative]"
+        ]
+      },
+      {
+        "name": "zero",
+        "failedCases": [
+          "accepts zero [COUNT-002] [Test-type: Unit] [Case: zero] [Coverage: boundary]"
+        ]
+      }
+    ],
+    "independentFinalFaults": [
+      {
+        "label": "assertions reject incorrect numeric result",
+        "exitCode": 1
+      },
+      {
+        "label": "assertions reject malformed input accepted",
+        "exitCode": 1
+      },
+      {
+        "label": "assertions reject zero rejected",
+        "exitCode": 1
+      },
+      {
+        "label": "assertions reject retired limit restored",
+        "exitCode": 1
+      },
+      {
+        "label": "assertions reject unsafe value accepted",
+        "exitCode": 1
+      }
+    ],
+    "loopLimit": "A throwing assertion stops its case; grouped tests do not show every loop input executed under a fault",
+    "scope": "Bounded relevant behavioral controls, not exhaustive mutation coverage"
+  },
+  "reviewInfrastructure": {
+    "initialIndependentStatus": "failed",
+    "cause": {
+      "cause": "CRLF saved instruction files copied over a fresh LF Git checkout were reported modified although normalized diff was empty.",
+      "remedy": "Rebuild the review copy index for those paths using git add --renormalize; cached diff remains empty and no file bytes or commit changed.",
+      "originalCheckerResult": "independent-checks.json",
+      "followUpCheckerResult": "independent-checks-follow-up.json",
+      "nativeProjectRepaired": false
+    },
+    "followUpIndependentStatus": "passed",
+    "originalCheckerResult": "artifacts/independent-checks.json",
+    "followUpCheckerResult": "artifacts/independent-checks-follow-up.json",
+    "sourceCheckerChanged": false,
+    "nativeAttemptRepeated": false,
+    "nativeFilesRepaired": false,
+    "baselineReviewParserFailure": "First review helper expected a TAP pass summary, but Node emitted the spec reporter. Its subprocesses already completed; a separate helper parsed the retained logs without rerunning them."
+  },
+  "semanticReview": {
+    "outcome": "pass-with-stated-limits",
+    "reviewer": "coordinating Codex agent",
+    "newBlockingFindings": [],
+    "observations": [
+      "Green baseline tests are distinguished from missing enforced coverage and review records.",
+      "Exact equality rejects the numeric fault missed by the original type-only assertion; unrelated import failure is excluded.",
+      "All declared effectiveness case IDs have corresponding relevant observed failures; shared malformed-input assertions are assessed separately.",
+      "Zero and former upper-limit values are accepted; canonical validation, exact safe values, and specified error classes are preserved.",
+      "COUNT-003 retirement follows the unchanged accepted agreement; its ID stays reserved and active shared obligations remain under COUNT-001.",
+      "Only the authorized COUNT-002 negative coverage exception is used; all enforcement modes and other minima stay enabled.",
+      "Both genuine evidence scopes remain preserved, and final permanent evidence matches clean final HEAD.",
+      "Historical positive-minimum titles and corrected native helper/validation errors are disclosed."
+    ],
+    "localMarkdownFiles": 10,
+    "localLinks": 9,
+    "headingFragments": 1,
+    "missingTargets": 0,
+    "rendered": false,
+    "externalURLsChecked": false
+  },
+  "limits": [
+    "First current-input delivery quality/lifecycle observation; one fresh repetition remains. It adds no primary coverage or release acceptance.",
+    "Controlled faults are examples; automated record validation does not establish full dependency discovery, semantic sufficiency, or human acceptance.",
+    "Local archive authority applies only to this disposable project.",
+    "Independent fault checks and baseline reproduction ran in separate copies sharing read-only installed dependencies; native inputs and reports were not repaired or recollected.",
+    "Review-copy line-ending/index preparation and a reporter-parser expectation caused separate evaluator failures; original failed checks and logs remain preserved.",
+    "Actual model identity and monetary cost were not exposed; usage counters are not invoices.",
+    "No additional native agent, external service, source-repository archive, package publication, tag, release, trial push, or external PR."
+  ]
+}
