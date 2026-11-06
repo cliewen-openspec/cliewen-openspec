@@ -3,7 +3,7 @@ type: plan
 ---
 # Remaining checks before 0.1.0
 
-This is the current release-gap register, reconciled through [Codex maintains assertions through count-range retirement](release-variants/result-009.md). The [evaluation manifest](agent-evaluation.yaml) defines scenarios and pinned profiles; [the evaluation policy](agent-evaluation.md#when-to-run-trials) requires two fresh repetitions of each distinct required combination. The [first-release checklist](../plans/first-release.md) owns final acceptance and publication. No agent calls or budget increases follow from this register.
+This is the current release-gap register, reconciled through [Codex repeats count-range test quality and retirement](release-variants/result-010.md). The [evaluation manifest](agent-evaluation.yaml) defines scenarios and pinned profiles; [the evaluation policy](agent-evaluation.md#when-to-run-trials) requires two fresh repetitions of each distinct required combination. The [first-release checklist](../plans/first-release.md) owns final acceptance and publication. No agent calls or budget increases follow from this register.
 
 ## Primary schema trials
 
@@ -27,23 +27,24 @@ A combined attempt includes investigation, actual human acceptance of its concre
 
 ## Required variants
 
-The manifest assigns these to Codex, with two fresh repetitions each. Final-suite delivery, discovery no-change, discovery handoff, and combined no-delivery each have two reviewed passes on the latest archive. Delivery quality/lifecycle has one; combined quality/lifecycle has none. The no-change repeat retains one minor documentation finding with its grading rationale. Historical quality trials remain useful development evidence.
+The manifest assigns these to Codex, with two fresh repetitions each. Final-suite delivery, discovery no-change, discovery handoff, and combined no-delivery each have two reviewed passes on the latest archive. Delivery quality/lifecycle also has two; combined quality/lifecycle has none. The no-change repeat retains one minor documentation finding with its grading rationale. Historical quality trials remain useful development evidence.
 
 | Schema | Scenario | Fixture status | Remaining action |
 |---|---|---|---|
 | Delivery | `csv-bom-final-tests` | Complete; 2 / 2 passes | [First](release-variants/result-001.md) and [second](release-variants/result-002.md) fresh observations passed; advisory findings retained |
-| Delivery | `delivery-quality-and-retirement` | Ready; 1 / 2 passes | [First current-input observation passed](release-variants/result-009.md); one fresh repetition remains. Earlier candidate observations remain historical |
+| Delivery | `delivery-quality-and-retirement` | Complete; 2 / 2 passes | [First](release-variants/result-009.md) and [second](release-variants/result-010.md) observations preserve shared assertions and both evidence scopes; inherited fixture-link finding retained |
 | Discovery | `discovery-no-change` | Complete; 2 / 2 passes | [First](release-variants/result-003.md) and [second](release-variants/result-004.md) observations support no change; minor factual finding retained |
 | Discovery | `discovery-delivery-handoff` | Complete; 2 / 2 passes | [First](release-variants/result-005.md) and [second](release-variants/result-006.md) observations preserve proposed status and stop at a separate delivery proposal |
 | Combined | `combined-no-delivery` | Complete; 2 / 2 passes | [First](release-variants/result-007.md) and [second](release-variants/result-008.md) observations complete genuine closure tasks with proposed no-change decisions; initial evaluator failure retained |
 | Combined | `combined-quality-and-retirement` | Ready | Run twice with actual design acceptance; [earlier combined quality trial](quality-lifecycle-trial/result-003.md) used the historical alpha |
 
-These rows require 12 passing variant attempts, of which nine are credited; **three remain**. The owner approved consolidating the duplicate per-task row on November 5, 2026: `csv-bom-per-task` remains an alias covered by the primary scenario, adding no runs. [Fixture validation](release-variants/validation-001.md) records the rationale and deterministic controls; [the variant guide](release-variants/README.md) documents preparation and checking. Totals exclude guide phases, retries, setup, and review time; they are not a spending estimate or approval to run the whole matrix.
+These rows require 12 passing variant attempts, of which ten are credited; **two remain**. The owner approved consolidating the duplicate per-task row on November 5, 2026: `csv-bom-per-task` remains an alias covered by the primary scenario, adding no runs. [Fixture validation](release-variants/validation-001.md) records the rationale and deterministic controls; [the variant guide](release-variants/README.md) documents preparation and checking. Totals exclude guide phases, retries, setup, and review time; they are not a spending estimate or approval to run the whole matrix.
 
 ## Guide, platform, and support gaps
 
 | Area | Recorded evidence | Remaining action |
 |---|---|---|
+| Quality fixture reference link | [Delivery quality/lifecycle repeat](release-variants/result-010.md) discloses the supplied reference's missing configuration target; authored links pass | Correct the target for future fixture preparations and record the input impact; preserve the two reviewed delivery attempts and their stated limits |
 | Prepared guide / Codex | [Guide result 004: candidate guide checks](guide-walkthrough/result-004.md) passed on the earlier candidate | Record input-impact/evidence-reuse review for the final guide and package; rerun if the journey changed |
 | Prepared guide / Claude | [Candidate guide retry](release-candidate-001.md#revised-candidate-and-guide-retry) passed within its stated review limits | Same final-input review; preserve the initial failed attempt |
 | Prepared guide / OpenCode | Technical checks passed; required test-file readback was missing | Fresh compliant walkthrough, then retrospective and independent process review |
@@ -67,7 +68,7 @@ Complete or explicitly disposition these changes, review all six roadmap priorit
 
 The four saved primary passes have been rechecked and retained. The next bounded OpenCode attempt was run and classified incomplete in round 016; it adds no pass. Continue with:
 
-1. Repeat delivery quality/lifecycle once with the same package, prompt, profile, and limits, then run combined quality/lifecycle twice with actual acceptance of each concrete design. The other four variant rows have both observations; preserve findings and recheck applicability if inputs change.
+1. Run combined quality/lifecycle twice, stopping each investigation at its concrete proposed decision for actual human acceptance before delivery. The other five variant rows have both observations; preserve findings and recheck applicability if inputs change. Use the isolated pinned Codex CLI through `CLIEWEN_CODEX_CLI`; the global 0.167.0 preflight stop is retained in result 010, and the profile stays at 0.166.0.
 2. Fill the remaining primary rows, preserving actual combined approval boundaries and every failed attempt. State the purpose and input changes, if any, before another OpenCode retry; do not increase budgets or change profiles implicitly.
 3. Close the OpenCode guide gap, final-input reuse reviews, source-change dispositions, and final compatibility/acceptance checklist.
 

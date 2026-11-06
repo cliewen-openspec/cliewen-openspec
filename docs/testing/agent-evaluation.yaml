@@ -359,6 +359,7 @@ scenarios:
       - docs/testing/quality-lifecycle-trial/result-001.md
       - docs/testing/release-candidate-001.md
       - docs/testing/release-variants/result-009.md
+      - docs/testing/release-variants/result-010.md
   combined-quality-and-retirement:
     schema: cliewen-all
     readiness: ready

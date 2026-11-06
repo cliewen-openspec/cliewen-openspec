@@ -1,0 +1,339 @@
+{
+  "recordedAt": "2026-11-06T19:32:40.874Z",
+  "overall": "pass",
+  "scenario": "delivery-quality-and-retirement",
+  "schema": "cliewen-delivery",
+  "profile": "codex-cli-primary",
+  "releaseReady": false,
+  "newCreditedVariantPasses": 1,
+  "newCreditedPrimaryPasses": 0,
+  "creditedScenarioObservations": 2,
+  "remainingScenarioRepetitions": 0,
+  "rawArtifacts": ".tmp/agent-trials/release-variant-010",
+  "baseline": {
+    "preparedAt": "2026-11-06T19:23:18.186Z",
+    "sourceRevision": "69dd4aa6c69b9190c757b997522c9c30177aa69e",
+    "sourceStatus": "",
+    "schema": "cliewen-delivery",
+    "baseline": "b01b5ce5d04f467a98fc53a3b4784e4591a4adf6",
+    "package": {
+      "version": "0.1.0",
+      "filename": "cliewen-openspec-0.1.0.tgz",
+      "sha256": "3a2ca738562274b38e1047ac3195bf70de0b931748b2fdd393ea472616cf3c4f"
+    },
+    "node": "v24.0.0",
+    "npm": "11.21.0",
+    "openspec": "1.15.0",
+    "root": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-quality-lifecycle-1793992990733\\project"
+  },
+  "finalRevision": "0cfef08df2905b0dd1073112e1ad7ee37ba61819",
+  "workingTreeStatus": "",
+  "promptSHA256": "3c1fdbcf2202b3959c6c6e7e2d395e9a1c5cb6fcb25c2e6c535bda97932800dd",
+  "run": {
+    "schema": "cliewen-delivery",
+    "profileId": "codex-cli-primary",
+    "phase": "initial",
+    "project": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-quality-lifecycle-1793992990733\\project",
+    "baseline": "b01b5ce5d04f467a98fc53a3b4784e4591a4adf6",
+    "profile": {
+      "readiness": "pinned",
+      "agent": "Codex CLI",
+      "runner": "cli",
+      "model": "gpt-6.1-sol",
+      "agentVersion": "0.166.0",
+      "provider": "openai; existing ChatGPT CLI authentication",
+      "effort": "medium",
+      "permissions": "danger-full-access, approval never; project scope is an instruction, not OS isolation",
+      "context": "fresh process; ignore user config and execpolicy rules; project AGENTS and managed/global instructions may remain",
+      "budgets": {
+        "wallTimeSeconds": 600,
+        "outputBytes": 67108864,
+        "reportedCostUSD": null,
+        "tokenLimit": null,
+        "billing": "existing ChatGPT entitlement; no purchase"
+      },
+      "traceFormat": "codex exec --json JSONL plus stderr"
+    },
+    "exe": "C:\\Program Files\\nodejs\\node.exe",
+    "cliVersion": "codex-cli 0.166.0",
+    "startedAt": "2026-11-06T19:23:34.592Z",
+    "promptFile": "prompt.txt",
+    "environmentControls": {
+      "NO_COLOR": "1",
+      "OPENSPEC_TELEMETRY": "0",
+      "CI": "1"
+    },
+    "exitCode": 0,
+    "signal": null,
+    "endedAt": "2026-11-06T19:29:33.241Z",
+    "durationSeconds": 358.647,
+    "monotonicDurationSeconds": 358.6435341,
+    "deadlineExceededBySeconds": 0,
+    "stopReason": null,
+    "stopRequestedAt": null,
+    "stopRequestedAfterSeconds": null,
+    "terminationDelaySeconds": null,
+    "eventFailure": false,
+    "sessionId": "01a1b250-fedf-77c1-845e-78ea660efbb1",
+    "usage": {
+      "input_tokens": 1358270,
+      "cached_input_tokens": 1293440,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 14390,
+      "reasoning_output_tokens": 2167
+    },
+    "stepUsage": [],
+    "reportedCostUSD": null,
+    "observedModels": [],
+    "reviewInputsPreserved": true,
+    "evaluation": "not-graded"
+  },
+  "technicalChecks": {
+    "status": "passed",
+    "nativeBaselineTests": 6,
+    "finalTests": 11,
+    "strictChangeValidation": "passed",
+    "strictPermanentValidation": "passed",
+    "enforcedActiveCheck": true,
+    "enforcedPermanentCheck": true,
+    "activeRevision": "ddbb0f8a0d10c935774b22bfe0f187327663ad09",
+    "permanentRevision": "0cfef08df2905b0dd1073112e1ad7ee37ba61819",
+    "archive": "openspec/changes/archive/2026-11-06-allow-nonnegative-counts",
+    "archiveAuthority": "Unchanged docs/accepted-change.md applies only to the disposable project",
+    "registryPreserved": true,
+    "retiredIDs": [
+      "COUNT-003"
+    ],
+    "newIDs": [],
+    "testFilesPreserved": [
+      "test/count.test.mjs",
+      "test/limit.test.mjs",
+      "test/shared.test.mjs"
+    ],
+    "coverage": {
+      "COUNT-001": {
+        "positive": 2,
+        "negative": 3,
+        "boundary": 2
+      },
+      "COUNT-002": {
+        "positive": 3,
+        "negative": 0,
+        "boundary": 1
+      }
+    },
+    "exceptions": [
+      {
+        "policy": "coverage",
+        "scenario": "COUNT-002",
+        "category": "negative",
+        "reason": "docs/accepted-change.md authorizes only this category exception: malformed text and unsafe values are rejected and tested under COUNT-001; zero is accepted. Positive, boundary, effectiveness, lifecycle, retirement and execution obligations remain.",
+        "status": "reviewed"
+      }
+    ],
+    "activeInputHashesChecked": 39,
+    "permanentInputHashesChecked": 39,
+    "originalProjectHashesUnchanged": true,
+    "findings": [
+      {
+        "code": "test-policy-review-required",
+        "severity": "info",
+        "message": "Record checks cannot prove case distinctness, assertion meaning, complete dependency/impact analysis, or human approval. Review these claims."
+      },
+      {
+        "code": "sufficiency-not-assessed",
+        "severity": "info",
+        "message": "Execution and linkage do not prove assertion quality; review the assertions against the scenarios."
+      }
+    ]
+  },
+  "processReview": {
+    "baselineTestsEvent": 6,
+    "configurationAndAssertionReviewEvent": 8,
+    "initialPolicyCheckEvent": 10,
+    "baselineCollectionCheckAndProposalInstructionsEvent": 12,
+    "weakStrongAndSetupExperimentEvent": 15,
+    "specAndDesignInstructionsEvent": 17,
+    "tasksInstructionsEvent": 19,
+    "applyInstructionsEvent": 21,
+    "contextReviewEvent": 23,
+    "implementationAndTaskTestsEvent": 25,
+    "finalFaultsRestorationAndStrictValidationEvent": 28,
+    "scenarioTitleCorrectionEvent": 30,
+    "archiveInstructionsEvent": 36,
+    "semanticAssertionReviewEvent": 38,
+    "activeReviewCommitCollectionAndCheckEvent": 49,
+    "activeEvidenceReviewAndArchiveEvent": 51,
+    "permanentReviewCommitAndCollectionEvent": 54,
+    "finalDocumentationReviewEvent": 56,
+    "finalCommitCollectionAndCheckEvent": 59
+  },
+  "effectivenessReview": {
+    "baselineExperimentIndependentlyReproduced": true,
+    "weakFaultExit": 0,
+    "correctedFaultExit": 1,
+    "correctedFaultAssertion": "3 !== 2",
+    "unrelatedSetupExit": 1,
+    "setupFailure": "ERR_MODULE_NOT_FOUND; excluded from effectiveness evidence",
+    "nativeFaults": [
+      {
+        "name": "numeric",
+        "failedCases": [
+          "parses text [COUNT-001] [Test-type: Unit] [Case: two] [Coverage: positive]",
+          "parses multiple digits [COUNT-001] [Test-type: Unit] [Case: multiple-digits] [Coverage: positive]",
+          "accepts positive counts [COUNT-002] [Test-type: Unit] [Case: one] [Coverage: positive]",
+          "accepts zero [COUNT-002] [Test-type: Unit] [Case: zero] [Coverage: boundary]",
+          "accepts former maximum [COUNT-002] [Test-type: Unit] [Case: former-maximum] [Coverage: positive]",
+          "accepts above former maximum [COUNT-002] [Test-type: Unit] [Case: above-maximum] [Coverage: positive]",
+          "accepts safe maximum [COUNT-001] [Test-type: Unit] [Case: safe-maximum] [Coverage: boundary]"
+        ]
+      },
+      {
+        "name": "malformed",
+        "failedCases": [
+          "checks malformed input [COUNT-001] [Test-type: Unit] [Case: shared] [Coverage: negative]",
+          "rejects noncanonical text [COUNT-001] [Test-type: Unit] [Case: noncanonical] [Coverage: negative]",
+          "rejects non-string inputs [COUNT-001] [Test-type: Unit] [Case: non-string] [Coverage: negative]"
+        ]
+      },
+      {
+        "name": "unsafe",
+        "failedCases": [
+          "rejects unsafe counts [COUNT-001] [Test-type: Unit] [Case: unsafe] [Coverage: boundary]"
+        ]
+      }
+    ],
+    "independentFinalFaults": [
+      {
+        "label": "assertions reject incorrect numeric result",
+        "exitCode": 1
+      },
+      {
+        "label": "assertions reject malformed input accepted",
+        "exitCode": 1
+      },
+      {
+        "label": "assertions reject zero rejected",
+        "exitCode": 1
+      },
+      {
+        "label": "assertions reject retired limit restored",
+        "exitCode": 1
+      },
+      {
+        "label": "assertions reject unsafe value accepted",
+        "exitCode": 1
+      }
+    ],
+    "loopLimit": "A throwing assertion stops its case; grouped tests do not show every loop input executed under a fault",
+    "scope": "Bounded relevant behavioral controls, not exhaustive mutation coverage"
+  },
+  "reviewInfrastructure": {
+    "initialIndependentStatus": "passed",
+    "sourceCheckerChanged": false,
+    "nativeAttemptRepeated": false,
+    "nativeFilesRepaired": false,
+    "copyPreparation": {
+      "sourceStatus": "",
+      "copyStatusBefore": "M docs/testing/experiments.md\n M docs/testing/outcome.md\n M docs/testing/pr-description.md\n M openspec/changes/archive/2026-11-06-allow-nonnegative-counts/design.md\n M openspec/changes/archive/2026-11-06-allow-nonnegative-counts/proposal.md",
+      "copyStatusAfter": "",
+      "normalizedIndexOnly": true
+    },
+    "versionPreflight": {
+      "classification": "infrastructure-failure",
+      "providerCallOccurred": false,
+      "trial": "C:/Users/flemm/AppData/Local/Temp/cliewen-quality-lifecycle-1793992919049",
+      "baseline": {
+        "preparedAt": "2026-11-06T19:22:08.015Z",
+        "sourceRevision": "69dd4aa6c69b9190c757b997522c9c30177aa69e",
+        "sourceStatus": "",
+        "schema": "cliewen-delivery",
+        "baseline": "3262be6ad8e902e4c054151edbf11c18dbbcf44d",
+        "package": {
+          "version": "0.1.0",
+          "filename": "cliewen-openspec-0.1.0.tgz",
+          "sha256": "3a2ca738562274b38e1047ac3195bf70de0b931748b2fdd393ea472616cf3c4f"
+        },
+        "node": "v24.0.0",
+        "npm": "11.21.0",
+        "openspec": "1.15.0",
+        "root": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-quality-lifecycle-1793992919049\\project"
+      },
+      "record": {
+        "profileId": "codex-cli-primary",
+        "schema": "cliewen-delivery",
+        "phase": "initial",
+        "profile": {
+          "readiness": "pinned",
+          "agent": "Codex CLI",
+          "runner": "cli",
+          "model": "gpt-6.1-sol",
+          "agentVersion": "0.166.0",
+          "provider": "openai; existing ChatGPT CLI authentication",
+          "effort": "medium",
+          "permissions": "danger-full-access, approval never; project scope is an instruction, not OS isolation",
+          "context": "fresh process; ignore user config and execpolicy rules; project AGENTS and managed/global instructions may remain",
+          "budgets": {
+            "wallTimeSeconds": 600,
+            "outputBytes": 67108864,
+            "reportedCostUSD": null,
+            "tokenLimit": null,
+            "billing": "existing ChatGPT entitlement; no purchase"
+          },
+          "traceFormat": "codex exec --json JSONL plus stderr"
+        },
+        "cliVersion": "codex-cli 0.167.0",
+        "failure": "version-preflight",
+        "evaluation": "infrastructure-failure"
+      },
+      "recovery": "Install the existing pinned 0.166.0 into an isolated ignored tools directory, then prepare a fresh project and use the existing CLIEWEN_CODEX_CLI override for that process.",
+      "globalCLIChanged": false,
+      "profileChanged": false
+    },
+    "tooling": {
+      "directory": ".tmp/evaluation-tools/codex-0.166.0",
+      "version": "0.166.0",
+      "lockfile": "isolated-cli-package-lock.json",
+      "fileHashes": "isolated-cli-sha256.json",
+      "documentation": "https://developers.openai.com/cookbook/examples/codex/build_iterative_repair_loops_with_codex"
+    }
+  },
+  "semanticReview": {
+    "outcome": "pass-with-stated-limits",
+    "reviewer": "coordinating Codex agent",
+    "newBlockingFindings": [],
+    "observations": [
+      "Green baseline tests are distinguished from missing enforced coverage and review records.",
+      "Exact equality rejects the numeric fault missed by the original type-only assertion; unrelated import failure is excluded.",
+      "All declared effectiveness case IDs have corresponding relevant observed failures; loop assertions are not overstated.",
+      "Zero and former upper-limit values are accepted; canonical validation, exact safe values, and specified error classes are preserved.",
+      "COUNT-003 retirement follows the unchanged accepted agreement; its ID stays reserved and active shared obligations remain under COUNT-001.",
+      "Only the authorized COUNT-002 negative coverage exception is used, with all enforcement modes and other minima intact.",
+      "Both real evidence scopes remain preserved, and permanent evidence matches clean final HEAD.",
+      "The inherited fixture reference link remains broken and is disclosed separately; authored links pass."
+    ],
+    "localMarkdownFiles": 9,
+    "localLinks": 7,
+    "headingFragments": 0,
+    "missingTargets": 0,
+    "rendered": false,
+    "externalURLsChecked": false,
+    "baselineFixtureFindings": [
+      {
+        "finding": "Inherited docs/reference/test-quality.md links to absent docs/configuration.md; disclosed by native link checker and left unchanged.",
+        "blocking": false,
+        "rationale": "Pre-existing in supplied reference; disclosed separately from authored links and unrelated to implemented behavior, instruction identity, or evidence validity."
+      }
+    ]
+  },
+  "limits": [
+    "Second current-input delivery quality/lifecycle observation completes this variant row; no primary coverage or release acceptance added.",
+    "Controlled faults are examples; declaration checks do not establish full dependency discovery, semantic sufficiency, or human acceptance.",
+    "Local archive authority applies only to this disposable project.",
+    "Independent final fault checks and baseline reproduction ran in separate copies sharing read-only installed dependencies; native files and reports were not repaired or recollected.",
+    "Global CLI 0.167.0 failed preflight before an agent call; that preparation and failure are retained separately from the completed 0.166.0 attempt.",
+    "An inherited fixture reference link remains disclosed and unchanged; this result does not claim all supplied documentation links work.",
+    "Actual model identity and monetary cost were not exposed; usage counters are not invoices.",
+    "No additional native agent, source-repository archive, package publication, tag, release, trial push, or external PR."
+  ]
+}
