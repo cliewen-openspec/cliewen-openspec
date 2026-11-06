@@ -371,6 +371,7 @@ scenarios:
     observedResults:
       - docs/testing/quality-lifecycle-trial/result-002.md
       - docs/testing/quality-lifecycle-trial/result-003.md
+      - docs/testing/release-variants/result-011.md
 
   knowledge-and-writing:
     schema: cliewen-delivery

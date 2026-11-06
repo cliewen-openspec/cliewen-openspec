@@ -3,7 +3,7 @@ type: plan
 ---
 # Remaining checks before 0.1.0
 
-This is the current release-gap register, reconciled through [Codex repeats count-range test quality and retirement](release-variants/result-010.md). The [evaluation manifest](agent-evaluation.yaml) defines scenarios and pinned profiles; [the evaluation policy](agent-evaluation.md#when-to-run-trials) requires two fresh repetitions of each distinct required combination. The [first-release checklist](../plans/first-release.md) owns final acceptance and publication. No agent calls or budget increases follow from this register.
+This is the current release-gap register, reconciled through [the combined quality investigation checkpoint](release-variants/result-011.md). The [evaluation manifest](agent-evaluation.yaml) defines scenarios and pinned profiles; [the evaluation policy](agent-evaluation.md#when-to-run-trials) requires two fresh repetitions of each distinct required combination. The [first-release checklist](../plans/first-release.md) owns final acceptance and publication. No agent calls or budget increases follow from this register.
 
 ## Primary schema trials
 
@@ -36,7 +36,7 @@ The manifest assigns these to Codex, with two fresh repetitions each. Final-suit
 | Discovery | `discovery-no-change` | Complete; 2 / 2 passes | [First](release-variants/result-003.md) and [second](release-variants/result-004.md) observations support no change; minor factual finding retained |
 | Discovery | `discovery-delivery-handoff` | Complete; 2 / 2 passes | [First](release-variants/result-005.md) and [second](release-variants/result-006.md) observations preserve proposed status and stop at a separate delivery proposal |
 | Combined | `combined-no-delivery` | Complete; 2 / 2 passes | [First](release-variants/result-007.md) and [second](release-variants/result-008.md) observations complete genuine closure tasks with proposed no-change decisions; initial evaluator failure retained |
-| Combined | `combined-quality-and-retirement` | Ready | Run twice with actual design acceptance; [earlier combined quality trial](quality-lifecycle-trial/result-003.md) used the historical alpha |
+| Combined | `combined-quality-and-retirement` | First investigation reviewed; 0 / 2 complete | [Proposed checkpoint awaits actual agreement](release-variants/result-011.md), then delivery and independent review. A second fresh full observation remains; the earlier alpha trial is historical |
 
 These rows require 12 passing variant attempts, of which ten are credited; **two remain**. The owner approved consolidating the duplicate per-task row on November 5, 2026: `csv-bom-per-task` remains an alias covered by the primary scenario, adding no runs. [Fixture validation](release-variants/validation-001.md) records the rationale and deterministic controls; [the variant guide](release-variants/README.md) documents preparation and checking. Totals exclude guide phases, retries, setup, and review time; they are not a spending estimate or approval to run the whole matrix.
 
@@ -68,7 +68,7 @@ Complete or explicitly disposition these changes, review all six roadmap priorit
 
 The four saved primary passes have been rechecked and retained. The next bounded OpenCode attempt was run and classified incomplete in round 016; it adds no pass. Continue with:
 
-1. Run combined quality/lifecycle twice, stopping each investigation at its concrete proposed decision for actual human acceptance before delivery. The other five variant rows have both observations; preserve findings and recheck applicability if inputs change. Use the isolated pinned Codex CLI through `CLIEWEN_CODEX_CLI`; the global 0.167.0 preflight stop is retained in result 010, and the profile stays at 0.166.0.
+1. Obtain actual agreement on the first combined quality/lifecycle recommendation in result 011 before its delivery continuation; then run a second fresh full observation with its own agreement. The other five variant rows have both observations; preserve findings and recheck applicability if inputs change. Use the isolated pinned Codex CLI through `CLIEWEN_CODEX_CLI`; the global 0.167.0 preflight stop is retained in result 010, and the profile stays at 0.166.0.
 2. Fill the remaining primary rows, preserving actual combined approval boundaries and every failed attempt. State the purpose and input changes, if any, before another OpenCode retry; do not increase budgets or change profiles implicitly.
 3. Close the OpenCode guide gap, final-input reuse reviews, source-change dispositions, and final compatibility/acceptance checklist.
 

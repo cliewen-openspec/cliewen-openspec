@@ -1,0 +1,294 @@
+{
+  "recordedAt": "2026-11-06T21:00:16.672Z",
+  "overall": "review-stage-pass",
+  "scenario": "combined-quality-and-retirement",
+  "schema": "cliewen-all",
+  "profile": "codex-cli-primary",
+  "stage": "investigation",
+  "endToEndDelivery": "incomplete",
+  "awaitingHumanAgreement": true,
+  "releaseReady": false,
+  "newCreditedVariantPasses": 0,
+  "newCreditedPrimaryPasses": 0,
+  "creditedScenarioObservations": 0,
+  "startedScenarioObservation": 1,
+  "remainingScenarioRepetitions": 2,
+  "rawArtifacts": ".tmp/agent-trials/release-variant-011",
+  "baseline": {
+    "preparedAt": "2026-11-06T20:49:11.512Z",
+    "sourceRevision": "2d7888c9575b08bb179b608beb5db8f1760826df",
+    "sourceStatus": "",
+    "schema": "cliewen-all",
+    "baseline": "a5f34599c9d4068649b1af7e8bc79ae79fb36a6d",
+    "package": {
+      "version": "0.1.0",
+      "filename": "cliewen-openspec-0.1.0.tgz",
+      "sha256": "3a2ca738562274b38e1047ac3195bf70de0b931748b2fdd393ea472616cf3c4f"
+    },
+    "node": "v24.0.0",
+    "npm": "11.21.0",
+    "openspec": "1.15.0",
+    "root": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-combined-quality-1793998143362\\project"
+  },
+  "reviewRevision": "81f6b629e397330c831708bbbabe23152f007582",
+  "workingTreeStatus": "",
+  "promptSHA256": "46c8de2ea8898dab60f613727584f85a3ed1730c91532599e4615f1ca273539a",
+  "run": {
+    "schema": "cliewen-all",
+    "profileId": "codex-cli-primary",
+    "phase": "initial",
+    "project": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-combined-quality-1793998143362\\project",
+    "baseline": "a5f34599c9d4068649b1af7e8bc79ae79fb36a6d",
+    "profile": {
+      "readiness": "pinned",
+      "agent": "Codex CLI",
+      "runner": "cli",
+      "model": "gpt-6.1-sol",
+      "agentVersion": "0.166.0",
+      "provider": "openai; existing ChatGPT CLI authentication",
+      "effort": "medium",
+      "permissions": "danger-full-access, approval never; project scope is an instruction, not OS isolation",
+      "context": "fresh process; ignore user config and execpolicy rules; project AGENTS and managed/global instructions may remain",
+      "budgets": {
+        "wallTimeSeconds": 600,
+        "outputBytes": 67108864,
+        "reportedCostUSD": null,
+        "tokenLimit": null,
+        "billing": "existing ChatGPT entitlement; no purchase"
+      },
+      "traceFormat": "codex exec --json JSONL plus stderr"
+    },
+    "exe": "C:\\Program Files\\nodejs\\node.exe",
+    "cliVersion": "codex-cli 0.166.0",
+    "startedAt": "2026-11-06T20:49:25.654Z",
+    "promptFile": "prompt.txt",
+    "environmentControls": {
+      "NO_COLOR": "1",
+      "OPENSPEC_TELEMETRY": "0",
+      "CI": "1"
+    },
+    "exitCode": 0,
+    "signal": null,
+    "endedAt": "2026-11-06T20:55:10.803Z",
+    "durationSeconds": 345.149,
+    "monotonicDurationSeconds": 345.1474057,
+    "deadlineExceededBySeconds": 0,
+    "stopReason": null,
+    "stopRequestedAt": null,
+    "stopRequestedAfterSeconds": null,
+    "terminationDelaySeconds": null,
+    "eventFailure": false,
+    "sessionId": "01a1b29f-991f-7953-b1d8-0d86c9d7c4c5",
+    "usage": {
+      "input_tokens": 847741,
+      "cached_input_tokens": 802816,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 14079,
+      "reasoning_output_tokens": 2944
+    },
+    "stepUsage": [],
+    "reportedCostUSD": null,
+    "observedModels": [],
+    "reviewInputsPreserved": true,
+    "evaluation": "not-graded"
+  },
+  "proposedDecision": {
+    "path": "openspec/changes/allow-nonnegative-counts/decision.md",
+    "revision": "81f6b629e397330c831708bbbabe23152f007582",
+    "sha256": "125999ec14a93746a5644989856da63d26cd3aa35d777cbf7c8584ca567c3bba",
+    "status": "proposed",
+    "outcome": "delivery",
+    "requestedScope": [
+      "Accept canonical decimal text from zero through Number.MAX_SAFE_INTEGER; preserve exact results, malformed/non-string TypeError, unsafe RangeError, and existing IDs.",
+      "Retire only COUNT-003 product-cap obligations and obsolete rejection assertions; retain/remap the exact 99 and shared malformed-input assertions, reserving the retired ID.",
+      "Approve only a conditional coverage/COUNT-002/negative minimum exception, with meaningful COUNT-001 rejection tests and all other quality/lifecycle obligations intact."
+    ],
+    "archiveAuthority": "Not granted; request separate explicit permission for local archive after successful review and scoped checks.",
+    "compatibilityLimit": "Callers relying on rejection of zero or values above 99 have not been inventoried; the expanded acceptance is an intentional change.",
+    "errorMessageLimit": "Error classes remain specified; existing message wording is not promised."
+  },
+  "technicalChecks": {
+    "status": "passed",
+    "baselineTrackedInputsUnchanged": true,
+    "originalTests": 6,
+    "installedSchemaValidation": "passed",
+    "sourceFiles": [
+      ".openspec.yaml",
+      "decision.md",
+      "investigation.md",
+      "proposal.md"
+    ],
+    "sourceSchema": "cliewen-all",
+    "skipSpecs": false,
+    "acceptedAgreementPresent": false,
+    "newProductIDs": [],
+    "newSpecs": false,
+    "newTasks": false,
+    "newDesign": false,
+    "archived": false,
+    "changeHealth": {
+      "ok": false,
+      "findings": [
+        {
+          "code": "all-decision-unaccepted",
+          "severity": "error",
+          "message": "Delivery requires an accepted decision following human agreement; artifact completion is not approval"
+        }
+      ]
+    },
+    "permanentHealth": {
+      "ok": false,
+      "findings": [
+        {
+          "code": "test-review-missing",
+          "message": "Create .cliewen-openspec/reviews/specs.yaml for effectiveness review.",
+          "severity": "error"
+        },
+        {
+          "code": "test-review-missing",
+          "message": "Create .cliewen-openspec/reviews/specs.yaml for lifecycle review.",
+          "severity": "error"
+        },
+        {
+          "code": "coverage-minimum-unmet",
+          "message": "COUNT-001: needs 2 distinct passed positive cases.",
+          "severity": "error"
+        },
+        {
+          "code": "coverage-minimum-unmet",
+          "message": "COUNT-001: needs 1 distinct passed negative cases.",
+          "severity": "error"
+        },
+        {
+          "code": "coverage-minimum-unmet",
+          "message": "COUNT-001: needs 1 distinct passed boundary cases.",
+          "severity": "error"
+        },
+        {
+          "code": "coverage-minimum-unmet",
+          "message": "COUNT-002: needs 2 distinct passed positive cases.",
+          "severity": "error"
+        },
+        {
+          "code": "coverage-minimum-unmet",
+          "message": "COUNT-002: needs 1 distinct passed negative cases.",
+          "severity": "error"
+        },
+        {
+          "code": "coverage-minimum-unmet",
+          "message": "COUNT-003: needs 2 distinct passed positive cases.",
+          "severity": "error"
+        },
+        {
+          "code": "test-policy-review-required",
+          "severity": "info",
+          "message": "Record checks cannot prove case distinctness, assertion meaning, complete dependency/impact analysis, or human approval. Review these claims."
+        },
+        {
+          "code": "sufficiency-not-assessed",
+          "severity": "info",
+          "message": "Execution and linkage do not prove assertion quality; review the assertions against the scenarios."
+        }
+      ]
+    },
+    "nativeChangeValidation": {
+      "exitCode": 1,
+      "meaning": "No delivery deltas yet; intentionally deferred until human agreement, not a full-change validation pass."
+    },
+    "baselineDeclaredCoverage": {
+      "COUNT-001": {
+        "positive": 1,
+        "negative": 0,
+        "boundary": 0
+      },
+      "COUNT-002": {
+        "positive": 1,
+        "negative": 0,
+        "boundary": 1
+      },
+      "COUNT-003": {
+        "positive": 0,
+        "negative": 2,
+        "boundary": 1
+      }
+    },
+    "baselineEvidenceRefresh": {
+      "originalPreparationReport": "artifacts/baseline-evidence.json",
+      "newPermanentObservation": ".trial/final-evidence.json",
+      "revision": "81f6b629e397330c831708bbbabe23152f007582",
+      "cases": 6,
+      "scope": "Existing unchanged product behavior only; no scoped execution report or evidence for the proposed implementation.",
+      "assessment": "The ignored adapter report is a generated observation output, not a tracked baseline product/configuration/document input. Its native refresh is disclosed; the original preparation report remains preserved. No passing product-quality or delivery claim follows."
+    }
+  },
+  "processReview": {
+    "projectAndBaselineInspectionEvents": [
+      4,
+      6,
+      8
+    ],
+    "humanizerSkillAndChangeCreationEvent": 10,
+    "instructionRetrievalEvent": 12,
+    "instructionReadingEvent": 14,
+    "initialTestsProbeAndHealthEvent": 21,
+    "additionalInstructionAndPolicyInspectionEvent": 23,
+    "proposedHealthEvent": 28,
+    "auditFirstCommitAndPostCommitObservationEvent": 32,
+    "postCommitResultReadbackEvent": 34,
+    "ignoreRuleInspectionEvent": 36,
+    "encodingAndCommitPreparationEvent": 41,
+    "finalCommitAndVerificationEvent": 43,
+    "finalReadbackEvent": 45
+  },
+  "probeReview": {
+    "inputs": {
+      "total": 32,
+      "returned": 5,
+      "rangeErrors": 8,
+      "typeErrors": 19
+    },
+    "source": ".trial/probe.mjs",
+    "independentRecheck": "passed with identical observed output",
+    "controlledFaultsPerformed": false,
+    "mutatedProductOrTests": false,
+    "scope": "Current behavior and Number conversion only; product cap masks safe-integer-guard effectiveness and no future implementation is tested."
+  },
+  "semanticReview": {
+    "outcome": "pass-with-stated-limits",
+    "reviewer": "coordinating Codex agent",
+    "newBlockingFindings": [],
+    "observations": [
+      "Alternatives include cap removal, an additive configurable API, and the current range; caller dependence on rejection remains uncertain.",
+      "Source inspection distinguishes declared case counts from assertion meaning and identifies duplicate 100-rejection obligations.",
+      "Existing wrong-value weakness, zero maintenance, cap retirement, and shared malformed-input preservation are reasoned through without temporary product/test mutations.",
+      "Delivery, retirement, and the coverage exception remain separate requests; no accepted record, IDs, implementation, or archive is invented.",
+      "The native adapter refreshes only generated ignored observation output, with preparation and final reports retained; the report describes six unchanged tests, not completed delivery or passing product quality.",
+      "The final permanent check has two missing-review and six coverage-minimum errors, while the proposed change stops only at all-decision-unaccepted.",
+      "Future fault experiments are planned and explicitly unperformed; initial dirty-evidence findings and deferred native validation are not presented as successful quality checks.",
+      "Saved instruction identities, 30 local link destinations, baseline source preservation, and clean committed review state pass independent checking."
+    ],
+    "localMarkdownFiles": 4,
+    "localLinks": 30,
+    "headingFragments": 0,
+    "missingTargets": 0,
+    "rendered": false,
+    "externalURLsChecked": false
+  },
+  "inputImpact": {
+    "referenceFix": "docs/testing/release-variants/validation-002.md",
+    "packageUnchanged": true,
+    "productFixturesAndPromptsUnchangedExceptCopiedReferenceTarget": true,
+    "previousDeliveryCreditsRetained": true,
+    "combinedCurrentInputPassesCarriedForward": 0
+  },
+  "limits": [
+    "This is a reviewed investigation checkpoint, not one of the two required complete combined observations, implementation approval, or release acceptance.",
+    "Actual human agreement must identify this reviewed recommendation/revision and its scope before a separately recorded delivery continuation.",
+    "Generated permanent baseline-behavior output was refreshed natively; original preparation evidence is retained. No scoped future-delivery evidence or assertion-effectiveness experiment exists.",
+    "Read-only probe rerun and independent checks did not modify native project files or reports; no evaluator repair or recollection was used to obtain the stage pass.",
+    "Native helpers and the audit write ignored observation logs; their recorder entry points were not rerun by the evaluator.",
+    "Inherited project and Humanizer skill instructions were read; shell permissions do not provide OS isolation.",
+    "Actual model identity and monetary cost were not exposed; usage counters are not invoices.",
+    "No additional native agent, dependency installation during investigation, external service, acceptance, archive, publication, tag, release, trial push, or external PR."
+  ]
+}
