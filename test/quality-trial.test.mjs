@@ -5,7 +5,28 @@ import os from 'node:os';
 import path from 'node:path';
 import {spawnSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
+import MarkdownIt from 'markdown-it';
 import {successfulScopedCheck} from '../scripts/lib/trial-results.mjs';
+
+function checkReferenceLinks(root) {
+  const file = path.join(root, 'docs/reference/test-quality.md');
+  const md = new MarkdownIt();
+  const links = md.parse(fs.readFileSync(file, 'utf8'), {}).flatMap(t => t.children ?? [])
+    .filter(t => t.type === 'link_open').map(t => t.attrGet('href'));
+  assert.ok(links.length, 'The copied reference must retain its supporting links');
+  for (const href of links) {
+    if (/^[a-z]+:/i.test(href)) continue;
+    const [name, fragment] = href.split('#');
+    const target = path.resolve(path.dirname(file), name);
+    assert.ok(fs.existsSync(target), `Missing fixture reference target: ${href}`);
+    if (fragment) {
+      const tokens = md.parse(fs.readFileSync(target, 'utf8'), {});
+      const headings = tokens.flatMap((t, i) => t.type === 'heading_open' ? [tokens[i + 1]] : [])
+        .map(t => t.content.toLowerCase().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-'));
+      assert.ok(headings.includes(fragment), `Missing fixture reference heading: ${href}`);
+    }
+  }
+}
 
 test('quality checker recognizes captured scoped output without accepting failed or unrelated commands', () => {
   const result = {ok: true, findings: [{code: 'sufficiency-not-assessed', severity: 'info'}]};
@@ -36,6 +57,7 @@ test('quality trial starts with green execution, blocked policies, and explicit 
   const prepare = target => spawnSync(process.execPath, ['scripts/prepare-quality-lifecycle-trial.mjs', target], {cwd: source, env, encoding: 'utf8', timeout: 120000, windowsHide: true});
   const result = prepare(trial); assert.equal(result.status, 0, result.stdout + result.stderr);
   const baseline = JSON.parse(fs.readFileSync(path.join(trial, 'artifacts/baseline.json')));
+  checkReferenceLinks(path.join(trial, 'project'));
   const report = JSON.parse(fs.readFileSync(path.join(trial, 'artifacts/baseline-evidence.json')));
   assert.equal(report.revision, baseline.baseline); assert.equal(report.results.length, 6);
   assert.ok(report.results.every(r => r.outcome === 'passed'));
@@ -65,6 +87,7 @@ test('combined quality investigation has no accepted authority and detects prema
   const setup = exec(process.execPath, ['scripts/prepare-combined-quality-trial.mjs', trial], source);
   assert.equal(setup.status, 0, setup.stdout + setup.stderr);
   const metadata = JSON.parse(fs.readFileSync(path.join(artifacts, 'baseline.json')));
+  checkReferenceLinks(root);
   assert.equal(metadata.schema, 'cliewen-all');
   const combinedCase = JSON.parse(fs.readFileSync(path.join(trial, 'suite.json'))).cases[0];
   assert.equal(combinedCase.checker, 'scripts/check-quality-lifecycle-trial.mjs');

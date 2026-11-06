@@ -44,7 +44,7 @@ These rows require 12 passing variant attempts, of which ten are credited; **two
 
 | Area | Recorded evidence | Remaining action |
 |---|---|---|
-| Quality fixture reference link | [Delivery quality/lifecycle repeat](release-variants/result-010.md) discloses the supplied reference's missing configuration target; authored links pass | Correct the target for future fixture preparations and record the input impact; preserve the two reviewed delivery attempts and their stated limits |
+| Quality fixture reference link | [Fixture reference validation](release-variants/validation-002.md) checks the installed configuration target and heading in both quality fixtures | Closed for new preparations; retain historical attempts and the documented evidence-reuse assessment |
 | Prepared guide / Codex | [Guide result 004: candidate guide checks](guide-walkthrough/result-004.md) passed on the earlier candidate | Record input-impact/evidence-reuse review for the final guide and package; rerun if the journey changed |
 | Prepared guide / Claude | [Candidate guide retry](release-candidate-001.md#revised-candidate-and-guide-retry) passed within its stated review limits | Same final-input review; preserve the initial failed attempt |
 | Prepared guide / OpenCode | Technical checks passed; required test-file readback was missing | Fresh compliant walkthrough, then retrospective and independent process review |

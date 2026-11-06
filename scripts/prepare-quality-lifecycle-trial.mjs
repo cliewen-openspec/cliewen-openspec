@@ -54,7 +54,10 @@ for (const file of ['count.mjs', 'test/count.test.mjs', 'test/shared.test.mjs', 
 write('openspec/specs/count/spec.md', fs.readFileSync(path.join(fixture, 'spec.md'), 'utf8'));
 const request = combined ? 'change-request.md' : 'accepted-change.md';
 write(`docs/${request}`, fs.readFileSync(path.join(fixture, request), 'utf8'));
-write('docs/reference/test-quality.md', fs.readFileSync(path.join(source, 'docs/testing/test-quality.md'), 'utf8'));
+// The fixture has no configuration guide of its own; use the installed package's reference.
+const qualityReference = fs.readFileSync(path.join(source, 'docs/testing/test-quality.md'), 'utf8')
+  .replaceAll('](../configuration.md', '](../../node_modules/cliewen-openspec/docs/configuration.md');
+write('docs/reference/test-quality.md', qualityReference);
 write('README.md', `# Count parser\n\n\`parseCount(value)\` in \`count.mjs\` parses canonical decimal text from 1 through 99. It returns the exact numeric value. Malformed text or non-string input throws TypeError; zero, unsafe integers, and values above 99 throw RangeError.\n\nRun \`npm test\`. The existing suite passes, but its coverage and assertion quality have not been accepted. The configured quality policies are enforced. Read [the range-change ${combined ? 'request' : 'agreement'}](docs/${request}) before modifying behavior.\n`);
 write('AGENTS.md', `Write project content in US English. Read project configuration, permanent specs, and docs/${request}. Retrieve installed ${schema} instructions for every OpenSpec artifact and apply before using them. Preserve document paths and existing scenario IDs. Use only this disposable project; do not inspect sibling evaluator artifacts or previous solutions.${combined ? ' Stop at human review with a proposed decision. Do not implement, change tests, claim acceptance, or archive before actual agreement on this recommendation.' : ''}\n`);
 write('.gitignore', 'node_modules/\n.trial/\n');
