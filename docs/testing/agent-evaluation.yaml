@@ -346,6 +346,7 @@ scenarios:
     rubric: docs/testing/release-variants/combined-no-delivery/rubric.md
     observedResults:
       - docs/testing/release-variants/result-007.md
+      - docs/testing/release-variants/result-008.md
   delivery-quality-and-retirement:
     schema: cliewen-delivery
     readiness: ready
