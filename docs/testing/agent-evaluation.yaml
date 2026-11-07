@@ -373,6 +373,7 @@ scenarios:
       - docs/testing/quality-lifecycle-trial/result-003.md
       - docs/testing/release-variants/result-011.md
       - docs/testing/release-variants/result-012.md
+      - docs/testing/release-variants/result-013.md
 
   knowledge-and-writing:
     schema: cliewen-delivery

@@ -3,7 +3,7 @@ type: plan
 ---
 # Remaining checks before 0.1.0
 
-This is the current release-gap register, reconciled through [combined quality delivery after actual agreement](release-variants/result-012.md). The [evaluation manifest](agent-evaluation.yaml) defines scenarios and pinned profiles; [the evaluation policy](agent-evaluation.md#when-to-run-trials) requires two fresh repetitions of each distinct required combination. The [first-release checklist](../plans/first-release.md) owns final acceptance and publication. No agent calls or budget increases follow from this register.
+This is the current release-gap register, reconciled through [the second combined quality investigation](release-variants/result-013.md). The [evaluation manifest](agent-evaluation.yaml) defines scenarios and pinned profiles; [the evaluation policy](agent-evaluation.md#when-to-run-trials) requires two fresh repetitions of each distinct required combination. The [first-release checklist](../plans/first-release.md) owns final acceptance and publication. No agent calls or budget increases follow from this register.
 
 ## Primary schema trials
 
@@ -36,7 +36,7 @@ The manifest assigns these to Codex, with two fresh repetitions each. Final-suit
 | Discovery | `discovery-no-change` | Complete; 2 / 2 passes | [First](release-variants/result-003.md) and [second](release-variants/result-004.md) observations support no change; minor factual finding retained |
 | Discovery | `discovery-delivery-handoff` | Complete; 2 / 2 passes | [First](release-variants/result-005.md) and [second](release-variants/result-006.md) observations preserve proposed status and stop at a separate delivery proposal |
 | Combined | `combined-no-delivery` | Complete; 2 / 2 passes | [First](release-variants/result-007.md) and [second](release-variants/result-008.md) observations complete genuine closure tasks with proposed no-change decisions; initial evaluator failure retained |
-| Combined | `combined-quality-and-retirement` | Ready; 1 / 2 complete | [Approved delivery passes with historical-navigation limits](release-variants/result-012.md); a second fresh full observation needs its own actual agreement |
+| Combined | `combined-quality-and-retirement` | Second investigation reviewed; 1 / 2 complete | [New proposed checkpoint awaits its own agreement](release-variants/result-013.md), then approved delivery and independent closure review; first pass and limits remain preserved |
 
 These rows require 12 passing variant attempts, of which eleven are credited; **one remains**. The owner approved consolidating the duplicate per-task row on November 5, 2026: `csv-bom-per-task` remains an alias covered by the primary scenario, adding no runs. [Fixture validation](release-variants/validation-001.md) records the rationale and deterministic controls; [the variant guide](release-variants/README.md) documents preparation and checking. Totals exclude guide phases, retries, setup, and review time; they are not a spending estimate or approval to run the whole matrix.
 
@@ -45,7 +45,7 @@ These rows require 12 passing variant attempts, of which eleven are credited; **
 | Area | Recorded evidence | Remaining action |
 |---|---|---|
 | Quality fixture reference link | [Fixture reference validation](release-variants/validation-002.md) checks the installed configuration target and heading in both quality fixtures | Closed for new preparations; retain historical attempts and the documented evidence-reuse assessment |
-| Historical archive navigation | [Navigation guidance and input impact](release-variants/validation-003.md) distinguish preserved Git history from repaired live links; the earlier trial's 21 failures remain recorded | Exercise the clarified guidance in the next approved continuation; disposition broader navigation claims at final acceptance. No repeated navigation reliability is established yet |
+| Historical archive navigation | [Navigation guidance and input impact](release-variants/validation-003.md) are reflected in the second investigation's continuation plan; the earlier trial's 21 failures remain recorded | Exercise actual repair in the approved continuation; disposition broader navigation claims at final acceptance. Planning adds no successful archive-navigation observation |
 | Prepared guide / Codex | [Guide result 004: candidate guide checks](guide-walkthrough/result-004.md) passed on the earlier candidate | Record input-impact/evidence-reuse review for the final guide and package; rerun if the journey changed |
 | Prepared guide / Claude | [Candidate guide retry](release-candidate-001.md#revised-candidate-and-guide-retry) passed within its stated review limits | Same final-input review; preserve the initial failed attempt |
 | Prepared guide / OpenCode | Technical checks passed; required test-file readback was missing | Fresh compliant walkthrough, then retrospective and independent process review |
@@ -69,7 +69,7 @@ Complete or explicitly disposition these changes, review all six roadmap priorit
 
 The four saved primary passes have been rechecked and retained. The next bounded OpenCode attempt was run and classified incomplete in round 016; it adds no pass. Continue with:
 
-1. Clarify archive-navigation guidance, then run a second fresh combined quality/lifecycle observation through its own proposed decision, actual agreement, delivery, and independent review. The other five variant rows have both observations; retain the first combined result and its stated limits. Use the isolated pinned Codex CLI through `CLIEWEN_CODEX_CLI`; the global 0.167.0 preflight stop is retained in result 010, and the profile stays at 0.166.0.
+1. Obtain actual agreement on the second combined recommendation in result 013, then complete its delivery and independent review, including live archive navigation. The other five variant rows have both observations; retain the first combined result and its stated limits. Use the isolated pinned Codex CLI through `CLIEWEN_CODEX_CLI`; the global 0.167.0 preflight stop is retained in result 010, and the profile stays at 0.166.0.
 2. Fill the remaining primary rows, preserving actual combined approval boundaries and every failed attempt. State the purpose and input changes, if any, before another OpenCode retry; do not increase budgets or change profiles implicitly.
 3. Close the OpenCode guide gap, final-input reuse reviews, source-change dispositions, and final compatibility/acceptance checklist.
 

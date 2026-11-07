@@ -1,0 +1,301 @@
+{
+  "recordedAt": "2026-11-07T13:56:38.748Z",
+  "overall": "review-stage-pass",
+  "scenario": "combined-quality-and-retirement",
+  "schema": "cliewen-all",
+  "profile": "codex-cli-primary",
+  "stage": "investigation",
+  "endToEndDelivery": "incomplete",
+  "awaitingHumanAgreement": true,
+  "releaseReady": false,
+  "newCreditedVariantPasses": 0,
+  "newCreditedPrimaryPasses": 0,
+  "creditedScenarioObservations": 1,
+  "startedScenarioObservation": 2,
+  "remainingScenarioRepetitions": 1,
+  "rawArtifacts": ".tmp/agent-trials/release-variant-013",
+  "baseline": {
+    "preparedAt": "2026-11-07T13:45:18.112Z",
+    "sourceRevision": "7c9bb713eea3953227d5a8637cb2ea380d072e75",
+    "sourceStatus": "",
+    "schema": "cliewen-all",
+    "baseline": "8ac2b81a21eb81b3249775b0f685fd4456772d45",
+    "package": {
+      "version": "0.1.0",
+      "filename": "cliewen-openspec-0.1.0.tgz",
+      "sha256": "3a2ca738562274b38e1047ac3195bf70de0b931748b2fdd393ea472616cf3c4f"
+    },
+    "node": "v24.0.0",
+    "npm": "11.21.0",
+    "openspec": "1.15.0",
+    "root": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-combined-quality-1794059107476\\project"
+  },
+  "reviewRevision": "0a81db92cf39af464344d16e334c3472f0e60404",
+  "workingTreeStatus": "",
+  "promptSHA256": "1721a0ed57422ace65adb18acdfc6de7d94bc2128fc22353aca341ae1f1a795c",
+  "run": {
+    "schema": "cliewen-all",
+    "profileId": "codex-cli-primary",
+    "phase": "initial",
+    "project": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-combined-quality-1794059107476\\project",
+    "baseline": "8ac2b81a21eb81b3249775b0f685fd4456772d45",
+    "profile": {
+      "readiness": "pinned",
+      "agent": "Codex CLI",
+      "runner": "cli",
+      "model": "gpt-6.1-sol",
+      "agentVersion": "0.166.0",
+      "provider": "openai; existing ChatGPT CLI authentication",
+      "effort": "medium",
+      "permissions": "danger-full-access, approval never; project scope is an instruction, not OS isolation",
+      "context": "fresh process; ignore user config and execpolicy rules; project AGENTS and managed/global instructions may remain",
+      "budgets": {
+        "wallTimeSeconds": 600,
+        "outputBytes": 67108864,
+        "reportedCostUSD": null,
+        "tokenLimit": null,
+        "billing": "existing ChatGPT entitlement; no purchase"
+      },
+      "traceFormat": "codex exec --json JSONL plus stderr"
+    },
+    "exe": "C:\\Program Files\\nodejs\\node.exe",
+    "cliVersion": "codex-cli 0.166.0",
+    "startedAt": "2026-11-07T13:45:51.137Z",
+    "promptFile": "prompt.txt",
+    "environmentControls": {
+      "NO_COLOR": "1",
+      "OPENSPEC_TELEMETRY": "0",
+      "CI": "1"
+    },
+    "exitCode": 0,
+    "signal": null,
+    "endedAt": "2026-11-07T13:51:51.443Z",
+    "durationSeconds": 360.305,
+    "monotonicDurationSeconds": 360.3046423,
+    "deadlineExceededBySeconds": 0,
+    "stopReason": null,
+    "stopRequestedAt": null,
+    "stopRequestedAfterSeconds": null,
+    "terminationDelaySeconds": null,
+    "eventFailure": false,
+    "sessionId": "01a1b642-28e6-7633-af67-57bece9347e8",
+    "usage": {
+      "input_tokens": 801996,
+      "cached_input_tokens": 717568,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 12720,
+      "reasoning_output_tokens": 2105
+    },
+    "stepUsage": [],
+    "reportedCostUSD": null,
+    "observedModels": [],
+    "reviewInputsPreserved": true,
+    "evaluation": "not-graded"
+  },
+  "proposedDecision": {
+    "path": "openspec/changes/allow-nonnegative-counts/decision.md",
+    "revision": "0a81db92cf39af464344d16e334c3472f0e60404",
+    "sha256": "6c3384357fdfddc21385de25f9357150768c2c414870c5670df52b9c36aed14b",
+    "status": "proposed",
+    "outcome": "delivery",
+    "requestedScope": [
+      "Accept canonical decimal text from zero through Number.MAX_SAFE_INTEGER with exact results, unchanged grammar, malformed/non-string TypeError, unsafe RangeError, stable IDs and paths, and associated test/spec/document/review maintenance.",
+      "Retire only COUNT-003 product-cap obligations and obsolete rejection assertions; preserve/remap useful exact-value and shared malformed-input assertions and reserve its ID.",
+      "Approve only the conditional coverage/COUNT-002/negative minimum exception if COUNT-001 demonstrably covers malformed/unsafe rejection; all other coverage/effectiveness/lifecycle/execution obligations remain."
+    ],
+    "openQuestions": [
+      "Consumer reliance on previous rejections remains unverified.",
+      "The spec fixes error classes, not message wording; reviewer must settle any message-preservation requirement.",
+      "Archive is not requested by the native review request and requires its own explicit permission."
+    ],
+    "archiveAuthority": "Absent; any later local archive needs separate explicit owner agreement after successful checks.",
+    "compatibilityLimit": "Only the disposable project is investigated; no external consumer inventory exists."
+  },
+  "technicalChecks": {
+    "status": "passed",
+    "baselineTrackedInputsUnchanged": true,
+    "baselineGeneratedEvidenceUnchanged": true,
+    "originalTests": 6,
+    "installedSchemaValidation": "passed",
+    "sourceFiles": [
+      ".openspec.yaml",
+      "decision.md",
+      "investigation.md",
+      "proposal.md"
+    ],
+    "sourceSchema": "cliewen-all",
+    "skipSpecs": false,
+    "acceptedAgreementPresent": false,
+    "newProductIDs": [],
+    "newSpecs": false,
+    "newTasks": false,
+    "newDesign": false,
+    "archived": false,
+    "changeHealth": {
+      "ok": false,
+      "findings": [
+        {
+          "code": "all-decision-unaccepted",
+          "severity": "error",
+          "message": "Delivery requires an accepted decision following human agreement; artifact completion is not approval"
+        }
+      ]
+    },
+    "permanentHealth": {
+      "ok": false,
+      "findings": [
+        {
+          "code": "stale-evidence",
+          "severity": "error",
+          "message": "Report revision differs from HEAD"
+        },
+        {
+          "code": "test-review-missing",
+          "message": "Create .cliewen-openspec/reviews/specs.yaml for effectiveness review.",
+          "severity": "error"
+        },
+        {
+          "code": "test-review-missing",
+          "message": "Create .cliewen-openspec/reviews/specs.yaml for lifecycle review.",
+          "severity": "error"
+        },
+        {
+          "code": "coverage-minimum-unmet",
+          "message": "COUNT-001: needs 2 distinct passed positive cases.",
+          "severity": "error"
+        },
+        {
+          "code": "coverage-minimum-unmet",
+          "message": "COUNT-001: needs 1 distinct passed negative cases.",
+          "severity": "error"
+        },
+        {
+          "code": "coverage-minimum-unmet",
+          "message": "COUNT-001: needs 1 distinct passed boundary cases.",
+          "severity": "error"
+        },
+        {
+          "code": "coverage-minimum-unmet",
+          "message": "COUNT-002: needs 2 distinct passed positive cases.",
+          "severity": "error"
+        },
+        {
+          "code": "coverage-minimum-unmet",
+          "message": "COUNT-002: needs 1 distinct passed negative cases.",
+          "severity": "error"
+        },
+        {
+          "code": "coverage-minimum-unmet",
+          "message": "COUNT-002: needs 1 distinct passed boundary cases.",
+          "severity": "error"
+        },
+        {
+          "code": "coverage-minimum-unmet",
+          "message": "COUNT-003: needs 2 distinct passed positive cases.",
+          "severity": "error"
+        },
+        {
+          "code": "coverage-minimum-unmet",
+          "message": "COUNT-003: needs 1 distinct passed negative cases.",
+          "severity": "error"
+        },
+        {
+          "code": "coverage-minimum-unmet",
+          "message": "COUNT-003: needs 1 distinct passed boundary cases.",
+          "severity": "error"
+        },
+        {
+          "code": "test-policy-review-required",
+          "severity": "info",
+          "message": "Record checks cannot prove case distinctness, assertion meaning, complete dependency/impact analysis, or human approval. Review these claims."
+        },
+        {
+          "code": "sufficiency-not-assessed",
+          "severity": "info",
+          "message": "Execution and linkage do not prove assertion quality; review the assertions against the scenarios."
+        }
+      ]
+    },
+    "nativeAdapterExecuted": false
+  },
+  "processReview": {
+    "initialProjectRequestAndConfigReads": [
+      4,
+      6,
+      8
+    ],
+    "changeAndProposalInstructionsEvents": [
+      10,
+      12
+    ],
+    "humanizerAndReferenceReadEvent": 14,
+    "proposalAndRemainingInstructionsEvent": 17,
+    "initialReadOnlyTestsProbesAndChecksEvent": 21,
+    "policyAndPermanentEvidenceInterpretationEvents": [
+      23,
+      25
+    ],
+    "proposedChecksEvent": 30,
+    "documentAndInstructionChecksEvents": [
+      39,
+      41
+    ],
+    "reviewCommitAndFinalDirectChecksEvent": 45,
+    "finalReadbackEvents": [
+      47,
+      49
+    ]
+  },
+  "probeReview": {
+    "inputs": {
+      "total": 24,
+      "returned": 5,
+      "rangeErrors": 7,
+      "typeErrors": 12
+    },
+    "source": ".trial/probe-count.mjs",
+    "independentRecheck": "passed with identical output",
+    "controlledFaultsPerformed": false,
+    "productOrTestMutations": false,
+    "scope": "Current parser and Number conversion observations only; no candidate implementation or experimental assertion-effectiveness result."
+  },
+  "semanticReview": {
+    "outcome": "pass-with-stated-limits",
+    "reviewer": "coordinating Codex agent",
+    "newBlockingFindings": [],
+    "observations": [
+      "Cap removal, compatible additive configurability, and keeping the range are compared without inventing consumer needs.",
+      "Declared case gaps, weak exactness, changed zero behavior, shared malformed assertions, and conditional cap retirement are explained separately from execution/check status.",
+      "Future delivery and its possible exception/retirement remain subject to explicit human agreement; no prior trial approval is carried forward.",
+      "Read-only calls and six original tests preserve both baseline inputs and the original ignored evidence output; the permanent check correctly remains stale and incomplete.",
+      "The continuation plan distinguishes immutable review history from live links, incoming references, heading fragments, historical status, and final revision-bound evidence ordering.",
+      "Planned navigation repair and fault assessment are unperformed; the stage does not establish corrected archive behavior or effectiveness.",
+      "A clean committed checkpoint, expected instruction identities, and all 29 local links including five heading fragments pass independent checks."
+    ],
+    "localMarkdownFiles": 4,
+    "localLinks": 29,
+    "headingFragments": 5,
+    "missingTargets": 0,
+    "rendered": false,
+    "externalURLsChecked": false
+  },
+  "inputImpact": {
+    "guidanceReview": "docs/testing/release-variants/validation-003.md",
+    "packageUnchanged": true,
+    "profileAndBudgetsUnchanged": true,
+    "promptAndRubricClarified": true,
+    "identicalPromptRepetition": false,
+    "previousFirstCombinedObservation": "docs/testing/release-variants/result-012.md",
+    "navigationObservation": "Guidance acknowledged in plan only; actual archive repair remains pending an approved continuation."
+  },
+  "limits": [
+    "Second investigation checkpoint only. The first full combined pass remains credited; this stage adds no complete variant, primary, implementation, or release credit.",
+    "Actual agreement must bind this new review revision and scope before continuation; the first trial’s approval supplies none.",
+    "Consumer compatibility and error-message requirements remain open to owner agreement.",
+    "Baseline ignored evidence remains unmodified and stale after the review commit; direct test observations are not a fresh Cliewen product execution report.",
+    "Read-only probe replay and independent checks did not repair or rewrite native inputs or logs; record-writing helpers were not rerun.",
+    "One later corrected archive observation would not establish two successful navigation repetitions or resolve broader final support claims.",
+    "Actual model identity and monetary cost were not exposed; usage counters are not invoices.",
+    "No additional native agent, dependency installation during investigation, external service, acceptance, implementation, archive, publication, tag, release, trial push, or external PR."
+  ]
+}
