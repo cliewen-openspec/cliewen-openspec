@@ -1,0 +1,163 @@
+{
+  "recordedAt": "2026-11-07T19:16:26.526Z",
+  "overall": "incomplete",
+  "completion": "unobserved; no live trial process found",
+  "releaseReady": false,
+  "newCreditedPrimaryPasses": 0,
+  "remainingPrimaryPassingAttempts": 14,
+  "scenario": "csv-bom-evidence-first",
+  "schema": "cliewen-delivery",
+  "profile": "codex-cli-primary",
+  "rawArtifacts": ".tmp/agent-trials/cli-evaluation-017",
+  "baseline": {
+    "preparedAt": "2026-11-07T16:43:18.991Z",
+    "sourceRevision": "5f547eaa065bae02e7fb7db78c71f8503e45f566",
+    "sourceStatus": "",
+    "baseline": "27b45b559c8c07aa6c592685df8fa139887d4de3",
+    "package": {
+      "version": "0.1.0",
+      "filename": "cliewen-openspec-0.1.0.tgz",
+      "sha256": "3a2ca738562274b38e1047ac3195bf70de0b931748b2fdd393ea472616cf3c4f"
+    },
+    "node": "v24.0.0",
+    "npm": "11.21.0",
+    "openspec": "1.15.0",
+    "root": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-csv-bom-1794069786632\\project"
+  },
+  "observedRevision": "27b45b559c8c07aa6c592685df8fa139887d4de3",
+  "workingTreeStatus": "M .cliewen-openspec/ac-registry.json\n?? docs/testing/acceptance-plan.md\n?? docs/testing/baseline.tap\n?? docs/testing/instructions/apply.json\n?? docs/testing/instructions/design.json\n?? docs/testing/instructions/proposal.json\n?? docs/testing/instructions/specs.json\n?? docs/testing/instructions/tasks.json\n?? openspec/changes/add-optional-csv-bom/.openspec.yaml\n?? openspec/changes/add-optional-csv-bom/design.md\n?? openspec/changes/add-optional-csv-bom/proposal.md\n?? openspec/changes/add-optional-csv-bom/specs/csv-export/spec.md\n?? openspec/changes/add-optional-csv-bom/tasks.md",
+  "promptSHA256": "59d5d5f6cc7bbdde49d4f9d09199909515b7eef84ca62294a3652dd5e9b578da",
+  "sameExecutedPromptAsRound014": true,
+  "inputComparison": {
+    "sourceRevision": "5f547eaa065bae02e7fb7db78c71f8503e45f566",
+    "baseline": "27b45b559c8c07aa6c592685df8fa139887d4de3",
+    "previous": "docs/testing/cli-trials/result-014.json",
+    "previousExecutedPromptSHA256": "59d5d5f6cc7bbdde49d4f9d09199909515b7eef84ca62294a3652dd5e9b578da",
+    "packageUnchanged": true,
+    "promptUnchanged": true,
+    "rubricUnchanged": false,
+    "rubricImpact": "Expanded independent semantic/count/link review from round 015 follow-up; prior Codex pass retained by release-pass-review-001.md. Agent does not receive this rubric. No package, prompt, profile, budget or core workflow change.",
+    "coordinatorPreflight": "Original rubric equality assumption failed before any agent launch. Retained original helper, read-only replay, and suite-missing runner output; no native attempt or result repaired.",
+    "profileUnchanged": true,
+    "budgets": {
+      "wallTimeSeconds": 600,
+      "outputBytes": 67108864,
+      "reportedCostUSD": null,
+      "tokenLimit": null,
+      "billing": "existing ChatGPT entitlement; no purchase"
+    }
+  },
+  "run": {
+    "schema": "cliewen-delivery",
+    "profileId": "codex-cli-primary",
+    "phase": "initial",
+    "project": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-csv-bom-1794069786632\\project",
+    "baseline": "27b45b559c8c07aa6c592685df8fa139887d4de3",
+    "profile": {
+      "readiness": "pinned",
+      "agent": "Codex CLI",
+      "runner": "cli",
+      "model": "gpt-6.1-sol",
+      "agentVersion": "0.166.0",
+      "provider": "openai; existing ChatGPT CLI authentication",
+      "effort": "medium",
+      "permissions": "danger-full-access, approval never; project scope is an instruction, not OS isolation",
+      "context": "fresh process; ignore user config and execpolicy rules; project AGENTS and managed/global instructions may remain",
+      "budgets": {
+        "wallTimeSeconds": 600,
+        "outputBytes": 67108864,
+        "reportedCostUSD": null,
+        "tokenLimit": null,
+        "billing": "existing ChatGPT entitlement; no purchase"
+      },
+      "traceFormat": "codex exec --json JSONL plus stderr"
+    },
+    "exe": "C:\\Program Files\\nodejs\\node.exe",
+    "cliVersion": "codex-cli 0.166.0",
+    "startedAt": "2026-11-07T16:44:25.540Z",
+    "promptFile": "prompt.txt",
+    "environmentControls": {
+      "NO_COLOR": "1",
+      "OPENSPEC_TELEMETRY": "0",
+      "CI": "1"
+    }
+  },
+  "interruption": {
+    "observedAt": "2026-11-07T19:16:26.321Z",
+    "lastEventArtifactModifiedAt": "2026-11-07T16:45:45.037Z",
+    "runnerCompletionRecorded": false,
+    "processFound": false,
+    "cause": "unknown",
+    "elapsedRuntimeSeconds": null,
+    "exitCode": null,
+    "timeoutObserved": false,
+    "processInventory": "Coordinator inspected Win32_Process for this trial path, run-cli-trial, and the pinned CLI. No runner/native process matched; the inspection shell itself was excluded."
+  },
+  "partialReview": {
+    "originalImplementationTestsSpecsAndREADMEUnchanged": true,
+    "preservedInputSHA256": {
+      "export.mjs": "f4c355317e9d781846bf80e971a657a515191cc47d36cd75d997b4d648803065",
+      "test/export.test.mjs": "067b6df8215569d8ebd20475e5f9f7135aaac37fc5b65372e91e465f5dcd7215",
+      "openspec/specs/csv-export/spec.md": "ded1bf60c0990e2d169d250976a9c0370b8be72f3972284fe3f6567b98ae3314",
+      "README.md": "2df9fd17cf1774452788cb4d0cfeda6e0798f59961dc0cac080c1cce8659703d"
+    },
+    "originalTestsReplayed": 6,
+    "originalTestsExitCode": 0,
+    "headIsBaseline": true,
+    "implementationObserved": false,
+    "deliveryComplete": false,
+    "freshDeliveryEvidenceObserved": false,
+    "fullCheckerRun": false,
+    "reason": "No completed native attempt or delivery implementation to grade; partial draft artifacts are preserved without treating them as final documentation."
+  },
+  "coordinatorPreflight": {
+    "initialFailure": "Assumed the old rubric was byte-identical. The assertion stopped before suite creation; the following runner call failed because the suite was absent. No agent started.",
+    "correction": "Compare unchanged package/prompt/profile and record the already-expanded evaluator rubric separately, consistent with release-pass-review-001.md.",
+    "retained": "artifacts/preflight-original.mjs, preflight-rubric-comparison.json (read-only replay), and coordinator-suite-missing.log"
+  },
+  "commands": [
+    {
+      "index": 4,
+      "command": "\"C:\\\\Program Files\\\\PowerShell\\\\7\\\\pwsh.exe\" -Command 'Get-Content AGENTS.md; Get-Content .cliewen-openspec/config.yaml; Get-ChildItem -Force -Name; Test-Path .codegraph'",
+      "exitCode": 0
+    },
+    {
+      "index": 6,
+      "command": "\"C:\\\\Program Files\\\\PowerShell\\\\7\\\\pwsh.exe\" -Command 'Get-Content package.json; Get-Content export.mjs; Get-Content README.md; Get-Content .gitignore; rg --files openspec docs test .cliewen-openspec; git status --short; node node_modules/@fission-ai/openspec/bin/openspec.js --help; node node_modules/cliewen-openspec/dist/cli.js --help'",
+      "exitCode": 0
+    },
+    {
+      "index": 8,
+      "command": "\"C:\\\\Program Files\\\\PowerShell\\\\7\\\\pwsh.exe\" -Command 'Get-Content openspec/config.yaml; Get-Content openspec/specs/csv-export/spec.md; Get-Content test/export.test.mjs; Get-Content docs/README.md; Get-Content openspec/schemas/cliewen-delivery/schema.yaml; Get-Content .cliewen-openspec/ac-registry.json; node node_modules/@fission-ai/openspec/bin/openspec.js new change --help; node node_modules/@fission-ai/openspec/bin/openspec.js instructions --help; Get-Content node_modules/cliewen-openspec/adapters/node-test.mjs'",
+      "exitCode": 0
+    },
+    {
+      "index": 10,
+      "command": "\"C:\\\\Program Files\\\\PowerShell\\\\7\\\\pwsh.exe\" -Command 'New-Item -ItemType Directory -Force docs/testing/instructions | Out-Null; node node_modules/@fission-ai/openspec/bin/openspec.js new change add-optional-csv-bom --schema cliewen-delivery; node node_modules/@fission-ai/openspec/bin/openspec.js instructions proposal --change add-optional-csv-bom --json | Out-File -Encoding utf8 docs/testing/instructions/proposal.json; Get-Content docs/testing/instructions/proposal.json; Get-Content node_modules/cliewen-openspec/docs/configuration.md; Get-Content node_modules/cliewen-openspec/docs/testing/test-quality.md'",
+      "exitCode": 0
+    },
+    {
+      "index": 15,
+      "command": "\"C:\\\\Program Files\\\\PowerShell\\\\7\\\\pwsh.exe\" -Command 'node node_modules/@fission-ai/openspec/bin/openspec.js instructions specs --change add-optional-csv-bom --json | Out-File -Encoding utf8 docs/testing/instructions/specs.json; node node_modules/@fission-ai/openspec/bin/openspec.js instructions design --change add-optional-csv-bom --json | Out-File -Encoding utf8 docs/testing/instructions/design.json; node node_modules/cliewen-openspec/dist/cli.js ac next --capability csv-export; node node_modules/cliewen-openspec/dist/cli.js ac next --capability csv-export; node node_modules/cliewen-openspec/dist/cli.js ac next --capability csv-export; Get-Content docs/testing/instructions/specs.json; Get-Content docs/testing/instructions/design.json'",
+      "exitCode": 0
+    },
+    {
+      "index": 19,
+      "command": "\"C:\\\\Program Files\\\\PowerShell\\\\7\\\\pwsh.exe\" -Command 'node node_modules/@fission-ai/openspec/bin/openspec.js instructions tasks --change add-optional-csv-bom --json | Out-File -Encoding utf8 docs/testing/instructions/tasks.json; Get-Content docs/testing/instructions/tasks.json; node --test test/export.test.mjs; git rev-parse HEAD; Get-Content .cliewen-openspec/.gitignore'",
+      "exitCode": 0
+    },
+    {
+      "index": 23,
+      "command": "\"C:\\\\Program Files\\\\PowerShell\\\\7\\\\pwsh.exe\" -Command 'node node_modules/@fission-ai/openspec/bin/openspec.js instructions apply --change add-optional-csv-bom --json | Out-File -Encoding utf8 docs/testing/instructions/apply.json; Get-Content docs/testing/instructions/apply.json; New-Item -ItemType Directory -Force .cliewen-openspec/review-output | Out-Null; node --test --test-reporter=tap test/export.test.mjs | Out-File -Encoding utf8 docs/testing/baseline.tap'",
+      "exitCode": 0
+    }
+  ],
+  "limits": [
+    "No completed final handoff, native exit status, elapsed runtime, or runner stop reason is available. The missing run fields are preserved rather than fabricated.",
+    "The cause of termination is unknown; neither a model defect nor a timeout or host/user interruption is established.",
+    "Six passing original tests verify only unchanged baseline behavior, not the requested feature or completed workflow.",
+    "No native retry, project repair, evidence collection, archive, release, publication, or profile/budget increase occurred.",
+    "Original dirty partial artifacts and both Git bundles are preserved; observed-project.bundle contains baseline history, while the filesystem snapshot retains uncommitted work.",
+    "All 12 variant observations remain credited; primary counts remain four of 18."
+  ]
+}

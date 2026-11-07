@@ -3,7 +3,7 @@ type: plan
 ---
 # Remaining checks before 0.1.0
 
-This is the current release-gap register, reconciled through [the second approved combined quality delivery](release-variants/result-014.md). The [evaluation manifest](agent-evaluation.yaml) defines scenarios and pinned profiles; [the evaluation policy](agent-evaluation.md#when-to-run-trials) requires two fresh repetitions of each distinct required combination. The [first-release checklist](../plans/first-release.md) owns final acceptance and publication. No agent calls or budget increases follow from this register.
+This is the current release-gap register, reconciled through [the incomplete Codex delivery repeat](cli-trials/result-017.md). The [evaluation manifest](agent-evaluation.yaml) defines scenarios and pinned profiles; [the evaluation policy](agent-evaluation.md#when-to-run-trials) requires two fresh repetitions of each distinct required combination. The [first-release checklist](../plans/first-release.md) owns final acceptance and publication. No agent calls or budget increases follow from this register.
 
 ## Primary schema trials
 
@@ -11,7 +11,7 @@ The latest instruction candidate is `0.1.0`, SHA-256 `3a2ca738562274b38e1047ac31
 
 | Schema / scenario | Profile | Recorded passes / required | Additional passing attempts needed | Evidence or open finding |
 |---|---|---:|---:|---|
-| Delivery / `csv-bom-evidence-first` | Codex | 1 / 2 | 1 | [Round 014: factual-writing follow-up](cli-trials/result-014.md#candidate-and-follow-up-results) |
+| Delivery / `csv-bom-evidence-first` | Codex | 1 / 2 | 1 | [Round 014 pass](cli-trials/result-014.md#candidate-and-follow-up-results) retained; [round 017](cli-trials/result-017.md) has no completion record or implementation and adds no pass |
 | Delivery / `csv-bom-evidence-first` | Claude | 0 / 2 | 2 | Earlier candidate passes remain historical |
 | Delivery / `csv-bom-evidence-first` | OpenCode | 0 / 2 | 2 | [Round 016: timeout before handoff](cli-trials/result-016.md); technical checks pass, but a data-loss fault survives all 16 tests and draft documentation findings remain. Earlier failures retained |
 | Discovery / `csv-streaming-investigation` | Codex | 1 / 2 | 1 | [Round 014: factual-writing follow-up](cli-trials/result-014.md#candidate-and-follow-up-results) |
@@ -67,7 +67,7 @@ Complete or explicitly disposition these changes, review all six roadmap priorit
 
 ## Next execution order
 
-The four saved primary passes have been rechecked and retained. The next bounded OpenCode attempt was run and classified incomplete in round 016; it adds no pass. Continue with:
+The four saved primary passes have been rechecked and retained. OpenCode round 016 remains incomplete. The single Codex delivery repeat in round 017 stopped without a completion record; its cause is unknown and it adds no pass. Review that execution interruption before another retry. Continue with:
 
 1. Fill the remaining primary rows, preserving actual combined approval boundaries and every failed attempt. State the purpose and input changes, if any, before another OpenCode retry; do not increase budgets or change profiles implicitly. Use the isolated pinned Codex CLI through `CLIEWEN_CODEX_CLI`; the global 0.167.0 preflight stop is retained in result 010, and the profile stays at 0.166.0.
 2. Close the OpenCode guide gap, final-input reuse reviews, source-change dispositions, and final compatibility/acceptance checklist. All six variant rows have both core observations; retain their findings and input limits.
