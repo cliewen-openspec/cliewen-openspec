@@ -1,0 +1,48 @@
+{
+  "observedAt": "2026-11-07T19:23:05.794Z",
+  "classification": "host-shutdown-during-attempt",
+  "sources": {
+    "kind": "Windows System event log, read-only Get-WinEvent",
+    "events": [
+      {
+        "timeUTC": "2026-11-07T16:45:52.107Z",
+        "id": 6006,
+        "provider": "EventLog"
+      },
+      {
+        "timeUTC": "2026-11-07T16:45:53.067Z",
+        "id": 109,
+        "provider": "Microsoft-Windows-Kernel-Power"
+      },
+      {
+        "timeUTC": "2026-11-07T16:45:56.277Z",
+        "id": 13,
+        "provider": "Microsoft-Windows-Kernel-General"
+      },
+      {
+        "timeUTC": "2026-11-07T19:11:11.751Z",
+        "id": 12,
+        "provider": "Microsoft-Windows-Kernel-General"
+      },
+      {
+        "timeUTC": "2026-11-07T19:11:25.394Z",
+        "id": 6005,
+        "provider": "EventLog"
+      }
+    ]
+  },
+  "nativeStartedAt": "2026-11-07T16:44:25.540Z",
+  "lastNativeLogModification": "2026-11-07T16:45:45.037Z",
+  "shutdownTransitionAt": "2026-11-07T16:45:53.067Z",
+  "shutdownAfterStartSeconds": 87.527,
+  "shutdownAfterLastLogSeconds": 8.03,
+  "nextBootAt": "2026-11-07T19:11:11.751Z",
+  "budgetSeconds": 600,
+  "interpretation": "Windows shutdown occurred during the unfinished attempt, before the budget deadline; this strongly explains the missing runner completion and absent process after reboot. No model defect or native timeout is established.",
+  "limits": [
+    "The initiating application/person and reason for shutdown were not investigated.",
+    "No native exit status or exact termination time was recovered. Original run metadata and report remain unchanged."
+  ],
+  "originalReport": "docs/testing/cli-trials/result-017.json",
+  "originalSnapshot": ".tmp/agent-trials/cli-evaluation-017"
+}

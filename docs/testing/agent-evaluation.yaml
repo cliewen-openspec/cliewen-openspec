@@ -259,6 +259,7 @@ scenarios:
       - docs/testing/cli-trials/result-015.md
       - docs/testing/cli-trials/result-016.md
       - docs/testing/cli-trials/result-017.md
+      - docs/testing/cli-trials/result-018.md
   csv-bom-per-task:
     schema: cliewen-delivery
     readiness: ready

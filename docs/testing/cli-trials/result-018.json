@@ -1,0 +1,246 @@
+{
+  "recordedAt": "2026-11-07T19:31:38.162Z",
+  "overall": "fail",
+  "cliCompletion": "complete",
+  "technicalStatus": "pass",
+  "semanticStatus": "fail: default-content assertion gap",
+  "releaseReady": false,
+  "newCreditedPrimaryPasses": 0,
+  "remainingPrimaryPassingAttempts": 14,
+  "scenario": "csv-bom-evidence-first",
+  "schema": "cliewen-delivery",
+  "profile": "codex-cli-primary",
+  "rawArtifacts": ".tmp/agent-trials/cli-evaluation-018",
+  "baseline": {
+    "preparedAt": "2026-11-07T19:22:45.988Z",
+    "sourceRevision": "9ef08aa3c8fb7d93e5fbb49ae3879d389c96ed66",
+    "sourceStatus": "",
+    "baseline": "d8c41472d54195758f250c6f456ee582c4d18c92",
+    "package": {
+      "version": "0.1.0",
+      "filename": "cliewen-openspec-0.1.0.tgz",
+      "sha256": "3a2ca738562274b38e1047ac3195bf70de0b931748b2fdd393ea472616cf3c4f"
+    },
+    "node": "v24.0.0",
+    "npm": "11.21.0",
+    "openspec": "1.15.0",
+    "root": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-csv-bom-1794079356194\\project"
+  },
+  "finalRevision": "2a00bfbba4adf8befe9cb75d8d0853e424b98322",
+  "workingTreeStatus": "",
+  "promptSHA256": "59d5d5f6cc7bbdde49d4f9d09199909515b7eef84ca62294a3652dd5e9b578da",
+  "sameExecutedPromptAsRound017": true,
+  "inputComparison": {
+    "sourceRevision": "9ef08aa3c8fb7d93e5fbb49ae3879d389c96ed66",
+    "previous": "docs/testing/cli-trials/result-017.json",
+    "reason": "Fresh repetition after Windows shutdown during prior attempt; see result-017-follow-up.json",
+    "packageUnchanged": true,
+    "promptUnchanged": true,
+    "rubricUnchanged": true,
+    "profileUnchanged": true,
+    "budgetUnchanged": true,
+    "priorWorkingStateReused": false
+  },
+  "run": {
+    "schema": "cliewen-delivery",
+    "profileId": "codex-cli-primary",
+    "phase": "initial",
+    "project": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-csv-bom-1794079356194\\project",
+    "baseline": "d8c41472d54195758f250c6f456ee582c4d18c92",
+    "profile": {
+      "readiness": "pinned",
+      "agent": "Codex CLI",
+      "runner": "cli",
+      "model": "gpt-6.1-sol",
+      "agentVersion": "0.166.0",
+      "provider": "openai; existing ChatGPT CLI authentication",
+      "effort": "medium",
+      "permissions": "danger-full-access, approval never; project scope is an instruction, not OS isolation",
+      "context": "fresh process; ignore user config and execpolicy rules; project AGENTS and managed/global instructions may remain",
+      "budgets": {
+        "wallTimeSeconds": 600,
+        "outputBytes": 67108864,
+        "reportedCostUSD": null,
+        "tokenLimit": null,
+        "billing": "existing ChatGPT entitlement; no purchase"
+      },
+      "traceFormat": "codex exec --json JSONL plus stderr"
+    },
+    "exe": "C:\\Program Files\\nodejs\\node.exe",
+    "cliVersion": "codex-cli 0.166.0",
+    "startedAt": "2026-11-07T19:23:27.266Z",
+    "promptFile": "prompt.txt",
+    "environmentControls": {
+      "NO_COLOR": "1",
+      "OPENSPEC_TELEMETRY": "0",
+      "CI": "1"
+    },
+    "exitCode": 0,
+    "signal": null,
+    "endedAt": "2026-11-07T19:29:19.773Z",
+    "durationSeconds": 352.505,
+    "monotonicDurationSeconds": 352.5044822,
+    "deadlineExceededBySeconds": 0,
+    "stopReason": null,
+    "stopRequestedAt": null,
+    "stopRequestedAfterSeconds": null,
+    "terminationDelaySeconds": null,
+    "eventFailure": false,
+    "sessionId": "01a1b777-3f37-7a01-bcc5-6b991226654c",
+    "usage": {
+      "input_tokens": 1187204,
+      "cached_input_tokens": 1132160,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 13610,
+      "reasoning_output_tokens": 2051
+    },
+    "stepUsage": [],
+    "reportedCostUSD": null,
+    "observedModels": [],
+    "reviewInputsPreserved": true,
+    "evaluation": "not-graded"
+  },
+  "technicalChecks": {
+    "passed": true,
+    "testCount": 12,
+    "originalTests": 6,
+    "newTests": 6,
+    "acceptanceIDs": [
+      "EXP-007",
+      "EXP-008",
+      "EXP-009"
+    ],
+    "baselineTestsAndPermanentSpecsPreserved": true,
+    "strictValidation": "passed",
+    "freshScopedEvidence": "passed",
+    "reviewInputHashesChecked": 37,
+    "expandedIndependentBehavior": "passed",
+    "findings": [
+      {
+        "code": "coverage-minimum-unmet",
+        "message": "EXP-007: needs 1 distinct passed positive cases.",
+        "severity": "warning"
+      },
+      {
+        "code": "coverage-minimum-unmet",
+        "message": "EXP-008: needs 1 distinct passed negative cases.",
+        "severity": "warning"
+      },
+      {
+        "code": "coverage-minimum-unmet",
+        "message": "EXP-009: needs 1 distinct passed positive cases.",
+        "severity": "warning"
+      },
+      {
+        "code": "coverage-minimum-unmet",
+        "message": "EXP-009: needs 1 distinct passed negative cases.",
+        "severity": "warning"
+      },
+      {
+        "code": "test-policy-review-required",
+        "severity": "info",
+        "message": "Record checks cannot prove case distinctness, assertion meaning, complete dependency/impact analysis, or human approval. Review these claims."
+      },
+      {
+        "code": "sufficiency-not-assessed",
+        "severity": "info",
+        "message": "Execution and linkage do not prove assertion quality; review the assertions against the scenarios."
+      }
+    ]
+  },
+  "independentFault": {
+    "fault": "Strip caller-supplied U+FEFF from default/false output in a separate copy",
+    "agentSuiteExitCode": 0,
+    "agentSuitePassed": 12,
+    "independentAssertionDetectedFault": true,
+    "originalImplementationPreservesInput": true,
+    "originalProjectUnchanged": true,
+    "scope": "One targeted surviving fault, not a mutation score."
+  },
+  "processReview": {
+    "configurationAndBaselineReadEvents": [
+      4,
+      6,
+      8
+    ],
+    "proposalInstructionsEvent": 10,
+    "specsDesignInstructionsEvents": [
+      13,
+      15
+    ],
+    "tasksAndApplyInstructionsEvent": 17,
+    "readyApplyContextReadEvent": 19,
+    "newTestsAndMissingMarkerFailureEvent": 21,
+    "restoredTaskTestsEvent": 25,
+    "unconditionalMarkerFaultEvent": 38,
+    "documentationAndRegressionEvent": 40,
+    "reviewAndHashRecordEvents": [
+      43,
+      45
+    ],
+    "checkpointCommitAndEvidenceEvent": 47,
+    "finalDocumentationCommitAndEvidenceEvent": 54,
+    "finalReadbackEvent": 58,
+    "finalValidationEvent": 59,
+    "finalCheckEvent": 60
+  },
+  "manualReview": {
+    "status": "failed",
+    "localMarkdownLinksChecked": 21,
+    "headingFragmentsChecked": 0,
+    "missingLocalTargets": [],
+    "newFactualDocumentationFindings": [],
+    "findings": [
+      {
+        "id": "default-content-assertion-gap",
+        "file": "test/export.test.mjs",
+        "issue": "The existing-marker-content case runs only with bom: true. All 12 tests still pass after stripping valid U+FEFF from default/false output. Expanded independent assertions reject the fault.",
+        "impact": "Tests do not protect the documented preservation of supported input content in default/false exports.",
+        "blocking": true
+      }
+    ],
+    "observations": [
+      "Original six titles/assertions remain unchanged; new cases assert exact strings and UTF-8 bytes.",
+      "Preimplementation missing-marker and restored-code unconditional-marker failures are relevant behavior observations; setup/help errors are not credited.",
+      "README, delta, PR description, and final handoff correctly state 12 tests, Boolean/default scope, added-marker versus existing-content distinction, and untested consumers.",
+      "Scoped quality modes remain advisory; original checker findings are linked directly rather than misreported as category/count claims.",
+      "Local links resolve to their described subjects; no external/rendering check.",
+      "The surviving-fault criterion is applied consistently with prior OpenCode failures. A completed Codex process and passing implementation checks do not supply assertion sufficiency."
+    ]
+  },
+  "retainedFailures": [
+    {
+      "kind": "adapter --help unsupported",
+      "event": 8,
+      "observation": "Exit 2 from the adapter; no tests ran. Installed interface was then inspected."
+    },
+    {
+      "kind": "new tests against baseline implementation",
+      "event": 21,
+      "observation": "Three missing-marker assertion failures; intended evidence-first behavior failure."
+    },
+    {
+      "kind": "strict validation warning",
+      "event": 30,
+      "observation": "Long requirement text failed strict validation; wording shortened without removing obligations and validator passes."
+    },
+    {
+      "kind": "controlled unconditional-marker fault",
+      "event": 38,
+      "observation": "Three EXP-007 assertions reject unconditional insertion; original code restored."
+    },
+    {
+      "kind": "raw-log whitespace",
+      "event": 54,
+      "observation": "Whitespace check reports runner-emitted blank-line spaces in retained raw logs; inputs commit and final collection proceed. This is not behavior evidence."
+    }
+  ],
+  "limits": [
+    "Four primary passes and 12 variant observations remain credited; this failed attempt adds no repetition.",
+    "Round 017 is independently explained by Windows shutdown in result-017-follow-up.json; its original incomplete files remain unchanged.",
+    "Only Boolean/default option behavior is required; null/nonboolean inputs remain unspecified.",
+    "The implementation passes independent behavior assertions; the blocking finding is a specific missing regression assertion, not observed data loss in the delivered formatter.",
+    "Rendering, external URLs, exhaustive mutation coverage, and actual model identity are not established. Monetary cost was not exposed.",
+    "No native retry beyond this bounded fresh run, project repair, evaluator recollection, archive, publication, or external PR occurred."
+  ]
+}
