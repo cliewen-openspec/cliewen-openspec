@@ -1,0 +1,410 @@
+{
+  "recordedAt": "2026-11-07T16:26:06.608Z",
+  "overall": "pass",
+  "semanticStatus": "pass-with-stated-limits",
+  "scenario": "combined-quality-and-retirement",
+  "schema": "cliewen-all",
+  "profile": "codex-cli-primary",
+  "stage": "approved-delivery-and-closure",
+  "endToEndDelivery": "complete",
+  "releaseReady": false,
+  "newCreditedVariantPasses": 1,
+  "newCreditedPrimaryPasses": 0,
+  "creditedScenarioObservations": 2,
+  "remainingScenarioRepetitions": 0,
+  "rawArtifacts": ".tmp/agent-trials/release-variant-014",
+  "baseline": {
+    "preparedAt": "2026-11-07T13:45:18.112Z",
+    "sourceRevision": "7c9bb713eea3953227d5a8637cb2ea380d072e75",
+    "sourceStatus": "",
+    "schema": "cliewen-all",
+    "baseline": "8ac2b81a21eb81b3249775b0f685fd4456772d45",
+    "package": {
+      "version": "0.1.0",
+      "filename": "cliewen-openspec-0.1.0.tgz",
+      "sha256": "3a2ca738562274b38e1047ac3195bf70de0b931748b2fdd393ea472616cf3c4f"
+    },
+    "node": "v24.0.0",
+    "npm": "11.21.0",
+    "openspec": "1.15.0",
+    "root": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-combined-quality-1794059107476\\project"
+  },
+  "initialCheckpoint": "docs/testing/release-variants/result-013.json",
+  "inputImpactReview": "docs/testing/release-variants/validation-003.md",
+  "approval": {
+    "acceptedOn": "2026-11-07",
+    "reviewRevision": "0a81db92cf39af464344d16e334c3472f0e60404",
+    "decisionSHA256": "6c3384357fdfddc21385de25f9357150768c2c414870c5670df52b9c36aed14b",
+    "approvalCommit": "417fcb82065a7667f21072f54702cbe4d065a7f1",
+    "source": {
+      "kind": "project-conversation",
+      "replyDate": "2026-11-07",
+      "question": "Godkender du følgende i det isolerede testprojekt? Four items: safe nonnegative counts with preserved error classes but changeable message wording; retire only the product cap; conditional COUNT-002 negative minimum exception; local archive after passed checks.",
+      "requestReport": "docs/testing/release-variants/result-013.md",
+      "requestScope": [
+        "Accept canonical decimal text from zero through Number.MAX_SAFE_INTEGER with exact results, unchanged grammar, malformed/non-string TypeError, unsafe RangeError, stable IDs and paths, and associated test/spec/document/review maintenance.",
+        "Retire only COUNT-003 product-cap obligations and obsolete rejection assertions; preserve/remap useful exact-value and shared malformed-input assertions and reserve its ID.",
+        "Approve only the conditional coverage/COUNT-002/negative minimum exception if COUNT-001 demonstrably covers malformed/unsafe rejection; all other coverage/effectiveness/lifecycle/execution obligations remain."
+      ]
+    },
+    "userReply": "godkendt",
+    "scope": {
+      "delivery": "authorized: canonical nonnegative safe counts with exact results and preserved error classes/API/IDs",
+      "retirement": "authorized: COUNT-003 product cap only, preserving active/shared assertions and reserved ID",
+      "coverageException": "authorized conditionally: coverage/COUNT-002/negative only, with meaningful COUNT-001 rejection/effectiveness checks and other obligations enforced",
+      "localArchive": "authorized in this disposable project only, after successful scoped checks and review of actual evidence"
+    }
+  },
+  "finalRevision": "7846a5df6fd4302f46c040c5f08f7b8ab79dacf8",
+  "workingTreeStatus": "",
+  "run": {
+    "schema": "cliewen-all",
+    "profileId": "codex-cli-primary",
+    "phase": "approved-continuation",
+    "project": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-combined-quality-1794059107476\\project",
+    "baseline": "8ac2b81a21eb81b3249775b0f685fd4456772d45",
+    "profile": {
+      "readiness": "pinned",
+      "agent": "Codex CLI",
+      "runner": "cli",
+      "model": "gpt-6.1-sol",
+      "agentVersion": "0.166.0",
+      "provider": "openai; existing ChatGPT CLI authentication",
+      "effort": "medium",
+      "permissions": "danger-full-access, approval never; project scope is an instruction, not OS isolation",
+      "context": "fresh process; ignore user config and execpolicy rules; project AGENTS and managed/global instructions may remain",
+      "budgets": {
+        "wallTimeSeconds": 600,
+        "outputBytes": 67108864,
+        "reportedCostUSD": null,
+        "tokenLimit": null,
+        "billing": "existing ChatGPT entitlement; no purchase"
+      },
+      "traceFormat": "codex exec --json JSONL plus stderr"
+    },
+    "exe": "C:\\Program Files\\nodejs\\node.exe",
+    "cliVersion": "codex-cli 0.166.0",
+    "startedAt": "2026-11-07T16:13:58.652Z",
+    "promptFile": "prompt.txt",
+    "environmentControls": {
+      "NO_COLOR": "1",
+      "OPENSPEC_TELEMETRY": "0",
+      "CI": "1"
+    },
+    "exitCode": 0,
+    "signal": null,
+    "endedAt": "2026-11-07T16:22:40.144Z",
+    "durationSeconds": 521.492,
+    "monotonicDurationSeconds": 521.4905859,
+    "deadlineExceededBySeconds": 0,
+    "stopReason": null,
+    "stopRequestedAt": null,
+    "stopRequestedAfterSeconds": null,
+    "terminationDelaySeconds": null,
+    "eventFailure": false,
+    "sessionId": "01a1b6c9-c717-7a11-b7f9-bd3a82a69d61",
+    "usage": {
+      "input_tokens": 2041074,
+      "cached_input_tokens": 1958528,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 19458,
+      "reasoning_output_tokens": 3297
+    },
+    "stepUsage": [],
+    "reportedCostUSD": null,
+    "observedModels": [],
+    "reviewInputsPreserved": true,
+    "evaluation": "not-graded"
+  },
+  "initialRun": {
+    "schema": "cliewen-all",
+    "profileId": "codex-cli-primary",
+    "phase": "initial",
+    "project": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-combined-quality-1794059107476\\project",
+    "baseline": "8ac2b81a21eb81b3249775b0f685fd4456772d45",
+    "profile": {
+      "readiness": "pinned",
+      "agent": "Codex CLI",
+      "runner": "cli",
+      "model": "gpt-6.1-sol",
+      "agentVersion": "0.166.0",
+      "provider": "openai; existing ChatGPT CLI authentication",
+      "effort": "medium",
+      "permissions": "danger-full-access, approval never; project scope is an instruction, not OS isolation",
+      "context": "fresh process; ignore user config and execpolicy rules; project AGENTS and managed/global instructions may remain",
+      "budgets": {
+        "wallTimeSeconds": 600,
+        "outputBytes": 67108864,
+        "reportedCostUSD": null,
+        "tokenLimit": null,
+        "billing": "existing ChatGPT entitlement; no purchase"
+      },
+      "traceFormat": "codex exec --json JSONL plus stderr"
+    },
+    "exe": "C:\\Program Files\\nodejs\\node.exe",
+    "cliVersion": "codex-cli 0.166.0",
+    "startedAt": "2026-11-07T13:45:51.137Z",
+    "promptFile": "prompt.txt",
+    "environmentControls": {
+      "NO_COLOR": "1",
+      "OPENSPEC_TELEMETRY": "0",
+      "CI": "1"
+    },
+    "exitCode": 0,
+    "signal": null,
+    "endedAt": "2026-11-07T13:51:51.443Z",
+    "durationSeconds": 360.305,
+    "monotonicDurationSeconds": 360.3046423,
+    "deadlineExceededBySeconds": 0,
+    "stopReason": null,
+    "stopRequestedAt": null,
+    "stopRequestedAfterSeconds": null,
+    "terminationDelaySeconds": null,
+    "eventFailure": false,
+    "sessionId": "01a1b642-28e6-7633-af67-57bece9347e8",
+    "usage": {
+      "input_tokens": 801996,
+      "cached_input_tokens": 717568,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 12720,
+      "reasoning_output_tokens": 2105
+    },
+    "stepUsage": [],
+    "reportedCostUSD": null,
+    "observedModels": [],
+    "reviewInputsPreserved": true,
+    "evaluation": "not-graded"
+  },
+  "activeCLISeconds": 881.797,
+  "waitingForHumanTimeIncluded": false,
+  "technicalChecks": {
+    "status": "passed",
+    "baselineTests": 6,
+    "finalTests": 12,
+    "activeRevision": "9b693b2849a7ad65c06d8cb5ca4312f8a87c500e",
+    "permanentRevision": "7846a5df6fd4302f46c040c5f08f7b8ab79dacf8",
+    "activeInputHashesChecked": 56,
+    "permanentInputHashesChecked": 62,
+    "enforcedScopedCheck": true,
+    "enforcedPermanentCheck": true,
+    "strictPermanentSpecs": true,
+    "coverage": {
+      "COUNT-001": {
+        "positive": 3,
+        "negative": 4,
+        "boundary": 2
+      },
+      "COUNT-002": {
+        "positive": 2,
+        "negative": 0,
+        "boundary": 1
+      }
+    },
+    "exceptions": [
+      {
+        "policy": "coverage",
+        "scenario": "COUNT-002",
+        "category": "negative",
+        "reason": "Owner approval in docs/accepted-change.md permits only this category minimum exception. Negative forms are malformed under COUNT-001; meaningful malformed/non-string/unsafe error assertions demonstrated behavior failures. Positive/boundary and all other policies remain enforced.",
+        "status": "reviewed"
+      }
+    ],
+    "retiredIDs": [
+      "COUNT-003"
+    ],
+    "newIDs": [],
+    "testFilesPreserved": [
+      "test/count.test.mjs",
+      "test/limit.test.mjs",
+      "test/shared.test.mjs"
+    ],
+    "archive": "openspec/changes/archive/2026-11-07-allow-nonnegative-counts",
+    "acceptedDecision": true,
+    "acceptedAgreementPreservedVerbatim": true,
+    "separateDesign": false,
+    "separateDurableReference": false,
+    "originalNativeProjectUnchangedByReview": true,
+    "findings": [
+      {
+        "code": "test-policy-review-required",
+        "severity": "info",
+        "message": "Record checks cannot prove case distinctness, assertion meaning, complete dependency/impact analysis, or human approval. Review these claims."
+      },
+      {
+        "code": "sufficiency-not-assessed",
+        "severity": "info",
+        "message": "Execution and linkage do not prove assertion quality; review the assertions against the scenarios."
+      }
+    ]
+  },
+  "processReview": {
+    "agreementAndConfigurationReadbackEvent": 8,
+    "specsTasksAndBlockedApplyInstructionsEvent": 10,
+    "instructionReadbackEvent": 15,
+    "acceptedDecisionAndArtifactsBeforeReadyApplyEvent": 19,
+    "baselineExperimentsEvent": 23,
+    "implementationChecksEvent": 27,
+    "finalFaultsEvent": 32,
+    "failedScenarioValidationEvent": 48,
+    "correctedValidationEvent": 55,
+    "firstScopedCollectionEvent": 61,
+    "firstScopedEvidenceReadbackEvent": 63,
+    "finalScopedCollectionAndReadbackEvent": 67,
+    "authorizedArchiveEvent": 70,
+    "navigationRepairAndArchiveCommitEvent": 76,
+    "initialPermanentCollectionAndMissingReviewEvent": 78,
+    "permanentReviewAndCollectionEvent": 91,
+    "finalDocumentationHashesAndCommitEvent": 97,
+    "finalCollectionAndReadbackEvent": 102
+  },
+  "effectivenessReview": {
+    "baselineExperimentsIndependentlyReproduced": true,
+    "weakFaultExit": 0,
+    "correctedFaultExit": 1,
+    "correctedAssertion": "3 !== 2",
+    "unrelatedSetupExit": 1,
+    "unrelatedSetupError": "ERR_MODULE_NOT_FOUND; excluded from effectiveness evidence",
+    "nativeFaults": [
+      {
+        "name": "exact",
+        "failedCases": [
+          "parses text [COUNT-001] [Test-type: Unit] [Case: two] [Coverage: positive]",
+          "accepts positive counts [COUNT-002] [Test-type: Unit] [Case: one] [Coverage: positive]",
+          "accepts zero [COUNT-002] [Test-type: Unit] [Case: zero] [Coverage: boundary]",
+          "parses ordinary count [COUNT-001] [Test-type: Unit] [Case: forty-two] [Coverage: positive]",
+          "accepts another positive count [COUNT-002] [Test-type: Unit] [Case: seven] [Coverage: positive]",
+          "accepts safe maximum [COUNT-001] [Test-type: Unit] [Case: safe-maximum] [Coverage: boundary]",
+          "accepts 99 [COUNT-001] [Test-type: Unit] [Case: maximum] [Coverage: boundary]",
+          "accepts 100 [COUNT-001] [Test-type: Unit] [Case: above-maximum] [Coverage: positive]"
+        ]
+      },
+      {
+        "name": "malformed",
+        "failedCases": [
+          "rejects noncanonical text [COUNT-001] [Test-type: Unit] [Case: malformed] [Coverage: negative]",
+          "checks malformed input [COUNT-001] [Test-type: Unit] [Case: shared] [Coverage: negative]"
+        ],
+        "loopLimit": "Only first failing loop value experimentally observed; later values run after restoration."
+      },
+      {
+        "name": "non-string",
+        "failedCases": [
+          "rejects non-string inputs [COUNT-001] [Test-type: Unit] [Case: non-string] [Coverage: negative]"
+        ],
+        "loopLimit": "Only first failing loop value experimentally observed; later values run after restoration."
+      },
+      {
+        "name": "unsafe",
+        "failedCases": [
+          "rejects unsafe integers [COUNT-001] [Test-type: Unit] [Case: unsafe] [Coverage: negative]"
+        ],
+        "loopLimit": "Only first failing loop value experimentally observed; later values run after restoration."
+      },
+      {
+        "name": "zero",
+        "failedCases": [
+          "accepts zero [COUNT-002] [Test-type: Unit] [Case: zero] [Coverage: boundary]"
+        ]
+      },
+      {
+        "name": "cap",
+        "failedCases": [
+          "accepts safe maximum [COUNT-001] [Test-type: Unit] [Case: safe-maximum] [Coverage: boundary]",
+          "accepts 100 [COUNT-001] [Test-type: Unit] [Case: above-maximum] [Coverage: positive]"
+        ]
+      }
+    ],
+    "allNativeFinalFaultsIndependentlyReproduced": true,
+    "restoredPassed": 12,
+    "independentFinalFaults": [
+      {
+        "label": "assertions reject incorrect numeric result",
+        "exitCode": 1
+      },
+      {
+        "label": "assertions reject malformed input accepted",
+        "exitCode": 1
+      },
+      {
+        "label": "assertions reject zero rejected",
+        "exitCode": 1
+      },
+      {
+        "label": "assertions reject retired limit restored",
+        "exitCode": 1
+      },
+      {
+        "label": "assertions reject unsafe value accepted",
+        "exitCode": 1
+      }
+    ],
+    "allCasesStandalone": false,
+    "loopLimit": "Malformed, non-string, and unsafe cases contain loops; injected failures demonstrate only the first failing element. Later elements execute after restoration, without an individual sensitivity claim.",
+    "scope": "Targeted behavioral fault detection; not exhaustive mutation coverage or general reliability"
+  },
+  "semanticReview": {
+    "reviewer": "coordinating Codex agent",
+    "newBlockingFindings": [],
+    "observations": [
+      "Actual agreement binds the second proposed revision and digest; accepted status precedes implementation. Error classes remain required and message wording may change.",
+      "Canonical safe nonnegative counts, exact results, unchanged API/configuration/dependencies, reserved IDs, preserved shared assertions, and the sole conditional exception match agreement.",
+      "All six native final faults and the baseline weak/strong/setup distinction reproduce independently. Actual failing cases support the declared effectiveness groups; loop limits are explicit.",
+      "Both evidence scopes and 56/62 input entries match their committed revisions, including null entries for removed paths. Scoped evidence/checks are read before authorized archive; final genuine evidence matches clean HEAD.",
+      "All 43 local Markdown links in 13 changed documents resolve, including six used heading fragments. Moved/incoming targets, historical labels, and the current accepted authority were reviewed.",
+      "The original proposed checkpoint and instruction responses remain preserved; live navigation is updated without altering the accepted agreement.",
+      "The installed OpenSpec projection requires retaining the old Positive minimum and Enforce a positive minimum titles for COUNT-002. Normative text explicitly accepts zero and the tool constraint is disclosed."
+    ],
+    "links": {
+      "files": 13,
+      "total": 43,
+      "fragments": 6,
+      "broken": 0,
+      "rendered": false,
+      "externalURLsChecked": false
+    },
+    "rendered": false,
+    "externalURLsChecked": false
+  },
+  "retainedFailures": [
+    {
+      "file": ".trial/change-validation-before-fix.json",
+      "kind": "scenario-title projection limitation",
+      "exitCode": 1,
+      "resolution": "Preserve existing scenario title and ID; change normative zero behavior without a validation bypass."
+    },
+    {
+      "file": ".trial/archive-permanent-check.json",
+      "kind": "missing permanent-scope review and category exception after archive",
+      "exitCode": 1,
+      "resolution": "Create hash-bound permanent record against the original baseline, then recollect and check."
+    },
+    {
+      "file": ".trial/archive-links-before-repair.json",
+      "kind": "moved relative links before repair",
+      "exitCode": 1,
+      "resolution": "Repair live moved and incoming links, preserve historical meaning, then validate links and refresh final hashes/evidence."
+    },
+    {
+      "file": ".trial/dependency-probe-syntax-failure.json",
+      "kind": "incidental dependency-inspection syntax error",
+      "exitCode": 1,
+      "resolution": "Corrected probe succeeds; no effectiveness credit."
+    },
+    {
+      "event": 83,
+      "kind": "PowerShell quoting/parser error before helper execution",
+      "exitCode": 1,
+      "resolution": "Reissued via project-local helper; excluded from effectiveness."
+    }
+  ],
+  "limits": [
+    "Two complete combined quality/lifecycle observations now exist and all 12 required variant observations are credited. Four primary passes are unchanged; 14 primary attempts and other release checks remain. No release acceptance.",
+    "Archive-navigation guidance changed before the second investigation; see validation-003.md. This is one successful observation under clarified guidance, not an identical-prompt repeat or two successful navigation observations. The first observation retains 21 historical link failures.",
+    "Rendering, external URLs, outside consumer compatibility, exhaustive mutation coverage, and later loop-element sensitivity are unverified.",
+    "Positive-minimum headings retain their old names because installed OpenSpec rejects a scenario-title rename in a modified requirement; the normative contract and tests accept zero.",
+    "Original proposed checkpoint, actual reply, phase logs, native failures/corrections, and genuine active/permanent reports are retained. Native inputs were not repaired or recollected by the evaluator.",
+    "Independent controls ran in separate copies; the deterministic checker copy shares installed dependencies. No additional native agent was used.",
+    "Each phase kept 600-second / 64-MiB limits. Active CLI time excludes human waiting. Actual model identity and monetary cost were not exposed; usage counters are not invoices.",
+    "No dependency installation, external service, source-repository archive, publication, tag, release, trial push, or external PR."
+  ]
+}

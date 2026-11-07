@@ -374,6 +374,7 @@ scenarios:
       - docs/testing/release-variants/result-011.md
       - docs/testing/release-variants/result-012.md
       - docs/testing/release-variants/result-013.md
+      - docs/testing/release-variants/result-014.md
 
   knowledge-and-writing:
     schema: cliewen-delivery
