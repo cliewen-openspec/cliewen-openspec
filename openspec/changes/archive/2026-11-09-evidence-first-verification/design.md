@@ -1,6 +1,6 @@
 # Evidence-first verification
 
-Use the four principles in [Decision 019](../../../docs/decisions/019-evidence-first-verification.md) as the shared schema instructions. Remove the recorder implementation rather than retaining a compatibility command that suggests ordering is still assessed.
+Use the four principles in [Decision 019](../../../../docs/decisions/019-evidence-first-verification.md) as the shared schema instructions. Remove the recorder implementation rather than retaining a compatibility command that suggests ordering is still assessed.
 
 Configuration fails with a migration message when the retired approach key exists. The user removes it explicitly, preserving unrelated YAML. Effectiveness records accept controlled-fault and behavior-failure; old method values require reviewed migration and fresh evidence. No automatic record rewrite can establish semantic validity.
 

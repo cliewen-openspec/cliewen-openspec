@@ -27,4 +27,4 @@ None. This repository has no existing native OpenSpec capability specs. Accepted
 
 Likely implementation surfaces: `src/core.ts`, `src/ac.ts`, `adapters/node-test.mjs`, delivery/all instructions, tests, guides, and report compatibility. This stage adds planning artifacts only.
 
-See [Decision 017: Separate test coverage, effectiveness, and lifecycle review](../../../docs/decisions/017-test-quality-and-lifecycle.md), the [draft design](design.md), and the [trial and implementation tasks](tasks.md). Detailed defaults remain proposed until reviewed.
+See [Decision 017: Separate test coverage, effectiveness, and lifecycle review](../../../../docs/decisions/017-test-quality-and-lifecycle.md), the [draft design](design.md), and the [trial and implementation tasks](tasks.md). Detailed defaults remain proposed until reviewed.

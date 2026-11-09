@@ -2,7 +2,7 @@
 
 ## Why
 
-The owner accepted [Decision 019: Use spec-driven development with evidence-first verification](../../../docs/decisions/019-evidence-first-verification.md). Recorder history adds maintenance without establishing assertion quality. The replacement plans acceptance evidence early while allowing code and tests to develop together.
+The owner accepted [Decision 019: Use spec-driven development with evidence-first verification](../../../../docs/decisions/019-evidence-first-verification.md). Recorder history adds maintenance without establishing assertion quality. The replacement plans acceptance evidence early while allowing code and tests to develop together.
 
 ## What Changes
 

@@ -1,8 +1,10 @@
 # Review optional learnings and writing acceptance
 
+This is the bounded development review. [The final technical review](../release-candidate-002.md), [actual owner acceptance](../../releases/0.1.0-acceptance.md), and [source-change closure](../release-closure-001.md) now complete its release follow-up. Earlier pending-state descriptions below retain their historical context; host gaps remain unobserved.
+
 The development increment meets its acceptance criteria within the documented agent-guidance boundary. Configuration, delivery, and preservation have deterministic evidence; retrieval, maintenance, and writing have bounded reviewed observations. Proceed to priority 6, retaining host-specific gaps and required combined-candidate runs under priority 4. This review does not grant release approval, universal host support, or guaranteed agent obedience.
 
-The [learning scenarios](../../../openspec/changes/project-learnings-and-humanizer/specs/project-learnings/spec.md) and [Humanizer scenarios](../../../openspec/changes/project-learnings-and-humanizer/specs/optional-humanizer/spec.md) define the requirements. [Decision 020: Add optional project learnings and Humanizer support](../../decisions/020-optional-learnings-and-humanizer.md) establishes the advisory and host-mediated boundary. The design was accepted by the owner; this document records the agent's implementation/evidence review, not new human agreement.
+The [learning scenarios](../../../openspec/changes/archive/2026-11-09-project-learnings-and-humanizer/specs/project-learnings/spec.md) and [Humanizer scenarios](../../../openspec/changes/archive/2026-11-09-project-learnings-and-humanizer/specs/optional-humanizer/spec.md) define the requirements. [Decision 020: Add optional project learnings and Humanizer support](../../decisions/020-optional-learnings-and-humanizer.md) establishes the advisory and host-mediated boundary. The design was accepted by the owner; this document records the agent's implementation/evidence review, not new human agreement.
 
 | Acceptance area | Evidence and result | Practical limit |
 |---|---|---|

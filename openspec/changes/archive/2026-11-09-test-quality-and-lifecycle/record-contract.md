@@ -1,6 +1,6 @@
 # Test review record contract
 
-This contract is implemented in the unreleased `0.2.0-alpha.1` source. The published 0.1 alpha does not implement it. [The design](design.md) owns rationale; [the user reference](../../../docs/testing/test-quality.md) describes usage and current limits. Trial scripts remain experiments, separate from product checks.
+This contract is implemented in the unreleased `0.2.0-alpha.1` source. The published 0.1 alpha does not implement it. [The design](design.md) owns rationale; [the user reference](../../../../docs/testing/test-quality.md) describes usage and current limits. Trial scripts remain experiments, separate from product checks.
 
 ## Execution results
 

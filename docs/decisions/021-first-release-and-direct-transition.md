@@ -5,6 +5,8 @@ status: accepted
 ---
 # Ship 0.1.0 first and use a direct transition
 
+The owner accepted the 0.1.0 content and documented limits on November 9, 2026 under [the actual acceptance](../releases/0.1.0-acceptance.md). [The closure record](../testing/release-closure-001.md) records completion of all six roadmap priorities and local source-change archives. Distribution remains separately authorized.
+
 ## Context
 
 The owner selected `0.1.0` for the first non-prerelease release on November 3, 2026. The unpublished development label `0.2.0-alpha.1` does not reserve the next public version. The owner also reported no current users and explicitly removed the requirement for backward compatibility during the transition from cliewen.dev.

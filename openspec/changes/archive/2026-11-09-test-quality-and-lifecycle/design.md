@@ -45,7 +45,7 @@ Effectiveness records identify the scenario, cases, inspected assertion, control
 
 Use committed change-local review records and generated ignored execution evidence. Bind review claims to inspected input hashes, avoiding a committed record that must contain its own commit hash. Relevant input changes invalidate review claims; every later commit still requires fresh execution evidence under the current contract.
 
-Extend report version 1 with optional `caseId` and `coverage` result fields. The [compatibility trial](../../../docs/testing/test-quality-trial.md#limits-and-remaining-work) confirmed that the existing checker accepts these fields while retaining its execution and identity checks; it rejects version 2. Keep scenario/test-name pairs unique even when case IDs differ. New checks must validate the added fields rather than relying on the old parser's tolerance.
+Extend report version 1 with optional `caseId` and `coverage` result fields. The [compatibility trial](../../../../docs/testing/test-quality-trial.md#limits-and-remaining-work) confirmed that the existing checker accepts these fields while retaining its execution and identity checks; it rejects version 2. Keep scenario/test-name pairs unique even when case IDs differ. New checks must validate the added fields rather than relying on the old parser's tolerance.
 
 The [proposed record contract](record-contract.md) specifies exact fields, identity encoding, freshness inputs, exceptions, and diagnostics for review before implementation. Version-1 reports without case metadata remain usable with these policies off; stricter policies request recollection or missing review records explicitly. Multi-scenario adapter export is deferred; lifecycle review must still preserve shared-test obligations.
 
@@ -57,7 +57,7 @@ Retirement requires an explicit accepted requirement change and reason. Preserve
 
 ## Risks / Trade-offs
 
-The [design trials](../../../docs/testing/test-quality-trial.md) show that positive-only coverage and weak assertions miss relevant defects, and that changed or retired behavior needs targeted test maintenance. Nine checks establish the current product parser's compatibility behavior; 26 candidate-record checks exercise scoped exceptions, shared-test removal, freshness, and admissible effectiveness declarations. Future product enforcement and full record-schema validation remain unimplemented.
+The [design trials](../../../../docs/testing/test-quality-trial.md) show that positive-only coverage and weak assertions miss relevant defects, and that changed or retired behavior needs targeted test maintenance. Nine checks establish the current product parser's compatibility behavior; 26 candidate-record checks exercise scoped exceptions, shared-test removal, freshness, and admissible effectiveness declarations. Future product enforcement and full record-schema validation remain unimplemented.
 
 Categories and review conclusions may be wrong even when structurally valid. Keep semantic limits visible in passing diagnostics. Controlled defects run in disposable fixtures, with restoration verified. Trial observations remain separate from delivery evidence.
 

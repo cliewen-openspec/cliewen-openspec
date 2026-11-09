@@ -15,7 +15,7 @@ Relying only on host memory makes reusable lessons host-dependent. Loading every
 
 ## Decision
 
-Provide independently configurable, opt-in project learnings and automatic Humanizer discovery by the coding agent. The [change design](../../openspec/changes/project-learnings-and-humanizer/design.md) owns the keys, defaults, mode behavior, and validation cases.
+Provide independently configurable, opt-in project learnings and automatic Humanizer discovery by the coding agent. The [change design](../../openspec/changes/archive/2026-11-09-project-learnings-and-humanizer/design.md) owns the keys, defaults, mode behavior, and validation cases.
 
 Use a small index to retrieve relevant lessons before planning or editing. Record only useful observations, distinguish tentative guidance from verified guidance, and retire stale lessons without deleting their history. Current requirements and accepted decisions remain authoritative. Prefer promoting recurring lessons into tests, rules, or durable documentation when appropriate.
 
@@ -42,3 +42,5 @@ This extends [Decision 012: Apply clear writing and diagram guidance across agen
 The owner accepted the complete design after its initial status-reporting approval. Development source implements settings, path validation, shared instructions, and template ownership. [The acceptance review](../testing/knowledge-writing-trial/acceptance.md) completes bounded development review using Results 001 through 003, retaining every failed attempt and actual host gap. All 68 package tests pass. Required final-candidate/profile observations remain under priority 4; the published alpha is unchanged. This records implementation review, not new human agreement, general host certification, archive authorization, or release acceptance.
 
 [The final 0.1.0 technical review](../testing/release-candidate-002.md) maps optional learnings/Humanizer to current tests, retained native observations, input reuse, and proposed support limits. Four platform jobs pass with 86 tests each, and all three source changes pass strict validation. Technical completion is ready for owner acceptance; no new approval, source archive, or publication is inferred.
+
+The owner accepted the 0.1.0 scope and limits on November 9, 2026 and authorized local archive under [the actual acceptance](../releases/0.1.0-acceptance.md). This change is now archived and its requirements are permanent. [The closure record](../testing/release-closure-001.md) records validation and preserved limits. npm publication and release/tag creation remain separate.

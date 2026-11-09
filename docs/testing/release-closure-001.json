@@ -1,0 +1,149 @@
+{
+  "recordedAt": "2026-11-09T19:32:03.632Z",
+  "status": "accepted-content-and-local-archives-complete",
+  "version": "0.1.0",
+  "contentAccepted": true,
+  "sourceChangesArchived": true,
+  "distributionAuthorized": false,
+  "npmPublished": false,
+  "tagOrGitHubReleaseCreated": false,
+  "agentCalls": 0,
+  "approval": {
+    "acceptedOn": "2026-11-09",
+    "reviewRevision": "1cacb6f582041e73a73eeb92a19d32c7d384c5dd",
+    "reviewFile": "docs/testing/release-candidate-002.json",
+    "reviewGitBlobSHA256": "52bcbc1b4be821e37cfbf2802847c9a6eb4b2aabc3bad8ec4259fc40415b53f1",
+    "source": "Project conversation: owner replied \"ja\" to acceptance of 0.1.0 content, documented limits, and local archive of the three source changes.",
+    "userReply": "ja",
+    "packageSHA256": "8011c5ea6eff20ddb01c06e05aefe2f1c9cef9cb03849091646d1356d390d9f8",
+    "approvedChanges": [
+      "evidence-first-verification",
+      "test-quality-and-lifecycle",
+      "project-learnings-and-humanizer"
+    ],
+    "publicationAuthorized": false,
+    "approvalCommit": "af96a3eb3f5a87fd26b72532f2a634b5a5c164b3",
+    "acceptedDocument": "docs/releases/0.1.0-acceptance.md",
+    "acceptedDocumentPreservedVerbatim": true
+  },
+  "archives": [
+    {
+      "change": "evidence-first-verification",
+      "archivedAs": "2026-11-09-evidence-first-verification",
+      "path": "C:\\Code\\cliewen-openspec\\openspec\\changes\\archive\\2026-11-09-evidence-first-verification",
+      "specsUpdated": true,
+      "totals": {
+        "added": 2,
+        "modified": 0,
+        "removed": 0,
+        "renamed": 0
+      }
+    },
+    {
+      "change": "test-quality-and-lifecycle",
+      "archivedAs": "2026-11-09-test-quality-and-lifecycle",
+      "path": "C:\\Code\\cliewen-openspec\\openspec\\changes\\archive\\2026-11-09-test-quality-and-lifecycle",
+      "specsUpdated": true,
+      "totals": {
+        "added": 8,
+        "modified": 0,
+        "removed": 0,
+        "renamed": 0
+      }
+    },
+    {
+      "change": "project-learnings-and-humanizer",
+      "archivedAs": "2026-11-09-project-learnings-and-humanizer",
+      "path": "C:\\Code\\cliewen-openspec\\openspec\\changes\\archive\\2026-11-09-project-learnings-and-humanizer",
+      "specsUpdated": true,
+      "totals": {
+        "added": 6,
+        "modified": 0,
+        "removed": 0,
+        "renamed": 0
+      }
+    }
+  ],
+  "permanentSpecs": 6,
+  "activeChanges": 0,
+  "requirements": [
+    {
+      "change": "evidence-first-verification",
+      "archivedAt": "openspec/changes/archive/2026-11-09-evidence-first-verification",
+      "allTasksComplete": true,
+      "permanentCapabilities": [
+        "evidence-first-verification"
+      ],
+      "requirementsPreserved": true
+    },
+    {
+      "change": "test-quality-and-lifecycle",
+      "archivedAt": "openspec/changes/archive/2026-11-09-test-quality-and-lifecycle",
+      "allTasksComplete": true,
+      "permanentCapabilities": [
+        "test-lifecycle",
+        "test-quality-policy"
+      ],
+      "requirementsPreserved": true
+    },
+    {
+      "change": "project-learnings-and-humanizer",
+      "archivedAt": "openspec/changes/archive/2026-11-09-project-learnings-and-humanizer",
+      "allTasksComplete": true,
+      "permanentCapabilities": [
+        "factual-writing",
+        "optional-humanizer",
+        "project-learnings"
+      ],
+      "requirementsPreserved": true
+    }
+  ],
+  "postArchiveValidation": {
+    "initialFailedSpecs": 4,
+    "reason": "Four native Purpose placeholders required authored descriptions; no requirement changes.",
+    "correctedPassedSpecs": 6,
+    "finalStrictValidation": {
+      "items": 6,
+      "passed": 6,
+      "failed": 0
+    }
+  },
+  "package": {
+    "filename": "cliewen-openspec-0.1.0.tgz",
+    "sha256": "8011c5ea6eff20ddb01c06e05aefe2f1c9cef9cb03849091646d1356d390d9f8",
+    "integrity": "sha512-G7XsZksxiECb4h2PUWzYVMV3S+511BR3tudgbwNilGURYRswxp6rPEM3o+R7riBOfy6GjPlQLU0dbvHnV0GbXw==",
+    "files": 60,
+    "unpackedSize": 176981,
+    "acceptedArchiveUnchanged": true
+  },
+  "links": {
+    "status": "passed",
+    "rebasedLinks": 45,
+    "markdownFiles": 36,
+    "checkedLinks": 241,
+    "headingFragmentsChecked": true,
+    "renderedByThisCheck": false,
+    "externalURLsChecked": false
+  },
+  "documentationBuild": {
+    "passed": true,
+    "pages": 13,
+    "localLinks": 466,
+    "diagrams": 4,
+    "defaultsChecked": true
+  },
+  "compatibilityEvidence": {
+    "source": "docs/testing/release-candidate-002.json",
+    "ciSource": "9ec333dc9b57c6a219f03a783a93a5230b7d1bb8",
+    "jobs": 4,
+    "testsPerJob": 86,
+    "postReviewChanges": "Maintainer documents, archive/permanent specs and statuses only; no packaged input changed.",
+    "freshAgentRuns": 0
+  },
+  "roadmap": {
+    "prioritiesAccepted": 6,
+    "scope": "Prepared-guide and bounded host claims accepted; wider unobserved paths and historical failed attempts retain their limits."
+  },
+  "publication": "Separate authorization required; no npm staging/publication, tag/release, legacy archival, external PR or outreach performed.",
+  "rawArtifacts": ".tmp/release-closure-001"
+}
