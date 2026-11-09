@@ -1,15 +1,15 @@
 ---
 type: plan
 ---
-# 0.1.0 content accepted; distribution remains separate
+# 0.1.0 released: accepted scope and follow-up
 
-The owner accepted the 0.1.0 content, documented limits, and local archive of the three source changes on November 9, 2026. [The actual acceptance](../releases/0.1.0-acceptance.md) binds the reviewed revision and package. [The closure record](release-closure-001.md) records completion. No active OpenSpec changes remain.
+The owner accepted the 0.1.0 content, documented limits, and local archive of the three source changes on November 9, 2026. [The actual acceptance](../releases/0.1.0-acceptance.md) binds the reviewed revision and package. [The closure record](release-closure-001.md) records completion. No active OpenSpec changes remain. The owner subsequently authorized publication; [the release record](../releases/0.1.0-release.md) verifies npm/latest, GitHub v0.1.0, and public downloads.
 
 ## Completed preparation
 
 | Area | Accepted evidence and state |
 |---|---|
-| Package and compatibility | Unpublished 0.1.0 archive SHA-256 `8011c5ea6eff20ddb01c06e05aefe2f1c9cef9cb03849091646d1356d390d9f8`; four Windows/Linux and Node 22/24 CI jobs pass with 86 tests each at `9ec333d`; OpenSpec 1.15.0 tested |
+| Package and compatibility | Published 0.1.0 archive SHA-256 `7a676e4ac3cd99443f1f6f060468bc8cbb9440432ca68be123c8231923956f8c`; 86 local tests and four release CI jobs pass at `84da6f5`; only release documentation differs from the accepted archive |
 | Guide | Prepared Codex/Claude walkthrough reuse reviewed across 14 inputs each; expanded code blocks are unchanged. Packed replay, browser, and Pages checks pass |
 | Agent validation | Existing reviewed successes meet [Decision 022: Use targeted agent trials for major changes and each release](../decisions/022-proportionate-agent-validation.md). The matrix/repetition quota is retired; no new agent call was needed |
 | Evidence-first verification | [Archived change](../../openspec/changes/archive/2026-11-09-evidence-first-verification/tasks.md) complete; permanent requirements and strict validation retained |
@@ -24,6 +24,6 @@ The [technical review](release-candidate-002.md#limits-proposed-for-acceptance) 
 
 ## Separate next actions
 
-npm staging/publication, tags/releases, legacy repository archival, and OpenSpec outreach were excluded from the acceptance. None has been performed. When separately authorized, publish the accepted archive rather than rebuilding changed content without another impact review. The public guide can continue deploying ordinary pushed documentation updates.
+The initial content acceptance excluded distribution. The subsequent explicit release instruction authorized npm publication and GitHub v0.1.0, now complete. Release-date/status/install documentation changes were compared with the accepted archive; runtime and schemas are unchanged. Legacy repository archival and OpenSpec outreach remain unperformed and separately authorized. The public guide continues deploying pushed documentation updates.
 
 No further agent trial is scheduled. Future major changes and release cycles follow Decision 022; small refinements use deterministic checks and input-impact review.

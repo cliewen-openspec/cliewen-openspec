@@ -3,6 +3,8 @@ type: plan
 ---
 # Prepare the first 0.1.0 release
 
+Completed: [0.1.0 is published](../releases/0.1.0-release.md) on npm/latest and GitHub v0.1.0 under the owner's subsequent explicit release instruction. Historical preparation evidence below retains its original inputs.
+
 The owner selected `0.1.0` and a direct transition with no current-user compatibility obligation. [Decision 021: Ship 0.1.0 first and use a direct transition](../decisions/021-first-release-and-direct-transition.md) records that scope. This checklist prepares the release; none of its preparation checks authorizes npm publication.
 
 ## Organization and guide
@@ -52,7 +54,7 @@ Use [Remaining checks before 0.1.0](../testing/release-gaps.md) for final compat
 - [x] Review final Windows/Linux and Node/OpenSpec compatibility, guide-input reuse, and the representative release-cycle observation under [Decision 022: Use targeted agent trials for major changes and each release](../decisions/022-proportionate-agent-validation.md). [The final technical review](../testing/release-candidate-002.md) records four passing platform jobs, 86 tests each, and the guide comparison.
 - [x] Review remaining findings and propose explicit host/support limits and completion scope for the three source changes in the final technical review. Owner acceptance and local archive are now complete under the linked acceptance and closure records.
 - [x] Obtain final content/scope acceptance after reviewing all six priorities; record the actual reply and archive the three changes locally.
-- [ ] Stage/publish npm and create release/tag material only when separately authorized. The content acceptance excludes those actions.
+- [x] Publish npm/latest and create GitHub v0.1.0 under the subsequent explicit release instruction. The public registry install and npm/GitHub bytes are verified in the release record.
 - [ ] Recheck the catalog and actual released version/URLs before sending the introduction; contact remains a separate action.
 
 ## Recorded results

@@ -3,6 +3,8 @@ type: evaluation
 ---
 # Accepted 0.1.0 content and completed local archives
 
+Historical content/archive checkpoint. [The subsequent 0.1.0 publication](../releases/0.1.0-release.md) was separately authorized and completed; distribution-pending statements below describe this earlier checkpoint.
+
 The owner accepted the 0.1.0 content and documented limits and authorized local OpenSpec archive on November 9, 2026. All three changes are now archived, all tasks are complete, and all six permanent specs pass strict validation. The six roadmap priorities are complete within that accepted scope. Distribution remains separate: no npm publication, tag, GitHub release, legacy archival, or outreach was performed.
 
 [The actual acceptance](../releases/0.1.0-acceptance.md) records the owner's reply and binds pre-archive revision `1cacb6f582041e73a73eeb92a19d32c7d384c5dd`, the structured review's Git-blob SHA-256 `52bcbc1b4be821e37cfbf2802847c9a6eb4b2aabc3bad8ec4259fc40415b53f1`, and the reviewed package. Acceptance was committed at `af96a3e` before archive. Original review bytes remain in Git; current Markdown links follow the moved files.

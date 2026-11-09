@@ -1,0 +1,77 @@
+{
+  "publishedOn": "2026-11-09",
+  "version": "0.1.0",
+  "npmPublished": true,
+  "npmLatest": "0.1.0",
+  "npmURL": "https://www.npmjs.com/package/cliewen-openspec/v/0.1.0",
+  "githubURL": "https://github.com/cliewen-openspec/cliewen-openspec/releases/tag/v0.1.0",
+  "githubPublishedAt": "2026-11-09T19:48:05Z",
+  "gitTag": "v0.1.0",
+  "releaseCommit": "84da6f5e1eea7d8626e1e604ec3bfc754fae3352",
+  "authorization": {
+    "source": "Project conversation",
+    "request": "lav release 0.1.0",
+    "scope": "Publish npm/latest and create GitHub v0.1.0 tag/release.",
+    "contentAcceptance": "docs/releases/0.1.0-acceptance.md",
+    "npmProofOfPresence": "Completed by owner in browser; no credentials included in this release record."
+  },
+  "artifact": {
+    "filename": "cliewen-openspec-0.1.0.tgz",
+    "sha256": "7a676e4ac3cd99443f1f6f060468bc8cbb9440432ca68be123c8231923956f8c",
+    "integrity": "sha512-yYKexy2evtIm+QILxJYjepGUdgSRGK9vRJ6qZddjXgwuu0VCGj9043vuVHilyTILqTvc4Tan6gT2FicSOpliBw==",
+    "files": 60,
+    "unpackedSize": 176601,
+    "acceptedPreReleaseSHA256": "8011c5ea6eff20ddb01c06e05aefe2f1c9cef9cb03849091646d1356d390d9f8",
+    "changedPackagedFiles": [
+      "CHANGELOG.md",
+      "README.md",
+      "docs/configuration.md",
+      "docs/testing/evidence.md",
+      "docs/testing/test-quality.md"
+    ],
+    "runtimeSchemasAdaptersAndSettingsUnchanged": true,
+    "npmAndGitHubDownloadsMatch": true
+  },
+  "verification": {
+    "localTests": 86,
+    "failed": 0,
+    "ci": {
+      "conclusion": "success",
+      "headSha": "84da6f5e1eea7d8626e1e604ec3bfc754fae3352",
+      "status": "completed",
+      "url": "https://github.com/cliewen-openspec/cliewen-openspec/actions/runs/42685677062"
+    },
+    "pages": {
+      "conclusion": "success",
+      "headSha": "84da6f5e1eea7d8626e1e604ec3bfc754fae3352",
+      "status": "completed",
+      "url": "https://github.com/cliewen-openspec/cliewen-openspec/actions/runs/42685676690"
+    },
+    "localTarballInstall": "passed; all three installed schemas validate",
+    "publicRegistryInstall": "passed; initialization succeeds and lockfile resolves public 0.1.0 tarball",
+    "anonymousRegistryDownload": "passed; identical SHA-256",
+    "anonymousGitHubDownload": "passed; identical SHA-256",
+    "publicLatestTag": "0.1.0",
+    "documentationPages": 13,
+    "localLinks": 466,
+    "diagrams": 4,
+    "browser": "desktop/mobile checks pass",
+    "agentCalls": 0
+  },
+  "githubAssets": [
+    {
+      "name": "cliewen-openspec-0.1.0.tgz",
+      "size": 53696,
+      "digest": "sha256:7a676e4ac3cd99443f1f6f060468bc8cbb9440432ca68be123c8231923956f8c"
+    },
+    {
+      "name": "SHA256SUMS",
+      "size": 93,
+      "digest": "sha256:83a524edb4c18253cf97530c48f653b655d95d4e6868dac077e00e4e901176c3"
+    }
+  ],
+  "scopeLimits": "Accepted limits and failed observations remain in docs/testing/release-candidate-002.md and docs/testing/release-closure-001.md. Earlier alpha manifests are not migrated; skill availability and assertion meaning require review.",
+  "outreachPerformed": false,
+  "legacyRepositoryArchived": false,
+  "rawArtifacts": ".tmp/release-0.1.0"
+}

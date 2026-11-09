@@ -28,3 +28,5 @@ This supersedes the roadmap's earlier requirements to preserve old public addres
 ## Implementation status
 
 Package, lockfile, runtime, and active guides now identify the unpublished `0.1.0` candidate. Lifecycle commands accept only its own manifest version; `check` reports other versions as blocking rather than healthy installations. A regression verifies rejected versions leave installed/authored files unchanged in ordinary and dry-run operations. The packed workflow continues to exercise supported refresh, recovery, and removal. Candidate preparation does not authorize a tag, npm publication, or release acceptance.
+
+The owner subsequently instructed publication of 0.1.0. [The release record](../releases/0.1.0-release.md) confirms npm/latest, GitHub v0.1.0, public install, and matching downloads. No further agent trial, legacy archival, or OpenSpec outreach occurred.
