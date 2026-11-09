@@ -5,7 +5,7 @@ type: reference
 
 Cliewen reads project settings from `.cliewen-openspec/config.yaml`.
 
-This reference describes the local `0.1.0` release candidate, which is not yet published on npm. The earlier published `0.1.0-alpha.1` does not accept the `quality`, `lifecycle`, `learnings`, or `writing` settings below. Use that package's bundled reference when working with the alpha; its installation manifest is unsupported by this candidate.
+This reference describes version `0.1.0`. The earlier published `0.1.0-alpha.1` does not accept the `quality`, `lifecycle`, `learnings`, or `writing` settings below. Use that package's bundled reference when working with the alpha; its installation manifest is unsupported by 0.1.0.
 
 ## Full defaults
 

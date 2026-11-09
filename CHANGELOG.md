@@ -2,7 +2,7 @@
 
 Changes that matter to projects using Cliewen for OpenSpec.
 
-## 0.1.0 (unreleased)
+## 0.1.0 (2026-11-09)
 
 - Optional indexed project learnings help agents retrieve relevant lessons and maintain or retire stale guidance. Notes remain project-owned and survive disabling the facility, updates, and uninstall. Learnings are off by default. Agents that gather context before reading schema instructions may need the [project instruction example](docs/configuration.md#instructions-before-context-collection).
 - Optional Humanizer guidance defaults to automatic host discovery, with explicit on/off modes, one status per session, and a clear-writing fallback. Missing skills never block writing or install automatically. See [configuration and host limits](docs/configuration.md#humanizer-and-writing).
@@ -18,7 +18,7 @@ Changes that matter to projects using Cliewen for OpenSpec.
 
 ## 0.1.0-alpha.1 (2026-11-01)
 
-The first public alpha is available on npm as `cliewen-openspec@0.1.0-alpha.1`, with the `alpha` tag. The full 0.1 release is still under development. Follow the [installation guide](docs/guide/getting-started.md) to try it.
+The first public alpha was published as `cliewen-openspec@0.1.0-alpha.1`, with the `alpha` tag. Its features and limitations below describe that historical snapshot. Follow the [installation guide](docs/guide/getting-started.md) for 0.1.0.
 
 ### OpenSpec workflows
 

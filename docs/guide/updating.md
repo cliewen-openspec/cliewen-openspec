@@ -3,7 +3,7 @@ type: guide
 ---
 # Update an existing installation
 
-Installing a Cliewen npm package updates the CLI, while an existing project keeps its installed schema files. Run `update` to refresh or repair installer-owned schema definitions and templates. The command preserves project configuration, the selected OpenSpec default, authored change artifacts and documents, and the AC registry. This candidate accepts only `0.1.0` manifests; it does not migrate earlier alpha installations.
+Installing a Cliewen npm package updates the CLI, while an existing project keeps its installed schema files. Run `update` to refresh or repair installer-owned schema definitions and templates. The command preserves project configuration, the selected OpenSpec default, authored change artifacts and documents, and the AC registry. Version 0.1.0 accepts only `0.1.0` manifests; it does not migrate earlier alpha installations.
 
 ## Install, preview, and apply
 
@@ -14,7 +14,7 @@ npm install --save-dev ../cliewen-openspec/cliewen-openspec-0.1.0.tgz
 npx --no-install cliewen-openspec update --dry-run --json
 ```
 
-The tarball selects the unpublished `0.1.0` candidate rather than a registry tag. The npm install changes package metadata and dependencies as usual; the Cliewen update command is a separate operation on installed resources. An unchanged installation reports no resource changes; missing owned files can be repaired.
+The tarball selects the local 0.1.0 build. For a registry installation, use `npm install --save-dev cliewen-openspec@0.1.0` instead. The npm install changes package metadata and dependencies as usual; the Cliewen update command is a separate operation on installed resources. An unchanged installation reports no resource changes; missing owned files can be repaired.
 
 Review the preview's `writes` and `deletes` lists. `writes` includes templates/schema files to create or replace and the ownership manifest when it changes. `deletes` contains only retired installer-owned files. A dry run applies no writes, deletions, or interrupted-transaction recovery.
 

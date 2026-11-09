@@ -5,7 +5,7 @@ type: guide
 
 Cliewen adds project documentation, Decision Records, stable acceptance criterion IDs, and test evidence to an OpenSpec workflow. Use it when you want an agent to leave behind an explanation of what changed and a record of which scenarios were tested.
 
-The local `0.1.0` candidate provides three workflows. `cliewen-delivery` takes an understood change through proposal, behavior specs, design, implementation tasks, and verification. [Discovery](discovery.md) investigates a question and produces a recommendation, including the option to make no change. [The combined workflow](all.md) keeps investigation and delivery in one change, with explicit no-delivery closure. OpenSpec owns the change files, spec synchronization, and archive. Your coding agent writes the artifacts and implementation; Cliewen supplies instructions, templates, configuration, ID allocation, and evidence checks.
+Version `0.1.0` provides three workflows. `cliewen-delivery` takes an understood change through proposal, behavior specs, design, implementation tasks, and verification. [Discovery](discovery.md) investigates a question and produces a recommendation, including the option to make no change. [The combined workflow](all.md) keeps investigation and delivery in one change, with explicit no-delivery closure. OpenSpec owns the change files, spec synchronization, and archive. Your coding agent writes the artifacts and implementation; Cliewen supplies instructions, templates, configuration, ID allocation, and evidence checks.
 
 [Start with your first change](getting-started.md). It uses a small CSV exporter and ends with an archived change and fresh evidence.
 
@@ -33,7 +33,7 @@ If something fails or the guide is unclear, [report a bug](https://github.com/cl
 | Project learnings | Optional indexed lessons with retrieval, verification, and retirement guidance; authored notes are preserved |
 | Humanizer | Agent-mediated discovery and use, one status per session, and nonblocking fallback; no automatic installation |
 
-The `0.1.0` candidate is not yet published; [build its local tarball](getting-started.md) for this guide. The earlier published `0.1.0-alpha.1` remains available but lacks the new quality, learnings, and writing facilities. Its manifest is unsupported by this candidate. The deterministic workflow test uses OpenSpec 1.15.0; package CI exercises Node 22 and 24 on Windows and Linux.
+Install `cliewen-openspec@0.1.0` from npm for normal use. [The worked guide](getting-started.md) builds a local tarball to keep its prepared CSV files alongside the package source. The earlier published `0.1.0-alpha.1` remains available but lacks the new quality, learnings, and writing facilities. Its manifest is unsupported by 0.1.0. The deterministic workflow test uses OpenSpec 1.15.0; package CI exercises Node 22 and 24 on Windows and Linux.
 
 ## Defaults
 

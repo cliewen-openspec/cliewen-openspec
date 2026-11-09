@@ -3,7 +3,7 @@ type: testing
 ---
 # Execution evidence and review
 
-The local `0.1.0` candidate provides the execution checks below and [test quality and lifecycle checks](test-quality.md), using optional case metadata in the same version-1 report. It is not yet published on npm. Policies default to advisory review. Case counts and reviewed statuses do not establish semantic correctness.
+Version `0.1.0` provides the execution checks below and [test quality and lifecycle checks](test-quality.md), using optional case metadata in the same version-1 report. Policies default to advisory review. Case counts and reviewed statuses do not establish semantic correctness.
 
 The candidate supports `init`, `update`, `uninstall`, `ac next`, `ac rename-prefix`, `check`, and `recover`, and installs `cliewen-delivery`, `cliewen-discovery`, and `cliewen-all`. Package CI exercises OpenSpec 1.15.0 on Windows and Linux. Existing-registry adapters, structural checks for your project's documentation and Mermaid, and independent review tooling remain planned.
 

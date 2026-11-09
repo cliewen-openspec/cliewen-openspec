@@ -3,13 +3,13 @@ type: guide
 ---
 # Your first change
 
-This guide takes a small CSV exporter from a new project to archived OpenSpec specs. Use a separate repository so you can review everything the candidate installs. You need Git, npm, and Node.js 20.19 or newer. Node 22 or 24 matches the versions used in package CI. Configure a Git name and email before the commit steps.
+This guide takes a small CSV exporter from a new project to archived OpenSpec specs. Use a separate repository so you can review everything the package installs. You need Git, npm, and Node.js 20.19 or newer. Node 22 or 24 matches the versions used in package CI. Configure a Git name and email before the commit steps.
 
 The commands follow a prepared example without a coding agent. For an agent-authored change, choose [agent setup](existing-projects.md#coding-agents) before initialization and use the [reference prompt](../testing/pilot-prompt.md#prompt). Allocate IDs for that agent's reviewed scenarios; the fixed six-ID allocation and copy helpers below belong to the prepared path.
 
 ## 1. Build the candidate package
 
-This worked example builds the local `0.1.0` release candidate and uses its prepared CSV files. That version is not yet published on npm. The earlier published `0.1.0-alpha.1` has a different feature set and is not the package exercised by this guide; do not substitute it into these candidate checks.
+This worked example builds version `0.1.0` locally and uses its prepared CSV files. Normal installations can use `npm install --save-dev cliewen-openspec@0.1.0`; this source-build route keeps the example helpers available beside the pilot. The earlier published `0.1.0-alpha.1` has a different feature set and is not the package exercised by this guide; do not substitute it into this walkthrough.
 
 From an empty parent directory, clone the source repository and build the package:
 
@@ -20,7 +20,7 @@ npm pkg get version
 git rev-parse HEAD
 ```
 
-Expect version `"0.1.0"`; stop before building if the checkout differs. Record its Git revision because the default branch can change before release. Then build the candidate:
+Expect version `"0.1.0"`; stop before building if the checkout differs. Record its Git revision because the default branch can change during development. Then build the package:
 
 ```sh
 npm ci

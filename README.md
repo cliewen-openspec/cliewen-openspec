@@ -2,9 +2,9 @@
 
 Durable decisions, living documentation, and evidence for OpenSpec.
 
-**Local release candidate: `0.1.0`, not yet published on npm.** Installs `cliewen-delivery`, `cliewen-discovery`, and `cliewen-all`, allocates acceptance IDs, and checks real delivery test evidence through OpenSpec archiving. Discovery supports investigation and recommendation without required production implementation.
+**Version `0.1.0`.** Installs `cliewen-delivery`, `cliewen-discovery`, and `cliewen-all`, allocates acceptance IDs, and checks real delivery test evidence through OpenSpec archiving. Discovery supports investigation and recommendation without required production implementation.
 
-The candidate includes [test quality and lifecycle checks](docs/testing/test-quality.md), optional project learnings, and Humanizer guidance. Follow [Your first change](docs/guide/getting-started.md) to build and install its local tarball. The published `0.1.0-alpha.1` is an earlier snapshot and does not include these additions; its manifest is not supported by the candidate.
+The release includes [test quality and lifecycle checks](docs/testing/test-quality.md), optional project learnings, and Humanizer guidance. Follow [Your first change](docs/guide/getting-started.md) to build and install its local tarball. The published `0.1.0-alpha.1` is an earlier snapshot and does not include these additions; its manifest is not supported by 0.1.0.
 
 ## Schema collection
 
@@ -14,20 +14,20 @@ The candidate includes [test quality and lifecycle checks](docs/testing/test-qua
 
 `cliewen-base` names the internal shared foundation used to build these bundles. It is not a separately selectable schema. Discovery remains the workflow for investigation and decision-making.
 
-The shared design covers documentation, Decision Records, Mermaid, optional plans and evidence. Evidence is enabled by default. See the [discovery guide](docs/guide/discovery.md) for investigation, a no-change outcome, and delivery handoff. The candidate supplies documentation and decision guidance; structural metadata and Mermaid validators remain planned.
+The shared design covers documentation, Decision Records, Mermaid, optional plans and evidence. Evidence is enabled by default. See the [discovery guide](docs/guide/discovery.md) for investigation, a no-change outcome, and delivery handoff. The package supplies documentation and decision guidance; structural metadata and Mermaid validators remain planned.
 
 Use [the combined workflow](docs/guide/all.md) to investigate and deliver in one change, with a proposed decision and human approval before implementation. Its no-delivery branch uses native `skip_specs`, without fake product requirements.
 
-## Try the candidate
+## Install
 
 Requires Node.js 20.19 or newer and Git. The integration test uses OpenSpec 1.15.0. Windows and Linux CI exercise Node 22 and 24.
 
-[Build the candidate tarball](docs/guide/getting-started.md) first. With the source checkout and a fresh project in sibling directories, install that tarball and initialize OpenSpec:
+In your project, install the versioned packages and initialize OpenSpec:
 
 ```sh
 npm install --save-dev @fission-ai/openspec@1.15.0
 npx --no-install openspec init
-npm install --save-dev ../cliewen-openspec/cliewen-openspec-0.1.0.tgz
+npm install --save-dev cliewen-openspec@0.1.0
 npx --no-install cliewen-openspec init --default
 npx --no-install openspec new change add-export --schema cliewen-delivery
 ```
@@ -49,7 +49,7 @@ npx --no-install cliewen-openspec ac next --capability export
 
 `--default` explicitly selects delivery for future changes. Omit it to preserve the existing schema. `init --dry-run` previews writes. Use the generated ID in scenario headings and test titles; commit the ID registry along with specs.
 
-The tarball selects the unpublished candidate. The earlier npm alpha remains available as `cliewen-openspec@0.1.0-alpha.1`, but is outside this candidate's installation contract. For the complete CSV example, follow [your first change](docs/guide/getting-started.md).
+The explicit version selects 0.1.0. Earlier alpha installation manifests are unsupported; use a fresh installation rather than editing a manifest version. For the complete CSV example, follow [your first change](docs/guide/getting-started.md).
 
 For an existing installation, install the desired package version and use `cliewen-openspec update --dry-run --json`, then `cliewen-openspec update --json` after reviewing the plan. Update refreshes owned resources from supported manifests, preserving configuration, selected schemas, IDs, and authored files. See [updating an installation](docs/guide/updating.md).
 

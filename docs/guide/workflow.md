@@ -35,7 +35,7 @@ Specs and design both depend on the proposal. Tasks depend on both. Implementati
 
 ## Write a concrete request
 
-The local `0.1.0` candidate also offers [project learnings](../configuration.md#project-learnings) and [optional Humanizer use](../configuration.md#humanizer-and-writing). Enable learnings to retrieve relevant lessons before planning and review useful new observations at closure. Current specs and accepted decisions take precedence over old notes. Humanizer defaults to host-mediated automatic discovery, with one short status per session and clear-writing fallback when unavailable. These facilities are independent and are not included in the earlier published alpha.
+Version `0.1.0` also offers [project learnings](../configuration.md#project-learnings) and [optional Humanizer use](../configuration.md#humanizer-and-writing). Enable learnings to retrieve relevant lessons before planning and review useful new observations at closure. Current specs and accepted decisions take precedence over old notes. Humanizer defaults to host-mediated automatic discovery, with one short status per session and clear-writing fallback when unavailable. These facilities are independent and are not included in the earlier published alpha.
 
 Describe the desired behavior and where you want the agent to stop. The installed schema provides the method guidance. For example:
 
