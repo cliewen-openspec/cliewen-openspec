@@ -3,7 +3,7 @@ type: guide
 ---
 # Cliewen for OpenSpec
 
-Cliewen adds project documentation, Decision Records, stable acceptance criterion IDs, and test evidence to an OpenSpec workflow. Use it when you want an agent to leave behind an explanation of what changed and a record of which scenarios were tested.
+Cliewen adds project documentation, Decision Records, stable acceptance criterion IDs, and test evidence to an [OpenSpec](https://openspec.dev/) workflow. OpenSpec is the workflow engine; its source and community are at [Fission-AI/OpenSpec on GitHub](https://github.com/Fission-AI/OpenSpec). Use Cliewen when you want an agent to leave behind an explanation of what changed and a record of which scenarios were tested.
 
 Version `0.1.0` provides three workflows. `cliewen-delivery` takes an understood change through proposal, behavior specs, design, implementation tasks, and verification. [Discovery](discovery.md) investigates a question and produces a recommendation, including the option to make no change. [The combined workflow](all.md) keeps investigation and delivery in one change, with explicit no-delivery closure. OpenSpec owns the change files, spec synchronization, and archive. Your coding agent writes the artifacts and implementation; Cliewen supplies instructions, templates, configuration, ID allocation, and evidence checks.
 

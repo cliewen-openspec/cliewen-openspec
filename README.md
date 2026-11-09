@@ -2,6 +2,8 @@
 
 Durable decisions, living documentation, and evidence for OpenSpec.
 
+Built on [OpenSpec](https://openspec.dev/), using its custom-schema workflows. See [Fission-AI/OpenSpec on GitHub](https://github.com/Fission-AI/OpenSpec) for the engine's source and community.
+
 **Version `0.1.0`.** Installs `cliewen-delivery`, `cliewen-discovery`, and `cliewen-all`, allocates acceptance IDs, and checks real delivery test evidence through OpenSpec archiving. Discovery supports investigation and recommendation without required production implementation.
 
 The release includes [test quality and lifecycle checks](docs/testing/test-quality.md), optional project learnings, and Humanizer guidance. Follow [Your first change](docs/guide/getting-started.md) to build and install its local tarball. The published `0.1.0-alpha.1` is an earlier snapshot and does not include these additions; its manifest is not supported by 0.1.0.

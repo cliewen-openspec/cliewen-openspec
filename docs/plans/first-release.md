@@ -55,7 +55,8 @@ Use [Remaining checks before 0.1.0](../testing/release-gaps.md) for final compat
 - [x] Review remaining findings and propose explicit host/support limits and completion scope for the three source changes in the final technical review. Owner acceptance and local archive are now complete under the linked acceptance and closure records.
 - [x] Obtain final content/scope acceptance after reviewing all six priorities; record the actual reply and archive the three changes locally.
 - [x] Publish npm/latest and create GitHub v0.1.0 under the subsequent explicit release instruction. The public registry install and npm/GitHub bytes are verified in the release record.
-- [ ] Recheck the catalog and actual released version/URLs before sending the introduction; contact remains a separate action.
+- [x] Verify the catalog submission route, published version 0.1.0, and public links on November 9, 2026; update [the introduction draft](../community/openspec-introduction.md) for owner review.
+- [ ] Submit the introduction after explicit owner instruction.
 
 ## Recorded results
 
