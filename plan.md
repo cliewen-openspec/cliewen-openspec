@@ -1,225 +1,58 @@
-# Cliewen for OpenSpec: product and implementation plan
+---
+type: plan
+---
+# Cliewen for OpenSpec: next roadmap
 
-Status: 0.1.0 published on November 9, 2026; [npm/latest and GitHub v0.1.0 are verified](docs/releases/0.1.0-release.md). Content and documented limits were accepted on the same date. All six roadmap priorities are complete within that accepted scope, and the three OpenSpec changes are archived locally. [The actual acceptance](docs/releases/0.1.0-acceptance.md) and [closure record](docs/testing/release-closure-001.md) establish the checkpoint. The subsequent explicit release instruction authorized distribution, which is now complete.
+Version 0.1.0 is published. All six priorities of the first roadmap were completed within the accepted scope. See the [release record](docs/releases/0.1.0-release.md), [owner acceptance](docs/releases/0.1.0-acceptance.md), and [closure record](docs/testing/release-closure-001.md). Earlier implementation history remains in those records and Git history.
 
-Release target: the owner selected `0.1.0` for the first non-prerelease release on November 3, 2026 and reported no current users, waiving backward compatibility for the transition. [Decision 021: Ship 0.1.0 first and use a direct transition](docs/decisions/021-first-release-and-direct-transition.md) records this scope. Package/runtime/lockfile versions, fresh-install/lifecycle behavior, active guides, and unreleased changelog now target the local `0.1.0` candidate. Published packages and historical `0.2.0-alpha.1` trial inputs/reports remain unchanged. The publication record distinguishes the accepted pre-release content from final release-date/status/install documentation. Earlier version preparation did not itself authorize publication.
+This roadmap is accepted direction, not implemented functionality. [Decision 023: Extend OpenSpec through its conventions](docs/decisions/023-openspec-native-planning-and-closure.md) governs the work. OpenSpec owns changes, specs, synchronization, and archive; projects own their integration and approval policies.
 
-The owner's hold until roadmap completion is satisfied by the accepted final review. The owner subsequently authorized 0.1.0 publication and release/tag creation, now complete; the initial content/local-archive acceptance did not authorize those actions on its own.
+## Priorities
 
-[Decision 019: Use spec-driven development with evidence-first verification](docs/decisions/019-evidence-first-verification.md) supersedes decisions 004 and 013. Development source removes TDD settings, commands, history gates, and active TDD guidance, with explicit migration and verification around the four accepted principles. Agree expected behavior and verification before implementation; develop and verify small tasks; assess assertion effectiveness; maintain tests against accepted requirements. Development source now implements removal and explicit migration diagnostics; fresh observations are recorded in round 012; remaining limitations are recorded and accepted in the final review. Historical TDD reports remain evidence about the previous design, and passing strict-TDD trials is no longer a release requirement.
-
-## Product direction
-
-Cliewen for OpenSpec is an ongoing effort to improve spec-driven development using OpenSpec as its engine. It adds practices the author needs in daily work: durable decisions, maintained documentation, and evidence that implementation satisfies acceptance criteria. Custom schemas carry the workflows, with a supporting CLI for installation, identities, and checks.
-
-Keep adoption proportional to the change. Projects should be able to enable stronger checks independently and retain their existing conventions. Evaluate additions by whether they catch real mistakes, reduce repeated work, and help developers understand the result. More artifacts and more tests are not success measures on their own.
-
-## Completed roadmap priorities
-
-| Order | Increment | Completion evidence | Accepted status |
+| Order | Increment | Completion criteria | Status |
 |---|---|---|---|
-| 1 | Scope an OpenSpec change for test quality and lifecycle | A reviewed proposal distinguishes coverage, assertion effectiveness, and test maintenance, and defines configuration, defaults, exceptions, and acceptance criteria | Accepted |
-| 2 | Trial the design, then implement the smallest useful solution | Cases cover a missing negative test, ineffective assertions, changed behavior, and a retired criterion; findings establish which checks can be automated and which require review | Accepted |
-| 3 | Observe a fresh user completing the guide | A new user completes installation, a delivery change, evidence collection, and archive using the exact documented package; observed obstacles lead to clearer explanations, diagrams, and troubleshooting | Accepted prepared-route scope; wider human usability unobserved |
-| 4 | Complete outstanding validation for the current implementation | Required agent trials and compatibility checks pass; final release validation runs again after priorities 5 and 6 are complete | Accepted final compatibility and bounded evidence review |
-| 5 | Add optional project learnings and Humanizer detection | Agents retrieve relevant lessons and retire stale guidance; Humanizer can be detected and installation suggested, with baseline writing guidance available when absent or disabled | Accepted bounded host guidance; unobserved states remain explicit |
-| 6 | Prepare the Cliewen transition and OpenSpec introduction | Complete the capability review, direct source/Pages transition, guide, reproducible example, and introduction draft; actual outreach follows release acceptance | Preparation accepted; actual outreach remains separate |
+| 1 | Scope work, plan progressively, and challenge risky assumptions | Agents assess whether a change is needed, split oversized work, and prepare the next coherent delivery from a ticket or local plan | Planned; next |
+| 2 | Maintain durable knowledge around archive | Closure updates affected documentation and preserves useful findings; subsequent work is reassessed against actual results | Planned |
+| 3 | Adopt and upgrade existing projects | Reviewable previews support adoption and upgrades while preserving project-owned documents, configuration, identities, and modifications | Planned |
+| 4 | Explain product intent and user journeys | Optional goals and cross-capability journeys help evaluate changes without duplicating behavioral specs | Planned |
+| 5 | Record meaningful human verification | Observations identify who checked what, conditions, results, and limits; manual evidence remains distinct from automated tests and approval | Planned |
 
-[The final technical review](docs/testing/release-candidate-002.md#source-change-acceptance-map) records implementation/preparation completion across all six priorities, with prepared-guide and host limits now accepted under the actual owner agreement.
+Prepare an OpenSpec proposal only for the next selected delivery. Later increments retain their purpose and completion criteria here; determine their design, configuration, and tasks when they become actionable. Independent changes may proceed in parallel. No release version is assigned yet.
 
-Deliver these as separate changes with explicit acceptance criteria. Keep unresolved roadmap items labeled as planned. General migration tooling and additional integrations remain future work; legacy-user compatibility is not a first-release blocker under decision 021.
+## Next increment: scope and progressive planning
 
-Priority 5's implementation and bounded development review are complete under [Decision 020: Add optional project learnings and Humanizer support](docs/decisions/020-optional-learnings-and-humanizer.md). The [acceptance review](docs/testing/knowledge-writing-trial/acceptance.md) maps configuration, preservation, retrieval, maintenance, and writing scenarios to deterministic checks and actual or hypothetical observations. All 68 package tests pass; the final OpenCode bootstrap retry checked all six document links and corrected its motivation and availability classification. Actual confirmed-absent, detected-but-inaccessible, refusal, and cross-session host behavior remain unobserved. The source change remains active, and no release or archive approval is implied.
+A project chooses one authority for upcoming work: its existing ticket system or a lightweight local plan with goals and milestones. Separate goal documents are useful only when they add durable meaning. Small standalone tasks need no backlog. Respect the existing planning feature switch and project conventions; settle any additional configuration in the implementation proposal.
 
-Priority 6 preparation is complete: source and guide moved to the organization, and the capability review, worked example, and unsent introduction are ready. The [first-release checklist](docs/plans/first-release.md) owns deployment evidence and final acceptance.
+Record the selected ticket system and project or backlog reference. Discover suitable access through the agent host's available MCP servers, connectors, or CLI tools, distinguishing read access from write capability. The user connects the service and grants access; available credentials do not authorize writes. Use links and available agent tools for external systems. If access is unavailable, explain what connection is needed, provide the concrete pending update, and report that it was not performed. The adopting-project guide must explain these connection options. Do not duplicate ticket status locally or build a dedicated provider API integration in this increment. External writes follow the user's authorization and project policy.
 
-The unpublished 0.1.0 candidate now includes the factual-writing clarification. [Round 014: Host interruption diagnosis and factual-writing follow-up](docs/testing/cli-trials/result-014.md) records three complete primary workflow passes, incomplete OpenCode delivery, an approved combined Codex workflow, and 72 passing local tests. [The initial candidate report](docs/testing/release-candidate-001.md) and [Round 013: Repeated delivery and discovery trials on 0.1.0](docs/testing/cli-trials/result-013.md) retain earlier inputs and failures. The owner accepted that concrete design, and its local delivery, tests, and fresh scoped evidence passed independent review.
+Assess change needs from intended behavior, requirements, design impact, and uncertainty, using OpenSpec guidance. Do not import Cliewen's direct/tracked routes. Reassess the choice when new information expands the task. Relevant verification still applies to work that needs no proposal.
 
-[Round 015: OpenCode completes within budget but fails semantic review](docs/testing/cli-trials/result-015.md) adds one completed delivery attempt on the same package and profile. All 12 tests and fresh evidence passed, but the new spec contradicts valid-input preservation. An isolated data-loss fault also survived all 12 tests. Incorrect test counts and a broken handoff link remain in the original output. This is not a reviewed delivery pass.
+Each change should deliver a coherent result that can be understood and verified together. Its implementation tasks may be small without becoming separate proposals. Keep dependent future work as tickets or plan items instead of preparing a chain of detailed proposals that will become stale.
 
-The [round 015 follow-up: Strengthen independent review and reuse the npm cache](docs/testing/cli-trials/result-015-follow-up.md) adds evaluator assertions and fault regressions for valid input content, plus explicit semantic/count/link review criteria. The guide replay inherits npm's configured cache and reports installation times, retaining its commands and 60-second limit. All 75 tests pass locally and in all four platform jobs at `ce2d695`; Pages also deployed. This single passing run does not establish permanent timeout resolution. The original agent outcome remains failed.
+When splitting an oversized proposal, retain rationale and findings, narrow the current delivery, and reference deferred work in the planning authority. Reconcile specs, design, and tasks so deferred obligations are neither silently lost nor reported as delivered.
 
-The [accepted 0.1.0 scope and separate distribution actions](docs/testing/release-gaps.md) record completed compatibility, accepted limits, and the three local source archives. [Decision 022: Use targeted agent trials for major changes and each release](docs/decisions/022-proportionate-agent-validation.md) retires the full matrix and repetition quota. Existing reviewed successes satisfy the 0.1.0 release-cycle minimum; the former 14 missing primary repetitions are no longer a gate. The [interaction-planning clarification](docs/testing/cli-trials/result-018-follow-up.md) has 86 passing local tests and successful documentation/browser checks. The small refinement is complete without more agent runs; its effect on agent compliance remains unobserved. [The final technical review](docs/testing/release-candidate-002.md) now records four passing platform jobs with 86 tests each, guide reuse, strict validation, and the proposed completion/limit scope for all three changes. The owner has accepted that scope/limits and the three local source archives are complete. [The closure record](docs/testing/release-closure-001.md) records six validated permanent specs and link repair. 0.1.0 publication is now complete under the subsequent explicit release instruction.
+Before a consequential commitment, identify the assumption most likely to undermine the work, a credible alternative, the cheapest useful investigation, and a result that would stop or revise the approach. Consider whether meeting every criterion could still fail the intended user. Routine work needs no extra report. At resumption or after contradictory evidence, reassess goals, dependencies, and the next delivery; ordinary replanning does not automatically require a Decision Record.
 
-Priorities 1 and 2 have reached an unreleased implementation with bounded validation. Maintain affected guides with every increment; priority 3 adds observed user testing.
+Use OpenSpec's descriptive kebab-case change names. Add the original ticket ID and a descriptive link to the proposal when applicable. No ticket-prefix naming feature is planned, and existing names remain unchanged.
 
-Priority 3 has [three-agent guide observations](docs/testing/guide-walkthrough/result-002.md): fresh Codex CLI, Claude Code, and OpenCode sessions completed the prepared CSV walkthrough, then reviewed it afterward. Identical guide/package inputs and independent checks were verified; supported clarity findings were addressed. Wider human usability, recovery paths, and agent-authored journeys remain unobserved within the accepted first-release limits.
+## Archive and subsequent work
 
-[Decision 022: Use targeted agent trials for major changes and each release](docs/decisions/022-proportionate-agent-validation.md) supersedes Decision 018's automatic profile quota. Existing successful walkthroughs are retained within their prepared-route scope. The runner implements all three pinned CLI profiles with separate contexts, post-attempt questions, input hashes, independent checks, and bounded explicit runs. The prepared development-package journey has observations for all three; other journeys retain their own validation requirements.
+First identify the extension points supported by the tested OpenSpec version. Implement closure guidance through supported mechanisms; do not promise an automatic archive hook or replace OpenSpec's lifecycle with a new acceptance mechanism.
 
-All six priorities are complete within the accepted first-release scope, including test quality and lifecycle, configurable project learnings, optional Humanizer guidance, user documentation, feedback/triage, and transition/outreach preparation. Learnings and Humanizer are optional for adopting projects, but their implementation is part of this release scope. The final review records compatibility checks, retained agent evidence, and accepted limits on unobserved user/host journeys. Do not stage or publish another npm version after individual increments; use local builds until the combined work is accepted for release. The existing public `0.1.0-alpha.1` remains available.
+Before archive, reconcile the actual delivery with specs, affected documentation, decisions, and test lifecycle records. Retain useful lessons when enabled. After successful archive, record the actual outcome and reassess affected future work. Preserve existing evidence-freshness requirements when archive or subsequent repository edits change the tested revision.
 
-The current local `0.1.0` candidate implements the [test quality and lifecycle design](openspec/changes/archive/2026-11-09-test-quality-and-lifecycle/design.md) and [record contract](openspec/changes/archive/2026-11-09-test-quality-and-lifecycle/record-contract.md) under accepted [Decision 017: Separate test coverage, effectiveness, and lifecycle review](docs/decisions/017-test-quality-and-lifecycle.md). The [implementation checks](docs/testing/test-quality-implementation.md) record 66 passing regressions, focused checks, browser validation, and two detected checker mutants. The published 0.1 alpha remains unchanged. The [first quality/lifecycle delivery trial](docs/testing/quality-lifecycle-trial/result-001.md) now has a passing Codex observation with enforced policies, preserved shared assertions, and refreshed post-archive records. The [combined investigation stage](docs/testing/quality-lifecycle-trial/result-002.md) preserved baseline files and stopped at its proposed decision. After concrete human agreement, [combined delivery and closure](docs/testing/quality-lifecycle-trial/result-003.md) passed with enforced policies and 29 cases. Both quality workflows now have one reviewed Codex observation. Follow up on archived historical links and a complete worked review-record example. The final technical review proposes the first-release scope for unobserved human/profile paths and records current CI evidence. Owner scope acceptance and local source-change archive are complete. Requirement renames produce unresolved lifecycle findings rather than automatic approval.
-
-Bug and idea forms and reporting links are already published. The [maintainer triage guide](docs/feedback-triage.md) now covers reproduction, missing information, dispositions, links to accepted OpenSpec work, and verified closure. It adds no response-time or implementation-date promises. Maintain this feedback path alongside the remaining increments.
-
-The [staged alpha package review](docs/testing/staged-alpha-001.md) records two passing installation workflows against the downloaded `0.1.0-alpha.1` tarball and 57 passing local regression tests. The owner approved publication on November 1, 2026; the public alpha matches the reviewed checksum. That historical alpha observation remains separate from the now accepted stable content.
-
-### Test quality and lifecycle
-
-The stable candidate links scenarios to execution evidence and implements independently configurable coverage, assertion-effectiveness, and lifecycle review. Neither OpenSpec artifact validation nor a passing evidence report establishes that assertions test the intended behavior.
-
-Coverage policy should require positive and negative cases where meaningful, plus relevant boundaries. Permit multiple distinct cases for each scenario and coverage category. Let projects configure minimum case counts and justified exceptions; settle exact keys and defaults in the implementation proposal. Counts must use distinct cases, not repeated runs, retries, or duplicate report entries. For example, a CSV scenario might cover ordinary and quoted values, invalid input, and empty input. Review must establish which cases actually belong to that criterion.
-
-Test effectiveness needs observable evidence: demonstrate that a relevant faulty implementation makes the test fail, using a controlled fault, a suitable mutation tool, or an observed behavior failure. A syntax error or missing dependency is not evidence that an assertion detects a behavior defect. Record the method and limits; do not require a mutation framework for every project or treat command ordering as proof of assertion quality.
-
-Lifecycle review follows the affected acceptance criteria through code changes. Preserve valid behavior assertions during refactoring, update tests when accepted behavior changes, and remove obsolete assertions when their criterion is explicitly retired. Preserve tests that still protect another active requirement; split or remap them where necessary. A missing ID is a finding to investigate, never authorization to delete a test. Keep retirement reasons and reserved IDs, and preserve historical evidence without treating it as current coverage.
-
-Before shipping, exercise positive/negative coverage, multiple distinct cases, justified exceptions, both policies disabled independently, vacuous assertions, behavior changes, refactoring, partial retirement of a shared test, and full criterion retirement. Combine deterministic validation of records with reviewed agent trials of test meaning.
-
-### Project learnings
-
-Provide an optional `learnings/` directory under the configured documentation root, normally `docs/learnings/`. Create it only when enabled and a useful lesson exists. Reuse an existing project knowledge location where possible.
-
-Keep each lesson short: the situation, observed mistake, evidence or source change, corrective action, scope, and last verification. Distinguish tentative observations from verified guidance. An index should help agents retrieve relevant lessons before planning or changing affected code without loading the entire collection. Review new lessons at change closure, merge duplicates, and retire outdated guidance. Disabling the facility stops its workflow guidance and preserves authored files.
-
-Lessons must not become a second requirements or decision authority. Link to specs and decisions; promote a recurring lesson into the appropriate test, rule, or durable document when useful. Verify retrieval in a fresh agent session and check that an obsolete lesson does not override a current accepted decision.
-
-### Optional Humanizer integration
-
-Provide consumer-project modes for using [Humanizer](https://github.com/blader/humanizer): disabled, automatic, and enabled. Recommend automatic as the default: the agent checks the host's available skills and uses Humanizer when available. Enabled explicitly requests its use; disabled skips detection and installation suggestions. The implemented controls are documented in the development configuration reference.
-
-If Humanizer is missing in automatic or enabled mode, suggest installation with a link to its source and verified instructions for the current agent host. Make the suggestion once per session, respect a refusal, and continue with the shared writing guidance. Do not install it automatically or block documentation work. If the host cannot expose installed skills, report that detection is unavailable rather than claiming the skill is absent. Verify discovery and invocation separately for each supported host before claiming support.
-
-Apply the skill to prose in everything the agent writes or edits, including OpenSpec proposals, specs, designs, tasks, guides, code comments, docstrings, commit messages, PR descriptions, user-facing messages, and conversational replies. Preserve requirements, code behavior, commands, identifiers, examples, links, and structured data. Verify technical claims after editing. Keep the baseline writing guidance available in every mode. This repository's existing requirement to use Humanizer for user guides remains in effect; see [012: Apply clear writing and diagram guidance across agent-authored text](docs/decisions/012-clear-writing-across-agent-output.md).
-
-All agent-authored text should use natural language and the fewest words that preserve its meaning and required detail, whether Humanizer is available or not. Readers should understand a reference without remembering its ID: write [Decision 002: Distinguish the shared base from selectable workflows](docs/decisions/002-base-and-workflow-names.md), not a standalone "002" or "Decision 002". Preserve exact IDs in machine-readable fields.
-
-Prefer an informative illustration or diagram when it replaces a longer explanation. Add a short caption or accessible text describing the main point; avoid repeating every detail in prose. Use the existing Mermaid and plain-text guidance, and choose a short paragraph or table when clearer. Validate these rules with documentation review, including absent-skill and disabled-skill cases.
-
-### Configuration contract for new facilities
-
-Coverage policy, test lifecycle review, learnings, and external writing skills need separate controls. The development configuration reference documents the implemented controls and defaults; further extensions need their own design and acceptance evidence. Document which checks are deterministic and which request agent or human review. Test opt-outs without reinstalling and preserve user-authored files. Do not add speculative settings to the executable [configuration reference](docs/configuration.md); the current parser rejects unknown keys.
-
-### Feedback and community
-
-Provide GitHub Issue Forms for [bug reports](.github/ISSUE_TEMPLATE/bug_report.yml) and [ideas](.github/ISSUE_TEMPLATE/idea.yml), with a blank-issue fallback. Bugs need reproduction steps, expected and actual behavior, and relevant versions; ideas need the user's problem and desired outcome, with a proposed solution optional. Accept documentation problems through the same bug form. Keep required fields few, and avoid requiring a patch or a complete design to participate.
-
-Add direct reporting links to the README and guide. Later, consider page-specific feedback links and reuse the form pattern in other explicitly selected repositories. Triage should distinguish defects, documentation gaps, and proposals; record reproduction or missing information, then link accepted work to its OpenSpec change. Do not promise response times or implementation dates before there is capacity to meet them.
-
-### Cliewen transition and OpenSpec outreach
-
-Recommend concentrating new development on cliewen-openspec while preparing an orderly retirement of cliewen.dev in its current form. Reusing OpenSpec's lifecycle lets this project focus on its added practices, but also makes compatibility and upstream changes an ongoing maintenance responsibility. Greater adoption potential is a hypothesis to test through user trials and feedback.
-
-The owner reports no current users and explicitly requires no backward compatibility. Review useful legacy capabilities and document what the new product carries forward, without an alpha/user migration project or old-URL redirect requirement. [Practice mapping](docs/cliewen-mapping.md) records that review. Domain changes, legacy archival, and npm publication remain separate actions; no legacy project was removed as part of preparation.
-
-Move the source repository to `https://github.com/cliewen-openspec/cliewen-openspec` and the guide to its project Pages site, retaining `/cliewen-openspec/` as the base path. Verify the destination, permissions, Git history, local remote, active links, metadata, workflow deployment, and new public entry points. The [first-release checklist](docs/plans/first-release.md) owns execution status; do not infer completion from intended addresses.
-
-OpenSpec already lists community schemas in its [customization catalog](https://github.com/Fission-AI/OpenSpec/blob/main/docs/customization.md#community-schemas). Its documented submission route is an issue containing a repository link and a one-line description. Its [schema documentation](https://github.com/Fission-AI/OpenSpec/blob/main/docs-lab/customize/schemas.md#sharing-schemas) describes installation by copying bundles and a registry as future work. These sources were rechecked on November 9, 2026; recheck again if outreach is delayed.
-
-The [unsent introduction](docs/community/openspec-introduction.md) now uses published version 0.1.0, verified public links, and the existing worked CSV guide. It asks about catalog inclusion and the preferred distribution path, with explicit compatibility and evidence limits. Submission awaits separate owner instruction.
-
-## Current implementation
-
-Implemented local 0.1.0: delivery, discovery, and combined bundles, `init`, `update` and `uninstall` for its own 0.1.0 manifests, capability-owned AC allocation and prefix changes, `check`, transaction recovery, configurable per-task testing with evidence-first verification, and the Node test reference adapter. The packed-installation test exercises a real OpenSpec 1.15.0 change through archive, including evidence failure cases. CSV pilots and native CLI trials provide reviewed observations; the release-cycle agent minimum is met under [the evaluation policy](docs/testing/agent-evaluation.md), with observed limits retained. [Decision 019: Use spec-driven development with evidence-first verification](docs/decisions/019-evidence-first-verification.md) replaces the retired recorder and ordering gates in development source. See [current evidence contract and limits](docs/testing/evidence.md). General version/config migrations, additional integrations, and structural project-document validators remain future work. The source now includes a navigable documentation site and a deterministic replay of its CSV guide; the Pages workflow builds and checks that site before deploying pushed main commits.
-
-## Product and schemas
-
-Deliver a small OpenSpec schema collection with a shared base, compatible with Intent Engineering. Release scope follows the priorities and acceptance evidence in this plan.
-
-| Schema | Purpose |
-|---|---|
-| cliewen-delivery | Recommended workflow for an understood change, implementation and evidence |
-| cliewen-discovery | Investigation, alternatives, experiments and decision handoff; may end without production implementation |
-| cliewen-all | Discovery followed by delivery, consolidating overlapping steps |
-
-Build standalone schema bundles from shared definitions and templates. OpenSpec does not compose schemas at runtime. Version and test the base and schemas together. Preserve existing schema selection unless explicitly changed. OpenSpec continues to own behavioral specs, implementation tasks, synchronization and archive.
-
-The combined bundle uses proposal → investigation → decision → specs → tasks. Decision also owns the chosen design. Its frontmatter declares delivery, no-change, or further-investigation and proposed/accepted status. Delivery requires human agreement before implementation; the checker validates accepted status but cannot prove who approved it. No-delivery outcomes require native skip_specs: true and no Markdown product deltas, with tasks limited to real closure work. This preserves a fixed graph without artificial product requirements.
-
-The durable contract is [015: Keep combined investigation and delivery behind explicit agreement](docs/decisions/015-combined-workflow-and-approval-boundaries.md), including unassigned draft IDs and the separate archive authorization.
-
-## Shared base
-
-Name the internal shared foundation `cliewen-base`. It supplies common definitions, templates, documentation conventions, decisions, AC identities, evidence, and configuration to the standalone bundles. It is not a user-selectable schema or a replacement name for `cliewen-discovery`. See [the naming decision](docs/decisions/002-base-and-workflow-names.md).
-
-Default documentation root: `docs/`, configurable as a whole. Fixed internal locations: `README.md`, optional `vision.md`, `goals.md`, `constraints.md`, and `architecture/`, `design/`, `decisions/`, `testing/`, `plans/`. Optional learnings are configured as described above. Create documents only when needed. Installation never invents project intent or moves existing documents.
-
-New durable documents carry YAML frontmatter with nonempty `type`; custom types are allowed. Existing documents adopt metadata gradually. OpenSpec artifacts retain native formatting.
-
-Decision Records use `type: decision`, optional `category` and required `status`: proposed, accepted, rejected or superseded. Categories include architecture, product, process and operations. Acceptance requires human agreement. Preserve accepted reasoning; replacements link both ways and update the earlier status. Agent-inferred intent remains unconfirmed.
-
-For new projects, name new decision files `NNN-short-title.md`, starting with `001`. Use at least three digits and let the sequence grow without truncation. Existing projects retain their naming conventions and ID authority. Never rename, move, or renumber existing document files to normalize names, titles, categories, or padding: external links may depend on their exact paths. Update content and metadata in place.
-
-Mermaid is the default diagram format when a diagram clarifies the explanation, embedded beside explanatory prose. Prefer ASCII or plain text for file and directory trees and simple sketches, and allow it where Mermaid rendering is unavailable. Maintain one authoritative diagram representation with a short explanation. Validate syntax with a pinned parser and render-test shipped examples; consumer-project diagram validation remains planned. See [the diagram decision](docs/decisions/011-mermaid-and-plain-text-diagrams.md).
-
-Plans are optional. Ticket systems may own priorities, milestones and status. Each fact has one authoritative home. Repo plans add independent content and links, not duplicate task backlogs.
-
-Proposal identifies documentation impact; design considers current decisions; tasks include documentation updates; apply maintains explanations; archive confirms durable records are current. These instructions are advisory, not deterministic enforcement.
-
-## Configuration and evidence
-
-`.cliewen-openspec/config.yaml` exposes boolean features `documentation`, `decisions`, `mermaid`, `planning`, `review`, and `evidence`, all enabled by default. Activation makes facilities available without requiring every document or review on every change. Disable matching guidance/checks without deleting documents. Changes take effect on the next operation. Unknown settings and invalid values fail validation. Installation health always remains checked. Flags do not rewrite the schema artifact graph.
-
-Evidence is central from the first implementation slice. Distinguish linkage, execution results, revision freshness and reviewed sufficiency. Preserve test types and declared positive/negative/boundary coverage. Tags, counts and passing tests cannot prove assertion quality.
-
-Under [Decision 019: Use spec-driven development with evidence-first verification](docs/decisions/019-evidence-first-verification.md), tasks describe acceptance criteria, planned cases, verification commands, and completion checks before implementation. Test code can evolve with production code. Development source removes the approach selector, TDD recorder, method metadata, and ordering gates; retain real execution evidence and semantic review. Existing configuration and authored evidence need an explicit tested migration. Legacy settings and record methods require explicit migration; authored history remains preserved.
-
-Accepted test-type design: default to Unit, Integration, and E2E; project-defined `testing.types` replaces the default set. Preserve existing terminology and require consistency between scenario requirements, task boundaries, and exported evidence rather than assuming one type substitutes for another. Configuration, Node adapter export, and exact scenario/evidence consistency checks are implemented; task boundaries remain subject to review; see [the decision](docs/decisions/003-project-defined-test-types.md). Other accepted choices are indexed in [decisions](docs/decisions/README.md).
-
-Use stable bracketed scenario IDs such as `[EXPORT-003]`. Allocate from persistent high-water marks including retired numbers, never from only surviving scenarios. Reuse an existing project registry through an adapter instead of maintaining a second authority. Detect collisions from parallel allocations. Semantic changes require review, not a purported deterministic semantic checker.
-
-Repository adapters export framework-neutral JSON containing scenario/test identities, execution outcomes and tested revision. Generate mappings from existing test metadata where available; include a reference adapter. Report missing mappings, unknown references, pending scenarios with reasons, failures, skips, manual results, stale results and dirty-worktree evidence separately. Missing setup is not configured, never passed. Pending scenarios support `--fail-on-pending`.
-
-Collect execution evidence during apply and check it before archive. Post-implementation evidence cannot be an existence prerequisite for starting implementation. Discovery findings do not prove unimplemented product behavior. Optional independent review uses fresh context and records findings; no mandatory agent platform or automatic merge policy.
-
-The Node adapter supports `--change NAME`: run all supplied tests, retain only the selected delta's scenario results, and preserve the full runner exit code. Reports declare the selected change; check rejects mismatched scope. Collection without the flag retains all mapped results for compatibility. Scoped reports require a runner exit code. See [the collection contract](docs/testing/evidence.md#collect-evidence-for-one-change).
-
-## Installer and distribution
-
-Implement a TypeScript npm package with `init`, `update`, `check`, `uninstall`, dry-run support and readable/JSON diagnostics. Require initialized OpenSpec; do not install or upgrade it automatically. Use public CLI/configuration, never internal imports. Validate released-version compatibility before claiming support; original research used 1.14.1.
-
-Use the YAML Document API to preserve unrelated settings and comments. Support repository-local Codex, Claude Code, Copilot and Cursor integrations, selected explicitly or detected from OpenSpec skill directories.
-
-Record owned files and exact configuration entries with hashes in `.cliewen-openspec/manifest.json`. Delimit owned context and agent instructions. Check every conflict before writing. Journal originals and new paths; roll back write failures. Subsequent writing commands recover interrupted transactions. Read-only `check` reports leftover journals without modifying files.
-
-Updates replace only unmodified owned content; local modifications conflict unless already identical to the update. Uninstall preserves authored documents. Shipped templates/skills are owned; documents written from templates belong to the project. Never overwrite OpenSpec-generated skills, specs or custom schemas. Normal package operations never commit, push or change repository protections.
-
-[014: Own generated resources and recover failed installation changes](docs/decisions/014-installer-ownership-and-recoverable-lifecycle.md) records the ownership, recovery, and default-preservation contract for adopting projects.
-
-## Delivery milestones
-
-1. Establish the public repository, plan, mapping, README, MIT license, and Pages landing page. Initial bootstrap complete.
-2. Exercise installation → delivery change → AC identity → test reference → execution evidence → review → archive. Deterministic workflow tests, local CSV pilots, and retained native observations satisfy the accepted first-release scope under Decision 022.
-3. Publish and maintain the user documentation site alongside alpha development. The initial guide, configuration/CLI references, CSV replay, and site checks are implemented in source; deployment follows a push to main. Do not wait for discovery/all or an npm release. A real fresh-user walkthrough remains useful alongside deterministic and browser checks.
-4. Complete future version/config migrations, optional planning/review, reusable CI, and agent evaluation. Extend and verify the user guides with each shipped capability.
-5. The six priorities and content acceptance are complete, with tested package inputs and accepted prepared-walkthrough reuse. npm publication and GitHub v0.1.0 are now complete under the explicit release instruction; wider human usability is not claimed.
-
-Project CI supplies test outcomes. Reusable checks validate OpenSpec and evidence against the same clean candidate revision. Required CI checks are explicit opt-in.
+Archive does not automatically close a ticket, merge a PR, or establish human approval. Apply the project's completion criteria and existing authorization boundaries. If archive or a ticket update fails, report the actual state and remaining action without claiming full closure.
 
 ## User documentation and GitHub Pages
 
-Publish the user documentation on the existing GitHub Pages site using VitePress with local search and light/dark appearance. Documentation is a product deliverable maintained during implementation, not a final release task. Repository Markdown remains the authoritative content source; render or reuse it rather than maintaining separate copies of the same guidance. Keep existing document paths and published page URLs stable. See [the documentation decision](docs/decisions/010-publish-user-documentation-early.md).
+Maintain affected guides, configuration references, examples, and adopter-facing changelog entries with each implemented increment. Use Humanizer for guide prose. Explain defaults and limits, distinguish guidance from deterministic enforcement, and preserve executable examples. Existing guide requirements are recorded in [Decision 010: Publish user documentation early](docs/decisions/010-publish-user-documentation-early.md); the first-release evidence remains linked above.
 
-The first site increment must provide clear navigation and a working alpha path covering prerequisites, local tarball installation, OpenSpec initialization, what `init --default` changes, starting a change, and a small CSV example. Explain which actions the CLI performs and which artifacts the coding agent authors. Include the reference prompt, review boundaries, commands, expected outcomes, and what to do when a step fails.
+## Verification and delivery boundaries
 
-Grow the site to cover:
+Exercise small corrections without a change, oversized proposals, dependent and independent deliveries, changed assumptions, unavailable ticket systems, local planning, and archive without automatic ticket closure. Include failure and disabled-feature paths when the implementation introduces them. Choose focused deterministic checks for the changed behavior.
 
-- Concepts and schema selection: the shared base, delivery, discovery, all, and the single-schema-per-change model.
-- Configuration reference: defaults, allowed values, examples, feature opt-outs, capability prefixes, padding, test placement, evidence-first verification, and migration from retired TDD settings. Mark unimplemented settings explicitly as planned.
-- End-to-end guides: specs and AC IDs, task-level verification, assertion review, evidence collection, revision freshness, and archive followed by regenerated evidence.
-- Durable documentation: Decision Records, frontmatter, embedded Mermaid, optional plans, external tickets, and existing-project conventions and authorities.
-- Coding-agent setup and tested compatibility for Claude Code, Codex CLI, and OpenCode. Distinguish intended support from verified integrations and list the tested package/tool versions.
-- CLI reference, report formats, troubleshooting, known limitations, upgrade guidance when implemented, and release notes.
-- Keep contributor material for deterministic tests, agent evaluation profiles, Harbor trials, costs, and result interpretation in the repository, outside the public site's page set and search index. Decisions and release notes also remain repository documents.
+Follow [Decision 022: Use targeted agent trials for major changes and each release](docs/decisions/022-proportionate-agent-validation.md): targeted trials for major changes and at least one representative reviewed success per release cycle. This roadmap edit requires link and consistency checks, not agent trials.
 
-All content uses US English and shows implemented, experimental, and planned functionality accurately. Navigation must work on mobile and with a keyboard. Provide readable code blocks, copyable commands, and a path to configuration, troubleshooting, and release notes from the getting-started guide. Add search when the content volume warrants it. Mermaid rendering and accessible explanatory text are part of the documentation build requirement.
+Future proposals must identify compatibility and migration effects before adding configuration or report fields. The current edit changes no CLI, configuration, schema, or evidence interface. General migrations, distributed identity allocation, a global document graph, and dedicated context/next commands are not added by this plan.
 
-Make the guide useful at two depths: a short route to the first verified change and linked explanations for readers customizing the workflow. Show expected output and recovery beside commands. Explain what each command changes, which defaults apply, and which actions need review. Include worked examples of a missing negative case, an ineffective assertion, changed behavior, and a retired criterion as those facilities ship. Use Humanizer for guide prose and verify commands after editing. Observe a fresh developer using the guide and record where they get stuck; visual polish alone does not establish usability.
-
-Build and check the site in pull-request CI before deployment, including local links and anchors and supported Mermaid examples. Exercise documented commands against the packed alpha in a clean fixture and verify installation of the explicit published npm version. Check the published site's paths after deployment. A fresh user must be able to complete the quick start without reading this conversation. An implementation is not complete until affected instructions, configuration reference, examples, and limitations are updated.
-
-## Acceptance
-
-[The final 0.1.0 technical review](docs/testing/release-candidate-002.md) maps the six priorities and three now-archived source changes to their implementation, tests, native observations, and limits. Four Windows/Linux and Node 22/24 jobs pass with 86 tests each. Strict OpenSpec validation passes all three changes, and the reviewed package hash is unchanged.
-
-Under [Decision 022: Use targeted agent trials for major changes and each release](docs/decisions/022-proportionate-agent-validation.md), existing reviewed successes meet the release-cycle agent minimum. The former matrix quota is retired; failed attempts remain failed. The guide comparison supports the prepared journey, while wider human usability, agent-authored work, host states, and repeated navigation reliability remain proposed first-release limits.
-
-The owner has accepted the concrete scope/limits and authorized the three local archives. They are complete, with permanent-spec and live-link checks recorded in the closure report. npm publication and GitHub v0.1.0 are complete; legacy archival and outreach remain separate actions.
-
-Defaults remain English content, MIT, no Cliewen runtime, global artifact graph, or automatic corpus migration. See [practice mapping](docs/cliewen-mapping.md).
-
-## Latest evidence-first observations
-
-
-[Round 012: Fresh agent trials with evidence-first verification](docs/testing/cli-trials/result-012.md) records four passing product checks. Codex and Claude delivery passed reviewed acceptance; OpenCode delivery and Claude combined delivery retain factual writing errors. [Guide result 003](docs/testing/guide-walkthrough/result-003.md) completed a fresh prepared walkthrough, independent checks, and a post-attempt review without an observed blocker. Its final-state checkpoint suggestion is now in the guide. Preserve these bounded historical outcomes. The final technical review and Decision 022 now define current acceptance; profile repetitions are no longer a gate. No additional budget or publication is authorized by these reports.
+The [OpenSpec introduction](docs/community/openspec-introduction.md) remains an unsent draft at the owner's request. Revisit it after the desired product additions. Publication and outreach require their own instructions.
