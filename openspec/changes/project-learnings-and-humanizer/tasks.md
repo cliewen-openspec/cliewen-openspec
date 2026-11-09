@@ -1,5 +1,7 @@
 # Tasks
 
+Accepted for 0.1.0 on November 9, 2026 under [the actual owner agreement](../../../docs/releases/0.1.0-acceptance.md), including local OpenSpec archive. Earlier pending-state notes below describe their original review checkpoints; they do not override this agreement.
+
 ## Design and acceptance planning
 
 - [x] 1.1 Inspect configuration, ownership, shared instructions, the approved roadmap, and upstream Humanizer instructions.
@@ -24,4 +26,4 @@
 - [x] 3.4 Check evaluator failure detection. Four controlled mutations were rejected; an actual broken-link output exposed a missing check, which now rejects that output in a separately preserved recheck.
 - [x] 3.5 Record the round 013 host-interruption diagnosis and bounded follow-up trials. [Round 014: Host interruption diagnosis and factual-writing follow-up](../../../docs/testing/cli-trials/result-014.md) separates host sleep, a new live-clock stall, reproduced stdout blocking, and the corrected checkpoint prompt. Explicit owner acceptance and a passing combined Codex continuation are recorded; release repetitions remain open.
 
-[The final technical review](../../../docs/testing/release-candidate-002.md) completes final-input reuse and proposes the bounded real-host claim disposition. Technical review is ready; owner scope acceptance and local archive authority remain pending. Earlier unchecked host states are not reclassified as observed.
+[The final technical review](../../../docs/testing/release-candidate-002.md) completes final-input reuse and proposes the bounded real-host claim disposition. The owner has now accepted the reviewed scope and limits and authorized local archive. Earlier unchecked host states are not reclassified as observed.

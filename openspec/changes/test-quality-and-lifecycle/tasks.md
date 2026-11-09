@@ -1,5 +1,7 @@
 # Tasks
 
+Accepted for 0.1.0 on November 9, 2026 under [the actual owner agreement](../../../docs/releases/0.1.0-acceptance.md), including local OpenSpec archive. Earlier pending-state notes below describe their original review checkpoints; they do not override this agreement.
+
 ## 1. Review and trial gate
 
 - [x] 1.1 Record the approved direction in Decision 017 and prepare the proposal; detailed defaults and formats require the review in task 1.5.
@@ -19,7 +21,7 @@
 
 - [x] 3.1 Update configuration, evidence compatibility, workflow guidance, troubleshooting, decisions, and evaluation cases with each behavior slice. Preserve executable examples and state semantic limits.
 - [x] 3.2 Run `npm run docs:build`, `npm run docs:check`, and `npm test`; record results and limitations. Consumer controlled-fault trials were repeated, and two isolated checker mutants were detected by product regression tests with restoration verified. See [implementation checks](../../../docs/testing/test-quality-implementation.md).
-- [ ] 3.3 Review acceptance scenarios against evidence, update decision status following agreement, and update roadmap progress. Archive only after implementation and authorized acceptance.
+- [x] 3.3 Review acceptance scenarios against evidence, update decision status following agreement, and update roadmap progress. Archive only after implementation and authorized acceptance.
 
 The [first delivery quality/lifecycle agent trial](../../../docs/testing/quality-lifecycle-trial/result-001.md) passed independent checks and semantic/process review using one Codex profile with flexible testing.
 
@@ -27,4 +29,4 @@ The [combined investigation boundary](../../../docs/testing/quality-lifecycle-tr
 
 [The interaction-planning clarification](../../../docs/testing/cli-trials/result-018-follow-up.md) adds shared guidance, user documentation, and eight isolated evaluator faults. All 86 local tests and documentation/browser checks pass. [Decision 022: Use targeted agent trials for major changes and each release](../../../docs/decisions/022-proportionate-agent-validation.md) requires no new agent run for this small clarification. The acceptance/archive task stays open.
 
-[The final technical review](../../../docs/testing/release-candidate-002.md) completes the evidence/limit mapping for task 3.3. All four platform jobs pass with 86 tests each; strict validation passes. The checkbox remains open only for owner acceptance of the proposed scope/limits and local archive authority.
+[The final technical review](../../../docs/testing/release-candidate-002.md) completes the evidence/limit mapping for task 3.3. All four platform jobs pass with 86 tests each; strict validation passes. The owner has now accepted that scope and those limits and authorized local archive; the task is complete.
