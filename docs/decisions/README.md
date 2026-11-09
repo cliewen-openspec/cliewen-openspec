@@ -28,6 +28,7 @@ These records capture choices confirmed in the project conversation. Acceptance 
 | [014](014-installer-ownership-and-recoverable-lifecycle.md) | Track generated-resource ownership and recover failed lifecycle changes without losing project data | Alpha init/update/uninstall ownership, conflict, recovery, and default-preservation rules implemented; general migrations planned |
 | [015](015-combined-workflow-and-approval-boundaries.md) | Keep combined investigation/delivery behind explicit agreement, with a genuine no-delivery branch | Graph and metadata/evidence checks implemented; authorization and execution history still require review |
 | [016](016-user-projects-and-maintainer-tooling.md) | Serve adopting projects without making maintainer tooling a user requirement | Accepted product boundary; standalone bundles and separate maintainer tools exist; user-project validation remains project-specific |
+| [022: Use targeted agent trials for major changes and each release](022-proportionate-agent-validation.md) | Run targeted major-change trials and at least one representative reviewed success per release cycle | Replaces mandatory full matrices, repetitions, and separate guide-profile quotas; deterministic validation and preserved findings remain |
 
 ## Superseded decisions
 

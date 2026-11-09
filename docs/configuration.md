@@ -254,7 +254,7 @@ Placement is guidance supplied by the installed schema and task template. Config
 
 Use **spec-driven development with evidence-first verification**: define expected behavior and how to verify it before implementation. Develop code and tests in small steps, check that tests detect relevant faults, and maintain them as requirements change.
 
-1. Describe acceptance criteria and positive, negative, and boundary cases before implementation. Executable tests can develop alongside the code.
+1. Describe acceptance criteria and positive, negative, and boundary cases before implementation. Consider [interactions between inputs and options](testing/test-quality.md#plan-interacting-cases), especially when existing content must be preserved. Executable tests can develop alongside the code.
 2. Verify each task before continuing, using concrete commands and actual results. With end-of-change placement, plan the final automated suite while retaining a suitable check for each task.
 3. Assess assertion effectiveness through relevant failures and review. A setup or syntax failure does not show that a test detects the intended defect.
 4. Keep tests aligned with accepted requirements, preserving active assertions and explicitly reviewing retirement.

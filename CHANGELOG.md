@@ -10,6 +10,7 @@ Changes that matter to projects using Cliewen for OpenSpec.
 - Technical explanations should distinguish supported inputs from observed runtime behavior and describe what each verification command actually checked. These are review instructions, not an automatic guarantee of factual correctness.
 
 - Evidence-first verification plans acceptance cases before implementation, verifies small tasks, reviews effective assertions, and maintains tests as requirements change. It records execution evidence without requiring an order of test and production edits. See [the verification approach](docs/configuration.md#evidence-first-verification).
+- Delivery guidance asks agents to test relevant combinations of input content and options, including preservation on default and disabled paths. These combinations require review; passing case counts do not establish their coverage. See [planning interacting cases](docs/testing/test-quality.md#plan-interacting-cases).
 
 - Independently configurable checks for positive/negative case coverage, assertion-effectiveness reviews, and test maintenance when requirements change or are retired. The default warns about missing assessments; projects can disable individual policies or make them blocking.
 - Case IDs and coverage categories in Node test reports, plus scoped exceptions and review records tied to inspected file contents. Passing record checks still require review of assertion meaning and approval claims. See [test quality and lifecycle](docs/testing/test-quality.md) for development-source usage and limitations.

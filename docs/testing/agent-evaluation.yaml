@@ -1,5 +1,13 @@
 version: 1
 
+# Maintainer policy metadata; the validator does not certify trial outcomes.
+agentTrialPolicy:
+  decision: docs/decisions/022-proportionate-agent-validation.md
+  triggers: [major-change, release-cycle]
+  minimumReviewedSuccessfulTrialsPerRelease: 1
+  fullProfileMatrixRequired: false
+  repeatedCombinationsRequired: false
+
 # Observed profiles document past runs. Release profiles must be pinned before use.
 profiles:
   codex-collaboration-observed:
@@ -260,6 +268,7 @@ scenarios:
       - docs/testing/cli-trials/result-016.md
       - docs/testing/cli-trials/result-017.md
       - docs/testing/cli-trials/result-018.md
+      - docs/testing/cli-trials/result-018-follow-up.md
   csv-bom-per-task:
     schema: cliewen-delivery
     readiness: ready
@@ -390,6 +399,9 @@ scenarios:
       - docs/testing/knowledge-writing-trial/result-002.md
       - docs/testing/knowledge-writing-trial/result-003.md
 
+
+# releaseProfiles/releaseScenarios are retained as available coverage catalogs,
+# not execution quotas. agentTrialPolicy and Decision 022 select actual trials.
 schemas:
   cliewen-delivery:
     status: implemented

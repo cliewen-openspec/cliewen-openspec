@@ -5,6 +5,8 @@ status: accepted
 ---
 # Exercise guides with fresh coding-agent sessions
 
+[Decision 022: Use targeted agent trials for major changes and each release](022-proportionate-agent-validation.md) supersedes the mandatory matrix/repetition and automatic guide-profile quotas below. Pinned profiles, honest observations, independent review, and evidence preservation remain in effect.
+
 ## Context
 
 Command replays and browser checks find broken commands and rendering problems, but do not show where a reader needs an unstated assumption. The [first Claude guide walkthrough](../testing/guide-walkthrough/result-001.md) completed successfully and still found ambiguous configuration edits, unexpected warnings, and an easily skipped review checkpoint.
@@ -13,7 +15,7 @@ This decision extends [Decision 010: Publish user documentation on GitHub Pages 
 
 ## Decision
 
-Include agent-assisted first-use walkthroughs when validating executable user guides. During development, run one representative agent against changed user journeys, rotating among Codex CLI, Claude Code, and OpenCode. Before release acceptance or after substantial guide restructuring, cover the affected journeys with all three. Minor wording edits can use the existing evidence when commands, defaults, prerequisites, and review boundaries are unchanged; record that rationale.
+Include agent-assisted first-use walkthroughs when validating executable user guides. During development, run one representative agent against changed user journeys, rotating among Codex CLI, Claude Code, and OpenCode. The former three-profile requirement is retired by Decision 022; choose a representative profile for a substantial journey change and use the shared release-cycle minimum. Minor wording edits can use the existing evidence when commands, defaults, prerequisites, and review boundaries are unchanged; record that rationale.
 
 Each agent starts in a new session and isolated project, with the same guide snapshot and package inputs. Supply user-facing material and normal prerequisites, without the project conversation, prior solutions, evaluator findings, or maintainer decisions. Record unavoidable inherited instructions and access limits. Changed model, CLI, provider, or effort settings use distinct pinned profiles.
 

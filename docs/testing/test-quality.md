@@ -19,6 +19,14 @@ test('parses one [COUNT-001] [Test-type: Unit] [Case: ordinary] [Coverage: posit
 
 Each case needs a unique kebab-case ID within its scenario and one category: `positive`, `negative`, or `boundary`. Passing distinct cases count toward configured minima. Retries, skipped tests, manual results, wrong test types, and stale evidence do not count. Missing or ambiguous tags remain visible in the report; review mode does not stop collection because of optional metadata.
 
+## Plan interacting cases
+
+Some requirements depend on both the input and the selected option. Before implementation, identify those interactions and choose combinations that could expose a behavior failure. A preservation claim needs exact assertions for relevant default, disabled, and enabled paths, using content that could be changed accidentally.
+
+For example, an optional text prefix must preserve caller content whether prefix insertion is enabled or disabled. Testing ordinary text with insertion disabled and unusual characters only with insertion enabled leaves an interaction untested. Include that content on the other relevant paths and compare the complete expected output.
+
+Use a small table in the acceptance plan when it helps. Explain why combinations matter and disclose those left untested. Exhaustive combinations are not required, and unsupported inputs need no invented behavior. Case counts alone do not show that these interactions are covered. This is agent planning and review guidance; `check` does not infer missing combinations from test code.
+
 ## Record what you reviewed
 
 For a change named `add-count`, author `.cliewen-openspec/reviews/change-add-count.yaml`. For permanent specs, use `.cliewen-openspec/reviews/specs.yaml`. These are project documents, preserved by update and uninstall.
@@ -43,6 +51,8 @@ After authoring the record, commit project inputs, recollect execution evidence,
 Each assessment identifies `scenario`, `cases`, `testFiles`, `sourceFiles`, `method` (`controlled-fault` or `behavior-failure`), `assertion`, `defect`, `command` (an argument list), `observation`, `failureKind`, and `status`.
 
 Only `failureKind: behavior` with `status: reviewed` satisfies the obligation. Setup and unrelated failures do not demonstrate assertion effectiveness. Referenced test/source files must have inspected input digests; case IDs must exist in the report. One relevant experiment can cover several cases. Commands are recorded evidence and are never executed by `check`.
+
+Choose a fault that exercises the input and path being assessed. Credit only assertions that actually fail: an enabled-path failure does not prove detection on a disabled path, and a loop that stops at its first failure does not demonstrate later assertions. Restore the intended behavior and rerun the relevant tests before collecting final evidence.
 
 ### Test maintenance and retirement
 

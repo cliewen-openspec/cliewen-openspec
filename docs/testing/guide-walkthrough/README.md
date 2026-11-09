@@ -3,7 +3,7 @@ type: guide
 ---
 # Try the guide with fresh coding-agent sessions
 
-This maintainer exercise asks an agent to use the public first-change guide, then review it afterward. It complements human usability testing. [Decision 018: Exercise guides with fresh coding-agent sessions](../../decisions/018-agent-guide-walkthroughs.md) defines the cadence: rotate one agent during development; cover affected journeys with all three before release or after substantial restructuring.
+This maintainer exercise asks an agent to use the public first-change guide, then review it afterward. It complements human usability testing. [Decision 022: Use targeted agent trials for major changes and each release](../../decisions/022-proportionate-agent-validation.md) defines the cadence: select one representative agent for a major journey change or the shared release-cycle minimum. Minor guide edits use deterministic checks and documented input reuse; there is no three-profile quota.
 
 Use these pinned profiles from [the evaluation manifest](../agent-evaluation.yaml), with existing local authentication:
 
@@ -13,7 +13,7 @@ Use these pinned profiles from [the evaluation manifest](../agent-evaluation.yam
 | `codex-guide-walkthrough` | Codex CLI 0.166.0 | `gpt-6.1-sol` / medium |
 | `opencode-guide-walkthrough` | OpenCode 2.2.5 | `opencode/glm-5.3-flash` / high |
 
-Calls consume provider allowances or may incur charges; the runner does not buy credits or change authentication. Run each profile in a separate, new directory outside this checkout:
+Calls consume provider allowances or may incur charges; the runner does not buy credits or change authentication. Run only the selected profile in a new directory outside this checkout. The commands below show the available alternatives:
 
 ```sh
 node scripts/run-guide-walkthrough.mjs prepare ABSOLUTE_NEW_DIRECTORY codex-guide-walkthrough

@@ -24,3 +24,5 @@
 The [first delivery quality/lifecycle agent trial](../../../docs/testing/quality-lifecycle-trial/result-001.md) passed independent checks and semantic/process review using one Codex profile with flexible testing.
 
 The [combined investigation boundary](../../../docs/testing/quality-lifecycle-trial/result-002.md) passed with unchanged baseline files. After actual agreement, [combined quality delivery and closure](../../../docs/testing/quality-lifecycle-trial/result-003.md) also passed with 29 cases, preserved shared assertions, and refreshed records. Other profiles, required repeated release coverage, and broader acceptance remain outstanding; keep task 3.3 open.
+
+[The interaction-planning clarification](../../../docs/testing/cli-trials/result-018-follow-up.md) adds shared guidance, user documentation, and eight isolated evaluator faults. All 86 local tests and documentation/browser checks pass. [Decision 022: Use targeted agent trials for major changes and each release](../../../docs/decisions/022-proportionate-agent-validation.md) requires no new agent run for this small clarification. The acceptance/archive task stays open.

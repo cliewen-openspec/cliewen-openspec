@@ -5,6 +5,8 @@ status: accepted
 ---
 # Evaluate fixed agent profiles and start with OpenCode pay-as-you-go
 
+[Decision 022: Use targeted agent trials for major changes and each release](022-proportionate-agent-validation.md) supersedes the mandatory matrix/repetition and automatic guide-profile quotas below. Pinned profiles, honest observations, independent review, and evidence preservation remain in effect.
+
 ## Context
 
 Schema instructions must work across coding agents, models, and reasoning settings. A manually exercised pilot provides useful feedback but is not a reproducible regression suite. Exhaustively testing every combination would make routine development expensive and slow.
@@ -66,6 +68,8 @@ On November 5, 2026, the owner accepted consolidating `csv-bom-per-task` into `c
 [Round 017: Codex delivery repeat stops without a completion record](../testing/cli-trials/result-017.md) retains the original unfinished metadata and dirty planning snapshot. No end time, exit, timeout, or cause is invented when the execution session and matching process are unavailable. A passing replay of unchanged baseline tests supplies no delivery credit. Review the execution interruption before a fresh retry; neither a profile/budget increase nor a model-defect conclusion follows from this observation.
 
 [The round 017 shutdown diagnosis](../testing/cli-trials/result-017-follow-up.md) adds Windows event evidence separately from the original incomplete record. Shutdown occurs within the configured budget, strongly explaining absent completion without reconstructing a native exit. [Round 018](../testing/cli-trials/result-018.md) completes the fresh Codex attempt on unchanged inputs but fails the same surviving-fault criterion used for OpenCode. Correct behavior and CLI completion do not replace assertion sufficiency. Preserve both observations; no model switch or budget increase follows.
+
+[The interaction-planning input review](../testing/cli-trials/result-018-follow-up.md) compares the clarified package byte by byte: only shared testing instructions and three user documents change, with delivery/all tasks/apply affected and discovery unchanged. Retain four primary and 12 variant core observations in their original limited scope; add no pass or improved-agent-compliance claim. Decision 022 replaces that automatic follow-up with proportionate validation; no new native run is required for this small clarification. Final support and acceptance review remain open.
 
 Trials used existing account access; no account purchase or credit top-up is recorded. Credentials belong outside fixtures and committed results. Prices and model catalogs remain external operational details rather than fixed methodology requirements. Reported or list-equivalent costs must not be presented as subscription invoices.
 
