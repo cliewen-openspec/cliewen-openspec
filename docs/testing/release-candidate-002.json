@@ -1,0 +1,319 @@
+{
+  "recordedAt": "2026-11-09T19:16:28.306Z",
+  "status": "technical-review-complete-awaiting-owner-acceptance",
+  "version": "0.1.0",
+  "releaseAccepted": false,
+  "sourceChangesArchived": false,
+  "npmPublished": false,
+  "agentCalls": 0,
+  "package": {
+    "filename": "cliewen-openspec-0.1.0.tgz",
+    "sha256": "8011c5ea6eff20ddb01c06e05aefe2f1c9cef9cb03849091646d1356d390d9f8",
+    "integrity": "sha512-G7XsZksxiECb4h2PUWzYVMV3S+511BR3tudgbwNilGURYRswxp6rPEM3o+R7riBOfy6GjPlQLU0dbvHnV0GbXw==",
+    "files": 60,
+    "unpackedSize": 176981,
+    "sourceValidatedByCI": "9ec333dc9b57c6a219f03a783a93a5230b7d1bb8",
+    "currentSourceBase": "9ec333dc9b57c6a219f03a783a93a5230b7d1bb8",
+    "laterPackagedInputsChanged": false
+  },
+  "ci": {
+    "package": {
+      "conclusion": "success",
+      "event": "push",
+      "headSha": "9ec333dc9b57c6a219f03a783a93a5230b7d1bb8",
+      "status": "completed",
+      "url": "https://github.com/cliewen-openspec/cliewen-openspec/actions/runs/42680245773"
+    },
+    "pages": {
+      "conclusion": "success",
+      "event": "push",
+      "headSha": "9ec333dc9b57c6a219f03a783a93a5230b7d1bb8",
+      "status": "completed",
+      "url": "https://github.com/cliewen-openspec/cliewen-openspec/actions/runs/42680245212"
+    },
+    "jobs": [
+      {
+        "id": 129372520650,
+        "name": "test (ubuntu-latest, 24)",
+        "conclusion": "success",
+        "tests": 86,
+        "failed": 0,
+        "guideOpenSpecInstallSeconds": 2.697,
+        "guideCliewenInstallSeconds": 0.461
+      },
+      {
+        "id": 129372521174,
+        "name": "test (windows-latest, 24)",
+        "conclusion": "success",
+        "tests": 86,
+        "failed": 0,
+        "guideOpenSpecInstallSeconds": 38.788,
+        "guideCliewenInstallSeconds": 3.511
+      },
+      {
+        "id": 129372521350,
+        "name": "test (windows-latest, 22)",
+        "conclusion": "success",
+        "tests": 86,
+        "failed": 0,
+        "guideOpenSpecInstallSeconds": 26.742,
+        "guideCliewenInstallSeconds": 3.998
+      },
+      {
+        "id": 129372521457,
+        "name": "test (ubuntu-latest, 22)",
+        "conclusion": "success",
+        "tests": 86,
+        "failed": 0,
+        "guideOpenSpecInstallSeconds": 2.668,
+        "guideCliewenInstallSeconds": 0.622
+      }
+    ],
+    "method": "Read main-branch run identity with gh; inspect jobs and raw logs using the GitHub connector. CI builds its own package from source; no identical cross-platform tarball download claim."
+  },
+  "registry": {
+    "observedAt": "2026-11-09T19:16:28.364Z",
+    "versions": [
+      "0.0.0-stage",
+      "0.1.0-alpha.1"
+    ],
+    "dist-tags": {
+      "latest": "0.0.0-stage",
+      "alpha": "0.1.0-alpha.1"
+    },
+    "targetVersionAvailable": true
+  },
+  "guideReuse": {
+    "comparisons": [
+      {
+        "id": "codex",
+        "reference": ".tmp/agent-trials/guide-walkthrough-004/codex/workspace/reference",
+        "files": [
+          {
+            "file": "docs/guide/index.md",
+            "expandedCodeBlocksUnchanged": true,
+            "expandedTextUnchanged": true
+          },
+          {
+            "file": "docs/guide/getting-started.md",
+            "expandedCodeBlocksUnchanged": true,
+            "expandedTextUnchanged": false
+          },
+          {
+            "file": "docs/guide/csv-example.md",
+            "expandedCodeBlocksUnchanged": true,
+            "expandedTextUnchanged": true
+          },
+          {
+            "file": "docs/guide/workflow.md",
+            "expandedCodeBlocksUnchanged": true,
+            "expandedTextUnchanged": true
+          },
+          {
+            "file": "docs/guide/discovery.md",
+            "expandedCodeBlocksUnchanged": true,
+            "expandedTextUnchanged": true
+          },
+          {
+            "file": "docs/guide/all.md",
+            "expandedCodeBlocksUnchanged": true,
+            "expandedTextUnchanged": true
+          },
+          {
+            "file": "docs/configuration.md",
+            "expandedCodeBlocksUnchanged": true,
+            "expandedTextUnchanged": false
+          },
+          {
+            "file": "docs/testing/evidence.md",
+            "expandedCodeBlocksUnchanged": true,
+            "expandedTextUnchanged": true
+          },
+          {
+            "file": "docs/testing/test-quality.md",
+            "expandedCodeBlocksUnchanged": true,
+            "expandedTextUnchanged": false
+          },
+          {
+            "file": "docs/guide/cli.md",
+            "expandedCodeBlocksUnchanged": true,
+            "expandedTextUnchanged": true
+          },
+          {
+            "file": "docs/guide/updating.md",
+            "expandedCodeBlocksUnchanged": true,
+            "expandedTextUnchanged": true
+          },
+          {
+            "file": "docs/guide/uninstalling.md",
+            "expandedCodeBlocksUnchanged": true,
+            "expandedTextUnchanged": true
+          },
+          {
+            "file": "docs/guide/existing-projects.md",
+            "expandedCodeBlocksUnchanged": true,
+            "expandedTextUnchanged": true
+          },
+          {
+            "file": "docs/testing/pilot-prompt.md",
+            "expandedCodeBlocksUnchanged": true,
+            "expandedTextUnchanged": true
+          }
+        ],
+        "scope": "Prepared first-change journey only; clarified prose, Git-identity advice, and include deduplication do not change commands/defaults/prerequisites/review boundaries. Text is not verbatim old snapshot."
+      },
+      {
+        "id": "claude",
+        "reference": ".tmp/agent-trials/release-candidate-001/guide-retry/workspace/reference",
+        "files": [
+          {
+            "file": "docs/guide/index.md",
+            "expandedCodeBlocksUnchanged": true,
+            "expandedTextUnchanged": true
+          },
+          {
+            "file": "docs/guide/getting-started.md",
+            "expandedCodeBlocksUnchanged": true,
+            "expandedTextUnchanged": false
+          },
+          {
+            "file": "docs/guide/csv-example.md",
+            "expandedCodeBlocksUnchanged": true,
+            "expandedTextUnchanged": true
+          },
+          {
+            "file": "docs/guide/workflow.md",
+            "expandedCodeBlocksUnchanged": true,
+            "expandedTextUnchanged": true
+          },
+          {
+            "file": "docs/guide/discovery.md",
+            "expandedCodeBlocksUnchanged": true,
+            "expandedTextUnchanged": true
+          },
+          {
+            "file": "docs/guide/all.md",
+            "expandedCodeBlocksUnchanged": true,
+            "expandedTextUnchanged": true
+          },
+          {
+            "file": "docs/configuration.md",
+            "expandedCodeBlocksUnchanged": true,
+            "expandedTextUnchanged": false
+          },
+          {
+            "file": "docs/testing/evidence.md",
+            "expandedCodeBlocksUnchanged": true,
+            "expandedTextUnchanged": true
+          },
+          {
+            "file": "docs/testing/test-quality.md",
+            "expandedCodeBlocksUnchanged": true,
+            "expandedTextUnchanged": false
+          },
+          {
+            "file": "docs/guide/cli.md",
+            "expandedCodeBlocksUnchanged": true,
+            "expandedTextUnchanged": true
+          },
+          {
+            "file": "docs/guide/updating.md",
+            "expandedCodeBlocksUnchanged": true,
+            "expandedTextUnchanged": true
+          },
+          {
+            "file": "docs/guide/uninstalling.md",
+            "expandedCodeBlocksUnchanged": true,
+            "expandedTextUnchanged": true
+          },
+          {
+            "file": "docs/guide/existing-projects.md",
+            "expandedCodeBlocksUnchanged": true,
+            "expandedTextUnchanged": true
+          },
+          {
+            "file": "docs/testing/pilot-prompt.md",
+            "expandedCodeBlocksUnchanged": true,
+            "expandedTextUnchanged": true
+          }
+        ],
+        "scope": "Prepared first-change journey only; clarified prose, Git-identity advice, and include deduplication do not change commands/defaults/prerequisites/review boundaries. Text is not verbatim old snapshot."
+      }
+    ],
+    "preparedJourneyOnly": true,
+    "scope": "Current shared includes expand to identical code blocks in both prior snapshots. Prose clarifies existing failure handling, local Git identity, prepared implementation scope, and scope.change; commands/defaults/prerequisites/review boundaries remain compatible.",
+    "agentAuthoredJourneyObserved": false,
+    "humanUsabilityObserved": false
+  },
+  "strictValidation": {
+    "initialFailed": 1,
+    "correctedPassed": 3,
+    "correctedFailed": 0,
+    "correction": "Move long requirement details into the existing scenario without changing obligations/title or packaged files."
+  },
+  "sourceChangeReview": [
+    {
+      "change": "evidence-first-verification",
+      "technicalReview": "complete within proposed scope",
+      "finalAcceptance": "pending",
+      "scope": "Planned cases and observed failures without test-code ordering; explicit migration and preserved history.",
+      "evidence": [
+        "test/core.test.mjs",
+        "test/quality.test.mjs",
+        "test/all.test.mjs",
+        "docs/testing/release-pass-review-001.md",
+        "docs/testing/cli-trials/result-018-follow-up.md"
+      ]
+    },
+    {
+      "change": "test-quality-and-lifecycle",
+      "technicalReview": "complete within proposed scope",
+      "finalAcceptance": "pending",
+      "scope": "Independent policy modes, distinct cases, scoped records/exceptions, freshness, maintained shared obligations and reserved retired IDs.",
+      "evidence": [
+        "test/quality.test.mjs",
+        "test/adapter-scope.test.mjs",
+        "docs/testing/release-variants/result-010.md",
+        "docs/testing/release-variants/result-014.md"
+      ]
+    },
+    {
+      "change": "project-learnings-and-humanizer",
+      "technicalReview": "complete within proposed scope",
+      "finalAcceptance": "pending",
+      "scope": "Optional indexed guidance, preserved authored data, host-mediated skill discovery/use and nonblocking fallback.",
+      "evidence": [
+        "test/knowledge-writing.test.mjs",
+        "docs/testing/knowledge-writing-trial/acceptance.md",
+        "docs/testing/knowledge-writing-trial/result-003.md"
+      ]
+    }
+  ],
+  "roadmap": {
+    "prioritiesReviewed": 6,
+    "representativeAgentMinimum": "met by retained reviewed successes; Decision 022",
+    "formerMatrixQuota": "retired; no new runs",
+    "implementationAndPreparation": "complete within proposed first-release scope",
+    "ownerScopeAcceptance": "pending"
+  },
+  "proposedLimits": [
+    "Semantic sufficiency, complete dependency impact and genuine human approval remain review responsibilities, not guarantees of record checks.",
+    "Revised interaction guidance has deterministic controls but no observed native compliance improvement; surviving faults remain failed observations in otherwise correct implementations.",
+    "Requirement renaming is unresolved; undeclared dependencies can escape freshness checks; permanent review/evidence must be refreshed after archive.",
+    "Learnings need policy visibility before context collection; optional project-owned bootstrap is available, without host interception.",
+    "Real confirmed-absent/inaccessible/refusal/cross-session Humanizer cases remain unobserved; hypothetical exercises are not host certification.",
+    "Prepared journey only; no universal human usability, agent-authored flow, recovery, all-profile consistency or repeated archive-navigation guarantee.",
+    "Node 22/24 and OpenSpec 1.15.0 tested; no new Node 20/other-version claim. Registry timeouts may recur.",
+    "Earlier alpha configuration/manifest migration is outside the first stable release scope; authored-file preservation remains required."
+  ],
+  "approvalScope": {
+    "requested": "Owner acceptance of 0.1.0 content and documented limits, completion of the three named source changes, and their local OpenSpec archive; excludes publication.",
+    "notAuthorized": [
+      "npm staging/publication",
+      "tag or GitHub release",
+      "legacy repository archival",
+      "external PR or outreach"
+    ]
+  },
+  "rawArtifacts": ".tmp/release-acceptance-002"
+}

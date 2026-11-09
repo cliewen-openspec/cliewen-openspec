@@ -3,7 +3,7 @@ type: plan
 ---
 # Remaining checks before 0.1.0
 
-[Decision 022: Use targeted agent trials for major changes and each release](../decisions/022-proportionate-agent-validation.md) replaces the full profile matrix and repetition quota. Run targeted agent trials for major changes and at least one fresh, representative, independently reviewed success per release cycle. Small fixes and guidance refinements use deterministic checks and documented input-impact review. No additional agent run is scheduled here.
+[Decision 022: Use targeted agent trials for major changes and each release](../decisions/022-proportionate-agent-validation.md) replaces the full profile matrix and repetition quota. Run targeted agent trials for major changes and at least one fresh, representative, independently reviewed success per release cycle. Small fixes and guidance refinements use deterministic checks and documented input-impact review. No additional agent run is scheduled here. [The final technical review](release-candidate-002.md) is ready for owner acceptance.
 
 ## Agent evidence and current candidate
 
@@ -17,27 +17,27 @@ The current unpublished 0.1.0 archive is SHA-256 `8011c5ea6eff20ddb01c06e05aefe2
 
 | Area | Evidence and next action |
 |---|---|
-| Final platform compatibility | Run/review Windows/Linux, Node 22/24, and OpenSpec 1.15.0 checks for the final candidate; retain periodic registry-install timeout limits |
-| Guide inputs | Review reuse of existing Codex/Claude walkthroughs against final commands, defaults, prerequisites, and review boundaries. Local packed replay and browser checks pass. No separate all-profile walkthrough quota |
-| OpenCode guide and primary findings | Preserve missing readback, timeout, assertion, and documentation findings as support limits; require another agent only for a specific material unresolved question |
-| Archive navigation | The second combined quality trial repairs live links; the first retains 21 historical link failures. Disposition the broader support claim without implying repeated reliability |
-| Real-host learnings/Humanizer | [Bounded acceptance review](knowledge-writing-trial/acceptance.md) separates actual and hypothetical observations. Obtain evidence only if needed for a broader claim, or document the supported limit |
-| Human usability/recovery coverage | Prepared walkthroughs do not establish every human journey. Review the intended release claims and disclose unobserved paths |
-| Source changes | Finish or explicitly disposition the three changes below and review all six roadmap priorities |
+| Final platform compatibility | Complete: four CI jobs pass at `9ec333d`, 86 tests each, plus Pages/browser/deployment checks. The reviewed archive is unchanged; periodic registry-install timeouts remain a limit |
+| Guide inputs | Complete within prepared-route scope: expanded code blocks match both retained snapshots across 14 inputs; prose differences and reuse limits are reviewed. Packed replay and browser checks pass |
+| OpenCode guide and primary findings | Disposition proposed in final review: retain failed results and their support limits; no claim of universal profile consistency or improved agent compliance |
+| Archive navigation | Disposition proposed: corrected live-link observation is retained, with no repeated-reliability claim; the first trial retains its 21 historical failures |
+| Real-host learnings/Humanizer | Disposition proposed: accept the bounded host-mediated guidance; confirmed-absent/inaccessible/refusal/cross-session real-host states remain unobserved, not certified by hypothetical cases |
+| Human usability/recovery coverage | Disposition proposed: prepared route and deterministic recovery only; broader human/agent-authored journeys remain unobserved |
+| Source changes | Technical review and six-priority mapping complete in the final report; owner scope acceptance and archive authority remain pending |
 | Final acceptance | Obtain owner release agreement. Publication, tags/releases, source archival, and outreach remain separate actions |
 
 ## Active source changes
 
 | Change | Open acceptance work |
 |---|---|
-| [Evidence-first verification](../../openspec/changes/evidence-first-verification/tasks.md) | Task 1.6: acceptance mapping and findings disposition before authorized archive; no remaining matrix quota |
-| [Test quality and lifecycle](../../openspec/changes/test-quality-and-lifecycle/tasks.md) | Task 3.3: review evidence and limits, update roadmap progress, obtain archive agreement |
-| [Project learnings and Humanizer](../../openspec/changes/project-learnings-and-humanizer/tasks.md) | Final-input reuse, real-host support limits, and archive disposition |
+| [Evidence-first verification](../../openspec/changes/evidence-first-verification/tasks.md) | Task 1.6: technical mapping complete; await owner acceptance of scope/limits and local archive |
+| [Test quality and lifecycle](../../openspec/changes/test-quality-and-lifecycle/tasks.md) | Task 3.3: technical review complete; await owner scope acceptance and local archive |
+| [Project learnings and Humanizer](../../openspec/changes/project-learnings-and-humanizer/tasks.md) | Final-input reuse and bounded host limits reviewed; await owner scope acceptance and local archive |
 
 ## Next execution order
 
-1. Finish the interaction-planning clarification and its deterministic checks, decision updates, and input-impact record. No more agent calls for this refinement.
-2. Review final compatibility and documentation/support limits, then disposition active source changes and the six roadmap priorities.
-3. Present the concrete release acceptance result. Do not publish or archive source changes without the applicable owner agreement.
+1. Obtain owner acceptance of [the final review](release-candidate-002.md), its proposed limits, and local OpenSpec archive of the three changes.
+2. After explicit approval, archive locally and validate permanent specs and moved/incoming links. Preserve the pre-archive review.
+3. Present the final release state; npm staging/publication, tags/releases, legacy archival, and outreach require their own applicable authorization.
 
 The [evaluation manifest](agent-evaluation.yaml) remains a catalog of pinned profiles and available scenarios. Its historical release-profile/scenario lists do not authorize a matrix run. If a later major change calls for a targeted trial, state the question and select one relevant scenario/profile within its existing budget.

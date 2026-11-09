@@ -49,8 +49,8 @@ Use [Remaining checks before 0.1.0](../testing/release-gaps.md) for final compat
 
 - [x] Set package/runtime/lockfile versions to `0.1.0`; align active guides, tarball commands, and changelog. Earlier alpha migrations are unsupported rather than a required compatibility project.
 - [x] Make the documented fresh-install/update/uninstall behavior match the candidate. Retain authored-file preservation and conflict/recovery guarantees; lifecycle commands accept only `0.1.0` manifests and `check` reports other versions as unsupported.
-- [ ] Review final Windows/Linux and Node/OpenSpec compatibility, guide-input reuse, and the representative release-cycle observation under [Decision 022](../decisions/022-proportionate-agent-validation.md).
-- [ ] Review remaining findings, document actual host-support limits, and finish or explicitly disposition outstanding source changes before archive.
+- [x] Review final Windows/Linux and Node/OpenSpec compatibility, guide-input reuse, and the representative release-cycle observation under [Decision 022: Use targeted agent trials for major changes and each release](../decisions/022-proportionate-agent-validation.md). [The final technical review](../testing/release-candidate-002.md) records four passing platform jobs, 86 tests each, and the guide comparison.
+- [x] Review remaining findings and propose explicit host/support limits and completion scope for the three active changes in the final technical review. Owner acceptance and archive authority are still pending.
 - [ ] Obtain final release acceptance after reviewing all six priorities. Only then stage/publish npm and create release/tag material as authorized.
 - [ ] Recheck the catalog and actual released version/URLs before sending the introduction; contact remains a separate action.
 

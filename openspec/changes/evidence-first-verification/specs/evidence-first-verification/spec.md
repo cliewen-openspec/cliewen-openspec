@@ -2,14 +2,15 @@
 
 ### Requirement: Plan and verify acceptance evidence
 
-The schemas SHALL instruct agents to plan acceptance criteria and relevant cases before implementation, verify small tasks, assess assertion effectiveness, and maintain tests against accepted requirements, without prescribing test-code order.
-
-Acceptance planning SHALL consider relevant interactions between supported input content, option states, boundaries, and execution paths. Preservation claims SHALL use exact content assertions on relevant default, disabled, and enabled paths. Agents SHALL select combinations by behavioral risk, disclose relevant untested combinations, and attribute fault detection only to assertions actually observed to fail. Exhaustive combinations and invented behavior for unsupported inputs are not required. These are planning/review instructions, not automatic combination analysis by the CLI.
+The schemas SHALL instruct agents to plan acceptance criteria and relevant cases before implementation, verify small tasks, assess assertion effectiveness, and maintain tests against accepted requirements, without prescribing test-code order. Planning SHALL assess relevant input/path interactions and disclose relevant omissions.
 
 #### Scenario: Deliver a small change
 - **WHEN** an agent retrieves task and apply instructions
 - **THEN** it receives evidence-first guidance and no recorder or red-green requirement
-- **AND** the guidance covers relevant input/path interactions and limits fault-detection claims to actual observations
+- **AND** it selects supported content, option, boundary, and path combinations by behavioral risk, without requiring exhaustive combinations or invented unsupported behavior
+- **AND** preservation claims use exact assertions on relevant default, disabled, and enabled paths
+- **AND** fault-detection claims credit only assertions observed to fail
+- **AND** these remain agent planning/review responsibilities, without automatic combination analysis by the CLI
 
 ### Requirement: Remove retired facilities with explicit migration
 
