@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import path from 'node:path';
-import { check, init, update, uninstall, nextId, renamePrefix, capabilityForPrefix, recover, version } from './core.js';
+import { check, lifecycle, uninstall, nextId, renamePrefix, capabilityForPrefix, recover, version } from './core.js';
 
 const args = process.argv.slice(2);
 const wantsJson = args.includes('--json');
@@ -32,8 +32,8 @@ try {
   }
   else if (args.length) throw Error(`Unexpected arguments: ${args.join(' ')}`);
   else if (command === '--version') console.log(version);
-  else if (command === 'init') console.log(JSON.stringify({ dryRun: dry, writes: init(root, dry, makeDefault) }, null, 2));
-  else if (command === 'update') console.log(JSON.stringify({dryRun: dry, ...update(root, dry)}, null, 2));
+  else if (command === 'init') console.log(JSON.stringify({ dryRun: dry, ...lifecycle(root, 'init', dry, makeDefault) }, null, 2));
+  else if (command === 'update') console.log(JSON.stringify({dryRun: dry, ...lifecycle(root, 'update', dry)}, null, 2));
   else if (command === 'uninstall') console.log(JSON.stringify({dryRun: dry, ...uninstall(root, dry, replacement)}, null, 2));
   else if (command === 'recover') { if (!dry) recover(root); console.log('Recovery complete'); }
   else if (command === 'check') {

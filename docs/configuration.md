@@ -24,7 +24,11 @@ On Node 20.19, pin `@fission-ai/openspec@1.15.0` or use a compatible OpenSpec st
 
 The minimum is a compatibility floor, not proof that every newer release has been tested. A future Cliewen release may raise its OpenSpec or Node minimum. Review that release's requirements before upgrading.
 
-Version checks at `init` and `update` are agreed future work. The current CLI does not yet enforce these minimums. General cross-version upgrades are also planned; do not bypass the current manifest-version checks to simulate an upgrade.
+Development source checks these minimums at every `init` and `update`, including previews, before recovery or installation writes. Published 0.1.0 does not perform these checks. No persistent success cache is used. Other commands keep their existing requirements; explicit `recover` remains available to restore an interrupted transaction.
+
+The check uses the project's resolvable OpenSpec npm installation first, otherwise the CLI on PATH, including a standalone executable. It runs that installation's public `--version`; an incompatible or broken selected local installation does not fall back to a global version. Output identifies the source and detected versions. Missing tools, invalid/prerelease versions, execution failure, or a probe exceeding five seconds stop init/update with an actionable error. Cliewen neither downloads nor upgrades OpenSpec during this check.
+
+The development upgrade route accepts published 0.1.0 ownership manifests and the running target version. Further source versions require explicit support; alpha installations, unknown formats, and downgrades remain unsupported. The release number has not been changed. See [updating an installation](guide/updating.md) for package/resource boundaries and preview output; never relabel a manifest to bypass validation.
 
 ## Full defaults
 

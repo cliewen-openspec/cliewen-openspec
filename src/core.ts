@@ -13,7 +13,9 @@ import { validateRegistry } from './ac.js';
 import { qualityDefaults, configureQuality, checkQuality, type QualitySettings } from './quality.js';
 export { nextId, renamePrefix, capabilityForPrefix } from './ac.js';
 
-export const version = '0.1.0';
+import {version, supportedInstallations, supportsInstallation} from './release.js';
+import {compatibility, type Compatibility} from './compatibility.js';
+export {version} from './release.js';
 const state = '.cliewen-openspec';
 const features = ['documentation', 'decisions', 'mermaid', 'planning', 'review', 'evidence'];
 export type Config = { docsRoot: string; learnings: {enabled: boolean; directory: string}; writing: {humanizer: 'auto' | 'on' | 'off'}; features: Record<string, boolean>; evidence: { report: string }; ac: { capabilities: Record<string, string>; padding: number }; testing: QualitySettings & { placement: 'per-task' | 'end-of-change'; types: Record<string, { description: string }> } };
@@ -169,7 +171,7 @@ function ownedManifest(root: string, operation: 'update' | 'uninstall'): Manifes
     : 'No Cliewen installation manifest; no files removed. Uninstall requires recorded ownership.');
   const previous = JSON.parse(read(mp));
   keys(previous, ['version', 'files'], 'manifest');
-  if (previous.version !== version) throw Error(`Unsupported installed version: ${previous.version}; ${operation} supports ${version} manifests only. This package does not migrate other versions.`);
+  if (!supportsInstallation(previous.version)) throw Error(`Unsupported installed version: ${previous.version}; ${operation} supports ${supportedInstallations.join(', ')} manifests only. Install a compatible package; no automatic migration or downgrade is available.`);
   if (!previous.files || typeof previous.files !== 'object' || Array.isArray(previous.files) || !Object.keys(previous.files).length) throw Error('Manifest files must be a nonempty ownership mapping');
   for (const [file, digest] of Object.entries(previous.files)) {
     local(root, file);
@@ -270,9 +272,8 @@ export function uninstall(root: string, dryRun = false, replacement?: string): {
   return {writes: Object.keys(changes).filter(file => changes[file] !== null), deletes: Object.keys(changes).filter(file => changes[file] === null)};
 }
 
-export function update(root: string, dryRun = false): { writes: string[]; deletes: string[] } {
+function planUpdate(root: string): Record<string, string | null> {
   if (!fs.existsSync(local(root, 'openspec/specs')) || !fs.existsSync(local(root, 'openspec/changes'))) throw Error('Run openspec init first (specs and changes directories are required).');
-  if (!dryRun) recover(root);
   const manifestPath = `${state}/manifest.json`;
   const mp = local(root, manifestPath);
   const previous = ownedManifest(root, 'update');
@@ -302,16 +303,14 @@ export function update(root: string, dryRun = false): { writes: string[]; delete
   // Publish new ownership only after every content change; rollback includes the old manifest.
   const manifest = manifestText(files);
   if (read(mp) !== manifest) changes[manifestPath] = manifest;
-  transaction(root, changes, dryRun);
-  return {writes: Object.keys(changes).filter(file => changes[file] !== null), deletes: Object.keys(changes).filter(file => changes[file] === null)};
+  return changes;
 }
 
-export function init(root: string, dryRun: boolean, makeDefault: boolean) {
+function planInit(root: string, makeDefault: boolean): Record<string, string | null> {
   if (!fs.existsSync(local(root, 'openspec/specs')) || !fs.existsSync(local(root, 'openspec/changes'))) throw Error('Run openspec init first (specs and changes directories are required).');
-  if (!dryRun) recover(root);
   const mp = local(root, `${state}/manifest.json`);
-  const previous: Manifest | undefined = fs.existsSync(mp) ? JSON.parse(read(mp)) : undefined;
-  if (previous && previous.version !== version) throw Error(`Installed version differs; init supports ${version} manifests only and does not migrate other versions.`);
+  const previous: Manifest | undefined = fs.existsSync(mp) ? ownedManifest(root, 'update') : undefined;
+  if (previous && previous.version !== version) throw Error(`Installed version differs: ${previous.version}; run update to install ${version} resources. Init does not upgrade an existing installation.`);
   const files = bundledFiles(); const writes: Record<string, string> = {};
   for (const [p, content] of Object.entries(files)) {
     const dest = local(root, p);
@@ -332,11 +331,44 @@ export function init(root: string, dryRun: boolean, makeDefault: boolean) {
   const original = fs.existsSync(local(root, cfgPath)) ? read(local(root, cfgPath)) : '';
   if (makeDefault) {
     const doc = parseDocument(original || '{}'); if (doc.errors.length) throw Error(doc.errors[0].message);
-    doc.set('schema', 'cliewen-delivery'); const next = doc.toString(); if (next !== original) writes[cfgPath] = next;
+    if (doc.contents !== null && !isMap(doc.contents)) throw Error('OpenSpec config must be a YAML mapping');
+    const before = {...doc.toJS()}; delete before.schema;
+    doc.set('schema', 'cliewen-delivery');
+    const after = {...doc.toJS()}; delete after.schema;
+    if (!isDeepStrictEqual(before, after)) throw Error('Selecting the default would change other YAML values through shared anchors; resolve those aliases explicitly before init.');
+    const next = doc.toString(); if (next !== original) writes[cfgPath] = next;
   }
   const manifest = manifestText(files);
   if (!fs.existsSync(mp) || read(mp) !== manifest) writes[`${state}/manifest.json`] = manifest;
-  return transaction(root, writes, dryRun);
+  return writes;
+}
+
+export type LifecycleResult = {writes: string[]; deletes: string[]; creates: string[]; replaces: string[]; installedVersion: string | null; targetVersion: string; compatibility: Compatibility; recoveredTransaction: boolean};
+export function lifecycle(root: string, operation: 'init' | 'update', dryRun = false, makeDefault = false): LifecycleResult {
+  const tools = compatibility(root);
+  const pending = fs.existsSync(local(root, `${state}/transaction.json`));
+  if (pending && dryRun) throw Error('Interrupted transaction exists; run recover before preview. No preview files changed.');
+  if (pending) recover(root);
+  try {
+    const mp = local(root, `${state}/manifest.json`);
+    const installedVersion = fs.existsSync(mp) ? ownedManifest(root, 'update').version : null;
+    const changes = operation === 'init' ? planInit(root, makeDefault) : planUpdate(root);
+    const writes = Object.keys(changes).filter(file => changes[file] !== null);
+    const result: LifecycleResult = {writes, deletes: Object.keys(changes).filter(file => changes[file] === null), creates: writes.filter(file => !fs.existsSync(local(root, file))), replaces: writes.filter(file => fs.existsSync(local(root, file))), installedVersion, targetVersion: version, compatibility: tools, recoveredTransaction: pending};
+    transaction(root, changes, dryRun);
+    return result;
+  } catch (error) {
+    if (pending) throw Error(`Recovered the preceding transaction; ${operation} did not complete: ${error instanceof Error ? error.message : String(error)}`);
+    throw error;
+  }
+}
+
+export function init(root: string, dryRun: boolean, makeDefault: boolean) {
+  return lifecycle(root, 'init', dryRun, makeDefault).writes;
+}
+export function update(root: string, dryRun = false): {writes: string[]; deletes: string[]} {
+  const {writes, deletes} = lifecycle(root, 'update', dryRun);
+  return {writes, deletes};
 }
 export function markdowns(dir: string): string[] {
   if (!fs.existsSync(dir)) return [];
@@ -379,9 +411,13 @@ export function check(root: string, change?: string, failPending = false): Findi
   const mp = local(root, `${state}/manifest.json`);
   if (!fs.existsSync(mp)) add('not-installed', 'Run init');
   else {
-    const m: Manifest = JSON.parse(read(mp));
-    if (m.version !== version) add('unsupported-installed-version', `Installed manifest ${m.version}; this package supports ${version} only. No automatic migration is available.`);
-    for (const [p, h] of Object.entries(m.files)) if (!fs.existsSync(local(root, p)) || hash(read(local(root, p))) !== h) add('owned-file-modified', p);
+    try {
+      const m = ownedManifest(root, 'update');
+      for (const [p, h] of Object.entries(m.files)) if (!fs.existsSync(local(root, p)) || hash(read(local(root, p))) !== h) add('owned-file-modified', p);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      add(message.startsWith('Unsupported installed version') ? 'unsupported-installed-version' : 'invalid-installation-manifest', message);
+    }
   }
   try { validateRegistry(root, c); } catch (e) { add('invalid-ac-registry', e instanceof Error ? e.message : String(e)); }
   if (change && /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(change)) {

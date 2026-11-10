@@ -21,6 +21,8 @@ Installing a different package does not automatically refresh an existing instal
 
 Development source also installs manifest-owned planning, closure, and prototype references. The [optional archive-session setup](workflow.md#use-the-reference-from-a-separate-archive-session) points OpenSpec's project-owned guidance to the closure reference; installation does not add that configuration entry. These additions are not in published 0.1.0.
 
+Development source checks the running Node and selected OpenSpec CLI before init/update, including previews. It requires Node 20.19+ and stable OpenSpec 1.15.0+, preferring the project's npm installation over PATH. Missing or incompatible tools stop the command before recovery or installation writes. See [version compatibility](../configuration.md#version-compatibility) for selection, timeout, and runtime limits.
+
 ## update
 
 ```sh
@@ -31,6 +33,8 @@ cliewen-openspec update --json
 Refreshes or repairs owned schema files/templates using the installed package. Output contains `dryRun`, `writes`, and `deletes`. It adds new bundle files, replaces unchanged owned content, and deletes unchanged retired owned files. Edited files conflict unless already identical to the new content. Unowned paths are never adopted. Only `0.1.0` manifests are supported; alpha and other versions are rejected without automatic migration.
 
 Configuration, default schema, AC registry, authored changes/docs, and evidence are preserved. Apply recovers an interrupted transaction first and uses rollback; dry-run does neither. The command has no `--default` or force option. Usage, config, ownership, or write failures exit 2; success exits 0. See [the update guide](updating.md) for the full workflow and conflict rules.
+
+Development output adds `installedVersion` (null before first installation), `targetVersion`, `compatibility`, `creates`, `replaces`, and `recoveredTransaction`. Existing `dryRun`, `writes`, and `deletes` remain. `creates` and `replaces` partition `writes`; deleted paths remain in `deletes`. Preview applies no resource changes. Apply checks current inputs again, so a conflicting edit made after preview still blocks it. If apply restores a preceding transaction, the result or subsequent error reports that recovery separately.
 
 ## uninstall
 

@@ -1,0 +1,361 @@
+{
+  "date": "2026-11-10",
+  "sourceRevision": "28428c28ddac90b6701f26ddd15fd9fc9eece82e",
+  "sourceStatus": " M CHANGELOG.md\n M docs/configuration.md\n M docs/decisions/014-installer-ownership-and-recoverable-lifecycle.md\n M docs/decisions/README.md\n M docs/guide/cli.md\n M docs/guide/existing-projects.md\n M docs/guide/updating.md\n M plan.md\n M src/cli.ts\n M src/core.ts\n?? docs/testing/installation-upgrades-001.md\n?? openspec/changes/adopt-and-upgrade-projects/\n?? src/compatibility.ts\n?? src/release.ts\n?? test/installation-upgrades.test.mjs\n?? test/upgrade-consumer.test.mjs\n",
+  "windows": {
+    "node": "24.0.0",
+    "tests": 108,
+    "passed": 108,
+    "failed": 0,
+    "skipped": 0,
+    "packedConsumers": [
+      {
+        "node": "v24.0.0",
+        "platform": "win32",
+        "openspecVersion": "1.15.0",
+        "publishedIntegrity": "sha512-yYKexy2evtIm+QILxJYjepGUdgSRGK9vRJ6qZddjXgwuu0VCGj9043vuVHilyTILqTvc4Tan6gT2FicSOpliBw==",
+        "publishedSha256": "7a676e4ac3cd99443f1f6f060468bc8cbb9440432ca68be123c8231923956f8c",
+        "candidateSha256": "804dacb4448dcb3023094120aa6dc77421cec71538eb8f99bf588d715ec537c2",
+        "preservedFiles": 24,
+        "actualCandidateVersion": "0.1.0",
+        "syntheticRoute": "0.1.0 -> 0.2.0 -> rejected downgrade; test-only metadata"
+      },
+      {
+        "node": "v24.0.0",
+        "platform": "win32",
+        "openspecVersion": "1.17.0",
+        "publishedIntegrity": "sha512-yYKexy2evtIm+QILxJYjepGUdgSRGK9vRJ6qZddjXgwuu0VCGj9043vuVHilyTILqTvc4Tan6gT2FicSOpliBw==",
+        "publishedSha256": "7a676e4ac3cd99443f1f6f060468bc8cbb9440432ca68be123c8231923956f8c",
+        "candidateSha256": "804dacb4448dcb3023094120aa6dc77421cec71538eb8f99bf588d715ec537c2",
+        "preservedFiles": 24,
+        "actualCandidateVersion": "0.1.0",
+        "syntheticRoute": "0.1.0 -> 0.2.0 -> rejected downgrade; test-only metadata"
+      }
+    ]
+  },
+  "linux": {
+    "node": "22.22.0",
+    "tests": 24,
+    "passed": 23,
+    "failed": 0,
+    "skipped": 1,
+    "packedConsumers": [
+      {
+        "node": "v22.22.0",
+        "platform": "linux",
+        "openspecVersion": "1.15.0",
+        "publishedIntegrity": "sha512-yYKexy2evtIm+QILxJYjepGUdgSRGK9vRJ6qZddjXgwuu0VCGj9043vuVHilyTILqTvc4Tan6gT2FicSOpliBw==",
+        "publishedSha256": "7a676e4ac3cd99443f1f6f060468bc8cbb9440432ca68be123c8231923956f8c",
+        "candidateSha256": "40fbb843b7671a4c68a49ecf1b42149af3c500e92a9f07b014298fc2d072a2f0",
+        "preservedFiles": 20,
+        "actualCandidateVersion": "0.1.0",
+        "syntheticRoute": "0.1.0 -> 0.2.0 -> rejected downgrade; test-only metadata"
+      },
+      {
+        "node": "v22.22.0",
+        "platform": "linux",
+        "openspecVersion": "1.17.0",
+        "publishedIntegrity": "sha512-yYKexy2evtIm+QILxJYjepGUdgSRGK9vRJ6qZddjXgwuu0VCGj9043vuVHilyTILqTvc4Tan6gT2FicSOpliBw==",
+        "publishedSha256": "7a676e4ac3cd99443f1f6f060468bc8cbb9440432ca68be123c8231923956f8c",
+        "candidateSha256": "40fbb843b7671a4c68a49ecf1b42149af3c500e92a9f07b014298fc2d072a2f0",
+        "preservedFiles": 20,
+        "actualCandidateVersion": "0.1.0",
+        "syntheticRoute": "0.1.0 -> 0.2.0 -> rejected downgrade; test-only metadata"
+      }
+    ],
+    "laterRegressions": "Two new Node/default-alias tests checked on Windows only."
+  },
+  "minimumRuntime": {
+    "passed": true,
+    "root": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-upgrade-minimum-wScSko",
+    "packageSha256": "804dacb4448dcb3023094120aa6dc77421cec71538eb8f99bf588d715ec537c2",
+    "records": [
+      {
+        "exe": "C:\\Program Files\\nodejs\\node.exe",
+        "args": [
+          "C:/Program Files/nodejs/node_modules/npm/bin/npm-cli.js",
+          "pack",
+          "--ignore-scripts",
+          "--json",
+          "--pack-destination",
+          "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-upgrade-minimum-wScSko"
+        ],
+        "cwd": "C:\\Code\\cliewen-openspec",
+        "status": 0,
+        "stdout": "[\n  {\n    \"id\": \"cliewen-openspec@0.1.0\",\n    \"name\": \"cliewen-openspec\",\n    \"version\": \"0.1.0\",\n    \"size\": 63835,\n    \"unpackedSize\": 210961,\n    \"shasum\": \"afe13762adcdaa45deee32552d7e72cf66104d2d\",\n    \"integrity\": \"sha512-0unexH/OnY285NwxGAVBLOnMNVToVjogHFOfg8xJboAtxjQ/lP+6aZY0b+WrIdK7UDxlwzmwTcusj9Gn4drdXw==\",\n    \"filename\": \"cliewen-openspec-0.1.0.tgz\",\n    \"files\": [\n      {\n        \"path\": \"CHANGELOG.md\",\n        \"size\": 10559,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"LICENSE\",\n        \"size\": 1075,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"README.md\",\n        \"size\": 7797,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"adapters/node-test.mjs\",\n        \"size\": 4519,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"dist/ac.d.ts\",\n        \"size\": 605,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"dist/ac.js\",\n        \"size\": 6213,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"dist/all.d.ts\",\n        \"size\": 60,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"dist/all.js\",\n        \"size\": 2505,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"dist/cli.d.ts\",\n        \"size\": 31,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"dist/cli.js\",\n        \"size\": 4454,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"dist/compatibility.d.ts\",\n        \"size\": 267,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"dist/compatibility.js\",\n        \"size\": 5311,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"dist/core.d.ts\",\n        \"size\": 2313,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"dist/core.js\",\n        \"size\": 36892,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"dist/delivery.d.ts\",\n        \"size\": 65,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"dist/delivery.js\",\n        \"size\": 2073,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"dist/discovery.d.ts\",\n        \"size\": 66,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"dist/discovery.js\",\n        \"size\": 1372,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"dist/quality.d.ts\",\n        \"size\": 882,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"dist/quality.js\",\n        \"size\": 24186,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"dist/release.d.ts\",\n        \"size\": 432,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"dist/release.js\",\n        \"size\": 959,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"dist/schema-source.d.ts\",\n        \"size\": 161,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"dist/schema-source.js\",\n        \"size\": 694,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"docs/configuration.md\",\n        \"size\": 25814,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"docs/testing/evidence.md\",\n        \"size\": 10757,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"docs/testing/pilot-prompt.md\",\n        \"size\": 1562,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"docs/testing/test-quality.md\",\n        \"size\": 7987,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"package.json\",\n        \"size\": 2084,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"schemas/all/instructions/apply.md\",\n        \"size\": 1005,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"schemas/all/instructions/approval.md\",\n        \"size\": 456,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"schemas/all/instructions/decision.md\",\n        \"size\": 1342,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"schemas/all/instructions/investigation.md\",\n        \"size\": 142,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"schemas/all/instructions/proposal.md\",\n        \"size\": 378,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"schemas/all/instructions/specs.md\",\n        \"size\": 357,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"schemas/all/instructions/tasks.md\",\n        \"size\": 503,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"schemas/all/templates/decision.md\",\n        \"size\": 583,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"schemas/all/templates/proposal.md\",\n        \"size\": 251,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"schemas/all/templates/tasks.md\",\n        \"size\": 275,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"schemas/base/instructions/closure.md\",\n        \"size\": 4832,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"schemas/base/instructions/diagrams.md\",\n        \"size\": 808,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"schemas/base/instructions/humanizer.md\",\n        \"size\": 2344,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"schemas/base/instructions/learnings.md\",\n        \"size\": 2220,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"schemas/base/instructions/planning.md\",\n        \"size\": 3831,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"schemas/base/instructions/prototyping.md\",\n        \"size\": 5144,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"schemas/base/instructions/routing.md\",\n        \"size\": 428,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"schemas/base/instructions/testing-approach.md\",\n        \"size\": 3504,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"schemas/base/instructions/work-scoping.md\",\n        \"size\": 2288,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"schemas/base/instructions/writing.md\",\n        \"size\": 3663,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"schemas/base/templates/decision.md\",\n        \"size\": 268,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"schemas/base/templates/learning.md\",\n        \"size\": 567,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"schemas/delivery/instructions/apply.md\",\n        \"size\": 1723,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"schemas/delivery/instructions/design.md\",\n        \"size\": 785,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"schemas/delivery/instructions/proposal.md\",\n        \"size\": 188,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"schemas/delivery/instructions/specs.md\",\n        \"size\": 1230,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"schemas/delivery/instructions/tasks.md\",\n        \"size\": 1740,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"schemas/delivery/templates/design.md\",\n        \"size\": 100,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"schemas/delivery/templates/proposal.md\",\n        \"size\": 113,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"schemas/delivery/templates/spec.md\",\n        \"size\": 216,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"schemas/delivery/templates/tasks.md\",\n        \"size\": 1169,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"schemas/discovery/instructions/apply.md\",\n        \"size\": 970,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"schemas/discovery/instructions/decision.md\",\n        \"size\": 1145,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"schemas/discovery/instructions/investigation.md\",\n        \"size\": 1591,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"schemas/discovery/instructions/proposal.md\",\n        \"size\": 436,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"schemas/discovery/templates/decision.md\",\n        \"size\": 407,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"schemas/discovery/templates/investigation.md\",\n        \"size\": 217,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"schemas/discovery/templates/proposal.md\",\n        \"size\": 149,\n        \"mode\": 420\n      },\n      {\n        \"path\": \"schemas/README.md\",\n        \"size\": 1898,\n        \"mode\": 420\n      }\n    ],\n    \"entryCount\": 68,\n    \"bundled\": []\n  }\n]\n",
+        "stderr": "",
+        "error": ""
+      },
+      {
+        "exe": "C:\\Program Files\\nodejs\\node.exe",
+        "args": [
+          "C:/Program Files/nodejs/node_modules/npm/bin/npm-cli.js",
+          "install",
+          "--ignore-scripts",
+          "--no-audit",
+          "--no-fund",
+          "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-upgrade-minimum-wScSko\\cliewen-openspec-0.1.0.tgz",
+          "@fission-ai/openspec@1.15.0"
+        ],
+        "cwd": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-upgrade-minimum-wScSko",
+        "status": 0,
+        "stdout": "\nadded 58 packages in 4s\n",
+        "stderr": "",
+        "error": ""
+      },
+      {
+        "exe": "C:\\Code\\cliewen-openspec\\.tmp\\minimum-runtime\\node_modules\\node\\bin\\node.exe",
+        "args": [
+          "--version"
+        ],
+        "cwd": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-upgrade-minimum-wScSko",
+        "status": 0,
+        "stdout": "v20.19.0\r\n",
+        "stderr": "",
+        "error": ""
+      },
+      {
+        "exe": "C:\\Code\\cliewen-openspec\\.tmp\\minimum-runtime\\node_modules\\node\\bin\\node.exe",
+        "args": [
+          "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-upgrade-minimum-wScSko\\node_modules\\@fission-ai\\openspec\\bin\\openspec.js",
+          "init",
+          "--tools",
+          "none",
+          "--no-animation"
+        ],
+        "cwd": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-upgrade-minimum-wScSko",
+        "status": 0,
+        "stdout": "- Creating OpenSpec structure...\n\u258c OpenSpec structure created\n\nOpenSpec Setup Complete\n\nConfig: openspec/config.yaml (schema: spec-driven)\n\nGetting started:\n  Start your first change: /opsx:new \"your idea\"\n\nLearn more: https://github.com/Fission-AI/OpenSpec\nFeedback:   https://github.com/Fission-AI/OpenSpec/issues\n\n",
+        "stderr": "",
+        "error": ""
+      },
+      {
+        "exe": "C:\\Code\\cliewen-openspec\\.tmp\\minimum-runtime\\node_modules\\node\\bin\\node.exe",
+        "args": [
+          "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-upgrade-minimum-wScSko\\node_modules\\cliewen-openspec\\dist\\cli.js",
+          "init",
+          "--dry-run",
+          "--json"
+        ],
+        "cwd": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-upgrade-minimum-wScSko",
+        "status": 0,
+        "stdout": "{\n  \"dryRun\": true,\n  \"writes\": [\n    \".cliewen-openspec/templates/decision.md\",\n    \"openspec/schemas/cliewen-delivery/schema.yaml\",\n    \"openspec/schemas/cliewen-delivery/templates/proposal.md\",\n    \"openspec/schemas/cliewen-delivery/templates/spec.md\",\n    \"openspec/schemas/cliewen-delivery/templates/design.md\",\n    \"openspec/schemas/cliewen-delivery/templates/tasks.md\",\n    \"openspec/schemas/cliewen-discovery/schema.yaml\",\n    \"openspec/schemas/cliewen-discovery/templates/proposal.md\",\n    \"openspec/schemas/cliewen-discovery/templates/investigation.md\",\n    \"openspec/schemas/cliewen-discovery/templates/decision.md\",\n    \"openspec/schemas/cliewen-all/schema.yaml\",\n    \"openspec/schemas/cliewen-all/templates/proposal.md\",\n    \"openspec/schemas/cliewen-all/templates/investigation.md\",\n    \"openspec/schemas/cliewen-all/templates/decision.md\",\n    \"openspec/schemas/cliewen-all/templates/spec.md\",\n    \"openspec/schemas/cliewen-all/templates/tasks.md\",\n    \".cliewen-openspec/templates/learning.md\",\n    \".cliewen-openspec/planning.md\",\n    \".cliewen-openspec/closure.md\",\n    \".cliewen-openspec/prototyping.md\",\n    \".cliewen-openspec/config.yaml\",\n    \"docs/README.md\",\n    \".cliewen-openspec/.gitignore\",\n    \".cliewen-openspec/manifest.json\"\n  ],\n  \"deletes\": [],\n  \"creates\": [\n    \".cliewen-openspec/templates/decision.md\",\n    \"openspec/schemas/cliewen-delivery/schema.yaml\",\n    \"openspec/schemas/cliewen-delivery/templates/proposal.md\",\n    \"openspec/schemas/cliewen-delivery/templates/spec.md\",\n    \"openspec/schemas/cliewen-delivery/templates/design.md\",\n    \"openspec/schemas/cliewen-delivery/templates/tasks.md\",\n    \"openspec/schemas/cliewen-discovery/schema.yaml\",\n    \"openspec/schemas/cliewen-discovery/templates/proposal.md\",\n    \"openspec/schemas/cliewen-discovery/templates/investigation.md\",\n    \"openspec/schemas/cliewen-discovery/templates/decision.md\",\n    \"openspec/schemas/cliewen-all/schema.yaml\",\n    \"openspec/schemas/cliewen-all/templates/proposal.md\",\n    \"openspec/schemas/cliewen-all/templates/investigation.md\",\n    \"openspec/schemas/cliewen-all/templates/decision.md\",\n    \"openspec/schemas/cliewen-all/templates/spec.md\",\n    \"openspec/schemas/cliewen-all/templates/tasks.md\",\n    \".cliewen-openspec/templates/learning.md\",\n    \".cliewen-openspec/planning.md\",\n    \".cliewen-openspec/closure.md\",\n    \".cliewen-openspec/prototyping.md\",\n    \".cliewen-openspec/config.yaml\",\n    \"docs/README.md\",\n    \".cliewen-openspec/.gitignore\",\n    \".cliewen-openspec/manifest.json\"\n  ],\n  \"replaces\": [],\n  \"installedVersion\": null,\n  \"targetVersion\": \"0.1.0\",\n  \"compatibility\": {\n    \"node\": {\n      \"version\": \"20.19.0\",\n      \"minimum\": \"20.19.0\"\n    },\n    \"openspec\": {\n      \"version\": \"1.15.0\",\n      \"minimum\": \"1.15.0\",\n      \"source\": \"project npm: C:\\\\Users\\\\flemm\\\\AppData\\\\Local\\\\Temp\\\\cliewen-upgrade-minimum-wScSko\\\\node_modules\\\\@fission-ai\\\\openspec\\\\bin\\\\openspec.js\"\n    }\n  },\n  \"recoveredTransaction\": false\n}\n",
+        "stderr": "",
+        "error": ""
+      },
+      {
+        "exe": "C:\\Code\\cliewen-openspec\\.tmp\\minimum-runtime\\node_modules\\node\\bin\\node.exe",
+        "args": [
+          "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-upgrade-minimum-wScSko\\node_modules\\cliewen-openspec\\dist\\cli.js",
+          "init",
+          "--json"
+        ],
+        "cwd": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-upgrade-minimum-wScSko",
+        "status": 0,
+        "stdout": "{\n  \"dryRun\": false,\n  \"writes\": [\n    \".cliewen-openspec/templates/decision.md\",\n    \"openspec/schemas/cliewen-delivery/schema.yaml\",\n    \"openspec/schemas/cliewen-delivery/templates/proposal.md\",\n    \"openspec/schemas/cliewen-delivery/templates/spec.md\",\n    \"openspec/schemas/cliewen-delivery/templates/design.md\",\n    \"openspec/schemas/cliewen-delivery/templates/tasks.md\",\n    \"openspec/schemas/cliewen-discovery/schema.yaml\",\n    \"openspec/schemas/cliewen-discovery/templates/proposal.md\",\n    \"openspec/schemas/cliewen-discovery/templates/investigation.md\",\n    \"openspec/schemas/cliewen-discovery/templates/decision.md\",\n    \"openspec/schemas/cliewen-all/schema.yaml\",\n    \"openspec/schemas/cliewen-all/templates/proposal.md\",\n    \"openspec/schemas/cliewen-all/templates/investigation.md\",\n    \"openspec/schemas/cliewen-all/templates/decision.md\",\n    \"openspec/schemas/cliewen-all/templates/spec.md\",\n    \"openspec/schemas/cliewen-all/templates/tasks.md\",\n    \".cliewen-openspec/templates/learning.md\",\n    \".cliewen-openspec/planning.md\",\n    \".cliewen-openspec/closure.md\",\n    \".cliewen-openspec/prototyping.md\",\n    \".cliewen-openspec/config.yaml\",\n    \"docs/README.md\",\n    \".cliewen-openspec/.gitignore\",\n    \".cliewen-openspec/manifest.json\"\n  ],\n  \"deletes\": [],\n  \"creates\": [\n    \".cliewen-openspec/templates/decision.md\",\n    \"openspec/schemas/cliewen-delivery/schema.yaml\",\n    \"openspec/schemas/cliewen-delivery/templates/proposal.md\",\n    \"openspec/schemas/cliewen-delivery/templates/spec.md\",\n    \"openspec/schemas/cliewen-delivery/templates/design.md\",\n    \"openspec/schemas/cliewen-delivery/templates/tasks.md\",\n    \"openspec/schemas/cliewen-discovery/schema.yaml\",\n    \"openspec/schemas/cliewen-discovery/templates/proposal.md\",\n    \"openspec/schemas/cliewen-discovery/templates/investigation.md\",\n    \"openspec/schemas/cliewen-discovery/templates/decision.md\",\n    \"openspec/schemas/cliewen-all/schema.yaml\",\n    \"openspec/schemas/cliewen-all/templates/proposal.md\",\n    \"openspec/schemas/cliewen-all/templates/investigation.md\",\n    \"openspec/schemas/cliewen-all/templates/decision.md\",\n    \"openspec/schemas/cliewen-all/templates/spec.md\",\n    \"openspec/schemas/cliewen-all/templates/tasks.md\",\n    \".cliewen-openspec/templates/learning.md\",\n    \".cliewen-openspec/planning.md\",\n    \".cliewen-openspec/closure.md\",\n    \".cliewen-openspec/prototyping.md\",\n    \".cliewen-openspec/config.yaml\",\n    \"docs/README.md\",\n    \".cliewen-openspec/.gitignore\",\n    \".cliewen-openspec/manifest.json\"\n  ],\n  \"replaces\": [],\n  \"installedVersion\": null,\n  \"targetVersion\": \"0.1.0\",\n  \"compatibility\": {\n    \"node\": {\n      \"version\": \"20.19.0\",\n      \"minimum\": \"20.19.0\"\n    },\n    \"openspec\": {\n      \"version\": \"1.15.0\",\n      \"minimum\": \"1.15.0\",\n      \"source\": \"project npm: C:\\\\Users\\\\flemm\\\\AppData\\\\Local\\\\Temp\\\\cliewen-upgrade-minimum-wScSko\\\\node_modules\\\\@fission-ai\\\\openspec\\\\bin\\\\openspec.js\"\n    }\n  },\n  \"recoveredTransaction\": false\n}\n",
+        "stderr": "",
+        "error": ""
+      },
+      {
+        "exe": "C:\\Code\\cliewen-openspec\\.tmp\\minimum-runtime\\node_modules\\node\\bin\\node.exe",
+        "args": [
+          "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-upgrade-minimum-wScSko\\node_modules\\cliewen-openspec\\dist\\cli.js",
+          "update",
+          "--dry-run",
+          "--json"
+        ],
+        "cwd": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-upgrade-minimum-wScSko",
+        "status": 0,
+        "stdout": "{\n  \"dryRun\": true,\n  \"writes\": [],\n  \"deletes\": [],\n  \"creates\": [],\n  \"replaces\": [],\n  \"installedVersion\": \"0.1.0\",\n  \"targetVersion\": \"0.1.0\",\n  \"compatibility\": {\n    \"node\": {\n      \"version\": \"20.19.0\",\n      \"minimum\": \"20.19.0\"\n    },\n    \"openspec\": {\n      \"version\": \"1.15.0\",\n      \"minimum\": \"1.15.0\",\n      \"source\": \"project npm: C:\\\\Users\\\\flemm\\\\AppData\\\\Local\\\\Temp\\\\cliewen-upgrade-minimum-wScSko\\\\node_modules\\\\@fission-ai\\\\openspec\\\\bin\\\\openspec.js\"\n    }\n  },\n  \"recoveredTransaction\": false\n}\n",
+        "stderr": "",
+        "error": ""
+      },
+      {
+        "exe": "C:\\Code\\cliewen-openspec\\.tmp\\minimum-runtime\\node_modules\\node\\bin\\node.exe",
+        "args": [
+          "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-upgrade-minimum-wScSko\\node_modules\\cliewen-openspec\\dist\\cli.js",
+          "update",
+          "--json"
+        ],
+        "cwd": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-upgrade-minimum-wScSko",
+        "status": 0,
+        "stdout": "{\n  \"dryRun\": false,\n  \"writes\": [],\n  \"deletes\": [],\n  \"creates\": [],\n  \"replaces\": [],\n  \"installedVersion\": \"0.1.0\",\n  \"targetVersion\": \"0.1.0\",\n  \"compatibility\": {\n    \"node\": {\n      \"version\": \"20.19.0\",\n      \"minimum\": \"20.19.0\"\n    },\n    \"openspec\": {\n      \"version\": \"1.15.0\",\n      \"minimum\": \"1.15.0\",\n      \"source\": \"project npm: C:\\\\Users\\\\flemm\\\\AppData\\\\Local\\\\Temp\\\\cliewen-upgrade-minimum-wScSko\\\\node_modules\\\\@fission-ai\\\\openspec\\\\bin\\\\openspec.js\"\n    }\n  },\n  \"recoveredTransaction\": false\n}\n",
+        "stderr": "",
+        "error": ""
+      },
+      {
+        "exe": "C:\\Code\\cliewen-openspec\\.tmp\\minimum-runtime\\node_modules\\node\\bin\\node.exe",
+        "args": [
+          "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-upgrade-minimum-wScSko\\node_modules\\cliewen-openspec\\dist\\cli.js",
+          "check",
+          "--json"
+        ],
+        "cwd": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-upgrade-minimum-wScSko",
+        "status": 0,
+        "stdout": "{\n  \"ok\": true,\n  \"findings\": [\n    {\n      \"code\": \"evidence-disabled\",\n      \"severity\": \"info\",\n      \"message\": \"Evidence was explicitly disabled\"\n    },\n    {\n      \"code\": \"quality-evidence-unavailable\",\n      \"severity\": \"warning\",\n      \"message\": \"Test policy review remains advisory: enable evidence for execution-backed assessment.\"\n    }\n  ]\n}\n",
+        "stderr": "",
+        "error": ""
+      },
+      {
+        "exe": "C:\\Code\\cliewen-openspec\\.tmp\\minimum-runtime\\node_modules\\node\\bin\\node.exe",
+        "args": [
+          "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-upgrade-minimum-wScSko\\node_modules\\@fission-ai\\openspec\\bin\\openspec.js",
+          "schema",
+          "validate",
+          "cliewen-delivery"
+        ],
+        "cwd": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-upgrade-minimum-wScSko",
+        "status": 0,
+        "stdout": "\u2713 Schema 'cliewen-delivery' is valid\n",
+        "stderr": "Note: Schema commands are experimental and may change.\n",
+        "error": ""
+      },
+      {
+        "exe": "C:\\Code\\cliewen-openspec\\.tmp\\minimum-runtime\\node_modules\\node\\bin\\node.exe",
+        "args": [
+          "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-upgrade-minimum-wScSko\\node_modules\\@fission-ai\\openspec\\bin\\openspec.js",
+          "schema",
+          "validate",
+          "cliewen-discovery"
+        ],
+        "cwd": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-upgrade-minimum-wScSko",
+        "status": 0,
+        "stdout": "\u2713 Schema 'cliewen-discovery' is valid\n",
+        "stderr": "Note: Schema commands are experimental and may change.\n",
+        "error": ""
+      },
+      {
+        "exe": "C:\\Code\\cliewen-openspec\\.tmp\\minimum-runtime\\node_modules\\node\\bin\\node.exe",
+        "args": [
+          "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-upgrade-minimum-wScSko\\node_modules\\@fission-ai\\openspec\\bin\\openspec.js",
+          "schema",
+          "validate",
+          "cliewen-all"
+        ],
+        "cwd": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-upgrade-minimum-wScSko",
+        "status": 0,
+        "stdout": "\u2713 Schema 'cliewen-all' is valid\n",
+        "stderr": "Note: Schema commands are experimental and may change.\n",
+        "error": ""
+      }
+    ]
+  },
+  "controlledFaults": {
+    "root": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-upgrade-faults-LwHCyf",
+    "results": [
+      {
+        "name": "accept-incompatible-openspec",
+        "detectedByAssertion": true,
+        "exitCode": 1,
+        "project": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-upgrade-faults-LwHCyf\\accept-incompatible-openspec",
+        "output": "\u2714 release minimums use numerical stable-version comparisons and declared source routes (1.4989ms)\n\u2716 incompatible local tool wins over PATH and blocks writing, preview and recovery (313.9939ms)\n\u2714 local tool probing is bounded and rejects broken selected packages (5114.9025ms)\n\u2714 missing PATH tool is actionable and does not initialize the project (4.1597ms)\n\u2714 an unsupported running Node stops before probing tools or changing project state (3.5711ms)\n\u2714 explicit default selection preserves unrelated YAML values or refuses shared aliases (270.4216ms)\n\u2714 PATH shim or executable in a path with spaces is probed without shell interpolation (79.4157ms)\n\u2714 Windows standalone executable works without npm metadata (366.9927ms)\n\u2714 preview metadata agrees with apply, preserves authored state and rechecks intervening edits (749.6684ms)\n\u2139 tests 9\n\u2139 suites 0\n\u2139 pass 8\n\u2139 fail 1\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 7088.7656\n\n\u2716 failing tests:\n\ntest at test\\installation-upgrades.test.mjs:42:1\n\u2716 incompatible local tool wins over PATH and blocks writing, preview and recovery (313.9939ms)\n  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /OpenSpec.*(unsupported|probe failed)/. Input:\n  \n  'Error: Interrupted transaction exists; run recover before preview. No preview files changed.'\n  \n      at TestContext.<anonymous> (file:///C:/Users/flemm/AppData/Local/Temp/cliewen-upgrade-faults-LwHCyf/accept-incompatible-openspec/test/installation-upgrades.test.mjs:49:14)\n      at Test.runInAsyncScope (node:async_hooks:214:14)\n      at Test.run (node:internal/test_runner/test:1062:25)\n      at Test.processPendingSubtests (node:internal/test_runner/test:752:18)\n      at Test.postRun (node:internal/test_runner/test:1191:19)\n      at Test.run (node:internal/test_runner/test:1119:12)\n      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:332:3) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: Error: Interrupted transaction exists; run recover before preview. No preview files changed.\n        at lifecycle (file:///C:/Users/flemm/AppData/Local/Temp/cliewen-upgrade-faults-LwHCyf/accept-incompatible-openspec/dist/core.js:465:15)\n        at file:///C:/Users/flemm/AppData/Local/Temp/cliewen-upgrade-faults-LwHCyf/accept-incompatible-openspec/test/installation-upgrades.test.mjs:49:25\n        at getActual (node:assert:530:5)\n        at strict.throws (node:assert:676:24)\n        at TestContext.<anonymous> (file:///C:/Users/flemm/AppData/Local/Temp/cliewen-upgrade-faults-LwHCyf/accept-incompatible-openspec/test/installation-upgrades.test.mjs:49:14)\n        at Test.runInAsyncScope (node:async_hooks:214:14)\n        at Test.run (node:internal/test_runner/test:1062:25)\n        at Test.processPendingSubtests (node:internal/test_runner/test:752:18)\n        at Test.postRun (node:internal/test_runner/test:1191:19)\n        at Test.run (node:internal/test_runner/test:1119:12),\n    expected: /OpenSpec.*(unsupported|probe failed)/,\n    operator: 'throws'\n  }\n"
+      },
+      {
+        "name": "overwrite-local-resource-edit",
+        "detectedByAssertion": true,
+        "exitCode": 1,
+        "project": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-upgrade-faults-LwHCyf\\overwrite-local-resource-edit",
+        "output": "\u2714 release minimums use numerical stable-version comparisons and declared source routes (1.1061ms)\n\u2714 incompatible local tool wins over PATH and blocks writing, preview and recovery (1639.7622ms)\n\u2714 local tool probing is bounded and rejects broken selected packages (5122.529ms)\n\u2714 missing PATH tool is actionable and does not initialize the project (4.3185ms)\n\u2714 an unsupported running Node stops before probing tools or changing project state (3.7054ms)\n\u2714 explicit default selection preserves unrelated YAML values or refuses shared aliases (264.8893ms)\n\u2714 PATH shim or executable in a path with spaces is probed without shell interpolation (81.1401ms)\n\u2714 Windows standalone executable works without npm metadata (367.2134ms)\n\u2716 preview metadata agrees with apply, preserves authored state and rechecks intervening edits (511.8972ms)\n\u2139 tests 9\n\u2139 suites 0\n\u2139 pass 8\n\u2139 fail 1\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 8182.3377\n\n\u2716 failing tests:\n\ntest at test\\installation-upgrades.test.mjs:119:1\n\u2716 preview metadata agrees with apply, preserves authored state and rechecks intervening edits (511.8972ms)\n  AssertionError [ERR_ASSERTION]: Missing expected exception.\n      at TestContext.<anonymous> (file:///C:/Users/flemm/AppData/Local/Temp/cliewen-upgrade-faults-LwHCyf/overwrite-local-resource-edit/test/installation-upgrades.test.mjs:129:87)\n      at Test.runInAsyncScope (node:async_hooks:214:14)\n      at Test.run (node:internal/test_runner/test:1062:25)\n      at Test.processPendingSubtests (node:internal/test_runner/test:752:18)\n      at Test.postRun (node:internal/test_runner/test:1191:19)\n      at Test.run (node:internal/test_runner/test:1119:12)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {\n    generatedMessage: false,\n    code: 'ERR_ASSERTION',\n    actual: undefined,\n    expected: /Conflict/,\n    operator: 'throws'\n  }\n"
+      }
+    ]
+  },
+  "scripts": {
+    ".tmp/run-upgrade-minimum.mjs": "import fs from 'node:fs';import os from 'node:os';import path from 'node:path';import assert from 'node:assert/strict';import {spawnSync} from 'node:child_process';import {createHash} from 'node:crypto';\nconst source=process.cwd(),root=fs.mkdtempSync(path.join(os.tmpdir(),'cliewen-upgrade-minimum-')),npm='C:/Program Files/nodejs/node_modules/npm/bin/npm-cli.js',node20=path.join(source,'.tmp/minimum-runtime/node_modules/node/bin/node.exe'),records=[];\nfunction run(exe,args,cwd=root){const r=spawnSync(exe,args,{cwd,encoding:'utf8',timeout:90000,env:{...process.env,OPENSPEC_TELEMETRY:'0',CI:'1'}});records.push({exe,args,cwd,status:r.status,stdout:r.stdout,stderr:r.stderr,error:String(r.error??'')});assert.equal(r.status,0,r.stdout+r.stderr);return r.stdout.trim();}\ntry {\n const pack=JSON.parse(run(process.execPath,[npm,'pack','--ignore-scripts','--json','--pack-destination',root],source))[0],tar=path.join(root,pack.filename);\n fs.writeFileSync(path.join(root,'package.json'),'{\"private\":true}');run(process.execPath,[npm,'install','--ignore-scripts','--no-audit','--no-fund',tar,'@fission-ai/openspec@1.15.0']);\n assert.equal(run(node20,['--version']),'v20.19.0');\n const osCli=path.join(root,'node_modules/@fission-ai/openspec/bin/openspec.js'),cli=path.join(root,'node_modules/cliewen-openspec/dist/cli.js');\n run(node20,[osCli,'init','--tools','none','--no-animation']);\n const preview=JSON.parse(run(node20,[cli,'init','--dry-run','--json']));assert.equal(preview.compatibility.node.version,'20.19.0');assert.equal(preview.compatibility.openspec.version,'1.15.0');\n run(node20,[cli,'init','--json']);fs.writeFileSync(path.join(root,'.cliewen-openspec/config.yaml'),'features: {evidence: false}\\n');\n for(const args of [['update','--dry-run','--json'],['update','--json'],['check','--json']])run(node20,[cli,...args]);\n for(const schema of ['cliewen-delivery','cliewen-discovery','cliewen-all'])run(node20,[osCli,'schema','validate',schema]);\n fs.writeFileSync('.tmp/upgrade-minimum-result.json',JSON.stringify({passed:true,root,packageSha256:createHash('sha256').update(fs.readFileSync(tar)).digest('hex'),records},null,2));\n} catch(e){fs.writeFileSync('.tmp/upgrade-minimum-result.json',JSON.stringify({passed:false,root,error:String(e.stack??e),records},null,2));throw e;}\n",
+    ".tmp/check-upgrade-faults.mjs": "import fs from 'node:fs';import os from 'node:os';import path from 'node:path';import {spawnSync} from 'node:child_process';import assert from 'node:assert/strict';\nconst source=process.cwd(),root=fs.mkdtempSync(path.join(os.tmpdir(),'cliewen-upgrade-faults-')),results=[];\nfor(const [name,file,needle,replacement]of [\n ['accept-incompatible-openspec','dist/compatibility.js','if (!meetsMinimum(output, requirements.openspec))','if (false)'],\n ['overwrite-local-resource-edit','dist/core.js','if (hash(current) !== oldHash && normalize(current) !== normalize(content))','if (false)']\n]){\n const project=path.join(root,name);fs.mkdirSync(project);\n for(const folder of ['dist','schemas','test'])fs.cpSync(path.join(source,folder),path.join(project,folder),{recursive:true});\n fs.copyFileSync(path.join(source,'package.json'),path.join(project,'package.json'));\n fs.symlinkSync(path.join(source,'node_modules'),path.join(project,'node_modules'),process.platform==='win32'?'junction':'dir');\n const target=path.join(project,file),text=fs.readFileSync(target,'utf8');assert.ok(text.includes(needle),name);fs.writeFileSync(target,text.replace(needle,replacement));\n const r=spawnSync(process.execPath,['--test','test/installation-upgrades.test.mjs'],{cwd:project,encoding:'utf8',timeout:30000,env:{...process.env,PATH:path.join(source,'node_modules/.bin')+path.delimiter+process.env.PATH}});\n fs.writeFileSync(path.join(project,'test.log'),r.stdout+r.stderr);\n assert.equal(r.status,1,r.stdout+r.stderr);assert.match(r.stdout+r.stderr,/ERR_ASSERTION|AssertionError/);assert.doesNotMatch(r.stdout+r.stderr,/ERR_MODULE_NOT_FOUND|SyntaxError/);\n results.push({name,detectedByAssertion:true,exitCode:r.status,project,output:r.stdout+r.stderr});\n}\nfs.writeFileSync('.tmp/upgrade-fault-results.json',JSON.stringify({root,results},null,2));\n",
+    ".tmp/run-upgrade-linux.sh": "#!/usr/bin/env bash\nset -euo pipefail\ntrial_dir=$(mktemp -d /tmp/cliewen-upgrade-linux-XXXXXX)\nresult_dir=/mnt/c/Code/cliewen-openspec/.tmp/upgrade-linux-results\nmkdir -p \"$result_dir\"\ntrap 'cp \"$trial_dir\"/*.log \"$result_dir\"/ 2>/dev/null || true' EXIT\nprintf '%s\\n' \"$trial_dir\" > /mnt/c/Code/cliewen-openspec/.tmp/upgrade-linux-root.txt\ncd /mnt/c/Code/cliewen-openspec\ntar --exclude=.git --exclude=node_modules --exclude=.tmp --exclude=dist --exclude=site --exclude=.vitepress/cache --exclude=.vitepress/dist -cf - . | tar -xf - -C \"$trial_dir\"\ncd \"$trial_dir\"\nnpm ci --no-audit --no-fund > npm-ci.log 2>&1\nnpm run build > build.log 2>&1\nexport PATH=\"$trial_dir/node_modules/.bin:$PATH\"\nexport npm_execpath=/usr/lib/node_modules/npm/bin/npm-cli.js\nnode --test test/installation-upgrades.test.mjs test/update.test.mjs test/uninstall.test.mjs test/release-version.test.mjs test/upgrade-consumer.test.mjs > tests.log 2>&1\n"
+  },
+  "localArtifacts": [
+    {
+      "path": "C:\\Code\\cliewen-openspec\\.tmp\\upgrade-tests-initial.log",
+      "sha256": "c02d000aa734b02de4994a40ebb0abcb2533047ee324e3f16c3e010152bbb81d",
+      "bytes": 9883
+    },
+    {
+      "path": "C:\\Code\\cliewen-openspec\\.tmp\\upgrade-focused-initial.log",
+      "sha256": "3c6183483f869dcef1c6666856aff4ab3fc4a69ff791445d2e35016ae7ea6d43",
+      "bytes": 4199
+    },
+    {
+      "path": "C:\\Code\\cliewen-openspec\\.tmp\\upgrade-focused-second.log",
+      "sha256": "88081d521cf93d72689925365f30de27f91ec12ab6c76c34b6ae2cd4e7468113",
+      "bytes": 778
+    },
+    {
+      "path": "C:\\Code\\cliewen-openspec\\.tmp\\upgrade-tests-second.log",
+      "sha256": "95f24233d1292bec81be0cceacdd18af6395d48a1b4e070763a243bf1d89c569",
+      "bytes": 18944
+    },
+    {
+      "path": "C:\\Code\\cliewen-openspec\\.tmp\\upgrade-linux-setup-failed.log",
+      "sha256": "dad8d1b6781123e1803e45e7fde720f536db90b78db5afee44c0a14dd49c9f15",
+      "bytes": 171608
+    },
+    {
+      "path": "C:\\Code\\cliewen-openspec\\.tmp\\upgrade-restore-dependencies.log",
+      "sha256": "38fa0ca8928197424ccc423cd67888a538173454721fc0b11a6a3bf4535b62b5",
+      "bytes": 374
+    },
+    {
+      "path": "C:\\Code\\cliewen-openspec\\.tmp\\upgrade-restore-dependencies-second.log",
+      "sha256": "ac66c6c57bede712a5234ff8605e447ece1ffa12641d09938509857569d1252b",
+      "bytes": 455
+    },
+    {
+      "path": "C:\\Code\\cliewen-openspec\\.tmp\\upgrade-tests-restored.log",
+      "sha256": "140fd8e31c26f0377d7b5bbf1f21575648b0226709e56bd5147a572dd8129403",
+      "bytes": 11669
+    },
+    {
+      "path": "C:\\Code\\cliewen-openspec\\.tmp\\upgrade-tests-final.log",
+      "sha256": "6726df3f17642929934a28b04d17688deb174610b1b6bd7fca655e9d9ba0ca55",
+      "bytes": 11866
+    },
+    {
+      "path": "C:\\Code\\cliewen-openspec\\.tmp\\upgrade-focused-final.log",
+      "sha256": "70f54f05d5a716ab5be19d9dab2568a02303849d6437361eb0a80f7a233595fb",
+      "bytes": 978
+    },
+    {
+      "path": "C:\\Code\\cliewen-openspec\\.tmp\\upgrade-linux-results\\tests.log",
+      "sha256": "bbd4e84be592f00fcf08978ca4e834c87e54dd58610292fcf5b92fd239d73d4b",
+      "bytes": 6697
+    },
+    {
+      "path": "C:\\Code\\cliewen-openspec\\.tmp\\upgrade-docs-build.log",
+      "sha256": "9c5bb41628d3969236722a65b35534b57f8f0bd2770ffff53c2b6a0929a5f627",
+      "bytes": 744
+    },
+    {
+      "path": "C:\\Code\\cliewen-openspec\\.tmp\\upgrade-docs-final.log",
+      "sha256": "97b0ec4ad59e2b7585e31723a05f3c85728a4805a3b87d420a7ce817a98bb734",
+      "bytes": 744
+    }
+  ],
+  "limits": [
+    "Development version remains 0.1.0; different-version routing uses test-only 0.2.0 metadata.",
+    "Linux and Windows packages differ by documented source/documentation snapshot.",
+    "No upstream standalone binary downloaded; executable-selection fixtures only.",
+    "Minimum-runtime checks are narrower than the full package suite.",
+    "No new agent trial; next-release three-agent checkpoint remains pending.",
+    "No archive or publication performed."
+  ],
+  "completionChecks": {
+    "guide": {
+      "pages": 13,
+      "localLinks": 497,
+      "diagrams": 4,
+      "cliDefaults": true
+    },
+    "changeStrictValidation": true,
+    "permanentSpecsStrictValidation": {
+      "passed": 10,
+      "failed": 0
+    },
+    "agentEvaluationPlan": true,
+    "editedMarkdownLinks": {
+      "files": 13,
+      "links": 103,
+      "missing": 0
+    }
+  }
+}
