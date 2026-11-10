@@ -303,3 +303,7 @@ The `0.1.0` candidate's `init`, `update`, and `uninstall` accept only `0.1.0` in
 ## Optional archive-session guidance
 
 Development source installs `.cliewen-openspec/closure.md`. For repository-local projects, OpenSpec's project-owned `operations.archive.guidance` can point an archive session to that reference. See [closure setup and limits](guide/workflow.md#use-the-reference-from-a-separate-archive-session), including direct CLI use and removal of the optional entry after uninstall. Existing Cliewen feature and test-policy settings control the matching review responsibilities; there is no new configuration flag or automatic archive hook.
+
+## Optional prototype guidance
+
+Development source installs `.cliewen-openspec/prototyping.md` for [bounded user-selected experiments](guide/workflow.md#try-a-prototype-when-it-can-answer-a-question). Prototype selection is per task and adds no configuration flag. Planning controls ticket/plan maintenance; learnings and documentation settings control optional lesson maintenance. Native investigation artifacts retain actual findings even when those facilities are disabled. The existing installation lifecycle owns only the reference, not prototype files or user records.

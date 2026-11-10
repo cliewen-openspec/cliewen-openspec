@@ -25,4 +25,12 @@ Use the result to continue, investigate further, choose an alternative, or stop.
 
 On November 10, 2026, the owner approved this direction with "godkendt" after confirming that the user chooses whether a prototype is necessary and agents suggest one only for relevant uncertainty.
 
-This decision accepts the intended behavior. Package guidance and examples remain planned. Revisit its implementation scope after the archive-maintenance increment in [the roadmap](../../plan.md), using current OpenSpec extension points before preparing its proposal. [Decision 023: Extend OpenSpec through its conventions](023-openspec-native-planning-and-closure.md) continues to govern workflow ownership.
+This decision accepts the intended behavior. [Decision 023: Extend OpenSpec through its conventions](023-openspec-native-planning-and-closure.md) continues to govern workflow ownership.
+
+## Proposal checkpoint
+
+The owner approved [the implementation proposal](../../openspec/changes/archive/2026-11-10-support-user-approved-prototypes/proposal.md) on November 10, 2026. Native explore does not write prototype code. The accepted default is a short cliewen-discovery change for the agreed experiment before a separate delivery proposal; explicitly selected cliewen-all workflows remain supported.
+
+## Implementation checkpoint
+
+Shared guidance, installer ownership, and guide examples are implemented in development source, with 97 passing package tests and native instruction checks on OpenSpec 1.15.0 and 1.17.0. [The prototype review](../testing/prototype-experiments-001.md) records one fresh three-case agent trial, eight passing independent checks, and the unobserved branches. The owner accepted the implementation and documented limits on November 10, 2026, and authorized archive. Native archive synchronized all six requirements into the [permanent prototype specification](../../openspec/specs/prototype-experiments/spec.md). This functionality has not been published in a package release.

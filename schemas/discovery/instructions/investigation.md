@@ -6,3 +6,4 @@ Check that the measuring method actually observes the claimed quantity before us
 Distinguish peak memory from retained memory after garbage collection. If a measurement is invalid, report that quantity as unmeasured and revise conclusions that depended on it; an approximate label does not make it valid.
 Keep experiments isolated and respect the proposal's limits. Obtain agreement before production changes, purchases, or external actions outside the authorized investigation.
 Discovery evidence supports a recommendation, not claims about unimplemented product behavior. Preserve existing AC identities and product specs.
+For an agreed prototype, read .cliewen-openspec/prototyping.md, work inside the proposal's experimental limits, and retain actual observations, feedback, uncertainty, and code disposition in this investigation. Neither a useful result nor a prototype request authorizes production implementation.

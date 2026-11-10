@@ -21,7 +21,13 @@ Use deterministic tests, executable examples, document/link checks, and browser 
 
 Preserve failures and review their impact on release claims. Removing a trial quota does not convert a failed result into a pass or resolve its finding. Release acceptance still requires relevant product checks, documented limits, source-change disposition, and actual owner agreement. Trial authorization never supplies publication or archive authority.
 
-## Current release
+## Next release: three-agent compatibility check
+
+On November 10, 2026, the owner approved one representative fresh trial with each of Codex CLI, Claude Code, and OpenCode before the next release, once the features and guide are stable. Cover installation/update and a relevant workflow, retain each profile's actual inputs and limits, and review outcomes independently. Resolve failures or explicitly obtain owner acceptance of any remaining support limitation before release.
+
+This answers whether the release candidate works through all three supported agent tools. It adds no model/schema matrix or repetition quota. Repeat affected trials only when a failure or a substantial subsequent change justifies it. Routine development continues with targeted trials for major changes. This checkpoint applies to the next release; the general release-cycle minimum above remains unchanged.
+
+## Published 0.1.0
 
 The 0.1.0 cycle already has reviewed successful primary trials and 12 variant observations. The [preserved-pass review](../testing/release-pass-review-001.md) and [interaction-guidance input review](../testing/cli-trials/result-018-follow-up.md) describe their retained scope. These satisfy the release-cycle agent minimum; the former 14 missing primary repetitions are no longer a release gate.
 

@@ -1,0 +1,344 @@
+{
+  "date": "2026-11-10",
+  "scope": "One fresh prototype trial with approved, clear and declined cases",
+  "baseline": {
+    "project": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-prototype-trial-SlHrto\\project",
+    "artifacts": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-prototype-trial-SlHrto\\artifacts",
+    "root": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-prototype-trial-SlHrto",
+    "baseline": "74770a485aec6dc27ffb899481387df8c3b952bd",
+    "packageSha256": "cd561cf387350e1b99a78ada5e85877dfb080721cfbaefab327dcde4581c8dfd",
+    "sourceRevision": "d532dc7f3ca7e4719ae3a6fceb2b4db512f7ce98",
+    "sourceStatus": "M CHANGELOG.md\n M docs/configuration.md\n M docs/decisions/024-optional-user-approved-prototypes.md\n M docs/decisions/README.md\n M docs/guide/cli.md\n M docs/guide/discovery.md\n M docs/guide/workflow.md\n M plan.md\n M schemas/base/instructions/planning.md\n M schemas/base/instructions/work-scoping.md\n M schemas/discovery/instructions/investigation.md\n M src/core.ts\n?? openspec/changes/support-user-approved-prototypes/\n?? schemas/base/instructions/prototyping.md\n?? test/prototyping.test.mjs",
+    "protectedHashes": {
+      ".agents/skills/.openspec-target": "243b0dc9b847e66c440dca985e10fe0ce9e29c379b018ddd5747ba8948f84cc8",
+      ".agents/skills/openspec-apply-change/SKILL.md": "efae1279b63df191c7535467bc226dbfb05ae450bebd4f6f7ae7692f6583a1e6",
+      ".agents/skills/openspec-archive-change/SKILL.md": "d36c13d4ecc7d87328896055d7d6c1b9a2dc03eb3844e3f4c09514da49babf47",
+      ".agents/skills/openspec-bulk-archive-change/SKILL.md": "60a658544b6f55226e7aede7afbc0e1a25a246687c527c8b4925dba30df8dd71",
+      ".agents/skills/openspec-continue-change/SKILL.md": "326a82c903e57b7950c0d26c9c4e9f78b7e6301af8bf0f31b03cf749c5e4c068",
+      ".agents/skills/openspec-explore/SKILL.md": "c7b36ed7ab8b8a3fbbf31e57c23eca80126a3e86539580e30de1bd37af3a21b0",
+      ".agents/skills/openspec-ff-change/SKILL.md": "2e5037054bf2e680aaeb752f504b81b5bd7976ee1d3494a4d5f59549779ae58e",
+      ".agents/skills/openspec-new-change/SKILL.md": "9b75a12785b459ada41fe9b5301f626c62165f4a6442af22c2b4a7ded68d7199",
+      ".agents/skills/openspec-onboard/SKILL.md": "cd939912bbf1662e63214a780c4e36eb793127e9cf1b6eeb1e0a63931e0d662f",
+      ".agents/skills/openspec-sync-specs/SKILL.md": "d4b97d1ac5560c3f8686d9d34198d2e151a8dfa8e67d494a7026df7abfc91d37",
+      ".agents/skills/openspec-verify-change/SKILL.md": "1c7f623aa0609747214084796a040594aaab0bda5d891f51718e5a064f3cef7b",
+      ".cliewen-openspec/.gitignore": "121cff610fcba0b35ce3b4824c522f28a846f895ac59150f7dd304b5b123b276",
+      ".cliewen-openspec/closure.md": "1c5f717a7f6a2f2316114bebdc1c3d850d4f2e13a02d6e14e93db732e44bbdb0",
+      ".cliewen-openspec/config.yaml": "be610ea08be579a398d7c3f53dbbf2669fe1b8e739e5ae4098d7c033e9515527",
+      ".cliewen-openspec/manifest.json": "5fd19be66dc8ebdca9dd02339ed41e477bfb1d45b1793f4142e0d0e2d1ac046f",
+      ".cliewen-openspec/planning.md": "099cc10f685cce82b7d10e602ba303f97c51cc8c804ee7ef6ad95067a733babc",
+      ".cliewen-openspec/prototyping.md": "9d9e92505e9c7424852e3ee89b155d2456af50b2cfa5d3dcd5875894d7c211c9",
+      ".cliewen-openspec/templates/decision.md": "ede7f369e224f8995fb8869069fc484b2b8c3b306c52d25532a701f4f0ad32c4",
+      ".cliewen-openspec/templates/learning.md": "3a3094ff8d0c100ec83eb38fab7b046ad31577842076e66d53df079b70dff560",
+      "AGENTS.md": "8268a5e282952f9eea8edb36dcb839613b268c27b5f6da7c241b830798a52729",
+      "CASES.md": "f9d9f4d28b364c1f8dce0437dc404ddd9065af05d6f0387fefa5178bde276439",
+      "CONTRACT.md": "60f9952dc4e51df86a9e4a6578388526f3f862b6fc2b2c5ee6c50d0d73b95fbf",
+      "openspec/config.yaml": "f0082e9c22e8ce1d611c0f3b4d4915ce445e7ff2553cda6b713b6c25f390984c",
+      "src/product.mjs": "1cfea99d0d46a9e3abaa83458d2c3157216fe13b079d58fbdb86a272f4b8a1ee",
+      "test/product.test.mjs": "ad05a66d1a6bd440f8fc1ebdf362dc235fa79a04323f8683584f54616ac4117b"
+    }
+  },
+  "prompt": "Read AGENTS.md, then follow the installed context and prototype guidance to handle the three independent requests in CASES.md within CONTRACT.md. Complete only the already authorized experiment and routine correction; respect the declined case and production boundaries. Use the existing native discovery workflow, capture actual results and missing feedback honestly, and preserve recommendation status and code disposition. Do not ask for redundant permission already provided by the cases. Finish with a clean local commit and a concise handoff of actual outcomes, pending decisions, and limits. No archive or delivery is authorized.\n",
+  "run": {
+    "schema": "cliewen-discovery",
+    "profileId": "codex-scoping-closure-0-167-0",
+    "phase": "initial",
+    "project": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-prototype-trial-SlHrto\\project",
+    "baseline": "74770a485aec6dc27ffb899481387df8c3b952bd",
+    "profile": {
+      "readiness": "pinned",
+      "agent": "Codex CLI",
+      "runner": "cli",
+      "model": "gpt-6.1-sol",
+      "agentVersion": "0.167.0",
+      "provider": "openai; existing ChatGPT CLI authentication",
+      "effort": "medium",
+      "permissions": "danger-full-access, approval never; project scope is instructional, not OS isolation",
+      "context": "fresh ephemeral process; ignore user config and rules; explicit project instructions",
+      "budgets": {
+        "wallTimeSeconds": 600,
+        "outputBytes": 67108864,
+        "reportedCostUSD": null,
+        "tokenLimit": null,
+        "billing": "existing ChatGPT entitlement; no purchase"
+      },
+      "traceFormat": "codex exec JSONL plus stderr"
+    },
+    "exe": "C:\\Program Files\\nodejs\\node.exe",
+    "args": [
+      "C:\\Users\\flemm\\AppData\\Roaming\\npm\\node_modules\\@openai\\codex\\bin\\codex.js",
+      "exec",
+      "--ignore-user-config",
+      "--ignore-rules",
+      "--ephemeral",
+      "--json",
+      "--sandbox",
+      "danger-full-access",
+      "-c",
+      "approval_policy=\"never\"",
+      "-c",
+      "model_provider=\"openai\"",
+      "-c",
+      "model_reasoning_effort=\"medium\"",
+      "--model",
+      "gpt-6.1-sol",
+      "-"
+    ],
+    "cliVersion": "codex-cli 0.167.0",
+    "startedAt": "2026-11-10T20:27:29.537Z",
+    "promptFile": "prompt.txt",
+    "environmentControls": {
+      "NO_COLOR": "1",
+      "OPENSPEC_TELEMETRY": "0",
+      "CI": "1"
+    },
+    "exitCode": 0,
+    "signal": null,
+    "endedAt": "2026-11-10T20:30:09.860Z",
+    "durationSeconds": 160.322,
+    "monotonicDurationSeconds": 160.3217192,
+    "deadlineExceededBySeconds": 0,
+    "stopReason": null,
+    "stopRequestedAt": null,
+    "stopRequestedAfterSeconds": null,
+    "terminationDelaySeconds": null,
+    "eventFailure": false,
+    "sessionId": "01a1c724-f2b6-7913-ae91-f01bfe77ebf8",
+    "usage": {
+      "input_tokens": 482225,
+      "cached_input_tokens": 450304,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 6095,
+      "reasoning_output_tokens": 418
+    },
+    "stepUsage": [],
+    "reportedCostUSD": null,
+    "observedModels": [],
+    "reviewInputsPreserved": true,
+    "evaluation": "not-graded"
+  },
+  "independentChecks": {
+    "date": "2026-11-10T20:31:14.068Z",
+    "baseline": "74770a485aec6dc27ffb899481387df8c3b952bd",
+    "finalRevision": "514444439d46f5753204edd4d6aaad461012de8b",
+    "packageSha256": "cd561cf387350e1b99a78ada5e85877dfb080721cfbaefab327dcde4581c8dfd",
+    "results": [
+      {
+        "name": "production, contract, instructions and installed resources unchanged",
+        "passed": true
+      },
+      {
+        "name": "only agreed discovery change with no product specs, IDs or evidence",
+        "passed": true
+      },
+      {
+        "name": "clear task is exactly the authorized typo correction",
+        "passed": true
+      },
+      {
+        "name": "declined prototype has no workspace or extra change",
+        "passed": true
+      },
+      {
+        "name": "experimental alternatives satisfy independent membership checks",
+        "passed": true
+      },
+      {
+        "name": "recorded results use the agreed workload and valid measurements",
+        "passed": true
+      },
+      {
+        "name": "benchmark independently reruns within the agreed invocation limit",
+        "passed": true
+      },
+      {
+        "name": "original product tests pass and final project is clean",
+        "passed": true
+      }
+    ],
+    "passed": true
+  },
+  "initialEvaluatorResult": {
+    "date": "2026-11-10T20:30:29.804Z",
+    "baseline": "74770a485aec6dc27ffb899481387df8c3b952bd",
+    "finalRevision": "514444439d46f5753204edd4d6aaad461012de8b",
+    "packageSha256": "cd561cf387350e1b99a78ada5e85877dfb080721cfbaefab327dcde4581c8dfd",
+    "results": [
+      {
+        "name": "production, contract, instructions and installed resources unchanged",
+        "passed": true
+      },
+      {
+        "name": "only agreed discovery change with no product specs, IDs or evidence",
+        "passed": true
+      },
+      {
+        "name": "clear task is exactly the authorized typo correction",
+        "passed": true
+      },
+      {
+        "name": "declined prototype has no workspace or extra change",
+        "passed": true
+      },
+      {
+        "name": "experimental alternatives satisfy independent membership checks",
+        "passed": true
+      },
+      {
+        "name": "recorded results use the agreed workload and valid measurements",
+        "passed": false,
+        "error": "AssertionError [ERR_ASSERTION]: queryMs\n    at validateResult (file:///C:/Code/cliewen-openspec/.tmp/check-prototype-trial.mjs:29:398)\n    at file:///C:/Code/cliewen-openspec/.tmp/check-prototype-trial.mjs:30:84\n    at check (file:///C:/Code/cliewen-openspec/.tmp/check-prototype-trial.mjs:5:41)\n    at file:///C:/Code/cliewen-openspec/.tmp/check-prototype-trial.mjs:30:7"
+      },
+      {
+        "name": "benchmark independently reruns within the agreed invocation limit",
+        "passed": false,
+        "error": "AssertionError [ERR_ASSERTION]: queryMs\n    at validateResult (file:///C:/Code/cliewen-openspec/.tmp/check-prototype-trial.mjs:29:398)\n    at file:///C:/Code/cliewen-openspec/.tmp/check-prototype-trial.mjs:34:2\n    at check (file:///C:/Code/cliewen-openspec/.tmp/check-prototype-trial.mjs:5:41)\n    at file:///C:/Code/cliewen-openspec/.tmp/check-prototype-trial.mjs:31:7"
+      },
+      {
+        "name": "original product tests pass and final project is clean",
+        "passed": true
+      }
+    ],
+    "passed": false
+  },
+  "evaluatorCorrection": "Accept three per-batch query timing values; initial check incorrectly expected a scalar. Agent output unchanged. Separate replay directories preserve both evaluations.",
+  "nativeValidation": {
+    "command": "node node_modules/@fission-ai/openspec/bin/openspec.js validate compare-label-lookups --strict",
+    "cwd": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-prototype-trial-SlHrto\\project",
+    "exitCode": 0,
+    "result": "Valid; skip_specs permits no deltas for the investigation."
+  },
+  "learningOrder": [
+    {
+      "line": 7,
+      "command": "\"C:\\\\Program Files\\\\PowerShell\\\\7\\\\pwsh.exe\" -Command 'Get-Content .cliewen-openspec/config.yaml; Get-Content .cliewen-openspec/planning.md'",
+      "exitCode": 0
+    },
+    {
+      "line": 9,
+      "command": "\"C:\\\\Program Files\\\\PowerShell\\\\7\\\\pwsh.exe\" -Command 'Get-Content docs/learnings/README.md'",
+      "exitCode": 0
+    },
+    {
+      "line": 11,
+      "command": "\"C:\\\\Program Files\\\\PowerShell\\\\7\\\\pwsh.exe\" -Command 'Get-Content docs/learnings/construction-cost.md; Get-Content .cliewen-openspec/prototyping.md; Get-Content CONTRACT.md; Get-Content CASES.md; Get-ChildItem -Force -Name; git status --short'",
+      "exitCode": 0
+    },
+    {
+      "line": 45,
+      "command": "\"C:\\\\Program Files\\\\PowerShell\\\\7\\\\pwsh.exe\" -Command 'node .trial-output/verify.mjs; git status --short --untracked-files=all; Get-Content openspec/changes/compare-label-lookups/.openspec.yaml; git diff -- README.md docs/plans/work.md docs/learnings/construction-cost.md'",
+      "exitCode": 0
+    },
+    {
+      "line": 50,
+      "command": "\"C:\\\\Program Files\\\\PowerShell\\\\7\\\\pwsh.exe\" -Command 'node .trial-output/verify.mjs; git diff --check; git add README.md docs/plans/work.md docs/learnings/construction-cost.md openspec/changes/compare-label-lookups; git diff --cached --check; git diff --cached --stat; git commit -m \"Record bounded lookup investigation and correct README typo\"; git status --short; git log -1 --format=\"%h %s\"; Get-Date -Format o'",
+      "exitCode": 0
+    }
+  ],
+  "baselineInputs": {
+    "AGENTS.md": "# Prototype trial project\n\nWork only here. Before creating or resuming an OpenSpec change, first read only .cliewen-openspec/config.yaml and .cliewen-openspec/planning.md, without batching project documents or lesson contents into that tool call. Follow its learning-policy and index-first instructions before broad reads, independently of features.planning. Use the installed prototype reference and native workflow instructions. docs/plans/work.md is the only backlog. No external services, installs, extra agents, source repositories, evaluator files, pushes, archive, or production changes are authorized. Local commits are allowed. Keep outputs in approved .scratch/lookup or ignored .trial-output. Read CONTRACT.md and CASES.md after resolving the context policy.\n",
+    "CONTRACT.md": "# Existing contract\n\nThe product's contains(labels, query) checks exact membership of string labels. Preserve src/product.mjs, test/product.test.mjs, permanent specs, AC allocation, project policy, and installed resources. Experimental timings do not prove product requirements, and no production implementation or final recommendation is approved.\n",
+    "CASES.md": "# Three independent requests\n\n## A: Approved uncertain experiment\n\nWe do not know local build/query timing for linear lookup versus a prebuilt Set at a representative small workload. Create a short cliewen-discovery change named compare-label-lookups and scope the agreed experiment before coding it. You are authorized to compare exactly these two alternatives in ignored .scratch/lookup and retain them as reference. This is the native change handoff, not code writing in explore. The full session has a ten-minute cap. Use only Node and installed dependencies, no real user data, no services, and no production changes.\n\nUse synthetic unique labels L0 through L999 and 500 queries Qn represented as L followed by n*3 (n=0..499); 334 should match. Repeat the query batch three times. Measure index construction separately from query execution, include units and method, and check both alternatives return identical correct results. Each benchmark invocation must finish within 30 seconds. If valid timing cannot be obtained, say so and retain uncertainty. Do not claim a universally faster option.\n\nPrototype files: linear.mjs exports contains(labels, query); indexed.mjs exports createLookup(labels), returning a membership function. Keep both and a runnable compare.mjs under .scratch/lookup. Save the actual run output in results.json there, including datasetSize, queryCount, repetitions, expectedMatches, and results for both variants with name, buildMs, queryMs, and matches per batch. Record actual observations, limits, code disposition, and next-step recommendation in the existing investigation/decision. No live user feedback is available. Recommendations remain proposed. Do not create a delivery proposal, product specs, product evidence, or a new schema.\n\n## B: Clear routine task\n\nFix only the word labell to label in README.md. The desired text is unambiguous. Complete this directly using relevant checks; no prototype, interview, or new proposal is requested.\n\n## C: Declined suggestion\n\nA possible future UI is unclear. The user has declined a UI prototype. Do not create UI files, scratch alternatives, another change, or experiment records for it. Continue ordinary clarification and mention the unresolved audience in the final handoff. Do not fabricate feedback or acceptance.\n",
+    "README.md": "# Lookup library\n\nThis labell helper checks exact membership.\n",
+    "docs/plans/work.md": "# Work plan\n\n| Item | Status |\n|---|---|\n| Compare lookup alternatives | Experiment authorized; product changes not selected |\n| README typo | Requested routine correction |\n| Future UI | Unsettled audience; prototype declined |\n",
+    "docs/learnings/README.md": "# Lesson index\n\n- [Measure construction](construction-cost.md): active tentative note for lookup experiments; inspect the current experimental limits.\n",
+    "docs/learnings/construction-cost.md": "---\ntype: learning\nstatus: tentative\n---\n# Measure construction\n\nA lookup index costs work to build. Include construction separately from query timing before drawing conclusions; this note contains no measurement or verified speed claim.\n",
+    ".cliewen-openspec/config.yaml": "learnings:\n  enabled: true\nwriting:\n  humanizer: 'off'\n"
+  },
+  "finalFiles": {
+    "README.md": "# Lookup library\n\nThis label helper checks exact membership.\n",
+    "docs/plans/work.md": "# Work plan\n\n| Item | Status |\n|---|---|\n| Compare lookup alternatives | Experiment completed; [findings](../../openspec/changes/compare-label-lookups/investigation.md) and [no-change recommendation](../../openspec/changes/compare-label-lookups/decision.md) recorded; recommendation proposed; product changes not selected |\n| README typo | Corrected labell to label; exact replacement verified |\n| Future UI | Unsettled audience; prototype declined |\n",
+    "docs/learnings/README.md": "# Lesson index\n\n- [Measure construction](construction-cost.md): active tentative note for lookup experiments; inspect the current experimental limits.\n",
+    "docs/learnings/construction-cost.md": "---\ntype: learning\nstatus: tentative\n---\n# Measure construction\n\nA lookup index costs work to build. Include construction separately from query timing before drawing conclusions; this note makes no verified speed claim.\n\nThe [lookup investigation](../../openspec/changes/compare-label-lookups/investigation.md) observed separate construction and query costs on Node v24.0.0 with synthetic data. Measuring queries alone would omit Set construction. Keep setup outside query timings and report it separately. This single local run verifies that measurement approach, not a general speed advantage or representative workload. No observed measurement mistake or user feedback was supplied; this note remains tentative. Evidence reviewed 2026-11-10.\n",
+    "openspec/changes/compare-label-lookups/.openspec.yaml": "schema: cliewen-discovery\ncreated: 2026-11-10\nskip_specs: true\n",
+    "openspec/changes/compare-label-lookups/decision.md": "---\ntype: decision\nstatus: proposed\n---\n# Investigation recommendation\n\n## Outcome and reasoning\n\nProposed outcome: no change to the product. The existing exact-membership implementation remains sufficient for the accepted contract; the bounded experiment supplies local timing information without establishing a product need for an index. Retain both alternatives as reference. Human agreement to this recommendation has not been received.\n\n## Evidence and remaining uncertainty\n\nThe [investigation](investigation.md) records successful correctness comparisons, separate construction and query timing, the actual command, inputs, runtime, and limits. No live user feedback is available. A single synthetic workload cannot resolve index lifetime, mutation handling, memory cost, or relevance to future users.\n\n## Consequences and follow-up\n\n`linear.mjs`, `indexed.mjs`, `compare.mjs`, and `results.json` remain in ignored `.scratch/lookup` as local reference, excluded from the commit. They have not been reviewed or approved for production reuse. Production code, acceptance tests, permanent specs, AC allocation, project policy, and installed resources are preserved.\n\nReopen the lookup choice only when a representative product workload and a separately authorized delivery decision are available. The [work plan](../../../docs/plans/work.md) records actual completion of the experiment and the independent README correction. The future UI audience remains unresolved and its prototype remains declined; no UI experiment was performed. No delivery, archive, publication, or final recommendation acceptance is authorized.\n\n## Durable record\n\nNo additional durable Decision Record is needed: this proposed recommendation is confined to this investigation and makes no accepted architectural choice beyond it. Human agreement remains required before acceptance.\n",
+    "openspec/changes/compare-label-lookups/investigation.md": "# Investigation\n\n## Alternatives\n\nLinear lookup uses `labels.includes(query)` without an index. Indexed lookup constructs a Set once and returns a function using `Set.has(query)`. Both are retained as experimental reference under ignored `.scratch/lookup`; neither changes the product.\n\n## Sources and observations\n\nThe [proposal](proposal.md) defines the authorized scope from [Case A](../../../CASES.md). Baseline revision: `74770a485aec6dc27ffb899481387df8c3b952bd`. Inspection of `src/product.mjs` confirmed the existing implementation uses `includes`; the [contract](../../../CONTRACT.md) remains authoritative. Native `openspec list --json` returned an existing project root and no changes. No permanent spec files were returned by file discovery; `docs/decisions` did not exist.\n\nNo live user feedback is available. Case instructions supply authorization and expected results, not observed user acceptance. All interpretation below is the agent's.\n\n## Experiments\n\nExecuted `node .scratch/lookup/compare.mjs` successfully on Node v24.0.0, Windows x64, at 2026-11-10T20:28:43.765Z. The shell command completed in 0.444 seconds; the parent enforces a 30-second child-process timeout. Actual JSON is retained in `.scratch/lookup/results.json` alongside all three runnable source files. This single invocation completed within the session's ten-minute cap.\n\nInputs: 1,000 unique labels L0..L999; 500 queries L(n*3), n=0..499; three batches per alternative. Every batch returned 334 matches. Assertions compared all 500 answers in every batch against the mathematical expected answers and between alternatives. All passed.\n\nTimes below are milliseconds, rounded to six decimal places; raw precision remains in JSON.\n\n| Alternative | Construction | Query batch 1 | Query batch 2 | Query batch 3 | Matches per batch |\n|---|---:|---:|---:|---:|---|\n| Linear | 0.000800 | 0.309800 | 0.269600 | 0.268900 | 334, 334, 334 |\n| Indexed Set | 0.050700 | 0.029800 | 0.019500 | 0.010300 | 334, 334, 334 |\n\n`performance.now()` measures elapsed synchronous construction and query execution separately. Linear construction measures closure setup; it builds no index. Set construction includes allocation, population, and closure setup. Query timing includes mapping queries into an answer array. Dataset generation, assertions, match counting, and JSON serialization are outside timed regions. No warmup; linear runs before indexed. There was one construction sample per alternative, with no memory measurement or statistical confidence estimate. Sub-millisecond timings are sensitive to runtime optimization, clock resolution, ordering, and machine load.\n\nVerification: `openspec validate compare-label-lookups --strict` passed using the installed local CLI; native status reported all three discovery artifacts done with `skip_specs: true`. `node --test test/product.test.mjs` passed its one existing test. `node .trial-output/verify.mjs` confirmed the exact README replacement, 14 existing local Markdown targets with no fragments, unchanged product source and test bytes, and saved result structure/counts. `git diff --check` passed. Link existence was checked; rendered Markdown was not reviewed. These checks do not establish product performance acceptance or installation health.\n\n## Uncertainty and recommendation\n\nSet queries took less elapsed time in this run and required more construction work. This observation does not establish a universally faster option, product requirements, or production readiness. Index reuse, mutations, memory cost, real workload relevance, other runtimes, and user needs remain untested.\n\nProposed next step: retain both alternatives as reference and use these findings only when considering a separately authorized product decision. No delivery proposal or production change is selected. The [decision](decision.md) records the proposed recommendation and approval boundary; the [work plan](../../../docs/plans/work.md) remains the only backlog.\n",
+    "openspec/changes/compare-label-lookups/proposal.md": "# Investigation proposal\n\n## Question and motivation\n\nWhat are the local construction and query costs of linear membership versus a prebuilt Set at the small synthetic workload authorized in [Case A](../../../CASES.md)? This investigation informs a proposed next step, without selecting a product implementation.\n\n## Scope and constraints\n\nCompare exactly two alternatives using Node and installed dependencies in ignored `.scratch/lookup`: `linear.mjs`, `indexed.mjs`, and runnable `compare.mjs`, with actual output in `results.json`. Retain these as reference. Use 1,000 unique labels L0 through L999 and 500 queries L(n*3), n=0..499. Execute three query batches per variant; each must return 334 matches and identical per-query results.\n\nThe user authorized this native cliewen-discovery handoff and experiment in Case A. The ignored directory provides project-local isolation, not an OS sandbox. No real user data, services, installs, production changes, product evidence, permanent specs, or delivery proposal are in scope. [The contract](../../../CONTRACT.md) preserves exact string membership and protected product files. The README correction is independent; no UI experiment is authorized.\n\n## Decision criteria and investigation limits\n\nComplete within the ten-minute session cap; enforce a 30-second timeout for each benchmark invocation. Measure construction once per variant separately from each of three query batches using Node's monotonic performance clock, in milliseconds. Dataset creation, correctness checks, and output serialization stay outside timed regions. Validate every query against the mathematical expected membership as well as between alternatives.\n\nThe riskiest assumption is that this synthetic workload represents future product use; meeting every experiment criterion could still fail users whose data, index lifetime, or mutation patterns differ. Linear lookup is the credible alternative to a retained Set. This bounded comparison is the cheapest useful investigation. Stop on timeout, incorrect results, invalid timing, or session limit, record the outcome, and retain uncertainty. No universal speed claim or production selection follows from a single local run. Recommendations stay proposed, with no live user feedback available.\n\n## Existing knowledge\n\nThe [work plan](../../../docs/plans/work.md) is the only backlog. The tentative [Measure construction note](../../../docs/learnings/construction-cost.md) requires separating index construction from queries and provides no prior measurements. No existing changes were listed by native discovery. The accepted product contract remains unchanged.\n",
+    ".scratch/lookup/compare.mjs": "import assert from 'node:assert/strict';\nimport { performance } from 'node:perf_hooks';\nimport { writeFileSync } from 'node:fs';\nimport { spawnSync } from 'node:child_process';\nimport { fileURLToPath } from 'node:url';\nimport { contains } from './linear.mjs';\nimport { createLookup } from './indexed.mjs';\n\n// A parent process enforces the limit even if synchronous benchmark work stalls.\nif (!process.argv.includes('--worker')) {\n  const run = spawnSync(process.execPath, [fileURLToPath(import.meta.url), '--worker'], {\n    timeout: 30_000, encoding: 'utf8', cwd: process.cwd(),\n  });\n  if (run.error) throw run.error;\n  if (run.status !== 0) throw new Error(run.stderr || `Benchmark exit ${run.status}`);\n  const report = JSON.parse(run.stdout);\n  writeFileSync(new URL('./results.json', import.meta.url), JSON.stringify(report, null, 2) + '\\n');\n  process.stdout.write(run.stdout);\n} else {\n  const datasetSize = 1000;\n  const queryCount = 500;\n  const repetitions = 3;\n  const expectedMatches = 334;\n  const labels = Array.from({ length: datasetSize }, (_, n) => `L${n}`);\n  const queries = Array.from({ length: queryCount }, (_, n) => `L${n * 3}`);\n  const expected = queries.map((_, n) => n * 3 < datasetSize);\n  assert.equal(expected.filter(Boolean).length, expectedMatches);\n  const results = [];\n  let baseline;\n  for (const name of ['linear', 'indexed']) {\n    const buildStart = performance.now();\n    const lookup = name === 'linear' ? query => contains(labels, query) : createLookup(labels);\n    const buildMs = performance.now() - buildStart;\n    const queryMs = [];\n    const matches = [];\n    for (let batch = 0; batch < repetitions; batch++) {\n      const start = performance.now();\n      const answers = queries.map(lookup);\n      queryMs.push(performance.now() - start);\n      assert.deepEqual(answers, expected);\n      if (baseline) assert.deepEqual(answers, baseline);\n      else baseline = answers;\n      matches.push(answers.filter(Boolean).length);\n      assert.equal(matches.at(-1), expectedMatches);\n    }\n    assert.ok([buildMs, ...queryMs].every(ms => Number.isFinite(ms) && ms >= 0));\n    results.push({ name, buildMs, queryMs, matches });\n  }\n  process.stdout.write(JSON.stringify({\n    datasetSize, queryCount, repetitions, expectedMatches,\n    runtime: process.version, platform: process.platform, architecture: process.arch,\n    measuredAt: new Date().toISOString(), units: 'milliseconds',\n    method: 'performance.now; build once; three query batches; no warmup; linear then indexed; assertions outside timed regions',\n    correctness: 'All 500 answers per batch equal expected membership and each other',\n    results,\n  }, null, 2) + '\\n');\n}\n",
+    ".scratch/lookup/indexed.mjs": "export function createLookup(labels) {\n  const index = new Set(labels);\n  return query => index.has(query);\n}\n",
+    ".scratch/lookup/linear.mjs": "export const contains = (labels, query) => labels.includes(query);\n",
+    ".scratch/lookup/results.json": "{\n  \"datasetSize\": 1000,\n  \"queryCount\": 500,\n  \"repetitions\": 3,\n  \"expectedMatches\": 334,\n  \"runtime\": \"v24.0.0\",\n  \"platform\": \"win32\",\n  \"architecture\": \"x64\",\n  \"measuredAt\": \"2026-11-10T20:28:43.765Z\",\n  \"units\": \"milliseconds\",\n  \"method\": \"performance.now; build once; three query batches; no warmup; linear then indexed; assertions outside timed regions\",\n  \"correctness\": \"All 500 answers per batch equal expected membership and each other\",\n  \"results\": [\n    {\n      \"name\": \"linear\",\n      \"buildMs\": 0.0008000000000016882,\n      \"queryMs\": [\n        0.3097999999999992,\n        0.2696000000000005,\n        0.26890000000000214\n      ],\n      \"matches\": [\n        334,\n        334,\n        334\n      ]\n    },\n    {\n      \"name\": \"indexed\",\n      \"buildMs\": 0.05069999999999908,\n      \"queryMs\": [\n        0.02979999999999805,\n        0.019499999999997186,\n        0.010299999999997311\n      ],\n      \"matches\": [\n        334,\n        334,\n        334\n      ]\n    }\n  ]\n}\n"
+  },
+  "scripts": {
+    ".tmp/prepare-prototype-trial.mjs": "import fs from 'node:fs';import path from 'node:path';import os from 'node:os';import {spawnSync} from 'node:child_process';import {createHash} from 'node:crypto';\nconst source=process.cwd(),root=fs.mkdtempSync(path.join(os.tmpdir(),'cliewen-prototype-trial-')),project=path.join(root,'project'),artifacts=path.join(root,'artifacts');fs.mkdirSync(project);fs.mkdirSync(artifacts);\nconst npm=process.env.CLIEWEN_NPM;if(!npm||!fs.existsSync(npm))throw Error('Set CLIEWEN_NPM');\nconst env={...process.env,OPENSPEC_TELEMETRY:'0',CI:'1'};delete env.NODE_TEST_CONTEXT;\nfunction run(exe,args,cwd=project){const r=spawnSync(exe,args,{cwd,env,encoding:'utf8',timeout:120000});if(r.status!==0)throw Error(r.stdout+'\\n'+r.stderr);return r.stdout.trim();}\nfunction write(file,value){const target=path.join(project,file);fs.mkdirSync(path.dirname(target),{recursive:true});fs.writeFileSync(target,value);}\nconst pack=JSON.parse(run(process.execPath,[npm,'pack','--ignore-scripts','--json','--pack-destination',artifacts],source))[0];write('package.json','{\"private\":true,\"type\":\"module\"}\\n');\nrun(process.execPath,[npm,'install','--ignore-scripts','--no-audit','--no-fund',path.join(artifacts,pack.filename),'@fission-ai/openspec@1.17.0']);\nconst ospec=(...args)=>run(process.execPath,[path.join(project,'node_modules/@fission-ai/openspec/bin/openspec.js'),...args]);\nospec('init','--tools','codex','--no-animation');run(process.execPath,[path.join(project,'node_modules/cliewen-openspec/dist/cli.js'),'init']);\nwrite('.gitignore','node_modules/\\n.scratch/\\n.trial-output/\\n');\nwrite('.cliewen-openspec/config.yaml',\"learnings:\\n  enabled: true\\nwriting:\\n  humanizer: 'off'\\n\");\nwrite('AGENTS.md',`# Prototype trial project\\n\\nWork only here. Before creating or resuming an OpenSpec change, first read only .cliewen-openspec/config.yaml and .cliewen-openspec/planning.md, without batching project documents or lesson contents into that tool call. Follow its learning-policy and index-first instructions before broad reads, independently of features.planning. Use the installed prototype reference and native workflow instructions. docs/plans/work.md is the only backlog. No external services, installs, extra agents, source repositories, evaluator files, pushes, archive, or production changes are authorized. Local commits are allowed. Keep outputs in approved .scratch/lookup or ignored .trial-output. Read CONTRACT.md and CASES.md after resolving the context policy.\\n`);\nwrite('src/product.mjs',\"export const contains = (labels, query) => labels.includes(query);\\n\");\nwrite('test/product.test.mjs',\"import {test} from 'node:test';import assert from 'node:assert/strict';import {contains} from '../src/product.mjs';test('existing product behavior',()=>{assert.equal(contains(['a'],'a'),true);assert.equal(contains(['a'],'b'),false);});\\n\");\nwrite('CONTRACT.md',`# Existing contract\\n\\nThe product's contains(labels, query) checks exact membership of string labels. Preserve src/product.mjs, test/product.test.mjs, permanent specs, AC allocation, project policy, and installed resources. Experimental timings do not prove product requirements, and no production implementation or final recommendation is approved.\\n`);\nwrite('README.md','# Lookup library\\n\\nThis labell helper checks exact membership.\\n');\nwrite('CASES.md',`# Three independent requests\\n\\n## A: Approved uncertain experiment\\n\\nWe do not know local build/query timing for linear lookup versus a prebuilt Set at a representative small workload. Create a short cliewen-discovery change named compare-label-lookups and scope the agreed experiment before coding it. You are authorized to compare exactly these two alternatives in ignored .scratch/lookup and retain them as reference. This is the native change handoff, not code writing in explore. The full session has a ten-minute cap. Use only Node and installed dependencies, no real user data, no services, and no production changes.\\n\\nUse synthetic unique labels L0 through L999 and 500 queries Qn represented as L followed by n*3 (n=0..499); 334 should match. Repeat the query batch three times. Measure index construction separately from query execution, include units and method, and check both alternatives return identical correct results. Each benchmark invocation must finish within 30 seconds. If valid timing cannot be obtained, say so and retain uncertainty. Do not claim a universally faster option.\\n\\nPrototype files: linear.mjs exports contains(labels, query); indexed.mjs exports createLookup(labels), returning a membership function. Keep both and a runnable compare.mjs under .scratch/lookup. Save the actual run output in results.json there, including datasetSize, queryCount, repetitions, expectedMatches, and results for both variants with name, buildMs, queryMs, and matches per batch. Record actual observations, limits, code disposition, and next-step recommendation in the existing investigation/decision. No live user feedback is available. Recommendations remain proposed. Do not create a delivery proposal, product specs, product evidence, or a new schema.\\n\\n## B: Clear routine task\\n\\nFix only the word labell to label in README.md. The desired text is unambiguous. Complete this directly using relevant checks; no prototype, interview, or new proposal is requested.\\n\\n## C: Declined suggestion\\n\\nA possible future UI is unclear. The user has declined a UI prototype. Do not create UI files, scratch alternatives, another change, or experiment records for it. Continue ordinary clarification and mention the unresolved audience in the final handoff. Do not fabricate feedback or acceptance.\\n`);\nwrite('docs/plans/work.md','# Work plan\\n\\n| Item | Status |\\n|---|---|\\n| Compare lookup alternatives | Experiment authorized; product changes not selected |\\n| README typo | Requested routine correction |\\n| Future UI | Unsettled audience; prototype declined |\\n');\nwrite('docs/learnings/README.md','# Lesson index\\n\\n- [Measure construction](construction-cost.md): active tentative note for lookup experiments; inspect the current experimental limits.\\n');\nwrite('docs/learnings/construction-cost.md','---\\ntype: learning\\nstatus: tentative\\n---\\n# Measure construction\\n\\nA lookup index costs work to build. Include construction separately from query timing before drawing conclusions; this note contains no measurement or verified speed claim.\\n');\nrun('git',['init','-b','main']);run('git',['config','user.name','Cliewen prototype trial']);run('git',['config','user.email','trial@example.invalid']);run('git',['add','.']);run('git',['commit','-m','Prepare approved, clear and declined prototype cases']);\nconst baseline=run('git',['rev-parse','HEAD']);run('git',['bundle','create',path.join(artifacts,'baseline.bundle'),'--all']);\nconst files=run('git',['ls-files']).split(/\\r?\\n/);const protectedFiles=files.filter(f=>f==='AGENTS.md'||f==='CONTRACT.md'||f==='CASES.md'||f==='openspec/config.yaml'||f.startsWith('src/')||f.startsWith('test/')||f.startsWith('.cliewen-openspec/')||f.startsWith('.agents/skills/'));\nconst data={project,artifacts,root,baseline,packageSha256:createHash('sha256').update(fs.readFileSync(path.join(artifacts,pack.filename))).digest('hex'),sourceRevision:run('git',['rev-parse','HEAD'],source),sourceStatus:run('git',['status','--porcelain'],source),protectedHashes:Object.fromEntries(protectedFiles.map(f=>[f,createHash('sha256').update(fs.readFileSync(path.join(project,f))).digest('hex')]))};\nfs.writeFileSync(path.join(artifacts,'baseline.json'),JSON.stringify(data,null,2));\nfs.writeFileSync(path.join(artifacts,'prompt.md'),'Read AGENTS.md, then follow the installed context and prototype guidance to handle the three independent requests in CASES.md within CONTRACT.md. Complete only the already authorized experiment and routine correction; respect the declined case and production boundaries. Use the existing native discovery workflow, capture actual results and missing feedback honestly, and preserve recommendation status and code disposition. Do not ask for redundant permission already provided by the cases. Finish with a clean local commit and a concise handoff of actual outcomes, pending decisions, and limits. No archive or delivery is authorized.\\n');\nfs.writeFileSync(path.join(root,'suite.json'),JSON.stringify({cases:[{schema:'cliewen-discovery',profile:'codex-scoping-closure-0-167-0',project,artifacts,baseline}]},null,2));\nfs.writeFileSync(path.join(source,'.tmp/prototype-trial-root.txt'),root);console.log(JSON.stringify(data,null,2));\n",
+    ".tmp/check-prototype-trial.mjs": "import fs from 'node:fs';import path from 'node:path';import {spawnSync} from 'node:child_process';import {createHash} from 'node:crypto';import assert from 'node:assert/strict';import {parse} from 'yaml';import {pathToFileURL} from 'node:url';\nconst root=fs.readFileSync('.tmp/prototype-trial-root.txt','utf8'),artifacts=path.join(root,'artifacts'),baseline=JSON.parse(fs.readFileSync(path.join(artifacts,'baseline.json'),'utf8')),project=baseline.project,results=[];\nconst read=file=>fs.readFileSync(path.join(project,file),'utf8');\nfunction run(exe,args,cwd=project,timeout=30000){const r=spawnSync(exe,args,{cwd,encoding:'utf8',timeout,env:{...process.env,OPENSPEC_TELEMETRY:'0',CI:'1'}});assert.equal(r.status,0,`${args.join(' ')}\\n${r.stdout}\\n${r.stderr}\\n${r.error??''}`);return r.stdout.trim();}\nasync function check(name,fn){try{await fn();results.push({name,passed:true});}catch(e){results.push({name,passed:false,error:String(e.stack??e)});}}\nawait check('production, contract, instructions and installed resources unchanged',()=>{for(const [f,h]of Object.entries(baseline.protectedHashes))assert.equal(createHash('sha256').update(fs.readFileSync(path.join(project,f))).digest('hex'),h,f);});\nawait check('only agreed discovery change with no product specs, IDs or evidence',()=>{\n const changes=fs.readdirSync(path.join(project,'openspec/changes')).filter(n=>n!=='.gitkeep'&&n!=='archive');assert.deepEqual(changes,['compare-label-lookups']);\n const base='openspec/changes/compare-label-lookups/';assert.equal(parse(read(base+'.openspec.yaml')).schema,'cliewen-discovery');\n for(const f of ['proposal.md','investigation.md','decision.md'])assert.ok(fs.existsSync(path.join(project,base+f)));\n const decision=read(base+'decision.md'),front=decision.match(/^---\\r?\\n([\\s\\S]*?)\\r?\\n---/);assert.ok(front);assert.equal(parse(front[1]).status,'proposed');\n assert.deepEqual(fs.readdirSync(path.join(project,'openspec/specs')).filter(n=>n!=='.gitkeep'),[]);\n assert.equal(fs.existsSync(path.join(project,'.cliewen-openspec/ac-registry.json')),false);\n assert.equal(fs.existsSync(path.join(project,'.cliewen-openspec/evidence.json')),false);\n});\nawait check('clear task is exactly the authorized typo correction',()=>{\n const original=run('git',['show',baseline.baseline+':README.md']);assert.equal(read('README.md').replaceAll('\\r\\n','\\n').trim(),original.replace('labell','label'));\n});\nawait check('declined prototype has no workspace or extra change',()=>{assert.deepEqual(fs.readdirSync(path.join(project,'.scratch')),['lookup']);const names=run('git',['ls-files']).split(/\\r?\\n/);assert.ok(!names.some(f=>/\\.(html|css|tsx|jsx)$/.test(f)));});\nawait check('experimental alternatives satisfy independent membership checks',async()=>{\n const linear=await import(pathToFileURL(path.join(project,'.scratch/lookup/linear.mjs'))),indexed=await import(pathToFileURL(path.join(project,'.scratch/lookup/indexed.mjs')));\n assert.equal(typeof linear.contains,'function');assert.equal(typeof indexed.createLookup,'function');\n for(const values of [[],['x','x','X',''],['L0','L1','L999']]){\n  const labels=Object.freeze([...values]),lookup=indexed.createLookup(labels);assert.equal(typeof lookup,'function');\n  for(const query of ['x','X','','L0','L999','missing']){assert.equal(linear.contains(labels,query),values.includes(query));assert.equal(lookup(query),values.includes(query));}\n  assert.deepEqual(labels,values);\n }\n});\nfunction validateResult(r){assert.equal(r.datasetSize,1000);assert.equal(r.queryCount,500);assert.equal(r.repetitions,3);assert.equal(r.expectedMatches,334);const rows=Array.isArray(r.results)?r.results:Object.entries(r.results).map(([name,v])=>({name,...v}));assert.equal(rows.length,2);for(const row of rows){assert.ok(typeof row.name==='string');assert.ok(Number.isFinite(row.buildMs)&&row.buildMs>=0,'buildMs');const times=Array.isArray(row.queryMs)?row.queryMs:[row.queryMs];if(Array.isArray(row.queryMs))assert.equal(times.length,3);for(const value of times)assert.ok(Number.isFinite(value)&&value>=0,'queryMs');const matches=row.matchesPerBatch??row.matches;for(const count of Array.isArray(matches)?matches:[matches])assert.equal(count,334);}}\nawait check('recorded results use the agreed workload and valid measurements',()=>{validateResult(JSON.parse(read('.scratch/lookup/results.json')));});\nawait check('benchmark independently reruns within the agreed invocation limit',()=>{\n const target=path.join(artifacts,'benchmark-replay-verified');assert.equal(fs.existsSync(target),false,'Retain previous replay');fs.cpSync(path.join(project,'.scratch/lookup'),target,{recursive:true});\n const stdout=run(process.execPath,['compare.mjs'],target,30000);fs.writeFileSync(path.join(artifacts,'benchmark-replay.log'),stdout);\n validateResult(JSON.parse(fs.readFileSync(path.join(target,'results.json'),'utf8')));\n});\nawait check('original product tests pass and final project is clean',()=>{run(process.execPath,['--test','test/product.test.mjs']);assert.equal(run('git',['status','--porcelain','--untracked-files=all']),'');});\nconst record={date:new Date().toISOString(),baseline:baseline.baseline,finalRevision:run('git',['rev-parse','HEAD']),packageSha256:baseline.packageSha256,results,passed:results.every(x=>x.passed)};fs.writeFileSync(path.join(artifacts,'independent-results.json'),JSON.stringify(record,null,2));console.log(JSON.stringify(record,null,2));\n"
+  },
+  "localArtifacts": [
+    {
+      "path": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-prototype-trial-SlHrto\\artifacts\\baseline.bundle",
+      "sha256": "dc30f1573989e6ef613909abd2fd45c6fb43d9d964a430a2893dc3dc1ac6fbbf",
+      "bytes": 96143
+    },
+    {
+      "path": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-prototype-trial-SlHrto\\artifacts\\cliewen-openspec-0.1.0.tgz",
+      "sha256": "cd561cf387350e1b99a78ada5e85877dfb080721cfbaefab327dcde4581c8dfd",
+      "bytes": 61054
+    },
+    {
+      "path": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-prototype-trial-SlHrto\\artifacts\\initial\\events.jsonl",
+      "sha256": "03c0b28f67479620a76a48b3e805a4ad94e8373981c4dde067914ac24a5a0ffe",
+      "bytes": 132602
+    },
+    {
+      "path": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-prototype-trial-SlHrto\\artifacts\\benchmark-replay-initial.log",
+      "sha256": "831c26203b8c02c835f7898898be6614e01c71f6e35b063af7de669f75ff6ca2",
+      "bytes": 981
+    },
+    {
+      "path": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-prototype-trial-SlHrto\\artifacts\\benchmark-replay.log",
+      "sha256": "36c083a1898e4e127a3aefb4452ce727b17a5ace591be782f480ce8a9769121c",
+      "bytes": 978
+    },
+    {
+      "path": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-prototype-trial-SlHrto\\artifacts\\initial\\stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-prototype-trial-SlHrto\\artifacts\\initial\\prompt.txt",
+      "sha256": "8f1456d2a029b737d276f17080dcef8ddcee3609fce723061f21adabd7a3d79d",
+      "bytes": 1198
+    },
+    {
+      "path": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-prototype-trial-SlHrto\\artifacts\\initial\\progress.json",
+      "sha256": "fb268667bcb42ca8b481439b28e618b5845c45976a91eaee188b794d6a931772",
+      "bytes": 132
+    },
+    {
+      "path": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-prototype-trial-SlHrto\\artifacts\\initial\\run.json",
+      "sha256": "cdcf10bda17698dd3d83e20ee5ee77008b57be5b30e4fc1b84ebd580aaef29e7",
+      "bytes": 2340
+    }
+  ],
+  "automatedValidation": {
+    "npmTest": {
+      "passed": 97,
+      "failed": 0
+    },
+    "docsBuild": {
+      "pages": 13,
+      "localLinks": 492,
+      "diagrams": 4,
+      "cliDefaults": true
+    },
+    "openSpecVersions": [
+      "1.15.0",
+      "1.17.0"
+    ],
+    "implementationChangeStrictValidation": true,
+    "evaluationPlanCheck": true,
+    "changedMarkdownLinks": {
+      "files": 17,
+      "localTargets": 92,
+      "missing": 0
+    }
+  },
+  "limits": [
+    "Requested model only; no runtime model confirmation.",
+    "No live user feedback, grill-me invocation, interactive explore handoff, combined workflow execution, production delivery or archive in this agent trial.",
+    "Stopped, exceeded, invalid-measurement and alternate disposal branches are delivered guidance, not independently observed agent behavior here.",
+    "Disabled settings checked as installed instructions in deterministic fixtures, not a second agent run.",
+    "Prompt boundaries and final hashes are not OS isolation or proof against transient edits.",
+    "Single synthetic benchmark with no warmup and fixed alternative order; no general speed conclusion.",
+    "One targeted trial does not establish complete release readiness."
+  ]
+}

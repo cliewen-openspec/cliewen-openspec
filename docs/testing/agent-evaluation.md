@@ -71,6 +71,7 @@ Choose models already available to maintainers, then compare changes against tha
 
 ## When to run trials
 
+- Before the next release, follow the owner-approved [three-agent compatibility checkpoint](../decisions/022-proportionate-agent-validation.md#next-release-three-agent-compatibility-check): one representative fresh trial each with Codex CLI, Claude Code, and OpenCode after features and the guide stabilize, covering installation/update and a relevant workflow. This is a bounded next-release check; review every outcome and rerun only for failures or substantial subsequent changes.
 - For major workflow, approval, evidence-contract, or user-journey changes, run a targeted fresh trial of the affected behavior with one suitable pinned profile.
 - Use deterministic tests, executable examples, links, and browser checks for small fixes and wording/guidance refinements. Record input impact rather than automatically rerunning agents.
 - Each release cycle needs at least one fresh, representative, independently reviewed successful native-agent trial. Retain its exact inputs and limits; documented reuse can cover later minor changes.

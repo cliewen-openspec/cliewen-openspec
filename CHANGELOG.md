@@ -4,6 +4,8 @@ Changes that matter to projects using Cliewen for OpenSpec.
 
 ## Unreleased
 
+- Agents can suggest a bounded prototype when material uncertainty needs something concrete to try. Users choose the experiment; clear tasks and declined suggestions continue normally. The installed prototype reference guides native investigative handoff, isolation, honest findings and feedback, and code disposition before delivery planning. See [optional prototypes](docs/guide/workflow.md#try-a-prototype-when-it-can-answer-a-question).
+
 - The pre-change planning reference now explains learning-policy resolution before broad context reads, including when planning is disabled. An optional project-entry rule requests a separate initial reference read and index-first lesson selection. This guides agents; it does not enforce read order through the CLI.
 
 - A shared closure reference helps agents maintain affected documentation, decisions, tests, and enabled learnings around archive, then revisit affected future work. Projects can opt in through OpenSpec's archive operation guidance so a separate archive session can find it. Native archive remains in OpenSpec; direct CLI calls do not execute the review. See [closure setup](docs/guide/workflow.md#close-the-change-and-preserve-useful-knowledge).

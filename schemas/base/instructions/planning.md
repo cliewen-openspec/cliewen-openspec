@@ -12,6 +12,8 @@ After resolving this policy and selecting any relevant lessons, gather the remai
 
 ## Optional planning
 
+For optional prototype experiments after resolving the context policy, use .cliewen-openspec/prototyping.md. Its user-selection and native-workflow rules apply independently of features.planning; understood work requires no experiment.
+
 Read features.planning (default true). When false, skip planning-authority discovery, ticket access, and plan maintenance; preserve authored documents. Behavior scoping, relevant verification, and existing approval boundaries still apply.
 
 When enabled and planning is useful, use one project-selected authority: its existing ticket system or a lightweight local plan using existing paths and conventions. Record the chosen system and project/backlog reference in that authority or an existing project reference. Link to it from the proposal when relevant. Keep goals and milestones together if sufficient; separate goal documents and a backlog for standalone tasks are optional.

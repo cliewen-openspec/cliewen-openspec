@@ -47,6 +47,43 @@ Installation writes the reference, but does not edit your agent file or OpenSpec
 
 For consequential unresolved choices, you can request the optional [grill-me interview](https://www.aihero.dev/skills-grill-me). It needs the host-exposed `grill-me` skill and its `grilling` dependency. The agent may suggest it; availability alone does not start it. If unavailable or declined, ordinary scoping continues. Confirm the conclusions before acting and preserve them in the relevant proposal, plan, or decision afterward. The package does not install these skills.
 
+## Try a prototype when it can answer a question
+
+Development source adds optional prototype guidance in `.cliewen-openspec/prototyping.md`. Published 0.1.0 does not contain it. No new configuration flag or schema is needed.
+
+The agent first inspects available evidence and clarifies what it can. If material uncertainty remains that needs something concrete to try, it can suggest a bounded experiment. The suggestion states the question, expected learning, estimated effort, workspace, outputs, useful resource limits, and the decision it will inform. You choose whether to proceed. You can also request a prototype directly. Already agreed scope needs no repeated permission; a clear task proceeds without a prototype or interview.
+
+For example, you might authorize two small lookup implementations using synthetic data in an existing ignored scratch directory, with a five-minute limit, to decide whether building an index is worth its cost. That authorizes the described experiment; it does not approve a production rewrite. If you decline, the agent continues ordinary clarification and leaves relevant uncertainty visible.
+
+### Start from an investigative change
+
+OpenSpec's explore mode does not write code. When discussion reaches an agreed experiment, follow its native handoff and capture-confirmation rules. The recommended route is a short discovery change:
+
+```sh
+npx --no-install openspec new change compare-lookup-options --schema cliewen-discovery
+npx --no-install openspec instructions proposal --change compare-lookup-options --json
+```
+
+These commands create the change and retrieve writing instructions. The agent then writes the concise investigation proposal: question, scope, agreed workspace and limits, and decision criteria. It is a proposal for the experiment, rather than a detailed specification for the eventual product. After that artifact exists, retrieve the next instructions:
+
+```sh
+npx --no-install openspec instructions investigation --change compare-lookup-options --json
+```
+
+The agent performs only the agreed experiment during investigation and records its actual findings in `investigation.md`. The CLI supplies instructions; it does not build prototypes for you. If you explicitly choose [the combined workflow](all.md), its investigation can hold the experiment instead, with the existing decision boundary before product implementation.
+
+Keep experimental code and checks in the agreed workspace. Preserve production code, acceptance tests, permanent specs, and acceptance-ID allocation while investigating. State actual isolation: an ignored directory is not an enforced sandbox. Label synthetic data, stubs, and unsupported behavior. A stopped, failed, or invalid experiment remains such; clarify any material expansion before proceeding.
+
+### Keep what the experiment teaches
+
+Separate what was observed, actual user feedback and its source, interpretation, and what remains unknown. Record methods and inputs so the conclusion can be assessed. If no user tried the prototype, say so. Scripted example feedback is not a live user observation.
+
+Use the existing investigation artifact and, when planning is enabled, the selected ticket or plan item. Maintain useful reusable lessons only when learnings and documentation guidance are enabled, following index-first retrieval. With those facilities disabled, preserve authored files and keep findings in the native investigation artifact and handoff.
+
+Use the result to proceed, investigate further, choose another approach, or stop. Record whether code will be discarded, kept as reference, or reviewed for further development. A useful prototype is not automatically production-ready. Write the eventual delivery proposal from current findings when that work is selected; retain remaining limits and existing approval rules.
+
+Optional grill-me can help clarify choices before or after an experiment. The user requests the interview; it neither starts a prototype nor approves later delivery. Both the interview and prototype can be used independently.
+
 ## What writes each file?
 
 | Step | Tool or person | Result |
