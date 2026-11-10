@@ -24,7 +24,7 @@ test('packed installation → OpenSpec change → real test evidence → archive
   assert.ok(!pack[0].files.some(file => /^dist\/tdd\./.test(file.path)), 'Retired recorder outputs must not ship');
   const tar=path.join(root,pack[0].filename);
   write('package.json',JSON.stringify({private:true,type:'module'}));
-  run(process.execPath,[npm,'install','--ignore-scripts','--no-audit','--no-fund',tar,'@fission-ai/openspec@1.15.0']);
+  run(process.execPath,[npm,'install','--ignore-scripts','--no-audit','--no-fund',tar,'@fission-ai/openspec@1.17.0']);
   fs.unlinkSync(tar);
   // Replace local tarball dependency path before committing the test fixture.
   write('package.json',JSON.stringify({private:true,type:'module'}));

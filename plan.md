@@ -12,8 +12,8 @@ This roadmap is accepted direction, not implemented functionality. [Decision 023
 | Order | Increment | Completion criteria | Status |
 |---|---|---|---|
 | 1 | Scope work, plan progressively, and challenge risky assumptions | Agents assess whether a change is needed, split oversized work, and prepare the next coherent delivery from a ticket or local plan | [Implemented and verified](docs/testing/work-scoping-001.md) in development source; review and limits accepted; archived November 10, 2026 |
-| 2 | Maintain durable knowledge around archive | Closure updates affected documentation and preserves useful findings; subsequent work is reassessed against actual results | Planned; next |
-| 3 | Adopt and upgrade existing projects | Reviewable previews support adoption and upgrades while preserving project-owned documents, configuration, identities, and modifications | Planned |
+| 2 | Maintain durable knowledge around archive | Closure updates affected documentation and preserves useful findings; subsequent work is reassessed against actual results | [Proposal prepared](openspec/changes/maintain-knowledge-at-archive/proposal.md); owner review pending |
+| 3 | Adopt and upgrade existing projects | Reviewable previews support adoption and upgrades, check release-specific OpenSpec/Node minimums at init and update, and preserve project-owned documents, configuration, identities, and modifications | Planned |
 | 4 | Explain product intent and user journeys | Optional goals and cross-capability journeys help evaluate changes without duplicating behavioral specs | Planned |
 | 5 | Record meaningful human verification | Observations identify who checked what, conditions, results, and limits; manual evidence remains distinct from automated tests and approval | Planned |
 
@@ -56,3 +56,13 @@ Follow [Decision 022: Use targeted agent trials for major changes and each relea
 Future proposals must identify compatibility and migration effects before adding configuration or report fields. The current edit changes no CLI, configuration, schema, or evidence interface. General migrations, distributed identity allocation, a global document graph, and dedicated context/next commands are not added by this plan.
 
 The [OpenSpec introduction](docs/community/openspec-introduction.md) remains an unsent draft at the owner's request. Revisit it after the desired product additions. Publication and outreach require their own instructions.
+
+## Tool-version baseline and future upgrades
+
+The owner accepted OpenSpec 1.15.0+ and Node 20.19+ as the current minimums, with version checking at init and update. Development now pins OpenSpec 1.17.0; its npm installation needs Node 22.12+. [Version compatibility](docs/configuration.md#version-compatibility) is the user-facing reference.
+
+Priority 3 must make each Cliewen release's requirements explicit and check them before installation or update writes. A future release may require a newer OpenSpec, potentially the latest supported version at that time. An incompatible project needs a clear explanation and upgrade path; Cliewen must not silently upgrade OpenSpec. Avoid a persistent first-use success cache that can outlive tool changes. Cross-version Cliewen upgrades and these runtime checks remain planned, not implemented by the dependency refresh.
+
+Use OpenSpec's supported update preview when reviewing integration refreshes. Track the upstream transition toward skill delivery without changing users' global delivery preferences automatically. Preserve earlier release and trial version records as historical evidence.
+
+The [OpenSpec compatibility review](docs/testing/openspec-compatibility-001.md) records the 1.17.0 upgrade, 88 passing local tests, and the narrower Node 20.19/OpenSpec 1.15.0 minimum probe.

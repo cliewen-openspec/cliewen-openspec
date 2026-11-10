@@ -22,12 +22,12 @@ Use [the combined workflow](docs/guide/all.md) to investigate and deliver in one
 
 ## Install
 
-Requires Node.js 20.19 or newer and Git. The integration test uses OpenSpec 1.15.0. Windows and Linux CI exercise Node 22 and 24.
+Requires OpenSpec 1.15.0 or newer, Node.js 20.19 or newer, and Git. The npm commands below install OpenSpec 1.17.0, which requires Node 22.12 or newer. See [version compatibility](docs/configuration.md#version-compatibility) for the Node 20 installation path. Current integration tests target OpenSpec 1.17.0; Windows and Linux CI use Node 22 and 24.
 
 In your project, install the versioned packages and initialize OpenSpec:
 
 ```sh
-npm install --save-dev @fission-ai/openspec@1.15.0
+npm install --save-dev @fission-ai/openspec@1.17.0
 npx --no-install openspec init
 npm install --save-dev cliewen-openspec@0.1.0
 npx --no-install cliewen-openspec init --default

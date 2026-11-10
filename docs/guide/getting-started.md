@@ -3,7 +3,7 @@ type: guide
 ---
 # Your first change
 
-This guide takes a small CSV exporter from a new project to archived OpenSpec specs. Use a separate repository so you can review everything the package installs. You need Git, npm, and Node.js 20.19 or newer. Node 22 or 24 matches the versions used in package CI. Configure a Git name and email before the commit steps.
+This guide takes a small CSV exporter from a new project to archived OpenSpec specs. Use a separate repository so you can review everything the package installs. You need Git, npm, and Node.js 22.12 or newer for the OpenSpec 1.17.0 npm installation used here. Cliewen itself supports Node 20.19+; see [version compatibility](../configuration.md#version-compatibility) for that installation path. Node 22 or 24 matches the versions used in package CI. Configure a Git name and email before the commit steps.
 
 The commands follow a prepared example without a coding agent. For an agent-authored change, choose [agent setup](existing-projects.md#coding-agents) before initialization and use the [reference prompt](../testing/pilot-prompt.md#prompt). Allocate IDs for that agent's reviewed scenarios; the fixed six-ID allocation and copy helpers below belong to the prepared path.
 
@@ -40,7 +40,7 @@ mkdir cliewen-pilot
 cd cliewen-pilot
 git init -b main
 npm init -y
-npm install --save-dev @fission-ai/openspec@1.15.0
+npm install --save-dev @fission-ai/openspec@1.17.0
 npm install --save-dev ../cliewen-openspec/cliewen-openspec-0.1.0.tgz
 node -e "require('node:fs').writeFileSync('.gitignore', 'node_modules/\n')"
 ```

@@ -7,6 +7,25 @@ Cliewen reads project settings from `.cliewen-openspec/config.yaml`.
 
 This reference describes version `0.1.0`. The earlier published `0.1.0-alpha.1` does not accept the `quality`, `lifecycle`, `learnings`, or `writing` settings below. Use that package's bundled reference when working with the alpha; its installation manifest is unsupported by 0.1.0.
 
+## Version compatibility
+
+Cliewen requires **OpenSpec 1.15.0 or newer**, **Node.js 20.19 or newer**, and Git. Current development pins OpenSpec 1.17.0. The published 0.1.0 release was checked with OpenSpec 1.15.0; newer development checks are recorded separately.
+
+OpenSpec has its own installation requirements:
+
+| Installation | Node requirement |
+|---|---|
+| Cliewen CLI | Node 20.19+ |
+| OpenSpec 1.15.0 via npm | Compatible with the Cliewen Node 20.19 minimum |
+| OpenSpec 1.17.0 via npm | Node 22.12+ |
+| OpenSpec standalone binary | No Node runtime for OpenSpec itself; Cliewen still needs Node |
+
+On Node 20.19, pin `@fission-ai/openspec@1.15.0` or use a compatible OpenSpec standalone installation. The current worked npm guide uses OpenSpec 1.17.0 and therefore requires Node 22.12+. See [OpenSpec's release notes](https://github.com/Fission-AI/OpenSpec/blob/main/CHANGELOG.md) for its own runtime requirements.
+
+The minimum is a compatibility floor, not proof that every newer release has been tested. A future Cliewen release may raise its OpenSpec or Node minimum. Review that release's requirements before upgrading.
+
+Version checks at `init` and `update` are agreed future work. The current CLI does not yet enforce these minimums. General cross-version upgrades are also planned; do not bypass the current manifest-version checks to simulate an upgrade.
+
 ## Full defaults
 
 This is the complete configuration written by `init`. Omitted fields use these values; unknown settings and invalid values fail validation. Changes apply when the next operation reads the config. They do not rewrite existing proposals or task lists.

@@ -24,6 +24,6 @@ npx --no-install cliewen-openspec init --default
 
 Use OpenSpec's setup selection for the agent you run. The reproducible guide uses `--tools none` so it can run without an interactive agent. In the local pilot, `openspec init --tools codex --no-animation` created Codex skills under `.agents/skills/`.
 
-Claude Code, Codex CLI, and OpenCode are the target evaluation profiles. The project has not completed automated trials across all three, their models, and effort settings. The tested package workflow uses OpenSpec 1.15.0 and Node 22/24 on Windows/Linux CI; this does not establish compatibility with every agent configuration.
+Claude Code, Codex CLI, and OpenCode are the target evaluation profiles. The project has not completed automated trials across all three, their models, and effort settings. The published 0.1.0 workflow was checked with OpenSpec 1.15.0 and Node 22/24 on Windows/Linux CI. Development now targets OpenSpec 1.17.0; see [version compatibility](../configuration.md#version-compatibility). These checks do not establish compatibility with every agent configuration.
 
 The schema tells the agent to read `.cliewen-openspec/config.yaml`. Check the generated plan against your settings before implementation. Changing config does not rewrite an already authored tasks file. After changing the npm package, use [update](updating.md) to refresh owned schemas from a supported manifest while preserving project configuration and authored files.

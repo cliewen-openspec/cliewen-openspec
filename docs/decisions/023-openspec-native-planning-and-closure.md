@@ -32,3 +32,9 @@ The [OpenSpec workflow guide](https://github.com/Fission-AI/OpenSpec/blob/main/d
 ## Implementation checkpoint
 
 The first work-scoping and optional planning increment is implemented in development source. [The implementation review](../testing/work-scoping-001.md) records 88 passing tests, packed OpenSpec retrieval, and one bounded scenario observation. Archive extensions and later roadmap increments remain planned. The owner accepted the implementation review and its documented limits on November 10, 2026; the owner subsequently authorized archive, completed on the same date. Published 0.1.0 is unchanged.
+
+The next [closure proposal](../../openspec/changes/maintain-knowledge-at-archive/proposal.md) is prepared for owner review. Its design uses the native archive operation-guidance input verified on OpenSpec 1.15.0, with project-managed opt-in configuration. This records a proposed implementation, not completed archive functionality.
+
+## Compatibility and upgrade direction
+
+On November 10, 2026, the owner accepted OpenSpec 1.15.0+ and Node 20.19+ as the current minimums and confirmed init and update as the points for future version checks. Each later Cliewen release may raise its minimums and must state them before installation or update writes. OpenSpec upgrades remain a project-controlled action. These checks and general cross-version Cliewen upgrades belong to roadmap priority 3. The [compatibility review](../testing/openspec-compatibility-001.md) distinguishes completed installation/testing from that planned behavior.

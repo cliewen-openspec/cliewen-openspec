@@ -37,7 +37,7 @@ run(process.execPath, [npm, 'run', 'build'], source);
 const pack = JSON.parse(run(process.execPath, [npm, 'pack', '--json', '--ignore-scripts', '--pack-destination', artifacts], source))[0];
 const tar = path.join(artifacts, pack.filename);
 write('package.json', JSON.stringify({name: 'csv-bom-agent-trial', private: true, type: 'module', scripts: {test: 'node --test test/*.test.mjs'}}, null, 2) + '\n');
-run(process.execPath, [npm, 'install', '--ignore-scripts', '--no-audit', '--no-fund', '--save-exact', tar, '@fission-ai/openspec@1.15.0']);
+run(process.execPath, [npm, 'install', '--ignore-scripts', '--no-audit', '--no-fund', '--save-exact', tar, '@fission-ai/openspec@1.17.0']);
 const ospec = (...argv) => run(process.execPath, ['node_modules/@fission-ai/openspec/bin/openspec.js', ...argv]);
 const cl = (...argv) => run(process.execPath, ['node_modules/cliewen-openspec/dist/cli.js', ...argv]);
 ospec('init', '--tools', 'none', '--no-animation');
@@ -65,7 +65,7 @@ const metadata = {
   preparedAt: new Date().toISOString(), sourceRevision: run('git', ['rev-parse', 'HEAD'], source),
   sourceStatus: run('git', ['status', '--porcelain'], source), baseline,
   package: {version: pack.version, filename: pack.filename, sha256: createHash('sha256').update(fs.readFileSync(tar)).digest('hex')},
-  node: process.version, npm: run(process.execPath, [npm, '--version']), openspec: '1.15.0', root,
+  node: process.version, npm: run(process.execPath, [npm, '--version']), openspec: '1.17.0', root,
 };
 fs.writeFileSync(path.join(artifacts, 'baseline.json'), JSON.stringify(metadata, null, 2) + '\n');
 for (const file of ['prompt.md', 'rubric.md']) fs.copyFileSync(path.join(source, 'docs/testing/csv-bom-trial', file), path.join(artifacts, file));

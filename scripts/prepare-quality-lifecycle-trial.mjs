@@ -35,7 +35,7 @@ else if (!fs.existsSync(path.join(source, 'dist/cli.js'))) throw Error('Build th
 const pack = JSON.parse(run(process.execPath, [npm, 'pack', '--json', '--ignore-scripts', '--pack-destination', artifacts], source))[0];
 const tar = path.join(artifacts, pack.filename);
 write('package.json', JSON.stringify({name: 'count-quality-agent-trial', private: true, type: 'module', scripts: {test: 'node --test test/*.test.mjs'}}, null, 2) + '\n');
-run(process.execPath, [npm, 'install', '--ignore-scripts', '--no-audit', '--no-fund', '--save-exact', tar, '@fission-ai/openspec@1.15.0']);
+run(process.execPath, [npm, 'install', '--ignore-scripts', '--no-audit', '--no-fund', '--save-exact', tar, '@fission-ai/openspec@1.17.0']);
 const ospec = (...args) => run(process.execPath, ['node_modules/@fission-ai/openspec/bin/openspec.js', ...args]);
 const cl = (...args) => run(process.execPath, ['node_modules/cliewen-openspec/dist/cli.js', ...args]);
 ospec('init', '--tools', 'none', '--no-animation'); cl('init', '--default');
@@ -69,7 +69,7 @@ const baseline = run('git', ['rev-parse', 'HEAD']);
 run(process.execPath, ['node_modules/cliewen-openspec/adapters/node-test.mjs', 'test/count.test.mjs', 'test/shared.test.mjs', 'test/limit.test.mjs']);
 const initialCheck = JSON.parse(run(process.execPath, ['node_modules/cliewen-openspec/dist/cli.js', 'check', '--json'], root, 1));
 if (initialCheck.ok || !initialCheck.findings.some(f => f.code === 'coverage-minimum-unmet')) throw Error('Baseline must expose the quality gap');
-const metadata = {preparedAt: new Date().toISOString(), sourceRevision: run('git', ['rev-parse', 'HEAD'], source), sourceStatus: run('git', ['status', '--porcelain'], source), schema, baseline, package: {version: pack.version, filename: pack.filename, sha256: createHash('sha256').update(fs.readFileSync(tar)).digest('hex')}, node: process.version, npm: run(process.execPath, [npm, '--version']), openspec: '1.15.0', root};
+const metadata = {preparedAt: new Date().toISOString(), sourceRevision: run('git', ['rev-parse', 'HEAD'], source), sourceStatus: run('git', ['status', '--porcelain'], source), schema, baseline, package: {version: pack.version, filename: pack.filename, sha256: createHash('sha256').update(fs.readFileSync(tar)).digest('hex')}, node: process.version, npm: run(process.execPath, [npm, '--version']), openspec: '1.17.0', root};
 fs.writeFileSync(path.join(artifacts, 'baseline.json'), JSON.stringify(metadata, null, 2) + '\n');
 fs.writeFileSync(path.join(artifacts, 'baseline-check.json'), JSON.stringify(initialCheck, null, 2) + '\n');
 fs.copyFileSync(path.join(root, '.cliewen-openspec/evidence.json'), path.join(artifacts, 'baseline-evidence.json'));

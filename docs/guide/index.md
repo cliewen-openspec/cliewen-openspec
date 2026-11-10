@@ -33,7 +33,7 @@ If something fails or the guide is unclear, [report a bug](https://github.com/cl
 | Project learnings | Optional indexed lessons with retrieval, verification, and retirement guidance; authored notes are preserved |
 | Humanizer | Agent-mediated discovery and use, one status per session, and nonblocking fallback; no automatic installation |
 
-Install `cliewen-openspec@0.1.0` from npm for normal use. [The worked guide](getting-started.md) builds a local tarball to keep its prepared CSV files alongside the package source. The earlier published `0.1.0-alpha.1` remains available but lacks the new quality, learnings, and writing facilities. Its manifest is unsupported by 0.1.0. The deterministic workflow test uses OpenSpec 1.15.0; package CI exercises Node 22 and 24 on Windows and Linux.
+Install `cliewen-openspec@0.1.0` from npm for normal use. [The worked guide](getting-started.md) builds a local tarball to keep its prepared CSV files alongside the package source. The earlier published `0.1.0-alpha.1` remains available but lacks the new quality, learnings, and writing facilities. Its manifest is unsupported by 0.1.0. Cliewen requires OpenSpec 1.15.0+ and Node 20.19+. The current npm guide targets OpenSpec 1.17.0 and needs Node 22.12+. See [version compatibility](../configuration.md#version-compatibility). Package CI uses Node 22 and 24 on Windows and Linux.
 
 ## Defaults
 
