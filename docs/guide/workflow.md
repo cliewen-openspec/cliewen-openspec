@@ -127,3 +127,44 @@ The development source for 0.2 also checks [test quality and lifecycle](../testi
 A passing `check` confirms that the configured report matches the scenario references and current clean Git revision, with no blocking findings. Review the assertions as well: a test that only checks that an output exists may not prove the scenario.
 
 Cliewen's instruction to check evidence is guidance. The alpha does not intercept OpenSpec's archive command. After archive, commit the new state and regenerate evidence before checking permanent specs. The [first-change guide](getting-started.md#7-archive-and-refresh-evidence) shows the commands.
+
+## Close the change and preserve useful knowledge
+
+Development source installs `.cliewen-openspec/closure.md` and links it from all three workflows' implementation instructions. This addition is not in published 0.1.0. The reference brings together the project's enabled documentation, decision, learning, planning, test-review, and evidence responsibilities. It requests agent review; it does not enforce document accuracy or intercept archive.
+
+Before archive, compare the actual delivery with its agreed scope, maintain affected explanations and decisions, and preserve useful findings. Existing feature settings apply independently. For example, disabled planning skips ticket access, and disabled learnings preserve existing notes without requesting new ones. Routine work need not create a closure report, decision, or lesson.
+
+A delivery follows its existing test and evidence contract. Discovery and combined no-delivery outcomes retain actual findings, uncertainty, and cleanup results. They do not need product test results for behavior that was never implemented.
+
+### Use the reference from a separate archive session
+
+OpenSpec 1.15.0 and 1.17.0 expose advisory archive inputs. For a repository-local Cliewen installation, add this entry to `openspec/config.yaml` if you want the archive skill to find the reference independently:
+
+```yaml
+operations:
+  archive:
+    guidance:
+      - For changes using cliewen-delivery, cliewen-discovery, or cliewen-all, read .cliewen-openspec/config.yaml and .cliewen-openspec/closure.md and apply the relevant closure guidance before and after archive.
+```
+
+Merge the entry into your existing `operations.archive.guidance` list. Keep other entries, `operations.apply`, rules, context, schema selection, and comments. Do not replace the whole configuration with this snippet. Cliewen installation leaves this project-owned setting untouched.
+
+For an active change, inspect what OpenSpec returns:
+
+```sh
+npx --no-install openspec instructions archive --change add-csv-export --json
+```
+
+The `operationGuidance` array should include the added entry and any previous guidance. The name must identify an existing active change; replace `add-csv-export` with your change. Native paths, archive steps, explicit choices, and project policy remain controlling. The entry applies to the three Cliewen schemas, so other workflows keep their own closure rules. Standalone-store layouts are outside this example's tested scope.
+
+This reaches agents using an OpenSpec archive skill that reads operation inputs. Running `openspec archive` directly does not execute the reference. Request the review separately before and after that command. If operation inputs are unavailable in your tool setup, use the same manual path. Neither a missing reference nor an unavailable advisory lookup is a new archive blocker; report the limitation and use the applicable native workflow.
+
+### Report what actually finished
+
+After successful archive, inspect its actual destination and spec synchronization result. Repair affected links after the move. With planning enabled, revisit affected future tickets or plan items against what was learned. Use the project's completion criteria: a ticket may still need deployment or a human check. If ticket access is missing, read-only, fails, or lacks authorization, give the concrete pending update alongside the archive result.
+
+If archive or synchronization fails, inspect the reported result and current files before retrying. Explain what changed and what remains. Preserve pending synchronization if the chosen native route leaves specs unsynchronized. Archive, ticket completion, and Git integration are separate facts.
+
+Finish intended tracked documentation and planning edits before the final commit. For delivered behavior with evidence enabled, recollect permanent-spec evidence and rerun the check afterward, as shown in [archive and refresh evidence](getting-started.md#7-archive-and-refresh-evidence). Earlier revision-bound evidence becomes historical when archive or a later commit changes the inputs.
+
+A short handoff should state the archive location, actual spec synchronization, remaining work, and verification limits. No separate report is mandatory.

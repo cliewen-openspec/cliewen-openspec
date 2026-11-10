@@ -297,3 +297,7 @@ Existing filenames and paths are stable public addresses: never rename, move, or
 ## Installed resource versions
 
 The `0.1.0` candidate's `init`, `update`, and `uninstall` accept only `0.1.0` installation manifests. `check` reports other manifest versions as unsupported; changing the recorded version by hand does not migrate an installation. Use a fresh project for candidate evaluation. [Update](guide/updating.md) refreshes or repairs owned resources within the supported version while preserving configuration, registry, authored artifacts, and document paths. Adding config settings alone does not replace installed instructions. General version/config/registry migrations are outside this release's scope.
+
+## Optional archive-session guidance
+
+Development source installs `.cliewen-openspec/closure.md`. For repository-local projects, OpenSpec's project-owned `operations.archive.guidance` can point an archive session to that reference. See [closure setup and limits](guide/workflow.md#use-the-reference-from-a-separate-archive-session), including direct CLI use and removal of the optional entry after uninstall. Existing Cliewen feature and test-policy settings control the matching review responsibilities; there is no new configuration flag or automatic archive hook.

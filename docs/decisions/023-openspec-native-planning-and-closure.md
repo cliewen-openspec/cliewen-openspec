@@ -31,9 +31,9 @@ The [OpenSpec workflow guide](https://github.com/Fission-AI/OpenSpec/blob/main/d
 
 ## Implementation checkpoint
 
-The first work-scoping and optional planning increment is implemented in development source. [The implementation review](../testing/work-scoping-001.md) records 88 passing tests, packed OpenSpec retrieval, and one bounded scenario observation. Archive extensions and later roadmap increments remain planned. The owner accepted the implementation review and its documented limits on November 10, 2026; the owner subsequently authorized archive, completed on the same date. Published 0.1.0 is unchanged.
+The first work-scoping and optional planning increment is implemented in development source. [The implementation review](../testing/work-scoping-001.md) records 88 passing tests, packed OpenSpec retrieval, and one bounded scenario observation. That increment is complete; closure work and later roadmap increments are tracked separately below. The owner accepted the implementation review and its documented limits on November 10, 2026; the owner subsequently authorized archive, completed on the same date. Published 0.1.0 is unchanged.
 
-The next [closure proposal](../../openspec/changes/maintain-knowledge-at-archive/proposal.md) is prepared for owner review. Its design uses the native archive operation-guidance input verified on OpenSpec 1.15.0, with project-managed opt-in configuration. This records a proposed implementation, not completed archive functionality.
+The approved [closure proposal](../../openspec/changes/maintain-knowledge-at-archive/proposal.md) is implemented in development source. [Its review](../testing/change-closure-001.md) records 92 passing tests, packed archive-input and delivery/investigation checks on OpenSpec 1.15.0 and 1.17.0, and limits on unobserved agent behavior. The archive entry remains project-managed opt-in guidance. Owner implementation review and archive authorization remain pending; published 0.1.0 is unchanged.
 
 ## Compatibility and upgrade direction
 

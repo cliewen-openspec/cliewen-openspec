@@ -3,7 +3,7 @@ type: guide
 ---
 # Remove installed Cliewen resources
 
-`uninstall` removes unchanged installer-owned schemas and templates plus their ownership manifest. It preserves authored docs, active/archived change files, permanent specs, project configuration, AC registry, evidence, and custom files. The npm package remains installed unless you remove it separately afterward.
+`uninstall` removes unchanged installer-owned schemas, templates, and references plus their ownership manifest. It preserves authored docs, active/archived change files, permanent specs, project configuration, AC registry, evidence, and custom files. The npm package remains installed unless you remove it separately afterward.
 
 ## Preview first
 
@@ -48,3 +48,7 @@ Apply recovers a leftover valid transaction first, then checks conflicts and ref
 `.cliewen-openspec/config.yaml`, its registry, evidence, and local ignore file remain, along with authored project files. Their contents are not migrated or validated as a prerequisite to removal. Keep the registry to preserve identity history. This candidate supports only `0.1.0` manifests; alpha and other versions are rejected without automatic migration. Without a manifest, it refuses removal rather than guessing ownership. A repeated uninstall therefore reports a missing manifest.
 
 Review the resulting Git diff. `check` reports not-installed after removal; run `init` again if you want to restore the schemas. Reinstallation retains configuration and the AC high-water marks, rather than restarting numbering. Removing the npm dependency is a separate choice, performed after the resource command if desired.
+
+## Remove optional archive guidance
+
+If you added the [archive operation entry](workflow.md#use-the-reference-from-a-separate-archive-session) for the development-source closure reference, remove that exact entry from `operations.archive.guidance` in `openspec/config.yaml` when uninstalling. Preserve other entries and settings. The installer preserves this project-owned configuration even though it removes its unchanged closure reference. A stale pointer does not disable native archive, but the agent must report that it cannot load the reference.

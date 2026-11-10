@@ -12,7 +12,7 @@ This roadmap is accepted direction, not implemented functionality. [Decision 023
 | Order | Increment | Completion criteria | Status |
 |---|---|---|---|
 | 1 | Scope work, plan progressively, and challenge risky assumptions | Agents assess whether a change is needed, split oversized work, and prepare the next coherent delivery from a ticket or local plan | [Implemented and verified](docs/testing/work-scoping-001.md) in development source; review and limits accepted; archived November 10, 2026 |
-| 2 | Maintain durable knowledge around archive | Closure updates affected documentation and preserves useful findings; subsequent work is reassessed against actual results | [Proposal prepared](openspec/changes/maintain-knowledge-at-archive/proposal.md); owner review pending |
+| 2 | Maintain durable knowledge around archive | Closure updates affected documentation and preserves useful findings; subsequent work is reassessed against actual results | [Implemented and verified](docs/testing/change-closure-001.md) in development source; owner review and archive pending |
 | 3 | Adopt and upgrade existing projects | Reviewable previews support adoption and upgrades, check release-specific OpenSpec/Node minimums at init and update, and preserve project-owned documents, configuration, identities, and modifications | Planned |
 | 4 | Explain product intent and user journeys | Optional goals and cross-capability journeys help evaluate changes without duplicating behavioral specs | Planned |
 | 5 | Record meaningful human verification | Observations identify who checked what, conditions, results, and limits; manual evidence remains distinct from automated tests and approval | Planned |
@@ -42,6 +42,10 @@ First identify the extension points supported by the tested OpenSpec version. Im
 Before archive, reconcile the actual delivery with specs, affected documentation, decisions, and test lifecycle records. Retain useful lessons when enabled. After successful archive, record the actual outcome and reassess affected future work. Preserve existing evidence-freshness requirements when archive or subsequent repository edits change the tested revision.
 
 Archive does not automatically close a ticket, merge a PR, or establish human approval. Apply the project's completion criteria and existing authorization boundaries. If archive or a ticket update fails, report the actual state and remaining action without claiming full closure.
+
+## Optional prototype exploration
+
+[Decision 024: Use optional prototypes to resolve consequential uncertainty](docs/decisions/024-optional-user-approved-prototypes.md) records the accepted user-controlled experiment policy. Revisit its implementation scope after priority 2, using the completed archive work and current OpenSpec capabilities. Keep it as a future plan item until selected; package guidance and examples are not implemented yet. After implementation, observe an uncertain case where clarification or a prototype helps, a clear case that proceeds without either, and a declined suggestion. Distinguish installed-instruction checks from actual agent behavior and retain user feedback and limits.
 
 ## User documentation and GitHub Pages
 

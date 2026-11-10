@@ -4,6 +4,8 @@ Changes that matter to projects using Cliewen for OpenSpec.
 
 ## Unreleased
 
+- A shared closure reference helps agents maintain affected documentation, decisions, tests, and enabled learnings around archive, then revisit affected future work. Projects can opt in through OpenSpec's archive operation guidance so a separate archive session can find it. Native archive remains in OpenSpec; direct CLI calls do not execute the review. See [closure setup](docs/guide/workflow.md#close-the-change-and-preserve-useful-knowledge).
+
 - Agents receive guidance for scoping coherent OpenSpec changes, splitting oversized proposals, and revisiting assumptions as work progresses. Optional planning uses your existing ticket system or a lightweight local plan. Ticket access uses the agent's available tools and your authorization.
 - An installed planning reference and an optional project instruction make that guidance available before change creation. Planning can be disabled independently; authored documents are preserved. Agents can suggest a user-requested grill-me interview when available. These are review instructions, not automated guarantees of agent behavior. See [work scoping and planning](docs/guide/workflow.md#choose-the-next-delivery).
 

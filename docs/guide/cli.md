@@ -19,6 +19,8 @@ Requires OpenSpec's `specs` and `changes` directories. Installs `cliewen-deliver
 
 Installing a different package does not automatically refresh an existing installed schema. Use update for supported ownership manifests; do not delete project configuration or the registry to work around conflicts.
 
+Development source also installs manifest-owned planning and closure references. The [optional archive-session setup](workflow.md#use-the-reference-from-a-separate-archive-session) points OpenSpec's project-owned guidance to the closure reference; installation does not add that configuration entry. These additions are not in published 0.1.0.
+
 ## update
 
 ```sh

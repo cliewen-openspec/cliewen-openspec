@@ -8,3 +8,4 @@ After collection, any later commit, including documentation-only or metadata cha
 Archive requires its own authorization; do not infer it from implementation approval or a passing check.
 A successful traceability check does not establish assertion quality.
 Never mark missing or stale evidence as passed.
+Before and after native OpenSpec archive, read .cliewen-openspec/closure.md and apply its outcome-appropriate guidance and existing feature settings.
