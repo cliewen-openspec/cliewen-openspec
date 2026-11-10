@@ -15,6 +15,7 @@ if (!suiteFile || !profileId || !schema || (reviewing ? !reviewFile || extra.len
 const plan = parse(fs.readFileSync(path.join(source, 'docs/testing/agent-evaluation.yaml'), 'utf8'));
 const profile = plan.profiles[profileId];
 if (profile?.readiness !== 'pinned') throw Error('Select a pinned CLI profile');
+const isCodex = profile.agent === 'Codex CLI' && profile.runner === 'cli';
 const trial = JSON.parse(fs.readFileSync(suiteFile, 'utf8')).cases.find(c => c.profile === profileId && c.schema === schema);
 if (!trial) throw Error('Case not present in the suite');
 if (approvalFile && schema !== 'cliewen-all') throw Error('Approval continuation is only supported for the staged combined scenario');
@@ -54,7 +55,7 @@ const wrapper = 'Work only in the current project. Keep even temporary helper sc
 const prompt = wrapper + (reviewing ? fs.readFileSync(reviewFile, 'utf8') : approvalFile ? fs.readFileSync(approvalFile, 'utf8') : fs.readFileSync(path.join(trial.artifacts, 'prompt.md'), 'utf8'));
 fs.writeFileSync(path.join(dir, 'prompt.txt'), prompt);
 if (reviewing) fs.writeFileSync(path.join(dir, 'inputs-before.json'), beforeReview + '\n');
-if (profileId === 'codex-cli-primary') {
+if (isCodex) {
   const cli = process.env.CLIEWEN_CODEX_CLI ?? (npmGlobal ? path.join(npmGlobal, '@openai/codex/bin/codex.js') : 'codex');
   if (/\.(?:mjs|cjs|js)$/i.test(cli)) { exe = process.execPath; prefix = [cli]; } else exe = cli;
   args = ['exec', '--ignore-user-config', '--ignore-rules', '--ephemeral', '--json', '--sandbox', 'danger-full-access', '-c', 'approval_policy="never"', '-c', 'model_provider="openai"', '-c', `model_reasoning_effort="${profile.effort}"`, '--model', profile.model, '-'];
@@ -139,7 +140,7 @@ child.stdout.on('data', chunk => {
   if (bytes > profile.budgets.outputBytes) stop('log-size-limit');
 });
 child.stderr.on('data', chunk => { bytes += chunk.length; stderr.write(chunk); if (bytes > profile.budgets.outputBytes) stop('log-size-limit'); });
-child.stdin.end(profileId === 'codex-cli-primary' ? prompt : undefined);
+child.stdin.end(isCodex ? prompt : undefined);
 const timer = setTimeout(() => stop('wall-time-limit'), profile.budgets.wallTimeSeconds * 1000);
 // A Windows stdout pipe can block the event loop when its reader pauses.
 const progress = setInterval(() => fs.writeFileSync(path.join(dir, 'progress.json'), JSON.stringify({schema, profileId, phase, elapsedSeconds: Math.round((Date.now() - started) / 1000), logBytes: bytes}) + '\n'), 30000);
@@ -154,7 +155,7 @@ const durationSeconds = (Date.now() - started) / 1000;
 const monotonicDurationSeconds = (performance.now() - monotonicStarted) / 1000;
 const deadlineExceededBySeconds = Math.max(0, Math.max(durationSeconds, monotonicDurationSeconds) - profile.budgets.wallTimeSeconds);
 if (deadlineExceededBySeconds > 0 && !stopReason) stopReason = 'wall-time-limit';
-const summary = {...metadata, ...result, endedAt: new Date().toISOString(), durationSeconds, monotonicDurationSeconds, deadlineExceededBySeconds, stopReason: stopReason ?? null, stopRequestedAt: stopRequestedAt ?? null, stopRequestedAfterSeconds: stopRequestedAfterSeconds ?? null, terminationDelaySeconds: stopRequestedAfterSeconds === undefined ? null : Math.max(0, monotonicDurationSeconds - stopRequestedAfterSeconds), eventFailure, sessionId: sessionId ?? null, usage: usage ?? null, stepUsage, reportedCostUSD: profileId === 'codex-cli-primary' ? null : reportedCostUSD, observedModels: [...models], reviewInputsPreserved, evaluation: 'not-graded'};
+const summary = {...metadata, ...result, endedAt: new Date().toISOString(), durationSeconds, monotonicDurationSeconds, deadlineExceededBySeconds, stopReason: stopReason ?? null, stopRequestedAt: stopRequestedAt ?? null, stopRequestedAfterSeconds: stopRequestedAfterSeconds ?? null, terminationDelaySeconds: stopRequestedAfterSeconds === undefined ? null : Math.max(0, monotonicDurationSeconds - stopRequestedAfterSeconds), eventFailure, sessionId: sessionId ?? null, usage: usage ?? null, stepUsage, reportedCostUSD: isCodex ? null : reportedCostUSD, observedModels: [...models], reviewInputsPreserved, evaluation: 'not-graded'};
 fs.writeFileSync(path.join(dir, 'run.json'), JSON.stringify(summary, null, 2) + '\n');
 console.log(JSON.stringify({schema, profileId, phase, exitCode: summary.exitCode, stopReason: summary.stopReason, durationSeconds: summary.durationSeconds, reportedCostUSD: summary.reportedCostUSD, observedModels: summary.observedModels, artifacts: dir}, null, 2));
 process.exitCode = summary.exitCode === 0 && !stopReason && !eventFailure && reviewInputsPreserved ? 0 : 1;

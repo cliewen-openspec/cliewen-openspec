@@ -41,11 +41,7 @@ This skips planning-authority discovery, ticket access, and plan maintenance whi
 
 ### Make guidance available before creating a change
 
-Schemas supply instructions after the agent retrieves them. To request assessment before change creation, add this optional rule to your existing agent instruction file, such as `AGENTS.md`:
-
-```text
-Before creating or resuming an OpenSpec change, read .cliewen-openspec/config.yaml and .cliewen-openspec/planning.md. Follow its work-scoping guidance and apply planning-specific requests only when features.planning is enabled.
-```
+Schemas supply instructions after the agent retrieves them. To request assessment before change creation, add the [context-entry rule](../configuration.md#instructions-before-context-collection) to your existing agent instruction file, such as `AGENTS.md`. The development-source reference resolves the learning policy before broader context collection, even when planning is disabled.
 
 Installation writes the reference, but does not edit your agent file or OpenSpec-generated skills. Without this opt-in, schema guidance cannot guarantee assessment before a change is created. This is agent guidance, not an automatic hook or a CLI check of decision quality.
 

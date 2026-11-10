@@ -40,3 +40,11 @@ The first full run passed 90 of 92 tests. Both new version-specific integration 
 ## Next step
 
 Review the implementation and these limits before authorizing archive. Later work on prototypes and package upgrades stays in the roadmap; no future proposal, release, or upstream contact was created by this implementation.
+
+## Subsequent combined trial and CI
+
+The [combined scoping and archive trial](combined-scoping-closure-001.md) subsequently observed real implementation, local-plan maintenance, and archive in an isolated project. Its independent checks passed, with an early lesson-retrieval deviation retained for review. This extends the evidence above without changing the original observations.
+
+For source 4e7c898, [all four package CI jobs](https://github.com/cliewen-openspec/cliewen-openspec/actions/runs/42881195046) passed on Windows/Linux and Node 22/24. The [site build, browser checks, and deployment](https://github.com/cliewen-openspec/cliewen-openspec/actions/runs/42881195127) also passed.
+
+The combined trial's [approved instruction follow-up](combined-scoping-closure-001.md#approved-guidance-follow-up) clarifies early context entry and passes 93 package tests. It preserves the original retrieval-order finding; no new agent session establishes improved compliance. The archive implementation review and source-change archive remain pending.

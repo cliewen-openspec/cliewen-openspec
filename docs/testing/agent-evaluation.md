@@ -7,11 +7,31 @@ Every shipped schema needs deterministic regression coverage. [Decision 022: Use
 
 [Decision 019: Use spec-driven development with evidence-first verification](../decisions/019-evidence-first-verification.md) retires strict TDD as a product and release requirement. The coverage below describes the existing implementation and historical trials. The delivery scenario is now csv-bom-evidence-first; its prompt, rubric, and baseline use the replacement instructions. The release-cycle minimum and input reuse follow Decision 022. Preserve original outcomes; validate the replacement workflow and retain relevant instruction, writing, test-quality, and evidence findings.
 
+## How we run and judge a trial
+
+1. Choose one concrete question that needs observed agent behavior. Use deterministic tests for installation, parsing, and other mechanically checkable behavior. A new model/profile combination needs a specific reason.
+2. Prepare an isolated project outside the source checkout. Freeze the package, initial Git revision, accepted behavior, supplied feedback, prompt, and grading criteria. Retain their identities and a baseline bundle. Keep evaluator material outside the agent's assigned workspace.
+3. Pin the CLI version, requested model, effort, access, tools, inherited context, and time/usage limits. Use an existing subscription when suitable. A prompt restriction is not OS isolation; record the actual boundary.
+4. Start a fresh process with the project and prompt only. Capture raw events, errors, tool results, and termination metadata. Do not coach the agent or edit its inputs during the attempt. Grant routine permissions up front where appropriate; preserve genuine approval boundaries.
+5. After it stops, check the result independently: actual behavior and test outcomes, contract preservation, scope, documentation, archive/sync state, and final evidence freshness. Assess test effectiveness with relevant faults in a separate copy when useful. Credit only assertions observed to detect the fault.
+6. Publish a readable review with what worked, what failed, and what remains untested. Retain the original attempt and its artifacts. A retry starts from the same frozen baseline when the question is unchanged and gets a separate record; never convert an earlier failure into a pass.
+
+| Outcome | Meaning |
+|---|---|
+| Reviewed success | The scoped acceptance criteria and review passed, with explicit limits |
+| Completed with findings | The agent finished, but a substantive requirement or process finding remains |
+| Incomplete or infrastructure failure | The run stopped on quota, timeout, transport, or setup; completed fragments do not establish full success |
+| Not run | A preparation script, plan check, or expected result is not an observation |
+
+An agent's success message, exit code, or green suite alone does not establish reviewed success. Respect existing authorization without requiring a human to approve every trivial step. Report unknowns honestly rather than inventing approvals or live user feedback.
+
+The [combined scoping and archive trial](combined-scoping-closure-001.md) demonstrates this process, including a quota-stopped Claude attempt, a fresh Codex attempt, independent behavior/fault checks, and a retained lesson-retrieval finding. Its [data record](combined-scoping-closure-001.json) preserves the exact prompt, baseline identity, run metadata, output snapshots, and evaluator details. It is a one-off combined scenario, not an additional mandatory profile matrix.
+
 ## Recorded coverage
 
 The counts and outstanding repetitions in older reports describe the former matrix. Decision 022 retires that quota without changing any observed outcome.
 
-Use [Remaining checks before 0.1.0](release-gaps.md) for the current schema/profile counts, required variants, guide gaps, source-change disposition, and next execution order. It is the operational status register; the reports below preserve observations on their original inputs.
+The [remaining checks before 0.1.0](release-gaps.md) preserve that release's acceptance scope and historical findings. Use the [current roadmap](../../plan.md) and the latest linked trial reviews for new work; the reports below preserve observations on their original inputs.
 
 [Four preserved primary passes remain usable](release-pass-review-001.md) records expanded checks and semantic review of the four latest-candidate passes. All remain credited as existing attempts; no fresh agent execution or repetition is added.
 

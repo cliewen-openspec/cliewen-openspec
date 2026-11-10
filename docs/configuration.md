@@ -125,13 +125,15 @@ Disabling learnings stops retrieval and maintenance guidance while preserving au
 
 ### Instructions before context collection
 
-Some agents gather project context before requesting OpenSpec instructions. Schema guidance becomes available when those instructions are read; it cannot prevent earlier reads. To request the intended order from the start, add this rule to the project's existing agent instruction file, such as `AGENTS.md` or the host's equivalent:
+Some agents gather project context before requesting OpenSpec instructions. Schema guidance becomes available when those instructions are read; it cannot prevent earlier reads. For development-source installations containing `.cliewen-openspec/planning.md`, add this rule to the project's existing agent instruction file, such as `AGENTS.md` or the host's equivalent:
 
 ```text
-For Cliewen operations, read .cliewen-openspec/config.yaml and obtain the selected OpenSpec artifact or apply instructions before broad project-content reads or searches. Resolve the learning policy first: when enabled and documentation guidance is active, read only the configured collection's index in one tool call, then select relevant notes before opening them in a later call. Exclude unselected, unrelated, and retired notes from ordinary context reads and content searches. Explicit maintenance may select affected historical notes. When disabled, skip the collection. Report limitations rather than loading everything.
+Before creating or resuming an OpenSpec change, first read only .cliewen-openspec/config.yaml and .cliewen-openspec/planning.md, without batching project documents or lesson contents into that tool call. Follow the reference's learning-policy and index-first instructions before broad reads or searches, independently of features.planning. Apply its work-scoping guidance and enable planning-specific requests only when features.planning is enabled. Retrieve the selected native OpenSpec artifact or apply instructions before executing the workflow.
 ```
 
 The installer does not add or replace this project-owned rule. It requests an order; agent behavior still needs review. A trace that shows an unwanted read takes precedence over an agent's claim that it skipped the file.
+
+Published 0.1.0 does not contain the planning reference. For that installation, request native OpenSpec artifact or apply instructions first and follow their learning-policy and index-first rules before broad context collection. Updating package code alone does not refresh installed references; use the supported installation lifecycle and review local ownership conflicts.
 
 These are agent instructions, not a content validator. `check` cannot establish that a lesson is true, relevant, or actually retrieved. Changing settings requires no reinstall, but upgrading from an older package requires [updating its installed instructions](guide/updating.md).
 

@@ -10,6 +10,40 @@ agentTrialPolicy:
 
 # Observed profiles document past runs. Release profiles must be pinned before use.
 profiles:
+  codex-scoping-closure-0-167-0:
+    readiness: pinned
+    agent: Codex CLI
+    runner: cli
+    model: gpt-6.1-sol
+    agentVersion: 0.167.0
+    provider: openai; existing ChatGPT CLI authentication
+    effort: medium
+    permissions: danger-full-access, approval never; project scope is instructional, not OS isolation
+    context: fresh ephemeral process; ignore user config and rules; explicit project instructions
+    budgets:
+      wallTimeSeconds: 600
+      outputBytes: 67108864
+      reportedCostUSD: null
+      tokenLimit: null
+      billing: existing ChatGPT entitlement; no purchase
+    traceFormat: codex exec JSONL plus stderr
+  claude-scoping-closure-2-1-322:
+    readiness: pinned
+    agent: Claude Code
+    runner: cli
+    model: claude-opus-5-5
+    agentVersion: 2.1.322
+    provider: Anthropic firstParty; existing claude.ai subscription authentication
+    effort: medium
+    permissions: dontAsk with local read/edit/write/shell tools; no extra agents or web tools; no OS isolation
+    context: fresh print process; safe mode and no session persistence; explicit project instructions
+    budgets:
+      wallTimeSeconds: 600
+      outputBytes: 67108864
+      reportedCostUSD: 6
+      tokenLimit: null
+      billing: existing subscription; reported list-equivalent cost is not an invoice
+    traceFormat: Claude stream-json with verbose events plus stderr
   codex-collaboration-observed:
     readiness: observed-only
     agent: Codex collaboration sub-agent

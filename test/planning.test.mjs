@@ -56,3 +56,27 @@ test('all schema paths expose shared scoping and conditional planning without ch
     assert.ok(!schema.artifacts.some(a => a.id === 'planning'));
   }
 });
+
+test('pre-change reference resolves learning policy before planning and the documented entry avoids batched context', t => {
+  const root = fixture(t);
+  fs.mkdirSync(path.join(root, '.cliewen-openspec'));
+  fs.writeFileSync(path.join(root, '.cliewen-openspec/config.yaml'), 'features: {planning: false}\nlearnings: {enabled: true}\n');
+  init(root, false, false);
+  assert.equal(config(root).features.planning, false);
+  assert.equal(config(root).learnings.enabled, true);
+  const text = read(root, reference);
+  const early = text.slice(text.indexOf('## Before context collection'), text.indexOf('## Optional planning'));
+  assert.ok(early.includes('independently of features.planning'));
+  assert.ok(early.includes('learnings.enabled (default false) and features.documentation'));
+  assert.ok(early.includes('README.md index in a separate tool call'));
+  assert.ok(early.includes('open selected notes in a later call'));
+  assert.ok(early.includes('skip the collection and preserve authored notes'));
+  assert.ok(early.includes('not permission to read the whole collection'));
+  const guide = fs.readFileSync(new URL('../docs/configuration.md', import.meta.url), 'utf8');
+  const section = guide.split('### Instructions before context collection')[1].split('## Humanizer')[0];
+  const entry = section.match(/```text\r?\n([\s\S]*?)```/)[1];
+  assert.ok(entry.includes('first read only .cliewen-openspec/config.yaml and .cliewen-openspec/planning.md'));
+  assert.ok(entry.includes('without batching project documents or lesson contents'));
+  assert.ok(entry.includes('independently of features.planning'));
+  assert.equal(fs.existsSync(path.join(root, 'docs/learnings')), false);
+});

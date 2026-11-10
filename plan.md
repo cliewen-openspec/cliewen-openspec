@@ -47,6 +47,10 @@ Archive does not automatically close a ticket, merge a PR, or establish human ap
 
 [Decision 024: Use optional prototypes to resolve consequential uncertainty](docs/decisions/024-optional-user-approved-prototypes.md) records the accepted user-controlled experiment policy. Revisit its implementation scope after priority 2, using the completed archive work and current OpenSpec capabilities. Keep it as a future plan item until selected; package guidance and examples are not implemented yet. After implementation, observe an uncertain case where clarification or a prototype helps, a clear case that proceeds without either, and a declined suggestion. Distinguish installed-instruction checks from actual agent behavior and retain user feedback and limits.
 
+## Verification ideas to evaluate
+
+The owner wants to consider [verification principles inspired by external practice](docs/analysis/verification-principles.md), retaining them only where they work for this product. They cover effective tests, independent acceptance-contract checks, small feedback cycles, layered acceptance tests, and efficient autonomy for routine authorized work. They are candidate ideas, not current mandatory gates; evidence-first verification remains the accepted method. Revisit concrete experiments after the current archive increment, and drop or revise ideas whose benefits do not justify their cost. A separate goal.md is not introduced for these external ideas.
+
 ## User documentation and GitHub Pages
 
 Maintain affected guides, configuration references, examples, and adopter-facing changelog entries with each implemented increment. Use Humanizer for guide prose. Explain defaults and limits, distinguish guidance from deterministic enforcement, and preserve executable examples. Existing guide requirements are recorded in [Decision 010: Publish user documentation early](docs/decisions/010-publish-user-documentation-early.md); the first-release evidence remains linked above.
@@ -70,3 +74,7 @@ Priority 3 must make each Cliewen release's requirements explicit and check them
 Use OpenSpec's supported update preview when reviewing integration refreshes. Track the upstream transition toward skill delivery without changing users' global delivery preferences automatically. Preserve earlier release and trial version records as historical evidence.
 
 The [OpenSpec compatibility review](docs/testing/openspec-compatibility-001.md) records the 1.17.0 upgrade, 88 passing local tests, and the narrower Node 20.19/OpenSpec 1.15.0 minimum probe.
+
+## Combined trial checkpoint
+
+The [combined scoping and archive trial](docs/testing/combined-scoping-closure-001.md) completed the intended delivery and closure under independent checks. A first Claude attempt stopped on an account usage limit; a fresh Codex attempt from the same baseline completed. Its early learning-note read preceded the index, so retain that process deviation for review before treating the trial as an unqualified release success. The owner approved the focused entry-guidance correction, now implemented with 93 passing package tests and successful guide/strict-validation checks. No new agent round was run; improved compliance remains unobserved. See the trial review for the original finding and follow-up input impact.

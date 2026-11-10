@@ -38,3 +38,7 @@ The approved [closure proposal](../../openspec/changes/maintain-knowledge-at-arc
 ## Compatibility and upgrade direction
 
 On November 10, 2026, the owner accepted OpenSpec 1.15.0+ and Node 20.19+ as the current minimums and confirmed init and update as the points for future version checks. Each later Cliewen release may raise its minimums and must state them before installation or update writes. OpenSpec upgrades remain a project-controlled action. These checks and general cross-version Cliewen upgrades belong to roadmap priority 3. The [compatibility review](../testing/openspec-compatibility-001.md) distinguishes completed installation/testing from that planned behavior.
+
+## Context-entry clarification
+
+After the combined trial exposed early lesson retrieval, the owner approved a small clarification to make the existing learning policy available through the optional pre-change entry. The [follow-up](../testing/combined-scoping-closure-001.md#approved-guidance-follow-up) records 93 passing package tests, documentation checks, retained original findings, and unobserved compliance after the change. This implements the existing policy without adding configuration or changing approval boundaries.
