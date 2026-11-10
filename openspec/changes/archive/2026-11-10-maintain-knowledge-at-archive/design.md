@@ -49,4 +49,4 @@ This is unreleased package content. Existing supported-manifest lifecycle operat
 
 Development was upgraded to OpenSpec 1.17.0 after the original 1.15.0 probe. The supported floor remains 1.15.0. Implementation tests must cover the floor and current version for archive operation inputs; preserve the original probe as historical evidence. The 1.17 transition toward skill delivery reinforces using native operation inputs rather than editing generated command files. Init/update version checks and cross-version package upgrades belong to roadmap priority 3.
 
-The [compatibility review](../../../docs/testing/openspec-compatibility-001.md) records successful native archive-input probes on 1.15.0 and 1.17.0. Closure-reference installation and actual closure behavior remain implementation tasks.
+The [compatibility review](../../../../docs/testing/openspec-compatibility-001.md) records successful native archive-input probes on 1.15.0 and 1.17.0. Closure-reference installation and actual closure behavior remain implementation tasks.

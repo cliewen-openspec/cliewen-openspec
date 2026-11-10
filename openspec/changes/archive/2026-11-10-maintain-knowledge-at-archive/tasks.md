@@ -22,4 +22,4 @@
 - Present implementation and observed limits for owner review. Archive only when authorized, then inspect native results and repair moved document links.
 - Reassess roadmap priority 3 after this delivery; prepare its proposal only when selected. No release or upstream contact is included.
 
-Implementation checks and remaining limits: [Archive closure review](../../../docs/testing/change-closure-001.md).
+Implementation checks and remaining limits: [Archive closure review](../../../../docs/testing/change-closure-001.md).

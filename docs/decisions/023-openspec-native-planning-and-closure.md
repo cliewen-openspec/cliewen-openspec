@@ -33,7 +33,7 @@ The [OpenSpec workflow guide](https://github.com/Fission-AI/OpenSpec/blob/main/d
 
 The first work-scoping and optional planning increment is implemented in development source. [The implementation review](../testing/work-scoping-001.md) records 88 passing tests, packed OpenSpec retrieval, and one bounded scenario observation. That increment is complete; closure work and later roadmap increments are tracked separately below. The owner accepted the implementation review and its documented limits on November 10, 2026; the owner subsequently authorized archive, completed on the same date. Published 0.1.0 is unchanged.
 
-The approved [closure proposal](../../openspec/changes/maintain-knowledge-at-archive/proposal.md) is implemented in development source. [Its review](../testing/change-closure-001.md) records 92 passing tests, packed archive-input and delivery/investigation checks on OpenSpec 1.15.0 and 1.17.0, and limits on unobserved agent behavior. The archive entry remains project-managed opt-in guidance. Owner implementation review and archive authorization remain pending; published 0.1.0 is unchanged.
+The approved [closure proposal](../../openspec/changes/archive/2026-11-10-maintain-knowledge-at-archive/proposal.md) is implemented in development source. [Its review](../testing/change-closure-001.md) records 92 passing tests, packed archive-input and delivery/investigation checks on OpenSpec 1.15.0 and 1.17.0, and limits on unobserved agent behavior. The archive entry remains project-managed opt-in guidance. The owner accepted the review and documented limits and authorized archive, completed November 10, 2026. Published 0.1.0 is unchanged.
 
 ## Compatibility and upgrade direction
 

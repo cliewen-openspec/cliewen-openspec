@@ -3,9 +3,9 @@ type: test-report
 ---
 # Archive closure: what we checked
 
-The new closure reference is installed safely and can be found through OpenSpec's optional archive guidance. Test projects successfully archived both a delivery and an investigation on OpenSpec 1.15.0 and 1.17.0. We have not observed an agent use the reference to maintain real project knowledge or update tickets.
+The new closure reference is installed safely and can be found through OpenSpec's optional archive guidance. Test projects successfully archived both a delivery and an investigation on OpenSpec 1.15.0 and 1.17.0. At this initial checkpoint, we had not observed an agent use the reference to maintain project knowledge or update tickets; the subsequent combined trial is recorded below.
 
-This is development source implementing the approved [archive proposal](../../openspec/changes/maintain-knowledge-at-archive/proposal.md). Published 0.1.0 does not contain the addition. Implementation review and archive authorization remain pending.
+This is development source implementing the approved [archive proposal](../../openspec/changes/archive/2026-11-10-maintain-knowledge-at-archive/proposal.md). Published 0.1.0 does not contain the addition. The owner subsequently accepted the review and documented limits and authorized archive; see the checkpoint below.
 
 ## What works in the automated tests
 
@@ -47,4 +47,10 @@ The [combined scoping and archive trial](combined-scoping-closure-001.md) subseq
 
 For source 4e7c898, [all four package CI jobs](https://github.com/cliewen-openspec/cliewen-openspec/actions/runs/42881195046) passed on Windows/Linux and Node 22/24. The [site build, browser checks, and deployment](https://github.com/cliewen-openspec/cliewen-openspec/actions/runs/42881195127) also passed.
 
-The combined trial's [approved instruction follow-up](combined-scoping-closure-001.md#approved-guidance-follow-up) clarifies early context entry and passes 93 package tests. It preserves the original retrieval-order finding; no new agent session establishes improved compliance. The archive implementation review and source-change archive remain pending.
+The combined trial's [approved instruction follow-up](combined-scoping-closure-001.md#approved-guidance-follow-up) clarifies early context entry and passes 93 package tests. It preserves the original retrieval-order finding; no new agent session establishes improved compliance. The owner subsequently accepted these limits and authorized source-change archive.
+
+## Accepted closure and archive
+
+On November 10, 2026, the owner replied "go" to the recommendation to accept this review's documented limits and archive the change. Native OpenSpec archive created `2026-11-10-maintain-knowledge-at-archive` and synchronized five change-closure requirements into permanent specs. Strict validation then passed all nine permanent specs. Document links were repaired after the move. The original combined-trial finding remains historical, improved compliance after the guidance correction remains unobserved, and this does not create an unqualified release pass. No new agent trial or npm release was performed.
+
+Optional prototype exploration is the next scoping item in the roadmap; its proposal has not been prepared yet.
