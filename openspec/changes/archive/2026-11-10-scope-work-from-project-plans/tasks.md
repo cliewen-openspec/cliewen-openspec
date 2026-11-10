@@ -22,4 +22,4 @@
 - Present implementation and limits for review; archive only under the applicable authorization, using native OpenSpec commands. No archive extension is part of this change.
 - Reassess roadmap priority 2 after this delivery; do not create its proposal in advance. No npm publication or upstream contact is included.
 
-Validation and bounded observation: [Implementation review](../../../docs/testing/work-scoping-001.md).
+Validation and bounded observation: [Implementation review](../../../../docs/testing/work-scoping-001.md).

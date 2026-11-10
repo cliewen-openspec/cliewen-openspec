@@ -31,4 +31,4 @@ The [OpenSpec workflow guide](https://github.com/Fission-AI/OpenSpec/blob/main/d
 
 ## Implementation checkpoint
 
-The first work-scoping and optional planning increment is implemented in development source. [The implementation review](../testing/work-scoping-001.md) records 88 passing tests, packed OpenSpec retrieval, and one bounded scenario observation. Archive extensions and later roadmap increments remain planned. The owner accepted the implementation review and its documented limits on November 10, 2026; archive authorization remains separate, and published 0.1.0 is unchanged.
+The first work-scoping and optional planning increment is implemented in development source. [The implementation review](../testing/work-scoping-001.md) records 88 passing tests, packed OpenSpec retrieval, and one bounded scenario observation. Archive extensions and later roadmap increments remain planned. The owner accepted the implementation review and its documented limits on November 10, 2026; the owner subsequently authorized archive, completed on the same date. Published 0.1.0 is unchanged.

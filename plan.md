@@ -11,8 +11,8 @@ This roadmap is accepted direction, not implemented functionality. [Decision 023
 
 | Order | Increment | Completion criteria | Status |
 |---|---|---|---|
-| 1 | Scope work, plan progressively, and challenge risky assumptions | Agents assess whether a change is needed, split oversized work, and prepare the next coherent delivery from a ticket or local plan | [Implemented and verified](docs/testing/work-scoping-001.md) in development source; review and limits accepted, archive pending |
-| 2 | Maintain durable knowledge around archive | Closure updates affected documentation and preserves useful findings; subsequent work is reassessed against actual results | Planned |
+| 1 | Scope work, plan progressively, and challenge risky assumptions | Agents assess whether a change is needed, split oversized work, and prepare the next coherent delivery from a ticket or local plan | [Implemented and verified](docs/testing/work-scoping-001.md) in development source; review and limits accepted; archived November 10, 2026 |
+| 2 | Maintain durable knowledge around archive | Closure updates affected documentation and preserves useful findings; subsequent work is reassessed against actual results | Planned; next |
 | 3 | Adopt and upgrade existing projects | Reviewable previews support adoption and upgrades while preserving project-owned documents, configuration, identities, and modifications | Planned |
 | 4 | Explain product intent and user journeys | Optional goals and cross-capability journeys help evaluate changes without duplicating behavioral specs | Planned |
 | 5 | Record meaningful human verification | Observations identify who checked what, conditions, results, and limits; manual evidence remains distinct from automated tests and approval | Planned |

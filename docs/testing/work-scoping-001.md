@@ -5,7 +5,7 @@ type: test-report
 
 The new guidance is installed correctly, and Claude gave the expected advice in five example situations. We have not yet observed an agent carry out that advice in a real change or ticket system. The owner has accepted this review and its limits; this report does not establish release readiness.
 
-The changes implement the approved [scoping proposal](../../openspec/changes/scope-work-from-project-plans/proposal.md) in development source. Published version 0.1.0 does not contain them.
+The changes implement the approved [scoping proposal](../../openspec/changes/archive/2026-11-10-scope-work-from-project-plans/proposal.md) in development source. Published version 0.1.0 does not contain them.
 
 ## What the automated checks establish
 
@@ -44,3 +44,7 @@ On November 10, 2026, the owner approved this revised review in the project conv
 ## Test corrections retained for maintainers
 
 The first focused run failed because the new test setup omitted required OpenSpec directories and passed the dry-run argument in the wrong position. Those test mistakes were corrected. The first full run then passed 87 of 88 tests: a new assertion requested implementation instructions before the change was ready. That assertion was moved to the existing package-installation test where the prerequisites are present. The next full run passed all 88 tests. No product assertion or timeout was relaxed.
+
+## Archive checkpoint
+
+On November 10, 2026, the owner authorized the recommended archive with "Det er ok". Native OpenSpec archive completed successfully, adding four project-planning requirements and five work-scoping requirements to permanent specs and preserving the change at `openspec/changes/archive/2026-11-10-scope-work-from-project-plans/`. Strict validation then passed all eight permanent specs. Local document links were repaired after the move. No release or additional agent trial was performed. Roadmap priority 2 is now next; its proposal has not been created.
