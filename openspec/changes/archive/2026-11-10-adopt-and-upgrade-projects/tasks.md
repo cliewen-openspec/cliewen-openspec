@@ -24,10 +24,10 @@
 
 ## Verification record
 
-[The installation review](../../../docs/testing/installation-upgrades-001.md) records 108 passing Windows tests, 23 passing focused Linux tests with one platform skip, the actual Node 20.19/OpenSpec 1.15 packed probe, published 0.1.0 resource preservation, synthetic different-version routing, two detected controlled faults, guide checks, and limits. The two final Node/default-alias regressions were run on Windows only. No additional agent run was needed; the next-release three-agent checkpoint remains pending.
+[The installation review](../../../../docs/testing/installation-upgrades-001.md) records 108 passing Windows tests, 23 passing focused Linux tests with one platform skip, the actual Node 20.19/OpenSpec 1.15 packed probe, published 0.1.0 resource preservation, synthetic different-version routing, two detected controlled faults, guide checks, and limits. The two final Node/default-alias regressions were run on Windows only. No additional agent run was needed; the next-release three-agent checkpoint remains pending.
 
 ## Workflow follow-up
 
-- Present implementation and limitations for review, then archive under the applicable authorization; inspect synchronized permanent specs and repair moved-file links.
-- Reassess roadmap priority 4 from the actual upgrade result before preparing its detailed proposal.
+- Review reported no actionable defects; the owner authorized archive on November 10, 2026. Native archive synchronized all seven requirements, permanent specs were inspected, and moved-file links were repaired.
+- Priority 4, product intent and user journeys, is next for proposal preparation. Preserve the release-version and three-agent verification obligations from this increment.
 - Release numbering, publication, external updates, and upstream contact retain their separate authorization boundaries.

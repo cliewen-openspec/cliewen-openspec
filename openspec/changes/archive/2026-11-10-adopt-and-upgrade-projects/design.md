@@ -4,7 +4,7 @@
 
 See [the proposal](proposal.md) for the problem and [the behavior contract](specs/installation-upgrades/spec.md) for acceptance criteria. Existing lifecycle functions already plan owned writes and deletions, reject conflicting edits, and use a transaction journal. The current manifest combines a package version with path/hash ownership; update and check require that version to equal the running package. Init and update currently recover a pending journal before version compatibility is established.
 
-The accepted baseline is OpenSpec 1.15.0 and Node 20.19.0. OpenSpec's npm distribution can impose a higher Node requirement, as explained in [version compatibility](../../../docs/configuration.md#version-compatibility). Runtime validation must establish that the selected CLI can actually run, not just read an installed package's version.
+The accepted baseline is OpenSpec 1.15.0 and Node 20.19.0. OpenSpec's npm distribution can impose a higher Node requirement, as explained in [version compatibility](../../../../docs/configuration.md#version-compatibility). Runtime validation must establish that the selected CLI can actually run, not just read an installed package's version.
 
 ## Goals / Non-Goals
 
@@ -65,6 +65,6 @@ Review active changes against the new installed guidance and run relevant schema
 2. Implement compatibility and shared planning without loosening ownership or project-data preservation.
 3. Exercise first adoption, published-resource refresh, supported version routing, conflicts, rollback, and recovery with independent file snapshots and real public OpenSpec commands.
 4. Update user guides with Humanizer, configuration reference, Decision 014 implementation status, changelog, and roadmap. Record actual checks and untested paths.
-5. Use the [approved next-release three-agent checkpoint](../../../docs/decisions/022-proportionate-agent-validation.md#next-release-three-agent-compatibility-check) to exercise stable adoption/update journeys. An earlier targeted agent run needs a specific unresolved behavioral question; do not create a new profile matrix for this increment.
+5. Use the [approved next-release three-agent checkpoint](../../../../docs/decisions/022-proportionate-agent-validation.md#next-release-three-agent-compatibility-check) to exercise stable adoption/update journeys. An earlier targeted agent run needs a specific unresolved behavioral question; do not create a new profile matrix for this increment.
 
 Before applying in an adopting project, review its dependency and resource diffs. Existing journals recover failed resource application; they do not roll back npm installation. Reverting a successful upgrade requires restoring the reviewed package and generated-resource/manifest state together through project version control; unsupported downgrades remain blocked.

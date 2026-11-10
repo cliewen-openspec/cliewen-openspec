@@ -3,7 +3,7 @@ type: test-report
 ---
 # Installation and upgrade review
 
-Development source now checks Node/OpenSpec compatibility before init/update writes, previews resource changes with version information, and declares the supported upgrade route from published 0.1.0. The owner approved the proposal; review of the completed implementation and archive remain pending.
+Development source now checks Node/OpenSpec compatibility before init/update writes, previews resource changes with version information, and declares the supported upgrade route from published 0.1.0. The owner approved the proposal, subsequent review identified no actionable defects, and the owner authorized archive. The closure checkpoint below records the result.
 
 ## Results
 
@@ -38,3 +38,7 @@ An initial Linux launch used the source dependency directory accidentally and in
 No agent trial was run for this increment. Deterministic checks cover executable lifecycle decisions and data preservation; agent comprehension remains for the approved [next-release three-agent checkpoint](../decisions/022-proportionate-agent-validation.md#next-release-three-agent-compatibility-check). No unresolved behavioral question currently warrants a separate additional trial.
 
 [The retained data](installation-upgrades-001.json) includes package identities, platform diagnostics, minimum-runtime commands, controlled-fault results and script snapshots, and paths/hashes for local logs. The guide, [Decision 014: Own generated resources and recover failed installation changes](../decisions/014-installer-ownership-and-recoverable-lifecycle.md), and roadmap describe development behavior separately from published 0.1.0. Resource checks do not establish publication or complete release readiness.
+
+## Reviewed closure and archive
+
+On November 10, 2026, review reported no actionable defects and confirmed 108 passing tests. The owner then authorized archive. Native OpenSpec archived [the completed change](../../openspec/changes/archive/2026-11-10-adopt-and-upgrade-projects/proposal.md) and synchronized all seven requirements into the [permanent installation specification](../../openspec/specs/installation-upgrades/spec.md). Moved-file links, Decision 014, and the roadmap were updated. The existing package/runtime results remain historical evidence for their recorded inputs; archive changes no product code and required no additional agent trial. The synthetic-version and next-release verification limits above remain. Priority 4 is next for proposal preparation; no publication was performed.
