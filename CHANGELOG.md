@@ -4,6 +4,8 @@ Changes that matter to projects using Cliewen for OpenSpec.
 
 ## Unreleased
 
+- Optional product context helps agents keep changes connected to the agreed user outcome and identify drift or scope creep. Useful cross-capability journeys link to OpenSpec rules, while routine tasks need no new goal or journey document. Existing documentation and planning settings apply. See [product intent and journeys](docs/guide/workflow.md#keep-the-users-outcome-in-view).
+
 - Installation and resource-update previews now show detected Node/OpenSpec versions, installed/target Cliewen versions, and files to create, replace, or delete. Init and update check Node 20.19+ and OpenSpec 1.15.0+ before changing files. Published 0.1.0 resources have an explicit supported update route that preserves project configuration, documents, changes, and acceptance identities. See [updating an installation](docs/guide/updating.md) for source-version limits and conflict handling.
 
 - Agents can suggest a bounded prototype when material uncertainty needs something concrete to try. Users choose the experiment; clear tasks and declined suggestions continue normally. The installed prototype reference guides native investigative handoff, isolation, honest findings and feedback, and code disposition before delivery planning. See [optional prototypes](docs/guide/workflow.md#try-a-prototype-when-it-can-answer-a-question).

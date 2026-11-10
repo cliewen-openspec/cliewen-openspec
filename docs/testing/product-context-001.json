@@ -1,0 +1,130 @@
+{
+  "date": "2026-11-10",
+  "sourceRevision": "8fa669835caf029dc22715a5ad2c6647f81d1799",
+  "sourceStatus": " M CHANGELOG.md\n M docs/configuration.md\n M docs/decisions/README.md\n M docs/guide/cli.md\n M docs/guide/workflow.md\n M plan.md\n M schemas/base/instructions/closure.md\n M schemas/base/instructions/planning.md\n M schemas/base/instructions/work-scoping.md\n M scripts/check-docs-browser.mjs\n M src/core.ts\n?? docs/decisions/025-product-intent-and-user-journeys.md\n?? docs/testing/product-context-001.md\n?? openspec/changes/explain-product-intent-and-journeys/\n?? schemas/base/instructions/product-context.md\n?? test/product-context.test.mjs\n",
+  "scope": "Delivered product-context guidance and installer/native consumer behavior; no new agent execution",
+  "packageTests": {
+    "node": "24.0.0",
+    "platform": "win32",
+    "passed": 112,
+    "failed": 0,
+    "skipped": 0
+  },
+  "packedConsumers": [
+    {
+      "openspec": "1.15.0",
+      "packageIntegrity": "sha512-mk69VA0zbCga/1QTty7xrurNCvoXv6BPjmz/e+ohbMkXtUrdLGqAM6/Xhj2uHph6k6MGlCdI+GyhasHDNu9gUw==",
+      "node": "v24.0.0",
+      "settingsCombinations": 3,
+      "workflows": 3,
+      "agentExecution": false
+    },
+    {
+      "openspec": "1.17.0",
+      "packageIntegrity": "sha512-mk69VA0zbCga/1QTty7xrurNCvoXv6BPjmz/e+ohbMkXtUrdLGqAM6/Xhj2uHph6k6MGlCdI+GyhasHDNu9gUw==",
+      "node": "v24.0.0",
+      "settingsCombinations": 3,
+      "workflows": 3,
+      "agentExecution": false
+    }
+  ],
+  "guide": {
+    "pages": 13,
+    "localLinks": 502,
+    "diagrams": 5,
+    "cliDefaults": true
+  },
+  "browser": {
+    "pages": 13,
+    "desktopMobile": true,
+    "lightDark": true,
+    "allDiagramRerender": true,
+    "labelBounds": true,
+    "journeyScreenshotVisuallyReviewed": true
+  },
+  "corrections": [
+    "Initial fixture incorrectly expected a design artifact in combined; corrected to actual unchanged graph.",
+    "Browser strict selector assumed one workflow diagram; now waits for all and checks all IDs after theme change."
+  ],
+  "semanticReview": {
+    "method": "Read installed reference and guide against the documented cases; no agent behavior claimed.",
+    "cases": [
+      "existing authority",
+      "unknown intent/metrics",
+      "missing retry contract",
+      "drift from outcome",
+      "new wish outside scope",
+      "necessary in-scope correction",
+      "independent settings",
+      "absent user feedback"
+    ]
+  },
+  "snapshots": {
+    "schemas/base/instructions/product-context.md": "# Keep changes connected to the user's outcome\n\nUse relevant agreed product context during scoping, design, investigation, review, and closure. Keep the explanation proportional to the decision. Routine understood work needs no new goal, journey, interview, approval step, or explanation for skipping them.\n\n## Reuse the intent\n\nLook first at relevant context already supplied or available in the project's authoritative product brief, README, documents, or selected planning authority. Link to the existing source instead of copying its facts or status. Preserve paths, identifiers, and lifecycle meanings. Resolve learning policy before broader context collection as described in .cliewen-openspec/planning.md.\n\nUse the known audience, problem, desired outcome, constraints, and supported success signals needed for this change. Keep missing intent or metrics unknown; do not invent accepted goals, numerical targets, or user research from implementation details. Clarify consequential missing information through existing project authority. A qualitative goal does not require a fabricated metric.\n\n## Explain a journey only when it helps\n\nFor consequential work across capabilities, describe the actor's starting need, relevant steps and handoffs, meaningful failure/recovery paths, and intended outcome. Use a short explanation with a diagram when it makes the path clearer; a table or prose can suffice. Do not require a complete product map, separate goal file, or journey ID.\n\nLink behavioral rules to authoritative OpenSpec specs with descriptive titles and, when useful, exact scenario IDs alongside their meaning. Do not copy the rules into the journey, allocate parallel acceptance IDs, or use a journey as product execution evidence. Label aspirational steps and identify missing or contradictory spec behavior for normal change assessment. A desired recovery step does not establish that it exists.\n\n## Detect drift and scope creep\n\nCompare consequential emerging work with the agreed problem, user outcome, and delivery scope. Surface an approach that no longer serves that outcome; do not rewrite the goal to justify work that has drifted.\n\nDistinguish a necessary in-scope correction from an additional wish. An idea can support the product goal while remaining outside this delivery. Use existing work-scoping rules to retain deferred work in the selected authority when features.planning is enabled and obtain direction before materially expanding agreed scope. With planning disabled, report the additional scope in the current handoff without creating a backlog. A goal or journey does not authorize extra work. Ordinary authorized implementation choices proceed independently with relevant verification.\n\n## Respect settings and preserve useful knowledge\n\nWith features.documentation enabled, create or maintain a durable intent/journey explanation only when useful, using configured docsRoot or existing project locations and conventions. Keep each fact in one authoritative home and link to it. Existing records may be sufficient. Without an existing convention, optional examples include product-intent.md and journeys/<name>.md under docsRoot; installation creates neither.\n\nWith features.documentation disabled, add no optional intent/journey creation or maintenance requests and preserve authored files. Relevant context already supplied can still inform ordinary scoping and native behavioral specs. Ticket discovery, access, and plan updates independently follow features.planning and the existing planning reference; documentation guidance does not enable ticket access when planning is disabled. Report unavailable external context and pending authorized updates honestly, without inventing their contents or claiming updates succeeded.\n\nBefore archive, reconcile only affected explanations with the actual delivery under the enabled settings. Preserve unresolved/deferred work at its existing authority. Follow .cliewen-openspec/closure.md for native archive and moved-link maintenance.\n\nKeep desired outcomes, implemented behavior, and actual observations distinct. Passing capability tests, a completed diagram, and archive alone do not prove user success or human approval. State when no actual user feedback was collected; label illustrative feedback and proposed outcomes. Discovery and combined no-delivery findings require no fabricated product evidence or delivery proposal. Reuse existing project approval and evidence boundaries.\n",
+    "test/product-context.test.mjs": "import {test} from 'node:test';\nimport assert from 'node:assert/strict';\nimport fs from 'node:fs';\nimport os from 'node:os';\nimport path from 'node:path';\nimport {spawnSync} from 'node:child_process';\nimport {fileURLToPath} from 'node:url';\nimport {parse, stringify} from 'yaml';\nimport {init, update, uninstall} from '../dist/core.js';\n\nconst source=fileURLToPath(new URL('../',import.meta.url));\nconst resource='.cliewen-openspec/product-context.md';\nconst write=(root,file,text)=>{fs.mkdirSync(path.dirname(path.join(root,file)),{recursive:true});fs.writeFileSync(path.join(root,file),text);};\nconst read=(root,file)=>fs.readFileSync(path.join(root,file),'utf8');\nfunction fixture(t){const root=fs.mkdtempSync(path.join(os.tmpdir(),'cliewen-product-context-'));t.after(()=>fs.rmSync(root,{recursive:true,force:true}));for(const d of ['openspec/specs','openspec/changes'])fs.mkdirSync(path.join(root,d),{recursive:true});write(root,'openspec/config.yaml','schema: spec-driven\\n');return root;}\n\ntest('product-context ownership handles adoption, older resources, collisions and removal without touching authored context',t=>{\n  const root=fixture(t),manifestFile='.cliewen-openspec/manifest.json';\n  const authored={'docs/product-intent.md':'# Existing intent\\n','docs/journeys/original-address.md':'# Existing journey\\n','AGENTS.md':'Project instructions\\n','.agents/skills/openspec-explore/SKILL.md':'Native integration\\n'};\n  for(const [file,text]of Object.entries(authored))write(root,file,text);\n  init(root,true,false);assert.equal(fs.existsSync(path.join(root,resource)),false);\n  init(root,false,false);const original=read(root,resource);assert.ok(JSON.parse(read(root,manifestFile)).files[resource]);assert.deepEqual(init(root,false,false),[]);\n  write(root,resource,original+'\\nLocal clarification\\n');assert.throws(()=>update(root),/Conflict/);assert.throws(()=>uninstall(root),/Conflict/);\n  const previous=JSON.parse(read(root,manifestFile));delete previous.files[resource];write(root,manifestFile,JSON.stringify(previous));\n  write(root,resource,original);assert.throws(()=>update(root),/Unowned/,'Identical content does not establish ownership');\n  fs.unlinkSync(path.join(root,resource));const preview=update(root,true);assert.ok(preview.writes.includes(resource));assert.equal(fs.existsSync(path.join(root,resource)),false);assert.deepEqual(update(root),preview);assert.equal(read(root,resource),original);\n  const valid=read(root,manifestFile),forged=JSON.parse(valid);forged.files['.cliewen-openspec/product-context-helper.md']=forged.files[resource];write(root,manifestFile,JSON.stringify(forged));assert.throws(()=>update(root),/Invalid owned-file entry/);write(root,manifestFile,valid);\n  uninstall(root);assert.equal(fs.existsSync(path.join(root,resource)),false);\n  for(const [file,text]of Object.entries(authored))assert.equal(read(root,file),text,file);\n});\n\ntest('all generated stages resolve one optional context reference after early learning policy',t=>{\n  const root=fixture(t);init(root,false,false);\n  const text=read(root,resource);\n  for(const phrase of ['Routine understood work needs no new goal','Keep missing intent or metrics unknown','Do not copy the rules','do not rewrite the goal','necessary in-scope correction','before materially expanding agreed scope','With features.documentation disabled','when features.planning is enabled','With planning disabled','Keep desired outcomes, implemented behavior, and actual observations distinct','no fabricated product evidence'])assert.ok(text.includes(phrase),phrase);\n  for(const workflow of ['delivery','discovery','all']){\n    const schema=parse(read(root,`openspec/schemas/cliewen-${workflow}/schema.yaml`));\n    for(const artifact of schema.artifacts)assert.ok(artifact.instruction.includes(resource),`${workflow}/${artifact.id}`);\n    assert.ok(schema.apply.instruction.includes(resource));\n    assert.ok(!schema.artifacts.some(a=>/goal|journey|context/.test(a.id)));\n  }\n  const entry=read(root,'.cliewen-openspec/planning.md');assert.ok(entry.indexOf('## Before context collection')<entry.indexOf(resource));\n  assert.ok(read(root,'.cliewen-openspec/closure.md').includes(resource));\n  assert.equal(fs.existsSync(path.join(root,'docs/product-intent.md')),false);assert.equal(fs.existsSync(path.join(root,'docs/journeys')),false);\n});\n\nfor(const version of ['1.15.0','1.17.0'])test(`packed context cues preserve native graphs and mixed settings on OpenSpec ${version}`,{timeout:150000},t=>{\n  const root=fixture(t),npm=process.env.npm_execpath;assert.ok(npm,'Run through npm test');\n  const env={...process.env,OPENSPEC_TELEMETRY:'0',CI:'1'};delete env.NODE_TEST_CONTEXT;\n  const run=(args,cwd=root)=>{const r=spawnSync(process.execPath,args,{cwd,env,encoding:'utf8',timeout:60000});assert.equal(r.status,0,r.stdout+r.stderr);return r.stdout.trim();};\n  const pack=JSON.parse(run([npm,'pack','--ignore-scripts','--json','--pack-destination',root],source))[0];\n  write(root,'package.json','{\"private\":true}');run([npm,'install','--ignore-scripts','--no-audit','--no-fund',path.join(root,pack.filename),`@fission-ai/openspec@${version}`]);\n  const osCli=path.join(root,'node_modules/@fission-ai/openspec/bin/openspec.js'),cli=path.join(root,'node_modules/cliewen-openspec/dist/cli.js');\n  const ospec=(...args)=>run([osCli,...args]);ospec('init','--tools','claude','--no-animation');\n  const skill='.claude/skills/openspec-explore/SKILL.md',native=read(root,skill);run([cli,'init']);\n  const authored={\n    'knowledge/brief.md':'# Existing intent\\nHelp reviewers reconcile paid invoices.\\n',\n    'knowledge/journeys/original-journey.md':'# Proposed path\\nReview totals, then export. Retry support remains unknown.\\n',\n    'openspec/specs/totals/spec.md':'# Existing contract\\nNo export behavior specified.\\n',\n    'src/product.mjs':'export const original = true;\\n',\n    'test/product.test.mjs':'// Existing acceptance contract\\n'\n  };\n  for(const [file,text]of Object.entries(authored))write(root,file,text);\n  const graphs={delivery:['proposal','specs','design','tasks'],discovery:['proposal','investigation','decision'],all:['proposal','investigation','decision','specs','tasks']};\n  for(const [documentation,planning]of [[true,false],[false,true],[false,false]]){\n    const config=`docsRoot: knowledge\\nfeatures: {documentation: ${documentation}, planning: ${planning}, evidence: false}\\nlearnings: {enabled: false}\\n`;write(root,'.cliewen-openspec/config.yaml',config);\n    run([cli,'update','--dry-run','--json']);run([cli,'update','--json']);\n    for(const workflow of ['delivery','discovery','all']){\n      const name=`context-${workflow}-${documentation}-${planning}`;ospec('new','change',name,'--schema',`cliewen-${workflow}`);\n      const status=JSON.parse(ospec('status','--change',name,'--json'));assert.deepEqual(status.artifacts.map(a=>a.id),graphs[workflow]);\n      const proposal=JSON.parse(ospec('instructions','proposal','--change',name,'--json'));assert.ok(proposal.instruction.includes(resource));\n      write(root,`openspec/changes/${name}/proposal.md`,'# Existing selected work\\nClarify the known delivery; no new product promise.\\n');\n      const next=JSON.parse(ospec('instructions',workflow==='delivery'?'design':'investigation','--change',name,'--json'));assert.ok(next.instruction.includes(resource));\n      if(workflow!=='delivery'){\n        write(root,`openspec/changes/${name}/investigation.md`,'# Findings\\nExisting intent retained. Retry behavior is not established; no user feedback collected.\\n');\n        write(root,`openspec/changes/${name}/decision.md`,'---\\ntype: decision\\nstatus: proposed\\noutcome: further-investigation\\n---\\n# Recommendation\\nClarify the recovery contract before selecting delivery.\\n');\n        const metadata=`openspec/changes/${name}/.openspec.yaml`,selection=parse(read(root,metadata));selection.skip_specs=true;write(root,metadata,stringify(selection));\n        const result=JSON.parse(run([cli,'check','--change',name,'--json']));assert.equal(result.ok,true);\n      }\n    }\n    for(const [file,text]of Object.entries(authored))assert.equal(read(root,file),text,file);\n    assert.equal(read(root,'.cliewen-openspec/config.yaml'),config);\n    assert.equal(fs.existsSync(path.join(root,'knowledge/product-intent.md')),false);assert.equal(fs.existsSync(path.join(root,'.cliewen-openspec/ac-registry.json')),false);assert.equal(fs.existsSync(path.join(root,'.cliewen-openspec/evidence.json')),false);\n  }\n  assert.equal(read(root,skill),native);\n  t.diagnostic(JSON.stringify({openspec:version,packageIntegrity:pack.integrity,node:process.version,settingsCombinations:3,workflows:3,agentExecution:false}));\n});\n",
+    "scripts/check-docs-browser.mjs": "import fs from 'node:fs';\nimport assert from 'node:assert/strict';\nimport { chromium } from 'playwright';\nimport { serveDocs } from './serve-docs.mjs';\n\nconst {server, url} = await serveDocs(0);\nlet browser;\ntry {\n  browser = await chromium.launch();\n  const context = await browser.newContext({permissions: ['clipboard-read', 'clipboard-write']});\n  const page = await context.newPage();\n  const errors = [];\n  async function waitForWorkflowDiagrams() {\n    const diagrams = page.locator('.mermaid-diagram');\n    await diagrams.first().locator('svg').waitFor();\n    for (let i = 0; i < await diagrams.count(); i++) await diagrams.nth(i).locator('svg').waitFor();\n  }\n  async function checkLabelBounds() {\n    const clipped = await page.locator('.mermaid-diagram foreignObject').evaluateAll(labels => labels.flatMap(label => {\n      const available = label.getBoundingClientRect();\n      return [...label.querySelectorAll('p')].filter(p => {\n        const box = p.getBoundingClientRect();\n        return box.top < available.top - 1 || box.bottom > available.bottom + 1 || box.left < available.left - 1 || box.right > available.right + 1;\n      }).map(p => p.textContent);\n    }));\n    assert.deepEqual(clipped, [], 'Mermaid labels must fit their measured viewport');\n  }\n  page.on('pageerror', error => errors.push(error.message));\n  page.on('response', response => { if (response.status() >= 400) errors.push(`${response.status()} ${response.url()}`); });\n  const files = fs.readdirSync('site-dist').filter(n => n.endsWith('.html') && n !== '404.html');\n  for (const width of [1360, 390]) {\n    await page.setViewportSize({width, height: 900});\n    for (const file of files) {\n      await page.goto(url + file, {waitUntil: 'networkidle'});\n      assert.equal(await page.locator('main h1').count(), 1, `${file}: one page heading`);\n      assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), `${file}: overflow at ${width}px`);\n      const diagrams = page.locator('.mermaid-diagram');\n      for (let i = 0; i < await diagrams.count(); i++) await diagrams.nth(i).locator('svg').waitFor();\n      await checkLabelBounds();\n    }\n  }\n  await page.goto(url, {waitUntil: 'networkidle'});\n  await page.keyboard.press('Tab');\n  assert.equal(await page.evaluate(() => document.activeElement.textContent.trim()), 'Skip to content');\n  await page.keyboard.press('Enter');\n  assert.equal(await page.evaluate(() => document.activeElement.id), 'VPContent');\n  await page.locator('.VPNavBarHamburger').click();\n  await page.locator('.VPNavScreen a[href$=\"/getting-started.html\"]').click();\n  await page.waitForURL('**/getting-started.html');\n  const code = await page.locator('main pre code').first().textContent();\n  await page.locator('main button.copy').first().click();\n  assert.equal((await page.evaluate(() => navigator.clipboard.readText())).replace(/\\r\\n/g, '\\n'), code);\n  await page.setViewportSize({width: 1360, height: 1000});\n  await page.locator('.VPSidebar a[href$=\"/workflow.html\"]').click();\n  await waitForWorkflowDiagrams();\n  await checkLabelBounds();\n  assert.equal(await page.locator('.VPSidebar').getByText('Project', {exact: true}).count(), 0);\n  await page.locator('.VPNavBarSearch button').click();\n  await page.locator('#localsearch-input').fill('prefix');\n  const result = page.locator('.VPLocalSearchBox a[href*=\"configuration.html\"]').first();\n  await result.waitFor();\n  await result.click();\n  await page.waitForURL('**/configuration.html*');\n  await page.locator('main h1').filter({hasText: 'Project configuration'}).waitFor();\n  assert.match(await page.locator('main h1').textContent(), /Project configuration/);\n  await page.locator('.VPSidebar a[href$=\"/workflow.html\"]').click();\n  await waitForWorkflowDiagrams();\n  fs.mkdirSync('.tmp', {recursive: true});\n  await page.screenshot({path: '.tmp/docs-desktop.png', fullPage: false});\n  const diagramIds = await page.locator('.mermaid-diagram svg').evaluateAll(diagrams => diagrams.map(diagram => diagram.id));\n  await page.locator('.VPSwitchAppearance:visible').click();\n  await page.waitForFunction(() => document.documentElement.classList.contains('dark'));\n  await page.waitForFunction(previous => {\n    const diagrams = [...document.querySelectorAll('.mermaid-diagram svg')];\n    return diagrams.length === previous.length && diagrams.every((diagram, index) => diagram.id !== previous[index]);\n  }, diagramIds);\n  await page.reload({waitUntil: 'networkidle'});\n  assert.ok(await page.locator('html').evaluate(element => element.classList.contains('dark')), 'appearance persists after reload');\n  await waitForWorkflowDiagrams();\n  assert.equal(await page.locator('.diagram-error').count(), 0);\n  await checkLabelBounds();\n  await page.locator('.mermaid-diagram').first().screenshot({path: '.tmp/docs-diagram-dark.png'});\n  await page.screenshot({path: '.tmp/docs-dark.png', fullPage: false});\n  await page.locator('.VPSwitchAppearance:visible').click();\n  await page.waitForFunction(() => !document.documentElement.classList.contains('dark'));\n  await page.setViewportSize({width: 390, height: 844});\n  await page.goto(url + 'configuration.html', {waitUntil: 'networkidle'});\n  await page.screenshot({path: '.tmp/docs-mobile.png', fullPage: false});\n  assert.deepEqual(errors, [], 'Browser/network errors');\n  console.log(`Browser checks passed for ${files.length} pages at desktop/mobile sizes, including search results, persisted light/dark appearance, diagram rerendering, navigation, keyboard access, and clipboard.`);\n} finally {\n  if (browser) await browser.close();\n  await new Promise(resolve => server.close(resolve));\n}\n"
+  },
+  "localArtifacts": [
+    {
+      "path": "C:\\Code\\cliewen-openspec\\.tmp\\product-context-tests.log",
+      "sha256": "97fb40227fcfaac1e17565caf279e1139cdb9ca29c6391e72cd7bfde33a3db7c",
+      "bytes": 14637
+    },
+    {
+      "path": "C:\\Code\\cliewen-openspec\\.tmp\\product-context-tests-final.log",
+      "sha256": "fa6e14638d86f68bfaffc35f77064dcdc7e8c30d1f0f8b4b0e5f2116ee604061",
+      "bytes": 12758
+    },
+    {
+      "path": "C:\\Code\\cliewen-openspec\\.tmp\\product-context-docs.log",
+      "sha256": "c3db313384e420cb90904c5d936a3ed3dc9edf9c2cc6792a2337ee0f64e1de6f",
+      "bytes": 744
+    },
+    {
+      "path": "C:\\Code\\cliewen-openspec\\.tmp\\product-context-browser.log",
+      "sha256": "8a7c8450a9405414ad59f12eced399c1a7d802b799bff703e7ed8b47b459b64b",
+      "bytes": 999
+    },
+    {
+      "path": "C:\\Code\\cliewen-openspec\\.tmp\\product-context-browser-final.log",
+      "sha256": "7529feb4da98be67a03904ae2ea4e8161efd7d5dd2594af00abaad72ea4666f1",
+      "bytes": 265
+    },
+    {
+      "path": "C:\\Code\\cliewen-openspec\\.tmp\\docs-diagram-dark.png",
+      "sha256": "6bbfddbc726803a6e58ac80ccb3047924b60cb8b57239b08ee750b407451602a",
+      "bytes": 18458
+    },
+    {
+      "path": "C:\\Code\\cliewen-openspec\\.tmp\\docs-desktop.png",
+      "sha256": "56cc6d3cd87062478bdbcd4e441ddd6c1278ea258cf9b67027154d47f7443a0d",
+      "bytes": 230317
+    },
+    {
+      "path": "C:\\Code\\cliewen-openspec\\.tmp\\docs-mobile.png",
+      "sha256": "5e722a0af33e89e3c831e78d50f0e6408e7b2775be79086efaf886f6f960007d",
+      "bytes": 68573
+    }
+  ],
+  "limits": [
+    "No new agent execution or live user feedback.",
+    "Instruction tests do not prove scope-creep detection or conditional agent compliance.",
+    "No external ticket integration exercised.",
+    "Native consumer fixtures on Windows with OpenSpec 1.15.0/1.17.0, not every supported environment.",
+    "Next-release three-agent checkpoint remains pending.",
+    "Published package remains unchanged; implementation review and archive pending."
+  ],
+  "completionChecks": {
+    "changeStrictValidation": true,
+    "permanentSpecsStrictValidation": {
+      "passed": 11,
+      "failed": 0
+    },
+    "evaluationPlan": true,
+    "changedMarkdownLinks": {
+      "files": 16,
+      "localLinks": 108,
+      "missing": 0
+    }
+  }
+}

@@ -9,6 +9,7 @@ These records capture choices confirmed in the project conversation. Acceptance 
 
 | Record | Decision | Current scope |
 |---|---|---|
+| [Decision 025: Explain intent and journeys without duplicating specs](025-product-intent-and-user-journeys.md) | Optional intent and journeys detect drift and scope creep without duplicating specs or planning authority | Implementation accepted and archived November 10, 2026. Agent behavior remains for the release trials. |
 | [Decision 024: Use optional prototypes to resolve consequential uncertainty](024-optional-user-approved-prototypes.md) | The user chooses prototype experiments; agents suggest them for specific unresolved questions and preserve findings and feedback | Implemented in development source; three-case trial and limits accepted; archived November 10, 2026 |
 | [Decision 023: Extend OpenSpec through its conventions](023-openspec-native-planning-and-closure.md) | OpenSpec-native scoping, progressive planning, and closure | Scoping/planning accepted and archived; closure accepted with documented limits and archived; 93 tests pass after the context-entry clarification; later roadmap work remains planned |
 | [Decision 021: Ship 0.1.0 first and use a direct transition](021-first-release-and-direct-transition.md) | First non-prerelease target and no legacy-user compatibility obligation | Accepted by the owner; source/Pages relocation and first-release preparation tracked separately from publication |

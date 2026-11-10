@@ -10,6 +10,11 @@ try {
   const context = await browser.newContext({permissions: ['clipboard-read', 'clipboard-write']});
   const page = await context.newPage();
   const errors = [];
+  async function waitForWorkflowDiagrams() {
+    const diagrams = page.locator('.mermaid-diagram');
+    await diagrams.first().locator('svg').waitFor();
+    for (let i = 0; i < await diagrams.count(); i++) await diagrams.nth(i).locator('svg').waitFor();
+  }
   async function checkLabelBounds() {
     const clipped = await page.locator('.mermaid-diagram foreignObject').evaluateAll(labels => labels.flatMap(label => {
       const available = label.getBoundingClientRect();
@@ -47,7 +52,7 @@ try {
   assert.equal((await page.evaluate(() => navigator.clipboard.readText())).replace(/\r\n/g, '\n'), code);
   await page.setViewportSize({width: 1360, height: 1000});
   await page.locator('.VPSidebar a[href$="/workflow.html"]').click();
-  await page.locator('.mermaid-diagram svg').waitFor();
+  await waitForWorkflowDiagrams();
   await checkLabelBounds();
   assert.equal(await page.locator('.VPSidebar').getByText('Project', {exact: true}).count(), 0);
   await page.locator('.VPNavBarSearch button').click();
@@ -59,19 +64,22 @@ try {
   await page.locator('main h1').filter({hasText: 'Project configuration'}).waitFor();
   assert.match(await page.locator('main h1').textContent(), /Project configuration/);
   await page.locator('.VPSidebar a[href$="/workflow.html"]').click();
-  await page.locator('.mermaid-diagram svg').waitFor();
+  await waitForWorkflowDiagrams();
   fs.mkdirSync('.tmp', {recursive: true});
   await page.screenshot({path: '.tmp/docs-desktop.png', fullPage: false});
-  const diagramId = await page.locator('.mermaid-diagram svg').getAttribute('id');
+  const diagramIds = await page.locator('.mermaid-diagram svg').evaluateAll(diagrams => diagrams.map(diagram => diagram.id));
   await page.locator('.VPSwitchAppearance:visible').click();
   await page.waitForFunction(() => document.documentElement.classList.contains('dark'));
-  await page.waitForFunction(previous => document.querySelector('.mermaid-diagram svg')?.id !== previous, diagramId);
+  await page.waitForFunction(previous => {
+    const diagrams = [...document.querySelectorAll('.mermaid-diagram svg')];
+    return diagrams.length === previous.length && diagrams.every((diagram, index) => diagram.id !== previous[index]);
+  }, diagramIds);
   await page.reload({waitUntil: 'networkidle'});
   assert.ok(await page.locator('html').evaluate(element => element.classList.contains('dark')), 'appearance persists after reload');
-  await page.locator('.mermaid-diagram svg').waitFor();
+  await waitForWorkflowDiagrams();
   assert.equal(await page.locator('.diagram-error').count(), 0);
   await checkLabelBounds();
-  await page.locator('.mermaid-diagram').screenshot({path: '.tmp/docs-diagram-dark.png'});
+  await page.locator('.mermaid-diagram').first().screenshot({path: '.tmp/docs-diagram-dark.png'});
   await page.screenshot({path: '.tmp/docs-dark.png', fullPage: false});
   await page.locator('.VPSwitchAppearance:visible').click();
   await page.waitForFunction(() => !document.documentElement.classList.contains('dark'));

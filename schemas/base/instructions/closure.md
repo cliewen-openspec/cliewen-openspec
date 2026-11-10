@@ -8,6 +8,8 @@ Compare the actual result with the agreed scope, delta specs, and unresolved wor
 
 With features.documentation enabled, reconcile affected explanations, architecture/design documents, examples, and links with the delivered result, using docsRoot and existing paths. With features.decisions enabled, maintain relevant Decision Records and their genuine acceptance status. Disabled facilities impose no matching optional work and preserve authored files.
 
+For affected product intent or journeys, follow .cliewen-openspec/product-context.md. Reconcile enabled documentation with actual behavior and keep desired outcomes distinct from implementation and observed user results. Surface drift or additional wishes through existing scope rules; archive does not authorize them or establish user success.
+
 With learnings.enabled and features.documentation enabled, follow the installed learning guidance: read the index before selecting notes, verify against current authority, retain only reusable evidence-backed observations, and merge or retire stale guidance in place. Otherwise skip learning retrieval and maintenance.
 
 For delivery, apply the existing coverage, assertion-effectiveness, lifecycle, and evidence policies independently. Off skips its matching policy; review discloses unresolved findings and enforce resolves blocking findings. Preserve valid and shared active assertions. Remove obsolete assertions only following explicit accepted retirement, retain reserved IDs, and refresh review records when their inputs change. Evidence failures stay blocking when evidence is enabled.

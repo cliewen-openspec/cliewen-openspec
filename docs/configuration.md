@@ -30,6 +30,10 @@ The check uses the project's resolvable OpenSpec npm installation first, otherwi
 
 The development upgrade route accepts published 0.1.0 ownership manifests and the running target version. Further source versions require explicit support; alpha installations, unknown formats, and downgrades remain unsupported. The release number has not been changed. See [updating an installation](guide/updating.md) for package/resource boundaries and preview output; never relabel a manifest to bypass validation.
 
+## Optional product context in development
+
+Development source installs `.cliewen-openspec/product-context.md` for product intent, useful cross-capability journeys, and detection of drift or scope creep. Published 0.1.0 does not contain this reference. There is no new configuration field or required artifact. `features.documentation` controls optional records under `docsRoot` or existing project paths; `features.planning` independently controls planning authority and ticket access. Disabled facilities add no corresponding work and preserve authored content. Existing supplied context still informs normal scoping. See [product intent and journeys](guide/workflow.md#keep-the-users-outcome-in-view) for an illustrative example and limits.
+
 ## Full defaults
 
 This is the complete configuration written by `init`. Omitted fields use these values; unknown settings and invalid values fail validation. Changes apply when the next operation reads the config. They do not rewrite existing proposals or task lists.

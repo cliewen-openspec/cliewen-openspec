@@ -21,6 +21,8 @@ Installing a different package does not automatically refresh an existing instal
 
 Development source also installs manifest-owned planning, closure, and prototype references. The [optional archive-session setup](workflow.md#use-the-reference-from-a-separate-archive-session) points OpenSpec's project-owned guidance to the closure reference; installation does not add that configuration entry. These additions are not in published 0.1.0.
 
+It also installs `.cliewen-openspec/product-context.md` for optional product intent and journeys. It creates no project goal or journey documents; existing records, configuration, and OpenSpec integrations retain their ownership. See [the workflow example](workflow.md#keep-the-users-outcome-in-view).
+
 Development source checks the running Node and selected OpenSpec CLI before init/update, including previews. It requires Node 20.19+ and stable OpenSpec 1.15.0+, preferring the project's npm installation over PATH. Missing or incompatible tools stop the command before recovery or installation writes. See [version compatibility](../configuration.md#version-compatibility) for selection, timeout, and runtime limits.
 
 ## update

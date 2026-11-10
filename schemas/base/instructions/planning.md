@@ -10,6 +10,10 @@ Read learnings.enabled (default false) and features.documentation. If either dis
 
 After resolving this policy and selecting any relevant lessons, gather the remaining context needed for the task. Planning may be disabled while learning guidance remains enabled; its planning opt-out below does not skip this context policy.
 
+## Optional product context
+
+After resolving the context policy above, use .cliewen-openspec/product-context.md when relevant intent or a cross-capability journey helps assess the work. Existing supplied context can inform scope independently of optional plan maintenance. features.documentation controls optional record maintenance; features.planning controls ticket/plan access. Routine work needs no new record.
+
 ## Optional planning
 
 For optional prototype experiments after resolving the context policy, use .cliewen-openspec/prototyping.md. Its user-selection and native-workflow rules apply independently of features.planning; understood work requires no experiment.

@@ -7,13 +7,39 @@ Choose `cliewen-delivery` when you understand the problem and are ready to speci
 
 ## Choose the next delivery
 
-The development source adds work-scoping guidance and installs `.cliewen-openspec/planning.md`. These additions are not in published 0.1.0. Use a fresh isolated installation of a local build to evaluate them; cross-version upgrades remain outside the supported lifecycle.
+The development source adds work-scoping guidance and installs `.cliewen-openspec/planning.md`. These additions are not in published 0.1.0. Evaluate a local build in a separate project or follow the supported published-0.1.0 resource-refresh route in [the update guide](updating.md). General project-content migrations remain outside that route.
 
 Start with the smallest result that can be understood and verified together. New behavior, changed requirements, or material design choices usually need an OpenSpec change. A small correction restoring documented behavior can use relevant checks without a new proposal. Reassess if investigation expands the scope. Small implementation tasks can stay within one change; genuinely independent changes can proceed in parallel.
 
 When a proposal grows too large, keep the next coherent delivery and preserve later work in your planning authority. Reconcile the current proposal, specs, design, and tasks. For example, deliver CSV export first and keep scheduled export as a future plan item with its purpose and dependencies. Write that later proposal after the first delivery teaches you more.
 
 For consequential choices, identify the riskiest assumption, an alternative, a cheap useful investigation, and the result that would stop or revise the approach. Ask whether meeting every criterion could still fail the intended user. Routine work needs no extra report. Reassess goals and dependencies when resuming work or encountering contradictory evidence.
+
+### Keep the user's outcome in view
+
+Development source adds `.cliewen-openspec/product-context.md`; published 0.1.0 does not contain it. The reference helps agents compare a change with the agreed problem, user outcome, and delivery scope. Start with the existing product brief, README, or selected planning authority. A separate `goal.md` is optional. Keep unknown intent and success measures unknown until there is a source for them.
+
+A journey is useful when a user needs several capabilities to achieve an outcome. Keep behavioral rules in OpenSpec and link to them by descriptive title. For a small correction, the existing explanation is often enough; no new document or interview is required.
+
+This illustrative invoicing example has a proposed outcome: a reviewer can pass the selected paid-invoice totals to an accountant without entering the totals again. It describes an example product, not a Cliewen feature or observed user feedback:
+
+```mermaid
+flowchart LR
+  A["Select paid invoices"] --> B["Review totals"]
+  B --> C["Export CSV"]
+  C --> D{"Export succeeded?"}
+  D -->|Yes| E["Share with accountant"]
+  D -->|No| F["Keep selection and report failure"]
+  F -->|Retry| C
+```
+
+In that product, link “Review totals” to its invoice-totals spec and “Export CSV” to its CSV-export spec, using the actual project paths and descriptive titles. The retry path needs a corresponding behavioral contract; drawing it does not make it implemented. Component tests may pass while the handoff still loses the selected invoices. Record that gap and assess it through the normal OpenSpec change workflow.
+
+Use the same context to detect drift and scope creep. Adding automatic invoice scheduling might support the product's wider purpose while exceeding an agreed CSV-export delivery. Keep that wish for separate prioritization in the selected plan or tickets when planning is enabled. With planning disabled, note the additional scope in the current handoff. Obtain direction before material expansion; ordinary authorized implementation choices and necessary in-scope corrections can proceed with relevant verification. Do not rewrite the goal to justify work that has drifted.
+
+`features.documentation` controls optional intent/journey record creation and maintenance; `features.planning` independently controls ticket access and plan updates. With documentation disabled, preserve existing records and add no documentation work. Supplied product context can still inform scoping. When a durable explanation helps, reuse existing documents and paths; optional new examples are `product-intent.md` or `journeys/reconcile-invoices.md` under `docsRoot`. Installation creates neither.
+
+During review and closure, reconcile affected explanations with actual behavior. Distinguish the desired outcome, delivered capabilities, and observed results. State when no user observation was collected. A diagram, passing tests, or archive alone does not prove that users achieved the outcome.
 
 ### Tickets or a local plan
 
