@@ -11,7 +11,7 @@ This roadmap is accepted direction, not implemented functionality. [Decision 023
 
 | Order | Increment | Completion criteria | Status |
 |---|---|---|---|
-| 1 | Scope work, plan progressively, and challenge risky assumptions | Agents assess whether a change is needed, split oversized work, and prepare the next coherent delivery from a ticket or local plan | Planned; next |
+| 1 | Scope work, plan progressively, and challenge risky assumptions | Agents assess whether a change is needed, split oversized work, and prepare the next coherent delivery from a ticket or local plan | [Implemented and verified](docs/testing/work-scoping-001.md) in development source; review and limits accepted, archive pending |
 | 2 | Maintain durable knowledge around archive | Closure updates affected documentation and preserves useful findings; subsequent work is reassessed against actual results | Planned |
 | 3 | Adopt and upgrade existing projects | Reviewable previews support adoption and upgrades while preserving project-owned documents, configuration, identities, and modifications | Planned |
 | 4 | Explain product intent and user journeys | Optional goals and cross-capability journeys help evaluate changes without duplicating behavioral specs | Planned |
@@ -25,7 +25,7 @@ A project chooses one authority for upcoming work: its existing ticket system or
 
 Record the selected ticket system and project or backlog reference. Discover suitable access through the agent host's available MCP servers, connectors, or CLI tools, distinguishing read access from write capability. The user connects the service and grants access; available credentials do not authorize writes. Use links and available agent tools for external systems. If access is unavailable, explain what connection is needed, provide the concrete pending update, and report that it was not performed. The adopting-project guide must explain these connection options. Do not duplicate ticket status locally or build a dedicated provider API integration in this increment. External writes follow the user's authorization and project policy.
 
-Assess change needs from intended behavior, requirements, design impact, and uncertainty, using OpenSpec guidance. Do not import Cliewen's direct/tracked routes. Reassess the choice when new information expands the task. Relevant verification still applies to work that needs no proposal.
+Assess change needs from intended behavior, requirements, design impact, and uncertainty, using OpenSpec guidance. Describe the assessment using OpenSpec concepts and project conventions. Reassess the choice when new information expands the task. Relevant verification still applies to work that needs no proposal.
 
 Each change should deliver a coherent result that can be understood and verified together. Its implementation tasks may be small without becoming separate proposals. Keep dependent future work as tickets or plan items instead of preparing a chain of detailed proposals that will become stale.
 

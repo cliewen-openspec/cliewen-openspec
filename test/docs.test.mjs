@@ -59,11 +59,17 @@ test('documented CSV consumer commands pass from packed install through archive'
     }
   }
   assert.equal(cwd, pilot);
+  assert.ok(fs.readFileSync(path.join(pilot, '.cliewen-openspec/planning.md'), 'utf8').includes('grilling dependency'));
   const configPath = path.join(pilot, '.cliewen-openspec/config.yaml');
   const config = parse(fs.readFileSync(configPath, 'utf8'));
   Object.assign(config, parse(fs.readFileSync(path.join(checkout, 'docs/examples/csv/config.yaml'), 'utf8')));
   fs.writeFileSync(configPath, stringify(config));
   for (const command of commands.slice(changeStart, allocation + 1)) line(command);
+  for (const artifact of ['proposal']) {
+    const instructions = JSON.parse(run(process.execPath, [npx, '--no-install', 'openspec', 'instructions', artifact, '--change', 'add-csv-export', '--json']));
+    assert.ok(instructions.instruction.includes('.cliewen-openspec/planning.md'));
+    assert.ok(instructions.instruction.includes('Routine understood work needs no challenge report'));
+  }
   const allocate = commands[allocation];
   for (let n = 2; n <= 6; n++) assert.equal(line(allocate).trim(), `EXP-${String(n).padStart(3, '0')}`);
   let scopedCheck;

@@ -157,7 +157,7 @@ export function recover(root: string) {
   fs.unlinkSync(jp);
 }
 type Manifest = { version: string; files: Record<string, string> };
-function bundledFiles(): Record<string, string> { return {...deliveryFiles(), ...discoveryFiles(), ...allFiles(), [`${state}/templates/learning.md`]: template('base/templates/learning.md')}; }
+function bundledFiles(): Record<string, string> { return {...deliveryFiles(), ...discoveryFiles(), ...allFiles(), [`${state}/templates/learning.md`]: template('base/templates/learning.md'), [`${state}/planning.md`]: template('base/instructions/planning.md') + '\n## Work scoping\n\n' + template('base/instructions/work-scoping.md')}; }
 function manifestText(files: Record<string, string>): string {
   return JSON.stringify({version, files: Object.fromEntries(Object.entries(files).map(([file, content]) => [file, hash(content)]))}, null, 2) + '\n';
 }
@@ -173,7 +173,7 @@ function ownedManifest(root: string, operation: 'update' | 'uninstall'): Manifes
   if (!previous.files || typeof previous.files !== 'object' || Array.isArray(previous.files) || !Object.keys(previous.files).length) throw Error('Manifest files must be a nonempty ownership mapping');
   for (const [file, digest] of Object.entries(previous.files)) {
     local(root, file);
-    const owned = [`${state}/templates/decision.md`, `${state}/templates/learning.md`].includes(file) || /^openspec\/schemas\/cliewen-(delivery|discovery|all)\/(schema\.yaml|templates\/[a-z0-9][a-z0-9-]*\.md)$/.test(file);
+    const owned = [`${state}/templates/decision.md`, `${state}/templates/learning.md`, `${state}/planning.md`].includes(file) || /^openspec\/schemas\/cliewen-(delivery|discovery|all)\/(schema\.yaml|templates\/[a-z0-9][a-z0-9-]*\.md)$/.test(file);
     if (!owned || typeof digest !== 'string' || !/^[a-f0-9]{64}$/.test(digest)) throw Error(`Invalid owned-file entry in manifest: ${file}`);
   }
   return previous as Manifest;

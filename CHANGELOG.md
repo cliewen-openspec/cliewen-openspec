@@ -2,6 +2,11 @@
 
 Changes that matter to projects using Cliewen for OpenSpec.
 
+## Unreleased
+
+- Agents receive guidance for scoping coherent OpenSpec changes, splitting oversized proposals, and revisiting assumptions as work progresses. Optional planning uses your existing ticket system or a lightweight local plan. Ticket access uses the agent's available tools and your authorization.
+- An installed planning reference and an optional project instruction make that guidance available before change creation. Planning can be disabled independently; authored documents are preserved. Agents can suggest a user-requested grill-me interview when available. These are review instructions, not automated guarantees of agent behavior. See [work scoping and planning](docs/guide/workflow.md#choose-the-next-delivery).
+
 ## 0.1.0 (2026-11-09)
 
 - Optional indexed project learnings help agents retrieve relevant lessons and maintain or retire stale guidance. Notes remain project-owned and survive disabling the facility, updates, and uninstall. Learnings are off by default. Agents that gather context before reading schema instructions may need the [project instruction example](docs/configuration.md#instructions-before-context-collection).

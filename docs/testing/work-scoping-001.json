@@ -1,0 +1,121 @@
+{
+  "date": "2026-11-10",
+  "cli": "2.1.322 (Claude Code)",
+  "requestedModel": "opus",
+  "observedModels": [
+    "claude-opus-5-5"
+  ],
+  "protocol": "Fresh Claude Code print session in an isolated initialized consumer. Read-only tool access, four-turn maximum, 120-second timeout. Asked five independent hypothetical scenarios: oversized CSV/scheduling/dark-mode scope; planning disabled; Jira without tool inventory; grill-me available but not requested and declined; invalid dependency on resumption. No file edits or external operations permitted.",
+  "referenceSha256": "0f24d6ae30434a758118560c5ae09698260184f33ed9f5b7f86e4f8de42f978a",
+  "result": {
+    "duration_api_ms": 17545,
+    "stop_reason": "end_turn",
+    "session_id": "3732a618-470d-48ef-be39-7c8daa003269",
+    "total_cost_usd": 0.1267994,
+    "usage": {
+      "input_tokens": 4,
+      "cache_creation_input_tokens": 11295,
+      "cache_read_input_tokens": 9817,
+      "output_tokens": 1723,
+      "output_tokens_details": {
+        "thinking_tokens": 174
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 11295,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 1613,
+          "cache_read_input_tokens": 9817,
+          "cache_creation_input_tokens": 1478,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 1478
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 4,
+        "outputTokens": 1723,
+        "cacheReadInputTokens": 9817,
+        "cacheCreationInputTokens": 11295,
+        "webSearchRequests": 0,
+        "costUSD": 0.1267994,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 174,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 11295,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "safety_stops": 0,
+    "is_error": false,
+    "num_turns": 2,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "I read `.cliewen-openspec/planning.md`. It tells the agent to read `.cliewen-openspec/config.yaml` too. I didn't, because each scenario below states its own planning setting. Everything below is a recommendation. I haven't done any interview, ticket update, test, approval or file change.\n\n---\n\n### 1. CSV export proposal that also has scheduling and dark mode\n\n**Scope:** The proposal is too big. Narrow it to **basic CSV export**, which can be understood and verified as one result.\n- **Scheduled export** depends on basic export. If planning is enabled, record it as a ticket or plan item with its purpose, desired outcome, scope, and its dependency on basic export. Write its full proposal once it can actually be worked on, using what's known then.\n- **Dark mode** has nothing to do with export. It should be its own change, or its own ticket or plan item, and can go ahead in parallel. It shouldn't stay in this proposal.\n- If planning is enabled, keep the reasons for the split and the deferred work in the planning authority. Link to it from the proposal where that helps.\n\n**Reconcile these artifacts:** the current proposal, specs, design and tasks. Remove or mark anything about scheduling and dark mode so deferred work never shows up as delivered. Keep existing change names and paths.\n\n### 2. `features.planning: false` and an old local plan exists\n\n**Skip:** finding a planning authority, any ticket access, and plan maintenance. Don't update, prune or sync the old local plan.\n\n**Keep:** the old plan stays exactly as it is. It's an authored document, so don't delete or rewrite it.\n\n**Still applies:**\n- Decide whether the work needs an OpenSpec change at all. A small fix that restores unchanged accepted behavior only needs the relevant checks.\n- Run the checks that are relevant to the work.\n- Existing approval boundaries still apply.\n\n### 3. Planning on, Jira ticket selected, no ticket tool inventory\n\n**What I can claim:** Jira access is **unknown**. I can't say I can read or write the ticket, and I can't say no Jira integration exists. Even if a tool turns up later, having credentials isn't permission to write. Writing needs existing authorization or project policy.\n\n**What I can give:** a link to the ticket and a concrete list of manual updates for the user to make, such as a link to the proposal, the narrowed scope and the deferred follow-ups. If I know what connection is needed, I'd explain it. I wouldn't install anything or change the host configuration.\n\n**Naming:** Give the change a descriptive OpenSpec kebab-case name based on the behavior, e.g. `add-basic-csv-export`. Keep the original Jira ID and a descriptive link in the proposal text. Track ticket status in Jira itself, not in a second status list.\n\n### 4. grill-me is listed but the user hasn't asked for it, and a scheduling assumption is consequential and unresolved\n\n**What happens:** Seeing grill-me in the list isn't a request to run it, so no interview starts. Because the choice matters, I'd **suggest** grill-me as optional. As part of normal scoping, before committing I'd write down:\n- the riskiest assumption\n- a credible alternative\n- the cheapest useful investigation\n- a stop or revision condition, placed where the reviewer reads the choice\n\nI'd also ask whether meeting every criterion could still fail the intended user.\n\n**If the user asks for it:** load grill-me and its grilling dependency through the host's skill-loading mechanism and follow their instructions. Confirm we understand each other before acting, and record the conclusions in the proposal, plan or decision.\n\n**If the user declines** (or the skill isn't available): continue with normal scoping and report what's limited, here that the scheduling assumption is still unresolved. Don't install the skill. Approval boundaries are unchanged.\n\n### 5. A dependency turns out to be invalid when work resumes\n\n**Before continuing:** Review the goals, dependencies and next delivery again. Show the user the mismatch and the options, and get their direction before continuing any affected work. Work that doesn't depend on it can go on.\n\n**Decision Records:** Not every plan edit needs one. Ordinary replanning doesn't need one by default. A material change to agreed scope needs the user's direction. Where a decision gets recorded depends on its significance, and the guidance doesn't define that threshold.",
+    "ttft_ms": 1389,
+    "type": "result",
+    "duration_ms": 18137,
+    "uuid": "df3e08da-23f0-43af-ae6d-20090c02136c",
+    "ttft_stream_ms": 877,
+    "time_to_request_ms": 255,
+    "first_content_frame_ms": 878,
+    "queued_turn_count": 0,
+    "result_index": 0,
+    "credential_expires_at": "2026-12-08T02:20:15.119Z"
+  },
+  "assessment": {
+    "status": "passed bounded scenario review",
+    "limits": [
+      "Hypothetical recommendations, not execution of backlog edits or a complete implementation journey.",
+      "Agent stated it did not read config because scenario settings were supplied; actual config retrieval remains unobserved.",
+      "No live MCP operation or grill-me invocation was exercised.",
+      "Only one fresh Claude Code session was observed."
+    ]
+  }
+}

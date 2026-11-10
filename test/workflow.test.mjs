@@ -67,6 +67,8 @@ test('packed installation → OpenSpec change → real test evidence → archive
   const instructions=JSON.parse(ospec('instructions','apply','--change','export-data','--json'));
   assert.notEqual(instructions.state,'blocked');
   assert.match(instructions.instruction, /evidence-first verification/);
+  assert.match(instructions.instruction, /\.cliewen-openspec\/planning\.md/);
+  assert.match(instructions.instruction, /Routine understood work needs no challenge report/);
   const taskInstructions=JSON.parse(ospec('instructions','tasks','--change','export-data','--json'));
   assert.match(taskInstructions.instruction, /evidence-first verification/);
   assert.match(taskInstructions.instruction, /Before implementation, describe acceptance criteria/);

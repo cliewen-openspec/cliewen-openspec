@@ -5,6 +5,52 @@ type: guide
 
 Choose `cliewen-delivery` when you understand the problem and are ready to specify and implement a change. OpenSpec uses one schema per change. The default schema in `openspec/config.yaml` applies to new changes; changing it does not rewrite an existing change's schema selection.
 
+## Choose the next delivery
+
+The development source adds work-scoping guidance and installs `.cliewen-openspec/planning.md`. These additions are not in published 0.1.0. Use a fresh isolated installation of a local build to evaluate them; cross-version upgrades remain outside the supported lifecycle.
+
+Start with the smallest result that can be understood and verified together. New behavior, changed requirements, or material design choices usually need an OpenSpec change. A small correction restoring documented behavior can use relevant checks without a new proposal. Reassess if investigation expands the scope. Small implementation tasks can stay within one change; genuinely independent changes can proceed in parallel.
+
+When a proposal grows too large, keep the next coherent delivery and preserve later work in your planning authority. Reconcile the current proposal, specs, design, and tasks. For example, deliver CSV export first and keep scheduled export as a future plan item with its purpose and dependencies. Write that later proposal after the first delivery teaches you more.
+
+For consequential choices, identify the riskiest assumption, an alternative, a cheap useful investigation, and the result that would stop or revise the approach. Ask whether meeting every criterion could still fail the intended user. Routine work needs no extra report. Reassess goals and dependencies when resuming work or encountering contradictory evidence.
+
+### Tickets or a local plan
+
+`features.planning` defaults to `true`. Use one existing authority for upcoming work. A ticket-backed proposal can refer to “ABC-123: Export invoices” with its original ID and a descriptive link to the actual ticket. Use an OpenSpec name such as `add-invoice-export`; the link preserves the ticket identity.
+
+For local planning, an existing plan can be as small as:
+
+| Delivery | Desired result | Dependency | Status |
+|---|---|---|---|
+| CSV export | Download the selected invoices | None | Next |
+| Scheduled export | Receive exports on a schedule | Learn from CSV export | Later |
+
+Keep the goal beside the table when useful. Separate goal documents and a backlog for isolated tasks are optional. If your ticket system owns status, link to it from repository documents instead of maintaining another status list.
+
+Your agent can discover exposed MCP servers, connectors, or CLI tools for the selected ticket system. You connect the service and grant access. Read access, write capability, and permission for a particular update are separate. If access is missing or fails, the agent reports the limitation and gives you the pending manual update. It must not report that update as completed.
+
+To disable planning requests, edit the existing project configuration:
+
+```yaml
+features:
+  planning: false
+```
+
+This skips planning-authority discovery, ticket access, and plan maintenance while preserving authored files. Change scoping, verification, and existing approval rules still apply.
+
+### Make guidance available before creating a change
+
+Schemas supply instructions after the agent retrieves them. To request assessment before change creation, add this optional rule to your existing agent instruction file, such as `AGENTS.md`:
+
+```text
+Before creating or resuming an OpenSpec change, read .cliewen-openspec/config.yaml and .cliewen-openspec/planning.md. Follow its work-scoping guidance and apply planning-specific requests only when features.planning is enabled.
+```
+
+Installation writes the reference, but does not edit your agent file or OpenSpec-generated skills. Without this opt-in, schema guidance cannot guarantee assessment before a change is created. This is agent guidance, not an automatic hook or a CLI check of decision quality.
+
+For consequential unresolved choices, you can request the optional [grill-me interview](https://www.aihero.dev/skills-grill-me). It needs the host-exposed `grill-me` skill and its `grilling` dependency. The agent may suggest it; availability alone does not start it. If unavailable or declined, ordinary scoping continues. Confirm the conclusions before acting and preserve them in the relevant proposal, plan, or decision afterward. The package does not install these skills.
+
 ## What writes each file?
 
 | Step | Tool or person | Result |

@@ -80,7 +80,7 @@ This requires two positive and one negative case per scenario. It does not count
 | `features.documentation` | `true` | Guidance to assess and maintain affected documentation |
 | `features.decisions` | `true` | Guidance for considering and recording durable decisions |
 | `features.mermaid` | `true` | Guidance to use embedded Mermaid where useful |
-| `features.planning` | `true` | Makes optional planning guidance available; does not require a plan |
+| `features.planning` | `true` | Enables planning-authority discovery, ticket access guidance, and plan maintenance; does not require a plan |
 | `features.review` | `true` | Makes review guidance available; a separate reviewer remains optional |
 | `features.evidence` | `true` | Scenario-ID and execution-report checks |
 | `evidence.report` | `.cliewen-openspec/evidence.json` | Repository-local path to the execution report |
@@ -163,6 +163,8 @@ testing:
 Each scenario needs exactly one `Test-type: Component` line beneath its heading. With the Node adapter, give each mapped test a title such as `exports rows [EXPORT-001] [Test-type: Component]`. Tasks should name the concrete test, type, and verification boundary. The checker requires evidence `testType` to match the scenario's declared type exactly; it does not assume one type substitutes for another. Task descriptions and the actual quality of the test boundary still require review.
 
 For existing projects, add types to scenarios and test titles, commit the inputs, then regenerate evidence. Older reports without `testType` fail the check and are not automatically upgraded. Evidence opt-out skips these checks. Testing types do not change per-task placement or verification quality.
+
+Development source extends planning with single-authority backlog guidance and an installed `.cliewen-openspec/planning.md` reference. These additions are not in published 0.1.0. See [change scoping and optional pre-change setup](guide/workflow.md#choose-the-next-delivery).
 
 The candidate supplies guidance for documentation, decisions, Mermaid, planning, and review. It does not structurally validate those documents or independently enforce agent behavior. Disabling a facility preserves authored files. Evidence opt-out skips product evidence checks; installation and registry checks still run.
 
