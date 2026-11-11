@@ -181,6 +181,36 @@ Plans are optional. If Jira or another ticket system owns scheduling and status,
 
 ## Review evidence before archive
 
+### Make decisions easy to assess
+
+Development source adds a decision-material review and guidance for human observations; these additions are not in published 0.1.0. Before asking you to decide, the agent checks whether the explanation makes sense without the project conversation or implementation code. It links detailed specs and removes repetition while preserving required sections and important exceptions. Diagrams follow your existing settings and are useful when they shorten the explanation.
+
+For example, an illustrative proposal summary could say:
+
+> Add CSV export for the currently selected invoices so an accountant can reconcile them in a spreadsheet. Preserve the selection if export fails and let the user retry. Scheduled exports are outside this change. The unresolved decision is whether the CSV includes internal invoice notes.
+
+Keep that explanation in the appropriate native proposal sections and link to the behavioral specs. A short summary does not replace acceptance criteria.
+
+### Automate before asking for manual work
+
+The agent first assesses whether its available authorized tools can perform a proposed manual step reliably. It automates suitable checks and preparation, then explains any remaining need for your judgment, access, or authority. An unavailable tool or failed automation is a limitation to report and reassess when capabilities change. Required approval still follows your project policy.
+
+For example, an agent can check that an export downloads and contains the expected rows. Whether an accountant understands its headings may need actual user feedback. If that question matters, the agent prepares the file and asks for that specific assessment. Routine authorized work with sufficient verification proceeds without an extra human checkpoint.
+
+### Keep human observations concrete
+
+An illustrative observation might read:
+
+> Alex checked the selected-invoice export on build abc123 using Firefox and Excel. They selected three invoices, downloaded the CSV, and opened it in Excel. All three rows and totals matched; the tax heading was unclear. Large selections and other spreadsheet applications were not checked.
+
+This example is fictional. For real feedback, retain the supplied attribution, behavior, tested version, conditions, results, and limits; label missing details as unknown. Agent browser checks remain agent observations. If no human feedback was collected, report that when relevant.
+
+Reuse an investigation, review, task note, ticket, or handoff. Optional durable records follow `features.documentation` and existing paths. Setting it to `false` adds no optional observation document; the handoff still reports actual results. External records independently follow `features.planning` and existing permissions. No new setting is needed.
+
+Positive feedback records an observation. Change approval and release authorization require their own applicable authority. When behavior changes later, keep the original tested context, mark the affected observation as historical, and assess whether another check is needed.
+
+An existing version-1 manual result can use `reason` to describe or reference an observation. It remains a warning, with the same scenario, test-type, scope, and Git-freshness checks; see [execution evidence](../testing/evidence.md). An older durable observation does not establish current execution evidence, and manual claims cannot replace failed automated checks. These instructions guide the agent; the CLI does not authenticate feedback or establish readability.
+
 The development source for 0.2 also checks [test quality and lifecycle](../testing/test-quality.md). Coverage, effectiveness, and lifecycle default to advisory review; use configuration to disable or enforce each independently. These settings are unavailable in the published 0.1 alpha. Preserve useful assertions through refactoring and accepted behavior changes, and remove obsolete ones only after explicit criterion retirement.
 
 A passing `check` confirms that the configured report matches the scenario references and current clean Git revision, with no blocking findings. Review the assertions as well: a test that only checks that an output exists may not prove the scenario.

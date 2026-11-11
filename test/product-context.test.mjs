@@ -69,6 +69,11 @@ for(const version of ['1.15.0','1.17.0'])test(`packed context cues preserve nati
       const name=`context-${workflow}-${documentation}-${planning}`;ospec('new','change',name,'--schema',`cliewen-${workflow}`);
       const status=JSON.parse(ospec('status','--change',name,'--json'));assert.deepEqual(status.artifacts.map(a=>a.id),graphs[workflow]);
       const proposal=JSON.parse(ospec('instructions','proposal','--change',name,'--json'));assert.ok(proposal.instruction.includes(resource));
+      assert.ok(proposal.instruction.includes('Before requesting any manual step'));
+      assert.ok(proposal.instruction.includes('Before requesting a decision on a proposal'));
+      assert.ok(proposal.instruction.includes('Keep observation, change approval, and release authorization distinct'));
+      assert.ok(read(root,'.cliewen-openspec/closure.md').includes('manual-step and observation guidance'));
+      assert.ok(read(root,'.cliewen-openspec/planning.md').includes('Before requesting any manual step'));
       write(root,`openspec/changes/${name}/proposal.md`,'# Existing selected work\nClarify the known delivery; no new product promise.\n');
       const next=JSON.parse(ospec('instructions',workflow==='delivery'?'design':'investigation','--change',name,'--json'));assert.ok(next.instruction.includes(resource));
       if(workflow!=='delivery'){

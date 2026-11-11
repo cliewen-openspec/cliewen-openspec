@@ -6,6 +6,8 @@ Use native OpenSpec status and the selected change's metadata to establish its s
 
 Compare the actual result with the agreed scope, delta specs, and unresolved work. Preserve deferred obligations at the project's selected authority when planning is enabled. Review only affected records; useful findings can stay in an existing handoff or document. No separate closure report, new decision, lesson, or empty index is required when it adds no useful information.
 
+Use the shared manual-step and observation guidance in .cliewen-openspec/planning.md independently of its optional planning settings. Automate feasible authorized checks before asking for manual work, explain any residual human need, and retain actual observation context and limits in existing records. Distinguish agent checks, human feedback, change approval, and release authorization. Reassess observations affected by later changes; manual evidence retains its existing warnings and freshness requirements. Missing feedback alone adds no routine approval gate.
+
 With features.documentation enabled, reconcile affected explanations, architecture/design documents, examples, and links with the delivered result, using docsRoot and existing paths. With features.decisions enabled, maintain relevant Decision Records and their genuine acceptance status. Disabled facilities impose no matching optional work and preserve authored files.
 
 For affected product intent or journeys, follow .cliewen-openspec/product-context.md. Reconcile enabled documentation with actual behavior and keep desired outcomes distinct from implementation and observed user results. Surface drift or additional wishes through existing scope rules; archive does not authorize them or establish user success.

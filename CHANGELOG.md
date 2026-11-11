@@ -4,6 +4,8 @@ Changes that matter to projects using Cliewen for OpenSpec.
 
 ## Unreleased
 
+- Agents now assess automation before requesting manual work and explain any remaining human contribution. Shared guidance helps them prepare concise decision material and retain concrete human observations without treating feedback as release authorization. Existing configuration and evidence formats are unchanged. See [human review and verification](docs/guide/workflow.md#make-decisions-easy-to-assess).
+
 - Optional product context helps agents keep changes connected to the agreed user outcome and identify drift or scope creep. Useful cross-capability journeys link to OpenSpec rules, while routine tasks need no new goal or journey document. Existing documentation and planning settings apply. See [product intent and journeys](docs/guide/workflow.md#keep-the-users-outcome-in-view).
 
 - Installation and resource-update previews now show detected Node/OpenSpec versions, installed/target Cliewen versions, and files to create, replace, or delete. Init and update check Node 20.19+ and OpenSpec 1.15.0+ before changing files. Published 0.1.0 resources have an explicit supported update route that preserves project configuration, documents, changes, and acceptance identities. See [updating an installation](docs/guide/updating.md) for source-version limits and conflict handling.
