@@ -58,13 +58,11 @@ for(const openspecVersion of ['1.15.0','1.17.0'])test(`published 0.1.0 resources
     assert.ok(next.instruction.length>0);
   }
   assert.equal(run([cliewen,'ac','next','--capability','sample'],project),'EXP-002');
-  // This isolated fixture checks a future stable version route; it is not a release artifact.
+  // Simulate an older CLI against resources installed by the actual candidate.
   const releaseFile=path.join(project,'node_modules/cliewen-openspec/dist/release.js');
-  fs.writeFileSync(releaseFile,fs.readFileSync(releaseFile,'utf8').replace("version = '0.1.0'","version = '0.2.0'"));
-  const synthetic=cw('update','--dry-run');assert.equal(synthetic.targetVersion,'0.2.0');assert.equal(synthetic.installedVersion,'0.1.0');
-  const initResult=spawnSync(process.execPath,[cliewen,'init','--json'],{cwd:project,env,encoding:'utf8'});assert.equal(initResult.status,2);assert.match(initResult.stdout,/run update/);
-  cw('update');assert.equal(cw('check').ok,true);
-  fs.writeFileSync(releaseFile,fs.readFileSync(releaseFile,'utf8').replace("version = '0.2.0'","version = '0.1.0'"));
+  const candidateRelease=fs.readFileSync(releaseFile,'utf8');
+  assert.ok(candidateRelease.includes(`version = '${newPack.version}'`));
+  fs.writeFileSync(releaseFile,candidateRelease.replace(`version = '${newPack.version}'`,"version = '0.1.0'"));
   const downgrade=spawnSync(process.execPath,[cliewen,'update','--json'],{cwd:project,env,encoding:'utf8'});assert.equal(downgrade.status,2);assert.match(downgrade.stdout,/Unsupported installed version/);
-  t.diagnostic(JSON.stringify({node:process.version,platform:process.platform,openspecVersion,publishedIntegrity,publishedSha256:hash(path.join(published,oldPack.filename)),candidateSha256:hash(path.join(candidate,newPack.filename)),preservedFiles:authored.length,actualCandidateVersion:newPack.version,syntheticRoute:'0.1.0 -> 0.2.0 -> rejected downgrade; test-only metadata'}));
+  t.diagnostic(JSON.stringify({node:process.version,platform:process.platform,openspecVersion,publishedIntegrity,publishedSha256:hash(path.join(published,oldPack.filename)),candidateSha256:hash(path.join(candidate,newPack.filename)),preservedFiles:authored.length,actualCandidateVersion:newPack.version,upgradeRoute:`0.1.0 -> ${newPack.version}; older CLI rejects candidate resources`}));
 });

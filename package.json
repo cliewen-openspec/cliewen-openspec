@@ -1,6 +1,6 @@
 {
   "name": "cliewen-openspec",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "OpenSpec workflows with durable decisions and behavioral evidence",
   "type": "module",
   "license": "MIT",

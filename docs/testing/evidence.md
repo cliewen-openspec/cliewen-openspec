@@ -7,7 +7,7 @@ Version `0.1.0` provides the execution checks below and [test quality and lifecy
 
 The candidate supports `init`, `update`, `uninstall`, `ac next`, `ac rename-prefix`, `check`, and `recover`, and installs `cliewen-delivery`, `cliewen-discovery`, and `cliewen-all`. Package CI exercises OpenSpec 1.15.0 on Windows and Linux. Existing-registry adapters, structural checks for your project's documentation and Mermaid, and independent review tooling remain planned.
 
-Initialize OpenSpec first, then install the local `cliewen-openspec-0.1.0.tgz` built in [Your first change](../guide/getting-started.md). Run `cliewen-openspec init --default` to explicitly select delivery; omit `--default` to preserve the existing schema. `--root PATH` supports an explicit target, and `init --dry-run` makes no changes. The earlier npm alpha is not the package exercised by this contract.
+Initialize OpenSpec first, then install the local `cliewen-openspec-0.2.0.tgz` built in [Your first change](../guide/getting-started.md). Run `cliewen-openspec init --default` to explicitly select delivery; omit `--default` to preserve the existing schema. `--root PATH` supports an explicit target, and `init --dry-run` makes no changes. The earlier npm alpha is not the package exercised by this contract.
 
 Register a capability-to-prefix mapping, then allocate IDs using `cliewen-openspec ac next --capability export`. Keep the committed `.cliewen-openspec/ac-registry.json`; numbers are never reclaimed. This initial allocator supports sequential work; parallel branches must resolve collisions. Do not use it alongside another allocator until an adapter exists.
 

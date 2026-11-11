@@ -9,7 +9,7 @@ The commands follow a prepared example without a coding agent. For an agent-auth
 
 ## 1. Build the candidate package
 
-This worked example builds version `0.1.0` locally and uses its prepared CSV files. Normal installations can use `npm install --save-dev cliewen-openspec@0.1.0`; this source-build route keeps the example helpers available beside the pilot. The earlier published `0.1.0-alpha.1` has a different feature set and is not the package exercised by this guide; do not substitute it into this walkthrough.
+This worked example builds version `0.2.0` locally and uses its prepared CSV files. Version 0.2.0 is an unreleased candidate; use this source-build route to evaluate it. Published installations can use `cliewen-openspec@0.1.0`, which lacks the new guidance. The earlier published `0.1.0-alpha.1` has a different feature set and is not the package exercised by this guide; do not substitute it into this walkthrough.
 
 From an empty parent directory, clone the source repository and build the package:
 
@@ -20,7 +20,7 @@ npm pkg get version
 git rev-parse HEAD
 ```
 
-Expect version `"0.1.0"`; stop before building if the checkout differs. Record its Git revision because the default branch can change during development. Then build the package:
+Expect version `"0.2.0"`; stop before building if the checkout differs. Record its Git revision because the default branch can change during development. Then build the package:
 
 ```sh
 npm ci
@@ -28,7 +28,7 @@ npm test
 npm pack
 ```
 
-Each build command must succeed before you continue. `npm test` must have no failing tests; `npm pack` produces `cliewen-openspec-0.1.0.tgz`. If a command fails, preserve its output and stop to resolve or report it. The commands below assume that the clone and pilot are sibling directories.
+Each build command must succeed before you continue. `npm test` must have no failing tests; `npm pack` produces `cliewen-openspec-0.2.0.tgz`. If a command fails, preserve its output and stop to resolve or report it. The commands below assume that the clone and pilot are sibling directories.
 
 ## 2. Create the pilot
 
@@ -41,7 +41,7 @@ cd cliewen-pilot
 git init -b main
 npm init -y
 npm install --save-dev @fission-ai/openspec@1.17.0
-npm install --save-dev ../cliewen-openspec/cliewen-openspec-0.1.0.tgz
+npm install --save-dev ../cliewen-openspec/cliewen-openspec-0.2.0.tgz
 node -e "require('node:fs').writeFileSync('.gitignore', 'node_modules/\n')"
 ```
 
@@ -135,7 +135,7 @@ npx --no-install cliewen-openspec check --change add-csv-export --json
 
 The adapter runs every test in the file again and writes `.cliewen-openspec/evidence.json`, ignored by Git. Open it and compare its `revision` with `git rev-parse HEAD`; `scope.change` should be `add-csv-export` (the `scope` value is an object). Failures outside the selected change still block verification.
 
-With the `0.1.0` candidate and unchanged reference example, expect exit 0 and `"ok": true` with these warnings:
+With the `0.2.0` candidate and unchanged reference example, expect exit 0 and `"ok": true` with these warnings:
 
 | Code | Count | Reason |
 |---|---|---|

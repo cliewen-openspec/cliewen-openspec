@@ -3,7 +3,7 @@ type: guide
 ---
 # Existing projects and agents
 
-Review the candidate's generated files in a branch or separate pilot before using it in a working project. `init --dry-run` previews changes. Omit `--default` to preserve your existing default schema, and select `cliewen-delivery` explicitly for a trial change. The `0.1.0` candidate does not migrate earlier alpha installations; evaluate it in a fresh project.
+Review the candidate's generated files in a branch or separate pilot before using it in a working project. `init --dry-run` previews changes. Omit `--default` to preserve your existing default schema, and select `cliewen-delivery` explicitly for a trial change. The `0.2.0` candidate does not migrate earlier alpha installations; evaluate it in a fresh project.
 
 Development source supports first adoption into an initialized OpenSpec project and refresh of published 0.1.0 resources through [update](updating.md). Init checks tools first, installs missing generated resources and initialization files, and preserves existing documentation, configuration, changes, identities, and agent integrations. An existing destination without recorded ownership is a collision even when its content looks identical. Review the conflict instead of deleting or relabeling project data. These development checks are not in published 0.1.0.
 

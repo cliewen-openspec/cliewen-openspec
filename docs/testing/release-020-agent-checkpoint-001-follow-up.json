@@ -1,0 +1,50 @@
+{
+  "date": "2026-11-11",
+  "hostSleep": {
+    "source": "Windows System log, Microsoft-Windows-Power-Troubleshooter event 1",
+    "sleepUTC": "2026-11-11T20:16:59.497580800Z",
+    "wakeUTC": "2026-11-11T21:52:13.284303900Z",
+    "eventPath": "C:\\Code\\cliewen-release-020-checkpoint\\artifacts\\host-resume-event.xml",
+    "sha256": "a82bd091010de2313bb9fef4f87579c5ca4dba22abd1b2393a452d09dce6aa33"
+  },
+  "retry": {
+    "profile": "claude-scoping-closure-2-1-322",
+    "baseline": "d291d522a34f8baad331694055af86b0113bfd8e",
+    "durationSeconds": 2.04,
+    "exitCode": 1,
+    "classification": "infrastructure-failure",
+    "reason": "HTTP 429 usage_limit_reached from existing Claude subscription; no trial work performed",
+    "inputs": "Same original package, baseline, prompt, profile and budgets; separate clean clone and retained attempt",
+    "artifacts": "C:\\Code\\cliewen-release-020-checkpoint\\runs\\claude-retry-001\\initial",
+    "files": {
+      "events.jsonl": "015cf820167ca6ba93a9ae66ba747843266cf497ec23a98566afdfaa34397819",
+      "prompt.txt": "722db60933feaf5885ebc91ffdc2aa09b7f3ebc69c521c9ff1d06a2d4c301f42",
+      "run.json": "abbdb5b7c2c8a2d11889e565d451a886e800d9fbadac868221a7edb8fa471008",
+      "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "localChanges": [
+    "Clarify universal writing claims against caller-supplied pattern content",
+    "Clarify preservation fault selection across relevant content and option paths"
+  ],
+  "agentCoverage": "Clarifications not observed in fresh agents; no further model calls after the rejected Claude retry",
+  "verification": {
+    "targetedTests": 21,
+    "fullTests": 113,
+    "failures": 0,
+    "skips": 0,
+    "platform": "Windows",
+    "node": "24.0.0",
+    "openspec": [
+      "1.15.0",
+      "1.17.0"
+    ],
+    "candidateSha256": "d29fee0e087b9b06e52916e8870a2e652709f61680b2ded6673f2c1562459213",
+    "docs": {
+      "pages": 13,
+      "localLinks": 512,
+      "diagrams": 5
+    },
+    "strictPermanentSpecs": 13
+  }
+}

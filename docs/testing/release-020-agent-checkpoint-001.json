@@ -1,0 +1,2037 @@
+{
+  "date": "2026-11-11",
+  "scope": "One upgrade and delivery attempt per native agent tool; no retries or self-review agents",
+  "baseline": "d291d522a34f8baad331694055af86b0113bfd8e",
+  "package": {
+    "version": "0.2.0",
+    "filename": "cliewen-openspec-0.2.0.tgz",
+    "sha256": "c7e08a2da14ee203722ce2ae721768cad5a47e3c777425f20fee5a1244283d11"
+  },
+  "artifactRoot": "C:\\Code\\cliewen-release-020-checkpoint",
+  "actualBoundary": "Project restrictions are instructional; no OS sandbox",
+  "cases": [
+    {
+      "profile": "codex-release-0-167-1",
+      "project": "C:\\Code\\cliewen-release-020-checkpoint\\project",
+      "run": {
+        "schema": "cliewen-delivery",
+        "profileId": "codex-release-0-167-1",
+        "phase": "initial",
+        "project": "C:\\Code\\cliewen-release-020-checkpoint\\project",
+        "baseline": "d291d522a34f8baad331694055af86b0113bfd8e",
+        "profile": {
+          "readiness": "pinned",
+          "agent": "Codex CLI",
+          "runner": "cli",
+          "model": "gpt-6.1-sol",
+          "agentVersion": "0.167.1",
+          "provider": "openai; existing ChatGPT CLI authentication",
+          "effort": "medium",
+          "permissions": "danger-full-access, approval never; project scope is instructional, not OS isolation",
+          "context": "fresh ephemeral process; ignore user config and rules; explicit project instructions",
+          "budgets": {
+            "wallTimeSeconds": 600,
+            "outputBytes": 67108864,
+            "reportedCostUSD": null,
+            "tokenLimit": null,
+            "billing": "existing ChatGPT entitlement; no purchase"
+          },
+          "traceFormat": "codex exec JSONL plus stderr"
+        },
+        "exe": "C:\\Program Files\\nodejs\\node.exe",
+        "args": [
+          "C:\\Users\\flemm\\AppData\\Roaming\\npm\\node_modules\\@openai\\codex\\bin\\codex.js",
+          "exec",
+          "--ignore-user-config",
+          "--ignore-rules",
+          "--ephemeral",
+          "--json",
+          "--sandbox",
+          "danger-full-access",
+          "-c",
+          "approval_policy=\"never\"",
+          "-c",
+          "model_provider=\"openai\"",
+          "-c",
+          "model_reasoning_effort=\"medium\"",
+          "--model",
+          "gpt-6.1-sol",
+          "-"
+        ],
+        "cliVersion": "codex-cli 0.167.1",
+        "startedAt": "2026-11-11T20:10:05.341Z",
+        "promptFile": "prompt.txt",
+        "environmentControls": {
+          "NO_COLOR": "1",
+          "OPENSPEC_TELEMETRY": "0",
+          "CI": "1"
+        },
+        "exitCode": 0,
+        "signal": null,
+        "endedAt": "2026-11-11T20:14:35.945Z",
+        "durationSeconds": 270.604,
+        "monotonicDurationSeconds": 270.6023177,
+        "deadlineExceededBySeconds": 0,
+        "stopReason": null,
+        "stopRequestedAt": null,
+        "stopRequestedAfterSeconds": null,
+        "terminationDelaySeconds": null,
+        "eventFailure": false,
+        "sessionId": "01a1cc3b-5fd6-7801-8cc3-b69ce47487b4",
+        "usage": {
+          "input_tokens": 702264,
+          "cached_input_tokens": 646272,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 10516,
+          "reasoning_output_tokens": 1071
+        },
+        "stepUsage": [],
+        "reportedCostUSD": null,
+        "observedModels": [],
+        "reviewInputsPreserved": true,
+        "evaluation": "not-graded"
+      },
+      "independentChecks": {
+        "evaluatedAt": "2026-11-11T20:15:46.327Z",
+        "revision": "95f85d9b2eb729184450db574fe32dbf5769c5d7",
+        "baseline": "d291d522a34f8baad331694055af86b0113bfd8e",
+        "passed": true,
+        "checks": [
+          {
+            "label": "git rev-parse HEAD",
+            "executable": "git",
+            "args": [
+              "rev-parse",
+              "HEAD"
+            ],
+            "exitCode": 0,
+            "stdout": "95f85d9b2eb729184450db574fe32dbf5769c5d7\n",
+            "stderr": ""
+          },
+          {
+            "label": "git status --porcelain --untracked-files=all",
+            "executable": "git",
+            "args": [
+              "status",
+              "--porcelain",
+              "--untracked-files=all"
+            ],
+            "exitCode": 0,
+            "stdout": "",
+            "stderr": ""
+          },
+          {
+            "label": "clean input revision",
+            "passed": true
+          },
+          {
+            "label": "git show d291d522a34f8baad331694055af86b0113bfd8e:test/export.test.mjs",
+            "executable": "git",
+            "args": [
+              "show",
+              "d291d522a34f8baad331694055af86b0113bfd8e:test/export.test.mjs"
+            ],
+            "exitCode": 0,
+            "stdout": "import { test } from 'node:test';\nimport assert from 'node:assert/strict';\nimport { exportCsv } from '../export.mjs';\n\ntest('exports a header and one record [EXP-001] [Test-type: Unit]', () => {\n  assert.equal(exportCsv([{name: 'Ada'}], ['name']), 'name\\r\\nAda\\r\\n');\n});\n\ntest('selects and orders explicit columns for every record [EXP-002] [Test-type: Unit]', () => {\n  const records = [{name: 'Ada', city: 'London', hidden: 'ignore'}, {name: 'Grace', city: 'New York', hidden: 'ignore'}];\n  assert.equal(exportCsv(records, ['city', 'name']), 'city,name\\r\\nLondon,Ada\\r\\nNew York,Grace\\r\\n');\n});\n\ntest('quotes comma fields in values and headers and leaves plain fields unquoted [EXP-003] [Test-type: Unit]', () => {\n  assert.equal(exportCsv([{'home,city': 'London, UK', name: 'Ada'}], ['home,city', 'name']), '\"home,city\",name\\r\\n\"London, UK\",Ada\\r\\n');\n  assert.equal(exportCsv([{value: ''}], ['value']), 'value\\r\\n\\r\\n');\n});\n\ntest('doubles embedded quotes in values and headers [EXP-004] [Test-type: Unit]', () => {\n  assert.equal(exportCsv([{value: 'Say \"hello\"'}, {value: 'Say \"hello\", Ada'}, {value: '\"\"'}], ['value']), 'value\\r\\n\"Say \"\"hello\"\"\"\\r\\n\"Say \"\"hello\"\", Ada\"\\r\\n\"\"\"\"\"\"\\r\\n');\n  assert.equal(exportCsv([{'a\"b': 'x'}], ['a\"b']), '\"a\"\"b\"\\r\\nx\\r\\n');\n});\n\ntest('preserves LF, CR, and CRLF inside quoted fields [EXP-005] [Test-type: Unit]', () => {\n  for (const newline of ['\\n', '\\r', '\\r\\n']) {\n    assert.equal(exportCsv([{value: `first${newline}second`}], ['value']), `value\\r\\n\"first${newline}second\"\\r\\n`);\n    assert.equal(exportCsv([{value: `\"first\",${newline}second`}], ['value']), `value\\r\\n\"\"\"first\"\",${newline}second\"\\r\\n`);\n    const header = `a${newline}b`;\n    assert.equal(exportCsv([{[header]: 'x'}], [header]), `\"${header}\"\\r\\nx\\r\\n`);\n  }\n});\n\ntest('exports only the escaped header for an empty record list [EXP-006] [Test-type: Unit]', () => {\n  assert.equal(exportCsv([], ['name', 'city']), 'name,city\\r\\n');\n  assert.equal(exportCsv([], ['home,city', 'a\"b', 'line\\nbreak']), '\"home,city\",\"a\"\"b\",\"line\\nbreak\"\\r\\n');\n});\n",
+            "stderr": ""
+          },
+          {
+            "label": "git diff --numstat d291d522a34f8baad331694055af86b0113bfd8e -- test/export.test.mjs",
+            "executable": "git",
+            "args": [
+              "diff",
+              "--numstat",
+              "d291d522a34f8baad331694055af86b0113bfd8e",
+              "--",
+              "test/export.test.mjs"
+            ],
+            "exitCode": 0,
+            "stdout": "32\t0\ttest/export.test.mjs\n",
+            "stderr": ""
+          },
+          {
+            "label": "baseline preserved: test/export.test.mjs",
+            "passed": true
+          },
+          {
+            "label": "git show d291d522a34f8baad331694055af86b0113bfd8e:openspec/specs/csv-export/spec.md",
+            "executable": "git",
+            "args": [
+              "show",
+              "d291d522a34f8baad331694055af86b0113bfd8e:openspec/specs/csv-export/spec.md"
+            ],
+            "exitCode": 0,
+            "stdout": "# CSV export\n\n## Purpose\n\nAllow callers to export records as CSV with explicit column ordering and preserve fields containing delimiters, quotation marks, or line breaks.\n\n## Requirements\n\n### Requirement: Header and explicit columns\n\nThe function SHALL include a header row and serialize each record using the caller's explicit column order.\n\n#### Scenario: Export a record with a header [EXP-001]\nTest-type: Unit\n- **WHEN** records `[{ name: \"Ada\" }]` are exported with columns `[\"name\"]`\n- **THEN** the parsed CSV contains the header `name` and one record containing `Ada`\n\n#### Scenario: Respect explicit column order [EXP-002]\nTest-type: Unit\n- **WHEN** records `[{ name: \"Ada\", city: \"London\" }]` are exported with columns `[\"city\", \"name\"]`\n- **THEN** the header and record fields follow `city`, then `name`, regardless of object property order\n\n### Requirement: Escape CSV fields\n\nThe function SHALL enclose fields containing commas, quotation marks, carriage returns, or line feeds in double quotation marks and double any embedded double quotation marks. Fields without those characters SHALL preserve their values without unnecessary quoting.\n\n#### Scenario: Preserve a field containing a comma [EXP-003]\nTest-type: Unit\n- **WHEN** a field contains `London, UK`\n- **THEN** it is serialized as `\"London, UK\"` and remains one field\n\n#### Scenario: Preserve embedded quotation marks [EXP-004]\nTest-type: Unit\n- **WHEN** a field contains `Say \"hello\"`\n- **THEN** it is serialized as `\"Say \"\"hello\"\"\"` without losing the quotation marks\n\n#### Scenario: Preserve line breaks within a field [EXP-005]\nTest-type: Unit\n- **WHEN** a field contains a carriage return, line feed, or CRLF pair\n- **THEN** the field is quoted and its original line break characters are preserved within that field\n\n### Requirement: Empty record list\n\nThe function SHALL emit only the header when the record list is empty.\n\n#### Scenario: Export no records [EXP-006]\nTest-type: Unit\n- **WHEN** an empty record list is exported with columns `[\"name\", \"city\"]`\n- **THEN** the output contains exactly one CSV row with those header fields and no data rows\n",
+            "stderr": ""
+          },
+          {
+            "label": "baseline preserved: openspec/specs/csv-export/spec.md",
+            "passed": true
+          },
+          {
+            "label": "project test files",
+            "executable": "C:\\Program Files\\nodejs\\node.exe",
+            "args": [
+              "--test",
+              "test/*.test.mjs"
+            ],
+            "exitCode": 0,
+            "stdout": "\u2714 exports a header and one record [EXP-001] [Test-type: Unit] (0.6361ms)\n\u2714 selects and orders explicit columns for every record [EXP-002] [Test-type: Unit] (0.0705ms)\n\u2714 quotes comma fields in values and headers and leaves plain fields unquoted [EXP-003] [Test-type: Unit] (0.0585ms)\n\u2714 doubles embedded quotes in values and headers [EXP-004] [Test-type: Unit] (0.0953ms)\n\u2714 preserves LF, CR, and CRLF inside quoted fields [EXP-005] [Test-type: Unit] (0.2236ms)\n\u2714 exports only the escaped header for an empty record list [EXP-006] [Test-type: Unit] (0.0863ms)\n\u2714 preserves omitted options with populated records [EXP-007] [Test-type: Unit] [Case: omitted-populated] [Coverage: positive] (0.3529ms)\n\u2714 preserves omitted options with empty records [EXP-007] [Test-type: Unit] [Case: omitted-empty] [Coverage: boundary] (0.0555ms)\n\u2714 preserves empty options with populated records [EXP-007] [Test-type: Unit] [Case: empty-populated] [Coverage: positive] (0.1757ms)\n\u2714 preserves empty options with empty records [EXP-007] [Test-type: Unit] [Case: empty-empty] [Coverage: boundary] (0.2001ms)\n\u2714 preserves false options with populated records [EXP-007] [Test-type: Unit] [Case: false-populated] [Coverage: positive] (0.0991ms)\n\u2714 preserves false options with empty records [EXP-007] [Test-type: Unit] [Case: false-empty] [Coverage: boundary] (0.0364ms)\n\u2714 prefixes exactly one marker for populated records [EXP-008] [Test-type: Unit] [Case: enabled-populated] [Coverage: positive] (0.0754ms)\n\u2714 prefixes exactly one marker for empty records [EXP-009] [Test-type: Unit] [Case: enabled-empty] [Coverage: boundary] (0.0499ms)\n\u2139 tests 14\n\u2139 suites 0\n\u2139 pass 14\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 109.7159\n",
+            "stderr": ""
+          },
+          {
+            "label": "strict change validation",
+            "executable": "C:\\Program Files\\nodejs\\node.exe",
+            "args": [
+              "node_modules/@fission-ai/openspec/bin/openspec.js",
+              "validate",
+              "add-optional-csv-bom",
+              "--type",
+              "change",
+              "--strict"
+            ],
+            "exitCode": 0,
+            "stdout": "Change 'add-optional-csv-bom' is valid\n",
+            "stderr": ""
+          },
+          {
+            "label": "active change evidence",
+            "executable": "C:\\Program Files\\nodejs\\node.exe",
+            "args": [
+              "node_modules/cliewen-openspec/dist/cli.js",
+              "check",
+              "--change",
+              "add-optional-csv-bom",
+              "--json"
+            ],
+            "exitCode": 0,
+            "stdout": "{\n  \"ok\": true,\n  \"findings\": [\n    {\n      \"code\": \"test-review-missing\",\n      \"message\": \"Create .cliewen-openspec/reviews/change-add-optional-csv-bom.yaml for effectiveness review.\",\n      \"severity\": \"warning\"\n    },\n    {\n      \"code\": \"test-review-missing\",\n      \"message\": \"Create .cliewen-openspec/reviews/change-add-optional-csv-bom.yaml for lifecycle review.\",\n      \"severity\": \"warning\"\n    },\n    {\n      \"code\": \"coverage-minimum-unmet\",\n      \"message\": \"EXP-007: needs 1 distinct passed negative cases.\",\n      \"severity\": \"warning\"\n    },\n    {\n      \"code\": \"coverage-minimum-unmet\",\n      \"message\": \"EXP-008: needs 1 distinct passed negative cases.\",\n      \"severity\": \"warning\"\n    },\n    {\n      \"code\": \"coverage-minimum-unmet\",\n      \"message\": \"EXP-009: needs 1 distinct passed positive cases.\",\n      \"severity\": \"warning\"\n    },\n    {\n      \"code\": \"coverage-minimum-unmet\",\n      \"message\": \"EXP-009: needs 1 distinct passed negative cases.\",\n      \"severity\": \"warning\"\n    },\n    {\n      \"code\": \"test-policy-review-required\",\n      \"severity\": \"info\",\n      \"message\": \"Record checks cannot prove case distinctness, assertion meaning, complete dependency/impact analysis, or human approval. Review these claims.\"\n    },\n    {\n      \"code\": \"sufficiency-not-assessed\",\n      \"severity\": \"info\",\n      \"message\": \"Execution and linkage do not prove assertion quality; review the assertions against the scenarios.\"\n    }\n  ]\n}\n",
+            "stderr": ""
+          },
+          {
+            "label": "evidence check reports success",
+            "passed": true
+          },
+          {
+            "label": "independent behavior assertions",
+            "executable": "C:\\Program Files\\nodejs\\node.exe",
+            "args": [
+              "--input-type=module",
+              "-e",
+              "\nimport {exportCsv} from \"file:///C:/Code/cliewen-release-020-checkpoint/project/export.mjs\";\nimport {verifyCsvBom} from \"file:///C:/Code/cliewen-openspec/scripts/lib/csv-bom-verification.mjs\";\nverifyCsvBom(exportCsv);\nconsole.log('Independent opt-in, default, empty-input, escaping, CRLF, Unicode, caller-supplied U+FEFF, and UTF-8 byte assertions passed.');\n"
+            ],
+            "exitCode": 0,
+            "stdout": "Independent opt-in, default, empty-input, escaping, CRLF, Unicode, caller-supplied U+FEFF, and UTF-8 byte assertions passed.\n",
+            "stderr": ""
+          },
+          {
+            "label": "saved proposal instructions",
+            "passed": true
+          },
+          {
+            "label": "saved specs instructions",
+            "passed": true
+          },
+          {
+            "label": "saved design instructions",
+            "passed": true
+          },
+          {
+            "label": "saved tasks instructions",
+            "passed": true
+          },
+          {
+            "label": "saved apply instructions",
+            "passed": true
+          }
+        ]
+      },
+      "faultAndLinks": {
+        "profile": "codex-release-0-167-1",
+        "fault": "strip caller-supplied U+FEFF while preserving requested prefix",
+        "tests": {
+          "status": 0,
+          "stdout": "\u2714 exports a header and one record [EXP-001] [Test-type: Unit] (0.6158ms)\n\u2714 selects and orders explicit columns for every record [EXP-002] [Test-type: Unit] (0.081ms)\n\u2714 quotes comma fields in values and headers and leaves plain fields unquoted [EXP-003] [Test-type: Unit] (0.0586ms)\n\u2714 doubles embedded quotes in values and headers [EXP-004] [Test-type: Unit] (0.097ms)\n\u2714 preserves LF, CR, and CRLF inside quoted fields [EXP-005] [Test-type: Unit] (0.1649ms)\n\u2714 exports only the escaped header for an empty record list [EXP-006] [Test-type: Unit] (0.0742ms)\n\u2714 preserves omitted options with populated records [EXP-007] [Test-type: Unit] [Case: omitted-populated] [Coverage: positive] (0.365ms)\n\u2714 preserves omitted options with empty records [EXP-007] [Test-type: Unit] [Case: omitted-empty] [Coverage: boundary] (0.0662ms)\n\u2714 preserves empty options with populated records [EXP-007] [Test-type: Unit] [Case: empty-populated] [Coverage: positive] (0.185ms)\n\u2714 preserves empty options with empty records [EXP-007] [Test-type: Unit] [Case: empty-empty] [Coverage: boundary] (0.1846ms)\n\u2714 preserves false options with populated records [EXP-007] [Test-type: Unit] [Case: false-populated] [Coverage: positive] (0.0926ms)\n\u2714 preserves false options with empty records [EXP-007] [Test-type: Unit] [Case: false-empty] [Coverage: boundary] (0.0342ms)\n\u2714 prefixes exactly one marker for populated records [EXP-008] [Test-type: Unit] [Case: enabled-populated] [Coverage: positive] (0.0855ms)\n\u2714 prefixes exactly one marker for empty records [EXP-009] [Test-type: Unit] [Case: enabled-empty] [Coverage: boundary] (0.0503ms)\n\u2139 tests 14\n\u2139 suites 0\n\u2139 pass 14\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 107.0757\n",
+          "stderr": ""
+        },
+        "independentProbe": {
+          "status": 1,
+          "stdout": "",
+          "stderr": "node:internal/modules/run_main:105\r\n    triggerUncaughtException(\r\n    ^\r\n\r\nAssertionError [ERR_ASSERTION]: Preserve caller-supplied U+FEFF while adding only the requested prefix\r\n+ actual - expected\r\n\r\n+ 'value\\r\\nAda\\r\\n'\r\n- 'value\\r\\n\ufeffAda\\r\\n'\r\n            ^\r\n\r\n    at verifyCsvBom (file:///C:/Code/cliewen-openspec/scripts/lib/csv-bom-verification.mjs:22:14)\r\n    at file:///C:/Code/cliewen-release-020-checkpoint/evaluator-faults/codex-release-0-167-1/[eval1]:1:139\r\n    at ModuleJob.run (node:internal/modules/esm/module_job:303:25)\r\n    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:269:26)\r\n    at async ModuleLoader.executeModuleJob (node:internal/modules/esm/loader:266:20)\r\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:99:5) {\r\n  generatedMessage: false,\r\n  code: 'ERR_ASSERTION',\r\n  actual: 'value\\r\\nAda\\r\\n',\r\n  expected: 'value\\r\\n\ufeffAda\\r\\n',\r\n  operator: 'strictEqual'\r\n}\r\n\r\nNode.js v24.0.0\r\n"
+        },
+        "brokenLocalLinks": [],
+        "linkLimits": "Markdown targets checked without rendering; fragment anchors not checked"
+      },
+      "retainedFiles": {
+        "baseline.bundle": {
+          "path": "C:\\Code\\cliewen-release-020-checkpoint\\runs\\codex-release-0-167-1\\baseline.bundle",
+          "sha256": "65175c9d492815bb831eb0bdbc1df8a55ec730525aa4d092d50a4c47613e3a0b"
+        },
+        "baseline.json": {
+          "path": "C:\\Code\\cliewen-release-020-checkpoint\\runs\\codex-release-0-167-1\\baseline.json",
+          "sha256": "2994a2fb1874258e6c1560e584092706b3be92af781ba5a17dd69f0af9f15232"
+        },
+        "fault-and-links.json": {
+          "path": "C:\\Code\\cliewen-release-020-checkpoint\\runs\\codex-release-0-167-1\\fault-and-links.json",
+          "sha256": "09d2ec694105fb99edd4bb1433703099f46ae6c134744cc7661ba71b0a2842b8"
+        },
+        "independent-checks-scoped.json": {
+          "path": "C:\\Code\\cliewen-release-020-checkpoint\\runs\\codex-release-0-167-1\\independent-checks-scoped.json",
+          "sha256": "85c61dee7a0ff48caa97ac902fed2191873e7ab71981506cea31ffa9fced6827"
+        },
+        "independent-checks.json": {
+          "path": "C:\\Code\\cliewen-release-020-checkpoint\\runs\\codex-release-0-167-1\\independent-checks.json",
+          "sha256": "e66771983372e792ad824d327ccda09867143f7bc8158b1dec58f875121bb8e8"
+        },
+        "prompt.md": {
+          "path": "C:\\Code\\cliewen-release-020-checkpoint\\runs\\codex-release-0-167-1\\prompt.md",
+          "sha256": "9f91a41fd075ddb291fc410f200b3a32a85a084cb54b060d67475f547ac6615c"
+        },
+        "rubric.md": {
+          "path": "C:\\Code\\cliewen-release-020-checkpoint\\runs\\codex-release-0-167-1\\rubric.md",
+          "sha256": "17ea6ffdf334016a65f3be44afe47c793bf440560160753398d1b39842ac0b79"
+        },
+        "initial\\events.jsonl": {
+          "path": "C:\\Code\\cliewen-release-020-checkpoint\\runs\\codex-release-0-167-1\\initial\\events.jsonl",
+          "sha256": "7e155d360587e40128af985d6eefd4e87f19e9ca1b8d8dae31308c301961fe39"
+        },
+        "initial\\progress.json": {
+          "path": "C:\\Code\\cliewen-release-020-checkpoint\\runs\\codex-release-0-167-1\\initial\\progress.json",
+          "sha256": "d2f04cdd9153d766da40c50a8b73e9c7c53df3d3e36bbc44c60c40390811800d"
+        },
+        "initial\\prompt.txt": {
+          "path": "C:\\Code\\cliewen-release-020-checkpoint\\runs\\codex-release-0-167-1\\initial\\prompt.txt",
+          "sha256": "722db60933feaf5885ebc91ffdc2aa09b7f3ebc69c521c9ff1d06a2d4c301f42"
+        },
+        "initial\\run.json": {
+          "path": "C:\\Code\\cliewen-release-020-checkpoint\\runs\\codex-release-0-167-1\\initial\\run.json",
+          "sha256": "1c0c747623601797e58f20d25d68b5c3ccdb939ba1f8445757668c5e177d8d38"
+        },
+        "initial\\stderr.txt": {
+          "path": "C:\\Code\\cliewen-release-020-checkpoint\\runs\\codex-release-0-167-1\\initial\\stderr.txt",
+          "sha256": "db10729dfdf00dd5eea63284aa1936d139fd58fc29b9dab28e7798eca1f27891"
+        }
+      },
+      "evaluation": "completed-with-findings"
+    },
+    {
+      "profile": "claude-scoping-closure-2-1-322",
+      "project": "C:\\Code\\cliewen-release-020-checkpoint\\project-1",
+      "run": {
+        "schema": "cliewen-delivery",
+        "profileId": "claude-scoping-closure-2-1-322",
+        "phase": "initial",
+        "project": "C:\\Code\\cliewen-release-020-checkpoint\\project-1",
+        "baseline": "d291d522a34f8baad331694055af86b0113bfd8e",
+        "profile": {
+          "readiness": "pinned",
+          "agent": "Claude Code",
+          "runner": "cli",
+          "model": "claude-opus-5-5",
+          "agentVersion": "2.1.322",
+          "provider": "Anthropic firstParty; existing claude.ai subscription authentication",
+          "effort": "medium",
+          "permissions": "dontAsk with local read/edit/write/shell tools; no extra agents or web tools; no OS isolation",
+          "context": "fresh print process; safe mode and no session persistence; explicit project instructions",
+          "budgets": {
+            "wallTimeSeconds": 600,
+            "outputBytes": 67108864,
+            "reportedCostUSD": 6,
+            "tokenLimit": null,
+            "billing": "existing subscription; reported list-equivalent cost is not an invoice"
+          },
+          "traceFormat": "Claude stream-json with verbose events plus stderr"
+        },
+        "exe": "C:\\Users\\flemm\\.local\\bin\\claude.exe",
+        "args": [
+          "-p",
+          "Work only in the current project. Keep even temporary helper scripts, probes, and backups inside this project; use a project-local ignored directory when needed, not a shared system temporary directory. Read AGENTS.md and project configuration. Do not read sibling evaluator files, other repositories, credentials, or earlier solutions. Do not spawn additional agents, contact external services, push, or open a PR. Model-provider requests from this CLI are allowed. Use existing local tools and dependencies. Report actual results and inherited instructions.\n\n# Optional CSV encoding marker\n\nExtend the existing CSV export capability with an optional UTF-8 byte order mark (BOM). Keep the existing output unchanged by default. Allow callers to opt in to one marker before the header, including for empty record lists. Preserve escaping, column order, and CRLF separators. Keep the implementation small and dependency-free. Spreadsheet application compatibility is outside the task; test the formatter and resulting UTF-8 bytes.\n\nUse the installed `cliewen-delivery` schema and project configuration. Create a new OpenSpec change named `add-optional-csv-bom`. Retrieve and save the JSON instruction response for every artifact and apply before using it, under `docs/testing/instructions/`. Read existing specs and allocate any new AC IDs through the Cliewen CLI.\n\n\n\nBefore implementation, plan acceptance cases and their verification. Preserve the six original tests and titles; add relevant cases without weakening assertions. Implement small verified tasks, review actual outcomes, update README with the API/default/example, and write docs/testing/pr-description.md. Record commands, results, and limitations under docs/testing. Default quality policies are advisory; disclose unresolved warnings without inventing behavior to silence them.\n\nKeep the rationale within the requested formatter behavior and sources actually inspected. Do not add unsupported consumer/application claims. Link to or quote the original structured checker findings instead of paraphrasing category/count mappings. Before the final commit, compare every explanatory claim with code, specs, actual logs, and JSON; identify untested assumptions rather than presenting them as verified. A later independent review still checks this handoff.\n\nRun the existing and new tests, strictly validate the change, and review the assertions against the scenarios. You may commit changes locally to collect revision-bound evidence. Collect evidence scoped to the active change and run `cliewen-openspec check --change add-optional-csv-bom --json`. Stop before archive. Do not push or open a PR.\n\nUse explicit local executable paths if command shims are unavailable:\n\n```text\nnode node_modules/@fission-ai/openspec/bin/openspec.js\nnode node_modules/cliewen-openspec/dist/cli.js\nnode node_modules/cliewen-openspec/adapters/node-test.mjs\n```\n\n## Release checkpoint additions\n\nThe local CLI/package is the unreleased 0.2.0 candidate, but installed resources are from published 0.1.0. Before creating the change, use local CLI update --dry-run --json, inspect and save its output, then apply update --json and save the output under docs/testing/. Preserve authored configuration, acceptance identities, and existing behavioral specs. No dependency downloads are needed. Record installed and target versions and actual result. Retrieve the updated instructions afterward.\n\nAutomate all feasible verification with available local tools. Before assigning any manual step, explain the concrete residual need for a person's judgment, access, or authority. Spreadsheet-user comprehension and application compatibility are outside scope; no real user feedback is supplied. Label actual observations honestly. Do not invent human verification, approval, or release authorization. Include the reasoning about manual work in the handoff without adding a human checkpoint for this authorized task.\n",
+          "--model",
+          "claude-opus-5-5",
+          "--effort",
+          "medium",
+          "--output-format",
+          "stream-json",
+          "--verbose",
+          "--safe-mode",
+          "--no-session-persistence",
+          "--permission-mode",
+          "dontAsk",
+          "--allowedTools",
+          "Read,Edit,Write,Bash,PowerShell,Glob,Grep",
+          "--disallowedTools",
+          "Agent,Task,WebFetch,WebSearch",
+          "--max-budget-usd",
+          "6"
+        ],
+        "cliVersion": "2.1.322 (Claude Code)",
+        "startedAt": "2026-11-11T20:10:05.329Z",
+        "promptFile": "prompt.txt",
+        "environmentControls": {
+          "NO_COLOR": "1",
+          "OPENSPEC_TELEMETRY": "0",
+          "CI": "1"
+        },
+        "exitCode": 1,
+        "signal": null,
+        "endedAt": "2026-11-11T21:52:12.119Z",
+        "durationSeconds": 6126.79,
+        "monotonicDurationSeconds": 6126.9228053,
+        "deadlineExceededBySeconds": 5526.9228053,
+        "stopReason": "wall-time-limit",
+        "stopRequestedAt": "2026-11-11T21:52:11.517Z",
+        "stopRequestedAfterSeconds": 6126.320421,
+        "terminationDelaySeconds": 0.6023842999993576,
+        "eventFailure": false,
+        "sessionId": "df878b6f-17d2-4400-bc91-321a0d2a761e",
+        "usage": null,
+        "stepUsage": [],
+        "reportedCostUSD": 0,
+        "observedModels": [
+          "claude-opus-5-5"
+        ],
+        "reviewInputsPreserved": true,
+        "evaluation": "not-graded"
+      },
+      "independentChecks": {
+        "evaluatedAt": "2026-11-11T21:52:40.911Z",
+        "revision": "afa80bf70c8e0150b043982ac37d8ac45326e043",
+        "baseline": "d291d522a34f8baad331694055af86b0113bfd8e",
+        "passed": false,
+        "checks": [
+          {
+            "label": "git rev-parse HEAD",
+            "executable": "git",
+            "args": [
+              "rev-parse",
+              "HEAD"
+            ],
+            "exitCode": 0,
+            "stdout": "afa80bf70c8e0150b043982ac37d8ac45326e043\n",
+            "stderr": ""
+          },
+          {
+            "label": "git status --porcelain --untracked-files=all",
+            "executable": "git",
+            "args": [
+              "status",
+              "--porcelain",
+              "--untracked-files=all"
+            ],
+            "exitCode": 0,
+            "stdout": " M openspec/changes/add-optional-csv-bom/tasks.md\n?? docs/testing/check-preliminary-afa80bf.json\n?? docs/testing/controlled-faults.log\n?? docs/testing/controlled-faults.mjs\n?? docs/testing/npm-test.log\n?? docs/testing/openspec-validate.log\n?? docs/testing/pr-description.md\n?? docs/testing/readme-examples.log\n?? docs/testing/readme-examples.mjs\n?? docs/testing/verification.md\n",
+            "stderr": ""
+          },
+          {
+            "label": "clean input revision",
+            "passed": false
+          },
+          {
+            "label": "git show d291d522a34f8baad331694055af86b0113bfd8e:test/export.test.mjs",
+            "executable": "git",
+            "args": [
+              "show",
+              "d291d522a34f8baad331694055af86b0113bfd8e:test/export.test.mjs"
+            ],
+            "exitCode": 0,
+            "stdout": "import { test } from 'node:test';\nimport assert from 'node:assert/strict';\nimport { exportCsv } from '../export.mjs';\n\ntest('exports a header and one record [EXP-001] [Test-type: Unit]', () => {\n  assert.equal(exportCsv([{name: 'Ada'}], ['name']), 'name\\r\\nAda\\r\\n');\n});\n\ntest('selects and orders explicit columns for every record [EXP-002] [Test-type: Unit]', () => {\n  const records = [{name: 'Ada', city: 'London', hidden: 'ignore'}, {name: 'Grace', city: 'New York', hidden: 'ignore'}];\n  assert.equal(exportCsv(records, ['city', 'name']), 'city,name\\r\\nLondon,Ada\\r\\nNew York,Grace\\r\\n');\n});\n\ntest('quotes comma fields in values and headers and leaves plain fields unquoted [EXP-003] [Test-type: Unit]', () => {\n  assert.equal(exportCsv([{'home,city': 'London, UK', name: 'Ada'}], ['home,city', 'name']), '\"home,city\",name\\r\\n\"London, UK\",Ada\\r\\n');\n  assert.equal(exportCsv([{value: ''}], ['value']), 'value\\r\\n\\r\\n');\n});\n\ntest('doubles embedded quotes in values and headers [EXP-004] [Test-type: Unit]', () => {\n  assert.equal(exportCsv([{value: 'Say \"hello\"'}, {value: 'Say \"hello\", Ada'}, {value: '\"\"'}], ['value']), 'value\\r\\n\"Say \"\"hello\"\"\"\\r\\n\"Say \"\"hello\"\", Ada\"\\r\\n\"\"\"\"\"\"\\r\\n');\n  assert.equal(exportCsv([{'a\"b': 'x'}], ['a\"b']), '\"a\"\"b\"\\r\\nx\\r\\n');\n});\n\ntest('preserves LF, CR, and CRLF inside quoted fields [EXP-005] [Test-type: Unit]', () => {\n  for (const newline of ['\\n', '\\r', '\\r\\n']) {\n    assert.equal(exportCsv([{value: `first${newline}second`}], ['value']), `value\\r\\n\"first${newline}second\"\\r\\n`);\n    assert.equal(exportCsv([{value: `\"first\",${newline}second`}], ['value']), `value\\r\\n\"\"\"first\"\",${newline}second\"\\r\\n`);\n    const header = `a${newline}b`;\n    assert.equal(exportCsv([{[header]: 'x'}], [header]), `\"${header}\"\\r\\nx\\r\\n`);\n  }\n});\n\ntest('exports only the escaped header for an empty record list [EXP-006] [Test-type: Unit]', () => {\n  assert.equal(exportCsv([], ['name', 'city']), 'name,city\\r\\n');\n  assert.equal(exportCsv([], ['home,city', 'a\"b', 'line\\nbreak']), '\"home,city\",\"a\"\"b\",\"line\\nbreak\"\\r\\n');\n});\n",
+            "stderr": ""
+          },
+          {
+            "label": "git diff --numstat d291d522a34f8baad331694055af86b0113bfd8e -- test/export.test.mjs",
+            "executable": "git",
+            "args": [
+              "diff",
+              "--numstat",
+              "d291d522a34f8baad331694055af86b0113bfd8e",
+              "--",
+              "test/export.test.mjs"
+            ],
+            "exitCode": 0,
+            "stdout": "57\t0\ttest/export.test.mjs\n",
+            "stderr": ""
+          },
+          {
+            "label": "baseline preserved: test/export.test.mjs",
+            "passed": true
+          },
+          {
+            "label": "git show d291d522a34f8baad331694055af86b0113bfd8e:openspec/specs/csv-export/spec.md",
+            "executable": "git",
+            "args": [
+              "show",
+              "d291d522a34f8baad331694055af86b0113bfd8e:openspec/specs/csv-export/spec.md"
+            ],
+            "exitCode": 0,
+            "stdout": "# CSV export\n\n## Purpose\n\nAllow callers to export records as CSV with explicit column ordering and preserve fields containing delimiters, quotation marks, or line breaks.\n\n## Requirements\n\n### Requirement: Header and explicit columns\n\nThe function SHALL include a header row and serialize each record using the caller's explicit column order.\n\n#### Scenario: Export a record with a header [EXP-001]\nTest-type: Unit\n- **WHEN** records `[{ name: \"Ada\" }]` are exported with columns `[\"name\"]`\n- **THEN** the parsed CSV contains the header `name` and one record containing `Ada`\n\n#### Scenario: Respect explicit column order [EXP-002]\nTest-type: Unit\n- **WHEN** records `[{ name: \"Ada\", city: \"London\" }]` are exported with columns `[\"city\", \"name\"]`\n- **THEN** the header and record fields follow `city`, then `name`, regardless of object property order\n\n### Requirement: Escape CSV fields\n\nThe function SHALL enclose fields containing commas, quotation marks, carriage returns, or line feeds in double quotation marks and double any embedded double quotation marks. Fields without those characters SHALL preserve their values without unnecessary quoting.\n\n#### Scenario: Preserve a field containing a comma [EXP-003]\nTest-type: Unit\n- **WHEN** a field contains `London, UK`\n- **THEN** it is serialized as `\"London, UK\"` and remains one field\n\n#### Scenario: Preserve embedded quotation marks [EXP-004]\nTest-type: Unit\n- **WHEN** a field contains `Say \"hello\"`\n- **THEN** it is serialized as `\"Say \"\"hello\"\"\"` without losing the quotation marks\n\n#### Scenario: Preserve line breaks within a field [EXP-005]\nTest-type: Unit\n- **WHEN** a field contains a carriage return, line feed, or CRLF pair\n- **THEN** the field is quoted and its original line break characters are preserved within that field\n\n### Requirement: Empty record list\n\nThe function SHALL emit only the header when the record list is empty.\n\n#### Scenario: Export no records [EXP-006]\nTest-type: Unit\n- **WHEN** an empty record list is exported with columns `[\"name\", \"city\"]`\n- **THEN** the output contains exactly one CSV row with those header fields and no data rows\n",
+            "stderr": ""
+          },
+          {
+            "label": "baseline preserved: openspec/specs/csv-export/spec.md",
+            "passed": true
+          },
+          {
+            "label": "project test files",
+            "executable": "C:\\Program Files\\nodejs\\node.exe",
+            "args": [
+              "--test",
+              "test/*.test.mjs"
+            ],
+            "exitCode": 0,
+            "stdout": "\u2714 exports a header and one record [EXP-001] [Test-type: Unit] (0.9498ms)\n\u2714 selects and orders explicit columns for every record [EXP-002] [Test-type: Unit] (0.0811ms)\n\u2714 quotes comma fields in values and headers and leaves plain fields unquoted [EXP-003] [Test-type: Unit] (0.0594ms)\n\u2714 doubles embedded quotes in values and headers [EXP-004] [Test-type: Unit] (0.0993ms)\n\u2714 preserves LF, CR, and CRLF inside quoted fields [EXP-005] [Test-type: Unit] (0.172ms)\n\u2714 exports only the escaped header for an empty record list [EXP-006] [Test-type: Unit] (0.0925ms)\n\u2714 omits the byte order mark when options are omitted [EXP-007] [Test-type: Unit] [Case: omitted-options] [Coverage: positive] (0.0881ms)\n\u2714 omits the byte order mark when bom is false [EXP-007] [Test-type: Unit] [Case: explicit-false] [Coverage: positive] (0.0522ms)\n\u2714 exports only the escaped header without a marker for empty records by default [EXP-007] [Test-type: Unit] [Case: empty-records-default] [Coverage: boundary] (0.1746ms)\n\u2714 prepends one byte order mark to the escaped, ordered output [EXP-008] [Test-type: Unit] [Case: escaped-records] [Coverage: positive] (0.5486ms)\n\u2714 adds one marker and preserves caller fields that already start with U+FEFF [EXP-008] [Test-type: Unit] [Case: caller-leading-feff] [Coverage: boundary] (0.1391ms)\n\u2714 prepends one byte order mark to the header for an empty record list [EXP-009] [Test-type: Unit] [Case: header-only] [Coverage: positive] (0.0781ms)\n\u2714 prepends one byte order mark to an escaped header for an empty record list [EXP-009] [Test-type: Unit] [Case: escaped-header] [Coverage: positive] (0.0484ms)\n\u2139 tests 13\n\u2139 suites 0\n\u2139 pass 13\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 106.9725\n",
+            "stderr": ""
+          },
+          {
+            "label": "strict change validation",
+            "executable": "C:\\Program Files\\nodejs\\node.exe",
+            "args": [
+              "node_modules/@fission-ai/openspec/bin/openspec.js",
+              "validate",
+              "add-optional-csv-bom",
+              "--type",
+              "change",
+              "--strict"
+            ],
+            "exitCode": 0,
+            "stdout": "Change 'add-optional-csv-bom' is valid\n",
+            "stderr": ""
+          },
+          {
+            "label": "active change evidence",
+            "executable": "C:\\Program Files\\nodejs\\node.exe",
+            "args": [
+              "node_modules/cliewen-openspec/dist/cli.js",
+              "check",
+              "--change",
+              "add-optional-csv-bom",
+              "--json"
+            ],
+            "exitCode": 1,
+            "stdout": "{\n  \"ok\": false,\n  \"findings\": [\n    {\n      \"code\": \"unverifiable-evidence\",\n      \"severity\": \"error\",\n      \"message\": \"Working tree is not clean\"\n    },\n    {\n      \"code\": \"test-review-missing\",\n      \"message\": \"Create .cliewen-openspec/reviews/change-add-optional-csv-bom.yaml for effectiveness review.\",\n      \"severity\": \"warning\"\n    },\n    {\n      \"code\": \"test-review-missing\",\n      \"message\": \"Create .cliewen-openspec/reviews/change-add-optional-csv-bom.yaml for lifecycle review.\",\n      \"severity\": \"warning\"\n    },\n    {\n      \"code\": \"coverage-minimum-unmet\",\n      \"message\": \"EXP-007: needs 1 distinct passed positive cases.\",\n      \"severity\": \"warning\"\n    },\n    {\n      \"code\": \"coverage-minimum-unmet\",\n      \"message\": \"EXP-007: needs 1 distinct passed negative cases.\",\n      \"severity\": \"warning\"\n    },\n    {\n      \"code\": \"coverage-minimum-unmet\",\n      \"message\": \"EXP-008: needs 1 distinct passed positive cases.\",\n      \"severity\": \"warning\"\n    },\n    {\n      \"code\": \"coverage-minimum-unmet\",\n      \"message\": \"EXP-008: needs 1 distinct passed negative cases.\",\n      \"severity\": \"warning\"\n    },\n    {\n      \"code\": \"coverage-minimum-unmet\",\n      \"message\": \"EXP-009: needs 1 distinct passed positive cases.\",\n      \"severity\": \"warning\"\n    },\n    {\n      \"code\": \"coverage-minimum-unmet\",\n      \"message\": \"EXP-009: needs 1 distinct passed negative cases.\",\n      \"severity\": \"warning\"\n    },\n    {\n      \"code\": \"test-policy-review-required\",\n      \"severity\": \"info\",\n      \"message\": \"Record checks cannot prove case distinctness, assertion meaning, complete dependency/impact analysis, or human approval. Review these claims.\"\n    },\n    {\n      \"code\": \"sufficiency-not-assessed\",\n      \"severity\": \"info\",\n      \"message\": \"Execution and linkage do not prove assertion quality; review the assertions against the scenarios.\"\n    }\n  ]\n}\n",
+            "stderr": ""
+          },
+          {
+            "label": "evidence check reports success",
+            "passed": false
+          },
+          {
+            "label": "independent behavior assertions",
+            "executable": "C:\\Program Files\\nodejs\\node.exe",
+            "args": [
+              "--input-type=module",
+              "-e",
+              "\nimport {exportCsv} from \"file:///C:/Code/cliewen-release-020-checkpoint/project-1/export.mjs\";\nimport {verifyCsvBom} from \"file:///C:/Code/cliewen-openspec/scripts/lib/csv-bom-verification.mjs\";\nverifyCsvBom(exportCsv);\nconsole.log('Independent opt-in, default, empty-input, escaping, CRLF, Unicode, caller-supplied U+FEFF, and UTF-8 byte assertions passed.');\n"
+            ],
+            "exitCode": 0,
+            "stdout": "Independent opt-in, default, empty-input, escaping, CRLF, Unicode, caller-supplied U+FEFF, and UTF-8 byte assertions passed.\n",
+            "stderr": ""
+          },
+          {
+            "label": "saved proposal instructions",
+            "passed": true
+          },
+          {
+            "label": "saved specs instructions",
+            "passed": true
+          },
+          {
+            "label": "saved design instructions",
+            "passed": true
+          },
+          {
+            "label": "saved tasks instructions",
+            "passed": true
+          },
+          {
+            "label": "saved apply instructions",
+            "passed": true
+          }
+        ]
+      },
+      "faultAndLinks": {
+        "profile": "claude-scoping-closure-2-1-322",
+        "fault": "strip caller-supplied U+FEFF while preserving requested prefix",
+        "tests": {
+          "status": 1,
+          "stdout": "\u2714 exports a header and one record [EXP-001] [Test-type: Unit] (0.6146ms)\n\u2714 selects and orders explicit columns for every record [EXP-002] [Test-type: Unit] (0.0736ms)\n\u2714 quotes comma fields in values and headers and leaves plain fields unquoted [EXP-003] [Test-type: Unit] (0.2458ms)\n\u2714 doubles embedded quotes in values and headers [EXP-004] [Test-type: Unit] (0.0985ms)\n\u2714 preserves LF, CR, and CRLF inside quoted fields [EXP-005] [Test-type: Unit] (0.149ms)\n\u2714 exports only the escaped header for an empty record list [EXP-006] [Test-type: Unit] (0.0725ms)\n\u2714 omits the byte order mark when options are omitted [EXP-007] [Test-type: Unit] [Case: omitted-options] [Coverage: positive] (0.0952ms)\n\u2714 omits the byte order mark when bom is false [EXP-007] [Test-type: Unit] [Case: explicit-false] [Coverage: positive] (0.0567ms)\n\u2714 exports only the escaped header without a marker for empty records by default [EXP-007] [Test-type: Unit] [Case: empty-records-default] [Coverage: boundary] (0.1824ms)\n\u2714 prepends one byte order mark to the escaped, ordered output [EXP-008] [Test-type: Unit] [Case: escaped-records] [Coverage: positive] (0.5336ms)\n\u2716 adds one marker and preserves caller fields that already start with U+FEFF [EXP-008] [Test-type: Unit] [Case: caller-leading-feff] [Coverage: boundary] (0.5635ms)\n\u2714 prepends one byte order mark to the header for an empty record list [EXP-009] [Test-type: Unit] [Case: header-only] [Coverage: positive] (0.0869ms)\n\u2714 prepends one byte order mark to an escaped header for an empty record list [EXP-009] [Test-type: Unit] [Case: escaped-header] [Coverage: positive] (0.056ms)\n\u2139 tests 13\n\u2139 suites 0\n\u2139 pass 12\n\u2139 fail 1\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 109.2998\n\n\u2716 failing tests:\n\ntest at test\\export.test.mjs:75:1\n\u2716 adds one marker and preserves caller fields that already start with U+FEFF [EXP-008] [Test-type: Unit] [Case: caller-leading-feff] [Coverage: boundary] (0.5635ms)\n  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n  + actual - expected\n  \n  + 'name\\r\\nAda\\r\\n'\n  - '\ufeffname\\r\\n\ufeffAda\\r\\n'\n  \n      at TestContext.<anonymous> (file:///C:/Code/cliewen-release-020-checkpoint/evaluator-faults/claude-scoping-closure-2-1-322/test/export.test.mjs:79:10)\n      at Test.runInAsyncScope (node:async_hooks:214:14)\n      at Test.run (node:internal/test_runner/test:1062:25)\n      at Test.processPendingSubtests (node:internal/test_runner/test:752:18)\n      at Test.postRun (node:internal/test_runner/test:1191:19)\n      at Test.run (node:internal/test_runner/test:1119:12)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: 'name\\r\\nAda\\r\\n',\n    expected: '\ufeffname\\r\\n\ufeffAda\\r\\n',\n    operator: 'strictEqual'\n  }\n",
+          "stderr": ""
+        },
+        "independentProbe": {
+          "status": 1,
+          "stdout": "",
+          "stderr": "node:internal/modules/run_main:105\r\n    triggerUncaughtException(\r\n    ^\r\n\r\nAssertionError [ERR_ASSERTION]: Preserve caller-supplied U+FEFF while adding only the requested prefix\r\n+ actual - expected\r\n\r\n+ 'value\\r\\nAda\\r\\n'\r\n- 'value\\r\\n\ufeffAda\\r\\n'\r\n            ^\r\n\r\n    at verifyCsvBom (file:///C:/Code/cliewen-openspec/scripts/lib/csv-bom-verification.mjs:22:14)\r\n    at file:///C:/Code/cliewen-release-020-checkpoint/evaluator-faults/claude-scoping-closure-2-1-322/[eval1]:1:139\r\n    at ModuleJob.run (node:internal/modules/esm/module_job:303:25)\r\n    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:269:26)\r\n    at async ModuleLoader.executeModuleJob (node:internal/modules/esm/loader:266:20)\r\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:99:5) {\r\n  generatedMessage: false,\r\n  code: 'ERR_ASSERTION',\r\n  actual: 'value\\r\\nAda\\r\\n',\r\n  expected: 'value\\r\\n\ufeffAda\\r\\n',\r\n  operator: 'strictEqual'\r\n}\r\n\r\nNode.js v24.0.0\r\n"
+        },
+        "brokenLocalLinks": [],
+        "linkLimits": "Markdown targets checked without rendering; fragment anchors not checked"
+      },
+      "retainedFiles": {
+        "baseline.bundle": {
+          "path": "C:\\Code\\cliewen-release-020-checkpoint\\runs\\claude-scoping-closure-2-1-322\\baseline.bundle",
+          "sha256": "5d3c2c5dd3821f72d1c59fc124e24c31ef24f2af6073955119db55be09137bd6"
+        },
+        "baseline.json": {
+          "path": "C:\\Code\\cliewen-release-020-checkpoint\\runs\\claude-scoping-closure-2-1-322\\baseline.json",
+          "sha256": "2994a2fb1874258e6c1560e584092706b3be92af781ba5a17dd69f0af9f15232"
+        },
+        "fault-and-links.json": {
+          "path": "C:\\Code\\cliewen-release-020-checkpoint\\runs\\claude-scoping-closure-2-1-322\\fault-and-links.json",
+          "sha256": "63a2ee43a521624f1b01fd290dd91e331f05abebf82b88a2b6ed26991c832a44"
+        },
+        "independent-checks.json": {
+          "path": "C:\\Code\\cliewen-release-020-checkpoint\\runs\\claude-scoping-closure-2-1-322\\independent-checks.json",
+          "sha256": "204b414a983bd58ae81d73c293462816165bca47d6bf99a89aa0e8df28251588"
+        },
+        "prompt.md": {
+          "path": "C:\\Code\\cliewen-release-020-checkpoint\\runs\\claude-scoping-closure-2-1-322\\prompt.md",
+          "sha256": "9f91a41fd075ddb291fc410f200b3a32a85a084cb54b060d67475f547ac6615c"
+        },
+        "rubric.md": {
+          "path": "C:\\Code\\cliewen-release-020-checkpoint\\runs\\claude-scoping-closure-2-1-322\\rubric.md",
+          "sha256": "17ea6ffdf334016a65f3be44afe47c793bf440560160753398d1b39842ac0b79"
+        },
+        "initial\\events.jsonl": {
+          "path": "C:\\Code\\cliewen-release-020-checkpoint\\runs\\claude-scoping-closure-2-1-322\\initial\\events.jsonl",
+          "sha256": "f5b4bda1a4c1614711accf72535566d3854fabe35ceecff72a9eabdc734b29f7"
+        },
+        "initial\\progress.json": {
+          "path": "C:\\Code\\cliewen-release-020-checkpoint\\runs\\claude-scoping-closure-2-1-322\\initial\\progress.json",
+          "sha256": "de013d0d38eefa43fb5139d46860ca28837a55691820a0e07d01ca8e53ccf61c"
+        },
+        "initial\\prompt.txt": {
+          "path": "C:\\Code\\cliewen-release-020-checkpoint\\runs\\claude-scoping-closure-2-1-322\\initial\\prompt.txt",
+          "sha256": "722db60933feaf5885ebc91ffdc2aa09b7f3ebc69c521c9ff1d06a2d4c301f42"
+        },
+        "initial\\run.json": {
+          "path": "C:\\Code\\cliewen-release-020-checkpoint\\runs\\claude-scoping-closure-2-1-322\\initial\\run.json",
+          "sha256": "bd3dd003b2ba7628fd39157e8e55c0a31bb6f3852f5b4c1d6e46cbe3e30d6f37"
+        },
+        "initial\\stderr.txt": {
+          "path": "C:\\Code\\cliewen-release-020-checkpoint\\runs\\claude-scoping-closure-2-1-322\\initial\\stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "initial\\stop-request.json": {
+          "path": "C:\\Code\\cliewen-release-020-checkpoint\\runs\\claude-scoping-closure-2-1-322\\initial\\stop-request.json",
+          "sha256": "dbda3e56a85239788eff565dafb30a0d96b262696c5e0015ffc77060d1388e10"
+        }
+      },
+      "evaluation": "incomplete"
+    },
+    {
+      "profile": "opencode-2-2-5",
+      "project": "C:\\Code\\cliewen-release-020-checkpoint\\project-2",
+      "run": {
+        "schema": "cliewen-delivery",
+        "profileId": "opencode-2-2-5",
+        "phase": "initial",
+        "project": "C:\\Code\\cliewen-release-020-checkpoint\\project-2",
+        "baseline": "d291d522a34f8baad331694055af86b0113bfd8e",
+        "profile": {
+          "readiness": "pinned",
+          "supersedes": "opencode-1-19-5",
+          "agent": "OpenCode",
+          "runner": "cli",
+          "model": "opencode/glm-5.3-flash",
+          "agentVersion": "2.2.5",
+          "provider": "OpenCode Console/Zen; existing local credentials; provider.use allows only opencode",
+          "effort": "high",
+          "permissions": "V2 ordered rules and hard policies allow local tools; deny external_directory, subagent, question, skill, webfetch and websearch; deny MCP and external plugins; no OS isolation",
+          "context": "fresh standalone server and private config directory per phase; project config and Claude skill discovery disabled; AGENTS read explicitly; system and Console configuration may remain",
+          "budgets": {
+            "wallTimeSeconds": 600,
+            "outputBytes": 67108864,
+            "reportedCostUSD": 0.5,
+            "tokenLimit": null,
+            "billing": "local reported-cost stop; not a provider-enforced hard spending cap"
+          },
+          "traceFormat": "OpenCode run --standalone --format json; model variant via provider/model#high"
+        },
+        "exe": "C:\\Users\\flemm\\AppData\\Roaming\\npm\\node_modules\\@opencode\\cli\\bin\\opencode.exe",
+        "args": [
+          "run",
+          "--standalone",
+          "--format",
+          "json",
+          "--model",
+          "opencode/glm-5.3-flash#high",
+          "Work only in the current project. Keep even temporary helper scripts, probes, and backups inside this project; use a project-local ignored directory when needed, not a shared system temporary directory. Read AGENTS.md and project configuration. Do not read sibling evaluator files, other repositories, credentials, or earlier solutions. Do not spawn additional agents, contact external services, push, or open a PR. Model-provider requests from this CLI are allowed. Use existing local tools and dependencies. Report actual results and inherited instructions.\n\n# Optional CSV encoding marker\n\nExtend the existing CSV export capability with an optional UTF-8 byte order mark (BOM). Keep the existing output unchanged by default. Allow callers to opt in to one marker before the header, including for empty record lists. Preserve escaping, column order, and CRLF separators. Keep the implementation small and dependency-free. Spreadsheet application compatibility is outside the task; test the formatter and resulting UTF-8 bytes.\n\nUse the installed `cliewen-delivery` schema and project configuration. Create a new OpenSpec change named `add-optional-csv-bom`. Retrieve and save the JSON instruction response for every artifact and apply before using it, under `docs/testing/instructions/`. Read existing specs and allocate any new AC IDs through the Cliewen CLI.\n\n\n\nBefore implementation, plan acceptance cases and their verification. Preserve the six original tests and titles; add relevant cases without weakening assertions. Implement small verified tasks, review actual outcomes, update README with the API/default/example, and write docs/testing/pr-description.md. Record commands, results, and limitations under docs/testing. Default quality policies are advisory; disclose unresolved warnings without inventing behavior to silence them.\n\nKeep the rationale within the requested formatter behavior and sources actually inspected. Do not add unsupported consumer/application claims. Link to or quote the original structured checker findings instead of paraphrasing category/count mappings. Before the final commit, compare every explanatory claim with code, specs, actual logs, and JSON; identify untested assumptions rather than presenting them as verified. A later independent review still checks this handoff.\n\nRun the existing and new tests, strictly validate the change, and review the assertions against the scenarios. You may commit changes locally to collect revision-bound evidence. Collect evidence scoped to the active change and run `cliewen-openspec check --change add-optional-csv-bom --json`. Stop before archive. Do not push or open a PR.\n\nUse explicit local executable paths if command shims are unavailable:\n\n```text\nnode node_modules/@fission-ai/openspec/bin/openspec.js\nnode node_modules/cliewen-openspec/dist/cli.js\nnode node_modules/cliewen-openspec/adapters/node-test.mjs\n```\n\n## Release checkpoint additions\n\nThe local CLI/package is the unreleased 0.2.0 candidate, but installed resources are from published 0.1.0. Before creating the change, use local CLI update --dry-run --json, inspect and save its output, then apply update --json and save the output under docs/testing/. Preserve authored configuration, acceptance identities, and existing behavioral specs. No dependency downloads are needed. Record installed and target versions and actual result. Retrieve the updated instructions afterward.\n\nAutomate all feasible verification with available local tools. Before assigning any manual step, explain the concrete residual need for a person's judgment, access, or authority. Spreadsheet-user comprehension and application compatibility are outside scope; no real user feedback is supplied. Label actual observations honestly. Do not invent human verification, approval, or release authorization. Include the reasoning about manual work in the handoff without adding a human checkpoint for this authorized task.\n"
+        ],
+        "cliVersion": "opencode v2.2.5",
+        "startedAt": "2026-11-11T20:10:05.654Z",
+        "promptFile": "prompt.txt",
+        "environmentControls": {
+          "OPENCODE_CONFIG_CONTENT": "{\"model\":\"opencode/glm-5.3-flash\",\"permissions\":[{\"action\":\"*\",\"resource\":\"*\",\"effect\":\"allow\"},{\"action\":\"external_directory\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"subagent\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"question\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"skill\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"webfetch\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"websearch\",\"resource\":\"*\",\"effect\":\"deny\"}],\"policies\":[{\"action\":\"provider.use\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"provider.use\",\"resource\":\"opencode\",\"effect\":\"allow\"},{\"action\":\"mcp.use\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"skill.use\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"plugin.use\",\"resource\":\"*\",\"effect\":\"deny\"},{\"action\":\"plugin.use\",\"resource\":\"opencode.*\",\"effect\":\"allow\"},{\"action\":\"tool.use\",\"resource\":\"external_directory:*\",\"effect\":\"deny\"},{\"action\":\"tool.use\",\"resource\":\"subagent:*\",\"effect\":\"deny\"},{\"action\":\"tool.use\",\"resource\":\"question:*\",\"effect\":\"deny\"},{\"action\":\"tool.use\",\"resource\":\"skill:*\",\"effect\":\"deny\"},{\"action\":\"tool.use\",\"resource\":\"webfetch:*\",\"effect\":\"deny\"},{\"action\":\"tool.use\",\"resource\":\"websearch:*\",\"effect\":\"deny\"}],\"plugins\":[\"-*\",\"opencode.*\"]}",
+          "OPENCODE_CONFIG_DIR": "C:\\Code\\cliewen-release-020-checkpoint\\runs\\opencode-2-2-5\\initial\\config",
+          "OPENCODE_CONFIG_PROJECT_DISABLE": "true",
+          "OPENCODE_DISABLE_FILEWATCHER": "true",
+          "OPENCODE_DISABLE_CLAUDE_CODE": "true",
+          "OPENCODE_DISABLE_MODELS_FETCH": "true"
+        },
+        "exitCode": 0,
+        "signal": null,
+        "endedAt": "2026-11-11T20:16:21.736Z",
+        "durationSeconds": 376.081,
+        "monotonicDurationSeconds": 376.08020479999993,
+        "deadlineExceededBySeconds": 0,
+        "stopReason": null,
+        "stopRequestedAt": null,
+        "stopRequestedAfterSeconds": null,
+        "terminationDelaySeconds": null,
+        "eventFailure": false,
+        "sessionId": "ses_e33c49ab9ffez007A0iqUxmdTj",
+        "usage": null,
+        "stepUsage": [
+          {
+            "cost": 0.0007424,
+            "tokens": {
+              "input": 4796,
+              "output": 34,
+              "reasoning": 12,
+              "cache": {
+                "read": 0,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00019503,
+            "tokens": {
+              "input": 223,
+              "output": 39,
+              "reasoning": 0,
+              "cache": {
+                "read": 4736,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00022874,
+            "tokens": {
+              "input": 386,
+              "output": 46,
+              "reasoning": 0,
+              "cache": {
+                "read": 4928,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00031931,
+            "tokens": {
+              "input": 883,
+              "output": 55,
+              "reasoning": 0,
+              "cache": {
+                "read": 5312,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00053052,
+            "tokens": {
+              "input": 1828,
+              "output": 57,
+              "reasoning": 87,
+              "cache": {
+                "read": 6144,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00029593,
+            "tokens": {
+              "input": 199,
+              "output": 56,
+              "reasoning": 0,
+              "cache": {
+                "read": 7936,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00028729,
+            "tokens": {
+              "input": 173,
+              "output": 35,
+              "reasoning": 0,
+              "cache": {
+                "read": 8128,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.0003208,
+            "tokens": {
+              "input": 122,
+              "output": 62,
+              "reasoning": 45,
+              "cache": {
+                "read": 8300,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00064147,
+            "tokens": {
+              "input": 533,
+              "output": 473,
+              "reasoning": 147,
+              "cache": {
+                "read": 8384,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00039238,
+            "tokens": {
+              "input": 636,
+              "output": 59,
+              "reasoning": 0,
+              "cache": {
+                "read": 8916,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00055803,
+            "tokens": {
+              "input": 463,
+              "output": 405,
+              "reasoning": 0,
+              "cache": {
+                "read": 9536,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00041112,
+            "tokens": {
+              "input": 434,
+              "output": 59,
+              "reasoning": 34,
+              "cache": {
+                "read": 9984,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00046214,
+            "tokens": {
+              "input": 254,
+              "output": 99,
+              "reasoning": 127,
+              "cache": {
+                "read": 10368,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00046165,
+            "tokens": {
+              "input": 759,
+              "output": 62,
+              "reasoning": 0,
+              "cache": {
+                "read": 10560,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00040137,
+            "tokens": {
+              "input": 223,
+              "output": 60,
+              "reasoning": 0,
+              "cache": {
+                "read": 11264,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00043268,
+            "tokens": {
+              "input": 280,
+              "output": 21,
+              "reasoning": 73,
+              "cache": {
+                "read": 11456,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00233756,
+            "tokens": {
+              "input": 11378,
+              "output": 185,
+              "reasoning": 374,
+              "cache": {
+                "read": 11712,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00079885,
+            "tokens": {
+              "input": 661,
+              "output": 17,
+              "reasoning": 0,
+              "cache": {
+                "read": 23040,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.0008012,
+            "tokens": {
+              "input": 118,
+              "output": 110,
+              "reasoning": 35,
+              "cache": {
+                "read": 23700,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00082604,
+            "tokens": {
+              "input": 292,
+              "output": 136,
+              "reasoning": 0,
+              "cache": {
+                "read": 23808,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00084302,
+            "tokens": {
+              "input": 214,
+              "output": 121,
+              "reasoning": 57,
+              "cache": {
+                "read": 24064,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00088488,
+            "tokens": {
+              "input": 368,
+              "output": 204,
+              "reasoning": 0,
+              "cache": {
+                "read": 24256,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00087178,
+            "tokens": {
+              "input": 600,
+              "output": 89,
+              "reasoning": 0,
+              "cache": {
+                "read": 24576,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00103751,
+            "tokens": {
+              "input": 1023,
+              "output": 37,
+              "reasoning": 222,
+              "cache": {
+                "read": 25152,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00109491,
+            "tokens": {
+              "input": 1687,
+              "output": 60,
+              "reasoning": 57,
+              "cache": {
+                "read": 26112,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00095743,
+            "tokens": {
+              "input": 541,
+              "output": 86,
+              "reasoning": 0,
+              "cache": {
+                "read": 27776,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00088138,
+            "tokens": {
+              "input": 136,
+              "output": 23,
+              "reasoning": 0,
+              "cache": {
+                "read": 28316,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00172743,
+            "tokens": {
+              "input": 1873,
+              "output": 86,
+              "reasoning": 1102,
+              "cache": {
+                "read": 28416,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00285234,
+            "tokens": {
+              "input": 4858,
+              "output": 134,
+              "reasoning": 2296,
+              "cache": {
+                "read": 30288,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00172198,
+            "tokens": {
+              "input": 4066,
+              "output": 56,
+              "reasoning": 60,
+              "cache": {
+                "read": 35136,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00188849,
+            "tokens": {
+              "input": 2343,
+              "output": 469,
+              "reasoning": 255,
+              "cache": {
+                "read": 39168,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00151341,
+            "tokens": {
+              "input": 785,
+              "output": 98,
+              "reasoning": 205,
+              "cache": {
+                "read": 41472,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00146963,
+            "tokens": {
+              "input": 323,
+              "output": 84,
+              "reasoning": 223,
+              "cache": {
+                "read": 42256,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.0017165,
+            "tokens": {
+              "input": 458,
+              "output": 95,
+              "reasoning": 647,
+              "cache": {
+                "read": 42560,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00147209,
+            "tokens": {
+              "input": 919,
+              "output": 88,
+              "reasoning": 0,
+              "cache": {
+                "read": 43008,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00157142,
+            "tokens": {
+              "input": 382,
+              "output": 92,
+              "reasoning": 302,
+              "cache": {
+                "read": 43904,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00164117,
+            "tokens": {
+              "input": 833,
+              "output": 32,
+              "reasoning": 347,
+              "cache": {
+                "read": 44224,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00176743,
+            "tokens": {
+              "input": 495,
+              "output": 286,
+              "reasoning": 397,
+              "cache": {
+                "read": 45056,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00172257,
+            "tokens": {
+              "input": 753,
+              "output": 489,
+              "reasoning": 0,
+              "cache": {
+                "read": 45504,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00170293,
+            "tokens": {
+              "input": 515,
+              "output": 476,
+              "reasoning": 0,
+              "cache": {
+                "read": 46256,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.0024638,
+            "tokens": {
+              "input": 548,
+              "output": 1085,
+              "reasoning": 875,
+              "cache": {
+                "read": 46720,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00180551,
+            "tokens": {
+              "input": 2017,
+              "output": 172,
+              "reasoning": 0,
+              "cache": {
+                "read": 47232,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00163889,
+            "tokens": {
+              "input": 503,
+              "output": 172,
+              "reasoning": 0,
+              "cache": {
+                "read": 49248,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00173659,
+            "tokens": {
+              "input": 775,
+              "output": 141,
+              "reasoning": 116,
+              "cache": {
+                "read": 49728,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00162763,
+            "tokens": {
+              "input": 435,
+              "output": 95,
+              "reasoning": 0,
+              "cache": {
+                "read": 50496,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00163535,
+            "tokens": {
+              "input": 293,
+              "output": 69,
+              "reasoning": 61,
+              "cache": {
+                "read": 50880,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00159561,
+            "tokens": {
+              "input": 143,
+              "output": 78,
+              "reasoning": 0,
+              "cache": {
+                "read": 51172,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00176762,
+            "tokens": {
+              "input": 658,
+              "output": 232,
+              "reasoning": 30,
+              "cache": {
+                "read": 51264,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00203142,
+            "tokens": {
+              "input": 292,
+              "output": 861,
+              "reasoning": 0,
+              "cache": {
+                "read": 51904,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00172995,
+            "tokens": {
+              "input": 911,
+              "output": 57,
+              "reasoning": 0,
+              "cache": {
+                "read": 52160,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00214318,
+            "tokens": {
+              "input": 310,
+              "output": 935,
+              "reasoning": 75,
+              "cache": {
+                "read": 53056,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00178956,
+            "tokens": {
+              "input": 1078,
+              "output": 57,
+              "reasoning": 0,
+              "cache": {
+                "read": 53312,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00179133,
+            "tokens": {
+              "input": 275,
+              "output": 111,
+              "reasoning": 129,
+              "cache": {
+                "read": 54336,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00170721,
+            "tokens": {
+              "input": 273,
+              "output": 57,
+              "reasoning": 0,
+              "cache": {
+                "read": 54592,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00177162,
+            "tokens": {
+              "input": 218,
+              "output": 98,
+              "reasoning": 88,
+              "cache": {
+                "read": 54864,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.001716,
+            "tokens": {
+              "input": 242,
+              "output": 57,
+              "reasoning": 0,
+              "cache": {
+                "read": 55040,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00179271,
+            "tokens": {
+              "input": 255,
+              "output": 81,
+              "reasoning": 114,
+              "cache": {
+                "read": 55232,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00173672,
+            "tokens": {
+              "input": 270,
+              "output": 67,
+              "reasoning": 0,
+              "cache": {
+                "read": 55424,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.0017405,
+            "tokens": {
+              "input": 104,
+              "output": 109,
+              "reasoning": 0,
+              "cache": {
+                "read": 55680,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00177107,
+            "tokens": {
+              "input": 255,
+              "output": 121,
+              "reasoning": 0,
+              "cache": {
+                "read": 55744,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00173593,
+            "tokens": {
+              "input": 189,
+              "output": 59,
+              "reasoning": 0,
+              "cache": {
+                "read": 55936,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00179522,
+            "tokens": {
+              "input": 70,
+              "output": 104,
+              "reasoning": 98,
+              "cache": {
+                "read": 56124,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00175241,
+            "tokens": {
+              "input": 211,
+              "output": 70,
+              "reasoning": 0,
+              "cache": {
+                "read": 56192,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00171992,
+            "tokens": {
+              "input": 96,
+              "output": 28,
+              "reasoning": 0,
+              "cache": {
+                "read": 56384,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00193304,
+            "tokens": {
+              "input": 1104,
+              "output": 72,
+              "reasoning": 76,
+              "cache": {
+                "read": 56448,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00180398,
+            "tokens": {
+              "input": 176,
+              "output": 103,
+              "reasoning": 0,
+              "cache": {
+                "read": 57536,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00179447,
+            "tokens": {
+              "input": 167,
+              "output": 79,
+              "reasoning": 0,
+              "cache": {
+                "read": 57664,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00177286,
+            "tokens": {
+              "input": 124,
+              "output": 41,
+              "reasoning": 0,
+              "cache": {
+                "read": 57792,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00200423,
+            "tokens": {
+              "input": 987,
+              "output": 76,
+              "reasoning": 165,
+              "cache": {
+                "read": 57856,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00184598,
+            "tokens": {
+              "input": 280,
+              "output": 79,
+              "reasoning": 0,
+              "cache": {
+                "read": 58816,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00188041,
+            "tokens": {
+              "input": 145,
+              "output": 139,
+              "reasoning": 34,
+              "cache": {
+                "read": 59072,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00203948,
+            "tokens": {
+              "input": 200,
+              "output": 466,
+              "reasoning": 0,
+              "cache": {
+                "read": 59216,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00334441,
+            "tokens": {
+              "input": 501,
+              "output": 1333,
+              "reasoning": 1642,
+              "cache": {
+                "read": 59392,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00241046,
+            "tokens": {
+              "input": 2998,
+              "output": 298,
+              "reasoning": 30,
+              "cache": {
+                "read": 59892,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00289999,
+            "tokens": {
+              "input": 977,
+              "output": 1270,
+              "reasoning": 466,
+              "cache": {
+                "read": 62848,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00244107,
+            "tokens": {
+              "input": 1749,
+              "output": 528,
+              "reasoning": 0,
+              "cache": {
+                "read": 63824,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00212846,
+            "tokens": {
+              "input": 542,
+              "output": 160,
+              "reasoning": 0,
+              "cache": {
+                "read": 65572,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00223141,
+            "tokens": {
+              "input": 297,
+              "output": 232,
+              "reasoning": 175,
+              "cache": {
+                "read": 66112,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00313874,
+            "tokens": {
+              "input": 960,
+              "output": 2005,
+              "reasoning": 0,
+              "cache": {
+                "read": 66408,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00237449,
+            "tokens": {
+              "input": 2071,
+              "output": 67,
+              "reasoning": 21,
+              "cache": {
+                "read": 67328,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00215448,
+            "tokens": {
+              "input": 128,
+              "output": 108,
+              "reasoning": 0,
+              "cache": {
+                "read": 69376,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.0021599,
+            "tokens": {
+              "input": 268,
+              "output": 73,
+              "reasoning": 0,
+              "cache": {
+                "read": 69440,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00237703,
+            "tokens": {
+              "input": 1591,
+              "output": 95,
+              "reasoning": 0,
+              "cache": {
+                "read": 69696,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00230871,
+            "tokens": {
+              "input": 265,
+              "output": 136,
+              "reasoning": 128,
+              "cache": {
+                "read": 71232,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00262718,
+            "tokens": {
+              "input": 342,
+              "output": 438,
+              "reasoning": 424,
+              "cache": {
+                "read": 71496,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00247699,
+            "tokens": {
+              "input": 905,
+              "output": 374,
+              "reasoning": 0,
+              "cache": {
+                "read": 71808,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00235121,
+            "tokens": {
+              "input": 389,
+              "output": 170,
+              "reasoning": 53,
+              "cache": {
+                "read": 72712,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00228555,
+            "tokens": {
+              "input": 237,
+              "output": 114,
+              "reasoning": 0,
+              "cache": {
+                "read": 73100,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00234613,
+            "tokens": {
+              "input": 137,
+              "output": 174,
+              "reasoning": 77,
+              "cache": {
+                "read": 73336,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00232766,
+            "tokens": {
+              "input": 300,
+              "output": 157,
+              "reasoning": 0,
+              "cache": {
+                "read": 73472,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00228054,
+            "tokens": {
+              "input": 228,
+              "output": 69,
+              "reasoning": 0,
+              "cache": {
+                "read": 73728,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00233335,
+            "tokens": {
+              "input": 175,
+              "output": 179,
+              "reasoning": 0,
+              "cache": {
+                "read": 73920,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00231774,
+            "tokens": {
+              "input": 352,
+              "output": 87,
+              "reasoning": 0,
+              "cache": {
+                "read": 74048,
+                "write": 0
+              }
+            }
+          },
+          {
+            "cost": 0.00295024,
+            "tokens": {
+              "input": 258,
+              "output": 1061,
+              "reasoning": 300,
+              "cache": {
+                "read": 74368,
+                "write": 0
+              }
+            }
+          }
+        ],
+        "reportedCostUSD": 0.15311875000000003,
+        "observedModels": [],
+        "reviewInputsPreserved": true,
+        "evaluation": "not-graded"
+      },
+      "independentChecks": {
+        "evaluatedAt": "2026-11-11T20:17:03.871Z",
+        "revision": "8128588c194b96e81019216f05576e29a60692d0",
+        "baseline": "d291d522a34f8baad331694055af86b0113bfd8e",
+        "passed": true,
+        "checks": [
+          {
+            "label": "git rev-parse HEAD",
+            "executable": "git",
+            "args": [
+              "rev-parse",
+              "HEAD"
+            ],
+            "exitCode": 0,
+            "stdout": "8128588c194b96e81019216f05576e29a60692d0\n",
+            "stderr": ""
+          },
+          {
+            "label": "git status --porcelain --untracked-files=all",
+            "executable": "git",
+            "args": [
+              "status",
+              "--porcelain",
+              "--untracked-files=all"
+            ],
+            "exitCode": 0,
+            "stdout": "",
+            "stderr": ""
+          },
+          {
+            "label": "clean input revision",
+            "passed": true
+          },
+          {
+            "label": "git show d291d522a34f8baad331694055af86b0113bfd8e:test/export.test.mjs",
+            "executable": "git",
+            "args": [
+              "show",
+              "d291d522a34f8baad331694055af86b0113bfd8e:test/export.test.mjs"
+            ],
+            "exitCode": 0,
+            "stdout": "import { test } from 'node:test';\nimport assert from 'node:assert/strict';\nimport { exportCsv } from '../export.mjs';\n\ntest('exports a header and one record [EXP-001] [Test-type: Unit]', () => {\n  assert.equal(exportCsv([{name: 'Ada'}], ['name']), 'name\\r\\nAda\\r\\n');\n});\n\ntest('selects and orders explicit columns for every record [EXP-002] [Test-type: Unit]', () => {\n  const records = [{name: 'Ada', city: 'London', hidden: 'ignore'}, {name: 'Grace', city: 'New York', hidden: 'ignore'}];\n  assert.equal(exportCsv(records, ['city', 'name']), 'city,name\\r\\nLondon,Ada\\r\\nNew York,Grace\\r\\n');\n});\n\ntest('quotes comma fields in values and headers and leaves plain fields unquoted [EXP-003] [Test-type: Unit]', () => {\n  assert.equal(exportCsv([{'home,city': 'London, UK', name: 'Ada'}], ['home,city', 'name']), '\"home,city\",name\\r\\n\"London, UK\",Ada\\r\\n');\n  assert.equal(exportCsv([{value: ''}], ['value']), 'value\\r\\n\\r\\n');\n});\n\ntest('doubles embedded quotes in values and headers [EXP-004] [Test-type: Unit]', () => {\n  assert.equal(exportCsv([{value: 'Say \"hello\"'}, {value: 'Say \"hello\", Ada'}, {value: '\"\"'}], ['value']), 'value\\r\\n\"Say \"\"hello\"\"\"\\r\\n\"Say \"\"hello\"\", Ada\"\\r\\n\"\"\"\"\"\"\\r\\n');\n  assert.equal(exportCsv([{'a\"b': 'x'}], ['a\"b']), '\"a\"\"b\"\\r\\nx\\r\\n');\n});\n\ntest('preserves LF, CR, and CRLF inside quoted fields [EXP-005] [Test-type: Unit]', () => {\n  for (const newline of ['\\n', '\\r', '\\r\\n']) {\n    assert.equal(exportCsv([{value: `first${newline}second`}], ['value']), `value\\r\\n\"first${newline}second\"\\r\\n`);\n    assert.equal(exportCsv([{value: `\"first\",${newline}second`}], ['value']), `value\\r\\n\"\"\"first\"\",${newline}second\"\\r\\n`);\n    const header = `a${newline}b`;\n    assert.equal(exportCsv([{[header]: 'x'}], [header]), `\"${header}\"\\r\\nx\\r\\n`);\n  }\n});\n\ntest('exports only the escaped header for an empty record list [EXP-006] [Test-type: Unit]', () => {\n  assert.equal(exportCsv([], ['name', 'city']), 'name,city\\r\\n');\n  assert.equal(exportCsv([], ['home,city', 'a\"b', 'line\\nbreak']), '\"home,city\",\"a\"\"b\",\"line\\nbreak\"\\r\\n');\n});\n",
+            "stderr": ""
+          },
+          {
+            "label": "git diff --numstat d291d522a34f8baad331694055af86b0113bfd8e -- test/export.test.mjs",
+            "executable": "git",
+            "args": [
+              "diff",
+              "--numstat",
+              "d291d522a34f8baad331694055af86b0113bfd8e",
+              "--",
+              "test/export.test.mjs"
+            ],
+            "exitCode": 0,
+            "stdout": "70\t0\ttest/export.test.mjs\n",
+            "stderr": ""
+          },
+          {
+            "label": "baseline preserved: test/export.test.mjs",
+            "passed": true
+          },
+          {
+            "label": "git show d291d522a34f8baad331694055af86b0113bfd8e:openspec/specs/csv-export/spec.md",
+            "executable": "git",
+            "args": [
+              "show",
+              "d291d522a34f8baad331694055af86b0113bfd8e:openspec/specs/csv-export/spec.md"
+            ],
+            "exitCode": 0,
+            "stdout": "# CSV export\n\n## Purpose\n\nAllow callers to export records as CSV with explicit column ordering and preserve fields containing delimiters, quotation marks, or line breaks.\n\n## Requirements\n\n### Requirement: Header and explicit columns\n\nThe function SHALL include a header row and serialize each record using the caller's explicit column order.\n\n#### Scenario: Export a record with a header [EXP-001]\nTest-type: Unit\n- **WHEN** records `[{ name: \"Ada\" }]` are exported with columns `[\"name\"]`\n- **THEN** the parsed CSV contains the header `name` and one record containing `Ada`\n\n#### Scenario: Respect explicit column order [EXP-002]\nTest-type: Unit\n- **WHEN** records `[{ name: \"Ada\", city: \"London\" }]` are exported with columns `[\"city\", \"name\"]`\n- **THEN** the header and record fields follow `city`, then `name`, regardless of object property order\n\n### Requirement: Escape CSV fields\n\nThe function SHALL enclose fields containing commas, quotation marks, carriage returns, or line feeds in double quotation marks and double any embedded double quotation marks. Fields without those characters SHALL preserve their values without unnecessary quoting.\n\n#### Scenario: Preserve a field containing a comma [EXP-003]\nTest-type: Unit\n- **WHEN** a field contains `London, UK`\n- **THEN** it is serialized as `\"London, UK\"` and remains one field\n\n#### Scenario: Preserve embedded quotation marks [EXP-004]\nTest-type: Unit\n- **WHEN** a field contains `Say \"hello\"`\n- **THEN** it is serialized as `\"Say \"\"hello\"\"\"` without losing the quotation marks\n\n#### Scenario: Preserve line breaks within a field [EXP-005]\nTest-type: Unit\n- **WHEN** a field contains a carriage return, line feed, or CRLF pair\n- **THEN** the field is quoted and its original line break characters are preserved within that field\n\n### Requirement: Empty record list\n\nThe function SHALL emit only the header when the record list is empty.\n\n#### Scenario: Export no records [EXP-006]\nTest-type: Unit\n- **WHEN** an empty record list is exported with columns `[\"name\", \"city\"]`\n- **THEN** the output contains exactly one CSV row with those header fields and no data rows\n",
+            "stderr": ""
+          },
+          {
+            "label": "baseline preserved: openspec/specs/csv-export/spec.md",
+            "passed": true
+          },
+          {
+            "label": "project test files",
+            "executable": "C:\\Program Files\\nodejs\\node.exe",
+            "args": [
+              "--test",
+              "test/*.test.mjs"
+            ],
+            "exitCode": 0,
+            "stdout": "\u2714 exports a header and one record [EXP-001] [Test-type: Unit] (0.7152ms)\n\u2714 selects and orders explicit columns for every record [EXP-002] [Test-type: Unit] (0.076ms)\n\u2714 quotes comma fields in values and headers and leaves plain fields unquoted [EXP-003] [Test-type: Unit] (0.0647ms)\n\u2714 doubles embedded quotes in values and headers [EXP-004] [Test-type: Unit] (0.0954ms)\n\u2714 preserves LF, CR, and CRLF inside quoted fields [EXP-005] [Test-type: Unit] (0.1347ms)\n\u2714 exports only the escaped header for an empty record list [EXP-006] [Test-type: Unit] (0.0639ms)\n\u2714 omits the byte order mark by default [EXP-007] [Test-type: Unit] [Case: default-plain-off] [Coverage: positive] (0.3788ms)\n\u2714 keeps a byte order mark inside field content untouched when the option is off [EXP-007] [Test-type: Unit] [Case: default-content-bom-char] [Coverage: negative] (0.0957ms)\n\u2714 prepends exactly one byte order mark when opted in [EXP-011] [Test-type: Unit] [Case: bom-enabled-basic] [Coverage: positive] (0.2257ms)\n\u2714 adds no byte order mark when bom is explicitly false [EXP-011] [Test-type: Unit] [Case: bom-explicit-false] [Coverage: negative] (0.2219ms)\n\u2714 distinguishes the opted-in marker from byte order marks in field content [EXP-011] [Test-type: Unit] [Case: bom-content-bom-char] [Coverage: boundary] (0.1125ms)\n\u2714 prepends the marker before the header for an empty record list [EXP-012] [Test-type: Unit] [Case: bom-empty-marker] [Coverage: positive] (0.0489ms)\n\u2714 puts the marker before an escaped header when records are empty [EXP-012] [Test-type: Unit] [Case: bom-empty-escaped-header] [Coverage: boundary] (0.0456ms)\n\u2714 keeps the empty-list default output when the option is off [EXP-012] [Test-type: Unit] [Case: bom-empty-default-off] [Coverage: negative] (0.0266ms)\n\u2714 preserves escaping, column order, and separators when opted in [EXP-013] [Test-type: Unit] [Case: bom-escaping-interaction] [Coverage: positive] (0.0391ms)\n\u2714 quotes only fields that need it when opted in [EXP-013] [Test-type: Unit] [Case: bom-no-unnecessary-quoting] [Coverage: negative] (0.0482ms)\n\u2139 tests 16\n\u2139 suites 0\n\u2139 pass 16\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 81.1477\n",
+            "stderr": ""
+          },
+          {
+            "label": "strict change validation",
+            "executable": "C:\\Program Files\\nodejs\\node.exe",
+            "args": [
+              "node_modules/@fission-ai/openspec/bin/openspec.js",
+              "validate",
+              "add-optional-csv-bom",
+              "--type",
+              "change",
+              "--strict"
+            ],
+            "exitCode": 0,
+            "stdout": "Change 'add-optional-csv-bom' is valid\n",
+            "stderr": ""
+          },
+          {
+            "label": "active change evidence",
+            "executable": "C:\\Program Files\\nodejs\\node.exe",
+            "args": [
+              "node_modules/cliewen-openspec/dist/cli.js",
+              "check",
+              "--change",
+              "add-optional-csv-bom",
+              "--json"
+            ],
+            "exitCode": 0,
+            "stdout": "{\n  \"ok\": true,\n  \"findings\": [\n    {\n      \"code\": \"test-policy-review-required\",\n      \"severity\": \"info\",\n      \"message\": \"Record checks cannot prove case distinctness, assertion meaning, complete dependency/impact analysis, or human approval. Review these claims.\"\n    },\n    {\n      \"code\": \"sufficiency-not-assessed\",\n      \"severity\": \"info\",\n      \"message\": \"Execution and linkage do not prove assertion quality; review the assertions against the scenarios.\"\n    }\n  ]\n}\n",
+            "stderr": ""
+          },
+          {
+            "label": "evidence check reports success",
+            "passed": true
+          },
+          {
+            "label": "independent behavior assertions",
+            "executable": "C:\\Program Files\\nodejs\\node.exe",
+            "args": [
+              "--input-type=module",
+              "-e",
+              "\nimport {exportCsv} from \"file:///C:/Code/cliewen-release-020-checkpoint/project-2/export.mjs\";\nimport {verifyCsvBom} from \"file:///C:/Code/cliewen-openspec/scripts/lib/csv-bom-verification.mjs\";\nverifyCsvBom(exportCsv);\nconsole.log('Independent opt-in, default, empty-input, escaping, CRLF, Unicode, caller-supplied U+FEFF, and UTF-8 byte assertions passed.');\n"
+            ],
+            "exitCode": 0,
+            "stdout": "Independent opt-in, default, empty-input, escaping, CRLF, Unicode, caller-supplied U+FEFF, and UTF-8 byte assertions passed.\n",
+            "stderr": ""
+          },
+          {
+            "label": "saved proposal instructions",
+            "passed": true
+          },
+          {
+            "label": "saved specs instructions",
+            "passed": true
+          },
+          {
+            "label": "saved design instructions",
+            "passed": true
+          },
+          {
+            "label": "saved tasks instructions",
+            "passed": true
+          },
+          {
+            "label": "saved apply instructions",
+            "passed": true
+          }
+        ]
+      },
+      "faultAndLinks": {
+        "profile": "opencode-2-2-5",
+        "fault": "strip caller-supplied U+FEFF while preserving requested prefix",
+        "tests": {
+          "status": 1,
+          "stdout": "\u2714 exports a header and one record [EXP-001] [Test-type: Unit] (0.5963ms)\n\u2714 selects and orders explicit columns for every record [EXP-002] [Test-type: Unit] (0.0718ms)\n\u2714 quotes comma fields in values and headers and leaves plain fields unquoted [EXP-003] [Test-type: Unit] (0.0608ms)\n\u2714 doubles embedded quotes in values and headers [EXP-004] [Test-type: Unit] (0.0919ms)\n\u2714 preserves LF, CR, and CRLF inside quoted fields [EXP-005] [Test-type: Unit] (0.2606ms)\n\u2714 exports only the escaped header for an empty record list [EXP-006] [Test-type: Unit] (0.0644ms)\n\u2714 omits the byte order mark by default [EXP-007] [Test-type: Unit] [Case: default-plain-off] [Coverage: positive] (0.3902ms)\n\u2716 keeps a byte order mark inside field content untouched when the option is off [EXP-007] [Test-type: Unit] [Case: default-content-bom-char] [Coverage: negative] (0.5141ms)\n\u2714 prepends exactly one byte order mark when opted in [EXP-011] [Test-type: Unit] [Case: bom-enabled-basic] [Coverage: positive] (0.3024ms)\n\u2714 adds no byte order mark when bom is explicitly false [EXP-011] [Test-type: Unit] [Case: bom-explicit-false] [Coverage: negative] (0.1853ms)\n\u2716 distinguishes the opted-in marker from byte order marks in field content [EXP-011] [Test-type: Unit] [Case: bom-content-bom-char] [Coverage: boundary] (0.1738ms)\n\u2714 prepends the marker before the header for an empty record list [EXP-012] [Test-type: Unit] [Case: bom-empty-marker] [Coverage: positive] (0.0712ms)\n\u2714 puts the marker before an escaped header when records are empty [EXP-012] [Test-type: Unit] [Case: bom-empty-escaped-header] [Coverage: boundary] (0.037ms)\n\u2714 keeps the empty-list default output when the option is off [EXP-012] [Test-type: Unit] [Case: bom-empty-default-off] [Coverage: negative] (0.0247ms)\n\u2714 preserves escaping, column order, and separators when opted in [EXP-013] [Test-type: Unit] [Case: bom-escaping-interaction] [Coverage: positive] (0.0456ms)\n\u2714 quotes only fields that need it when opted in [EXP-013] [Test-type: Unit] [Case: bom-no-unnecessary-quoting] [Coverage: negative] (0.0277ms)\n\u2139 tests 16\n\u2139 suites 0\n\u2139 pass 14\n\u2139 fail 2\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 116.3867\n\n\u2716 failing tests:\n\ntest at test\\export.test.mjs:47:1\n\u2716 keeps a byte order mark inside field content untouched when the option is off [EXP-007] [Test-type: Unit] [Case: default-content-bom-char] [Coverage: negative] (0.5141ms)\n  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n  + actual - expected\n  \n  + 'name\\r\\nAda\\r\\n'\n  - 'name\\r\\n\ufeffAda\\r\\n'\n             ^\n  \n      at TestContext.<anonymous> (file:///C:/Code/cliewen-release-020-checkpoint/evaluator-faults/opencode-2-2-5/test/export.test.mjs:49:10)\n      at Test.runInAsyncScope (node:async_hooks:214:14)\n      at Test.run (node:internal/test_runner/test:1062:25)\n      at Test.processPendingSubtests (node:internal/test_runner/test:752:18)\n      at Test.postRun (node:internal/test_runner/test:1191:19)\n      at Test.run (node:internal/test_runner/test:1119:12)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: 'name\\r\\nAda\\r\\n',\n    expected: 'name\\r\\n\ufeffAda\\r\\n',\n    operator: 'strictEqual'\n  }\n\ntest at test\\export.test.mjs:67:1\n\u2716 distinguishes the opted-in marker from byte order marks in field content [EXP-011] [Test-type: Unit] [Case: bom-content-bom-char] [Coverage: boundary] (0.1738ms)\n  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n  + actual - expected\n  \n  + '\ufeffname\\r\\nAda\\r\\n'\n  - '\ufeffname\\r\\n\ufeffAda\\r\\n'\n              ^\n  \n      at TestContext.<anonymous> (file:///C:/Code/cliewen-release-020-checkpoint/evaluator-faults/opencode-2-2-5/test/export.test.mjs:69:10)\n      at Test.runInAsyncScope (node:async_hooks:214:14)\n      at Test.run (node:internal/test_runner/test:1062:25)\n      at Test.processPendingSubtests (node:internal/test_runner/test:752:18)\n      at Test.postRun (node:internal/test_runner/test:1191:19)\n      at Test.run (node:internal/test_runner/test:1119:12)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: '\ufeffname\\r\\nAda\\r\\n',\n    expected: '\ufeffname\\r\\n\ufeffAda\\r\\n',\n    operator: 'strictEqual'\n  }\n",
+          "stderr": ""
+        },
+        "independentProbe": {
+          "status": 1,
+          "stdout": "",
+          "stderr": "node:internal/modules/run_main:105\r\n    triggerUncaughtException(\r\n    ^\r\n\r\nAssertionError [ERR_ASSERTION]: Preserve caller-supplied U+FEFF while adding only the requested prefix\r\n+ actual - expected\r\n\r\n+ 'value\\r\\nAda\\r\\n'\r\n- 'value\\r\\n\ufeffAda\\r\\n'\r\n            ^\r\n\r\n    at verifyCsvBom (file:///C:/Code/cliewen-openspec/scripts/lib/csv-bom-verification.mjs:22:14)\r\n    at file:///C:/Code/cliewen-release-020-checkpoint/evaluator-faults/opencode-2-2-5/[eval1]:1:139\r\n    at ModuleJob.run (node:internal/modules/esm/module_job:303:25)\r\n    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:269:26)\r\n    at async ModuleLoader.executeModuleJob (node:internal/modules/esm/loader:266:20)\r\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:99:5) {\r\n  generatedMessage: false,\r\n  code: 'ERR_ASSERTION',\r\n  actual: 'value\\r\\nAda\\r\\n',\r\n  expected: 'value\\r\\n\ufeffAda\\r\\n',\r\n  operator: 'strictEqual'\r\n}\r\n\r\nNode.js v24.0.0\r\n"
+        },
+        "brokenLocalLinks": [],
+        "linkLimits": "Markdown targets checked without rendering; fragment anchors not checked"
+      },
+      "retainedFiles": {
+        "baseline.bundle": {
+          "path": "C:\\Code\\cliewen-release-020-checkpoint\\runs\\opencode-2-2-5\\baseline.bundle",
+          "sha256": "5d3c2c5dd3821f72d1c59fc124e24c31ef24f2af6073955119db55be09137bd6"
+        },
+        "baseline.json": {
+          "path": "C:\\Code\\cliewen-release-020-checkpoint\\runs\\opencode-2-2-5\\baseline.json",
+          "sha256": "2994a2fb1874258e6c1560e584092706b3be92af781ba5a17dd69f0af9f15232"
+        },
+        "fault-and-links.json": {
+          "path": "C:\\Code\\cliewen-release-020-checkpoint\\runs\\opencode-2-2-5\\fault-and-links.json",
+          "sha256": "d05e825e9b44fd75fb63e520e6c02a8eb9eaf44e972a1e6db1f90eed99a953a5"
+        },
+        "independent-checks.json": {
+          "path": "C:\\Code\\cliewen-release-020-checkpoint\\runs\\opencode-2-2-5\\independent-checks.json",
+          "sha256": "e482c530b83b86e53ec46eda65b1a1814b27aa3598835a2286b778620c14d89f"
+        },
+        "prompt.md": {
+          "path": "C:\\Code\\cliewen-release-020-checkpoint\\runs\\opencode-2-2-5\\prompt.md",
+          "sha256": "9f91a41fd075ddb291fc410f200b3a32a85a084cb54b060d67475f547ac6615c"
+        },
+        "rubric.md": {
+          "path": "C:\\Code\\cliewen-release-020-checkpoint\\runs\\opencode-2-2-5\\rubric.md",
+          "sha256": "17ea6ffdf334016a65f3be44afe47c793bf440560160753398d1b39842ac0b79"
+        },
+        "initial\\events.jsonl": {
+          "path": "C:\\Code\\cliewen-release-020-checkpoint\\runs\\opencode-2-2-5\\initial\\events.jsonl",
+          "sha256": "a48f5e6a9b3576445fd3ca5beab88458479a3977408413093e94b3e27004e7f1"
+        },
+        "initial\\progress.json": {
+          "path": "C:\\Code\\cliewen-release-020-checkpoint\\runs\\opencode-2-2-5\\initial\\progress.json",
+          "sha256": "9ee566fb0a78b2dea0f8b21ea53993e1f20fcbcd03e43979dddb603572a178dc"
+        },
+        "initial\\prompt.txt": {
+          "path": "C:\\Code\\cliewen-release-020-checkpoint\\runs\\opencode-2-2-5\\initial\\prompt.txt",
+          "sha256": "722db60933feaf5885ebc91ffdc2aa09b7f3ebc69c521c9ff1d06a2d4c301f42"
+        },
+        "initial\\run.json": {
+          "path": "C:\\Code\\cliewen-release-020-checkpoint\\runs\\opencode-2-2-5\\initial\\run.json",
+          "sha256": "6e8f7c183eda72953819391309a7e42167f5cecb0aed097d966a3ebaadf85445"
+        },
+        "initial\\stderr.txt": {
+          "path": "C:\\Code\\cliewen-release-020-checkpoint\\runs\\opencode-2-2-5\\initial\\stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "evaluation": "completed-with-findings"
+    }
+  ]
+}

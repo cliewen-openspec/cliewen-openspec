@@ -32,7 +32,7 @@ cliewen-openspec update --dry-run --json
 cliewen-openspec update --json
 ```
 
-Refreshes or repairs owned schema files/templates using the installed package. Output contains `dryRun`, `writes`, and `deletes`. It adds new bundle files, replaces unchanged owned content, and deletes unchanged retired owned files. Edited files conflict unless already identical to the new content. Unowned paths are never adopted. Only `0.1.0` manifests are supported; alpha and other versions are rejected without automatic migration.
+Refreshes or repairs owned schema files/templates using the installed package. Output contains `dryRun`, `writes`, and `deletes`. It adds new bundle files, replaces unchanged owned content, and deletes unchanged retired owned files. Edited files conflict unless already identical to the new content. Unowned paths are never adopted. The 0.2.0 candidate supports `0.1.0` and `0.2.0` manifests; alpha and other versions are rejected without automatic migration.
 
 Configuration, default schema, AC registry, authored changes/docs, and evidence are preserved. Apply recovers an interrupted transaction first and uses rollback; dry-run does neither. The command has no `--default` or force option. Usage, config, ownership, or write failures exit 2; success exits 0. See [the update guide](updating.md) for the full workflow and conflict rules.
 
@@ -47,7 +47,7 @@ cliewen-openspec uninstall --default-schema spec-driven --json
 
 Removes only unchanged installer-owned resources and the ownership manifest, preserving authored files, config, registry, evidence, and custom resources. If the project default is not being removed, omit `--default-schema`; an unnecessary replacement flag is rejected. Otherwise an explicit replacement must validate through the public OpenSpec CLI. Active changes using removed schemas block uninstall, including inherited-default references. No change metadata is rewritten.
 
-Output includes `dryRun`, `writes`, and `deletes`. Apply supports recovery/rollback; dry-run does neither. Missing owned files are tolerated; edited owned files conflict. No force option or automatic npm dependency removal is provided. The supported manifest version is `0.1.0`; a missing manifest is an error. Success exits 0 and usage, validation, conflict, or operation failures exit 2. See [the uninstall guide](uninstalling.md).
+Output includes `dryRun`, `writes`, and `deletes`. Apply supports recovery/rollback; dry-run does neither. Missing owned files are tolerated; edited owned files conflict. No force option or automatic npm dependency removal is provided. Supported manifest versions are `0.1.0` and `0.2.0`; a missing manifest is an error. Success exits 0 and usage, validation, conflict, or operation failures exit 2. See [the uninstall guide](uninstalling.md).
 
 ## ac next
 

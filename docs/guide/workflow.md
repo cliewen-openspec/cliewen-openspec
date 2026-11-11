@@ -211,7 +211,7 @@ Positive feedback records an observation. Change approval and release authorizat
 
 An existing version-1 manual result can use `reason` to describe or reference an observation. It remains a warning, with the same scenario, test-type, scope, and Git-freshness checks; see [execution evidence](../testing/evidence.md). An older durable observation does not establish current execution evidence, and manual claims cannot replace failed automated checks. These instructions guide the agent; the CLI does not authenticate feedback or establish readability.
 
-The development source for 0.2 also checks [test quality and lifecycle](../testing/test-quality.md). Coverage, effectiveness, and lifecycle default to advisory review; use configuration to disable or enforce each independently. These settings are unavailable in the published 0.1 alpha. Preserve useful assertions through refactoring and accepted behavior changes, and remove obsolete ones only after explicit criterion retirement.
+Version 0.1.0 and the 0.2.0 candidate check [test quality and lifecycle](../testing/test-quality.md). Coverage, effectiveness, and lifecycle default to advisory review; use configuration to disable or enforce each independently. These settings are unavailable in the earlier published alpha. Preserve useful assertions through refactoring and accepted behavior changes, and remove obsolete ones only after explicit criterion retirement.
 
 A passing `check` confirms that the configured report matches the scenario references and current clean Git revision, with no blocking findings. Review the assertions as well: a test that only checks that an output exists may not prove the scenario.
 

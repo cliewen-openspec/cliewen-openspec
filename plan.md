@@ -69,6 +69,10 @@ After implementing priority 5, finish this roadmap's documentation with a guide 
 
 Maintain affected guides, configuration references, examples, and adopter-facing changelog entries with each implemented increment. Use Humanizer for guide prose. Explain defaults and limits, distinguish guidance from deterministic enforcement, and preserve executable examples. Existing guide requirements are recorded in [Decision 010: Publish user documentation early](docs/decisions/010-publish-user-documentation-early.md); the first-release evidence remains linked above.
 
+## Release preparation
+
+The owner selected 0.2.0 as the upcoming release and accepted the philosophy page. [The 0.2.0 preparation record](docs/releases/0.2.0-preparation.md) tracks candidate version alignment, actual upgrade verification, the bounded three-agent checkpoint, and final review. The initial readiness audit and version-sensitive package/test/example alignment are complete. The local 0.2.0 candidate passes 113 tests, including actual upgrade from published 0.1.0 on OpenSpec 1.15.0 and 1.17.0. The bounded three-agent checkpoint ran one fresh upgrade/delivery attempt per tool. [The checkpoint review](docs/testing/release-020-agent-checkpoint-001.md) records Codex/OpenCode findings, an incomplete Claude attempt, and a delayed deadline; reviewed success for all three tools remains pending. The audit itself invoked no model or publication. The subsequent [checkpoint follow-up](docs/testing/release-020-agent-checkpoint-001-follow-up.md) identifies host sleep, clarifies shared guidance, and retains a Claude retry rejected by subscription usage limits; further successful observations remain pending.
+
 ## Verification and delivery boundaries
 
 Exercise small corrections without a change, oversized proposals, dependent and independent deliveries, changed assumptions, unavailable ticket systems, local planning, and archive without automatic ticket closure. Include failure and disabled-feature paths when the implementation introduces them. Choose focused deterministic checks for the changed behavior.

@@ -5,7 +5,7 @@ type: guide
 
 Installing a Cliewen npm package updates the CLI, while an existing project keeps its installed schema files. Run `update` to refresh or repair installer-owned schema definitions and templates. The command preserves project configuration, the selected OpenSpec default, authored change artifacts and documents, and the AC registry. Version 0.1.0 accepts only `0.1.0` manifests; it does not migrate earlier alpha installations.
 
-Development source adds tool checks and a reviewable upgrade path from published 0.1.0. Its release number is still 0.1.0; use the source-built tarball below to try these changes. Published 0.1.0 does not provide the new checks or output. Supported sources are published 0.1.0 and the running target version; unknown versions, alpha installations, and downgrades are rejected. A future release's compatibility declaration determines which older installations it accepts.
+Development source adds tool checks and a reviewable upgrade path from published 0.1.0. Its candidate version is 0.2.0; use the source-built tarball below to try these changes. Published 0.1.0 does not provide the new checks or output. Supported sources are published 0.1.0 and the running target version; unknown versions, alpha installations, and downgrades are rejected. A future release's compatibility declaration determines which older installations it accepts.
 
 ## Check the requirements
 
@@ -18,7 +18,7 @@ The check prefers the project's OpenSpec npm installation; otherwise it uses PAT
 First [build the local candidate](getting-started.md#1-build-the-candidate-package). In a project initialized with that candidate, install its tarball and preview the resource update. This example uses the guide's sibling-directory layout; substitute the actual tarball path for another project:
 
 ```sh
-npm install --save-dev ../cliewen-openspec/cliewen-openspec-0.1.0.tgz
+npm install --save-dev ../cliewen-openspec/cliewen-openspec-0.2.0.tgz
 npx --no-install cliewen-openspec update --dry-run --json
 ```
 
@@ -28,7 +28,7 @@ Installing the npm package has already changed dependencies and possibly a lockf
 
 OpenSpec separately owns generated agent skills and command integrations. If its version changes, review its native update using the preview supported by that installed version (`openspec update --help` lists the available options). Cliewen update does not run that integration refresh, modify delivery preferences, or rewrite active proposal artifacts.
 
-The tarball selects the local 0.1.0 build. For a registry installation, use `npm install --save-dev cliewen-openspec@0.1.0` instead. The npm install changes package metadata and dependencies as usual; the Cliewen update command is a separate operation on installed resources. An unchanged installation reports no resource changes; missing owned files can be repaired.
+The tarball selects the local 0.2.0 candidate, which is not yet published. The registry command `npm install --save-dev cliewen-openspec@0.1.0` selects the older published version. The npm install changes package metadata and dependencies as usual; the Cliewen update command is a separate operation on installed resources. An unchanged installation reports no resource changes; missing owned files can be repaired.
 
 Review the preview's `writes` and `deletes` lists. `writes` includes templates/schema files to create or replace and the ownership manifest when it changes. `deletes` contains only retired installer-owned files. A dry run applies no writes, deletions, or interrupted-transaction recovery.
 

@@ -6,7 +6,7 @@ import path from 'node:path';
 import {spawnSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import {compatibility} from '../dist/compatibility.js';
-import {requirements, meetsMinimum, supportsInstallation} from '../dist/release.js';
+import {version, requirements, meetsMinimum, supportsInstallation} from '../dist/release.js';
 import {init, update, lifecycle, recover} from '../dist/core.js';
 
 const source = fileURLToPath(new URL('../', import.meta.url));
@@ -36,7 +36,8 @@ test('release minimums use numerical stable-version comparisons and declared sou
   assert.equal(JSON.parse(fs.readFileSync(path.join(source,'package.json'),'utf8')).engines.node,`>=${requirements.node}`);
   for(const [v,min,expected] of [['1.15.0','1.15.0',true],['1.9.0','1.15.0',false],['1.100.0','1.15.0',true],['20.18.99','20.19.0',false],['20.19.0','20.19.0',true],['1.15.0+build.7','1.15.0',true],['1.15.0-beta.1','1.15.0',false],['01.15.0','1.15.0',false],['garbage','1.15.0',false],['1.15','1.15.0',false]])assert.equal(meetsMinimum(v,min),expected,v);
   assert.equal(supportsInstallation('0.1.0'),true);
-  for(const v of ['0.1.0-alpha.1','0.2.0','9.0.0',null])assert.equal(supportsInstallation(v),false);
+  assert.equal(supportsInstallation(version),true);
+  for(const v of ['0.1.0-alpha.1','0.3.0','9.0.0',null])assert.equal(supportsInstallation(v),false);
 });
 
 test('incompatible local tool wins over PATH and blocks writing, preview and recovery',t=>{
@@ -120,10 +121,10 @@ test('preview metadata agrees with apply, preserves authored state and rechecks 
   const root=fixture(t);localTool(root);
   write(root,'docs/README.md','# Existing address\n');write(root,'AGENTS.md','Project rules\n');
   const before=snapshot(root),preview=lifecycle(root,'init',true);
-  assert.equal(preview.installedVersion,null);assert.equal(preview.targetVersion,'0.1.0');assert.deepEqual(preview.creates,preview.writes);assert.deepEqual(preview.replaces,[]);assert.deepEqual(snapshot(root),before);
+  assert.equal(preview.installedVersion,null);assert.equal(preview.targetVersion,version);assert.deepEqual(preview.creates,preview.writes);assert.deepEqual(preview.replaces,[]);assert.deepEqual(snapshot(root),before);
   assert.deepEqual(lifecycle(root,'init'),preview);
   assert.equal(fs.readFileSync(path.join(root,'docs/README.md'),'utf8'),'# Existing address\n');assert.equal(fs.readFileSync(path.join(root,'AGENTS.md'),'utf8'),'Project rules\n');
-  const quiet=lifecycle(root,'update',true);assert.equal(quiet.installedVersion,'0.1.0');assert.deepEqual(quiet.writes,[]);
+  const quiet=lifecycle(root,'update',true);assert.equal(quiet.installedVersion,version);assert.deepEqual(quiet.writes,[]);
   const owned='openspec/schemas/cliewen-delivery/templates/tasks.md';
   fs.unlinkSync(path.join(root,owned));assert.ok(lifecycle(root,'update',true).creates.includes(owned));
   write(root,owned,'a new unapproved local edit');const changed=snapshot(root);assert.throws(()=>lifecycle(root,'update'),/Conflict/);assert.deepEqual(snapshot(root),changed);
