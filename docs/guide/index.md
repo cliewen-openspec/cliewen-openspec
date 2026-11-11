@@ -5,13 +5,41 @@ type: guide
 
 Cliewen adds project documentation, Decision Records, stable acceptance criterion IDs, and test evidence to an [OpenSpec](https://openspec.dev/) workflow. OpenSpec is the workflow engine; its source and community are at [Fission-AI/OpenSpec on GitHub](https://github.com/Fission-AI/OpenSpec). Use Cliewen when you want an agent to leave behind an explanation of what changed and a record of which scenarios were tested.
 
-Version `0.1.0` provides three workflows. `cliewen-delivery` takes an understood change through proposal, behavior specs, design, implementation tasks, and verification. [Discovery](discovery.md) investigates a question and produces a recommendation, including the option to make no change. [The combined workflow](all.md) keeps investigation and delivery in one change, with explicit no-delivery closure. OpenSpec owns the change files, spec synchronization, and archive. Your coding agent writes the artifacts and implementation; Cliewen supplies instructions, templates, configuration, ID allocation, and evidence checks.
+Your coding agent writes the artifacts and implementation. Cliewen supplies instructions, templates, configuration, acceptance ID allocation, and evidence checks. The three workflows below are available in version `0.1.0`.
 
 [Start with your first change](getting-started.md). It uses a small CSV exporter and ends with an archived change and fresh evidence.
 
 Use the search button to find commands, configuration fields, and guide sections. The appearance switch selects the site's light or dark colors; the default follows your system preference.
 
 If something fails or the guide is unclear, [report a bug](https://github.com/cliewen-openspec/cliewen-openspec/issues/new?template=bug_report.yml) with the command or page and what you expected. You can also [suggest an improvement](https://github.com/cliewen-openspec/cliewen-openspec/issues/new?template=idea.yml) by describing your use case and desired outcome.
+
+## Philosophy
+
+Cliewen aims to make spec-driven development more reliable and useful through OpenSpec's extension mechanisms. Its schemas turn project expectations into instructions an agent can follow, while keeping the reasoning and evidence available to the next person working on the project.
+
+The shared approach is **spec-driven development with evidence-first verification**: agree on expected behavior and how to verify it before implementation, then develop and check small tasks. Tests can evolve alongside code. Review whether assertions detect relevant faults, cover useful positive and negative cases, and still match the accepted requirements. [Use spec-driven development with evidence-first verification](../decisions/019-evidence-first-verification.md) explains this choice.
+
+Keep each change small enough to understand and verify as a coherent result. Prepare later proposals when their work becomes actionable. Preserve useful decisions and affected documentation at their existing locations, with short explanations and diagrams where they make the work clearer. Project settings determine which optional facilities apply.
+
+OpenSpec owns changes, behavioral specs, synchronization, and archive. Your project owns Git integration and approval policy. Cliewen extends those conventions, as described in [Extend OpenSpec through its conventions](../decisions/023-openspec-native-planning-and-closure.md).
+
+### Choose a schema for the uncertainty
+
+| Schema | Use it when | What it helps you establish |
+|---|---|---|
+| [Delivery: `cliewen-delivery`](workflow.md) | The change is understood well enough to specify and implement | Expected behavior, chosen design, implementation tasks, and verification |
+| [Discovery: `cliewen-discovery`](discovery.md) | A question or consequential uncertainty needs investigation | Findings and a recommendation: keep the system, investigate further, or prepare delivery |
+| [Combined: `cliewen-all`](all.md) | You want investigation and any resulting delivery in one change | A decision before implementation, followed by delivery or explicit no-delivery closure |
+
+The combined workflow uses the decision as its design source. Delivery requires agreement on that decision; the workflow can also end without product implementation. `cliewen-base` is the shared internal foundation, not a selectable schema.
+
+### Automate work and make limits visible
+
+Development source extends this approach with scope assessment, progressive planning, product intent and journeys, archive guidance, and human-verification guidance. These additions are not in published `0.1.0`; the [workflow guide](workflow.md) explains their behavior and configuration.
+
+The intent is to automate every feasible step with available authorized tools while preserving verification quality. Before asking a person to do something, the agent assesses automation and explains any remaining need for judgment, access, or authority. Routine authorized work proceeds independently. Actual human feedback retains its tested context and limits; observation, approval, and release authorization have distinct meanings. See [Make human review useful without routine approval gates](../decisions/026-meaningful-human-review-and-verification.md).
+
+Schema instructions request these behaviors. CLI checks validate specific records, including test outcomes, scenario linkage, and revision freshness. Passing those checks does not establish that an agent followed every instruction, that assertions prove the behavior, or that users achieved their goals. The [evidence guide](../testing/evidence.md) explains what the checks establish and what still needs assessment.
 
 ## What works today?
 
@@ -45,7 +73,7 @@ The [configuration reference](../configuration.md) lists every accepted setting 
 
 ## What is still planned?
 
-All three planned schemas are implemented in source. `cliewen-base` names the shared internal foundation and is not a selectable schema. Release-profile agent evaluation remains pending.
+The next release's three-agent compatibility checkpoint remains pending.
 
 The candidate supports configurable test types and checks declared scenario types against evidence. Existing-registry adapters, general version/config migrations, and structural checks for your project's documentation and Mermaid diagrams remain planned.
 
