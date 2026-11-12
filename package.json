@@ -8,7 +8,7 @@
     "type": "git",
     "url": "git+https://github.com/cliewen-openspec/cliewen-openspec.git"
   },
-  "homepage": "https://cliewen-openspec.github.io/cliewen-openspec/",
+  "homepage": "https://cliewen-openspec.github.io/",
   "engines": {
     "node": ">=20.19.0"
   },

@@ -12,6 +12,8 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs:
+      organization_ready: ${{ steps.organization.outputs.ready }}
     env:
       OPENSPEC_TELEMETRY: '0'
       CI: '1'
@@ -26,13 +28,23 @@ jobs:
       - run: npm run docs:build
       - run: npx playwright install --with-deps chromium
       - run: npm run docs:check
+      - run: node scripts/build-guide-redirects.mjs
+      - run: node scripts/check-organization-site.mjs
+      - name: Keep the existing site until the new guide is live
+        id: organization
+        run: |
+          if curl --silent --fail https://cliewen-openspec.github.io/guide/getting-started.html > /dev/null; then
+            printf 'ready=true\n' >> "$GITHUB_OUTPUT"
+          else
+            printf 'ready=false\n' >> "$GITHUB_OUTPUT"
+          fi
       - uses: actions/upload-pages-artifact@v5.0.0
-        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main' && steps.organization.outputs.ready == 'true'
         with:
-          path: site-dist
+          path: legacy-site-dist
   deploy:
     needs: build
-    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main' && needs.build.outputs.organization_ready == 'true'
     runs-on: ubuntu-latest
     permissions:
       pages: write

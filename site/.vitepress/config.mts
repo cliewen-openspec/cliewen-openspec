@@ -1,5 +1,6 @@
 import { defineConfig } from 'vitepress';
 import { pages } from '../pages.mjs';
+import { prefix } from '../urls.mjs';
 
 const sidebar = [...new Set(pages.map(page => page.group))].map(group => ({
   text: group,
@@ -10,7 +11,7 @@ export default defineConfig({
   lang: 'en-US',
   title: 'Cliewen for OpenSpec',
   description: 'Practical OpenSpec workflows with decisions, documentation, acceptance IDs, and test evidence.',
-  base: '/cliewen-openspec/',
+  base: prefix,
   srcDir: '../.tmp/vitepress-content',
   outDir: '../site-dist',
   cacheDir: '../.tmp/vitepress-cache',

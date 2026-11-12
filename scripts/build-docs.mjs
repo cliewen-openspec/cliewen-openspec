@@ -8,6 +8,7 @@ import { parse, stringify } from 'yaml';
 import { defaults } from '../dist/core.js';
 import { pages as mainPages } from '../site/pages.mjs';
 import {expandDocumentation} from './lib/doc-includes.mjs';
+import {prefix} from '../site/urls.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const output = path.join(root, 'site-dist');
@@ -65,7 +66,7 @@ for (const p of pages) {
     const href = element.getAttribute('href') ?? element.getAttribute('src');
     if (/^(?:[a-z]+:|\/\/)/i.test(href)) continue;
     let [filename, fragment] = href.split('#');
-    filename = filename.replace(/^\/cliewen-openspec\//, '');
+    if (filename.startsWith(prefix)) filename = filename.slice(prefix.length);
     if (filename === '') filename = fragment ? p.output : 'index.html';
     const target = path.resolve(output, filename);
     const relative = path.relative(output, target);

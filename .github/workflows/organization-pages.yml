@@ -1,0 +1,89 @@
+name: Build organization guide
+on:
+  workflow_call:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    env:
+      CI: '1'
+      OPENSPEC_TELEMETRY: '0'
+    steps:
+      - name: Check for a new documentation revision
+        id: source
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          source_sha=$(gh api repos/cliewen-openspec/cliewen-openspec/commits/main --jq .sha)
+          deployed_sha=$(curl --silent --fail https://cliewen-openspec.github.io/source-revision.json | jq -r '.source // empty') || deployed_sha=''
+          printf 'sha=%s\n' "$source_sha" >> "$GITHUB_OUTPUT"
+          if [[ "$EVENT_NAME" == 'schedule' && "$source_sha" == "$deployed_sha" ]]; then
+            printf 'changed=false\n' >> "$GITHUB_OUTPUT"
+          else
+            printf 'changed=true\n' >> "$GITHUB_OUTPUT"
+          fi
+      - uses: actions/checkout@v7.0.1
+        if: steps.source.outputs.changed == 'true'
+        with:
+          repository: cliewen-openspec/cliewen-openspec
+          ref: ${{ steps.source.outputs.sha }}
+          path: source
+      - uses: actions/setup-node@v7.1.0
+        if: steps.source.outputs.changed == 'true'
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: source/package-lock.json
+      - run: npm ci
+        if: steps.source.outputs.changed == 'true'
+        working-directory: source
+      - run: npm run docs:build
+        if: steps.source.outputs.changed == 'true'
+        working-directory: source
+      - run: npx playwright install --with-deps chromium
+        if: steps.source.outputs.changed == 'true'
+        working-directory: source
+      - run: npm run docs:check
+        if: steps.source.outputs.changed == 'true'
+        working-directory: source
+      - run: node scripts/build-guide-redirects.mjs
+        if: steps.source.outputs.changed == 'true'
+        working-directory: source
+      - run: node scripts/check-organization-site.mjs
+        if: steps.source.outputs.changed == 'true'
+        working-directory: source
+      - name: Assemble organization site
+        if: steps.source.outputs.changed == 'true'
+        env:
+          SOURCE_SHA: ${{ steps.source.outputs.sha }}
+        run: |
+          node --input-type=module <<'JS'
+          import fs from 'node:fs';
+          fs.mkdirSync('public/guide', {recursive:true});
+          fs.cpSync('source/site-dist', 'public/guide', {recursive:true});
+          fs.copyFileSync('source/site/organization/index.html', 'public/index.html');
+          fs.writeFileSync('public/source-revision.json', JSON.stringify({source:process.env.SOURCE_SHA}));
+          fs.writeFileSync('public/.nojekyll', '');
+          JS
+      - uses: actions/upload-pages-artifact@v5.0.0
+        if: steps.source.outputs.changed == 'true'
+        with:
+          path: public
+      - uses: actions/configure-pages@v6.0.0
+        if: steps.source.outputs.changed == 'true'
+      - uses: actions/deploy-pages@v5.0.1
+        if: steps.source.outputs.changed == 'true'
+        id: deployment
+      - name: Check public addresses
+        if: steps.source.outputs.changed == 'true'
+        run: |
+          curl --fail --retry 5 --retry-delay 5 --retry-all-errors https://cliewen-openspec.github.io/
+          curl --fail --retry 5 --retry-delay 5 --retry-all-errors https://cliewen-openspec.github.io/guide/
+          curl --fail --retry 5 --retry-delay 5 --retry-all-errors https://cliewen-openspec.github.io/guide/getting-started.html

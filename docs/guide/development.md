@@ -13,7 +13,7 @@ npm run docs:build
 npm run docs:serve
 ```
 
-Open the printed local URL. The server uses the same `/cliewen-openspec/` prefix as GitHub Pages. Stop it with Ctrl+C. Rebuild after editing Markdown or site assets.
+Open the printed local URL. The server uses the same `/guide/` prefix as the organization site. Stop it with Ctrl+C. Rebuild after editing Markdown or site assets.
 
 ## Content sources
 
@@ -30,9 +30,25 @@ npm test
 npm run docs:build
 npx playwright install chromium
 npm run docs:check
+node scripts/build-guide-redirects.mjs
+node scripts/check-organization-site.mjs
 ```
 
 Package tests include the documented CSV walkthrough against a packed installation. They check all six references, archive preservation, stale evidence after archive, and the final refreshed report. This is deterministic reference replay; it does not test a coding agent or establish assertion quality.
+
+## Organization hosting
+
+The short introduction lives at `https://cliewen-openspec.github.io/` and the guide at `/guide/`. Edit the introduction in `site/organization/index.html` and documentation in its existing source paths. The separate `cliewen-openspec.github.io` repository contains only the deployment caller and maintainer instructions.
+
+That caller uses `.github/workflows/organization-pages.yml` from this public repository. Every 15 minutes, its schedule checks the source revision and skips unchanged content. GitHub may delay scheduled runs. For an immediate update, run:
+
+```sh
+gh workflow run pages.yml --repo cliewen-openspec/cliewen-openspec.github.io
+```
+
+The organization workflow builds and checks a specific source revision, then deploys with its own Pages token. It needs no new cross-repository write secret. `source-revision.json` at the website root identifies the deployed source. GitHub Actions must remain enabled for scheduled updates.
+
+The product repository's Pages workflow continues to check the guide and publishes static browser redirects at the old project address. It waits until the new guide is reachable before replacing old content. Redirects preserve each known page's query string and fragment, with meta-refresh and a link as fallback; they are not HTTP 301 responses. Historical release records and npm tarballs keep their original addresses.
 
 The site build validates local page links and heading anchors, parses shipped Mermaid diagrams, and checks the documented defaults against the CLI defaults. Browser checks exercise search results, appearance switching, rendered diagrams, navigation, code-copy buttons, keyboard access, and narrow-screen layout. GitHub Actions builds and checks before deployment. VitePress configuration and the theme extension live in `site/.vitepress/`. Generated Markdown is ignored under `.tmp/vitepress-content/`, and generated HTML is ignored under `site-dist/`.
 

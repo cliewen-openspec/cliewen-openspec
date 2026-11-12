@@ -2,9 +2,10 @@ import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import {prefix} from '../site/urls.mjs';
 
 const root = fileURLToPath(new URL('../site-dist/', import.meta.url));
-export const prefix = '/cliewen-openspec/';
+export {prefix};
 export async function serveDocs(port = 4173) {
   if (!fs.existsSync(path.join(root, 'index.html'))) throw Error('Run npm run docs:build first');
   const server = http.createServer((req, res) => {

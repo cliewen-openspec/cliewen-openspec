@@ -74,7 +74,7 @@ After reviewing the assertions and evidence, archive with OpenSpec. Commit the a
 
 ## Project documents
 
-- [User guide source](docs/guide/index.md) and [published documentation](https://cliewen-openspec.github.io/cliewen-openspec/)
+- [User guide source](docs/guide/index.md) and [published documentation](https://cliewen-openspec.github.io/guide/)
 - [Decisions](docs/decisions/README.md)
 - [Changelog](CHANGELOG.md)
 - [Project configuration](docs/configuration.md)
@@ -82,7 +82,7 @@ After reviewing the assertions and evidence, archive with OpenSpec. Commit the a
 - [Implementation plan](plan.md)
 - [Practice mapping](docs/cliewen-mapping.md)
 - [Architecture](docs/architecture/README.md)
-- [Website](https://cliewen-openspec.github.io/cliewen-openspec/)
+- [Website](https://cliewen-openspec.github.io/)
 - [Credits](CREDITS.md)
 
 Implemented commands: `init`, `update`, `uninstall`, `ac next`, `ac rename-prefix`, `check` and `recover`. Review generated/resource changes before applying them. [Uninstall](docs/guide/uninstalling.md) preserves project data and requires an explicit replacement when removing the selected default. Tests never establish assertion quality automatically.
