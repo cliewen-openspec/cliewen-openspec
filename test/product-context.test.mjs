@@ -44,10 +44,10 @@ test('all generated stages resolve one optional context reference after early le
   assert.equal(fs.existsSync(path.join(root,'docs/product-intent.md')),false);assert.equal(fs.existsSync(path.join(root,'docs/journeys')),false);
 });
 
-for(const version of ['1.15.0','1.17.0'])test(`packed context cues preserve native graphs and mixed settings on OpenSpec ${version}`,{timeout:150000},t=>{
+for(const version of ['1.15.0','1.17.0'])test(`packed context cues preserve native graphs and mixed settings on OpenSpec ${version}`,{timeout:240000},t=>{
   const root=fixture(t),npm=process.env.npm_execpath;assert.ok(npm,'Run through npm test');
   const env={...process.env,OPENSPEC_TELEMETRY:'0',CI:'1'};delete env.NODE_TEST_CONTEXT;
-  const run=(args,cwd=root)=>{const r=spawnSync(process.execPath,args,{cwd,env,encoding:'utf8',timeout:60000});assert.equal(r.status,0,r.stdout+r.stderr);return r.stdout.trim();};
+  const run=(args,cwd=root)=>{const r=spawnSync(process.execPath,args,{cwd,env,encoding:'utf8',timeout:args[0]===npm&&args[1]==='install'?180000:60000});assert.equal(r.status,0,`${args.join(' ')}\n${r.stdout}\n${r.stderr}\n${r.error??''}`);return r.stdout.trim();};
   const pack=JSON.parse(run([npm,'pack','--ignore-scripts','--json','--pack-destination',root],source))[0];
   write(root,'package.json','{"private":true}');run([npm,'install','--ignore-scripts','--no-audit','--no-fund',path.join(root,pack.filename),`@fission-ai/openspec@${version}`]);
   const osCli=path.join(root,'node_modules/@fission-ai/openspec/bin/openspec.js'),cli=path.join(root,'node_modules/cliewen-openspec/dist/cli.js');

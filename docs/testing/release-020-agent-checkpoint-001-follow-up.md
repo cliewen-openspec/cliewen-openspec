@@ -30,3 +30,5 @@ No further agent call was made. The original checkpoint therefore still lacks re
 ## Verification
 
 The 21 targeted tests in `test/cli-runner.test.mjs` and `test/csv-bom-verification.test.mjs` passed. They include deadline handling, unread Windows output, preserved failure records, and preservation-fault detection across content positions and option states. These are local fake-CLI and deterministic checks, not model calls. After the instruction refinements, the full `npm test` suite passed all 113 tests on Windows/Node 24.0.0, including packed resource upgrades on OpenSpec 1.15.0 and 1.17.0. `npm run docs:build` passed for 13 pages, 512 local links, five diagrams, and CLI defaults. All 13 permanent specs passed strict validation. These checks do not observe agent compliance with the refined instructions.
+
+A [November 12 Claude retry](release-020-claude-retry-002.md) subsequently started successfully and stopped normally at 600 seconds, retaining stale final evidence and semantic findings. The prior observations above remain unchanged.

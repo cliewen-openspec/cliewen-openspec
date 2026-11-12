@@ -1,0 +1,444 @@
+{
+  "date": "2026-11-12",
+  "evaluation": "reviewed-success-focused-completion",
+  "scope": "Repair inherited spec/documentation/review data and collect final fresh evidence; not fresh end-to-end coverage",
+  "baseline": {
+    "preparedAt": "2026-11-11T20:09:11.831Z",
+    "sourceRevision": "c727b6415dca16c415c8ced0aca0477d44478b6b",
+    "sourceStatus": "M README.md\n M docs/guide/cli.md\n M docs/guide/existing-projects.md\n M docs/guide/getting-started.md\n M docs/guide/uninstalling.md\n M docs/guide/updating.md\n M docs/guide/workflow.md\n M docs/testing/agent-evaluation.yaml\n M docs/testing/evidence.md\n M package-lock.json\n M package.json\n M plan.md\n M src/release.ts\n M test/installation-upgrades.test.mjs\n M test/upgrade-consumer.test.mjs\n?? docs/releases/0.2.0-preparation.md",
+    "baseline": "11533be8eab95669763650bdc1522dde926e9627",
+    "package": {
+      "version": "0.2.0",
+      "filename": "cliewen-openspec-0.2.0.tgz",
+      "sha256": "c7e08a2da14ee203722ce2ae721768cad5a47e3c777425f20fee5a1244283d11"
+    },
+    "node": "v24.0.0",
+    "npm": "11.21.0",
+    "openspec": "1.17.0",
+    "root": "C:\\Code\\cliewen-release-020-checkpoint\\project",
+    "resourceVersion": "0.1.0",
+    "inheritedAttempt": "C:\\Code\\cliewen-release-020-checkpoint\\runs\\claude-retry-002",
+    "scope": "Focused completion of existing delivery; not a fresh end-to-end trial",
+    "protectedHashes": {
+      "export.mjs": "4766c414746e5ba92832094caf312efe153c7b37c7be2c1b685a6676d4fc7c59",
+      "test/export.test.mjs": "0b10981cd8656b684855a416bfe723def3babdaaa057174592057fb273de2a4c",
+      ".cliewen-openspec/config.yaml": "e8622865c7db17add9de7f465e8933efa3684782c28abc4f18e3c62e53a59419",
+      ".cliewen-openspec/ac-registry.json": "243d7aa107f0f53da43356305f4b878667ebbcf3a57c504af8400fdb63dac30b",
+      "openspec/config.yaml": "055c9d71114f83ff33e497298ff08293b648ead86d0e9aa33ad79a6723621736",
+      "openspec/specs/csv-export/spec.md": "ded1bf60c0990e2d169d250976a9c0370b8be72f3972284fe3f6567b98ae3314",
+      "package.json": "cea0c35dc40e4c30a1c4a3ba2118198cbd499c9ad449b564c1539088a64ddb94",
+      "package-lock.json": "b5a39a6ad2ceb4a6924a0e7f02743677ed4a4aa6d7583253b37f384f7f0f2fd0"
+    }
+  },
+  "run": {
+    "schema": "cliewen-delivery",
+    "profileId": "claude-scoping-closure-2-1-322",
+    "phase": "initial",
+    "project": "C:\\Code\\cliewen-release-020-checkpoint\\project-claude-completion-001",
+    "baseline": "11533be8eab95669763650bdc1522dde926e9627",
+    "profile": {
+      "readiness": "pinned",
+      "agent": "Claude Code",
+      "runner": "cli",
+      "model": "claude-opus-5-5",
+      "agentVersion": "2.1.322",
+      "provider": "Anthropic firstParty; existing claude.ai subscription authentication",
+      "effort": "medium",
+      "permissions": "dontAsk with local read/edit/write/shell tools; no extra agents or web tools; no OS isolation",
+      "context": "fresh print process; safe mode and no session persistence; explicit project instructions",
+      "budgets": {
+        "wallTimeSeconds": 600,
+        "outputBytes": 67108864,
+        "reportedCostUSD": 6,
+        "tokenLimit": null,
+        "billing": "existing subscription; reported list-equivalent cost is not an invoice"
+      },
+      "traceFormat": "Claude stream-json with verbose events plus stderr"
+    },
+    "exe": "C:\\Users\\flemm\\.local\\bin\\claude.exe",
+    "args": [
+      "-p",
+      "Work only in the current project. Keep even temporary helper scripts, probes, and backups inside this project; use a project-local ignored directory when needed, not a shared system temporary directory. Read AGENTS.md and project configuration. Do not read sibling evaluator files, other repositories, credentials, or earlier solutions. Do not spawn additional agents, contact external services, push, or open a PR. Model-provider requests from this CLI are allowed. Use existing local tools and dependencies. Report actual results and inherited instructions.\n\n# Complete the existing CSV change\r\n\r\nThe formatter and tests already exist and pass. Complete only the existing add-optional-csv-bom change. Read AGENTS.md, current config, the existing change artifacts, and relevant installed OpenSpec/Cliewen guidance. Do not repeat installation, upgrade, proposal creation, implementation, or unrelated documentation work.\r\n\r\nPreserve export.mjs, all existing test files, package/dependency files, configuration, permanent specs, and acceptance registry/identities exactly. No new ACs, product behavior, dependencies, archive, push, PR, or publication. Local documentation/review corrections and commits are authorized.\r\n\r\nCorrect these concrete findings:\r\n- Supported string fields and column names can already contain U+FEFF. The operation adds one optional prefix while preserving caller content. The spec's default-output and enabled-output scenarios must not universally prohibit existing U+FEFF. Existing documentation must not relabel this valid input as unspecified merely because it is untested. Preserve the existing supported input contract and scope; nonboolean options remain unspecified. Demonstrate a relevant supported counterexample with local probes without editing existing test files.\r\n- Repair duplicate YAML keys in .cliewen-openspec/reviews/change-add-optional-csv-bom.yaml. Follow the installed package docs/testing/test-quality.md for review format and input freshness. Preserve genuine fault observations and lifecycle obligations; do not invent new review results or hide unresolved findings by disabling policies. Do not rewrite unrelated records to silence warnings.\r\n- Reconcile only affected spec/doc/review explanations with actual checks. Keep them concise. Keep earlier records identified as historical, and do not claim completion before doing it.\r\n\r\nFinish tracked edits, validate the change strictly, run the existing project tests, commit reviewed inputs, collect fresh change-scoped evidence with the local Node adapter, and run Cliewen check at the final clean HEAD. Use explicit local node executable paths if shims are inconvenient. Perform feasible verification automatically; no human feedback is supplied. Report actual warnings and limits. Advisory findings may remain disclosed, but evidence failures must be resolved. No need for a new full fault campaign or a broader review of the project.\r\n\r\nSave the tested revision, exact final check result, completed actions and remaining limits in an ignored handoff under .cliewen-openspec/tmp/completion-handoff.md and give a brief terminal handoff. Keep final logs ignored so they do not invalidate current evidence. No later tracked edits after final evidence collection. Stop after this focused completion.\r\n",
+      "--model",
+      "claude-opus-5-5",
+      "--effort",
+      "medium",
+      "--output-format",
+      "stream-json",
+      "--verbose",
+      "--safe-mode",
+      "--no-session-persistence",
+      "--permission-mode",
+      "dontAsk",
+      "--allowedTools",
+      "Read,Edit,Write,Bash,PowerShell,Glob,Grep",
+      "--disallowedTools",
+      "Agent,Task,WebFetch,WebSearch",
+      "--max-budget-usd",
+      "6"
+    ],
+    "cliVersion": "2.1.322 (Claude Code)",
+    "startedAt": "2026-11-12T19:14:45.321Z",
+    "promptFile": "prompt.txt",
+    "environmentControls": {
+      "NO_COLOR": "1",
+      "OPENSPEC_TELEMETRY": "0",
+      "CI": "1"
+    },
+    "exitCode": 0,
+    "signal": null,
+    "endedAt": "2026-11-12T19:19:54.294Z",
+    "durationSeconds": 308.973,
+    "monotonicDurationSeconds": 308.9717928,
+    "deadlineExceededBySeconds": 0,
+    "stopReason": null,
+    "stopRequestedAt": null,
+    "stopRequestedAfterSeconds": null,
+    "terminationDelaySeconds": null,
+    "eventFailure": false,
+    "sessionId": "d1489fc5-783f-4d4d-93f6-7086978259ff",
+    "usage": {
+      "input_tokens": 62,
+      "cache_creation_input_tokens": 70418,
+      "cache_read_input_tokens": 1875132,
+      "output_tokens": 19633,
+      "output_tokens_details": {
+        "thinking_tokens": 3574
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 70418,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 1175,
+          "cache_read_input_tokens": 84180,
+          "cache_creation_input_tokens": 192,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 192
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "stepUsage": [],
+    "reportedCostUSD": 1.3312783999999998,
+    "observedModels": [
+      "claude-opus-5-5"
+    ],
+    "reviewInputsPreserved": true,
+    "evaluation": "not-graded"
+  },
+  "independentChecks": {
+    "evaluatedAt": "2026-11-12T19:20:31.240Z",
+    "revision": "9c1efaeb5741a409739f1afc853321c3e3291253",
+    "baseline": "11533be8eab95669763650bdc1522dde926e9627",
+    "passed": true,
+    "checks": [
+      {
+        "label": "git rev-parse HEAD",
+        "executable": "git",
+        "args": [
+          "rev-parse",
+          "HEAD"
+        ],
+        "exitCode": 0,
+        "stdout": "9c1efaeb5741a409739f1afc853321c3e3291253\n",
+        "stderr": ""
+      },
+      {
+        "label": "git status --porcelain --untracked-files=all",
+        "executable": "git",
+        "args": [
+          "status",
+          "--porcelain",
+          "--untracked-files=all"
+        ],
+        "exitCode": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      {
+        "label": "clean input revision",
+        "passed": true
+      },
+      {
+        "label": "git show 11533be8eab95669763650bdc1522dde926e9627:test/export.test.mjs",
+        "executable": "git",
+        "args": [
+          "show",
+          "11533be8eab95669763650bdc1522dde926e9627:test/export.test.mjs"
+        ],
+        "exitCode": 0,
+        "stdout": "import { test } from 'node:test';\nimport assert from 'node:assert/strict';\nimport { exportCsv } from '../export.mjs';\n\ntest('exports a header and one record [EXP-001] [Test-type: Unit]', () => {\n  assert.equal(exportCsv([{name: 'Ada'}], ['name']), 'name\\r\\nAda\\r\\n');\n});\n\ntest('selects and orders explicit columns for every record [EXP-002] [Test-type: Unit]', () => {\n  const records = [{name: 'Ada', city: 'London', hidden: 'ignore'}, {name: 'Grace', city: 'New York', hidden: 'ignore'}];\n  assert.equal(exportCsv(records, ['city', 'name']), 'city,name\\r\\nLondon,Ada\\r\\nNew York,Grace\\r\\n');\n});\n\ntest('quotes comma fields in values and headers and leaves plain fields unquoted [EXP-003] [Test-type: Unit]', () => {\n  assert.equal(exportCsv([{'home,city': 'London, UK', name: 'Ada'}], ['home,city', 'name']), '\"home,city\",name\\r\\n\"London, UK\",Ada\\r\\n');\n  assert.equal(exportCsv([{value: ''}], ['value']), 'value\\r\\n\\r\\n');\n});\n\ntest('doubles embedded quotes in values and headers [EXP-004] [Test-type: Unit]', () => {\n  assert.equal(exportCsv([{value: 'Say \"hello\"'}, {value: 'Say \"hello\", Ada'}, {value: '\"\"'}], ['value']), 'value\\r\\n\"Say \"\"hello\"\"\"\\r\\n\"Say \"\"hello\"\", Ada\"\\r\\n\"\"\"\"\"\"\\r\\n');\n  assert.equal(exportCsv([{'a\"b': 'x'}], ['a\"b']), '\"a\"\"b\"\\r\\nx\\r\\n');\n});\n\ntest('preserves LF, CR, and CRLF inside quoted fields [EXP-005] [Test-type: Unit]', () => {\n  for (const newline of ['\\n', '\\r', '\\r\\n']) {\n    assert.equal(exportCsv([{value: `first${newline}second`}], ['value']), `value\\r\\n\"first${newline}second\"\\r\\n`);\n    assert.equal(exportCsv([{value: `\"first\",${newline}second`}], ['value']), `value\\r\\n\"\"\"first\"\",${newline}second\"\\r\\n`);\n    const header = `a${newline}b`;\n    assert.equal(exportCsv([{[header]: 'x'}], [header]), `\"${header}\"\\r\\nx\\r\\n`);\n  }\n});\n\ntest('exports only the escaped header for an empty record list [EXP-006] [Test-type: Unit]', () => {\n  assert.equal(exportCsv([], ['name', 'city']), 'name,city\\r\\n');\n  assert.equal(exportCsv([], ['home,city', 'a\"b', 'line\\nbreak']), '\"home,city\",\"a\"\"b\",\"line\\nbreak\"\\r\\n');\n});\n\n// Optional UTF-8 byte order mark. The same escaping-heavy input is used on the\n// default, disabled, and enabled paths so preservation is checked on each one.\nconst BOM_BYTES = [0xef, 0xbb, 0xbf];\nconst specialColumns = ['home,city', 'a\"b', 'note'];\nconst specialRecords = [\n  {'home,city': 'London, UK', 'a\"b': 'Say \"hello\"', note: 'first\\r\\nsecond'},\n  {'home,city': 'Paris', 'a\"b': 'plain', note: 'line\\nbreak'},\n];\nconst specialCsv = '\"home,city\",\"a\"\"b\",note\\r\\n\"London, UK\",\"Say \"\"hello\"\"\",\"first\\r\\nsecond\"\\r\\nParis,plain,\"line\\nbreak\"\\r\\n';\nconst startsWithBomBytes = text => BOM_BYTES.every((byte, index) => Buffer.from(text, 'utf8')[index] === byte);\n\ntest('omits the byte order mark when options are omitted [EXP-007] [Test-type: Unit] [Case: omitted-options] [Coverage: positive]', () => {\n  const output = exportCsv(specialRecords, specialColumns);\n  assert.equal(output, specialCsv);\n  assert.notEqual(output.charCodeAt(0), 0xfeff);\n  assert.equal(startsWithBomBytes(output), false);\n});\n\ntest('omits the byte order mark for empty options or bom false [EXP-007] [Test-type: Unit] [Case: explicit-false-or-empty] [Coverage: negative]', () => {\n  for (const options of [{}, {bom: false}]) {\n    const output = exportCsv(specialRecords, specialColumns, options);\n    assert.equal(output, specialCsv);\n    assert.equal(output.includes('\\uFEFF'), false);\n    assert.equal(startsWithBomBytes(output), false);\n  }\n});\n\ntest('adds one byte order mark before an escaped header and records [EXP-008] [Test-type: Unit] [Case: records-with-escaping] [Coverage: positive]', () => {\n  const output = exportCsv(specialRecords, specialColumns, {bom: true});\n  assert.equal(output, `\\uFEFF${specialCsv}`);\n  assert.deepEqual(Buffer.from(output, 'utf8'), Buffer.concat([Buffer.from(BOM_BYTES), Buffer.from(specialCsv, 'utf8')]));\n});\n\ntest('adds the byte order mark only at the start of multi-row output [EXP-008] [Test-type: Unit] [Case: single-marker] [Coverage: negative]', () => {\n  const records = [{name: 'Ada'}, {name: 'Grace'}, {name: 'Linus'}];\n  const output = exportCsv(records, ['name'], {bom: true});\n  assert.equal(output.indexOf('\\uFEFF'), 0);\n  assert.equal(output.lastIndexOf('\\uFEFF'), 0);\n  assert.equal(output.slice(1), 'name\\r\\nAda\\r\\nGrace\\r\\nLinus\\r\\n');\n});\n\ntest('adds the byte order mark before an escaped header with no records [EXP-009] [Test-type: Unit] [Case: escaped-header] [Coverage: boundary]', () => {\n  const output = exportCsv([], ['home,city', 'a\"b', 'line\\nbreak'], {bom: true});\n  assert.equal(output, '\\uFEFF\"home,city\",\"a\"\"b\",\"line\\nbreak\"\\r\\n');\n  assert.deepEqual([...Buffer.from(output, 'utf8').subarray(0, 4)], [...BOM_BYTES, 0x22]);\n});\n\ntest('adds the byte order mark before a plain header with no records [EXP-009] [Test-type: Unit] [Case: plain-header] [Coverage: positive]', () => {\n  assert.equal(exportCsv([], ['name', 'city'], {bom: true}), '\\uFEFFname,city\\r\\n');\n});\n\ntest('omits the byte order mark for no records when bom is false [EXP-009] [Test-type: Unit] [Case: empty-without-option] [Coverage: negative]', () => {\n  const output = exportCsv([], ['name', 'city'], {bom: false});\n  assert.equal(output, 'name,city\\r\\n');\n  assert.equal(startsWithBomBytes(output), false);\n});\n",
+        "stderr": ""
+      },
+      {
+        "label": "git diff --numstat 11533be8eab95669763650bdc1522dde926e9627 -- test/export.test.mjs",
+        "executable": "git",
+        "args": [
+          "diff",
+          "--numstat",
+          "11533be8eab95669763650bdc1522dde926e9627",
+          "--",
+          "test/export.test.mjs"
+        ],
+        "exitCode": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      {
+        "label": "baseline preserved: test/export.test.mjs",
+        "passed": true
+      },
+      {
+        "label": "git show 11533be8eab95669763650bdc1522dde926e9627:openspec/specs/csv-export/spec.md",
+        "executable": "git",
+        "args": [
+          "show",
+          "11533be8eab95669763650bdc1522dde926e9627:openspec/specs/csv-export/spec.md"
+        ],
+        "exitCode": 0,
+        "stdout": "# CSV export\n\n## Purpose\n\nAllow callers to export records as CSV with explicit column ordering and preserve fields containing delimiters, quotation marks, or line breaks.\n\n## Requirements\n\n### Requirement: Header and explicit columns\n\nThe function SHALL include a header row and serialize each record using the caller's explicit column order.\n\n#### Scenario: Export a record with a header [EXP-001]\nTest-type: Unit\n- **WHEN** records `[{ name: \"Ada\" }]` are exported with columns `[\"name\"]`\n- **THEN** the parsed CSV contains the header `name` and one record containing `Ada`\n\n#### Scenario: Respect explicit column order [EXP-002]\nTest-type: Unit\n- **WHEN** records `[{ name: \"Ada\", city: \"London\" }]` are exported with columns `[\"city\", \"name\"]`\n- **THEN** the header and record fields follow `city`, then `name`, regardless of object property order\n\n### Requirement: Escape CSV fields\n\nThe function SHALL enclose fields containing commas, quotation marks, carriage returns, or line feeds in double quotation marks and double any embedded double quotation marks. Fields without those characters SHALL preserve their values without unnecessary quoting.\n\n#### Scenario: Preserve a field containing a comma [EXP-003]\nTest-type: Unit\n- **WHEN** a field contains `London, UK`\n- **THEN** it is serialized as `\"London, UK\"` and remains one field\n\n#### Scenario: Preserve embedded quotation marks [EXP-004]\nTest-type: Unit\n- **WHEN** a field contains `Say \"hello\"`\n- **THEN** it is serialized as `\"Say \"\"hello\"\"\"` without losing the quotation marks\n\n#### Scenario: Preserve line breaks within a field [EXP-005]\nTest-type: Unit\n- **WHEN** a field contains a carriage return, line feed, or CRLF pair\n- **THEN** the field is quoted and its original line break characters are preserved within that field\n\n### Requirement: Empty record list\n\nThe function SHALL emit only the header when the record list is empty.\n\n#### Scenario: Export no records [EXP-006]\nTest-type: Unit\n- **WHEN** an empty record list is exported with columns `[\"name\", \"city\"]`\n- **THEN** the output contains exactly one CSV row with those header fields and no data rows\n",
+        "stderr": ""
+      },
+      {
+        "label": "baseline preserved: openspec/specs/csv-export/spec.md",
+        "passed": true
+      },
+      {
+        "label": "project test files",
+        "executable": "C:\\Program Files\\nodejs\\node.exe",
+        "args": [
+          "--test",
+          "test/*.test.mjs"
+        ],
+        "exitCode": 0,
+        "stdout": "\u2714 exports a header and one record [EXP-001] [Test-type: Unit] (1.0685ms)\n\u2714 selects and orders explicit columns for every record [EXP-002] [Test-type: Unit] (0.0772ms)\n\u2714 quotes comma fields in values and headers and leaves plain fields unquoted [EXP-003] [Test-type: Unit] (0.0587ms)\n\u2714 doubles embedded quotes in values and headers [EXP-004] [Test-type: Unit] (0.0925ms)\n\u2714 preserves LF, CR, and CRLF inside quoted fields [EXP-005] [Test-type: Unit] (0.1397ms)\n\u2714 exports only the escaped header for an empty record list [EXP-006] [Test-type: Unit] (0.0693ms)\n\u2714 omits the byte order mark when options are omitted [EXP-007] [Test-type: Unit] [Case: omitted-options] [Coverage: positive] (0.1062ms)\n\u2714 omits the byte order mark for empty options or bom false [EXP-007] [Test-type: Unit] [Case: explicit-false-or-empty] [Coverage: negative] (0.0801ms)\n\u2714 adds one byte order mark before an escaped header and records [EXP-008] [Test-type: Unit] [Case: records-with-escaping] [Coverage: positive] (0.4962ms)\n\u2714 adds the byte order mark only at the start of multi-row output [EXP-008] [Test-type: Unit] [Case: single-marker] [Coverage: negative] (0.2066ms)\n\u2714 adds the byte order mark before an escaped header with no records [EXP-009] [Test-type: Unit] [Case: escaped-header] [Coverage: boundary] (0.1699ms)\n\u2714 adds the byte order mark before a plain header with no records [EXP-009] [Test-type: Unit] [Case: plain-header] [Coverage: positive] (0.044ms)\n\u2714 omits the byte order mark for no records when bom is false [EXP-009] [Test-type: Unit] [Case: empty-without-option] [Coverage: negative] (0.0371ms)\n\u2139 tests 13\n\u2139 suites 0\n\u2139 pass 13\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 78.0537\n",
+        "stderr": ""
+      },
+      {
+        "label": "strict change validation",
+        "executable": "C:\\Program Files\\nodejs\\node.exe",
+        "args": [
+          "node_modules/@fission-ai/openspec/bin/openspec.js",
+          "validate",
+          "add-optional-csv-bom",
+          "--type",
+          "change",
+          "--strict"
+        ],
+        "exitCode": 0,
+        "stdout": "Change 'add-optional-csv-bom' is valid\n",
+        "stderr": ""
+      },
+      {
+        "label": "active change evidence",
+        "executable": "C:\\Program Files\\nodejs\\node.exe",
+        "args": [
+          "node_modules/cliewen-openspec/dist/cli.js",
+          "check",
+          "--change",
+          "add-optional-csv-bom",
+          "--json"
+        ],
+        "exitCode": 0,
+        "stdout": "{\n  \"ok\": true,\n  \"findings\": [\n    {\n      \"code\": \"test-policy-review-required\",\n      \"severity\": \"info\",\n      \"message\": \"Record checks cannot prove case distinctness, assertion meaning, complete dependency/impact analysis, or human approval. Review these claims.\"\n    },\n    {\n      \"code\": \"sufficiency-not-assessed\",\n      \"severity\": \"info\",\n      \"message\": \"Execution and linkage do not prove assertion quality; review the assertions against the scenarios.\"\n    }\n  ]\n}\n",
+        "stderr": ""
+      },
+      {
+        "label": "evidence check reports success",
+        "passed": true
+      },
+      {
+        "label": "independent behavior assertions",
+        "executable": "C:\\Program Files\\nodejs\\node.exe",
+        "args": [
+          "--input-type=module",
+          "-e",
+          "\nimport {exportCsv} from \"file:///C:/Code/cliewen-release-020-checkpoint/project-claude-completion-001/export.mjs\";\nimport {verifyCsvBom} from \"file:///C:/Code/cliewen-openspec/scripts/lib/csv-bom-verification.mjs\";\nverifyCsvBom(exportCsv);\nconsole.log('Independent opt-in, default, empty-input, escaping, CRLF, Unicode, caller-supplied U+FEFF, and UTF-8 byte assertions passed.');\n"
+        ],
+        "exitCode": 0,
+        "stdout": "Independent opt-in, default, empty-input, escaping, CRLF, Unicode, caller-supplied U+FEFF, and UTF-8 byte assertions passed.\n",
+        "stderr": ""
+      },
+      {
+        "label": "saved proposal instructions",
+        "passed": true
+      },
+      {
+        "label": "saved specs instructions",
+        "passed": true
+      },
+      {
+        "label": "saved design instructions",
+        "passed": true
+      },
+      {
+        "label": "saved tasks instructions",
+        "passed": true
+      },
+      {
+        "label": "saved apply instructions",
+        "passed": true
+      }
+    ]
+  },
+  "completionChecks": {
+    "protectedFiles": [
+      {
+        "file": "export.mjs",
+        "passed": true
+      },
+      {
+        "file": "test/export.test.mjs",
+        "passed": true
+      },
+      {
+        "file": ".cliewen-openspec/config.yaml",
+        "passed": true
+      },
+      {
+        "file": ".cliewen-openspec/ac-registry.json",
+        "passed": true
+      },
+      {
+        "file": "openspec/config.yaml",
+        "passed": true
+      },
+      {
+        "file": "openspec/specs/csv-export/spec.md",
+        "passed": true
+      },
+      {
+        "file": "package.json",
+        "passed": true
+      },
+      {
+        "file": "package-lock.json",
+        "passed": true
+      }
+    ],
+    "yamlErrors": [],
+    "yamlWarnings": [],
+    "revision": "9c1efaeb5741a409739f1afc853321c3e3291253",
+    "clean": true,
+    "evidenceRevision": "9c1efaeb5741a409739f1afc853321c3e3291253",
+    "evidenceScope": {
+      "change": "add-optional-csv-bom"
+    },
+    "resultCount": 7,
+    "allPassed": true,
+    "changedPaths": [
+      ".cliewen-openspec/reviews/change-add-optional-csv-bom.yaml",
+      "README.md",
+      "docs/testing/logs/feff-content-probe.log",
+      "docs/testing/logs/link-check-completion.log",
+      "docs/testing/logs/npm-test-completion.log",
+      "docs/testing/logs/validate-strict-completion.log",
+      "docs/testing/pr-description.md",
+      "docs/testing/scripts/feff-content-probe.mjs",
+      "docs/testing/verification.md",
+      "openspec/changes/add-optional-csv-bom/design.md",
+      "openspec/changes/add-optional-csv-bom/proposal.md",
+      "openspec/changes/add-optional-csv-bom/specs/csv-export/spec.md"
+    ]
+  },
+  "counterexampleProbe": {
+    "exitCode": 0,
+    "stdout": "PASS default omitted equals caller content unchanged: \"\\uFEFFname,note\\r\\nAda,\\\"a\\uFEFFb, c\\\"\\r\\n\"\n  first char U+FEFF: true; first bytes: ef bb bf; U+FEFF count: 2\nPASS default {} equals caller content unchanged: \"\\uFEFFname,note\\r\\nAda,\\\"a\\uFEFFb, c\\\"\\r\\n\"\n  first char U+FEFF: true; first bytes: ef bb bf; U+FEFF count: 2\nPASS default { bom: false } equals caller content unchanged: \"\\uFEFFname,note\\r\\nAda,\\\"a\\uFEFFb, c\\\"\\r\\n\"\n  first char U+FEFF: true; first bytes: ef bb bf; U+FEFF count: 2\nPASS enabled equals one added U+FEFF + default output: \"\\uFEFF\\uFEFFname,note\\r\\nAda,\\\"a\\uFEFFb, c\\\"\\r\\n\"\n  U+FEFF count: 3 (1 added + 2 from caller content)\nRESULT: all probes passed\n",
+    "stderr": ""
+  },
+  "retainedFiles": {
+    "baseline.bundle": {
+      "path": "C:\\Code\\cliewen-release-020-checkpoint\\runs\\claude-completion-001\\baseline.bundle",
+      "sha256": "e5bd5adf34c5772248664e09dac64631d2dab637d34d9391d7c1366add273d29"
+    },
+    "baseline.json": {
+      "path": "C:\\Code\\cliewen-release-020-checkpoint\\runs\\claude-completion-001\\baseline.json",
+      "sha256": "5da35ce2e1d6ec6537b06732f2998f8230bf0715b99c64b7a9b49c1acff7f2a3"
+    },
+    "completion-checks.json": {
+      "path": "C:\\Code\\cliewen-release-020-checkpoint\\runs\\claude-completion-001\\completion-checks.json",
+      "sha256": "5652d9f12cb94ffd912bc01de97f7ba705d875385404c92e21c9b89858fa8104"
+    },
+    "independent-checks.json": {
+      "path": "C:\\Code\\cliewen-release-020-checkpoint\\runs\\claude-completion-001\\independent-checks.json",
+      "sha256": "a28ef86c71f25fa2f03953bd1bed0e35ef1deaf55df92653806d5823cda5d1db"
+    },
+    "independent-counterexample-probe.json": {
+      "path": "C:\\Code\\cliewen-release-020-checkpoint\\runs\\claude-completion-001\\independent-counterexample-probe.json",
+      "sha256": "c55c635bafe32411f859ca5a995fd1eac0cc4d850378cd4495828d50cec87de7"
+    },
+    "prompt.md": {
+      "path": "C:\\Code\\cliewen-release-020-checkpoint\\runs\\claude-completion-001\\prompt.md",
+      "sha256": "3aa238b9b8cb6a3fceba32c297d95ccd37249fc05876d428436128e2a8a7da7e"
+    },
+    "rubric.md": {
+      "path": "C:\\Code\\cliewen-release-020-checkpoint\\runs\\claude-completion-001\\rubric.md",
+      "sha256": "cfaed4d83c87f76693308c102a75affcdefc31a1c94d4a514fd195e2db2a5a13"
+    },
+    "initial/events.jsonl": {
+      "path": "C:\\Code\\cliewen-release-020-checkpoint\\runs\\claude-completion-001\\initial\\events.jsonl",
+      "sha256": "6c110be8b95e154cc20a9557398a1383b54e933b29d284d736fe6953b8f9fc92"
+    },
+    "initial/progress.json": {
+      "path": "C:\\Code\\cliewen-release-020-checkpoint\\runs\\claude-completion-001\\initial\\progress.json",
+      "sha256": "449426082c5065ef1a86bdc118493181c209d8a55a2c0fb3ba73543f44525f96"
+    },
+    "initial/prompt.txt": {
+      "path": "C:\\Code\\cliewen-release-020-checkpoint\\runs\\claude-completion-001\\initial\\prompt.txt",
+      "sha256": "4349cfc129256a7b7bd7fec1619fefdb5d8a4fe5af2f5d11795f53a0bf2a6784"
+    },
+    "initial/run.json": {
+      "path": "C:\\Code\\cliewen-release-020-checkpoint\\runs\\claude-completion-001\\initial\\run.json",
+      "sha256": "c85001cdf30a9125a6c6262c27497f2dc453d3e93264a10a1dbaf88e54466f10"
+    },
+    "initial/stderr.txt": {
+      "path": "C:\\Code\\cliewen-release-020-checkpoint\\runs\\claude-completion-001\\initial\\stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "project/.cliewen-openspec/tmp/completion-handoff.md": {
+      "path": "C:\\Code\\cliewen-release-020-checkpoint\\project-claude-completion-001\\.cliewen-openspec\\tmp\\completion-handoff.md",
+      "sha256": "e9c9481c3585568d467a60225ad9c50b874c93d93b3537f1e90035a744ba2440"
+    },
+    "project/.cliewen-openspec/tmp/final-check.json": {
+      "path": "C:\\Code\\cliewen-release-020-checkpoint\\project-claude-completion-001\\.cliewen-openspec\\tmp\\final-check.json",
+      "sha256": "e95a469c7e37255535a4ae226d8802fc0445dbf6eaed98fad0131af8995ae457"
+    },
+    "project/.cliewen-openspec/evidence.json": {
+      "path": "C:\\Code\\cliewen-release-020-checkpoint\\project-claude-completion-001\\.cliewen-openspec\\evidence.json",
+      "sha256": "2a58b2dc7f7b57bc3144773aae9e87bcfbb42f71ffe5c42f307c84f26ad53f17"
+    },
+    "project/.cliewen-openspec/reviews/change-add-optional-csv-bom.yaml": {
+      "path": "C:\\Code\\cliewen-release-020-checkpoint\\project-claude-completion-001\\.cliewen-openspec\\reviews\\change-add-optional-csv-bom.yaml",
+      "sha256": "9e463e054f6cf6ef1577c999b53935408969cecaf535352289f3025662c650ca"
+    },
+    "project/README.md": {
+      "path": "C:\\Code\\cliewen-release-020-checkpoint\\project-claude-completion-001\\README.md",
+      "sha256": "8828e845e674d6f587b04b7b4b150fdff0e1f6741a9172161e69736fd76455f1"
+    },
+    "project/docs/testing/pr-description.md": {
+      "path": "C:\\Code\\cliewen-release-020-checkpoint\\project-claude-completion-001\\docs\\testing\\pr-description.md",
+      "sha256": "9265d0618cc7738c39fbdbf54204d707d48c977b14e1085e3d77e94c2046b4b8"
+    },
+    "project/docs/testing/verification.md": {
+      "path": "C:\\Code\\cliewen-release-020-checkpoint\\project-claude-completion-001\\docs\\testing\\verification.md",
+      "sha256": "638e6455ceddc584c61d9086042a479046b51415644c428e1dd635d7b8c10839"
+    },
+    "project/openspec/changes/add-optional-csv-bom/specs/csv-export/spec.md": {
+      "path": "C:\\Code\\cliewen-release-020-checkpoint\\project-claude-completion-001\\openspec\\changes\\add-optional-csv-bom\\specs\\csv-export\\spec.md",
+      "sha256": "a1b27ba15e208e3d1f861bc11e8f91b3c9b65c3809ca7264ae31939aa30571b7"
+    }
+  }
+}

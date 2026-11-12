@@ -42,6 +42,8 @@ const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'cliewen-evaluation-plan-'));
 let shipped;
 try {
   for (const folder of ['openspec/specs', 'openspec/changes']) fs.mkdirSync(path.join(temp, folder), {recursive: true});
+  // The dry-run fixture uses this checkout's pinned tools, independently of global PATH.
+  fs.symlinkSync(path.join(root, 'node_modules'), path.join(temp, 'node_modules'), process.platform === 'win32' ? 'junction' : 'dir');
   shipped = init(temp, true, false).flatMap(file => {
     const match = file.match(/^openspec\/schemas\/([^/]+)\/schema\.yaml$/);
     return match ? [match[1]] : [];

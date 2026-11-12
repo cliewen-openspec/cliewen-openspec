@@ -15,7 +15,7 @@ test('evaluation plan covers shipped schemas without treating planned profiles a
   const run = (plan, expected) => {
     const file = path.join(temp, 'plan.yaml');
     fs.writeFileSync(file, stringify(plan));
-    const result = spawnSync(process.execPath, ['scripts/check-agent-evaluation.mjs', file], {cwd: root, encoding: 'utf8', timeout: 30000});
+    const result = spawnSync(process.execPath, ['scripts/check-agent-evaluation.mjs', file], {cwd: root, encoding: 'utf8', timeout: 30000, env: {...process.env, PATH: ''}});
     assert.equal(result.status, expected, `${result.stdout}\n${result.stderr}`);
     return result;
   };
