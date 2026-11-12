@@ -1,17 +1,18 @@
 {
   "version": "0.2.0",
-  "status": "prepared",
-  "publishedOn": null,
-  "npmPublished": false,
-  "githubPublished": false,
+  "status": "published",
+  "publishedOn": "2026-11-13",
+  "npmPublished": true,
+  "githubPublished": true,
   "gitTag": "v0.2.0",
-  "releaseCommit": null,
+  "releaseCommit": "671de75f6bea5e1e4e5020ed4c08d5bbc9ca19a9",
   "authorization": {
     "date": "2026-11-13",
     "source": "Project conversation",
     "request": "super. Gp igang med selve udgivelsen",
     "scope": "npm/latest, GitHub tag/release, publication documentation and public install verification",
-    "contentAcceptance": "docs/releases/0.2.0-acceptance.md"
+    "contentAcceptance": "docs/releases/0.2.0-acceptance.md",
+    "npmProofOfPresence": "Completed by owner in browser; no credentials retained in this record."
   },
   "artifact": {
     "filename": "cliewen-openspec-0.2.0.tgz",
@@ -26,17 +27,142 @@
       "package/docs/configuration.md",
       "package/docs/testing/evidence.md"
     ],
-    "runtimeSchemasAdaptersAndSettingsUnchanged": true
+    "runtimeSchemasAdaptersAndSettingsUnchanged": true,
+    "npmAndGitHubDownloadsMatch": true,
+    "anonymousNpmDownload": {
+      "anonymous": true,
+      "version": "0.2.0",
+      "sha256": "1025b8718ef1ce17e7f31f3253c8e7ad56913cabf29d47ab1892e6567d48bdad",
+      "integrity": "sha512-Gf74vXeqlycLNeh+zitfYa1YCcbPIew+A1wY8mj8eDohN5ifYwNy2ovUR/58AnKckbNgpRyxrYrIddxp1kS65A==",
+      "matches": true,
+      "url": "https://registry.npmjs.org/cliewen-openspec/-/cliewen-openspec-0.2.0.tgz"
+    },
+    "anonymousGithubDownload": {
+      "anonymous": true,
+      "sha256": "1025b8718ef1ce17e7f31f3253c8e7ad56913cabf29d47ab1892e6567d48bdad",
+      "matches": true,
+      "url": "https://github.com/cliewen-openspec/cliewen-openspec/releases/download/v0.2.0/cliewen-openspec-0.2.0.tgz"
+    }
   },
   "verification": {
     "priorCI": "https://github.com/cliewen-openspec/cliewen-openspec/actions/runs/43312520817",
-    "releaseCommitCI": "pending",
+    "releaseCommitCI": {
+      "headSha": "671de75f6bea5e1e4e5020ed4c08d5bbc9ca19a9",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/cliewen-openspec/cliewen-openspec/actions/runs/43328396347",
+      "jobs": [
+        {
+          "name": "test (ubuntu-latest, 22)",
+          "conclusion": "success"
+        },
+        {
+          "name": "test (ubuntu-latest, 24)",
+          "conclusion": "success"
+        },
+        {
+          "name": "test (windows-latest, 24)",
+          "conclusion": "success"
+        },
+        {
+          "name": "test (windows-latest, 22)",
+          "conclusion": "success"
+        }
+      ]
+    },
     "documentedConsumerReplay": "passed",
     "documentationPages": 13,
     "localLinks": 512,
     "diagrams": 5,
     "browser": "passed",
-    "agentCallsDuringPublication": 0
+    "agentCallsDuringPublication": 0,
+    "pages": {
+      "conclusion": "success",
+      "headSha": "671de75f6bea5e1e4e5020ed4c08d5bbc9ca19a9",
+      "status": "completed",
+      "url": "https://github.com/cliewen-openspec/cliewen-openspec/actions/runs/43328396370"
+    },
+    "publicRegistryInstall": {
+      "passed": true,
+      "node": "v24.0.0",
+      "openspec": "1.17.0",
+      "root": "C:\\Users\\flemm\\AppData\\Local\\Temp\\cliewen-020-public-UsQXIu",
+      "resolvedPackage": "https://registry.npmjs.org/cliewen-openspec/-/cliewen-openspec-0.2.0.tgz",
+      "scope": "Fresh public-registry install; init preview/apply, update preview, all three schema validations, installation health with evidence explicitly disabled"
+    }
   },
-  "distribution": "No publication claim until confirmed by registry/release queries."
+  "distribution": "npm/latest 0.2.0 and GitHub v0.2.0 verified; anonymous tarball downloads match frozen local artifact.",
+  "publicationTimezone": "Europe/Copenhagen",
+  "npmLatest": "0.2.0",
+  "npmURL": "https://www.npmjs.com/package/cliewen-openspec/v/0.2.0",
+  "githubURL": "https://github.com/cliewen-openspec/cliewen-openspec/releases/tag/v0.2.0",
+  "githubPublishedAt": "2026-11-12T23:30:30Z",
+  "githubAssets": [
+    {
+      "apiUrl": "https://api.github.com/repos/cliewen-openspec/cliewen-openspec/releases/assets/741487852",
+      "contentType": "application/x-gtar",
+      "createdAt": "2026-11-12T23:30:29Z",
+      "digest": "sha256:1025b8718ef1ce17e7f31f3253c8e7ad56913cabf29d47ab1892e6567d48bdad",
+      "downloadCount": 0,
+      "id": "RA_kwDOVa7J5s4sMjTs",
+      "label": "",
+      "name": "cliewen-openspec-0.2.0.tgz",
+      "size": 67571,
+      "state": "uploaded",
+      "updatedAt": "2026-11-12T23:30:29Z",
+      "url": "https://github.com/cliewen-openspec/cliewen-openspec/releases/download/v0.2.0/cliewen-openspec-0.2.0.tgz"
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/cliewen-openspec/cliewen-openspec/releases/assets/741487853",
+      "contentType": "application/octet-stream",
+      "createdAt": "2026-11-12T23:30:29Z",
+      "digest": "sha256:d42cc0c46b3dd3e8715b28595b999fdc437e353ce6e7a872284b71d8e62ea53b",
+      "downloadCount": 0,
+      "id": "RA_kwDOVa7J5s4sMjTt",
+      "label": "",
+      "name": "SHA256SUMS",
+      "size": 94,
+      "state": "uploaded",
+      "updatedAt": "2026-11-12T23:30:29Z",
+      "url": "https://github.com/cliewen-openspec/cliewen-openspec/releases/download/v0.2.0/SHA256SUMS"
+    }
+  ],
+  "retainedEvidence": {
+    "ci.json": {
+      "path": "C:\\Code\\cliewen-openspec\\.tmp\\release-020-final\\ci.json",
+      "sha256": "3d46ea96a055264cb2898381b8ce2474979d0b4345a6eccc9254fca0f8b0ded8"
+    },
+    "comparison.json": {
+      "path": "C:\\Code\\cliewen-openspec\\.tmp\\release-020-final\\comparison.json",
+      "sha256": "447816417ddf8d003fa4a47ad8537b9bb4af9d3f27af0f77bd4cccee746bcc3d"
+    },
+    "github-download.json": {
+      "path": "C:\\Code\\cliewen-openspec\\.tmp\\release-020-final\\github-download.json",
+      "sha256": "5872328b7b3c9d1e1860451f4c483b788bb2a7e0c9f337be03173e9149188531"
+    },
+    "github-release.json": {
+      "path": "C:\\Code\\cliewen-openspec\\.tmp\\release-020-final\\github-release.json",
+      "sha256": "506557130729ae7f2c933356437dda696b7ee9d1d47fbcfadbf1633cd1eef8ac"
+    },
+    "npm-download.json": {
+      "path": "C:\\Code\\cliewen-openspec\\.tmp\\release-020-final\\npm-download.json",
+      "sha256": "d3b275e9d9126cae503acef689aa9e43b44d73a482abb10e9d2c4fa4a0ba5d21"
+    },
+    "pack.json": {
+      "path": "C:\\Code\\cliewen-openspec\\.tmp\\release-020-final\\pack.json",
+      "sha256": "cc7e5b937752e918b5effa844805b4aaf54af3b72f0a502179b46530a27fac1f"
+    },
+    "pages.json": {
+      "path": "C:\\Code\\cliewen-openspec\\.tmp\\release-020-final\\pages.json",
+      "sha256": "a6b1401c6b9a01bd1c02d1fdf4d9702b9134bafebaef0ed736dbc294ff9d893e"
+    },
+    "public-install.json": {
+      "path": "C:\\Code\\cliewen-openspec\\.tmp\\release-020-final\\public-install.json",
+      "sha256": "88fb8ff08590e267860918f5e19f7037d833c0dd27a175c2d23df97baabc64ba"
+    },
+    "publish-dry-run.json": {
+      "path": "C:\\Code\\cliewen-openspec\\.tmp\\release-020-final\\publish-dry-run.json",
+      "sha256": "948c0af4407d783e36b120107cc8d3379fa0dffe511593c5cdf99adb3e6cb6ce"
+    }
+  }
 }

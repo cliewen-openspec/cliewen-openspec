@@ -3,6 +3,8 @@ type: plan
 ---
 # Cliewen for OpenSpec: next roadmap
 
+Version 0.2.0 was published on November 13, 2026. All five increments and the philosophy guide are complete within the accepted scope and limits. See the [0.2.0 release record](docs/releases/0.2.0-release.md) for publication and verification. Remaining historical preparation statements below retain their original context.
+
 Version 0.1.0 is published. All six priorities of the first roadmap were completed within the accepted scope. See the [release record](docs/releases/0.1.0-release.md), [owner acceptance](docs/releases/0.1.0-acceptance.md), and [closure record](docs/testing/release-closure-001.md). Earlier implementation history remains in those records and Git history.
 
 This roadmap is accepted direction, not implemented functionality. [Decision 023: Extend OpenSpec through its conventions](docs/decisions/023-openspec-native-planning-and-closure.md) governs the work. OpenSpec owns changes, specs, synchronization, and archive; projects own their integration and approval policies.
