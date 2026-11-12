@@ -15,9 +15,9 @@ const server=http.createServer((request,response)=>{
 });
 await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
 const origin=`http://127.0.0.1:${server.address().port}`;
-let browser;
+let browser,context;
 try{
-  browser=await chromium.launch();const context=await browser.newContext();
+  browser=await chromium.launch();context=await browser.newContext();
   await context.route('https://cliewen-openspec.github.io/**',async route=>{const url=new URL(route.request().url());await route.fulfill({response:await route.fetch({url:origin+url.pathname+url.search})});});
   const page=await context.newPage();const errors=[];page.on('pageerror',error=>errors.push(error.message));
   for(const width of [1360,390])for(const colorScheme of ['light','dark']){
@@ -32,4 +32,8 @@ try{
     await page.goto(origin+'/cliewen-openspec/'+item.output+'?from=legacy#kept-fragment');await page.waitForURL(target);await page.locator('main h1').waitFor();
   }
   assert.deepEqual(errors,[]);console.log(`Organization home passes light/dark desktop/mobile checks; all ${pages.length} legacy redirects preserve query and fragment.`);
-}finally{if(browser)await browser.close();server.close();}
+}finally{
+  if(context){await context.unrouteAll({behavior:'wait'});await context.close();}
+  if(browser)await browser.close();
+  await new Promise(resolve=>server.close(resolve));
+}
