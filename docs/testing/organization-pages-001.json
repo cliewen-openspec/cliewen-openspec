@@ -1,0 +1,126 @@
+{
+  "date": "2026-11-13",
+  "status": "live-verified",
+  "organizationURL": "https://cliewen-openspec.github.io/",
+  "guideURL": "https://cliewen-openspec.github.io/guide/",
+  "organizationRepository": "https://github.com/cliewen-openspec/cliewen-openspec.github.io",
+  "deployedSource": "47f1b509c9dec4d78a4f5ce7a71198c93df862cb",
+  "rootDeployment": {
+    "conclusion": "success",
+    "headSha": "07f912b0ccab0cc6e4afbe012b0cccb8016216b3",
+    "status": "completed",
+    "url": "https://github.com/cliewen-openspec/cliewen-openspec.github.io/actions/runs/43332422489"
+  },
+  "legacyDeployment": {
+    "conclusion": "success",
+    "headSha": "47f1b509c9dec4d78a4f5ce7a71198c93df862cb",
+    "status": "completed",
+    "url": "https://github.com/cliewen-openspec/cliewen-openspec/actions/runs/43332401310"
+  },
+  "liveBrowserChecks": {
+    "passed": true,
+    "observations": [
+      {
+        "homeViewport": 1360,
+        "guideLink": true
+      },
+      {
+        "homeViewport": 390,
+        "guideLink": true
+      },
+      {
+        "old": "https://cliewen-openspec.github.io/cliewen-openspec/?from=legacy#kept-fragment",
+        "target": "https://cliewen-openspec.github.io/guide/?from=legacy#kept-fragment",
+        "passed": true
+      },
+      {
+        "old": "https://cliewen-openspec.github.io/cliewen-openspec/getting-started.html?from=legacy#kept-fragment",
+        "target": "https://cliewen-openspec.github.io/guide/getting-started.html?from=legacy#kept-fragment",
+        "passed": true
+      },
+      {
+        "old": "https://cliewen-openspec.github.io/cliewen-openspec/csv-example.html?from=legacy#kept-fragment",
+        "target": "https://cliewen-openspec.github.io/guide/csv-example.html?from=legacy#kept-fragment",
+        "passed": true
+      },
+      {
+        "old": "https://cliewen-openspec.github.io/cliewen-openspec/workflow.html?from=legacy#kept-fragment",
+        "target": "https://cliewen-openspec.github.io/guide/workflow.html?from=legacy#kept-fragment",
+        "passed": true
+      },
+      {
+        "old": "https://cliewen-openspec.github.io/cliewen-openspec/discovery.html?from=legacy#kept-fragment",
+        "target": "https://cliewen-openspec.github.io/guide/discovery.html?from=legacy#kept-fragment",
+        "passed": true
+      },
+      {
+        "old": "https://cliewen-openspec.github.io/cliewen-openspec/all.html?from=legacy#kept-fragment",
+        "target": "https://cliewen-openspec.github.io/guide/all.html?from=legacy#kept-fragment",
+        "passed": true
+      },
+      {
+        "old": "https://cliewen-openspec.github.io/cliewen-openspec/configuration.html?from=legacy#kept-fragment",
+        "target": "https://cliewen-openspec.github.io/guide/configuration.html?from=legacy#kept-fragment",
+        "passed": true
+      },
+      {
+        "old": "https://cliewen-openspec.github.io/cliewen-openspec/evidence.html?from=legacy#kept-fragment",
+        "target": "https://cliewen-openspec.github.io/guide/evidence.html?from=legacy#kept-fragment",
+        "passed": true
+      },
+      {
+        "old": "https://cliewen-openspec.github.io/cliewen-openspec/test-quality.html?from=legacy#kept-fragment",
+        "target": "https://cliewen-openspec.github.io/guide/test-quality.html?from=legacy#kept-fragment",
+        "passed": true
+      },
+      {
+        "old": "https://cliewen-openspec.github.io/cliewen-openspec/cli.html?from=legacy#kept-fragment",
+        "target": "https://cliewen-openspec.github.io/guide/cli.html?from=legacy#kept-fragment",
+        "passed": true
+      },
+      {
+        "old": "https://cliewen-openspec.github.io/cliewen-openspec/updating.html?from=legacy#kept-fragment",
+        "target": "https://cliewen-openspec.github.io/guide/updating.html?from=legacy#kept-fragment",
+        "passed": true
+      },
+      {
+        "old": "https://cliewen-openspec.github.io/cliewen-openspec/uninstalling.html?from=legacy#kept-fragment",
+        "target": "https://cliewen-openspec.github.io/guide/uninstalling.html?from=legacy#kept-fragment",
+        "passed": true
+      },
+      {
+        "old": "https://cliewen-openspec.github.io/cliewen-openspec/existing-projects.html?from=legacy#kept-fragment",
+        "target": "https://cliewen-openspec.github.io/guide/existing-projects.html?from=legacy#kept-fragment",
+        "passed": true
+      }
+    ]
+  },
+  "localGuide": {
+    "pages": 13,
+    "links": 512,
+    "diagrams": 5,
+    "browserChecks": "passed"
+  },
+  "deploymentPolicy": {
+    "schedule": "*/15 * * * *",
+    "mayBeDelayedByGithub": true,
+    "unchangedScheduledSourceSkips": true,
+    "newCrossRepositorySecret": false,
+    "source": "Main product repository; wrapper only in organization repository"
+  },
+  "limitations": [
+    "Static browser redirects, not HTTP 301",
+    "Scheduler timing is not guaranteed",
+    "No new agent trial or npm publication"
+  ],
+  "retainedEvidence": {
+    "organization-live-browser.json": {
+      "path": "C:\\Code\\cliewen-openspec\\.tmp\\organization-live-browser.json",
+      "sha256": "1dafa8e1422c250a97cce678d9ffc1fc04bb56baacd0ae72a3af6b41cb94e47f"
+    },
+    "organization-legacy-ci-failed.log": {
+      "path": "C:\\Code\\cliewen-openspec\\.tmp\\organization-legacy-ci-failed.log",
+      "sha256": "cb539dc3e525bac9039daf5af84ca2c6c7ac50d130ce636cd34fdfe86a6ef7f0"
+    }
+  }
+}

@@ -9,7 +9,7 @@ These records capture choices confirmed in the project conversation. Acceptance 
 
 | Record | Decision | Current scope |
 |---|---|---|
-| [Host the introduction and guide at the organization address](027-organization-guide-address.md) | Short root introduction, guide under `/guide/`, one source, and preserved old links | Address layout accepted; implementation and deployment tracked in the hosting change |
+| [Host the introduction and guide at the organization address](027-organization-guide-address.md) | Short root introduction, guide under `/guide/`, one source, and preserved old links | Address layout accepted; home, guide, and all 13 legacy redirects live and verified |
 | [Decision 026: Make human review useful without routine approval gates](026-meaningful-human-review-and-verification.md) | Readable decision material, attributed observations, and automation before manual requests | Implementation and limits accepted November 11, 2026; archived November 11, 2026; agent compliance unobserved |
 | [Decision 025: Explain intent and journeys without duplicating specs](025-product-intent-and-user-journeys.md) | Optional intent and journeys detect drift and scope creep without duplicating specs or planning authority | Implementation accepted and archived November 10, 2026. Agent behavior remains for the release trials. |
 | [Decision 024: Use optional prototypes to resolve consequential uncertainty](024-optional-user-approved-prototypes.md) | The user chooses prototype experiments; agents suggest them for specific unresolved questions and preserve findings and feedback | Implemented in development source; three-case trial and limits accepted; archived November 10, 2026 |

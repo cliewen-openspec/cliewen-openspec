@@ -15,4 +15,12 @@ The owner approved a short root introduction and `/guide/` on November 13, 2026.
 
 No new agent trial was run. The root source remains in `site/organization/index.html`; deployment implementation stays in the product repository, with a small workflow caller in the organization repository. Schedules check every 15 minutes but can be delayed by GitHub; unchanged scheduled source skips deployment. No new access secret is introduced.
 
-Live deployment and actual legacy-site activation remain pending. Historical release links and tarballs are preserved; current project metadata points to the new home.
+Live organization deployment and legacy redirects are verified. Historical release links and tarballs are preserved; current project metadata points to the new home.
+
+## Live result
+
+The [organization home](https://cliewen-openspec.github.io/) and [guide](https://cliewen-openspec.github.io/guide/) return HTTP 200. A real browser followed the home action at desktop/mobile widths and all 13 old guide addresses to the matching new pages, preserving query and fragment. The public source marker identifies the deployed commit; the [structured record](organization-pages-001.json) retains that identity and exact observations.
+
+[Organization deployment](https://github.com/cliewen-openspec/cliewen-openspec.github.io/actions/runs/43332422489) and [legacy-site deployment](https://github.com/cliewen-openspec/cliewen-openspec/actions/runs/43332401310) pass. The initial legacy deployment failed only while closing a browser context with routed requests still in flight, after its checks printed success. That failure is retained. Cleanup now waits for routing handlers before closing the context; the local check and subsequent hosted deployments pass. No agent result or product implementation was repaired.
+
+The root repository contains only README, license, and the workflow caller. Pages uses Actions deployment. The public source check and no-change skip are configured; schedule timing remains controlled by GitHub. Current URL metadata is updated, while published npm artifacts and historical records retain their original bytes and working redirected links. Implementation is complete; native archive remains a separate action.
