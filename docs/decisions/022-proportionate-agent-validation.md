@@ -34,3 +34,7 @@ The 0.1.0 cycle already has reviewed successful primary trials and 12 variant ob
 The current interaction-planning clarification is a small guidance refinement with deterministic controls. Finish it without another agent run. Its effect on future agent behavior remains unobserved, and the earlier surviving-fault findings remain recorded. [The final technical review](../testing/release-candidate-002.md) completes that review. The owner has accepted the content/limits and local archive under [the actual acceptance](../releases/0.1.0-acceptance.md); [the closure record](../testing/release-closure-001.md) records completion. Publication remains separate.
 
 The owner subsequently instructed publication of 0.1.0. [The release record](../releases/0.1.0-release.md) confirms npm/latest, GitHub v0.1.0, public install, and matching downloads. No further agent trial, legacy archival, or OpenSpec outreach occurred.
+
+## Accepted 0.2.0 disposition
+
+On November 12, 2026, after green platform CI, the owner [accepted the 0.2.0 content and recorded agent limitations](../releases/0.2.0-acceptance.md). For this release only, the agreement accepts bounded observations and reviewed focused recovery in place of the outstanding clean fresh end-to-end success for every tool, and credits the focused completion within its limited recovery scope. Original failures remain failures and the three-tool checkpoint is not described as fully passed. The general future trial policy remains unchanged. Publication requires separate authorization.

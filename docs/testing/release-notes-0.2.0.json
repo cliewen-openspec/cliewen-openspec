@@ -1,0 +1,38 @@
+{
+  "version": "0.2.0",
+  "sha256": "91aaac4182369fb76fe3329f62c180a4994c3e4e07d240e59f76f285898e0824",
+  "changedSinceAcceptedPackage": [
+    "package/CHANGELOG.md",
+    "package/README.md"
+  ],
+  "acceptedPackageSha256": "d29fee0e087b9b06e52916e8870a2e652709f61680b2ded6673f2c1562459213",
+  "status": "prepared-unpublished",
+  "metadata": {
+    "version": "0.2.0",
+    "filename": "cliewen-openspec-0.2.0.tgz",
+    "size": 67599,
+    "unpackedSize": 223407,
+    "entryCount": 69,
+    "integrity": "sha512-7wvUxhUQZ3GAcLZTzG2MV1cJAx2sUB9B+/5SF7lKT48dmwZWIpwNHnjfse2UEva+5dH45u9wY/7uVMeLxbB/0g=="
+  },
+  "date": "2026-11-13",
+  "validation": {
+    "documentationBuild": {
+      "passed": true,
+      "pages": 13,
+      "localLinks": 512,
+      "diagrams": 5
+    },
+    "agentTrialsRun": 0,
+    "productCodeOrSchemaChanges": false,
+    "browserChecks": {
+      "passed": true,
+      "pages": 13,
+      "coverage": "Desktop/mobile, navigation, search, light/dark themes, diagram rerendering, keyboard and clipboard"
+    }
+  },
+  "retainedMetadata": {
+    "path": "C:\\Code\\cliewen-openspec\\.tmp\\release-020-notes\\pack.json",
+    "sha256": "16178be49a9a1747ada1d39dc407546e0fa91cb42fe0e2f22256b3c732882d80"
+  }
+}

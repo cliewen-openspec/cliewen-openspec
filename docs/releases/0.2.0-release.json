@@ -1,0 +1,42 @@
+{
+  "version": "0.2.0",
+  "status": "prepared",
+  "publishedOn": null,
+  "npmPublished": false,
+  "githubPublished": false,
+  "gitTag": "v0.2.0",
+  "releaseCommit": null,
+  "authorization": {
+    "date": "2026-11-13",
+    "source": "Project conversation",
+    "request": "super. Gp igang med selve udgivelsen",
+    "scope": "npm/latest, GitHub tag/release, publication documentation and public install verification",
+    "contentAcceptance": "docs/releases/0.2.0-acceptance.md"
+  },
+  "artifact": {
+    "filename": "cliewen-openspec-0.2.0.tgz",
+    "sha256": "1025b8718ef1ce17e7f31f3253c8e7ad56913cabf29d47ab1892e6567d48bdad",
+    "integrity": "sha512-Gf74vXeqlycLNeh+zitfYa1YCcbPIew+A1wY8mj8eDohN5ifYwNy2ovUR/58AnKckbNgpRyxrYrIddxp1kS65A==",
+    "files": 69,
+    "unpackedSize": 223292,
+    "acceptedPreReleaseSHA256": "d29fee0e087b9b06e52916e8870a2e652709f61680b2ded6673f2c1562459213",
+    "changedPackagedFiles": [
+      "package/CHANGELOG.md",
+      "package/README.md",
+      "package/docs/configuration.md",
+      "package/docs/testing/evidence.md"
+    ],
+    "runtimeSchemasAdaptersAndSettingsUnchanged": true
+  },
+  "verification": {
+    "priorCI": "https://github.com/cliewen-openspec/cliewen-openspec/actions/runs/43312520817",
+    "releaseCommitCI": "pending",
+    "documentedConsumerReplay": "passed",
+    "documentationPages": 13,
+    "localLinks": 512,
+    "diagrams": 5,
+    "browser": "passed",
+    "agentCallsDuringPublication": 0
+  },
+  "distribution": "No publication claim until confirmed by registry/release queries."
+}

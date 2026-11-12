@@ -5,7 +5,7 @@ type: guide
 
 Cliewen adds project documentation, Decision Records, stable acceptance criterion IDs, and test evidence to an [OpenSpec](https://openspec.dev/) workflow. OpenSpec is the workflow engine; its source and community are at [Fission-AI/OpenSpec on GitHub](https://github.com/Fission-AI/OpenSpec). Use Cliewen when you want an agent to leave behind an explanation of what changed and a record of which scenarios were tested.
 
-Your coding agent writes the artifacts and implementation. Cliewen supplies instructions, templates, configuration, acceptance ID allocation, and evidence checks. The three workflows below are available in version `0.1.0`.
+Your coding agent writes the artifacts and implementation. Cliewen supplies instructions, templates, configuration, acceptance ID allocation, and evidence checks. Version `0.2.0` provides the three workflows below.
 
 [Start with your first change](getting-started.md). It uses a small CSV exporter and ends with an archived change and fresh evidence.
 
@@ -35,7 +35,7 @@ The combined workflow uses the decision as its design source. Delivery requires 
 
 ### Automate work and make limits visible
 
-Development source extends this approach with scope assessment, progressive planning, product intent and journeys, archive guidance, and human-verification guidance. These additions are not in published `0.1.0`; the [workflow guide](workflow.md) explains their behavior and configuration.
+Version 0.2.0 extends this approach with scope assessment, progressive planning, product intent and journeys, archive guidance, and human-verification guidance. the [workflow guide](workflow.md) explains their behavior and configuration.
 
 The intent is to automate every feasible step with available authorized tools while preserving verification quality. Before asking a person to do something, the agent assesses automation and explains any remaining need for judgment, access, or authority. Routine authorized work proceeds independently. Actual human feedback retains its tested context and limits; observation, approval, and release authorization have distinct meanings. See [Make human review useful without routine approval gates](../decisions/026-meaningful-human-review-and-verification.md).
 
@@ -61,7 +61,7 @@ Schema instructions request these behaviors. CLI checks validate specific record
 | Project learnings | Optional indexed lessons with retrieval, verification, and retirement guidance; authored notes are preserved |
 | Humanizer | Agent-mediated discovery and use, one status per session, and nonblocking fallback; no automatic installation |
 
-Install `cliewen-openspec@0.1.0` from npm for normal use. [The worked guide](getting-started.md) builds a local tarball to keep its prepared CSV files alongside the package source. The earlier published `0.1.0-alpha.1` remains available but lacks the new quality, learnings, and writing facilities. Its manifest is unsupported by 0.1.0. Cliewen requires OpenSpec 1.15.0+ and Node 20.19+. The current npm guide targets OpenSpec 1.17.0 and needs Node 22.12+. See [version compatibility](../configuration.md#version-compatibility). Package CI uses Node 22 and 24 on Windows and Linux.
+Install `cliewen-openspec@0.2.0` from npm for normal use. [The worked guide](getting-started.md) builds a local tarball to keep its prepared CSV files alongside the package source. The earlier published `0.1.0-alpha.1` remains available but lacks the new quality, learnings, and writing facilities. Its manifest is unsupported by 0.2.0. Cliewen requires OpenSpec 1.15.0+ and Node 20.19+. The current npm guide targets OpenSpec 1.17.0 and needs Node 22.12+. See [version compatibility](../configuration.md#version-compatibility). Package CI uses Node 22 and 24 on Windows and Linux.
 
 ## Defaults
 
@@ -73,8 +73,8 @@ The [configuration reference](../configuration.md) lists every accepted setting 
 
 ## What is still planned?
 
-The next release's three-agent compatibility checkpoint remains pending.
+The [0.2.0 release review](../testing/release-candidate-0.2.0.md) records tested compatibility and accepted agent-support limits. Generated specifications and assertions still need substantive review.
 
-The candidate supports configurable test types and checks declared scenario types against evidence. Existing-registry adapters, general version/config migrations, and structural checks for your project's documentation and Mermaid diagrams remain planned.
+Cliewen supports configurable test types and checks declared scenario types against evidence. Existing-registry adapters, general version/config migrations, and structural checks for your project's documentation and Mermaid diagrams remain planned.
 
 Cliewen checks test execution, ID linkage, and revision freshness. Follow [evidence-first verification](../configuration.md#evidence-first-verification) and review assertion quality, failure causes, and evidence sufficiency.

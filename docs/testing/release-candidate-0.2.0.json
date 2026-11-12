@@ -1,6 +1,6 @@
 {
   "date": "2026-11-12",
-  "status": "content-review-proposed-publication-blocked-on-ci",
+  "status": "content-and-limits-accepted-publication-not-authorized",
   "sourceRevision": "59fc991ee183af648299013efcf5814ec711bf2d",
   "sourceStatus": " M docs/releases/0.2.0-preparation.md\n M docs/testing/release-020-agent-checkpoint-001-follow-up.md\n M plan.md\n M scripts/check-agent-evaluation.mjs\n M test/evaluation-plan.test.mjs\n M test/product-context.test.mjs\n M test/prototyping.test.mjs\n?? docs/releases/0.2.0-acceptance.md\n?? docs/testing/release-020-claude-completion-001.json\n?? docs/testing/release-020-claude-completion-001.md\n?? docs/testing/release-020-claude-retry-002.json\n?? docs/testing/release-020-claude-retry-002.md\n?? docs/testing/release-candidate-0.2.0.md\n",
   "package": {
@@ -231,8 +231,13 @@
     "directValidator": "passed",
     "fullSuite": false
   },
-  "technicalGate": "Updated hosted package workflow must pass after push; not yet observed",
-  "ownerAcceptance": "proposed, not recorded",
+  "technicalGate": "Satisfied on commit 2418e9a6c56bacdcc6641fec1a453f25476a587d; subsequent local edits change only review/status documents.",
+  "ownerAcceptance": {
+    "date": "2026-11-12",
+    "record": "docs/releases/0.2.0-acceptance.md",
+    "scope": "Content, documented agent limits, release-specific checkpoint exception, focused recovery credit, and two-file instruction input reuse",
+    "publicationAuthorized": false
+  },
   "publication": "not authorized or performed",
   "files": {
     "cliewen-openspec-0.2.0.tgz": {
@@ -270,6 +275,41 @@
     "tests.log": {
       "path": "C:\\Code\\cliewen-openspec\\.tmp\\release-020-linux-results\\tests.log",
       "sha256": "7ca78b3e95f9b72a0c28b25c288f6a13ae63167dcd5ca25422fd50a71d1c6438"
+    },
+    "ci-passed.json": {
+      "path": "C:\\Code\\cliewen-openspec\\.tmp\\release-020-review\\ci-passed.json",
+      "sha256": "21a998770e0423823c87adaf064e6305bb7156decfe59a1124df8f794c1b9b1b"
+    },
+    "ci-passed.log": {
+      "path": "C:\\Code\\cliewen-openspec\\.tmp\\release-020-review\\ci-passed.log",
+      "sha256": "e07715895be3c20fe5a226d1c3b21ee4de85f201d1a7e07bb957fa95bf3e6cae"
     }
+  },
+  "ciAfterFixes": {
+    "headSha": "2418e9a6c56bacdcc6641fec1a453f25476a587d",
+    "conclusion": "success",
+    "url": "https://github.com/cliewen-openspec/cliewen-openspec/actions/runs/43312520817",
+    "jobs": [
+      {
+        "name": "test (windows-latest, 22)",
+        "conclusion": "success",
+        "url": "https://github.com/cliewen-openspec/cliewen-openspec/actions/runs/43312520817/job/131511993635"
+      },
+      {
+        "name": "test (ubuntu-latest, 22)",
+        "conclusion": "success",
+        "url": "https://github.com/cliewen-openspec/cliewen-openspec/actions/runs/43312520817/job/131511994037"
+      },
+      {
+        "name": "test (ubuntu-latest, 24)",
+        "conclusion": "success",
+        "url": "https://github.com/cliewen-openspec/cliewen-openspec/actions/runs/43312520817/job/131511994367"
+      },
+      {
+        "name": "test (windows-latest, 24)",
+        "conclusion": "success",
+        "url": "https://github.com/cliewen-openspec/cliewen-openspec/actions/runs/43312520817/job/131511994659"
+      }
+    ]
   }
 }

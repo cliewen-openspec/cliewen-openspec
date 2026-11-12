@@ -5,11 +5,11 @@ type: reference
 
 Cliewen reads project settings from `.cliewen-openspec/config.yaml`.
 
-This reference describes version `0.1.0`. The earlier published `0.1.0-alpha.1` does not accept the `quality`, `lifecycle`, `learnings`, or `writing` settings below. Use that package's bundled reference when working with the alpha; its installation manifest is unsupported by 0.1.0.
+This reference describes version `0.2.0`. The earlier published `0.1.0-alpha.1` does not accept the `quality`, `lifecycle`, `learnings`, or `writing` settings below. Use that package's bundled reference when working with the alpha; its installation manifest is unsupported by 0.2.0.
 
 ## Version compatibility
 
-Cliewen requires **OpenSpec 1.15.0 or newer**, **Node.js 20.19 or newer**, and Git. Current development pins OpenSpec 1.17.0. The published 0.1.0 release was checked with OpenSpec 1.15.0; newer development checks are recorded separately.
+Cliewen requires **OpenSpec 1.15.0 or newer**, **Node.js 20.19 or newer**, and Git. Current development pins OpenSpec 1.17.0. The published 0.1.0 release was checked with OpenSpec 1.15.0; 0.2.0 checks cover OpenSpec 1.15.0 and 1.17.0.
 
 OpenSpec has its own installation requirements:
 
@@ -24,15 +24,15 @@ On Node 20.19, pin `@fission-ai/openspec@1.15.0` or use a compatible OpenSpec st
 
 The minimum is a compatibility floor, not proof that every newer release has been tested. A future Cliewen release may raise its OpenSpec or Node minimum. Review that release's requirements before upgrading.
 
-Development source checks these minimums at every `init` and `update`, including previews, before recovery or installation writes. Published 0.1.0 does not perform these checks. No persistent success cache is used. Other commands keep their existing requirements; explicit `recover` remains available to restore an interrupted transaction.
+Version 0.2.0 checks these minimums at every `init` and `update`, including previews, before recovery or installation writes. Published 0.1.0 does not perform these checks. No persistent success cache is used. Other commands keep their existing requirements; explicit `recover` remains available to restore an interrupted transaction.
 
 The check uses the project's resolvable OpenSpec npm installation first, otherwise the CLI on PATH, including a standalone executable. It runs that installation's public `--version`; an incompatible or broken selected local installation does not fall back to a global version. Output identifies the source and detected versions. Missing tools, invalid/prerelease versions, execution failure, or a probe exceeding five seconds stop init/update with an actionable error. Cliewen neither downloads nor upgrades OpenSpec during this check.
 
-The development upgrade route accepts published 0.1.0 ownership manifests and the running target version. Further source versions require explicit support; alpha installations, unknown formats, and downgrades remain unsupported. The release number has not been changed. See [updating an installation](guide/updating.md) for package/resource boundaries and preview output; never relabel a manifest to bypass validation.
+The 0.2.0 upgrade route accepts published 0.1.0 ownership manifests and the running target version. Further source versions require explicit support; alpha installations, unknown formats, and downgrades remain unsupported. See [updating an installation](guide/updating.md) for package/resource boundaries and preview output; never relabel a manifest to bypass validation.
 
 ## Optional product context in development
 
-Development source installs `.cliewen-openspec/product-context.md` for product intent, useful cross-capability journeys, and detection of drift or scope creep. Published 0.1.0 does not contain this reference. There is no new configuration field or required artifact. `features.documentation` controls optional records under `docsRoot` or existing project paths; `features.planning` independently controls planning authority and ticket access. Disabled facilities add no corresponding work and preserve authored content. Existing supplied context still informs normal scoping. See [product intent and journeys](guide/workflow.md#keep-the-users-outcome-in-view) for an illustrative example and limits.
+Version 0.2.0 installs `.cliewen-openspec/product-context.md` for product intent, useful cross-capability journeys, and detection of drift or scope creep. Published 0.1.0 does not contain this reference. There is no new configuration field or required artifact. `features.documentation` controls optional records under `docsRoot` or existing project paths; `features.planning` independently controls planning authority and ticket access. Disabled facilities add no corresponding work and preserve authored content. Existing supplied context still informs normal scoping. See [product intent and journeys](guide/workflow.md#keep-the-users-outcome-in-view) for an illustrative example and limits.
 
 ## Full defaults
 
@@ -310,8 +310,8 @@ The `0.1.0` candidate's `init`, `update`, and `uninstall` accept only `0.1.0` in
 
 ## Optional archive-session guidance
 
-Development source installs `.cliewen-openspec/closure.md`. For repository-local projects, OpenSpec's project-owned `operations.archive.guidance` can point an archive session to that reference. See [closure setup and limits](guide/workflow.md#use-the-reference-from-a-separate-archive-session), including direct CLI use and removal of the optional entry after uninstall. Existing Cliewen feature and test-policy settings control the matching review responsibilities; there is no new configuration flag or automatic archive hook.
+Version 0.2.0 installs `.cliewen-openspec/closure.md`. For repository-local projects, OpenSpec's project-owned `operations.archive.guidance` can point an archive session to that reference. See [closure setup and limits](guide/workflow.md#use-the-reference-from-a-separate-archive-session), including direct CLI use and removal of the optional entry after uninstall. Existing Cliewen feature and test-policy settings control the matching review responsibilities; there is no new configuration flag or automatic archive hook.
 
 ## Optional prototype guidance
 
-Development source installs `.cliewen-openspec/prototyping.md` for [bounded user-selected experiments](guide/workflow.md#try-a-prototype-when-it-can-answer-a-question). Prototype selection is per task and adds no configuration flag. Planning controls ticket/plan maintenance; learnings and documentation settings control optional lesson maintenance. Native investigation artifacts retain actual findings even when those facilities are disabled. The existing installation lifecycle owns only the reference, not prototype files or user records.
+Version 0.2.0 installs `.cliewen-openspec/prototyping.md` for [bounded user-selected experiments](guide/workflow.md#try-a-prototype-when-it-can-answer-a-question). Prototype selection is per task and adds no configuration flag. Planning controls ticket/plan maintenance; learnings and documentation settings control optional lesson maintenance. Native investigation artifacts retain actual findings even when those facilities are disabled. The existing installation lifecycle owns only the reference, not prototype files or user records.

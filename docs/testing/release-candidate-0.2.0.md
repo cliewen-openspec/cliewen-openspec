@@ -5,7 +5,7 @@ type: testing
 
 ## Recommendation
 
-Accept the implemented scope and the explicit agent-support limits below, subject to owner agreement. **Do not publish yet:** the last pushed GitHub package workflow failed, and the locally verified maintainer fixes still need a green run after push. The [proposed acceptance](../releases/0.2.0-acceptance.md) separates content acceptance, the agent-checkpoint exception, and publication authority.
+The owner accepted the implemented scope and explicit agent-support limits on November 12, 2026. The technical CI gate is now satisfied: [package CI](https://github.com/cliewen-openspec/cliewen-openspec/actions/runs/43312520817) passed all four jobs at `2418e9a6c56bacdcc6641fec1a453f25476a587d`. Publication still requires separate authorization. The [acceptance record](../releases/0.2.0-acceptance.md) separates content acceptance, the agent-checkpoint exception, and publication authority.
 
 All five roadmap increments and the philosophy guide are accepted and complete. Version 0.2.0 extends the existing delivery, discovery, and combined schemas. No new selectable schema or report format is introduced.
 
@@ -27,9 +27,9 @@ These results are complementary. The actual-minimum probe is not a full Node 20 
 
 The [last package workflow](https://github.com/cliewen-openspec/cliewen-openspec/actions/runs/43111829125) failed in all four jobs. Three passed their product suites and then failed `check-agent-evaluation.mjs`: its temporary init fixture could find OpenSpec only through a global executable. It now resolves this checkout's pinned dependencies through a temporary local dependency link. The regression runs with empty PATH and passes on Windows and Linux.
 
-Windows/Node 22 additionally hit the 60-second dependency-install timeout in the context/prototype consumer fixtures. Only npm-install calls now allow 180 seconds, with an enclosing 240-second fixture limit; other command limits and product runtime checks remain unchanged. Timeout diagnostics include the subprocess error. The local 113-test suite passes after these changes. Their hosted confirmation remains pending; the failed workflow is not relabeled successful.
+Windows/Node 22 additionally hit the 60-second dependency-install timeout in the context/prototype consumer fixtures. Only npm-install calls now allow 180 seconds, with an enclosing 240-second fixture limit; other command limits and product runtime checks remain unchanged. Timeout diagnostics include the subprocess error. The local 113-test suite passes after these changes. The subsequent [package CI](https://github.com/cliewen-openspec/cliewen-openspec/actions/runs/43312520817) confirms the fixes: Windows/Node 22 and 24 each passed 113 tests; Linux/Node 22 and 24 each passed 111 with two Windows-only skips. All maintainer checks passed. The earlier failed workflow remains historical.
 
-## Agent observations and proposed limits
+## Agent observations and accepted limits
 
 | Tool | Supported observation and unresolved limit |
 |---|---|
@@ -39,12 +39,12 @@ Windows/Node 22 additionally hit the 60-second dependency-install timeout in the
 
 The [checkpoint review](release-020-agent-checkpoint-001.md) and [follow-up](release-020-agent-checkpoint-001-follow-up.md) preserve failures, evaluator corrections, and raw-evidence references. The final package differs from the original trial package only in two writing/testing instruction refinements. Those clarify existing obligations, and deterministic packed-consumer checks pass; improved agent compliance with those exact refinements remains unobserved.
 
-The three-agent checkpoint is **not fully passed**. The proposed release-specific disposition accepts the observations above as bounded compatibility evidence and waives the outstanding clean end-to-end success requirement for this release. It preserves every failed/incomplete result and continues to require review of generated specs, claims, and assertion quality. This exception is proposed, not accepted. The normal future trial policy remains unchanged.
+The three-agent checkpoint is **not fully passed**. The accepted release-specific disposition accepts the observations above as bounded compatibility evidence and waives the outstanding clean end-to-end success requirement for this release. It preserves every failed/incomplete result and continues to require review of generated specs, claims, and assertion quality. The owner explicitly accepted this release-specific exception; it does not relabel the checkpoint as fully passed. The normal future trial policy remains unchanged.
 
 ## Remaining actions
 
-1. Commit/push the maintainer fixes and review records, then confirm all four package CI jobs pass. Resolve any new failure before publication.
-2. Obtain explicit owner acceptance of scope, remaining support limits, and the proposed release-specific checkpoint exception.
+1. Completed: fixes and review records were pushed as `2418e9a`; all four package CI jobs and Pages passed. This subsequent status edit changes only review/status documents, not the tested package.
+2. Completed: owner acceptance of scope, remaining support limits, and the release-specific checkpoint exception is recorded on November 12, 2026.
 3. Prepare dated release notes and publication-time guide status, review any package-byte changes, then obtain publication authorization before npm publishing, tagging, or creating a GitHub release.
 
-No new agent was run for this review. No tag, publication, outreach, or automatic policy waiver occurred.
+No new agent was run for this review. No tag, publication, outreach, or automatic policy waiver occurred; the exception above was explicitly accepted by the owner.

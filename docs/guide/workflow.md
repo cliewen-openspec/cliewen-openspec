@@ -7,7 +7,7 @@ Choose `cliewen-delivery` when you understand the problem and are ready to speci
 
 ## Choose the next delivery
 
-The development source adds work-scoping guidance and installs `.cliewen-openspec/planning.md`. These additions are not in published 0.1.0. Evaluate a local build in a separate project or follow the supported published-0.1.0 resource-refresh route in [the update guide](updating.md). General project-content migrations remain outside that route.
+The version 0.2.0 adds work-scoping guidance and installs `.cliewen-openspec/planning.md`. Evaluate a local build in a separate project or follow the supported published-0.1.0 resource-refresh route in [the update guide](updating.md). General project-content migrations remain outside that route.
 
 Start with the smallest result that can be understood and verified together. New behavior, changed requirements, or material design choices usually need an OpenSpec change. A small correction restoring documented behavior can use relevant checks without a new proposal. Reassess if investigation expands the scope. Small implementation tasks can stay within one change; genuinely independent changes can proceed in parallel.
 
@@ -17,7 +17,7 @@ For consequential choices, identify the riskiest assumption, an alternative, a c
 
 ### Keep the user's outcome in view
 
-Development source adds `.cliewen-openspec/product-context.md`; published 0.1.0 does not contain it. The reference helps agents compare a change with the agreed problem, user outcome, and delivery scope. Start with the existing product brief, README, or selected planning authority. A separate `goal.md` is optional. Keep unknown intent and success measures unknown until there is a source for them.
+Version 0.2.0 adds `.cliewen-openspec/product-context.md`. The reference helps agents compare a change with the agreed problem, user outcome, and delivery scope. Start with the existing product brief, README, or selected planning authority. A separate `goal.md` is optional. Keep unknown intent and success measures unknown until there is a source for them.
 
 A journey is useful when a user needs several capabilities to achieve an outcome. Keep behavioral rules in OpenSpec and link to them by descriptive title. For a small correction, the existing explanation is often enough; no new document or interview is required.
 
@@ -75,7 +75,7 @@ For consequential unresolved choices, you can request the optional [grill-me int
 
 ## Try a prototype when it can answer a question
 
-Development source adds optional prototype guidance in `.cliewen-openspec/prototyping.md`. Published 0.1.0 does not contain it. No new configuration flag or schema is needed.
+Version 0.2.0 adds optional prototype guidance in `.cliewen-openspec/prototyping.md`. No new configuration flag or schema is needed.
 
 The agent first inspects available evidence and clarifies what it can. If material uncertainty remains that needs something concrete to try, it can suggest a bounded experiment. The suggestion states the question, expected learning, estimated effort, workspace, outputs, useful resource limits, and the decision it will inform. You choose whether to proceed. You can also request a prototype directly. Already agreed scope needs no repeated permission; a clear task proceeds without a prototype or interview.
 
@@ -183,7 +183,7 @@ Plans are optional. If Jira or another ticket system owns scheduling and status,
 
 ### Make decisions easy to assess
 
-Development source adds a decision-material review and guidance for human observations; these additions are not in published 0.1.0. Before asking you to decide, the agent checks whether the explanation makes sense without the project conversation or implementation code. It links detailed specs and removes repetition while preserving required sections and important exceptions. Diagrams follow your existing settings and are useful when they shorten the explanation.
+Version 0.2.0 adds a decision-material review and guidance for human observations. Before asking you to decide, the agent checks whether the explanation makes sense without the project conversation or implementation code. It links detailed specs and removes repetition while preserving required sections and important exceptions. Diagrams follow your existing settings and are useful when they shorten the explanation.
 
 For example, an illustrative proposal summary could say:
 
@@ -211,7 +211,7 @@ Positive feedback records an observation. Change approval and release authorizat
 
 An existing version-1 manual result can use `reason` to describe or reference an observation. It remains a warning, with the same scenario, test-type, scope, and Git-freshness checks; see [execution evidence](../testing/evidence.md). An older durable observation does not establish current execution evidence, and manual claims cannot replace failed automated checks. These instructions guide the agent; the CLI does not authenticate feedback or establish readability.
 
-Version 0.1.0 and the 0.2.0 candidate check [test quality and lifecycle](../testing/test-quality.md). Coverage, effectiveness, and lifecycle default to advisory review; use configuration to disable or enforce each independently. These settings are unavailable in the earlier published alpha. Preserve useful assertions through refactoring and accepted behavior changes, and remove obsolete ones only after explicit criterion retirement.
+Version 0.1.0 and version 0.2.0 check [test quality and lifecycle](../testing/test-quality.md). Coverage, effectiveness, and lifecycle default to advisory review; use configuration to disable or enforce each independently. These settings are unavailable in the earlier published alpha. Preserve useful assertions through refactoring and accepted behavior changes, and remove obsolete ones only after explicit criterion retirement.
 
 A passing `check` confirms that the configured report matches the scenario references and current clean Git revision, with no blocking findings. Review the assertions as well: a test that only checks that an output exists may not prove the scenario.
 
@@ -219,7 +219,7 @@ Cliewen's instruction to check evidence is guidance. The alpha does not intercep
 
 ## Close the change and preserve useful knowledge
 
-Development source installs `.cliewen-openspec/closure.md` and links it from all three workflows' implementation instructions. This addition is not in published 0.1.0. The reference brings together the project's enabled documentation, decision, learning, planning, test-review, and evidence responsibilities. It requests agent review; it does not enforce document accuracy or intercept archive.
+Version 0.2.0 installs `.cliewen-openspec/closure.md` and links it from all three workflows' implementation instructions. The reference brings together the project's enabled documentation, decision, learning, planning, test-review, and evidence responsibilities. It requests agent review; it does not enforce document accuracy or intercept archive.
 
 Before archive, compare the actual delivery with its agreed scope, maintain affected explanations and decisions, and preserve useful findings. Existing feature settings apply independently. For example, disabled planning skips ticket access, and disabled learnings preserve existing notes without requesting new ones. Routine work need not create a closure report, decision, or lesson.
 

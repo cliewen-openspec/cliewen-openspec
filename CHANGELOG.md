@@ -4,6 +4,8 @@ Changes that matter to projects using Cliewen for OpenSpec.
 
 ## Unreleased
 
+## 0.2.0 (2026-11-13)
+
 - Agents now assess automation before requesting manual work and explain any remaining human contribution. Shared guidance helps them prepare concise decision material and retain concrete human observations without treating feedback as release authorization. Existing configuration and evidence formats are unchanged. See [human review and verification](docs/guide/workflow.md#make-decisions-easy-to-assess).
 
 - Optional product context helps agents keep changes connected to the agreed user outcome and identify drift or scope creep. Useful cross-capability journeys link to OpenSpec rules, while routine tasks need no new goal or journey document. Existing documentation and planning settings apply. See [product intent and journeys](docs/guide/workflow.md#keep-the-users-outcome-in-view).

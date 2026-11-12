@@ -19,11 +19,11 @@ Requires OpenSpec's `specs` and `changes` directories. Installs `cliewen-deliver
 
 Installing a different package does not automatically refresh an existing installed schema. Use update for supported ownership manifests; do not delete project configuration or the registry to work around conflicts.
 
-Development source also installs manifest-owned planning, closure, and prototype references. The [optional archive-session setup](workflow.md#use-the-reference-from-a-separate-archive-session) points OpenSpec's project-owned guidance to the closure reference; installation does not add that configuration entry. These additions are not in published 0.1.0.
+Version 0.2.0 also installs manifest-owned planning, closure, and prototype references. The [optional archive-session setup](workflow.md#use-the-reference-from-a-separate-archive-session) points OpenSpec's project-owned guidance to the closure reference; installation does not add that configuration entry.
 
 It also installs `.cliewen-openspec/product-context.md` for optional product intent and journeys. It creates no project goal or journey documents; existing records, configuration, and OpenSpec integrations retain their ownership. See [the workflow example](workflow.md#keep-the-users-outcome-in-view).
 
-Development source checks the running Node and selected OpenSpec CLI before init/update, including previews. It requires Node 20.19+ and stable OpenSpec 1.15.0+, preferring the project's npm installation over PATH. Missing or incompatible tools stop the command before recovery or installation writes. See [version compatibility](../configuration.md#version-compatibility) for selection, timeout, and runtime limits.
+Version 0.2.0 checks the running Node and selected OpenSpec CLI before init/update, including previews. It requires Node 20.19+ and stable OpenSpec 1.15.0+, preferring the project's npm installation over PATH. Missing or incompatible tools stop the command before recovery or installation writes. See [version compatibility](../configuration.md#version-compatibility) for selection, timeout, and runtime limits.
 
 ## update
 
@@ -32,7 +32,7 @@ cliewen-openspec update --dry-run --json
 cliewen-openspec update --json
 ```
 
-Refreshes or repairs owned schema files/templates using the installed package. Output contains `dryRun`, `writes`, and `deletes`. It adds new bundle files, replaces unchanged owned content, and deletes unchanged retired owned files. Edited files conflict unless already identical to the new content. Unowned paths are never adopted. The 0.2.0 candidate supports `0.1.0` and `0.2.0` manifests; alpha and other versions are rejected without automatic migration.
+Refreshes or repairs owned schema files/templates using the installed package. Output contains `dryRun`, `writes`, and `deletes`. It adds new bundle files, replaces unchanged owned content, and deletes unchanged retired owned files. Edited files conflict unless already identical to the new content. Unowned paths are never adopted. Version 0.2.0 supports `0.1.0` and `0.2.0` manifests; alpha and other versions are rejected without automatic migration.
 
 Configuration, default schema, AC registry, authored changes/docs, and evidence are preserved. Apply recovers an interrupted transaction first and uses rollback; dry-run does neither. The command has no `--default` or force option. Usage, config, ownership, or write failures exit 2; success exits 0. See [the update guide](updating.md) for the full workflow and conflict rules.
 

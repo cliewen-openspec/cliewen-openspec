@@ -9,7 +9,7 @@ The commands follow a prepared example without a coding agent. For an agent-auth
 
 ## 1. Build the candidate package
 
-This worked example builds version `0.2.0` locally and uses its prepared CSV files. Version 0.2.0 is an unreleased candidate; use this source-build route to evaluate it. Published installations can use `cliewen-openspec@0.1.0`, which lacks the new guidance. The earlier published `0.1.0-alpha.1` has a different feature set and is not the package exercised by this guide; do not substitute it into this walkthrough.
+This worked example builds version `0.2.0` locally and uses its prepared CSV files. Normal installations can use `npm install --save-dev cliewen-openspec@0.2.0`; this source-build route keeps the prepared example helpers beside the pilot. The earlier published `0.1.0-alpha.1` has a different feature set and is not the package exercised by this guide; do not substitute it into this walkthrough.
 
 From an empty parent directory, clone the source repository and build the package:
 
@@ -135,7 +135,7 @@ npx --no-install cliewen-openspec check --change add-csv-export --json
 
 The adapter runs every test in the file again and writes `.cliewen-openspec/evidence.json`, ignored by Git. Open it and compare its `revision` with `git rev-parse HEAD`; `scope.change` should be `add-csv-export` (the `scope` value is an object). Failures outside the selected change still block verification.
 
-With the `0.2.0` candidate and unchanged reference example, expect exit 0 and `"ok": true` with these warnings:
+With version `0.2.0` and unchanged reference example, expect exit 0 and `"ok": true` with these warnings:
 
 | Code | Count | Reason |
 |---|---|---|

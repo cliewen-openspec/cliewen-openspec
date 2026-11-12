@@ -4,9 +4,11 @@ Durable decisions, living documentation, and evidence for OpenSpec.
 
 Built on [OpenSpec](https://openspec.dev/), using its custom-schema workflows. See [Fission-AI/OpenSpec on GitHub](https://github.com/Fission-AI/OpenSpec) for the engine's source and community.
 
-**Development candidate `0.2.0` (unreleased).** Installs `cliewen-delivery`, `cliewen-discovery`, and `cliewen-all`, allocates acceptance IDs, and checks real delivery test evidence through OpenSpec archiving. Discovery supports investigation and recommendation without required production implementation.
+**Version `0.2.0`.** Installs `cliewen-delivery`, `cliewen-discovery`, and `cliewen-all`, allocates acceptance IDs, and checks real delivery test evidence through OpenSpec archiving. Discovery supports investigation and recommendation without required production implementation.
 
-The release includes [test quality and lifecycle checks](docs/testing/test-quality.md), optional project learnings, and Humanizer guidance. Follow [Your first change](docs/guide/getting-started.md) to build and install its local tarball. The published `0.1.0-alpha.1` is an earlier snapshot and does not include these additions; its manifest is not supported by 0.1.0.
+Version 0.2.0 adds work scoping, optional prototypes and product context, closure guidance, and guidance for automating checks and recording human observations. See [the 0.2.0 release notes](docs/releases/0.2.0-notes.md) for changes and upgrade requirements.
+
+The package also includes [test quality and lifecycle checks](docs/testing/test-quality.md), optional project learnings, and Humanizer guidance. Follow [Your first change](docs/guide/getting-started.md) to build and install its local tarball. The published `0.1.0-alpha.1` is an earlier snapshot and does not include these additions; its manifest is not supported by 0.2.0.
 
 ## Schema collection
 
@@ -29,7 +31,7 @@ In your project, install the versioned packages and initialize OpenSpec:
 ```sh
 npm install --save-dev @fission-ai/openspec@1.17.0
 npx --no-install openspec init
-npm install --save-dev cliewen-openspec@0.1.0
+npm install --save-dev cliewen-openspec@0.2.0
 npx --no-install cliewen-openspec init --default
 npx --no-install openspec new change add-export --schema cliewen-delivery
 ```
@@ -51,7 +53,7 @@ npx --no-install cliewen-openspec ac next --capability export
 
 `--default` explicitly selects delivery for future changes. Omit it to preserve the existing schema. `init --dry-run` previews writes. Use the generated ID in scenario headings and test titles; commit the ID registry along with specs.
 
-The explicit version selects 0.1.0. Earlier alpha installation manifests are unsupported; use a fresh installation rather than editing a manifest version. For the complete CSV example, follow [your first change](docs/guide/getting-started.md).
+The explicit version selects 0.2.0. Earlier alpha installation manifests are unsupported; use a fresh installation rather than editing a manifest version. For the complete CSV example, follow [your first change](docs/guide/getting-started.md).
 
 For an existing installation, install the desired package version and use `cliewen-openspec update --dry-run --json`, then `cliewen-openspec update --json` after reviewing the plan. Update refreshes owned resources from supported manifests, preserving configuration, selected schemas, IDs, and authored files. See [updating an installation](docs/guide/updating.md).
 

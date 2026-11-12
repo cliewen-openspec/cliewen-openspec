@@ -74,4 +74,4 @@ This does not convert or overwrite the discovery change. Specify the agreed beha
 
 ## Optional prototype experiments
 
-Development source provides [user-selected prototype guidance](workflow.md#try-a-prototype-when-it-can-answer-a-question). A concise discovery proposal can scope an agreed experiment before a later delivery proposal. Keep prototype code isolated, preserve product authority, and record observations and feedback in the existing investigation. Already understood work and declined suggestions do not require an experiment. Published 0.1.0 lacks the new reference.
+Version 0.2.0 provides [user-selected prototype guidance](workflow.md#try-a-prototype-when-it-can-answer-a-question). A concise discovery proposal can scope an agreed experiment before a later delivery proposal. Keep prototype code isolated, preserve product authority, and record observations and feedback in the existing investigation. Already understood work and declined suggestions do not require an experiment.
