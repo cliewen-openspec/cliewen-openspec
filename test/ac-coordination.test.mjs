@@ -197,3 +197,12 @@ test('ambiguous setup publication never permits silently joining a replacement a
   assert.throws(()=>coordinate(f.a,'origin',true),/authority was replaced/);assert.equal(fs.readFileSync(marker,'utf8'),before);
   assert.throws(()=>nextId(f.a,'export'),/setup is pending/);
 });
+
+test('repository root comparison accepts Windows path spelling and rejects a subdirectory',t=>{
+  const f=fixture(t,false),original=childProcess.execFileSync;
+  if(process.platform==='win32') {
+    childProcess.execFileSync=function(file,args,options){const result=original.call(this,file,args,options);if(file==='git'&&args[0]==='rev-parse'&&args[1]==='--show-toplevel'&&options.cwd===f.a)return result.toUpperCase();return result;};syncBuiltinESMExports();
+    try{assert.equal(coordinate(f.a,'origin').remote,'origin');}finally{childProcess.execFileSync=original;syncBuiltinESMExports();}
+  } else assert.equal(coordinate(f.a,'origin').remote,'origin');
+  const nested=path.join(f.a,'nested');fs.mkdirSync(nested);assert.throws(()=>coordinate(nested,'origin'),/repository root/);
+});

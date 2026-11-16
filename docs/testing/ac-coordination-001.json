@@ -140,5 +140,41 @@
         ".tmp/ac-coordination-complete-docs-build.log": "cd4a5a3022bcc7d6e1ab108a1aad01f694d2b831afb508562c9abceb4c0555db"
       }
     }
-  ]
+  ],
+  "ciFollowUp": {
+    "originalCommit": "30ab6f24ec18df4c5406ce55d7c0a4fe07172e90",
+    "testRun": 43972718168,
+    "result": "failure",
+    "jobs": {
+      "windows22": "failure",
+      "windows24": "failure",
+      "linux22": "success",
+      "linux24": "success"
+    },
+    "siteRun": 43972718112,
+    "siteResult": "success",
+    "reason": "Windows repository root spelling rejected by string equality",
+    "correction": "Native realpath plus platform-aware path comparison",
+    "localChecks": [
+      {
+        "output": ".tmp/ac-ci-root-fix-windows.log",
+        "passed": 3
+      },
+      {
+        "output": ".tmp/ac-ci-root-fix-linux.log",
+        "passed": 1
+      }
+    ],
+    "currentInputs": {
+      "src/ac-coordination.ts": "9101e3f5c9b0f1efb079bc6d23b136d77f7daadf88e6f3f92343dc001f8401ab",
+      "test/ac-coordination.test.mjs": "420d8e4c802a3e8e91c3e1564289284434a46595bbf93423438a9404baefcff6"
+    },
+    "artifacts": {
+      ".tmp/ac-ci-windows-22.log": "fce2ecb3372f973c4d2bc1231187c30c1528ae57f40c4d6a6372d49c7c5279cf",
+      ".tmp/ac-ci-windows-24.log": "30e67f946d723a3a45e0383e04302bb38e3a84e3ef1e16af9a65e39076565381",
+      ".tmp/ac-ci-root-fix-windows.log": "9de8dec6a4bfc0f3e8224b4d722a2f38c7b54926357b3e0cfccb79c5856d7a02",
+      ".tmp/ac-ci-root-fix-linux.log": "bc6cc51d35c858d0245f405f5a7d0ad143f30b7bda3a841ed83006b34596c894"
+    },
+    "replacementCI": "pending"
+  }
 }

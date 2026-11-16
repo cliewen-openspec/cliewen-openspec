@@ -33,7 +33,10 @@ function git(root:string,args:string[],input?:string):string {
 }
 function repository(root:string,remote:string) {
   if (!validRemote(remote)) throw Error('Use a configured Git remote name for AC coordination.');
-  if (fs.realpathSync(git(root,['rev-parse','--show-toplevel']))!==fs.realpathSync(root)) throw Error('Run AC coordination at the Git repository root.');
+  const top=fs.realpathSync.native(git(root,['rev-parse','--show-toplevel']));
+  const selected=fs.realpathSync.native(root);
+  // Windows Git can spell a root with different casing or an 8.3 alias.
+  if (path.relative(top,selected)!=='') throw Error('Run AC coordination at the Git repository root.');
   git(root,['remote','get-url','--push','--all',remote]);
   const fetch=git(root,['remote','get-url','--all',remote]), push=git(root,['remote','get-url','--push','--all',remote]);
   if(fetch.includes('\n')||push.includes('\n')||fetch!==push) throw Error('AC coordination requires the same fetch and push URL.');

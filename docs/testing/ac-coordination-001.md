@@ -52,4 +52,8 @@ Locks require explicit cleanup after an interrupted process: stop all writers be
 
 Full hosted CI and human use of the new commands remain unobserved. Deterministic fixtures establish mechanics, not agent compliance. No new model calls were made. Archive, push and publication remain separate owner actions.
 
+## Hosted CI follow-up
+
+The first pushed implementation, `30ab6f2`, passed Linux on Node 22/24 and site deployment. Both Windows jobs failed the repository-root check: comparing path strings rejected valid Windows root spellings before shared allocation could run. The correction resolves both paths with native realpath and compares them using platform path semantics. A regression accepts Windows casing differences and still rejects a nested directory. Three focused Windows cases and the focused Linux root case pass locally; replacement hosted CI is pending. The original failure logs remain at `.tmp/ac-ci-windows-22.log` and `.tmp/ac-ci-windows-24.log`.
+
 The [structured evidence](ac-coordination-001.json) retains commands, input hashes and local output identities. The [decision](../decisions/029-optional-git-ac-coordination.md) records the product choice; the [proposal](../../openspec/changes/coordinate-parallel-ac-allocation/proposal.md) owns the delivery scope.
