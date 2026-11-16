@@ -27,4 +27,6 @@ None. Existing installation preservation requirements apply without a separate c
 
 AC allocation and prefix commands, project-owned coordination settings, local locking/recovery, installation preservation fixtures, and user guidance. Deterministic tests use disposable local Git remotes and independent clones; no hosted service or mandatory MCP integration is required.
 
-The [discovery](../../../docs/analysis/parallel-ac-allocation-discovery.md) reproduces the original duplicate allocation and tests the expected-tip publication primitive. The owner approved this proposal on November 16, 2026. The design and tasks describe implementation; this approval does not authorize archive or publication. No hosted reservation branch has been created.
+The [discovery](../../../../docs/analysis/parallel-ac-allocation-discovery.md) reproduces the original duplicate allocation and tests the expected-tip publication primitive. The owner approved this proposal on November 16, 2026. The design and tasks describe implementation; this approval does not authorize archive or publication. No hosted reservation branch has been created.
+
+The owner subsequently authorized closure after green CI. Native archive completed November 17, 2026 and created the permanent acceptance-id-coordination spec. Publication remains unselected.

@@ -201,6 +201,8 @@ test('ambiguous setup publication never permits silently joining a replacement a
 test('repository root comparison accepts Windows path spelling and rejects a subdirectory',t=>{
   const f=fixture(t,false),original=childProcess.execFileSync;
   if(process.platform==='win32') {
+    const short=original(process.env.ComSpec??'cmd.exe',['/d','/c','for %I in (.) do @echo %~fsI'],{cwd:f.a,encoding:'utf8',windowsHide:true}).trim();
+    assert.equal(coordinate(short,'origin').remote,'origin');
     childProcess.execFileSync=function(file,args,options){const result=original.call(this,file,args,options);if(file==='git'&&args[0]==='rev-parse'&&args[1]==='--show-toplevel'&&options.cwd===f.a)return result.toUpperCase();return result;};syncBuiltinESMExports();
     try{assert.equal(coordinate(f.a,'origin').remote,'origin');}finally{childProcess.execFileSync=original;syncBuiltinESMExports();}
   } else assert.equal(coordinate(f.a,'origin').remote,'origin');

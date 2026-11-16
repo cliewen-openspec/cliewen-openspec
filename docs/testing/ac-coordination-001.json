@@ -175,6 +175,62 @@
       ".tmp/ac-ci-root-fix-windows.log": "9de8dec6a4bfc0f3e8224b4d722a2f38c7b54926357b3e0cfccb79c5856d7a02",
       ".tmp/ac-ci-root-fix-linux.log": "bc6cc51d35c858d0245f405f5a7d0ad143f30b7bda3a841ed83006b34596c894"
     },
-    "replacementCI": "pending"
+    "replacementCI": {
+      "commit": "dd9b8c53ccd4817fd11f786c2ef507b7655a6f9d",
+      "run": 43974530671,
+      "result": "success",
+      "windows": {
+        "node": [
+          22,
+          24
+        ],
+        "passed": 135,
+        "skipped": 0
+      },
+      "linux": {
+        "node": [
+          22,
+          24
+        ],
+        "passed": 133,
+        "skipped": 2
+      },
+      "site": {
+        "run": 43974530645,
+        "result": "success"
+      },
+      "log": {
+        "path": ".tmp/ac-ci-dd9b8-tests.log",
+        "sha256": "02aaff1717be7ae3af6c3c6edd2b564c2cd1961bbebfecb1f129fa8816c56d28"
+      }
+    }
+  },
+  "closure": {
+    "authorizedBy": "Owner go after CI check and archive recommendation",
+    "archivedOn": "2026-11-17",
+    "path": "openspec/changes/archive/2026-11-17-coordinate-parallel-ac-allocation",
+    "permanentSpec": "openspec/specs/acceptance-id-coordination/spec.md",
+    "requirementsAdded": 5
+  },
+  "postCIRootProbe": {
+    "description": "Real Windows 8.3 alias and case variant; nested directory still rejected",
+    "testHash": "a512e20398cb46f145c786c84ef21e9d317691748200d77216dda929c2fbfc78",
+    "checks": [
+      {
+        "platform": "Windows",
+        "passed": 18,
+        "output": ".tmp/ac-ci-root-allocation-windows.log"
+      },
+      {
+        "platform": "Linux via WSL",
+        "passed": 18,
+        "output": ".tmp/ac-ci-root-allocation-linux.log"
+      }
+    ],
+    "outputs": {
+      ".tmp/ac-ci-root-alias-windows.log": "a3f5cd1880bcdfeb38fc3bb19e778391f6e11d37add3a109e2f4b5f74ccef20b",
+      ".tmp/ac-ci-root-allocation-windows.log": "18877372db0ac7611d72dd67a36f63c60b2c89814c58bd0a7c93bffc5d3fcbcf",
+      ".tmp/ac-ci-root-allocation-linux.log": "8ad1a09a12e364eb9d5b7e00c095fb67b5b070c74d1e2986ead4b22da99f87b5"
+    }
   }
 }

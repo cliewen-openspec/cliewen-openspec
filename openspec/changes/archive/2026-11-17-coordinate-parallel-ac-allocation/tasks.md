@@ -16,6 +16,6 @@
 
 ## Workflow follow-up
 
-- Review the implementation before archive; publication is a separate action.
+- The owner authorized archive after green CI; native archive completed November 17, 2026. Publication remains a separate action.
 
-Results and scope limits are in [the implementation review](../../../docs/testing/ac-coordination-001.md). Coordination-setting preservation is tested through the lifecycle API; existing packed lifecycle tests cover distribution and local adoption. No hosted CI or agent trial is credited.
+Results and scope limits are in [the implementation review](../../../../docs/testing/ac-coordination-001.md). Coordination-setting preservation is tested through the lifecycle API; existing packed lifecycle tests cover distribution and local adoption. Subsequent Windows/Linux Node 22/24 CI passed on dd9b8c5; no agent trial is credited.

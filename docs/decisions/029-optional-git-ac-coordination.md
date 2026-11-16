@@ -21,10 +21,10 @@ Keep project-owned coordination settings separate from the existing feature conf
 
 ## Acceptance and implementation
 
-The owner approved the [proposal](../../openspec/changes/coordinate-parallel-ac-allocation/proposal.md) and requested implementation on November 16, 2026. This refines the allocation priority in [configurable improvements on OpenSpec 2](028-configurable-improvements-on-openspec-2.md). Implementation details are recorded in the change design; archive and publication remain separate actions.
+The owner approved the [proposal](../../openspec/changes/archive/2026-11-17-coordinate-parallel-ac-allocation/proposal.md) and requested implementation on November 16, 2026. This refines the allocation priority in [configurable improvements on OpenSpec 2](028-configurable-improvements-on-openspec-2.md). Implementation details are recorded in the change design; archive and publication remain separate actions.
 
 Existing projects retain local mode until deliberate adoption. Every participating client needs a release containing the coordination commands; older local-only clients cannot honor the setting. Administrative rewriting of the allocator history invalidates its guarantee. Offline ranges and external providers remain deferred.
 
 ## Verification checkpoint
 
-The [implementation review](../testing/ac-coordination-001.md) records 134 passing Windows tests, 17 passing targeted Linux cases, strict native validation, and documentation checks. Hosted permissions and model compliance remain unobserved. The implementation is available in development source; publication and archive are pending.
+The [implementation review](../testing/ac-coordination-001.md) records local verification, the Windows path correction, and green Windows/Linux Node 22/24 CI on dd9b8c5. Hosted allocation permissions and model compliance remain unobserved. The owner authorized closure; native archive completed November 17, 2026 and created the permanent allocation spec. The implementation remains unreleased.

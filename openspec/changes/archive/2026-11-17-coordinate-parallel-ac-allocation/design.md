@@ -2,7 +2,7 @@
 
 ## Context
 
-The [discovery](../../../docs/analysis/parallel-ac-allocation-discovery.md) reproduces local duplicate allocation. OpenSpec owns workflow artifacts and archive. Its store feature shares specs through Git but provides no public acceptance-ID reservation API. Internal file-lock helpers are not a supported package extension point.
+The [discovery](../../../../docs/analysis/parallel-ac-allocation-discovery.md) reproduces local duplicate allocation. OpenSpec owns workflow artifacts and archive. Its store feature shares specs through Git but provides no public acceptance-ID reservation API. Internal file-lock helpers are not a supported package extension point.
 
 ## Goals / Non-Goals
 

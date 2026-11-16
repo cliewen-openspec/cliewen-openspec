@@ -56,4 +56,4 @@ No new agent run is needed for discovery. The transport probe leaves crash recov
 
 Deliver local/coordinated selection, explicit setup and sync, reservation/recovery, and coordinated prefix management together. These share one identity authority; shipping only remote `ac next` would leave rename and recovery able to break the guarantee. Defer offline ranges and provider adapters.
 
-The owner approved the [proposal](../../openspec/changes/coordinate-parallel-ac-allocation/proposal.md); [the implementation review](../testing/ac-coordination-001.md) records subsequent verification and limits. [The roadmap](../../plan.md) remains the planning authority. No remote allocation branch has been created in this project or any external repository.
+The owner approved the [proposal](../../openspec/changes/archive/2026-11-17-coordinate-parallel-ac-allocation/proposal.md); [the implementation review](../testing/ac-coordination-001.md) records subsequent verification and limits. [The roadmap](../../plan.md) remains the planning authority. No remote allocation branch has been created in this project or any external repository.
