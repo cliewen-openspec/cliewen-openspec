@@ -9,7 +9,7 @@ Version 0.2.0 is published. Its roadmap and organization hosting are complete wi
 
 | Order | Work | Completion criterion | Status |
 |---|---|---|---|
-| 1 | Support OpenSpec 2 | Verify repository-local workflows, skill migration and ownership, document compatibility, and refactor only where the new integration requires it | Discovery recorded; 2.0.0 installed locally and globally; proposal approved November 16, 2026 |
+| 1 | Support OpenSpec 2 | Verify repository-local workflows, skill migration and ownership, document compatibility, and refactor only where the new integration requires it | Implemented in source; [117-test review and limits](docs/testing/openspec-2-001.md); CI and archive pending |
 | 2 | Allocate acceptance IDs safely during parallel work | Keep simple local allocation for serialized work; offer explicit coordination for concurrent branches, clones, or agents; prove uniqueness and safe failure | Selected; design follows increment 1 |
 | 3 | Find relevant project context | Reuse native OpenSpec context, then fill demonstrated gaps in finding current specs, decisions, constraints, and learning; show sources and omitted scope | Selected; compare native capabilities first |
 | 4 | Check documentation consistency | Configurable checks catch broken local references, invalid supported metadata, and unrenderable diagrams without claiming factual correctness | Selected |

@@ -77,7 +77,7 @@ test('all apply branches expose closure without adding an artifact or policy set
   }
 });
 
-for (const version of ['1.15.0', '1.17.0']) test(`packed closure guidance and native archive on OpenSpec ${version}`, {timeout: 120000}, t => {
+for (const version of ['1.15.0', '1.17.0', '2.0.0']) test(`packed closure guidance and native archive on OpenSpec ${version}`, {timeout: 120000}, t => {
   const root = temporary(t);
   const npm = process.env.npm_execpath; assert.ok(npm, 'Run through npm test');
   const env = {...process.env, OPENSPEC_TELEMETRY: '0', CI: '1'}; delete env.NODE_TEST_CONTEXT;

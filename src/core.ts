@@ -344,8 +344,23 @@ function planInit(root: string, makeDefault: boolean): Record<string, string | n
 }
 
 export type LifecycleResult = {writes: string[]; deletes: string[]; creates: string[]; replaces: string[]; installedVersion: string | null; targetVersion: string; compatibility: Compatibility; recoveredTransaction: boolean};
+function requireLocalPlanning(root: string): void {
+  const yaml = local(root, 'openspec/config.yaml');
+  const file = fs.existsSync(yaml) ? yaml : local(root, 'openspec/config.yml');
+  const doc = parseDocument(fs.existsSync(file) ? read(file) : '{}');
+  if (doc.errors.length) throw Error(`Invalid OpenSpec config: ${doc.errors[0].message}`);
+  if (doc.contents !== null && !isMap(doc.contents)) throw Error('OpenSpec config must be a YAML mapping');
+  const pointer = doc.has('store');
+  const standalone = fs.existsSync(local(root, '.openspec-store/store.yaml'));
+  const localDirs = ['openspec/specs', 'openspec/changes'].every(p => {
+    const target = local(root, p);
+    return fs.existsSync(target) && fs.statSync(target).isDirectory();
+  });
+  if (standalone || (pointer && !localDirs)) throw Error('External OpenSpec stores are not supported by Cliewen init/update. Use a repository-local OpenSpec project with its own specs and changes; cross-repository acceptance identities and evidence require separate support. No files changed.');
+}
 export function lifecycle(root: string, operation: 'init' | 'update', dryRun = false, makeDefault = false): LifecycleResult {
   const tools = compatibility(root);
+  requireLocalPlanning(root);
   const pending = fs.existsSync(local(root, `${state}/transaction.json`));
   if (pending && dryRun) throw Error('Interrupted transaction exists; run recover before preview. No preview files changed.');
   if (pending) recover(root);

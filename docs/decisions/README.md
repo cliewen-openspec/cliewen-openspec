@@ -9,7 +9,7 @@ These records capture choices confirmed in the project conversation. Acceptance 
 
 | Record | Decision | Current scope |
 |---|---|---|
-| [Prioritize OpenSpec 2 and configurable project improvements](028-configurable-improvements-on-openspec-2.md) | OpenSpec 2 first, then allocation, context, documentation checks, and CI inspection | Direction accepted; discovery and dependency installation complete; product deliveries pending |
+| [Prioritize OpenSpec 2 and configurable project improvements](028-configurable-improvements-on-openspec-2.md) | OpenSpec 2 first, then allocation, context, documentation checks, and CI inspection | First increment implemented in source; 117 tests pass; CI and archive pending |
 | [Host the introduction and guide at the organization address](027-organization-guide-address.md) | Short root introduction, guide under `/guide/`, one source, and preserved old links | Address layout accepted; home, guide, and all 13 legacy redirects live and verified; archived November 16, 2026 |
 | [Decision 026: Make human review useful without routine approval gates](026-meaningful-human-review-and-verification.md) | Readable decision material, attributed observations, and automation before manual requests | Implementation and limits accepted November 11, 2026; archived November 11, 2026; agent compliance unobserved |
 | [Decision 025: Explain intent and journeys without duplicating specs](025-product-intent-and-user-journeys.md) | Optional intent and journeys detect drift and scope creep without duplicating specs or planning authority | Implementation accepted and archived November 10, 2026. Agent behavior remains for the release trials. |

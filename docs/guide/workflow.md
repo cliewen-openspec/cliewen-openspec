@@ -227,7 +227,7 @@ A delivery follows its existing test and evidence contract. Discovery and combin
 
 ### Use the reference from a separate archive session
 
-OpenSpec 1.15.0 and 1.17.0 expose advisory archive inputs. For a repository-local Cliewen installation, add this entry to `openspec/config.yaml` if you want the archive skill to find the reference independently:
+OpenSpec 1.15.0, 1.17.0, and 2.0.0 expose advisory archive inputs. For a repository-local Cliewen installation, add this entry to `openspec/config.yaml` if you want the archive skill to find the reference independently:
 
 ```yaml
 operations:

@@ -9,7 +9,7 @@ Version 0.2.0 adds tool checks and a reviewable upgrade path from published 0.1.
 
 ## Check the requirements
 
-Before installing a package, read its [version requirements](../configuration.md#version-compatibility). Version 0.2.0 checks Node 20.19+ and OpenSpec 1.15.0+ before every init/update, including dry runs. OpenSpec 1.17.0 installed through npm needs Node 22.12+ itself. Use a compatible installation rather than assuming Cliewen's Node floor covers every OpenSpec release.
+Before installing a package, read its [version requirements](../configuration.md#version-compatibility). Version 0.2.0 checks Node 20.19+ and OpenSpec 1.15.0+ before every init/update, including dry runs. OpenSpec 1.17.0 or 2.0.0 installed through npm needs Node 22.12+ itself. Use a compatible installation rather than assuming Cliewen's Node floor covers every OpenSpec release.
 
 The check prefers the project's OpenSpec npm installation; otherwise it uses PATH. It runs the selected CLI and reports its source and version. A broken or incompatible local installation blocks the operation even if a newer global version exists. Resolve the reported installation before continuing. Cliewen does not install or upgrade OpenSpec for you.
 
@@ -70,3 +70,21 @@ Use `cliewen-discovery` or `cliewen-all` in the validation command for another w
 Commit the intended inputs before collecting fresh evidence for a delivery change. An old report is not rewritten or removed by update; revision freshness and contract checks can require recollection. Discovery and combined no-delivery outcomes retain their documented review-only evidence behavior. The [evidence guide](../testing/evidence.md) explains collection and scope.
 
 The bundle includes an owned learning template and shared learnings/Humanizer instructions. Configuration can omit both settings; learnings default off and Humanizer defaults to auto. Update does not create a knowledge collection, rewrite notes, or install an external skill. See [the settings and host limits](../configuration.md#project-learnings) before opting in.
+
+## Move to OpenSpec 2
+
+OpenSpec 2 stores native skills in `.agents/skills/` and uses links or fallback copies for tools that need their own directory. It replaces the old `/opsx:` command files with skills. Ask the agent to propose, apply, or archive a change, or invoke the native skill by name, such as `/openspec-propose` in Claude Code or `$openspec-propose` in Codex.
+
+Commit current work and customized native skills before upgrading. OpenSpec refreshes its canonical skills and can replace edits there. Keep lasting project guidance in `openspec/config.yaml` or a separately named project skill.
+
+```sh
+npm install --save-dev --save-exact @fission-ai/openspec@2.0.0
+npx --no-install openspec update --dry-run
+npx --no-install openspec update
+```
+
+The first command changes the dependency and lockfile. The preview reports integration changes; update applies them. Review the diff and any retained customized command or skill copies. Remove duplicates only after preserving useful instructions. Cliewen's resource update is a separate operation.
+
+On Windows, committed links need Developer Mode and Git's `core.symlinks` enabled. If links check out as text files, native update restores tool skill copies. See [OpenSpec's upgrade instructions](https://openspec.dev/docs/upgrade-to-2) for the supported setup and customization rules.
+
+Development-source Cliewen checks cover repository-local OpenSpec 2 workflows. External stores and multi-repo evidence require separate support; source init/update reject those layouts before recovery or installation writes. Published 0.2.0 predates these new layout checks. Use a project with local specs and changes for this integration.

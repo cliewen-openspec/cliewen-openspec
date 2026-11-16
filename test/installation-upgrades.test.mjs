@@ -31,6 +31,28 @@ function snapshot(root) {
 }
 function withPath(value,fn) { const previous=process.env.PATH;process.env.PATH=value;try{return fn();}finally{if(previous===undefined)delete process.env.PATH;else process.env.PATH=previous;} }
 
+test('store layouts and malformed config fail before recovery while local precedence remains usable',t=>{
+  for(const layout of ['store-only','store-yml','partial','standalone','malformed']){
+    const root=fixture(t);localTool(root);init(root,false,false);
+    if(layout==='store-only'||layout==='store-yml'||layout==='partial'){
+      fs.rmdirSync(path.join(root,'openspec/specs'));
+      if(layout!=='partial')fs.rmdirSync(path.join(root,'openspec/changes'));
+      write(root,'openspec/config.yaml','store: team-plans\n');
+      if(layout==='store-yml')fs.renameSync(path.join(root,'openspec/config.yaml'),path.join(root,'openspec/config.yml'));
+    }
+    if(layout==='standalone')write(root,'.openspec-store/store.yaml','id: team-plans\n');
+    if(layout==='malformed')write(root,'openspec/config.yaml','store: [\n');
+    write(root,'.cliewen-openspec/transaction.json',JSON.stringify({files:{'docs/authored.md':'must not recover'}}));
+    const before=snapshot(root);
+    for(const operation of ['init','update'])for(const dry of [true,false]){
+      assert.throws(()=>lifecycle(root,operation,dry),/External OpenSpec stores|Invalid OpenSpec config/);
+      assert.deepEqual(snapshot(root),before);
+    }
+  }
+  const root=fixture(t);localTool(root);const config='schema: spec-driven\nstore: team-plans\n';write(root,'openspec/config.yaml',config);
+  init(root,false,false);assert.deepEqual(update(root).writes,[]);assert.equal(fs.readFileSync(path.join(root,'openspec/config.yaml'),'utf8'),config);
+});
+
 test('release minimums use numerical stable-version comparisons and declared source routes',()=>{
   assert.deepEqual(requirements,{node:'20.19.0',openspec:'1.15.0'});
   assert.equal(JSON.parse(fs.readFileSync(path.join(source,'package.json'),'utf8')).engines.node,`>=${requirements.node}`);

@@ -22,3 +22,7 @@ Use discovery where consequential uncertainty remains. Prefer native OpenSpec ca
 The owner selected all four improvements, prioritized allocation above context and documentation, and made OpenSpec 2 support the first priority on November 16, 2026. The owner also authorized installation of 2.0.0. This accepts direction and ordering, not unreviewed configuration names, a new minimum version, multi-repo support, or publication.
 
 The [roadmap](../../plan.md) owns scope and progress. The [initial discovery](../analysis/openspec-2-discovery.md) distinguishes observed compatibility from remaining checks. This extends [OpenSpec-native planning and closure](023-openspec-native-planning-and-closure.md) without superseding it.
+
+## Implementation checkpoint
+
+Repository-local OpenSpec 2 support is implemented in development source. The [compatibility review](../testing/openspec-2-001.md) records 117 passing tests, native skill migration and ownership observations, documentation checks, and unobserved CI and fallback-generation limits. The first increment keeps the existing product minimums; it adds no new configuration or evidence format. Archive and publication remain separate actions.

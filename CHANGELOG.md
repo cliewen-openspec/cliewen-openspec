@@ -4,6 +4,8 @@ Changes that matter to projects using Cliewen for OpenSpec.
 
 ## Unreleased
 
+- Development now targets repository-local OpenSpec 2.0.0. Init and update reject external-store layouts before changing files or recovering transactions, with an explanation of the supported setup. OpenSpec 2 requires Node 22.12+ when installed through npm; Cliewen's existing minimums remain unchanged. See [upgrading OpenSpec](docs/guide/updating.md#move-to-openspec-2).
+
 ## 0.2.0 (2026-11-13)
 
 - Agents now assess automation before requesting manual work and explain any remaining human contribution. Shared guidance helps them prepare concise decision material and retain concrete human observations without treating feedback as release authorization. Existing configuration and evidence formats are unchanged. See [human review and verification](docs/guide/workflow.md#make-decisions-easy-to-assess).

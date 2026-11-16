@@ -9,7 +9,11 @@ This reference describes version `0.2.0`. The earlier published `0.1.0-alpha.1` 
 
 ## Version compatibility
 
-Cliewen requires **OpenSpec 1.15.0 or newer**, **Node.js 20.19 or newer**, and Git. Current development pins OpenSpec 1.17.0. The published 0.1.0 release was checked with OpenSpec 1.15.0; 0.2.0 checks cover OpenSpec 1.15.0 and 1.17.0.
+Cliewen requires **OpenSpec 1.15.0 or newer**, **Node.js 20.19 or newer**, and Git. Current development pins OpenSpec 2.0.0. The published 0.1.0 release was checked with OpenSpec 1.15.0; 0.2.0 checks cover OpenSpec 1.15.0 and 1.17.0.
+
+Development-source checks now cover repository-local OpenSpec 2.0.0 workflows. This does not change the published 0.2.0 verification record. External stores and multi-repo evidence remain unsupported. Source init/update reject standalone stores and declared external planning layouts before recovery or writes; local specs and changes take precedence when both exist.
+
+Development-source checks now cover repository-local OpenSpec 2.0.0 workflows. This does not change the published 0.2.0 verification record. External stores and multi-repo evidence remain unsupported. Source init/update reject standalone stores and declared external planning layouts before recovery or writes; local specs and changes take precedence when both exist.
 
 OpenSpec has its own installation requirements:
 
@@ -17,10 +21,10 @@ OpenSpec has its own installation requirements:
 |---|---|
 | Cliewen CLI | Node 20.19+ |
 | OpenSpec 1.15.0 via npm | Compatible with the Cliewen Node 20.19 minimum |
-| OpenSpec 1.17.0 via npm | Node 22.12+ |
+| OpenSpec 1.17.0 or 2.0.0 via npm | Node 22.12+ |
 | OpenSpec standalone binary | No Node runtime for OpenSpec itself; Cliewen still needs Node |
 
-On Node 20.19, pin `@fission-ai/openspec@1.15.0` or use a compatible OpenSpec standalone installation. The current worked npm guide uses OpenSpec 1.17.0 and therefore requires Node 22.12+. See [OpenSpec's release notes](https://github.com/Fission-AI/OpenSpec/blob/main/CHANGELOG.md) for its own runtime requirements.
+On Node 20.19, pin `@fission-ai/openspec@1.15.0` or use a compatible OpenSpec standalone installation. The current worked npm guide uses OpenSpec 2.0.0 and therefore requires Node 22.12+. See [OpenSpec's release notes](https://github.com/Fission-AI/OpenSpec/blob/main/CHANGELOG.md) for its own runtime requirements.
 
 The minimum is a compatibility floor, not proof that every newer release has been tested. A future Cliewen release may raise its OpenSpec or Node minimum. Review that release's requirements before upgrading.
 
