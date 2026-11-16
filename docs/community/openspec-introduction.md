@@ -3,7 +3,7 @@ type: draft
 ---
 # Introduce Cliewen for OpenSpec
 
-Unsent draft for the owner's review, updated November 16, 2026 for published 0.2.0 and the organization guide. No issue, PR, or message has been sent to OpenSpec.
+The owner approved the introduction text on November 16, 2026. Submission is deferred until the owner explicitly says the project is ready to contact OpenSpec. No issue, PR, or message has been sent. The text below describes published 0.2.0 and the organization guide; refresh its facts and upstream instructions before any future submission.
 
 ## Submission route
 

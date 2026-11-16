@@ -9,10 +9,13 @@ Version 0.2.0 is published. Its five roadmap increments and philosophy guide are
 
 | Order | Work | Completion criterion | Status |
 |---|---|---|---|
-| 1 | Review the OpenSpec introduction | Owner reviews the current release description and decides whether to submit a community-catalog issue | [Updated draft](docs/community/openspec-introduction.md); unsent |
-| 2 | Select the next improvement from actual use | Identify a concrete problem, intended outcome, scope, and useful verification before preparing a proposal | Awaiting selection |
+| 1 | Select the next improvement from actual use | Identify a concrete problem, intended outcome, scope, and useful verification before preparing a proposal | Awaiting selection |
 
 External outreach and another package release require their corresponding owner instructions. Hosting closure does not authorize either.
+
+## Deferred outreach
+
+The owner approved [the OpenSpec introduction text](docs/community/openspec-introduction.md) on November 16, 2026, and explicitly deferred submission until they judge the project ready. Keep it unsent, with no automatic issue creation or scheduled contact. Refresh release facts and upstream instructions before any future submission authorized by the owner.
 
 ## Completed work
 
