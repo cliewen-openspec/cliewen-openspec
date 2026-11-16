@@ -85,7 +85,7 @@ After reviewing the assertions and evidence, archive with OpenSpec. Commit the a
 - [Website](https://cliewen-openspec.github.io/)
 - [Credits](CREDITS.md)
 
-Implemented commands: `init`, `update`, `uninstall`, `ac next`, `ac rename-prefix`, `check` and `recover`. Review generated/resource changes before applying them. [Uninstall](docs/guide/uninstalling.md) preserves project data and requires an explicit replacement when removing the selected default. Tests never establish assertion quality automatically.
+Implemented commands: `init`, `update`, `uninstall`, `ac next`, `ac rename-prefix`, `check` and `recover`. Development source also adds `ac coordinate`, `ac sync`, `ac resume`, and `ac abandon` for [optional parallel allocation](docs/guide/cli.md#ac-coordinate-sync-resume-and-abandon); published 0.2.0 does not include them. Review generated/resource changes before applying them. [Uninstall](docs/guide/uninstalling.md) preserves project data and requires an explicit replacement when removing the selected default. Tests never establish assertion quality automatically.
 
 ## Development checks
 

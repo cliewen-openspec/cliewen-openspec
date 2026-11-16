@@ -58,7 +58,7 @@ cliewen-openspec ac next EXP
 
 Allocates one ID and writes the registry. The capability must be registered in `ac.capabilities`. The positional form accepts only a registered active prefix. There is no implicit global prefix. This command has no dry-run or JSON option.
 
-The allocator considers the stored high-water mark and bracketed IDs in OpenSpec Markdown, including active and archived changes. Commit the registry; parallel branches still need collision resolution. See [AC configuration](../configuration.md#acceptance-criterion-ids).
+The allocator considers the stored high-water mark and bracketed IDs in OpenSpec Markdown, including active and archived changes. Commit the registry. Local mode does not coordinate independent clones; development source adds [optional Git coordination](#ac-coordinate-sync-resume-and-abandon).
 
 ## ac rename-prefix
 
@@ -67,6 +67,36 @@ cliewen-openspec ac rename-prefix csv-export EXPORT
 ```
 
 Updates config and registry together. It preserves existing IDs and continues the capability's number sequence. The old prefix stays reserved and cannot allocate new IDs. The command rejects prefixes owned by another capability, historical prefixes, and target prefixes already present in OpenSpec documents. It has no dry-run or JSON option.
+
+## ac coordinate, sync, resume, and abandon
+
+These commands are available in development source, after published 0.2.0. Local allocation remains the default. Choose coordination for concurrent agents or contributors, including solo projects using several clones or worktrees.
+
+```sh
+cliewen-openspec ac coordinate origin
+cliewen-openspec ac coordinate origin --apply
+cliewen-openspec ac sync
+cliewen-openspec ac next --capability csv-export
+```
+
+The first command previews the shared ref and starting counters. It reads the selected remote and may populate Git's object cache, but changes no project files or remote reservations. `--apply` publishes the seed to `refs/heads/cliewen/ac-allocator` and selects that authority in `.cliewen-openspec/ac-coordination.json`. Commit this settings file and the registry. Setup and allocation use the same single fetch/push destination; they never push your integration branch.
+
+Run setup from a reconciled project baseline before parallel work. Upgrade all participating clients to a version containing these commands. Old clients ignore coordination settings and cannot guarantee unique reservations. Teammates pull the settings and registry, then run `ac sync`. Sync reads the authority and refreshes local counters and compatible prefix mappings; it does not allocate. If local reservations exceed the authority, preview and apply setup again to seed them before parallel use.
+
+Normal `ac next` and `ac rename-prefix` now use the shared authority. Allocation requires online write access. Missing or replaced authority state, conflicting mappings, denied access and outages fail without local fallback. If setup was interrupted, repeat `ac coordinate` with the original remote and `--apply`; a retained setup marker blocks allocation until completion. Never reset, delete, or rewrite the allocator ref: it preserves permanent reservations and retry identities.
+
+If another clone wins first-time setup, Git's explicit creation rejection is retained so repeating setup can join that winner. An uncertain push outcome does not allow joining a different authority automatically. Git discovery errors also stop allocation; repair Git access rather than changing or removing recovery state.
+
+```sh
+cliewen-openspec ac resume
+cliewen-openspec ac abandon
+```
+
+After an interrupted request, `resume` reconciles its existing result before requesting anything new. A published reservation stays reserved even if the local write failed. `abandon` explicitly clears the pending request after checking the authority; any published number remains consumed. These commands use local Git metadata to retain the request and require the selected authority to be reachable. They have no dry-run or `--json` flag.
+
+State writes hold an exclusive local lock. After a crash, a leftover lock blocks new writers rather than being stolen automatically. The error gives its path. Stop all Cliewen writers for that worktree before removing only that stale lock, then resume the request. Git projects keep runtime files under Git metadata; non-Git local projects use a machine-temporary directory identified by the error.
+
+To return to local allocation, finish or abandon pending requests, run `ac sync`, and change the project-owned coordination file to `{"version":1,"mode":"local"}`. Commit that choice. This ends cross-clone uniqueness protection; serialize subsequent work. Ordinary init, update and uninstall preserve this file and do not change the shared ref.
 
 ## check
 

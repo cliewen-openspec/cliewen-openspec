@@ -253,7 +253,19 @@ cliewen-openspec ac next EXP                      # Same registered sequence as 
 
 `padding` is the minimum number of digits, from 1 to 12. For example, 1 produces `EXP-1`, 3 produces `EXP-001`, and 4 produces `EXP-0001`. Numbers grow beyond the minimum width without truncation. The separator is always a hyphen; arbitrary ID templates are not supported.
 
-Each capability owns one numeric sequence. The allocator consults the committed `.cliewen-openspec/ac-registry.json` and existing OpenSpec Markdown, including active and archived changes. It never reclaims allocated numbers. Changing padding continues the same sequence and does not rewrite existing IDs. Commit the registry together with config and specs. Parallel branches still need collision resolution; this allocator supports sequential work rather than distributed allocation.
+Each capability owns one numeric sequence. The allocator consults the committed `.cliewen-openspec/ac-registry.json` and existing OpenSpec Markdown, including active and archived changes. It never reclaims allocated numbers. Changing padding continues the same sequence and does not rewrite existing IDs. Commit the registry together with config and specs. Published 0.2.0 supports sequential local allocation; independent branches can collide.
+
+### Optional coordination in development source
+
+Development source adds explicit Git coordination and serializes local writers in one worktree. Missing `.cliewen-openspec/ac-coordination.json` means local mode, with no network access for allocation. The file is project-owned and independent of `features` settings.
+
+```json
+{"version":1,"mode":"local"}
+```
+
+Use `ac coordinate origin` to preview and `ac coordinate origin --apply` to select Git mode. Setup writes a version-1 JSON file with `mode: "git"`, `remote`, and an authority UUID; do not fabricate or edit that identity. Git mode reserves through one dedicated remote ref before returning an ID. Fetch and push URLs must match and select one destination. Setup preserves known counters and retired prefixes.
+
+Choose by concurrency, not team size. One person running concurrent agents can need coordination; a team that serializes allocation can keep local mode. Coordinated allocation needs online write access and never falls back to local on failure. See [setup, sync and recovery](guide/cli.md#ac-coordinate-sync-resume-and-abandon) for executable commands, adoption requirements, locks, and returning to local mode. Offline ranges and external registry adapters are not implemented.
 
 ### Renaming a prefix
 

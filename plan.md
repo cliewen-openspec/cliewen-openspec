@@ -10,7 +10,7 @@ Version 0.2.0 is published. Its roadmap and organization hosting are complete wi
 | Order | Work | Completion criterion | Status |
 |---|---|---|---|
 | 1 | Support OpenSpec 2 | Verify repository-local workflows, skill migration and ownership, document compatibility, and refactor only where the new integration requires it | Implemented; 117 tests and CI pass; [one agent attempt](docs/testing/openspec-2-agent-001.md) timed out after a technically passing archived result; archived November 16, 2026 |
-| 2 | Allocate acceptance IDs safely during parallel work | Keep simple local allocation for serialized work; offer explicit coordination for concurrent branches, clones, or agents; prove uniqueness and safe failure | Selected; design follows increment 1 |
+| 2 | Allocate acceptance IDs safely during parallel work | Keep simple local allocation for serialized work; offer explicit coordination for concurrent branches, clones, or agents; prove uniqueness and safe failure | Implemented in source; [review and limits](docs/testing/ac-coordination-001.md): 134 Windows tests, 17 targeted Linux tests; review, CI and archive pending |
 | 3 | Find relevant project context | Reuse native OpenSpec context, then fill demonstrated gaps in finding current specs, decisions, constraints, and learning; show sources and omitted scope | Selected; compare native capabilities first |
 | 4 | Check documentation consistency | Configurable checks catch broken local references, invalid supported metadata, and unrenderable diagrams without claiming factual correctness | Selected |
 | 5 | Report whether CI checks are enforced | Optional read-only inspection distinguishes required checks, missing enforcement, and unavailable host information; respect the project's integration policy | Selected |
@@ -66,7 +66,7 @@ Maintain affected documentation, decisions, and tests with implementation. Respe
 
 Follow [proportionate agent validation](docs/decisions/022-proportionate-agent-validation.md): targeted trials for major changes and at least one representative independently reviewed success per release cycle. The 0.2.0 checkpoint has an explicitly accepted release-specific disposition. It adds no post-release repetition or future model/schema matrix. Preserve failures and support limits; use deterministic checks for small fixes and maintainer tooling.
 
-Keep release-specific tool minimums explicit and check them at init/update. The current minimums are OpenSpec 1.15.0+ and Node 20.19+; the documented OpenSpec 1.17.0 npm installation needs Node 22.12+. See [version compatibility](docs/configuration.md#version-compatibility). Future requirements or upgrade routes must explain compatibility before writes, without silently upgrading OpenSpec or relabeling unsupported manifests.
+Keep release-specific tool minimums explicit and check them at init/update. The current minimums are OpenSpec 1.15.0+ and Node 20.19+; the documented OpenSpec 2.0.0 npm installation needs Node 22.12+. See [version compatibility](docs/configuration.md#version-compatibility). Future requirements or upgrade routes must explain compatibility before writes, without silently upgrading OpenSpec or relabeling unsupported manifests.
 
 ## Deferred ideas
 

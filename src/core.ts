@@ -1,3 +1,4 @@
+import {withStateLock} from './state-lock.js';
 import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
@@ -127,6 +128,9 @@ export function config(root: string): Config {
 }
 type Journal = { files: Record<string, string | null> };
 export function transaction(root: string, writes: Record<string, string | null>, dryRun = false) {
+  return dryRun ? transact(root, writes, true) : withStateLock(root, () => transact(root, writes, false));
+}
+function transact(root: string, writes: Record<string, string | null>, dryRun = false) {
   const jp = local(root, `${state}/transaction.json`);
   if (fs.existsSync(jp)) throw Error('Interrupted transaction exists; run recover before writing.');
   for (const p of Object.keys(writes)) local(root, p);
@@ -145,6 +149,9 @@ export function transaction(root: string, writes: Record<string, string | null>,
   return Object.keys(writes);
 }
 export function recover(root: string) {
+  return withStateLock(root, () => recoverState(root));
+}
+function recoverState(root: string) {
   const jp = local(root, `${state}/transaction.json`);
   if (!fs.existsSync(jp)) return;
   const j = JSON.parse(read(jp)) as Journal;
@@ -211,6 +218,9 @@ function validateReplacementSchema(root: string, name: string): void {
 }
 
 export function uninstall(root: string, dryRun = false, replacement?: string): { writes: string[]; deletes: string[] } {
+  return dryRun ? planUninstall(root, true, replacement) : withStateLock(root, () => planUninstall(root, false, replacement));
+}
+function planUninstall(root: string, dryRun: boolean, replacement?: string): {writes: string[]; deletes: string[]} {
   if (!dryRun) recover(root);
   else if (fs.existsSync(local(root, `${state}/transaction.json`))) throw Error('Interrupted transaction exists; run recover before uninstall preview.');
   const manifest = ownedManifest(root, 'uninstall');
@@ -361,6 +371,9 @@ function requireLocalPlanning(root: string): void {
 export function lifecycle(root: string, operation: 'init' | 'update', dryRun = false, makeDefault = false): LifecycleResult {
   const tools = compatibility(root);
   requireLocalPlanning(root);
+  return dryRun ? applyLifecycle(root, operation, dryRun, makeDefault, tools) : withStateLock(root, () => applyLifecycle(root, operation, dryRun, makeDefault, tools));
+}
+function applyLifecycle(root: string, operation: 'init' | 'update', dryRun: boolean, makeDefault: boolean, tools: Compatibility): LifecycleResult {
   const pending = fs.existsSync(local(root, `${state}/transaction.json`));
   if (pending && dryRun) throw Error('Interrupted transaction exists; run recover before preview. No preview files changed.');
   if (pending) recover(root);

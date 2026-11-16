@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import {coordinate, syncIds, resumeIds, abandonRequest} from './ac-coordination.js';
 import path from 'node:path';
 import { check, lifecycle, uninstall, nextId, renamePrefix, capabilityForPrefix, recover, version } from './core.js';
 
@@ -12,7 +13,9 @@ try {
   const change = option('--change');
   const capability = option('--capability');
   const replacement = option('--default-schema');
+  const apply = flag('--apply');
   const command = args.shift();
+  if (apply && (command !== 'ac' || args[0] !== 'coordinate')) throw Error('--apply is supported only by ac coordinate');
   if (dry && !['init', 'update', 'uninstall'].includes(command ?? '')) throw Error('--dry-run is supported only by init, update, and uninstall');
   if (replacement !== undefined && command !== 'uninstall') throw Error('--default-schema is supported only by uninstall');
   if (makeDefault && command !== 'init') throw Error('--default is supported only by init');
@@ -23,12 +26,16 @@ try {
   if (capability && (command !== 'ac' || args[0] !== 'next')) throw Error('--capability is supported only by ac next');
   if (command === 'ac') {
     const action = args.shift();
-    if (action === 'next') {
+    if (action === 'coordinate' && args.length===1) console.log(JSON.stringify(coordinate(root,args[0],apply),null,2));
+    else if (action === 'sync' && !args.length) console.log(JSON.stringify(syncIds(root),null,2));
+    else if (action === 'abandon' && !args.length) console.log(abandonRequest(root));
+    else if (action === 'resume' && !args.length) { const result=resumeIds(root); console.log(result??'Prefix reservation recovered'); }
+    else if (action === 'next') {
       if (capability ? args.length !== 0 : args.length !== 1) throw Error('Use ac next --capability NAME (or ac next PREFIX for a registered active prefix)');
       console.log(nextId(root, capability ?? capabilityForPrefix(root, args[0])));
     } else if (action === 'rename-prefix' && args.length === 2) {
       renamePrefix(root, args[0], args[1]); console.log(`Prefix updated for ${args[0]}: ${args[1]}`);
-    } else throw Error('Use ac next --capability NAME or ac rename-prefix CAPABILITY PREFIX');
+    } else throw Error('Use ac next --capability NAME, ac rename-prefix CAPABILITY PREFIX, ac coordinate REMOTE [--apply], ac sync, ac resume, or ac abandon');
   }
   else if (args.length) throw Error(`Unexpected arguments: ${args.join(' ')}`);
   else if (command === '--version') console.log(version);
@@ -40,7 +47,7 @@ try {
     const findings = check(root, change, failPending); const ok = !findings.some(f => f.severity === 'error');
     console.log(json ? JSON.stringify({ ok, findings }, null, 2) : findings.map(f => `${f.severity.toUpperCase()} ${f.code}: ${f.message}`).join('\n'));
     process.exitCode = ok ? 0 : 1;
-  } else if (!command || command === '--help') console.log('cliewen-openspec\ninit [--default] [--dry-run]\nupdate [--dry-run] [--json]\nuninstall [--default-schema NAME] [--dry-run] [--json]\nac next --capability NAME\nac next PREFIX (registered active prefix only)\nac rename-prefix CAPABILITY PREFIX\ncheck [--change NAME] [--json] [--fail-on-pending]\nrecover\nAll commands accept --root PATH.');
+  } else if (!command || command === '--help') console.log('cliewen-openspec\ninit [--default] [--dry-run]\nupdate [--dry-run] [--json]\nuninstall [--default-schema NAME] [--dry-run] [--json]\nac next --capability NAME\nac next PREFIX (registered active prefix only)\nac rename-prefix CAPABILITY PREFIX\nac coordinate REMOTE [--apply] (preview by default)\nac sync\nac resume\nac abandon\ncheck [--change NAME] [--json] [--fail-on-pending]\nrecover\nAll commands accept --root PATH.');
   else throw Error(`Unknown command: ${command}`);
 } catch (e) {
   const message = e instanceof Error ? e.message : String(e);

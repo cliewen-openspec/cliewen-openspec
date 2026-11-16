@@ -1,9 +1,11 @@
+import {coordinationSettings, reserve, assertNoPendingLocal} from './ac-coordination.js';
+import {withStateLock} from './state-lock.js';
 import fs from 'node:fs';
 import { parseDocument } from 'yaml';
 import { config, local, markdowns, recover, transaction, type Config } from './core.js';
 
-type Sequence = { prefix: string; previousPrefixes: string[]; highWater: number };
-type Registry = { version: 2; capabilities: Record<string, Sequence>; unassignedPrefixes: Record<string, number> };
+export type Sequence = { prefix: string; previousPrefixes: string[]; highWater: number };
+export type Registry = { version: 2; capabilities: Record<string, Sequence>; unassignedPrefixes: Record<string, number> };
 const registryPath = '.cliewen-openspec/ac-registry.json';
 const configPath = '.cliewen-openspec/config.yaml';
 const validPrefix = (s: string) => /^[A-Z][A-Z0-9]*$/.test(s);
@@ -15,6 +17,9 @@ const json = (o: unknown) => JSON.stringify(o, null, 2) + '\n';
 export function validateRegistry(root: string, c: Config): Registry {
   const dest = local(root, registryPath);
   const raw = fs.existsSync(dest) ? JSON.parse(read(dest)) : {};
+  return parseRegistry(raw, c);
+}
+export function parseRegistry(raw: any, c: Config): Registry {
   if (!raw || typeof raw !== 'object' || Array.isArray(raw)) throw Error('Invalid AC registry');
   let r: Registry;
   if (!Object.hasOwn(raw, 'version')) {
@@ -55,7 +60,7 @@ export function validateRegistry(root: string, c: Config): Registry {
   return r;
 }
 
-function maximum(root: string, record: Sequence): number {
+export function maximum(root: string, record: Sequence): number {
   let max = record.highWater;
   const prefixes = new Set([record.prefix, ...record.previousPrefixes]);
   for (const file of markdowns(local(root, 'openspec'))) {
@@ -68,8 +73,13 @@ function maximum(root: string, record: Sequence): number {
 }
 
 export function nextId(root: string, capability: string): string {
+  return withStateLock(root, () => allocate(root, capability));
+}
+function allocate(root: string, capability: string): string {
   recover(root);
   const c = config(root), r = validateRegistry(root, c);
+  if (coordinationSettings(root)) return reserve(root, 'next', capability)!;
+  assertNoPendingLocal(root);
   if (!Object.hasOwn(c.ac.capabilities, capability)) throw Error(`Unknown capability: ${capability}; register it in ac.capabilities first`);
   const record = r.capabilities[capability];
   const next = maximum(root, record) + 1;
@@ -90,9 +100,14 @@ export function capabilityForPrefix(root: string, prefix: string): string {
 }
 
 export function renamePrefix(root: string, capability: string, prefix: string) {
+  return withStateLock(root, () => rename(root, capability, prefix));
+}
+function rename(root: string, capability: string, prefix: string) {
   recover(root);
   if (!validPrefix(prefix)) throw Error('Prefix must contain uppercase letters/digits and start with a letter');
   const c = config(root), r = validateRegistry(root, c);
+  if (coordinationSettings(root)) { reserve(root, 'rename', capability, prefix); return; }
+  assertNoPendingLocal(root);
   if (!Object.hasOwn(c.ac.capabilities, capability)) throw Error(`Unknown capability: ${capability}`);
   const record = r.capabilities[capability];
   if (record.prefix === prefix) return;

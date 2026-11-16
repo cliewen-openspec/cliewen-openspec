@@ -1,0 +1,144 @@
+{
+  "recordedAt": "2026-11-16T22:39:31.779Z",
+  "sourceRevision": "1f3f92e684fd1c1218c67562dc8e784bc7579224",
+  "sourceDirty": true,
+  "scope": "development source; no hosted authority, publication or agent call",
+  "checks": [
+    {
+      "command": "npm test",
+      "platform": "Windows",
+      "node": "24.0.0",
+      "git": "2.56.1.windows.1",
+      "passed": 134,
+      "failed": 0,
+      "skipped": 0,
+      "output": ".tmp/ac-review-fixes-full-tests.log"
+    },
+    {
+      "command": "node --test test/ac-coordination.test.mjs",
+      "platform": "Linux via WSL",
+      "node": "22.22.0",
+      "git": "2.43.0",
+      "passed": 17,
+      "failed": 0,
+      "skipped": 0,
+      "output": ".tmp/ac-review-fixes-linux-tests.log"
+    },
+    {
+      "command": "npm run docs:build",
+      "pages": 13,
+      "localLinks": 516,
+      "diagrams": 5,
+      "passed": true,
+      "output": ".tmp/ac-review-fixes-docs-build.log"
+    },
+    {
+      "command": "openspec validate --all --strict",
+      "permanentSpecs": 13,
+      "changes": 1,
+      "passed": true
+    }
+  ],
+  "inputs": {
+    "src/ac.ts": "9032b93904a2c8173f82da31ecda8ee50c3cf0e3c2b431375a345ff7d6b12a63",
+    "src/ac-coordination.ts": "954094bb3fa49c811ce414d146b6163c517fe367b8000583c4a6df267ae31c0f",
+    "src/state-lock.ts": "40e24ad93c87c256e2e4f116e101c5caa97637dbd151a2c7ab6ad3571861df55",
+    "src/core.ts": "8ead88939870a28a29ba912e3e343eaa12bc4cd063fea967c0c56e5502f99ffe",
+    "src/cli.ts": "1bc6061fc9563fc589e3470aef2a8b6d52b4f9a279f58dcd91ed03a40de8a86d",
+    "test/ac-coordination.test.mjs": "1a8e8499660ecd699abe55cb2ee2c23346bb209bf8b9ea001c3dd94441088a44",
+    "docs/guide/cli.md": "2097fe98207df82f6ba0936001699682280720fd30d9590072ebcf792508f4b2",
+    "docs/configuration.md": "be5f65149c7b469a153360f460423631ad55541dd2ea3be680d4931b8357ff5b"
+  },
+  "outputs": {
+    ".tmp/ac-review-regressions-windows.log": "1af5d7b65bf0af0ad54949b78e7f02aae3c34c58cc78ec562796ad78517a3b0d",
+    ".tmp/ac-review-regressions-windows-final.log": "b27948d81704a5acbb28da1c2f0963cfa54d4942195c007f98e0b40996ffd630",
+    ".tmp/ac-review-fixes-full-tests.log": "98c35156fbbcda0dbc1f7454aa5b98e7ca61e526841f9e2129e8238d8c6ec693",
+    ".tmp/ac-review-fixes-linux-tests.log": "6cf0a732aeace77a1f5b42896f981fc5d5c624c39ed6b32a5cbb95e50295cf75",
+    ".tmp/ac-review-fixes-docs-build.log": "6b6dd0237c2b752683ea5cd7ffab7013132d6fcc34b5fac9fb9083e4513cb833"
+  },
+  "limits": [
+    "Hosted Git permissions, branch protection and CI not observed",
+    "No new agent trial",
+    "Nonparticipating old clients and administrative authority rewrites are outside the guarantee",
+    "Locks require deliberate cleanup after writers stop",
+    "No power-loss or filesystem-corruption guarantee",
+    "New coordination setting preservation verified through lifecycle API, not a separate packed Git-mode trial"
+  ],
+  "reviewFindings": [
+    {
+      "id": "P1",
+      "status": "fixed",
+      "regression": "Discovery errors cannot bypass a published setup marker or duplicate another clone reservation"
+    },
+    {
+      "id": "P2",
+      "status": "fixed",
+      "regression": "Explicitly rejected initial creation can join the winner; ambiguous publication cannot adopt a replacement"
+    }
+  ],
+  "history": [
+    {
+      "label": "Pre-review passing suite; independent probes subsequently found P1 and P2",
+      "checks": [
+        {
+          "command": "npm test",
+          "platform": "Windows",
+          "node": "24.0.0",
+          "git": "2.56.1.windows.1",
+          "passed": 130,
+          "failed": 0,
+          "skipped": 0,
+          "output": ".tmp/ac-coordination-complete-tests.log"
+        },
+        {
+          "command": "node --test test/ac-coordination.test.mjs",
+          "platform": "Windows",
+          "node": "24.0.0",
+          "passed": 13,
+          "failed": 0,
+          "output": ".tmp/ac-coordination-setup-windows-tests.log"
+        },
+        {
+          "command": "node --test test/ac-coordination.test.mjs",
+          "platform": "Linux via WSL",
+          "node": "22.22.0",
+          "git": "2.43.0",
+          "passed": 13,
+          "failed": 0,
+          "output": ".tmp/ac-coordination-setup-linux-tests.log"
+        },
+        {
+          "command": "npm run docs:build",
+          "pages": 13,
+          "localLinks": 516,
+          "diagrams": 5,
+          "passed": true,
+          "output": ".tmp/ac-coordination-complete-docs-build.log"
+        },
+        {
+          "command": "openspec validate --all --strict",
+          "permanentSpecs": 13,
+          "changes": 1,
+          "passed": true
+        }
+      ],
+      "inputs": {
+        "src/ac.ts": "9032b93904a2c8173f82da31ecda8ee50c3cf0e3c2b431375a345ff7d6b12a63",
+        "src/ac-coordination.ts": "4bc7c75bc2d867c0e7577cd0fe5466f111a29d3b390fb4097f46c5d6cad774fd",
+        "src/state-lock.ts": "beba5071fb6ab918e90c85ecd475b91418514fa330706b24525dd77c3f4603cf",
+        "src/core.ts": "8ead88939870a28a29ba912e3e343eaa12bc4cd063fea967c0c56e5502f99ffe",
+        "src/cli.ts": "1bc6061fc9563fc589e3470aef2a8b6d52b4f9a279f58dcd91ed03a40de8a86d",
+        "test/ac-coordination.test.mjs": "68706461496f0e09063575d7efd8dbc55350288ee6b32db7cd80db058e185bc6",
+        "docs/guide/cli.md": "a538a0c6fd37a8c553377531c6e7dd103f5459f01408ab5eb7521f6332193923",
+        "docs/configuration.md": "be5f65149c7b469a153360f460423631ad55541dd2ea3be680d4931b8357ff5b"
+      },
+      "outputs": {
+        ".tmp/ac-coordination-initial-tests.log": "10ffe4411916627f4d1385163181534886ad6d8ef683fbff1dbc0c4b34f9bb47",
+        ".tmp/ac-coordination-complete-tests.log": "1c8554dadf762b56084783d0600e3fe0b906635c2ecfc040021b6297a2937e87",
+        ".tmp/ac-coordination-setup-windows-tests.log": "94d74141ea8dd1f90c3bb5776f2a8e33a9d0dcb85aa765ed559436015c51e6bd",
+        ".tmp/ac-coordination-setup-linux-tests.log": "d22cc9477c300960d68924bd8d5d8e75d46366fd3670dc6a0ee146da8fd0462a",
+        ".tmp/ac-coordination-complete-docs-build.log": "cd4a5a3022bcc7d6e1ab108a1aad01f694d2b831afb508562c9abceb4c0555db"
+      }
+    }
+  ]
+}
