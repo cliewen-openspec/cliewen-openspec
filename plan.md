@@ -3,13 +3,33 @@ type: plan
 ---
 # Cliewen for OpenSpec: current work
 
-Version 0.2.0 is published. Its five roadmap increments and philosophy guide are complete within the accepted scope and limits. The organization home and `/guide/` are live, old guide links redirect, and the hosting change was archived on November 16, 2026. No further implementation increment or release is selected.
+Version 0.2.0 is published. Its roadmap and organization hosting are complete within the recorded limits. On November 16, 2026, the owner selected the five increments below. Release numbering and publication remain unselected.
 
 ## Next actions
 
 | Order | Work | Completion criterion | Status |
 |---|---|---|---|
-| 1 | Select the next improvement from actual use | Identify a concrete problem, intended outcome, scope, and useful verification before preparing a proposal | Awaiting selection |
+| 1 | Support OpenSpec 2 | Verify repository-local workflows, skill migration and ownership, document compatibility, and refactor only where the new integration requires it | Discovery recorded; 2.0.0 installed locally and globally; proposal approved November 16, 2026 |
+| 2 | Allocate acceptance IDs safely during parallel work | Keep simple local allocation for serialized work; offer explicit coordination for concurrent branches, clones, or agents; prove uniqueness and safe failure | Selected; design follows increment 1 |
+| 3 | Find relevant project context | Reuse native OpenSpec context, then fill demonstrated gaps in finding current specs, decisions, constraints, and learning; show sources and omitted scope | Selected; compare native capabilities first |
+| 4 | Check documentation consistency | Configurable checks catch broken local references, invalid supported metadata, and unrenderable diagrams without claiming factual correctness | Selected |
+| 5 | Report whether CI checks are enforced | Optional read-only inspection distinguishes required checks, missing enforcement, and unavailable host information; respect the project's integration policy | Selected |
+
+The [OpenSpec 2 discovery](docs/analysis/openspec-2-discovery.md) records observations and the [current proposal](openspec/changes/support-openspec-2/proposal.md) scopes the first delivery. Later increments stay here until actionable; do not create dependent proposals in advance.
+
+## Options and verification
+
+All four product improvements need independent configuration, documented defaults, an off path, and preservation of existing project choices. Avoid one global solo/team switch: a solo developer can run concurrent agents, and a team can serialize allocation. Exact settings are design candidates, not shipped configuration.
+
+| Increment | Options to resolve | Useful verification |
+|---|---|---|
+| OpenSpec 2 | Supported 1.x path versus 2.x adoption; repo-local support versus separately scoped stores; native tool integration choices | Packed schema/instruction/apply/archive checks, upgrade preservation, Windows links or copy fallback, compatibility failures before writes |
+| Acceptance IDs | Local serialized allocation or explicit shared coordination; remote authority and offline behavior | Two independent clones reserve concurrently; interrupted reservation, retry, offline failure, and existing ID continuity |
+| Context | Disabled assistance or bounded retrieval; selected roots, depth/size limits, sensitive exclusions | A fixture with relevant and irrelevant records, superseded decisions, broken references, and an essential constraint |
+| Documentation | Off, advisory, or enforced checks by supported category; project paths and exclusions | Real broken and valid references, metadata and diagrams; no mandatory rewriting or renaming |
+| CI enforcement | Off or advisory inspection; selected host, branch and required checks; enforcement only through explicit project policy | Enforced, missing, bypassed and unknown host states; no settings changed by inspection |
+
+Use focused deterministic tests during implementation. Run agent trials only for major workflow changes and the release checkpoint under the existing policy; no automatic tool/model matrix for these increments.
 
 External outreach and another package release require their corresponding owner instructions. Hosting closure does not authorize either.
 
@@ -52,4 +72,4 @@ Keep release-specific tool minimums explicit and check them at init/update. The 
 
 The [external verification principles](docs/analysis/verification-principles.md) remain candidates to evaluate and keep only where useful. They add no mandatory TDD order, universal human checkpoint, or separate goal document.
 
-General project-content migrations, external acceptance-registry adapters, distributed identity allocation, a global document graph, dedicated context/next commands, and provider-specific ticket integrations are unselected. Reassess actual needs before assigning scope. Track upstream schema/skill delivery changes without automatically changing users' global delivery preferences.
+General project-content migrations, external acceptance-registry adapters, a global document graph, a dedicated next command, multi-repo evidence, and provider-specific ticket integrations remain unselected. Coordinated allocation and context assistance are now selected above; their implementation mechanisms remain open. Track upstream schema/skill delivery changes without automatically changing users' global delivery preferences.

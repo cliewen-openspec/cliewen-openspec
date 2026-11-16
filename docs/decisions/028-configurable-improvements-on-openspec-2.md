@@ -1,0 +1,24 @@
+---
+type: decision
+category: product
+status: accepted
+---
+# Prioritize OpenSpec 2 and configurable project improvements
+
+## Context
+
+The completed 0.2.0 roadmap leaves useful opportunities in parallel acceptance-ID allocation, focused context, documentation checks, and CI enforcement visibility. OpenSpec 2 changes the integration surface on which those improvements depend.
+
+## Decision
+
+Support OpenSpec 2 first. Then prioritize safe parallel acceptance-ID allocation, focused project context, documentation consistency checks, and optional CI enforcement inspection, in that order.
+
+Design each improvement with independent options and clear defaults. Keep serialized local allocation useful for simple projects and offer explicit coordination for concurrent work. Contributor count alone does not determine concurrency: a solo developer can run several agents.
+
+Use discovery where consequential uncertainty remains. Prefer native OpenSpec capabilities and supported extension points. Refactor only when evidence identifies a compatibility or maintenance need. Prepare detailed dependent proposals when their work becomes actionable.
+
+## Acceptance and limits
+
+The owner selected all four improvements, prioritized allocation above context and documentation, and made OpenSpec 2 support the first priority on November 16, 2026. The owner also authorized installation of 2.0.0. This accepts direction and ordering, not unreviewed configuration names, a new minimum version, multi-repo support, or publication.
+
+The [roadmap](../../plan.md) owns scope and progress. The [initial discovery](../analysis/openspec-2-discovery.md) distinguishes observed compatibility from remaining checks. This extends [OpenSpec-native planning and closure](023-openspec-native-planning-and-closure.md) without superseding it.
