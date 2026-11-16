@@ -9,13 +9,13 @@ Version 0.2.0 is published. Its roadmap and organization hosting are complete wi
 
 | Order | Work | Completion criterion | Status |
 |---|---|---|---|
-| 1 | Support OpenSpec 2 | Verify repository-local workflows, skill migration and ownership, document compatibility, and refactor only where the new integration requires it | Implemented; 117 tests and CI pass; [one agent attempt](docs/testing/openspec-2-agent-001.md) timed out after a technically passing archived result; maintainer archive pending |
+| 1 | Support OpenSpec 2 | Verify repository-local workflows, skill migration and ownership, document compatibility, and refactor only where the new integration requires it | Implemented; 117 tests and CI pass; [one agent attempt](docs/testing/openspec-2-agent-001.md) timed out after a technically passing archived result; archived November 16, 2026 |
 | 2 | Allocate acceptance IDs safely during parallel work | Keep simple local allocation for serialized work; offer explicit coordination for concurrent branches, clones, or agents; prove uniqueness and safe failure | Selected; design follows increment 1 |
 | 3 | Find relevant project context | Reuse native OpenSpec context, then fill demonstrated gaps in finding current specs, decisions, constraints, and learning; show sources and omitted scope | Selected; compare native capabilities first |
 | 4 | Check documentation consistency | Configurable checks catch broken local references, invalid supported metadata, and unrenderable diagrams without claiming factual correctness | Selected |
 | 5 | Report whether CI checks are enforced | Optional read-only inspection distinguishes required checks, missing enforcement, and unavailable host information; respect the project's integration policy | Selected |
 
-The [OpenSpec 2 discovery](docs/analysis/openspec-2-discovery.md) records observations and the [current proposal](openspec/changes/support-openspec-2/proposal.md) scopes the first delivery. Later increments stay here until actionable; do not create dependent proposals in advance.
+The [OpenSpec 2 discovery](docs/analysis/openspec-2-discovery.md) records observations and the [archived proposal](openspec/changes/archive/2026-11-16-support-openspec-2/proposal.md) scopes the first delivery. Later increments stay here until actionable; do not create dependent proposals in advance.
 
 ## Options and verification
 

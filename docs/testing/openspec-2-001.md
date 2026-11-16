@@ -28,4 +28,4 @@ The implementation adds one lifecycle preflight before recovery, using existing 
 
 External stores and cross-repository evidence remain unsupported. The preflight rejects an explicit store pointer without both local directories and standalone store roots; it does not inspect or configure the user's global store registry.
 
-The [approved proposal](../../openspec/changes/support-openspec-2/proposal.md) owns scope. Review and archive remain pending; this report authorizes no publication. Future release validation follows the existing proportionate agent-trial policy.
+The [approved proposal](../../openspec/changes/archive/2026-11-16-support-openspec-2/proposal.md) owns scope. The owner authorized closure after reviewing the implementation and trial limits. Native archive completed November 16, 2026, adding two requirements to the permanent installation spec. This report authorizes no publication. Future release validation follows the existing proportionate agent-trial policy.

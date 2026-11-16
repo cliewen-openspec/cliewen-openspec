@@ -26,4 +26,4 @@ None.
 
 Development dependency and lockfile, installation preflight, focused integration fixtures, and current guide pages. Existing spec paths, acceptance identities, and authored documents remain stable. No new schema is proposed.
 
-The [discovery](../../../docs/analysis/openspec-2-discovery.md) records 113 passing existing tests and the remaining migration/CI limits. The owner approved this proposal on November 16, 2026. Dependency installation is complete; detailed design, product changes, and full support qualification remain pending. Approval does not authorize publication.
+The [discovery](../../../../docs/analysis/openspec-2-discovery.md) records 113 passing existing tests and the remaining migration/CI limits. The owner approved this proposal on November 16, 2026. Dependency installation is complete; detailed design, product changes, and full support qualification remain pending. Approval does not authorize publication.

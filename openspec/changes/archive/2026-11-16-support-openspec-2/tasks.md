@@ -9,7 +9,7 @@
 ## 2. Documentation and verification
 
 - [x] 2.1 Update current compatibility, installation and upgrade guidance with verified behavior and support limits.
-- [x] 2.2 Run the full deterministic suite, strict spec validation and documentation build; record results and remaining limits in [the review](../../../docs/testing/openspec-2-001.md).
+- [x] 2.2 Run the full deterministic suite, strict spec validation and documentation build; record results and remaining limits in [the review](../../../../docs/testing/openspec-2-001.md).
 
 ## Workflow follow-up
 

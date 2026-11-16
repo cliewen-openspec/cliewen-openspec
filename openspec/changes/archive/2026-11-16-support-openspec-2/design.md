@@ -2,7 +2,7 @@
 
 ## Context
 
-The [discovery](../../../docs/analysis/openspec-2-discovery.md) found the existing suite passes with the development CLI updated. Installation still assumes one local spec tree and one Git revision. External stores can break that assumption.
+The [discovery](../../../../docs/analysis/openspec-2-discovery.md) found the existing suite passes with the development CLI updated. Installation still assumes one local spec tree and one Git revision. External stores can break that assumption.
 
 ## Goals / Non-Goals
 
