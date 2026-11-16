@@ -22,7 +22,7 @@ Raw local outputs: ignored `.tmp/openspec-2-implementation-tests.log`, `.tmp/ope
 
 ## Limits and review
 
-Linux CI has not run on this unpushed implementation. The Windows migration produced real links under this machine's privileges and retained a customized plain-copy skill. Generation of fallback copies under denied symlink privileges was not observed. No global Git or Windows settings were changed. No agent trial was run; deterministic mechanics do not establish model compliance.
+At the initial local review, Linux CI and an agent trial were unobserved. The [subsequent single-agent trial](openspec-2-agent-001.md) records green Windows/Linux CI and an agent timeout with a technically passing archived result. The Windows migration produced real links under this machine's privileges and retained a customized plain-copy skill. Generation of fallback copies under denied symlink privileges remains unobserved. No global Git or Windows settings were changed. Deterministic mechanics do not establish model compliance.
 
 The implementation adds one lifecycle preflight before recovery, using existing safe paths and YAML parsing. Native skills remain outside the ownership manifest. Existing minimum versions and evidence representation are unchanged. A wider root abstraction is unnecessary for this scoped delivery.
 

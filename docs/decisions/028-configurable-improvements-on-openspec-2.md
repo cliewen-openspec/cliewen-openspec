@@ -26,3 +26,5 @@ The [roadmap](../../plan.md) owns scope and progress. The [initial discovery](..
 ## Implementation checkpoint
 
 Repository-local OpenSpec 2 support is implemented in development source. The [compatibility review](../testing/openspec-2-001.md) records 117 passing tests, native skill migration and ownership observations, documentation checks, and unobserved CI and fallback-generation limits. The first increment keeps the existing product minimums; it adds no new configuration or evidence format. Archive and publication remain separate actions.
+
+The [subsequent agent attempt](../testing/openspec-2-agent-001.md) records green CI and independent technical checks after archive in the trial project. The CLI hit its deadline before its final handoff, so it remains an incomplete run and does not establish a successful release checkpoint. Denied-privilege fallback generation remains unobserved.
