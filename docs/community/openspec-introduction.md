@@ -3,44 +3,40 @@ type: draft
 ---
 # Introduce Cliewen for OpenSpec
 
-Unsent draft for the owner's review. Version 0.1.0 is published on npm and GitHub; no issue, PR, or message has been sent to OpenSpec.
+Unsent draft for the owner's review, updated November 16, 2026 for published 0.2.0 and the organization guide. No issue, PR, or message has been sent to OpenSpec.
 
-## Project links and submission route
+## Submission route
 
-[OpenSpec](https://openspec.dev/) is the workflow engine. [Fission-AI/OpenSpec on GitHub](https://github.com/Fission-AI/OpenSpec) is its source repository and the destination for this proposed catalog request. These links also appear in Cliewen's README and guide introduction.
+Checked November 16: the [community schema catalog](https://github.com/Fission-AI/OpenSpec/blob/main/docs/customization.md#community-schemas) requests an issue with a repository link and a one-line description. The [contribution guide](https://github.com/Fission-AI/OpenSpec/blob/main/CONTRIBUTING.md) starts contributions with issues, reserves PRs for maintainers/invited contributors, and asks authors to personally review agent-drafted issues. Use the [issue-form chooser](https://github.com/Fission-AI/OpenSpec/issues/new/choose) and select documentation. Recheck the instructions if submission is delayed.
 
-Checked November 9, 2026: the [community schema catalog](https://github.com/Fission-AI/OpenSpec/blob/main/docs/customization.md#community-schemas) asks contributors to open an issue with a repository link and a short description; a maintainer adds the entry. The [contribution guide](https://github.com/Fission-AI/OpenSpec/blob/main/CONTRIBUTING.md) likewise starts with an issue and reserves PRs for maintainers and invited contributors. Use the [issue-form chooser](https://github.com/Fission-AI/OpenSpec/issues/new/choose), selecting documentation for a catalog request. Review the text personally before submission, as the contribution guide requests.
-
-The [schema-sharing guide](https://github.com/Fission-AI/OpenSpec/blob/main/docs-lab/customize/schemas.md#sharing-schemas) describes project-local bundles and a registry in development. This confirms a catalog-request route, not automatic listing, endorsement, or a released registry. Recheck upstream instructions if submission is delayed.
+The [schema-sharing guide](https://github.com/Fission-AI/OpenSpec/blob/main/docs-lab/customize/schemas.md#sharing-schemas) still describes copying community schemas and a registry under development. A catalog request does not imply registry availability or endorsement.
 
 ## Draft issue
 
 Title: Community schema catalog: Cliewen for OpenSpec
 
-I've released Cliewen for OpenSpec 0.1.0, an independent collection built on [OpenSpec](https://openspec.dev/) and its [custom-schema support](https://github.com/Fission-AI/OpenSpec). I wanted durable decisions, maintained documentation, and test evidence to remain connected as a project changes.
-
-The collection provides three workflows:
+I've released [Cliewen for OpenSpec 0.2.0](https://github.com/cliewen-openspec/cliewen-openspec), an independent schema collection built on [OpenSpec](https://openspec.dev/). Its approach is spec-driven development with evidence-first verification: define expected behavior and useful evidence, work in small steps, and maintain tests and explanations as requirements change.
 
 | Schema | Purpose |
 |---|---|
 | `cliewen-delivery` | Specify, implement, and verify an understood change |
-| `cliewen-discovery` | Investigate alternatives and recommend a change or no change |
-| `cliewen-all` | Investigate and deliver with human agreement before implementation |
+| `cliewen-discovery` | Investigate uncertainty and recommend delivery, further investigation, or no change |
+| `cliewen-all` | Investigate and continue to an agreed delivery in one change, or close without implementation |
 
-A companion CLI installs project-local schemas, allocates acceptance IDs, and checks test-result linkage, outcomes, and Git revision freshness. Coverage, assertion-effectiveness review, test maintenance, indexed learnings, and Humanizer guidance are independently configurable. Assertion meaning and genuine approval still need review.
+A companion CLI installs project-local schemas, allocates acceptance IDs, and checks test outcomes, scenario linkage, and Git revision freshness. Configurable guidance covers test quality and maintenance, documentation, decisions, optional learnings, and writing skills. Version 0.2.0 adds work scoping, user-selected prototypes, product context, closure guidance, and automation before manual requests. OpenSpec retains synchronization and archive; projects retain Git and approval policy. Semantic quality and genuine approval still need review.
 
-- [Repository and installation](https://github.com/cliewen-openspec/cliewen-openspec)
-- [npm 0.1.0](https://www.npmjs.com/package/cliewen-openspec/v/0.1.0)
-- [Guide and worked CSV example](https://cliewen-openspec.github.io/cliewen-openspec/getting-started.html)
+- [Guide and philosophy](https://cliewen-openspec.github.io/guide/)
+- [Worked example](https://cliewen-openspec.github.io/guide/getting-started.html)
+- [npm 0.2.0](https://www.npmjs.com/package/cliewen-openspec/v/0.2.0)
 
-Release checks cover OpenSpec 1.15.0 on Windows/Linux with Node 22/24. Compatibility with newer OpenSpec versions has not yet been verified.
+Release integration checks cover OpenSpec 1.15.0 and 1.17.0 on Windows/Linux with Node 22/24. The minimum Node 20.19/OpenSpec 1.15 lifecycle path is checked separately. These checks do not establish reliable autonomous behavior across all agents.
 
-Would this fit the community schema catalog? Would you prefer one entry for the collection or one per schema? I'd also welcome guidance on the distribution format you would like community schemas to use.
+Would this fit the community schema catalog? Would you prefer one entry for the collection or one per schema? The repository documents CLI installation; I'd welcome guidance if you prefer another community distribution format.
 
 ## Candidate catalog description
 
-Cliewen for OpenSpec: delivery, discovery, and combined schemas with durable decisions, maintained documentation, acceptance IDs, and configurable test-evidence review.
+Cliewen for OpenSpec: delivery, discovery, and combined schemas with durable decisions, maintained documentation, acceptance IDs, and configurable evidence-first verification.
 
 ## Local readiness
 
-[The release record](../releases/0.1.0-release.md) verifies the published version, package identity, installation, and compatibility checks. [The first-release checklist](../plans/first-release.md) records preparation. Upstream submission remains a separate action requiring explicit owner instruction; no new agent trial or npm release is needed for this documentation update.
+The [0.2.0 release record](../releases/0.2.0-release.md) identifies the published artifact and checks. Its [accepted support limits](../releases/0.2.0-acceptance.md) preserve failed/incomplete agent observations. Outreach still requires explicit owner instruction; this draft review authorizes no external submission or new agent trial.

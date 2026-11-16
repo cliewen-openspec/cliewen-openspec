@@ -122,5 +122,11 @@
       "path": "C:\\Code\\cliewen-openspec\\.tmp\\organization-legacy-ci-failed.log",
       "sha256": "cb539dc3e525bac9039daf5af84ca2c6c7ac50d130ce636cd34fdfe86a6ef7f0"
     }
+  },
+  "archive": {
+    "date": "2026-11-16",
+    "path": "openspec/changes/archive/2026-11-16-move-guide-to-organization-pages",
+    "specDeltas": false,
+    "productSpecSynchronization": "not applicable; documentation/tooling-only change"
   }
 }

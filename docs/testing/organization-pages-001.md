@@ -3,7 +3,7 @@ type: testing
 ---
 # Organization home and guide deployment
 
-The owner approved a short root introduction and `/guide/` on November 13, 2026. [The hosting change](../../openspec/changes/move-guide-to-organization-pages/proposal.md) changes maintainer hosting, not CLI/schema behavior or published npm 0.2.0.
+The owner approved a short root introduction and `/guide/` on November 13, 2026. [The hosting change](../../openspec/changes/archive/2026-11-16-move-guide-to-organization-pages/proposal.md) changes maintainer hosting, not CLI/schema behavior or published npm 0.2.0.
 
 ## Local verification
 
@@ -23,4 +23,4 @@ The [organization home](https://cliewen-openspec.github.io/) and [guide](https:/
 
 [Organization deployment](https://github.com/cliewen-openspec/cliewen-openspec.github.io/actions/runs/43332422489) and [legacy-site deployment](https://github.com/cliewen-openspec/cliewen-openspec/actions/runs/43332401310) pass. The initial legacy deployment failed only while closing a browser context with routed requests still in flight, after its checks printed success. That failure is retained. Cleanup now waits for routing handlers before closing the context; the local check and subsequent hosted deployments pass. No agent result or product implementation was repaired.
 
-The root repository contains only README, license, and the workflow caller. Pages uses Actions deployment. The public source check and no-change skip are configured; schedule timing remains controlled by GitHub. Current URL metadata is updated, while published npm artifacts and historical records retain their original bytes and working redirected links. Implementation is complete; native archive remains a separate action.
+The root repository contains only README, license, and the workflow caller. Pages uses Actions deployment. The public source check and no-change skip are configured; schedule timing remains controlled by GitHub. Current URL metadata is updated, while published npm artifacts and historical records retain their original bytes and working redirected links. The owner authorized closure on November 16, 2026. Native OpenSpec archive completed with no spec synchronization because this maintainer-hosting change declares no product deltas.

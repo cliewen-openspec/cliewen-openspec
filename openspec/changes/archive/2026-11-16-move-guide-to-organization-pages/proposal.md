@@ -25,4 +25,4 @@ None. `skip_specs: true` preserves the product's existing behavior contracts.
 
 VitePress base paths, preview/link checks, site deployment, homepage metadata, and maintainer records change. No CLI, schema workflow, configuration, or report interface changes. The published 0.2.0 tarball remains immutable.
 
-The owner approved the address layout and implementation on November 13, 2026. See [the hosting decision](../../../docs/decisions/027-organization-guide-address.md).
+The owner approved the address layout and implementation on November 13, 2026. See [the hosting decision](../../../../docs/decisions/027-organization-guide-address.md).

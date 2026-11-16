@@ -15,4 +15,4 @@ Preserve existing guide links with static browser redirects, including query str
 
 ## Status and limits
 
-Implementation and live verification are tracked in [the hosting change](../../openspec/changes/move-guide-to-organization-pages/proposal.md). This updates [the user-documentation publishing decision](010-publish-user-documentation-early.md). The [hosting verification](../testing/organization-pages-001.md) records passing local and live checks, source identity, deployment URLs, and the retained initial cleanup failure. The site and legacy redirects are live.
+Implementation and live verification are tracked in [the hosting change](../../openspec/changes/archive/2026-11-16-move-guide-to-organization-pages/proposal.md). This updates [the user-documentation publishing decision](010-publish-user-documentation-early.md). The [hosting verification](../testing/organization-pages-001.md) records passing local and live checks, source identity, deployment URLs, and the retained initial cleanup failure. The site and legacy redirects are live. The owner authorized closure, and native OpenSpec archive completed on November 16, 2026; no product specs changed.
