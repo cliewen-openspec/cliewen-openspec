@@ -23,6 +23,8 @@ Version 0.2.0 also installs manifest-owned planning, closure, and prototype refe
 
 It also installs `.cliewen-openspec/product-context.md` for optional product intent and journeys. It creates no project goal or journey documents; existing records, configuration, and OpenSpec integrations retain their ownership. See [the workflow example](workflow.md#keep-the-users-outcome-in-view).
 
+Development source additionally installs `.cliewen-openspec/context-selection.md`. The extra selection pass defaults off; [context-selection settings](../configuration.md#optional-context-selection-in-development-source) describe its opt-in mode and advisory limits. Published 0.2.0 does not install this reference.
+
 Version 0.2.0 checks the running Node and selected OpenSpec CLI before init/update, including previews. It requires Node 20.19+ and stable OpenSpec 1.15.0+, preferring the project's npm installation over PATH. Missing or incompatible tools stop the command before recovery or installation writes. See [version compatibility](../configuration.md#version-compatibility) for selection, timeout, and runtime limits.
 
 ## update

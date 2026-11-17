@@ -1,0 +1,63 @@
+{
+  "recordedAt": "2026-11-17T19:20:09.352Z",
+  "sourceRevision": "a162e50d225d51d1640d11375c5ed8a8e9319050",
+  "sourceDirty": true,
+  "scope": "deterministic configuration, ownership and instruction delivery; semantic selection unobserved",
+  "checks": [
+    {
+      "command": "npm test",
+      "platform": "Windows",
+      "node": "v24.0.0",
+      "passed": 140,
+      "failed": 0,
+      "skipped": 0,
+      "output": ".tmp/context-selection-tests.log"
+    },
+    {
+      "command": "npm run docs:build",
+      "pages": 13,
+      "localLinks": 521,
+      "diagrams": 5,
+      "passed": true,
+      "output": ".tmp/context-selection-final-docs-build.log"
+    },
+    {
+      "command": "openspec validate --all --strict",
+      "permanentSpecs": 14,
+      "changes": 1,
+      "passed": true
+    }
+  ],
+  "packedFixture": {
+    "openspec": "2.0.0",
+    "schemas": [
+      "cliewen-delivery",
+      "cliewen-discovery",
+      "cliewen-all"
+    ],
+    "operation": "schema validation and proposal instruction retrieval; authored settings/files preserved"
+  },
+  "inputs": {
+    "src/core.ts": "1374ee83e363d6ed5060566a3731bc5d0e48e9c3c7ff9c895bf9cab4bcaaf8b2",
+    "src/schema-source.ts": "d1b7334e3d3b84fcc3cfcb32cf7c329f0e671b83c063323ddcf7c38bba0beb37",
+    "schemas/base/instructions/context-entry.md": "73770e67d392dc7647fe242e83a08eb1ee6aa11c4f5379eff53cdb3add03b705",
+    "schemas/base/instructions/context-selection.md": "2d40517961397f5ed506354fb05d41b1beb15415fc66d63fa05a22577b731f39",
+    "schemas/base/instructions/planning.md": "84c6007dbfb9f868fa9a572ee39d21a35b0ba23d179445ee28d01cf98a830715",
+    "test/context-selection.test.mjs": "4a5fb6351e1d8193bf6b2beee18ff355202b19c18465ac507189b57eb06e3aab",
+    "docs/configuration.md": "d67eb7c03bc5ced3212090dd97828caa359d527bfbd07c76502bb6eb6a524907",
+    "docs/guide/workflow.md": "d814a4853745a46735246b0e084ff88cf4363f7f0e994204cb97e9ca4dbdf510",
+    "docs/guide/cli.md": "48e344e89b48ae31cd9608baf3a7260d0c4440c6840fae35131c0bf1c8cef124"
+  },
+  "outputs": {
+    ".tmp/context-selection-tests.log": "6b4ede93bce211d93492d5d22d693bd1fec868bf63273899317ce510e3668cee",
+    ".tmp/context-selection-docs-build.log": "55d1d269a0af5515202f2ddf2ebf709fa3801037e538d5ab0bb30e954d0a0ec1",
+    ".tmp/context-selection-final-docs-build.log": "b8c9d458b892fb139d13ebd9d3fb36fecf040c8abcc60ee02f4ca5db2b9bdf68"
+  },
+  "limits": [
+    "No new model call or fresh-agent selection fixture",
+    "No hosted CI or full local Linux run for this increment",
+    "Instruction presence does not prove relevance, exclusion compliance or complete retrieval",
+    "Advisory budgets do not measure or enforce host reads",
+    "Published 0.2.0 is unchanged; implementation is development source"
+  ]
+}

@@ -9,6 +9,7 @@ These records capture choices confirmed in the project conversation. Acceptance 
 
 | Record | Decision | Current scope |
 |---|---|---|
+| [Make focused context selection optional and native-first](030-optional-native-first-context-selection.md) | Independent off/guided selection with native retrieval, learning gates and advisory limits | Implemented in source; 140 tests and documentation checks pass; agent selection and CI unobserved |
 | [Keep local acceptance IDs and offer explicit Git coordination](029-optional-git-ac-coordination.md) | Local default, opt-in shared authority, permanent reservations and recovery | Archived November 17, 2026; Windows/Linux Node 22/24 CI green; limits retained |
 | [Prioritize OpenSpec 2 and configurable project improvements](028-configurable-improvements-on-openspec-2.md) | OpenSpec 2 first, then allocation, context, documentation checks, and CI inspection | First increment implemented; 117 tests and CI pass; agent timeout retained; archived November 16, 2026 |
 | [Host the introduction and guide at the organization address](027-organization-guide-address.md) | Short root introduction, guide under `/guide/`, one source, and preserved old links | Address layout accepted; home, guide, and all 13 legacy redirects live and verified; archived November 16, 2026 |

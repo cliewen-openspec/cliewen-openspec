@@ -12,6 +12,8 @@ After resolving this policy and selecting any relevant lessons, gather the remai
 
 ## Optional product context
 
+For an optional focused selection pass, read contextSelection.mode (default off). After resolving the learning policy above, guided mode uses .cliewen-openspec/context-selection.md. Off adds no pass or handoff. This choice is independent of features.planning and documentation maintenance; existing lesson gates still apply.
+
 After resolving the context policy above, use .cliewen-openspec/product-context.md when relevant intent or a cross-capability journey helps assess the work. Existing supplied context can inform scope independently of optional plan maintenance. features.documentation controls optional record maintenance; features.planning controls ticket/plan access. Routine work needs no new record.
 
 ## Optional planning

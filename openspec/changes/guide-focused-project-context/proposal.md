@@ -26,4 +26,4 @@ None. Existing learning and product-context requirements retain their contracts.
 
 Shared schema guidance, configuration/defaults, installed references, current user guides and focused verification. No new schema is introduced. The first delivery uses native OpenSpec and host tools; a separate retrieval CLI remains conditional on an observed tool gap.
 
-The [discovery](../../../docs/analysis/project-context-discovery.md) records what OpenSpec 2 already provides and the remaining selection gap. This proposal is a recommendation pending review; configuration names and detailed delivery design remain unimplemented. Advisory guidance cannot certify complete retrieval or enforce an OS read boundary.
+The [discovery](../../../docs/analysis/project-context-discovery.md) records what OpenSpec 2 already provides and the remaining selection gap. The owner approved this proposal and requested implementation on November 17, 2026. Advisory guidance cannot certify complete retrieval or enforce an OS read boundary; qualification claims require actual observation. Approval does not authorize archive or publication.

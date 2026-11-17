@@ -34,6 +34,33 @@ The check uses the project's resolvable OpenSpec npm installation first, otherwi
 
 The 0.2.0 upgrade route accepts published 0.1.0 ownership manifests and the running target version. Further source versions require explicit support; alpha installations, unknown formats, and downgrades remain unsupported. See [updating an installation](guide/updating.md) for package/resource boundaries and preview output; never relabel a manifest to bypass validation.
 
+## Optional context selection in development source
+
+Published 0.2.0 does not include `contextSelection`. Development source adds optional guidance for selecting relevant existing project knowledge. It defaults to off and runs only when the agent retrieves the installed instructions. It adds no retrieval CLI or automatic document scan.
+
+```yaml
+contextSelection:
+  mode: guided
+  roots: [docs/decisions, docs/architecture]
+  exclude: [docs/decisions/private]
+  maxFiles: 4
+```
+
+| Setting | Default | Meaning |
+|---|---|---|
+| `mode` | `off` | `guided` requests the additional selection pass; off leaves current workflow and learning rules in place |
+| `roots` | `[]` | Empty uses `docsRoot`; otherwise select project-relative files or directories |
+| `exclude` | `[]` | Additional-record paths and their descendants to exclude, on path-segment boundaries; glob patterns are unsupported |
+| `maxFiles` | `8` | Advisory budget of 1–100 distinct additional records whose contents are read |
+
+Required native specs, configuration/instructions and the established learning gate are separate from that budget. Index and metadata reads should remain focused. Absolute paths, parent traversal, glob syntax and malformed values are rejected during configuration validation. Existing authored configuration is preserved rather than rewritten to add defaults.
+
+Guided mode starts after learning-policy resolution and its separate index-first step. Disabled or retired lesson contents remain excluded even when a selected root contains them. Planning and documentation maintenance remain independently configurable: selection can use existing records while those facilities are off, without creating documents or touching tickets.
+
+The guidance uses OpenSpec inventory and focused overviews, then full relevant specs, and selects current decisions and constraints through existing indexes and host tools. A useful handoff names sources and relevance, consequential conflicts and scope left unexamined. Missing or excluded essential information requires focused resolution. No report or context document is required for routine work.
+
+These settings guide the agent; they do not enforce file access, measure actual reads, establish complete retrieval or prove that the agent found every applicable constraint. Explicit confidentiality restrictions still apply. See [context selection in the workflow](guide/workflow.md#select-relevant-project-knowledge).
+
 ## Optional product context in development
 
 Version 0.2.0 installs `.cliewen-openspec/product-context.md` for product intent, useful cross-capability journeys, and detection of drift or scope creep. Published 0.1.0 does not contain this reference. There is no new configuration field or required artifact. `features.documentation` controls optional records under `docsRoot` or existing project paths; `features.planning` independently controls planning authority and ticket access. Disabled facilities add no corresponding work and preserve authored content. Existing supplied context still informs normal scoping. See [product intent and journeys](guide/workflow.md#keep-the-users-outcome-in-view) for an illustrative example and limits.
@@ -44,6 +71,11 @@ This is the complete configuration written by `init`. Omitted fields use these v
 
 <!-- defaults -->
 ```yaml
+contextSelection:
+  mode: off
+  roots: []
+  exclude: []
+  maxFiles: 8
 docsRoot: docs
 learnings:
   enabled: false
