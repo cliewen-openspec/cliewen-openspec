@@ -10,7 +10,7 @@ Help agents find applicable durable knowledge with explicit scope and honest lim
 
 ## Decisions
 
-Add `contextSelection` to the existing project configuration: `mode: off|guided`, `roots: []`, `exclude: []`, `maxFiles: 8`. Empty roots means the configured `docsRoot`; exclusions are exact project-relative files or directory subtrees, not glob expressions. The budget is an integer from 1 to 100 and counts additional selected record contents, not required native specs or the existing learning gate. Index/metadata reads must remain focused.
+Add `contextSelection` to the existing project configuration: `mode: off|guided` (default guided), `roots: []`, `exclude: []`, `maxFiles: 8`. Empty roots means the configured `docsRoot`; exclusions are exact project-relative files or directory subtrees, not glob expressions. The budget is an integer from 1 to 100 and counts additional selected record contents, not required native specs or the existing learning gate. Index/metadata reads must remain focused.
 
 Validate settings without reading document contents or rewriting authored config. Validate project-relative paths with the existing safe-path mechanism and reject traversal, absolute paths and unsupported glob syntax. Defaults are read-time behavior for older configs; installation does not fabricate a context index.
 
@@ -26,4 +26,4 @@ Agent guidance cannot enforce read boundaries or semantic relevance. Tests verif
 
 ## Migration Plan
 
-Older settings default off. Package installation and resource refresh remain separate operations. Existing manifests can receive the new owned reference only at a free path; unowned or edited content conflicts. Uninstall removes unchanged owned guidance and retains authored configuration and records.
+Missing settings use guided, including existing projects after installing the new package and refreshing resources. Explicit off remains off; authored configuration is not rewritten. Package installation and resource refresh remain separate operations. Existing manifests can receive the new owned reference only at a free path; unowned or edited content conflicts. Uninstall removes unchanged owned guidance and retains authored configuration and records.

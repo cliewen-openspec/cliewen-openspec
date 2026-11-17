@@ -30,7 +30,7 @@ Our existing pre-change reference already resolves learning settings before broa
 | Optional read-only context CLI | Can enforce output size and path filters | Needs metadata contracts, link/status resolution and a supported command surface | Reassess if a targeted trial exposes a concrete tool gap |
 | Global document graph or vector index | Wider search and relationship traversal | Index maintenance, stale rankings and more project machinery | Unselected |
 
-Add an independently configurable extra selection pass, disabled by default. A proposed `off`/`guided` mode preserves current behavior when off; it does not disable native spec reading or the existing lesson policy. Exact field names belong in design and are not supported configuration yet.
+The initial recommendation was an independently configurable extra selection pass, disabled by default. The owner later selected guided as the default in [Enable focused context selection by default](../decisions/031-guided-context-selection-default.md). A proposed `off`/`guided` mode preserves current behavior when off; it does not disable native spec reading or the existing lesson policy. Current configuration and implementation status are recorded in [the implementation review](../testing/context-selection-001.md).
 
 In guided mode, use the native spec inventory and focused overviews first, then read relevant specs in full. Select other knowledge from existing project indexes, titles, scope and status through host tools. Prefer current authoritative documents, distinguish superseded or tentative records, and explain each selected source's relevance briefly. Avoid inventing missing constraints or silently resolving contradictions.
 

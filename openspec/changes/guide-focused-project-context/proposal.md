@@ -6,7 +6,7 @@ An agent can read the right behavioral spec and still miss an applicable decisio
 
 ## What Changes
 
-- Add optional native-first context-selection guidance across delivery, discovery and combined workflows, with an independent off/guided choice defaulting to off.
+- Add optional native-first context-selection guidance across delivery, discovery and combined workflows, with an independent off/guided choice defaulting to guided.
 - Use existing OpenSpec inventory and focused reading before selecting other project documents by task, scope and status.
 - Support selected roots, exclusions and an advisory budget for additional records; explain omitted scope, missing sources and consequential conflicts.
 - Preserve current index-first lesson selection and its feature gates, existing paths, project-owned configuration and native workflow authority.
@@ -27,3 +27,5 @@ None. Existing learning and product-context requirements retain their contracts.
 Shared schema guidance, configuration/defaults, installed references, current user guides and focused verification. No new schema is introduced. The first delivery uses native OpenSpec and host tools; a separate retrieval CLI remains conditional on an observed tool gap.
 
 The [discovery](../../../docs/analysis/project-context-discovery.md) records what OpenSpec 2 already provides and the remaining selection gap. The owner approved this proposal and requested implementation on November 17, 2026. Advisory guidance cannot certify complete retrieval or enforce an OS read boundary; qualification claims require actual observation. Approval does not authorize archive or publication.
+
+The owner subsequently selected guided as the default on November 17, 2026. Missing settings use guided; explicit off choices remain preserved.

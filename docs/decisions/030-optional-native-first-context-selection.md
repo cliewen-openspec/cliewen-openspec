@@ -11,7 +11,7 @@ Correct specs alone may not expose an applicable decision, constraint or current
 
 ## Decision
 
-Offer independently configured off/guided selection, defaulting to off. Use native inventories and focused overviews before full relevant specs, then select additional project knowledge by task, scope and status through existing indexes and host tools. Preserve current authority and make consequential conflicts or missing information explicit.
+Offer independently configured off/guided selection. The initial off default was replaced with guided by [Enable focused context selection by default](031-guided-context-selection-default.md); the remaining selection rules still apply. Use native inventories and focused overviews before full relevant specs, then select additional project knowledge by task, scope and status through existing indexes and host tools. Preserve current authority and make consequential conflicts or missing information explicit.
 
 Use project-relative roots and exclusions with an advisory additional-record budget. Keep required native reading and the established lesson gate intact. Disabled or retired lessons remain excluded from ordinary retrieval even inside a selected root. Planning and document maintenance retain their existing independent switches.
 

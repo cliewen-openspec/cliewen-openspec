@@ -8,7 +8,7 @@ Built on [OpenSpec](https://openspec.dev/), using its custom-schema workflows. S
 
 Version 0.2.0 adds work scoping, optional prototypes and product context, closure guidance, and guidance for automating checks and recording human observations. See [the 0.2.0 release notes](docs/releases/0.2.0-notes.md) for changes and upgrade requirements.
 
-Development source also provides [optional context-selection guidance](docs/configuration.md#optional-context-selection-in-development-source), off by default. It helps agents select relevant existing knowledge with native OpenSpec operations and host tools. Its roots, exclusions and budget are advisory; published 0.2.0 does not include this setting.
+Development source also provides [optional context-selection guidance](docs/configuration.md#optional-context-selection-in-development-source), enabled in guided mode by default. It helps agents select relevant existing knowledge with native OpenSpec operations and host tools. Its roots, exclusions and budget are advisory; published 0.2.0 does not include this setting.
 
 The package also includes [test quality and lifecycle checks](docs/testing/test-quality.md), optional project learnings, and Humanizer guidance. Follow [Your first change](docs/guide/getting-started.md) to build and install its local tarball. The published `0.1.0-alpha.1` is an earlier snapshot and does not include these additions; its manifest is not supported by 0.2.0.
 

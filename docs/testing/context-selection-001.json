@@ -59,5 +59,68 @@
     "Instruction presence does not prove relevance, exclusion compliance or complete retrieval",
     "Advisory budgets do not measure or enforce host reads",
     "Published 0.2.0 is unchanged; implementation is development source"
-  ]
+  ],
+  "defaultChange": {
+    "decision": "docs/decisions/031-guided-context-selection-default.md",
+    "defaultMode": "guided",
+    "missingAndPartialSettings": "guided",
+    "explicitOff": "preserved",
+    "configurationWrites": "none for existing authored settings",
+    "signals": [
+      "filename",
+      "directory role",
+      "heading",
+      "index",
+      "existing frontmatter"
+    ],
+    "frontmatterRequirementAdded": false,
+    "fullRun": {
+      "platform": "Windows",
+      "node": "v24.0.0",
+      "passed": 141,
+      "failed": 0,
+      "skipped": 0,
+      "output": ".tmp/context-guided-default-tests.log",
+      "scope": "guided default and initial frontmatter clarification; precedes final filename/directory wording"
+    },
+    "finalTargetedRun": {
+      "passed": 6,
+      "failed": 0,
+      "output": ".tmp/context-selection-signals-tests.log",
+      "scope": "final context instructions including filenames, directories, indexes, headings and frontmatter; packed fixture"
+    },
+    "documentation": {
+      "pages": 13,
+      "links": 521,
+      "diagrams": 5,
+      "passed": true,
+      "output": ".tmp/context-selection-signals-docs.log"
+    },
+    "nativeValidation": {
+      "permanentSpecs": 14,
+      "changes": 1,
+      "passed": true
+    },
+    "currentInputs": {
+      "src/core.ts": "279c528730f6b2c6b8e805ff29a2c5091ce5af304c4bf1c938919229d2653f1a",
+      "src/schema-source.ts": "d1b7334e3d3b84fcc3cfcb32cf7c329f0e671b83c063323ddcf7c38bba0beb37",
+      "schemas/base/instructions/context-entry.md": "ec047e270e4fec862fcd8a0df64facf9c67e8bf7b6afd9ba990e5efa4a72de64",
+      "schemas/base/instructions/context-selection.md": "4134b9e176d681ceb288d3ab24232f87a9b437041346ee2cff0c1b6594199e39",
+      "schemas/base/instructions/planning.md": "398482564f4a97d16baf50458b2b121a222b2fe6369c9cdd7ca8d0218074fb35",
+      "test/context-selection.test.mjs": "1fb40bcbc02e5b6ca7ddc89462c3962ae47d0d699f8039da50377a058d6e45e7",
+      "docs/configuration.md": "291931b76f182552eecf44daa5294ee8aa3ae7cc4711b9d61ca8e4d07880b4f2",
+      "docs/guide/workflow.md": "ddd15fc11488ad4d2d5aba96c8efa849b83ae6d200b81533b693d935099045bf",
+      "docs/guide/cli.md": "9cb522453ede6741b718cd2bade7fc7e6fc36d403e06396f9d4fa6ae10615e42"
+    },
+    "outputs": {
+      ".tmp/context-guided-default-tests.log": "390b859fb1f534e7ae9807d5dec598146fa2eafc811c42938bf13b78e4c9f280",
+      ".tmp/context-guided-default-docs.log": "98cf0cffe1856103c329930afe0c901fd7dc7de5a0b832a5e051acd0082a6c19",
+      ".tmp/context-selection-signals-tests.log": "9c49800b4b8ee5bf1d2ede2e96170f4d0c0a6742b34931635a6f834b71564bfc",
+      ".tmp/context-selection-signals-docs.log": "7bc3a83791e4c00822c11a60dbd2442e9801d0980fe8d8e14c7dc0a0c20faabe"
+    },
+    "limits": [
+      "No hosted CI observation for this update",
+      "Agent semantic selection and actual reads remain unverified"
+    ]
+  }
 }

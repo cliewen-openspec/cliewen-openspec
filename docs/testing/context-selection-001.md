@@ -3,11 +3,11 @@ type: test-report
 ---
 # Optional native-first context selection
 
-Development source adds validated off/guided settings and an owned reference across all three workflows. Off is the default. This review establishes configuration, preservation and native instruction delivery; actual semantic selection by an agent remains unobserved.
+Development source adds validated off/guided settings and an owned reference across all three workflows. Guided is now the default; [Enable focused context selection by default](../decisions/031-guided-context-selection-default.md) replaces the initial off choice. This review establishes configuration, preservation and native instruction delivery; actual semantic selection by an agent remains unobserved.
 
 ## Verification
 
-On Windows with Node 24.0.0, `npm test` passed 140 tests without failures or skips. Five new cases cover:
+The initial Windows run with Node 24.0.0 passed 140 tests without failures or skips. Its five new cases cover:
 
 - Missing/partial settings and independent planning, documentation and learning switches.
 - Invalid modes, path forms, glob syntax and budgets, with no installation manifest or authored-document writes on failure.
@@ -16,6 +16,10 @@ On Windows with Node 24.0.0, `npm test` passed 140 tests without failures or ski
 - A packed project using OpenSpec 2.0.0: init/update preservation, all three native schema validations and proposal instruction retrieval, with disabled maintenance and an authored excluded file retained.
 
 Strict native validation passes the current change and all 14 permanent specs. The final documentation build passed: 13 pages, 521 local links, five diagrams and CLI defaults. No new context CLI, scan, document graph or mandatory project artifact was added.
+
+## Default and selection-signal follow-up
+
+The owner selected guided as the default on November 17, 2026. Missing and partial settings now enable guidance, while explicit off is preserved without rewriting authored configuration. The subsequent full suite passed 141 tests. After clarifying filename, directory, heading, index and frontmatter signals, all six focused context tests passed, including the packed native fixture. This verifies configuration and instruction delivery, not actual agent source selection. Metadata reads still follow exclusions and learning gates; custom paths and documents without frontmatter remain supported.
 
 ## Boundaries
 

@@ -4,7 +4,7 @@ Changes that matter to projects using Cliewen for OpenSpec.
 
 ## Unreleased
 
-- Optional context-selection guidance helps agents find current specs, decisions and constraints through OpenSpec and existing project records. It defaults to off, preserves lesson gates and offers selected roots, exclusions and an advisory additional-record budget. It does not scan files or enforce access boundaries. See [configuration and limits](docs/configuration.md#optional-context-selection-in-development-source).
+- Optional context-selection guidance helps agents find current specs, decisions and constraints through OpenSpec and existing project records. It defaults to guided, preserves explicit off choices and lesson gates, and offers selected roots, exclusions and an advisory additional-record budget. Existing filenames, folders and frontmatter help select candidates through project conventions. It does not scan files or enforce access boundaries. See [configuration and limits](docs/configuration.md#optional-context-selection-in-development-source).
 
 - Projects can opt in to Git-backed acceptance-ID reservations for concurrent agents, branches, or contributors. Local allocation stays the default and now serializes writers in one worktree. Shared coordination preserves existing IDs and prefix history, fails without local fallback during outages, and supports resuming interrupted reservations. Git discovery failures stop allocation, and competing first-time setup can be retried safely. All participating clients need the new commands. See [setup and recovery](docs/guide/cli.md#ac-coordinate-sync-resume-and-abandon).
 

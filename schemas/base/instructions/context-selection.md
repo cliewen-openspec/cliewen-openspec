@@ -1,6 +1,6 @@
 # Select relevant project knowledge
 
-Read contextSelection in .cliewen-openspec/config.yaml. Defaults: mode off, roots [], exclude [], maxFiles 8. Off requests no additional pass or handoff; existing required spec reading and learning policy still apply. This reference supplies advisory agent instructions, not a retrieval engine or access-control boundary.
+Read contextSelection in .cliewen-openspec/config.yaml. Defaults: mode guided, roots [], exclude [], maxFiles 8. Off requests no additional pass or handoff; existing required spec reading and learning policy still apply. This reference supplies advisory agent instructions, not a retrieval engine or access-control boundary.
 
 ## Resolve policy first
 
@@ -19,6 +19,10 @@ Use the installed public CLI: `openspec list --specs --json` for inventory, then
 Empty roots means docsRoot (default docs). Otherwise use the listed project-relative files/directories. Exclusions are exact project-relative paths and their descendants, using path-segment boundaries; normalize slash direction when comparing. They are not glob patterns. Apply them before reading additional contents. Do not broaden a search across excluded paths, disabled learning collections, credentials, global directories or external repositories.
 
 Use existing indexes, titles, scope and status to choose additional records with authorized host tools. Keep index/metadata reads focused. maxFiles counts distinct additional selected records whose contents are read; required native specs, configuration/instructions and the established learning gate are separate. Read only relevant sections where useful. This budget guides the agent and is not mechanically enforced or a claim that less text was actually read.
+
+Use filenames and directory roles as candidate signals alongside headings, indexes and metadata. A README.md may be an overview or index; existing decisions/, architecture/ or testing/ folders can suggest where relevant knowledge lives. Follow docsRoot and the project's actual organization, including custom paths. Do not require these names, create a standard tree or rename documents. Verify each selected source's meaning and authority rather than assuming either from its location.
+
+Use existing Markdown frontmatter when it helps selection: for example title, status, scope, type and links, interpreted through the project's own conventions. Inspect only allowed candidate files after applying exclusions and learning gates; frontmatter inspection is still a file read. Do not require new fields, rewrite metadata or infer authority from an ID alone. Missing, unknown or stale metadata is a limitation to verify against the selected content and current sources.
 
 Prefer current accepted decisions and applicable constraints. Treat tentative, inferred, superseded or historical records according to their status; a filename or matching phrase alone establishes no authority. Check applicable facts against current specs and available evidence. Surface consequential contradictions instead of choosing silently or inventing missing intent. Supplied task context can identify a useful source without requiring a broad search.
 
