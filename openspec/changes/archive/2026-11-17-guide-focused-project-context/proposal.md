@@ -26,6 +26,8 @@ None. Existing learning and product-context requirements retain their contracts.
 
 Shared schema guidance, configuration/defaults, installed references, current user guides and focused verification. No new schema is introduced. The first delivery uses native OpenSpec and host tools; a separate retrieval CLI remains conditional on an observed tool gap.
 
-The [discovery](../../../docs/analysis/project-context-discovery.md) records what OpenSpec 2 already provides and the remaining selection gap. The owner approved this proposal and requested implementation on November 17, 2026. Advisory guidance cannot certify complete retrieval or enforce an OS read boundary; qualification claims require actual observation. Approval does not authorize archive or publication.
+The [discovery](../../../../docs/analysis/project-context-discovery.md) records what OpenSpec 2 already provides and the remaining selection gap. The owner approved this proposal and requested implementation on November 17, 2026. Advisory guidance cannot certify complete retrieval or enforce an OS read boundary; qualification claims require actual observation. Proposal approval alone did not authorize archive or publication.
 
 The owner subsequently selected guided as the default on November 17, 2026. Missing settings use guided; explicit off choices remain preserved.
+
+The owner later authorized green-CI review, one bounded agent trial and closure with explicit limits. [Deterministic checks](../../../../docs/testing/context-selection-001.md) passed; [the agent attempt](../../../../docs/testing/context-selection-agent-001.md) was partially passing. Native archive completed November 17, 2026; publication remains separate.

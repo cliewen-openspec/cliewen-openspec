@@ -19,10 +19,10 @@ Deliver guidance through the existing three schemas and owned pre-change referen
 
 ## Acceptance and limits
 
-The owner approved the [proposal](../../openspec/changes/guide-focused-project-context/proposal.md) and requested implementation on November 17, 2026. Configuration syntax and lifecycle design are recorded with the change. This implements the third priority in [configurable improvements on OpenSpec 2](028-configurable-improvements-on-openspec-2.md).
+The owner approved the [proposal](../../openspec/changes/archive/2026-11-17-guide-focused-project-context/proposal.md) and requested implementation on November 17, 2026. Configuration syntax and lifecycle design are recorded with the change. This implements the third priority in [configurable improvements on OpenSpec 2](028-configurable-improvements-on-openspec-2.md).
 
 The controls are advisory instructions, not measured read counts or enforced access boundaries. Deterministic tests can verify configuration, preservation and instruction delivery; semantic agent selection needs separate observation before it can be claimed. Archive and publication remain separate actions.
 
 ## Verification checkpoint
 
-The [implementation review](../testing/context-selection-001.md) records 140 passing Windows tests, packed OpenSpec 2 instruction retrieval, strict native validation and documentation checks. These verify configuration, preservation and guidance delivery. Agent relevance judgments and actual read scope remain unobserved; no model trial was run. Archive and publication remain pending.
+The [implementation review](../testing/context-selection-001.md) retains the initial 140-test run, the guided-default 141-test run, packed OpenSpec 2 instruction retrieval and green Windows/Linux CI. [One targeted Claude attempt](../testing/context-selection-agent-001.md) found current authority and respected excluded/disabled content in its trace, but budget accounting was not established and its report contained a factual overclaim. It is partially passing, not a successful release qualification. Native archive completed November 17, 2026 with six permanent requirements; publication remains separate.

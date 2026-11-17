@@ -122,5 +122,61 @@
       "No hosted CI observation for this update",
       "Agent semantic selection and actual reads remain unverified"
     ]
+  },
+  "hostedFollowUp": {
+    "sourceRevision": "47e6077a88663045cf4a3396fcf97c3123f408f9",
+    "packageCI": {
+      "url": "https://github.com/cliewen-openspec/cliewen-openspec/actions/runs/44176330264",
+      "conclusion": "success",
+      "windows": {
+        "node": [
+          22,
+          24
+        ],
+        "passed": 141,
+        "skipped": 0
+      },
+      "linux": {
+        "node": [
+          22,
+          24
+        ],
+        "passed": 139,
+        "skipped": 2
+      }
+    },
+    "site": {
+      "url": "https://github.com/cliewen-openspec/cliewen-openspec/actions/runs/44176330217",
+      "conclusion": "success"
+    },
+    "agentReview": "docs/testing/context-selection-agent-001.json",
+    "agentOutcome": "partial-pass"
+  },
+  "closure": {
+    "date": "2026-11-17",
+    "archive": "openspec/changes/archive/2026-11-17-guide-focused-project-context",
+    "permanentSpec": "openspec/specs/project-context-selection/spec.md",
+    "addedRequirements": 6,
+    "strictValidation": {
+      "passed": 15,
+      "failed": 0
+    },
+    "docsBuild": {
+      "pages": 13,
+      "localLinks": 521,
+      "diagrams": 5,
+      "passed": true
+    },
+    "targetCheck": {
+      "files": 13,
+      "localTargets": 88,
+      "fragmentsNotValidated": 2,
+      "errors": []
+    },
+    "runtimeChangedSinceCI": false,
+    "outputs": {
+      ".tmp/context-closure-docs-build.log": "5dcc306d7953d2ea1a00a873e4dc4791a96ba47013d893952172138392c4ad5a",
+      ".tmp/context-closure-links.json": "8ff91207995f6d2e18da2d20b6ea108983031fb1a557ef47cc7c7dfef2d9a78b"
+    }
   }
 }

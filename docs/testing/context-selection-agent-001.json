@@ -1,0 +1,137 @@
+{
+  "recordedAt": "2026-11-17T21:19:47.752Z",
+  "sourceRevision": "47e6077a88663045cf4a3396fcf97c3123f408f9",
+  "sourceDirtyAtPack": false,
+  "fixtureBaseline": "208807b48ed8110e8862cc9ed862c7f93fdf5de3",
+  "project": "C:\\Code\\cliewen-context-trial-001\\project",
+  "artifacts": "C:\\Code\\cliewen-context-trial-001\\artifacts",
+  "package": {
+    "version": "0.2.0",
+    "sha256": "3da48e378045f1dd4cf7bafb921aa521595a18600ea824c0541e98ad5247e82d"
+  },
+  "openspec": "2.0.0",
+  "profile": {
+    "readiness": "pinned",
+    "agent": "Claude Code",
+    "runner": "cli",
+    "model": "claude-opus-5-5",
+    "agentVersion": "2.1.325",
+    "provider": "Anthropic firstParty; existing claude.ai subscription authentication",
+    "effort": "medium",
+    "permissions": "dontAsk with local read/edit/write/shell tools; no extra agents or web tools; no OS isolation",
+    "context": "fresh print process; safe mode and no session persistence; read-only context task with one ignored output by instruction",
+    "budgets": {
+      "wallTimeSeconds": 180,
+      "outputBytes": 67108864,
+      "reportedCostUSD": 2,
+      "tokenLimit": null,
+      "billing": "existing subscription; reported list-equivalent cost is not an invoice"
+    },
+    "traceFormat": "Claude stream-json with verbose events plus stderr"
+  },
+  "observedModels": [
+    "claude-opus-5-5"
+  ],
+  "startedAt": "2026-11-17T21:16:02.820Z",
+  "endedAt": "2026-11-17T21:17:07.474Z",
+  "durationSeconds": 64.653,
+  "reportedListEquivalentCostUSD": 0.4294996,
+  "usage": {
+    "input_tokens": 24,
+    "cache_creation_input_tokens": 28985,
+    "cache_read_input_tokens": 350318,
+    "output_tokens": 6373,
+    "output_tokens_details": {
+      "thinking_tokens": 1544
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 28985,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 1460,
+        "cache_read_input_tokens": 41413,
+        "cache_creation_input_tokens": 409,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 409
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "exitCode": 0,
+  "stopReason": null,
+  "evaluation": "partial-pass",
+  "releaseQualificationSuccess": false,
+  "attempts": 1,
+  "trackedFilesChecked": 47,
+  "changedTrackedFiles": [],
+  "gitStatus": "",
+  "toolCallsReviewed": 12,
+  "canariesPresentInTrace": {
+    "PRIVATE-CONTENT-CANARY-8b12": false,
+    "DISABLED-INDEX-CANARY-a219": false,
+    "DISABLED-LESSON-CANARY-7d42": false
+  },
+  "findings": [
+    {
+      "code": "relevant-authority-found",
+      "assessment": "passed"
+    },
+    {
+      "code": "broken-reference-identified",
+      "assessment": "passed"
+    },
+    {
+      "code": "excluded-and-disabled-bodies-unread",
+      "assessment": "passed-for-recorded-trace"
+    },
+    {
+      "code": "advisory-budget-accounting",
+      "assessment": "not-established",
+      "detail": "Two selected records plus a substantive root README; agent declared the README exempt without a general exemption."
+    },
+    {
+      "code": "quoted-header-generalization",
+      "assessment": "failed",
+      "counterexample": "counterexample.json"
+    },
+    {
+      "code": "general-contract-vs-explicit-scenario",
+      "assessment": "limitation",
+      "detail": "Report treats absent dedicated marker examples as absent general preservation coverage."
+    }
+  ],
+  "outputs": {
+    "baseline.json": "674912a2f1eeb5745df66a70d886ee8ba8cb398865c0b2c28ec827c892c49559",
+    "baseline.bundle": "e1811607f7da38844ef4628689cb5ae09250dc278adb7fbf46bd59d22b171bbb",
+    "setup-commands.json": "fd51c8645cd63f9f61a0f7b4237abaae4cfc03eea3acf859f0c13f04162cfc62",
+    "prompt.md": "05d6c30eecccdd65f4687b882c4a7ba7efbab56100060eb56f78f82337b18ece",
+    "prepare-context-agent-001.mjs": "5c3c082a4f33b1dffe366261912e3c987144da919be404666a6e89bf16930c97",
+    "review-context-agent-001.mjs": "53b8fb42d5cf9966972437586542349bba40a01c2aecef1fbb451501e54d9417",
+    "context-report-counterexample.mjs": "c85bf9d61374983fa3381104960f4839e4c854b3ec2e96ac7da1a6ad7a32b2c0",
+    "counterexample.json": "b5b66733f09cdf00ffc48198d2b9e4a5857667d7792e0ca42de868cbfb8b17a0",
+    "independent-observations.json": "8421226a871713a4f6afb62cdc1eb0f3a6b8524668c0298503aa8b946c827bad",
+    "initial/run.json": "6257cca3b9326390238f0cd7c808b5dd6e00d1c8d4e818b439cec68f42802eea",
+    "initial/events.jsonl": "eab40c1ff0afa43a154649f5a92c9feb7394a7028b1b52e5b4369d129cfb5302",
+    "initial/stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "agentReportSha256": "1585a9f89ffe2471e5faea81a92a235e855ef2e9e12dcf18bc3944d51cbbae9d",
+  "limits": [
+    "One indexed, prepared, read-only scenario; no native-only comparison",
+    "No universal relevance, privacy, budget or cross-host guarantee",
+    "No implementation or complete delivery workflow evaluated",
+    "No repeat, continuation or repair; generated errors retained"
+  ]
+}

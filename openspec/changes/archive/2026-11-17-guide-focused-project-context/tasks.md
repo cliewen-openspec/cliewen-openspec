@@ -16,6 +16,6 @@
 
 ## Workflow follow-up
 
-- Review before archive. Agent selection behavior remains unobserved until a separately selected qualification trial.
+- Review completed before native archive on November 17, 2026. Hosted CI passed. The separately selected agent attempt was partially passing: relevant authority and excluded/disabled read scope were observed, while budget accounting and factual accuracy retain explicit limits.
 
-[The implementation review](../../../docs/testing/context-selection-001.md) retains command results and unobserved semantic-selection limits.
+[The implementation review](../../../../docs/testing/context-selection-001.md) and [agent review](../../../../docs/testing/context-selection-agent-001.md) retain command results, observations and limits. This closure is not release qualification or publication.

@@ -2,7 +2,7 @@
 
 ## Context
 
-The [discovery](../../../docs/analysis/project-context-discovery.md) identifies a selection gap around existing OpenSpec inventories and instructions. Existing learning policy already controls lesson retrieval. The optional pass must start after that policy has been resolved.
+The [discovery](../../../../docs/analysis/project-context-discovery.md) identifies a selection gap around existing OpenSpec inventories and instructions. Existing learning policy already controls lesson retrieval. The optional pass must start after that policy has been resolved.
 
 ## Goals / Non-Goals
 
