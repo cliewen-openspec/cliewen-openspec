@@ -274,5 +274,79 @@
       "No new agent calls, hosted CI or native macOS execution",
       "Original implementation evidence retained; full suite preceded final bounded namespace scan; final focused checks verify that source"
     ]
+  },
+  "hostedAttempts": [
+    {
+      "sourceRevision": "439fbbd54960eff592c040bd4f07185507c13069",
+      "run": "https://github.com/cliewen-openspec/cliewen-openspec/actions/runs/44344622305",
+      "conclusion": "failure",
+      "windows24": {
+        "passed": 139,
+        "failed": 20,
+        "skipped": 0
+      },
+      "windows2212": {
+        "passed": 141,
+        "failed": 18,
+        "skipped": 0
+      },
+      "linuxBoth": {
+        "passed": 157,
+        "failed": 0,
+        "skipped": 2
+      },
+      "failureClass": "fixture install/preparation and native compiler timeouts",
+      "site": {
+        "url": "https://github.com/cliewen-openspec/cliewen-openspec/actions/runs/44344622188",
+        "conclusion": "success",
+        "pages": 13,
+        "localLinks": 526,
+        "diagrams": 5,
+        "browserChecks": true
+      }
+    }
+  ],
+  "ciStabilityFollowUp": {
+    "recordedAt": "2026-11-18T17:19:04.512Z",
+    "testFileConcurrency": 2,
+    "lazyParserLoading": true,
+    "assertionsRetained": true,
+    "productDeadlineUnchanged": true,
+    "localSuite": {
+      "passed": 157,
+      "failed": 2,
+      "skipped": 0
+    },
+    "targetedRetry": {
+      "passed": 2,
+      "failed": 0,
+      "automaticRepeat": false
+    },
+    "loadingRegression": {
+      "node": [
+        "22.12.0",
+        "24.0.0"
+      ],
+      "passed": 1,
+      "failed": 0
+    },
+    "replacementCI": "pending",
+    "inputs": {
+      "package.json": "e408988b8a86b4b53a19923277e1cb98fc492e6c4538bcd970ad5951ac54da68",
+      "src/cli.ts": "679b69c12dcd056ffc3a1b91837a55d1c2289189df6e5876fd135fa12b5b404d",
+      "test/cli-loading.test.mjs": "84542e4489f660dd227303a0d7ec5ed32f8cf0bb21b06caf96175f9a3f2b8ea3"
+    },
+    "outputs": {
+      ".tmp/documentation-ci-windows24-failure.log": "5353ed051a47b0d4b97c4f9b3620840541d2c91d93399494581c84acfbff6f79",
+      ".tmp/documentation-ci-windows2212-failure.log": "cdad9f51a31f18740b89f64c70a09db097c85b14c0f8b389e8e406d2ed1530cb",
+      ".tmp/documentation-ci-linux2212.log": "3d8fa4c64e1ef250e124f4731fd66996e40f2ad44f42568532765b5f8ffb601f",
+      ".tmp/documentation-ci-linux24.log": "170ff715dbeddfded8319b7708604426c89a13c8dab5a943569df3b4d3bbfcfa",
+      ".tmp/documentation-ci-site-build.log": "e65a8687c4fd777379cfff26c6a11085515775f3ea44ae7ab6bae3e2b95347d3",
+      ".tmp/documentation-ci-followup-local-tests.log": "3e8493527a872a3fc9248099a31ef36a45e30661d1f5f5535e1c7e48d345f114",
+      ".tmp/documentation-ci-followup-targeted-retry.log": "1bafa0e0656617e16707c308732b2bbd95e03517d1d396f6144e8a9079233a29",
+      ".tmp/documentation-cli-loading-node24.log": "0ff6abe584467c5d95fd8c4d75a3941dc24ddc3d340aad759af57d82a00271cb",
+      ".tmp/documentation-cli-loading-node2212.log": "75f4ba3cd3cbe16f22786fd014e3e3b4bbfdab6798a0340b209b973e0367bd01",
+      ".tmp/documentation-ci-followup-docs.log": "6dc8fdecffabe74e103933aec13240149f1471ac82c8f5c26ad99365db2b2490"
+    }
   }
 }

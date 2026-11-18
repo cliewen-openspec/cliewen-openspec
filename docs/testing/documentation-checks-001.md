@@ -36,9 +36,17 @@ Both labels now use the parser's escape-aware helper. Fragment lookup uses files
 
 The follow-up full Windows suite passed 159 tests. After the final bounded directory-discovery adjustment, all 18 documentation tests passed on Windows Node 22.12.0, including the production-only package fixture; four focused controls also passed on native Linux storage at that minimum. The Windows test reports `darwin` while keeping its actual case-insensitive filesystem, proving lookup does not rely on the Windows branch. No real macOS run is claimed. Structured evidence separates the full-suite snapshot from the final focused checks.
 
+## First hosted CI result
+
+On source `439fbbd`, [package CI](https://github.com/cliewen-openspec/cliewen-openspec/actions/runs/44344622305) passed Linux on Node 22.12.0 and 24, each with 157 passing tests and two Windows-only skips. Both Windows jobs failed: Node 24 passed 139 and failed 20; Node 22.12.0 passed 141 and failed 18. Failures occurred in packed installation/preparation commands and a native compiler startup; fixture subprocesses exceeded their existing deadlines. Direct documentation assertions passed. [Site build/deployment](https://github.com/cliewen-openspec/cliewen-openspec/actions/runs/44344622188) and browser checks passed.
+
+The follow-up limits deterministic test-file concurrency to two and loads documentation parsing only for `docs check`. A loader-based regression proves version/help avoid parser imports and docs check still loads them, passing on Node 22.12.0 and 24.0.0. The local full follow-up passed 157 tests and timed out two OpenSpec 1.17 package installs; both passed a targeted rerun. Those two subprocesses had a shared unusually long elapsed interval; its cause was not established. The guide build passes. Replacement CI remains pending.
+
+Original Windows logs are retained at `.tmp/documentation-ci-windows24-failure.log` and `.tmp/documentation-ci-windows2212-failure.log`; local follow-up and retry outputs use separate names. No product parser deadline or agent budget was raised, and existing assertions were retained.
+
 ## Limits
 
-No agent calls or new model/profile matrix were run. Deterministic instruction retrieval does not establish agent compliance. No new hosted CI, live project rollout, full Linux suite or browser-rendering review is claimed here. CI is configured for Windows/Linux at exact Node 22.12.0 and Node 24; results require a later pushed revision. Parsing establishes the supported syntax, not visual rendering or factual accuracy.
+No agent calls or new model/profile matrix were run. Deterministic instruction retrieval does not establish agent compliance. No live project rollout or native macOS execution is claimed. Hosted CI covers the full Linux suite and guide browser checks as recorded above; it does not establish visual quality or factual accuracy for an adopting project's diagrams.
 
 The checker uses its declared heading dialect and reports unsupported custom fragments or out-of-scope targets as unchecked. Collection and parser bounds are deliberate; empty, off and incomplete results are not valid-documentation claims. Existing document paths and published package contracts remain intact.
 

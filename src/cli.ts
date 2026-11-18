@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 import {coordinate, syncIds, resumeIds, abandonRequest} from './ac-coordination.js';
 import path from 'node:path';
-import {checkDocumentation} from './documentation.js';
 import { check, lifecycle, uninstall, nextId, renamePrefix, capabilityForPrefix, recover, version } from './core.js';
 
 const args = process.argv.slice(2);
@@ -27,6 +26,7 @@ try {
   if (capability && (command !== 'ac' || args[0] !== 'next')) throw Error('--capability is supported only by ac next');
   if (command === 'docs') {
     if (args.length !== 1 || args[0] !== 'check') throw Error('Use docs check [--json] [--root PATH]');
+    const {checkDocumentation} = await import('./documentation.js');
     const result = await checkDocumentation(root);
     console.log(json ? JSON.stringify(result, null, 2) : [
       `Documentation: ${result.scope.readFiles} files read; exit policy ${result.ok ? 'passed' : 'blocked'}.`,

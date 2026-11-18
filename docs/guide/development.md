@@ -36,6 +36,8 @@ node scripts/check-organization-site.mjs
 
 Package tests include the documented CSV walkthrough against a packed installation. They check all six references, archive preservation, stale evidence after archive, and the final refreshed report. This is deterministic reference replay; it does not test a coding agent or establish assertion quality.
 
+The test command runs at most two test files concurrently. Several files install packed consumers, so this bounds competing installs and native-tool startup on hosted runners. Existing assertion and command deadlines still apply. This setting controls deterministic tests; it does not change agent-trial budgets.
+
 ## Organization hosting
 
 The short introduction lives at `https://cliewen-openspec.github.io/` and the guide at `/guide/`. Edit the introduction in `site/organization/index.html` and documentation in its existing source paths. The separate `cliewen-openspec.github.io` repository contains only the deployment caller and maintainer instructions.

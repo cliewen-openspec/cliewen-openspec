@@ -29,7 +29,7 @@
   ],
   "scripts": {
     "build": "node scripts/clean-retired-build.mjs && tsc",
-    "test": "npm run build && node --test test/*.test.mjs",
+    "test": "npm run build && node --test --test-concurrency=2 test/*.test.mjs",
     "prepack": "npm run build",
     "docs:build": "npm run build && node scripts/build-docs.mjs",
     "docs:serve": "node scripts/serve-docs.mjs",
