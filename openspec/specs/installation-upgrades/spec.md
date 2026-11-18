@@ -6,7 +6,7 @@ Let existing OpenSpec projects adopt and upgrade Cliewen with explicit compatibi
 ## Requirements
 
 ### Requirement: Check release compatibility before installation changes
-Every init and update invocation SHALL check the running Node version and selected OpenSpec CLI against the target Cliewen release's declared minimums before project-file mutation, including automatic journal recovery. Previews SHALL perform the same checks without writing files. Initial minimums SHALL remain Node 20.19.0 and OpenSpec 1.15.0.
+Every init and update invocation SHALL check the running Node version and selected OpenSpec CLI against the target Cliewen release's declared minimums before project-file mutation, including automatic journal recovery. Previews SHALL perform the same checks without writing files. This delivery SHALL require Node 22.12.0+ and OpenSpec 1.15.0+; published releases SHALL retain their own declared minimums.
 
 #### Scenario: Supported tools
 - **WHEN** both detected stable versions meet the release minimums
@@ -20,6 +20,14 @@ Every init and update invocation SHALL check the running Node version and select
 #### Scenario: Tool changes after an earlier successful check
 - **WHEN** init or update runs after the available tool versions have changed
 - **THEN** current versions are checked again without reusing a persistent success cache
+
+#### Scenario: Exact new Node minimum
+- **WHEN** init or update runs on stable Node 22.12.0 with a compatible selected OpenSpec installation
+- **THEN** the Node version satisfies compatibility and the operation can proceed to resource planning
+
+#### Scenario: Older runtime with pending recovery
+- **WHEN** init or update runs on Node 20 or stable Node 22.11 with a pending recovery journal
+- **THEN** it explains the Node 22.12.0+ requirement and leaves all project files and the journal unchanged
 
 ### Requirement: Identify the OpenSpec installation being checked
 The operation SHALL prefer an OpenSpec npm installation resolvable from the adopting project and otherwise use its PATH installation, including a standalone executable. It SHALL report the selected source and validate that installation's public version output without downloading or upgrading tools. An incompatible selected local installation SHALL fail rather than silently fall back to another version.

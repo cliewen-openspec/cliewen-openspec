@@ -330,6 +330,53 @@
         ".tmp/documentation-ci-followup-windows24-failure.log": "c0ace60474dd2f2f6c6903cfdbaa963456c91afa9f33326959a13f49ee781ae7",
         ".tmp/documentation-ci-followup-windows2212-failure.log": "ffdad15d3121534f1dd5d5a8953d4f4e8a979b80b07279a6eceb167ca0159ce5"
       }
+    },
+    {
+      "sourceRevision": "5c53a09a2e1e3187a21fb3482218a8e057eb87db",
+      "run": "https://github.com/cliewen-openspec/cliewen-openspec/actions/runs/44362422456",
+      "conclusion": "success",
+      "results": [
+        {
+          "output": ".tmp/documentation-ci-storage-windows2212.log",
+          "tests": 160,
+          "pass": 160,
+          "fail": 0,
+          "skipped": 0,
+          "sha256": "9c628bce8f8225f9dac50978ada70a4cec1ce3e5280160d1a5cf6bdbebc3f95f"
+        },
+        {
+          "output": ".tmp/documentation-ci-storage-windows24.log",
+          "tests": 160,
+          "pass": 160,
+          "fail": 0,
+          "skipped": 0,
+          "sha256": "9ccb95e3534463e62160e01d5aaeb3b5bdd96cff8809eae92859827df26b65cf"
+        },
+        {
+          "output": ".tmp/documentation-ci-storage-linux2212.log",
+          "tests": 160,
+          "pass": 158,
+          "fail": 0,
+          "skipped": 2,
+          "sha256": "09996464a9850bfb954e5a8d3a6d2f74da70853c4489b2aad802188bd015a330"
+        },
+        {
+          "output": ".tmp/documentation-ci-storage-linux24.log",
+          "tests": 160,
+          "pass": 158,
+          "fail": 0,
+          "skipped": 2,
+          "sha256": "45258afa3718ab8f56a9d6a95e442f945f5f27d5ae53d6de7f002ec29a211a0a"
+        }
+      ],
+      "site": {
+        "url": "https://github.com/cliewen-openspec/cliewen-openspec/actions/runs/44362422485",
+        "conclusion": "success",
+        "pages": 13,
+        "localLinks": 526,
+        "diagrams": 5,
+        "browserChecks": true
+      }
     }
   ],
   "ciStabilityFollowUp": {
@@ -356,7 +403,12 @@
       "passed": 1,
       "failed": 0
     },
-    "replacementCI": "pending",
+    "replacementCI": {
+      "sourceRevision": "5c53a09a2e1e3187a21fb3482218a8e057eb87db",
+      "url": "https://github.com/cliewen-openspec/cliewen-openspec/actions/runs/44362422456",
+      "conclusion": "success",
+      "testCount": 160
+    },
     "inputs": {
       "package.json": "e408988b8a86b4b53a19923277e1cb98fc492e6c4538bcd970ad5951ac54da68",
       "src/cli.ts": "679b69c12dcd056ffc3a1b91837a55d1c2289189df6e5876fd135fa12b5b404d",
@@ -390,10 +442,55 @@
     "localWorkflowProbe": "exact setup script emitted four expected GITHUB_ENV entries",
     "performanceCause": "I/O placement is a hypothesis, not yet measured in this repository",
     "reference": "https://github.com/actions/runner-images/issues/8755",
-    "replacementCI": "pending",
+    "replacementCI": {
+      "sourceRevision": "5c53a09a2e1e3187a21fb3482218a8e057eb87db",
+      "url": "https://github.com/cliewen-openspec/cliewen-openspec/actions/runs/44362422456",
+      "conclusion": "success",
+      "testCount": 160
+    },
     "inputs": {
       ".github/workflows/test.yml": "d26b029d8c5f6e7e4937bea519edb85aa7a5f59f9d09572c81a585e41d4208bc"
     },
     "probe": "22edbbc121203fe1b30b4654dd47a45b9876ac659fe3c993089e7a380a5c2379"
+  },
+  "closure": {
+    "recordedAt": "2026-11-18T17:56:22.876Z",
+    "archive": "openspec/changes/archive/2026-11-18-check-project-documentation",
+    "addedRequirements": 7,
+    "modifiedRequirements": 1,
+    "permanentSpecs": 16,
+    "runtimeCodeChangedAfterCI": false,
+    "publicationAuthorized": false,
+    "notes": [
+      "The owner selected CI completion and archive; no new agent run",
+      "Historical Windows timeouts and local retry retained",
+      "Native macOS and consumer visual quality remain unobserved"
+    ],
+    "validation": {
+      "strictSpecs": {
+        "passed": 16,
+        "failed": 0
+      },
+      "changedMarkdown": {
+        "files": 13,
+        "localTargets": 94,
+        "fragments": 3,
+        "errors": 0
+      },
+      "diffCheck": "passed",
+      "outputs": {
+        ".tmp/documentation-archive-validation.log": "99e772cae846568387fc3d3cfdc0a743f29526f0f793bcbdb6c6209ff8c9cd44",
+        ".tmp/documentation-archive-links.json": "71ec17113db869bc4f157ddfaa5552a9242835160b08688b19d8093156ea1880",
+        ".tmp/documentation-ci-storage-state.json": "e0fb39a59aa1784221a4492f17ee3651855009b967a8aad3d4c6e813f1bee314",
+        ".tmp/documentation-ci-storage-site-state.json": "c43c239abee2718b9ff19b0c5b59474f80b742fbd724fe4c3c745af8f1068e67",
+        ".tmp/documentation-ci-storage-site-build.log": "d5fe7cadf15788ad2c8ba352ac73c189aa57ee7d6bc69d063a425f906a6771b5"
+      }
+    },
+    "sourceEngineWarnings": {
+      "dependencies": "development-only OpenSpec/Inquirer dependencies",
+      "minimumRuntime": "22.12.0",
+      "suite": "passed",
+      "productionDependency": false
+    }
   }
 }

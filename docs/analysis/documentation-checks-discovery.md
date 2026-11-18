@@ -3,6 +3,8 @@ type: analysis
 ---
 # Check documentation without changing project conventions
 
+This discovery records the November 17, 2026 baseline. The resulting delivery was implemented and archived on November 18; see the [implementation review](../testing/documentation-checks-001.md).
+
 Projects need mechanical checks for broken references, malformed metadata and invalid diagrams. The current package provides writing guidance, but its `check` command does not inspect ordinary project documentation. Our guide build checks selected maintainer pages and depends on this repository's site layout and development tools.
 
 ## Observations
@@ -33,14 +35,14 @@ Use explicit project-relative roots and exclusions, defaulting to the configured
 
 Mermaid syntax checking means asking a parser whether a fenced diagram uses supported Mermaid grammar. It does not assess whether the diagram describes the right system or renders legibly. Documents without Mermaid blocks need no diagram check.
 
-The owner accepted [Node 22.12+ and an included Mermaid parser](../decisions/032-node-22-minimum-and-bundled-diagram-checks.md) on November 17, 2026. Standard package installation should supply the parser and its required dependencies; a check must not install tools. If parsing is unavailable or fails to initialize, report the diagram as unchecked rather than valid. Carry the minimum-version change through package metadata, preflight checks and user documentation during implementation. The current package and published releases retain their existing requirements until that delivery.
+The owner accepted [Node 22.12+ and an included Mermaid parser](../decisions/032-node-22-minimum-and-bundled-diagram-checks.md) on November 17, 2026. Standard package installation should supply the parser and its required dependencies; a check must not install tools. If parsing is unavailable or fails to initialize, report the diagram as unchecked rather than valid. Carry the minimum-version change through package metadata, preflight checks and user documentation during implementation. Development source now requires Node 22.12+; published releases retain their original requirements.
 
 Make the report useful in terminals and CI: stable finding codes, source paths and locations where available, the check performed, severity, and explicit skipped/unavailable categories. An independent command avoids evidence-related early returns and makes its exit status understandable. A later integration with the general `check` command can reuse the same checker without coupling documentation to execution evidence.
 
 ## Verification and unresolved choices
 
-The [proposal](../../openspec/changes/check-project-documentation/proposal.md) and [design](../../openspec/changes/check-project-documentation/design.md) now present the command/configuration names, advisory defaults, heading dialect, parser integration and scoped metadata rules for review. Enabled-by-default checks, optional frontmatter, Node 22.12+ and an included Mermaid parser are the selected direction; remaining contract details are proposed, not implemented. A focused review is sufficient unless the owner requests a grill-me interview.
+The owner approved the [proposal](../../openspec/changes/archive/2026-11-18-check-project-documentation/proposal.md) on November 17, 2026. Its [design](../../openspec/changes/archive/2026-11-18-check-project-documentation/design.md) records the implemented command, advisory defaults, heading dialect, parser integration and scoped metadata rules. The delivery is archived; the [implementation review](../testing/documentation-checks-001.md) retains CI results, review corrections and limits.
 
 Use real positive and negative fixtures for each supported category, not only tests of emitted instruction text. Include reference links, code examples, escaped paths, duplicate headings, missing targets/fragments, duplicate YAML keys, documents without metadata, custom fields, malformed Mermaid and unavailable tooling. Verify off/advisory/enforce exit behavior, exclusions before reads, path containment, unchanged file hashes and operation without behavioral evidence. Exercise the packed package on supported Windows/Linux runtimes. No agent trial is needed merely to qualify deterministic parsing.
 
-These checks cannot establish factual correctness, readable prose, a correct business requirement, complete documentation or identical rendering across hosts. The [roadmap](../../plan.md) retains the selected scope; [durable-document conventions](../decisions/007-durable-documents-and-general-decision-records.md) and [diagram guidance](../decisions/011-mermaid-and-plain-text-diagrams.md) remain authoritative until a reviewed proposal refines them.
+These checks cannot establish factual correctness, readable prose, a correct business requirement, complete documentation or identical rendering across hosts. The [roadmap](../../plan.md) retains the selected scope; [durable-document conventions](../decisions/007-durable-documents-and-general-decision-records.md) and [diagram guidance](../decisions/011-mermaid-and-plain-text-diagrams.md) include the accepted documentation-check policy.

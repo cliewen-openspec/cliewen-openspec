@@ -64,7 +64,7 @@ For fragment checks, support Markdown heading IDs using the `github-slugger` con
 
 Only read fragment targets within the selected, non-excluded document scope. For other in-project targets, existence can be checked without reading their bodies; report the fragment as unchecked. An unchecked required local fragment makes links incomplete and blocks in enforce mode. This avoids using links to expand the content-reading scope. Unresolved reference definitions and malformed local encodings produce findings rather than disappearing from the parser's output.
 
-Resolve both reference labels through MarkdownIt's escape-aware helper. Match selected fragment targets by filesystem file/directory identity and stored entry names, not an OS-based case rule. Keep separate hard-link entries distinct so identity matching preserves selected scope. Directory-name discovery uses the documented bound; unavailable or ambiguous identity remains unchecked. This corrects the two false failures retained in the [implementation review](../../../docs/testing/documentation-checks-001.md).
+Resolve both reference labels through MarkdownIt's escape-aware helper. Match selected fragment targets by filesystem file/directory identity and stored entry names, not an OS-based case rule. Keep separate hard-link entries distinct so identity matching preserves selected scope. Directory-name discovery uses the documented bound; unavailable or ambiguous identity remains unchecked. This corrects the two false failures retained in the [implementation review](../../../../docs/testing/documentation-checks-001.md).
 
 ### Frontmatter
 

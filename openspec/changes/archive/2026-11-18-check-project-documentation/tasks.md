@@ -19,8 +19,8 @@
 
 ## Workflow follow-up
 
-- Review the implementation and evidence before native archive; preserve incomplete or failed checks honestly.
+- Implementation review and green Windows/Linux CI completed; native archive synchronized seven new requirements and one modified requirement on November 18, 2026. Earlier failed checks remain in the verification record.
 - Apply the existing proportionate release-trial policy separately; no agent matrix is added by this change.
 - Publication requires its separate owner instruction.
 
-[Implementation verification](../../../docs/testing/documentation-checks-001.md) retains passing checks and the initial mounted-filesystem parser timeouts. No new agent calls were made.
+[Implementation verification](../../../../docs/testing/documentation-checks-001.md) retains passing checks and the initial mounted-filesystem parser timeouts. No new agent calls were made.

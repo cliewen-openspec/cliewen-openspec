@@ -3,9 +3,9 @@ type: test-report
 ---
 # Read-only documentation checks
 
-Development source implements `docs check`, advisory defaults for all three categories, optional frontmatter with scoped rules, and included Mermaid parsing. The Node floor is 22.12.0. Published 0.2.0 is unchanged. The owner approved [the proposal](../../openspec/changes/check-project-documentation/proposal.md); implementation is ready for review, with the filesystem/startup limit below retained.
+Development source implements `docs check`, advisory defaults for all three categories, optional frontmatter with scoped rules, and included Mermaid parsing. The Node floor is 22.12.0. Published 0.2.0 is unchanged. The owner approved [the proposal](../../openspec/changes/archive/2026-11-18-check-project-documentation/proposal.md); native archive completed November 18, 2026, after green Windows/Linux CI. The filesystem/startup limit below is retained.
 
-## Verification
+## Initial verification
 
 | Check | Observed result |
 |---|---|
@@ -40,18 +40,28 @@ The follow-up full Windows suite passed 159 tests. After the final bounded direc
 
 On source `439fbbd`, [package CI](https://github.com/cliewen-openspec/cliewen-openspec/actions/runs/44344622305) passed Linux on Node 22.12.0 and 24, each with 157 passing tests and two Windows-only skips. Both Windows jobs failed: Node 24 passed 139 and failed 20; Node 22.12.0 passed 141 and failed 18. Failures occurred in packed installation/preparation commands and a native compiler startup; fixture subprocesses exceeded their existing deadlines. Direct documentation assertions passed. [Site build/deployment](https://github.com/cliewen-openspec/cliewen-openspec/actions/runs/44344622188) and browser checks passed.
 
-The follow-up limits deterministic test-file concurrency to two and loads documentation parsing only for `docs check`. A loader-based regression proves version/help avoid parser imports and docs check still loads them, passing on Node 22.12.0 and 24.0.0. The local full follow-up passed 157 tests and timed out two OpenSpec 1.17 package installs; both passed a targeted rerun. Those two subprocesses had a shared unusually long elapsed interval; its cause was not established. The guide build passes. Replacement CI remains pending.
+The follow-up limits deterministic test-file concurrency to two and loads documentation parsing only for `docs check`. A loader-based regression proves version/help avoid parser imports and docs check still loads them, passing on Node 22.12.0 and 24.0.0. The local full follow-up passed 157 tests and timed out two OpenSpec 1.17 package installs; both passed a targeted rerun. Those two subprocesses had a shared unusually long elapsed interval; its cause was not established. The guide build passes. The third hosted run below supplies the final CI result.
 
 Original Windows logs are retained at `.tmp/documentation-ci-windows24-failure.log` and `.tmp/documentation-ci-windows2212-failure.log`; local follow-up and retry outputs use separate names. No product parser deadline or agent budget was raised, and existing assertions were retained.
 
 The second [package CI run](https://github.com/cliewen-openspec/cliewen-openspec/actions/runs/44357308870), on `cb590b9`, passed both Linux jobs with 158 passes and two Windows-only skips each. Windows Node 24 passed 145 and failed 15; Node 22.12.0 passed 143 and failed 17. Packed setup timeouts persisted. The Windows fixture paths were under the user-profile temp directory on C:, while checkout used D:. [Runner maintainers have documented drive-related I/O differences](https://github.com/actions/runner-images/issues/8755); this is a possible explanation, not a measured cause here.
 
-The next CI revision uses runner-owned fixture/cache storage on Windows and records runtime paths/parallelism, with a 30-minute outer job limit. Individual command and product parser deadlines remain in force. Replacement results are pending.
+The next CI revision uses runner-owned fixture/cache storage on Windows and records runtime paths/parallelism, with a 30-minute outer job limit. Individual command and product parser deadlines remain in force. The replacement passed, as recorded below.
+
+## Green CI and native archive
+
+On source `5c53a09`, [package CI](https://github.com/cliewen-openspec/cliewen-openspec/actions/runs/44362422456) passed all four jobs. Windows passed all 160 tests on both Node 22.12.0 and 24; Linux passed 158 with two Windows-only skips on each runtime. The runner-owned storage revision completed without changing assertions, individual command deadlines or the product parser's five-second bound. This result does not establish which storage condition caused the earlier timeouts.
+
+[Site CI](https://github.com/cliewen-openspec/cliewen-openspec/actions/runs/44362422485) also passed: 13 built pages, 526 local links, five diagrams, desktop/mobile browser checks, deployment and published-path checks. Exact-minimum source installation emitted engine warnings for development-only OpenSpec/Inquirer dependencies; the suite passed, and those dependencies are not included in Cliewen's production installation.
+
+Native OpenSpec archive synchronized seven documentation requirements and one installation requirement, then moved the completed change to [its archive](../../openspec/changes/archive/2026-11-18-check-project-documentation/proposal.md). Closure updates only specs and maintainer records; runtime code is unchanged from the green CI revision. No agent run or package publication was added.
+
+After archive, all 16 permanent specs passed strict validation. The changed-document check found no errors across 94 local targets and three heading fragments; `git diff --check` also passed.
 
 ## Limits
 
-No agent calls or new model/profile matrix were run. Deterministic instruction retrieval does not establish agent compliance. No live project rollout or native macOS execution is claimed. Hosted CI covers the full Linux suite and guide browser checks as recorded above; it does not establish visual quality or factual accuracy for an adopting project's diagrams.
+No agent calls or new model/profile matrix were run. Deterministic instruction retrieval does not establish agent compliance. No live project rollout or native macOS execution is claimed. Hosted CI covers the full Windows/Linux suites and guide browser checks as recorded above; it does not establish visual quality or factual accuracy for an adopting project's diagrams.
 
 The checker uses its declared heading dialect and reports unsupported custom fragments or out-of-scope targets as unchecked. Collection and parser bounds are deliberate; empty, off and incomplete results are not valid-documentation claims. Existing document paths and published package contracts remain intact.
 
-[Structured evidence](documentation-checks-001.json) records commands, runtime identities, hashes and raw output locations under ignored `.tmp/documentation-*`. The [configuration reference](../configuration.md#documentation-checks-in-development-source) owns command settings and limits, and [the documentation-check decision](../decisions/033-read-only-documentation-checks.md) owns policy. Review precedes native archive; publication remains separate.
+[Structured evidence](documentation-checks-001.json) records commands, runtime identities, hashes and raw output locations under ignored `.tmp/documentation-*`. The [configuration reference](../configuration.md#documentation-checks-in-development-source) owns command settings and limits, and [the documentation-check decision](../decisions/033-read-only-documentation-checks.md) owns policy. Native archive is complete; publication remains separate.

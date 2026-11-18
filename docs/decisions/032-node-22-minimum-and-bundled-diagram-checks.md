@@ -17,8 +17,8 @@ This replaces the Node 20.19+ floor for that delivery in [installation ownership
 
 ## Acceptance and implementation boundary
 
-The owner accepted this direction and the [documentation-check proposal](../../openspec/changes/check-project-documentation/proposal.md) on November 17, 2026. Development source now declares Node 22.12+ in package metadata, init/update preflight and the documentation command, with the parser included. The [roadmap](../../plan.md) tracks verification and closure. Published packages retain their original minimums.
+The owner accepted this direction and the [documentation-check proposal](../../openspec/changes/archive/2026-11-18-check-project-documentation/proposal.md) on November 17, 2026. Development source now declares Node 22.12+ in package metadata, init/update preflight and the documentation command, with the parser included. The [roadmap](../../plan.md) tracks verification and closure. Published packages retain their original minimums.
 
 Implementation must update the package engine, init/update compatibility checks, guide, changelog and affected tests together. Reject an unsupported runtime before recovery or installation writes. Verify the packed dependency set and diagram parsing on Node 22.12.0 and a newer supported runtime on Windows/Linux; a higher version in CI alone does not verify the exact minimum. Preserve existing configuration and files. Publication remains a separate action.
 
-The [implementation review](../testing/documentation-checks-001.md) records a passing 157-test Windows suite, exact-minimum Windows/Linux checks, included production parsers and real Node 20 rejection before journal writes. The original Linux mounted-source startup timeouts remain explicit; new hosted CI and publication are unobserved.
+The [implementation review](../testing/documentation-checks-001.md) records green hosted CI on Windows and Linux at Node 22.12.0 and 24, included production parsers, and real Node 20 rejection before journal writes. Native archive completed November 18, 2026. Earlier timeouts remain in the record; native macOS execution and publication remain unobserved.
