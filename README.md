@@ -26,6 +26,8 @@ Use [the combined workflow](docs/guide/all.md) to investigate and deliver in one
 
 ## Install
 
+Development source also adds [CI requirement inspection](docs/configuration.md#ci-requirement-inspection-in-development-source). It reports whether selected GitHub checks are required and what information is unavailable, without changing branch policy. Published 0.2.0 does not include it.
+
 Development source requires Node.js 22.12+, OpenSpec 1.15.0+ and Git for the full workflow. Published 0.2.0 retains Node 20.19+ and does not include the new documentation checker. The npm commands below install OpenSpec 2.0.0, which needs Node 22.12+. See [version compatibility](docs/configuration.md#version-compatibility). Windows/Linux CI targets the exact Node 22.12.0 minimum and Node 24.
 
 In your project, install the versioned packages and initialize OpenSpec:

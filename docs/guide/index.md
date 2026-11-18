@@ -13,6 +13,10 @@ Use the search button to find commands, configuration fields, and guide sections
 
 If something fails or the guide is unclear, [report a bug](https://github.com/cliewen-openspec/cliewen-openspec/issues/new?template=bug_report.yml) with the command or page and what you expected. You can also [suggest an improvement](https://github.com/cliewen-openspec/cliewen-openspec/issues/new?template=idea.yml) by describing your use case and desired outcome.
 
+## Inspect CI requirements
+
+Development source can [inspect whether selected GitHub CI checks are required](cli.md#ci-inspect), with separate reports for missing requirements and unavailable information. It is advisory and changes no branch policy. Published 0.2.0 does not include this command.
+
 ## Philosophy
 
 Cliewen aims to make spec-driven development more reliable and useful through OpenSpec's extension mechanisms. Its schemas turn project expectations into instructions an agent can follow, while keeping the reasoning and evidence available to the next person working on the project.

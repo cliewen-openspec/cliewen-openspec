@@ -27,6 +27,23 @@ Development source additionally installs `.cliewen-openspec/context-selection.md
 
 Init/update check the running Node and selected OpenSpec CLI before recovery or installation writes, including previews. Development source requires Node 22.12+ and stable OpenSpec 1.15.0+; published 0.2.0 retains Node 20.19+. The project's npm installation takes precedence over PATH. See [version compatibility](../configuration.md#version-compatibility) for selection, timeout, and runtime limits.
 
+## ci inspect
+
+Available in development source; published 0.2.0 does not provide this command.
+
+```sh
+cliewen-openspec ci inspect
+cliewen-openspec ci inspect --json
+```
+
+Reads configured GitHub.com branch policy and reports whether your selected CI checks are required. It changes no project files or host settings. Requires Node 22.12+ and an installed GitHub CLI with existing repository access. It does not install tools or start login.
+
+Configure `ciInspection.repository` and a nonempty `requiredChecks` list first. The default mode is advisory; explicit `off` skips inspection. An omitted branch selects the repository's current default branch. See [defaults, examples and access limits](../configuration.md#ci-requirement-inspection-in-development-source).
+
+Reports show observed, missing or unknown requirements and separate bypass visibility. For example, green CI can coexist with a missing requirement, allowing integration without that check. This command inspects policy; use CI logs to diagnose a failing test or build. Exit 0 means an advisory report completed, including missing/unknown results. Invalid settings or usage and unsupported Node exit 2.
+
+Init, update and ordinary `check` do not query GitHub for this feature. JSON contains the inspected target and time, per-check sources, coverage and findings. Host policy can change after inspection, and the report does not authorize integration.
+
 ## docs check
 
 Available in development source; published 0.2.0 does not provide this command.

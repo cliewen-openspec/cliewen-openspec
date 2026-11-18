@@ -4,6 +4,8 @@ Changes that matter to projects using Cliewen for OpenSpec.
 
 ## Unreleased
 
+- Inspect whether your selected GitHub CI checks are required before integration with `cliewen-openspec ci inspect`. Reports distinguish observed, missing and unknown requirements and show bypass visibility separately. Inspection is advisory, needs an explicitly selected repository and checks, and changes no host settings. See [setup and limits](docs/configuration.md#ci-requirement-inspection-in-development-source).
+
 - Check local Markdown links, optional YAML frontmatter and Mermaid syntax with `cliewen-openspec docs check`. All categories warn by default and can independently block or be disabled; project roots, exclusions and metadata rules are configurable. Checks change no files and report incomplete work explicitly. The Mermaid parser is included. See [configuration and limits](docs/configuration.md#documentation-checks-in-development-source).
 
 - The new package requires Node 22.12+ instead of 20.19+. Init/update reject older runtimes before recovery or installation writes. OpenSpec 1.15.0+ remains supported; already published packages retain their original requirements.

@@ -75,4 +75,8 @@ test('packed native instructions carry opt-in selection with disabled maintenanc
     const name=`context-${schema}`;run([native,'schema','validate',schema]);run([native,'new','change',name,'--schema',schema]);const response=JSON.parse(run([native,'instructions','proposal','--change',name,'--json']));assert.equal(response.schemaName,schema);assert.ok(response.instruction.includes(resource));assert.ok(response.instruction.includes('contextSelection.mode (default guided)'));assert.ok(response.instruction.includes('cliewen-openspec docs check'));assert.ok(response.instruction.includes('Exit 0 with advisory findings does not establish valid documentation'));
   }
   assert.equal(fs.existsSync(path.join(root,'knowledge/learnings')),false);assert.ok(read(root,resource).includes('This reference supplies advisory agent instructions'));
+  assert.ok(read(root,'.cliewen-openspec/ci-inspection.md').includes('Exit 0 means an advisory report completed'));
+  for(const schema of ['cliewen-delivery','cliewen-discovery','cliewen-all']){
+    const response=JSON.parse(run([native,'instructions','proposal','--change',`context-${schema}`,'--json']));assert.ok(response.instruction.includes('.cliewen-openspec/ci-inspection.md'));
+  }
 });

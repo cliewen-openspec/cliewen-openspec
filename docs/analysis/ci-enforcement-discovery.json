@@ -1,0 +1,49 @@
+{
+  "recordedAt": "2026-11-18T18:04:28.711Z",
+  "sourceRevision": "e603d456ba44dea36f80feed53b133f294fe11fa",
+  "sourceDirty": true,
+  "purpose": "Read-only discovery for a proposed feature; no implementation qualification",
+  "target": {
+    "host": "github.com",
+    "repository": "cliewen-openspec/cliewen-openspec",
+    "branch": "main"
+  },
+  "observations": {
+    "branch": {
+      "command": "gh api --method GET repos/cliewen-openspec/cliewen-openspec/branches/main",
+      "exitCode": 0,
+      "protected": false
+    },
+    "classicProtection": {
+      "command": "gh api --method GET repos/cliewen-openspec/cliewen-openspec/branches/main/protection",
+      "exitCode": 1,
+      "httpStatus": 404,
+      "message": "Branch not protected"
+    },
+    "activeRules": {
+      "command": "gh api --method GET --paginate --slurp repos/cliewen-openspec/cliewen-openspec/rules/branches/main?per_page=100",
+      "exitCode": 0,
+      "pages": 1,
+      "count": 0
+    }
+  },
+  "outputs": {
+    ".tmp/ci-enforcement-discovery-branch.json": "e4f7fcc76c6277078315a3cdb5033f373a42531ef68fd423320afe0160911e16",
+    ".tmp/ci-enforcement-discovery-protection.json": "d6020ee3b0852c3deb66c66d159cc80caabeaa66ee301778307a2a18d486450d",
+    ".tmp/ci-enforcement-discovery-protection-error.txt": "3783bc2307d41a0533a73e6fa8679d4fb64ef17bad75f8971c6bcf725c239250",
+    ".tmp/ci-enforcement-discovery-rules.json": "cf1cbb66a638b4860a516671fb74850e6ccf787fe6c4c8d29e9c04efe880bd05",
+    ".tmp/ci-enforcement-discovery-rules-error.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    ".tmp/ci-enforcement-discovery-openspec-help.txt": "b4936b7624064d14a82aba995e93b6af79cf07024580a8aebbfd803198293b10"
+  },
+  "limits": [
+    "Dated observations under existing credentials; host policy can change",
+    "GET requests only; no host settings changed",
+    "No agent calls or implementation tests run",
+    "Inspection command and configuration are proposals, not shipped features"
+  ],
+  "references": [
+    "https://docs.github.com/en/rest/repos/rules#get-rules-for-a-branch",
+    "https://docs.github.com/en/rest/branches/branch-protection#get-branch-protection",
+    "https://docs.github.com/en/rest/repos/rules#get-a-repository-ruleset"
+  ]
+}

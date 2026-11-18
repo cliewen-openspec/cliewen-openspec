@@ -107,12 +107,52 @@ These settings guide the agent; they do not enforce file access, measure actual 
 
 Version 0.2.0 installs `.cliewen-openspec/product-context.md` for product intent, useful cross-capability journeys, and detection of drift or scope creep. Published 0.1.0 does not contain this reference. There is no new configuration field or required artifact. `features.documentation` controls optional records under `docsRoot` or existing project paths; `features.planning` independently controls planning authority and ticket access. Disabled facilities add no corresponding work and preserve authored content. Existing supplied context still informs normal scoping. See [product intent and journeys](guide/workflow.md#keep-the-users-outcome-in-view) for an illustrative example and limits.
 
+## CI requirement inspection in development source
+
+Published 0.2.0 does not include `ci inspect`. Development source provides read-only inspection of required GitHub.com status checks. It requires Node 22.12+, the GitHub CLI (`gh`) in an absolute directory on PATH, and existing access to the selected repository. It uses that access without starting login. Inspecting classic protection may require administration-read permission. The report marks information it cannot obtain as unknown.
+
+```yaml
+ciInspection:
+  mode: advisory
+  host: github
+  repository: example/service
+  branch: main
+  requiredChecks:
+    - context: test (ubuntu-latest, 24)
+    - context: lint
+      appId: 15368
+```
+
+Replace the example repository, exact check names and optional app ID with your project's choices. A solo project can select one test check; a team can select the same checks or add its own. Contributor count does not choose the policy.
+
+| Setting | Default | Meaning |
+|---|---|---|
+| `mode` | `advisory` | Report observations; `off` skips host/tool access |
+| `host` | `github` | GitHub.com is the supported host |
+| `repository` | `null` | Explicit `owner/name`; never inferred from Git remotes |
+| `branch` | `null` | Resolve the selected repository's current default branch; otherwise inspect this exact branch |
+| `requiredChecks` | `[]` | Unique exact `context` names, each optionally bound to a positive integer `appId` |
+
+Run `cliewen-openspec ci inspect`, optionally with `--json`. Missing repository or an empty check list reports `not-configured` without a host request. Init, update and ordinary `check` do not invoke inspection. Existing config bytes are preserved; these settings are independent of evidence, documentation and planning switches.
+
+Each expected check is `observed`, `missing` or `unknown`. Missing requires complete supported policy coverage; an unavailable source cannot prove absence. Active classic protection and effective rules, including inherited rules, supply requirements. A configured app ID needs an explicit matching host binding. Bypass visibility is separate: `possible`, `none-observed` or `unknown`. A hidden list is unknown, and a visible exception does not establish that someone bypassed the combined policy.
+
+Valid advisory reports exit 0 even for missing or unknown requirements; invalid configuration/usage and unsupported Node exit 2. JSON includes `version`, `inspectedAt`, `target`, `checks`, `sources`, `coverage`, `findings`, `mode`, `status` and `exitCode`. Inspect those states before drawing a conclusion. The command neither diagnoses failing jobs nor establishes test quality, current PR results or merge authorization.
+
+Requests have a 10-second deadline and a 1 MiB response limit, with 60 seconds for the inspection, at most 10 pages of 100 effective rules and 32 ruleset-detail requests. Truncated, refused, malformed or contradictory results leave affected coverage unknown. Required-workflow rules, other hosts and actor-specific permissions are outside supported coverage. No project file, host setting or persistent report is written. See [the command reference](guide/cli.md#ci-inspect).
+
 ## Full defaults
 
 This is the complete configuration written by `init`. Omitted fields use these values; unknown settings and invalid values fail validation. Changes apply when the next operation reads the config. They do not rewrite existing proposals or task lists.
 
 <!-- defaults -->
 ```yaml
+ciInspection:
+  mode: advisory
+  host: github
+  repository: null
+  branch: null
+  requiredChecks: []
 documentationChecks:
   roots: []
   exclude: []

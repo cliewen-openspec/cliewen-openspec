@@ -4,6 +4,8 @@ Use native OpenSpec status and the selected change's metadata to establish its s
 
 ## Before archive
 
+For relevant integration review with ciInspection configured and enabled, use .cliewen-openspec/ci-inspection.md. Keep observed requirements, missing or unknown coverage and bypass visibility separate from CI results and archive authorization. Explicit off skips inspection; no extra approval gate or report is required.
+
 Compare the actual result with the agreed scope, delta specs, and unresolved work. Preserve deferred obligations at the project's selected authority when planning is enabled. Review only affected records; useful findings can stay in an existing handoff or document. No separate closure report, new decision, lesson, or empty index is required when it adds no useful information.
 
 Use the shared manual-step and observation guidance in .cliewen-openspec/planning.md independently of its optional planning settings. Automate feasible authorized checks before asking for manual work, explain any residual human need, and retain actual observation context and limits in existing records. Distinguish agent checks, human feedback, change approval, and release authorization. Reassess observations affected by later changes; manual evidence retains its existing warnings and freshness requirements. Missing feedback alone adds no routine approval gate.

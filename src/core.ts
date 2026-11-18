@@ -1,5 +1,6 @@
 import {withStateLock} from './state-lock.js';
 import {documentationDefaults, documentationSettings, type DocumentationSettings} from './documentation-settings.js';
+import {ciDefaults, ciSettings, type CISettings} from './ci-settings.js';
 import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
@@ -20,7 +21,7 @@ import {compatibility, type Compatibility} from './compatibility.js';
 export {version} from './release.js';
 const state = '.cliewen-openspec';
 const features = ['documentation', 'decisions', 'mermaid', 'planning', 'review', 'evidence'];
-export type Config = { documentationChecks: DocumentationSettings; contextSelection: {mode: 'off' | 'guided'; roots: string[]; exclude: string[]; maxFiles: number}; docsRoot: string; learnings: {enabled: boolean; directory: string}; writing: {humanizer: 'auto' | 'on' | 'off'}; features: Record<string, boolean>; evidence: { report: string }; ac: { capabilities: Record<string, string>; padding: number }; testing: QualitySettings & { placement: 'per-task' | 'end-of-change'; types: Record<string, { description: string }> } };
+export type Config = { ciInspection: CISettings; documentationChecks: DocumentationSettings; contextSelection: {mode: 'off' | 'guided'; roots: string[]; exclude: string[]; maxFiles: number}; docsRoot: string; learnings: {enabled: boolean; directory: string}; writing: {humanizer: 'auto' | 'on' | 'off'}; features: Record<string, boolean>; evidence: { report: string }; ac: { capabilities: Record<string, string>; padding: number }; testing: QualitySettings & { placement: 'per-task' | 'end-of-change'; types: Record<string, { description: string }> } };
 export type Finding = { code: string; severity: 'error' | 'warning' | 'info'; message: string };
 export function local(root: string, relative: string): string {
   if (!relative || path.isAbsolute(relative) || path.win32.parse(relative).root || relative.split(/[\\/]/).includes('..')) throw Error(`Unsafe repository path: ${relative}`);
@@ -42,7 +43,7 @@ const normalize = (s: string) => s.replace(/\r\n/g, '\n');
 const hash = (s: string) => createHash('sha256').update(normalize(s)).digest('hex');
 const read = (p: string) => fs.readFileSync(p, 'utf8');
 export function defaults(): Config {
-  return { documentationChecks: documentationDefaults(), contextSelection: {mode: 'guided', roots: [], exclude: [], maxFiles: 8}, docsRoot: 'docs', learnings: {enabled: false, directory: 'learnings'}, writing: {humanizer: 'auto'}, features: Object.fromEntries(features.map(f => [f, true])), evidence: { report: '.cliewen-openspec/evidence.json' }, ac: { capabilities: {}, padding: 3 }, testing: { ...qualityDefaults(), placement: 'per-task', types: {
+  return { ciInspection: ciDefaults(), documentationChecks: documentationDefaults(), contextSelection: {mode: 'guided', roots: [], exclude: [], maxFiles: 8}, docsRoot: 'docs', learnings: {enabled: false, directory: 'learnings'}, writing: {humanizer: 'auto'}, features: Object.fromEntries(features.map(f => [f, true])), evidence: { report: '.cliewen-openspec/evidence.json' }, ac: { capabilities: {}, padding: 3 }, testing: { ...qualityDefaults(), placement: 'per-task', types: {
     Unit: { description: 'Isolated behavior without external dependencies' },
     Integration: { description: 'Interaction between components or dependencies' },
     E2E: { description: 'Complete user or system workflow' }
@@ -54,9 +55,10 @@ function keys(o: unknown, allowed: string[], label: string): asserts o is Record
 }
 export function config(root: string): Config {
   const p = local(root, `${state}/config.yaml`);
-  const raw = parse(read(p)); keys(raw, ['docsRoot', 'learnings', 'writing', 'features', 'evidence', 'ac', 'testing', 'contextSelection', 'documentationChecks'], 'config');
+  const raw = parse(read(p)); keys(raw, ['docsRoot', 'learnings', 'writing', 'features', 'evidence', 'ac', 'testing', 'contextSelection', 'documentationChecks', 'ciInspection'], 'config');
   const c = defaults();
   c.documentationChecks = documentationSettings(raw.documentationChecks);
+  c.ciInspection = ciSettings(raw.ciInspection);
   if (raw.learnings !== undefined) {
     keys(raw.learnings, ['enabled', 'directory'], 'learnings');
     if (raw.learnings.enabled !== undefined) {
@@ -189,7 +191,7 @@ function recoverState(root: string) {
   fs.unlinkSync(jp);
 }
 type Manifest = { version: string; files: Record<string, string> };
-function bundledFiles(): Record<string, string> { return {...deliveryFiles(), ...discoveryFiles(), ...allFiles(), [`${state}/templates/learning.md`]: template('base/templates/learning.md'), [`${state}/planning.md`]: template('base/instructions/planning.md') + '\n## Work scoping\n\n' + template('base/instructions/work-scoping.md'), [`${state}/closure.md`]: template('base/instructions/closure.md'), [`${state}/prototyping.md`]: template('base/instructions/prototyping.md'), [`${state}/product-context.md`]: template('base/instructions/product-context.md'), [`${state}/context-selection.md`]: template('base/instructions/context-selection.md')}; }
+function bundledFiles(): Record<string, string> { return {...deliveryFiles(), ...discoveryFiles(), ...allFiles(), [`${state}/templates/learning.md`]: template('base/templates/learning.md'), [`${state}/planning.md`]: template('base/instructions/planning.md') + '\n## Work scoping\n\n' + template('base/instructions/work-scoping.md'), [`${state}/closure.md`]: template('base/instructions/closure.md'), [`${state}/prototyping.md`]: template('base/instructions/prototyping.md'), [`${state}/product-context.md`]: template('base/instructions/product-context.md'), [`${state}/context-selection.md`]: template('base/instructions/context-selection.md'), [`${state}/ci-inspection.md`]: template('base/instructions/ci-inspection.md')}; }
 function manifestText(files: Record<string, string>): string {
   return JSON.stringify({version, files: Object.fromEntries(Object.entries(files).map(([file, content]) => [file, hash(content)]))}, null, 2) + '\n';
 }
@@ -205,7 +207,7 @@ function ownedManifest(root: string, operation: 'update' | 'uninstall'): Manifes
   if (!previous.files || typeof previous.files !== 'object' || Array.isArray(previous.files) || !Object.keys(previous.files).length) throw Error('Manifest files must be a nonempty ownership mapping');
   for (const [file, digest] of Object.entries(previous.files)) {
     local(root, file);
-    const owned = [`${state}/templates/decision.md`, `${state}/templates/learning.md`, `${state}/planning.md`, `${state}/closure.md`, `${state}/prototyping.md`, `${state}/product-context.md`, `${state}/context-selection.md`].includes(file) || /^openspec\/schemas\/cliewen-(delivery|discovery|all)\/(schema\.yaml|templates\/[a-z0-9][a-z0-9-]*\.md)$/.test(file);
+    const owned = [`${state}/templates/decision.md`, `${state}/templates/learning.md`, `${state}/planning.md`, `${state}/closure.md`, `${state}/prototyping.md`, `${state}/product-context.md`, `${state}/context-selection.md`, `${state}/ci-inspection.md`].includes(file) || /^openspec\/schemas\/cliewen-(delivery|discovery|all)\/(schema\.yaml|templates\/[a-z0-9][a-z0-9-]*\.md)$/.test(file);
     if (!owned || typeof digest !== 'string' || !/^[a-f0-9]{64}$/.test(digest)) throw Error(`Invalid owned-file entry in manifest: ${file}`);
   }
   return previous as Manifest;

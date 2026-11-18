@@ -227,6 +227,14 @@ A passing `check` confirms that the configured report matches the scenario refer
 
 Cliewen's instruction to check evidence is guidance. The alpha does not intercept OpenSpec's archive command. After archive, commit the new state and regenerate evidence before checking permanent specs. The [first-change guide](getting-started.md#7-archive-and-refresh-evidence) shows the commands.
 
+## Inspect required CI checks
+
+Development source offers `cliewen-openspec ci inspect` for integration review. Select your repository and expected checks in [CI-inspection settings](../configuration.md#ci-requirement-inspection-in-development-source), then run the command when those requirements matter to the work. Published 0.2.0 does not include it.
+
+A solo project might select its test check; a team might also select lint or another required check. Both retain their own branch and approval policies. Inspection defaults to advisory and reports observed, missing or unknown requirements. Visible bypass exceptions and hidden information remain separate from the requirement itself. Keep the actual target, time and limitations in a useful handoff; no separate report is required.
+
+Green CI establishes a run result. Inspection asks whether the host requires the selected checks before integration. It does not diagnose failing jobs or change protection. Existing authorized access can automate inspection; if access is insufficient, explain the specific missing observation. Explicit off skips inspection, and the result adds no routine human approval, merge or archive authorization.
+
 ## Close the change and preserve useful knowledge
 
 Version 0.2.0 installs `.cliewen-openspec/closure.md` and links it from all three workflows' implementation instructions. The reference brings together the project's enabled documentation, decision, learning, planning, test-review, and evidence responsibilities. It requests agent review; it does not enforce document accuracy or intercept archive.

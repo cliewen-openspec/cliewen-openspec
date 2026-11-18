@@ -3,12 +3,13 @@ type: index
 ---
 # Decisions
 
-These records capture choices confirmed in the project conversation. Acceptance describes the intended design, not implementation or release status; each record states relevant limits. Superseded records retain their reasoning and link to their replacements. Detailed commands live in [configuration](../configuration.md) and [the evidence contract](../testing/evidence.md).
+These records capture confirmed choices and explicitly marked proposals. Acceptance describes the intended design, not implementation or release status; each record states relevant limits. Superseded records retain their reasoning and link to their replacements. Detailed commands live in [configuration](../configuration.md) and [the evidence contract](../testing/evidence.md).
 
 ## Accepted decisions
 
 | Record | Decision | Current scope |
 |---|---|---|
+| [Inspect required CI checks without changing integration policy](034-advisory-ci-enforcement-inspection.md) | Explicit GitHub.com inspection, advisory defaults, selected check identities and separate bypass visibility | Accepted November 18, 2026; implemented in development source with [review corrections and verification](../testing/ci-enforcement-inspection-001.md) |
 | [Check documentation with independent advisory defaults](033-read-only-documentation-checks.md) | Read-only local links, optional metadata and included Mermaid syntax checks; independent off/advisory/enforce policies | Archived November 18, 2026; review corrections and 160-test Windows/Linux CI pass on Node 22.12.0 and 24; verification limits retained |
 | [Require Node 22.12+ and include the Mermaid parser](032-node-22-minimum-and-bundled-diagram-checks.md) | Raise the runtime floor with documentation checks; diagram parsing needs no separate installation | Archived November 18, 2026; exact minimum and newer runtime pass Windows/Linux CI; real Node 20 rejection verified; published requirements unchanged |
 | [Enable focused context selection by default](031-guided-context-selection-default.md) | Guided for missing settings; explicit off preserved; existing frontmatter informs selection | Archived November 17, 2026; default preservation and green CI verified; targeted agent limits retained |
