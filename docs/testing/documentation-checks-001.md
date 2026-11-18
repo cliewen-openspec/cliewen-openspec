@@ -44,6 +44,10 @@ The follow-up limits deterministic test-file concurrency to two and loads docume
 
 Original Windows logs are retained at `.tmp/documentation-ci-windows24-failure.log` and `.tmp/documentation-ci-windows2212-failure.log`; local follow-up and retry outputs use separate names. No product parser deadline or agent budget was raised, and existing assertions were retained.
 
+The second [package CI run](https://github.com/cliewen-openspec/cliewen-openspec/actions/runs/44357308870), on `cb590b9`, passed both Linux jobs with 158 passes and two Windows-only skips each. Windows Node 24 passed 145 and failed 15; Node 22.12.0 passed 143 and failed 17. Packed setup timeouts persisted. The Windows fixture paths were under the user-profile temp directory on C:, while checkout used D:. [Runner maintainers have documented drive-related I/O differences](https://github.com/actions/runner-images/issues/8755); this is a possible explanation, not a measured cause here.
+
+The next CI revision uses runner-owned fixture/cache storage on Windows and records runtime paths/parallelism, with a 30-minute outer job limit. Individual command and product parser deadlines remain in force. Replacement results are pending.
+
 ## Limits
 
 No agent calls or new model/profile matrix were run. Deterministic instruction retrieval does not establish agent compliance. No live project rollout or native macOS execution is claimed. Hosted CI covers the full Linux suite and guide browser checks as recorded above; it does not establish visual quality or factual accuracy for an adopting project's diagrams.

@@ -38,6 +38,8 @@ Package tests include the documented CSV walkthrough against a packed installati
 
 The test command runs at most two test files concurrently. Several files install packed consumers, so this bounds competing installs and native-tool startup on hosted runners. Existing assertion and command deadlines still apply. This setting controls deterministic tests; it does not change agent-trial budgets.
 
+Windows CI places fixtures and the npm cache under the runner-owned temporary directory and logs the selected paths, Node version and available parallelism. Package jobs have a 30-minute outer limit. These are maintainer test settings, separate from an adopting project's configuration.
+
 ## Organization hosting
 
 The short introduction lives at `https://cliewen-openspec.github.io/` and the guide at `/guide/`. Edit the introduction in `site/organization/index.html` and documentation in its existing source paths. The separate `cliewen-openspec.github.io` repository contains only the deployment caller and maintainer instructions.

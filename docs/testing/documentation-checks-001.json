@@ -304,6 +304,32 @@
         "diagrams": 5,
         "browserChecks": true
       }
+    },
+    {
+      "sourceRevision": "cb590b9e76e3b565d53b5a25f3e8163c0e69a072",
+      "run": "https://github.com/cliewen-openspec/cliewen-openspec/actions/runs/44357308870",
+      "conclusion": "failure",
+      "testCount": 160,
+      "windows24": {
+        "passed": 145,
+        "failed": 15,
+        "skipped": 0
+      },
+      "windows2212": {
+        "passed": 143,
+        "failed": 17,
+        "skipped": 0
+      },
+      "linuxBoth": {
+        "passed": 158,
+        "failed": 0,
+        "skipped": 2
+      },
+      "failureClass": "packed setup timeouts persisted with test-file concurrency two",
+      "outputs": {
+        ".tmp/documentation-ci-followup-windows24-failure.log": "c0ace60474dd2f2f6c6903cfdbaa963456c91afa9f33326959a13f49ee781ae7",
+        ".tmp/documentation-ci-followup-windows2212-failure.log": "ffdad15d3121534f1dd5d5a8953d4f4e8a979b80b07279a6eceb167ca0159ce5"
+      }
     }
   ],
   "ciStabilityFollowUp": {
@@ -348,5 +374,26 @@
       ".tmp/documentation-cli-loading-node2212.log": "75f4ba3cd3cbe16f22786fd014e3e3b4bbfdab6798a0340b209b973e0367bd01",
       ".tmp/documentation-ci-followup-docs.log": "6dc8fdecffabe74e103933aec13240149f1471ac82c8f5c26ad99365db2b2490"
     }
+  },
+  "runnerStorageFollowUp": {
+    "recordedAt": "2026-11-18T17:46:45.641Z",
+    "windowsFixtureRoot": "RUNNER_TEMP/cliewen-fixtures",
+    "windowsNpmCache": "RUNNER_TEMP/npm-cache",
+    "jobTimeoutMinutes": 30,
+    "diagnostics": [
+      "node",
+      "platform",
+      "parallelism",
+      "temp",
+      "cache"
+    ],
+    "localWorkflowProbe": "exact setup script emitted four expected GITHUB_ENV entries",
+    "performanceCause": "I/O placement is a hypothesis, not yet measured in this repository",
+    "reference": "https://github.com/actions/runner-images/issues/8755",
+    "replacementCI": "pending",
+    "inputs": {
+      ".github/workflows/test.yml": "d26b029d8c5f6e7e4937bea519edb85aa7a5f59f9d09572c81a585e41d4208bc"
+    },
+    "probe": "22edbbc121203fe1b30b4654dd47a45b9876ac659fe3c993089e7a380a5c2379"
   }
 }
