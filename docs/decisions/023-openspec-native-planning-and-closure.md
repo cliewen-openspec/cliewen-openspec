@@ -37,6 +37,8 @@ The approved [closure proposal](../../openspec/changes/archive/2026-11-10-mainta
 
 ## Compatibility and upgrade direction
 
+[Require Node 22.12+ and include the Mermaid parser](032-node-22-minimum-and-bundled-diagram-checks.md) replaces the original Node floor below in development source with documentation checks. The OpenSpec minimum and project-controlled upgrade policy remain unchanged; published releases retain their original requirements.
+
 On November 10, 2026, the owner accepted OpenSpec 1.15.0+ and Node 20.19+ as the current minimums and confirmed init and update as the points for future version checks. Each later Cliewen release may raise its minimums and must state them before installation or update writes. OpenSpec upgrades remain a project-controlled action. These checks and general cross-version Cliewen upgrades belong to roadmap priority 3. The [compatibility review](../testing/openspec-compatibility-001.md) distinguishes completed installation/testing from that planned behavior.
 
 ## Context-entry clarification

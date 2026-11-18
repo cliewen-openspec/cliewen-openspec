@@ -20,13 +20,13 @@ The package also includes [test quality and lifecycle checks](docs/testing/test-
 
 `cliewen-base` names the internal shared foundation used to build these bundles. It is not a separately selectable schema. Discovery remains the workflow for investigation and decision-making.
 
-The shared design covers documentation, Decision Records, Mermaid, optional plans and evidence. Evidence is enabled by default. See the [discovery guide](docs/guide/discovery.md) for investigation, a no-change outcome, and delivery handoff. The package supplies documentation and decision guidance; structural metadata and Mermaid validators remain planned.
+The shared design covers documentation, Decision Records, Mermaid, optional plans and evidence. Evidence is enabled by default. See the [discovery guide](docs/guide/discovery.md) for investigation, a no-change outcome, and delivery handoff. Development source adds [read-only documentation checks](docs/configuration.md#documentation-checks-in-development-source) for local references, optional frontmatter and Mermaid syntax, with independent advisory defaults; published 0.2.0 provides writing guidance.
 
 Use [the combined workflow](docs/guide/all.md) to investigate and deliver in one change, with a proposed decision and human approval before implementation. Its no-delivery branch uses native `skip_specs`, without fake product requirements.
 
 ## Install
 
-Requires OpenSpec 1.15.0 or newer, Node.js 20.19 or newer, and Git. The npm commands below install OpenSpec 2.0.0, which requires Node 22.12 or newer. See [version compatibility](docs/configuration.md#version-compatibility) for the Node 20 installation path. Current integration tests target OpenSpec 2.0.0; Windows and Linux CI use Node 22 and 24.
+Development source requires Node.js 22.12+, OpenSpec 1.15.0+ and Git for the full workflow. Published 0.2.0 retains Node 20.19+ and does not include the new documentation checker. The npm commands below install OpenSpec 2.0.0, which needs Node 22.12+. See [version compatibility](docs/configuration.md#version-compatibility). Windows/Linux CI targets the exact Node 22.12.0 minimum and Node 24.
 
 In your project, install the versioned packages and initialize OpenSpec:
 

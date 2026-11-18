@@ -1,4 +1,5 @@
 import {withStateLock} from './state-lock.js';
+import {documentationDefaults, documentationSettings, type DocumentationSettings} from './documentation-settings.js';
 import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
@@ -19,7 +20,7 @@ import {compatibility, type Compatibility} from './compatibility.js';
 export {version} from './release.js';
 const state = '.cliewen-openspec';
 const features = ['documentation', 'decisions', 'mermaid', 'planning', 'review', 'evidence'];
-export type Config = { contextSelection: {mode: 'off' | 'guided'; roots: string[]; exclude: string[]; maxFiles: number}; docsRoot: string; learnings: {enabled: boolean; directory: string}; writing: {humanizer: 'auto' | 'on' | 'off'}; features: Record<string, boolean>; evidence: { report: string }; ac: { capabilities: Record<string, string>; padding: number }; testing: QualitySettings & { placement: 'per-task' | 'end-of-change'; types: Record<string, { description: string }> } };
+export type Config = { documentationChecks: DocumentationSettings; contextSelection: {mode: 'off' | 'guided'; roots: string[]; exclude: string[]; maxFiles: number}; docsRoot: string; learnings: {enabled: boolean; directory: string}; writing: {humanizer: 'auto' | 'on' | 'off'}; features: Record<string, boolean>; evidence: { report: string }; ac: { capabilities: Record<string, string>; padding: number }; testing: QualitySettings & { placement: 'per-task' | 'end-of-change'; types: Record<string, { description: string }> } };
 export type Finding = { code: string; severity: 'error' | 'warning' | 'info'; message: string };
 export function local(root: string, relative: string): string {
   if (!relative || path.isAbsolute(relative) || path.win32.parse(relative).root || relative.split(/[\\/]/).includes('..')) throw Error(`Unsafe repository path: ${relative}`);
@@ -41,7 +42,7 @@ const normalize = (s: string) => s.replace(/\r\n/g, '\n');
 const hash = (s: string) => createHash('sha256').update(normalize(s)).digest('hex');
 const read = (p: string) => fs.readFileSync(p, 'utf8');
 export function defaults(): Config {
-  return { contextSelection: {mode: 'guided', roots: [], exclude: [], maxFiles: 8}, docsRoot: 'docs', learnings: {enabled: false, directory: 'learnings'}, writing: {humanizer: 'auto'}, features: Object.fromEntries(features.map(f => [f, true])), evidence: { report: '.cliewen-openspec/evidence.json' }, ac: { capabilities: {}, padding: 3 }, testing: { ...qualityDefaults(), placement: 'per-task', types: {
+  return { documentationChecks: documentationDefaults(), contextSelection: {mode: 'guided', roots: [], exclude: [], maxFiles: 8}, docsRoot: 'docs', learnings: {enabled: false, directory: 'learnings'}, writing: {humanizer: 'auto'}, features: Object.fromEntries(features.map(f => [f, true])), evidence: { report: '.cliewen-openspec/evidence.json' }, ac: { capabilities: {}, padding: 3 }, testing: { ...qualityDefaults(), placement: 'per-task', types: {
     Unit: { description: 'Isolated behavior without external dependencies' },
     Integration: { description: 'Interaction between components or dependencies' },
     E2E: { description: 'Complete user or system workflow' }
@@ -53,8 +54,9 @@ function keys(o: unknown, allowed: string[], label: string): asserts o is Record
 }
 export function config(root: string): Config {
   const p = local(root, `${state}/config.yaml`);
-  const raw = parse(read(p)); keys(raw, ['docsRoot', 'learnings', 'writing', 'features', 'evidence', 'ac', 'testing', 'contextSelection'], 'config');
+  const raw = parse(read(p)); keys(raw, ['docsRoot', 'learnings', 'writing', 'features', 'evidence', 'ac', 'testing', 'contextSelection', 'documentationChecks'], 'config');
   const c = defaults();
+  c.documentationChecks = documentationSettings(raw.documentationChecks);
   if (raw.learnings !== undefined) {
     keys(raw.learnings, ['enabled', 'directory'], 'learnings');
     if (raw.learnings.enabled !== undefined) {

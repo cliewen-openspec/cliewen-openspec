@@ -3,7 +3,7 @@ type: guide
 ---
 # Your first change
 
-This guide takes a small CSV exporter from a new project to archived OpenSpec specs. Use a separate repository so you can review everything the package installs. You need Git, npm, and Node.js 22.12 or newer for the OpenSpec 2.0.0 npm installation used here. Cliewen itself supports Node 20.19+; see [version compatibility](../configuration.md#version-compatibility) for that installation path. Node 22 or 24 matches the versions used in package CI. Configure a Git name and email before the commit steps.
+This guide takes a small CSV exporter from a new project to archived OpenSpec specs. Use a separate repository so you can review everything the package installs. You need Git, npm and Node.js 22.12 or newer for the development tarball and OpenSpec 2.0.0 used here. See [version compatibility](../configuration.md#version-compatibility) for published-package requirements. Configure a Git name and email before the commit steps.
 
 The commands follow a prepared example without a coding agent. For an agent-authored change, choose [agent setup](existing-projects.md#coding-agents) before initialization and use the [reference prompt](../testing/pilot-prompt.md#prompt). Allocate IDs for that agent's reviewed scenarios; the fixed six-ID allocation and copy helpers below belong to the prepared path.
 

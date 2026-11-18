@@ -9,9 +9,7 @@ This reference describes version `0.2.0`. The earlier published `0.1.0-alpha.1` 
 
 ## Version compatibility
 
-Cliewen requires **OpenSpec 1.15.0 or newer**, **Node.js 20.19 or newer**, and Git. Current development pins OpenSpec 2.0.0. The published 0.1.0 release was checked with OpenSpec 1.15.0; 0.2.0 checks cover OpenSpec 1.15.0 and 1.17.0.
-
-Development-source checks now cover repository-local OpenSpec 2.0.0 workflows. This does not change the published 0.2.0 verification record. External stores and multi-repo evidence remain unsupported. Source init/update reject standalone stores and declared external planning layouts before recovery or writes; local specs and changes take precedence when both exist.
+Development source requires **Node.js 22.12 or newer** and **OpenSpec 1.15.0 or newer**. Git remains necessary for identity coordination and revision-bound evidence; the new documentation command needs neither Git nor an OpenSpec subprocess. Published 0.1.0 and 0.2.0 retain Node 20.19+ requirements and do not include documentation checks. Current development pins OpenSpec 2.0.0.
 
 Development-source checks now cover repository-local OpenSpec 2.0.0 workflows. This does not change the published 0.2.0 verification record. External stores and multi-repo evidence remain unsupported. Source init/update reject standalone stores and declared external planning layouts before recovery or writes; local specs and changes take precedence when both exist.
 
@@ -19,20 +17,60 @@ OpenSpec has its own installation requirements:
 
 | Installation | Node requirement |
 |---|---|
-| Cliewen CLI | Node 20.19+ |
-| OpenSpec 1.15.0 via npm | Compatible with the Cliewen Node 20.19 minimum |
+| Cliewen development source | Node 22.12+ |
+| Published Cliewen 0.1.0 and 0.2.0 | Node 20.19+ |
+| OpenSpec 1.15.0 via npm | Compatible with Cliewen's development minimum |
 | OpenSpec 1.17.0 or 2.0.0 via npm | Node 22.12+ |
 | OpenSpec standalone binary | No Node runtime for OpenSpec itself; Cliewen still needs Node |
 
-On Node 20.19, pin `@fission-ai/openspec@1.15.0` or use a compatible OpenSpec standalone installation. The current worked npm guide uses OpenSpec 2.0.0 and therefore requires Node 22.12+. See [OpenSpec's release notes](https://github.com/Fission-AI/OpenSpec/blob/main/CHANGELOG.md) for its own runtime requirements.
+Use Node 22.12+ for the current worked guide and development package. See [OpenSpec's release notes](https://github.com/Fission-AI/OpenSpec/blob/main/CHANGELOG.md) for its own runtime requirements.
 
 The minimum is a compatibility floor, not proof that every newer release has been tested. A future Cliewen release may raise its OpenSpec or Node minimum. Review that release's requirements before upgrading.
 
-Version 0.2.0 checks these minimums at every `init` and `update`, including previews, before recovery or installation writes. Published 0.1.0 does not perform these checks. No persistent success cache is used. Other commands keep their existing requirements; explicit `recover` remains available to restore an interrupted transaction.
+Init/update check the target package's minimums, including previews, before recovery or installation writes. The development floor is Node 22.12+; published 0.2.0 checks its original Node 20.19+ floor. Published 0.1.0 does not perform these checks. No persistent success cache is used. Documentation checks independently reject unsupported Node; explicit `recover` remains available to restore an interrupted transaction.
 
 The check uses the project's resolvable OpenSpec npm installation first, otherwise the CLI on PATH, including a standalone executable. It runs that installation's public `--version`; an incompatible or broken selected local installation does not fall back to a global version. Output identifies the source and detected versions. Missing tools, invalid/prerelease versions, execution failure, or a probe exceeding five seconds stop init/update with an actionable error. Cliewen neither downloads nor upgrades OpenSpec during this check.
 
 The 0.2.0 upgrade route accepts published 0.1.0 ownership manifests and the running target version. Further source versions require explicit support; alpha installations, unknown formats, and downgrades remain unsupported. See [updating an installation](guide/updating.md) for package/resource boundaries and preview output; never relabel a manifest to bypass validation.
+
+## Documentation checks in development source
+
+Published 0.2.0 does not include these settings or `cliewen-openspec docs check`. In development source, standard installation includes the Mermaid parser; no extra diagram tool is required. The command reads selected Markdown without changing files, installing tools or contacting services.
+
+```yaml
+documentationChecks:
+  roots: [docs, README.md]
+  exclude: [docs/private]
+  links: advisory
+  metadata: advisory
+  mermaid: advisory
+  metadataRules: []
+```
+
+All three categories default to `advisory`: findings warn and exit 0. `enforce` exits 1 for an issue or incomplete check; `off` skips that category. Invalid settings, command failures and unsupported Node exit 2. Inspect category statuses rather than treating exit 0 as valid documentation. With every category off, no document roots are walked.
+
+Empty `roots` selects `docsRoot`. Roots may be `.md`/`.markdown` files or directories. Exclusions match exact paths and descendants, with slash normalization and filesystem case behavior; glob expressions and paths outside the project are rejected. The checker skips `.git` and `node_modules`, refuses symbolic links/junctions, and applies exclusions before reading bodies. These settings are independent of context selection and optional planning, evidence and document-maintenance guidance. Auditing lesson files does not authorize an agent to retrieve disabled lessons as guidance.
+
+Links resolve relative to their containing Markdown file. Supported checks include inline/reference links, images, URI-encoded filenames, and Markdown heading fragments using `github-slugger`, including repeated and Unicode headings. Code examples are ignored. External URLs and site-root routes are outside local checking. Custom HTML anchors, renderer-specific heading attributes and non-Markdown fragments are unchecked. Fragment targets outside selected scope remain unread and make links incomplete; add a permitted target to roots when its headings need checking.
+
+Frontmatter is optional. When present, YAML must be a mapping without syntax errors or duplicate keys. Custom fields and statuses are allowed unless a matching project rule restricts them:
+
+```yaml
+documentationChecks:
+  metadata: enforce
+  metadataRules:
+    - path: docs/decisions
+      required: [type, status]
+      values:
+        type: [decision]
+        status: [proposed, accepted, rejected, superseded]
+```
+
+Rules match an exact file or subtree; all matching rules apply. A subtree rule also covers its README/index: use file-specific rules or a narrower subtree when those documents have different metadata. `required` controls presence. `values` checks allowed strings only when the field exists. Unlisted fields remain allowed. Native OpenSpec artifacts gain no frontmatter requirement unless explicitly covered by a rule.
+
+Mermaid checks fenced `mermaid` blocks against the included parser's grammar and reports its version. Documents without those blocks need no parser initialization. A valid parse establishes syntax, not layout quality, factual accuracy or rendering on every host. Missing/broken tooling or timeouts produce incomplete results, never a pass.
+
+The command limits collection to 1,000 Markdown files and 10,000 directory entries, each file to 1 MiB, each diagram to 256 KiB, and parser initialization/each diagram to five seconds. Missing roots, unreadable files and exceeded limits are explicit incomplete checks. JSON reports scope counts, per-category modes/statuses and findings; `checked` counts files for links/metadata and blocks for Mermaid. Empty scope is not evidence that documentation passed. See [the command reference](guide/cli.md#docs-check).
 
 ## Optional context selection in development source
 
@@ -75,6 +113,13 @@ This is the complete configuration written by `init`. Omitted fields use these v
 
 <!-- defaults -->
 ```yaml
+documentationChecks:
+  roots: []
+  exclude: []
+  links: advisory
+  metadata: advisory
+  mermaid: advisory
+  metadataRules: []
 contextSelection:
   mode: guided
   roots: []

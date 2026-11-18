@@ -25,7 +25,28 @@ It also installs `.cliewen-openspec/product-context.md` for optional product int
 
 Development source additionally installs `.cliewen-openspec/context-selection.md`. The extra selection pass defaults to guided; [context-selection settings](../configuration.md#optional-context-selection-in-development-source) describe the explicit off choice and advisory limits. Published 0.2.0 does not install this reference.
 
-Version 0.2.0 checks the running Node and selected OpenSpec CLI before init/update, including previews. It requires Node 20.19+ and stable OpenSpec 1.15.0+, preferring the project's npm installation over PATH. Missing or incompatible tools stop the command before recovery or installation writes. See [version compatibility](../configuration.md#version-compatibility) for selection, timeout, and runtime limits.
+Init/update check the running Node and selected OpenSpec CLI before recovery or installation writes, including previews. Development source requires Node 22.12+ and stable OpenSpec 1.15.0+; published 0.2.0 retains Node 20.19+. The project's npm installation takes precedence over PATH. See [version compatibility](../configuration.md#version-compatibility) for selection, timeout, and runtime limits.
+
+## docs check
+
+Available in development source; published 0.2.0 does not provide this command.
+
+```sh
+cliewen-openspec docs check
+cliewen-openspec docs check --json
+```
+
+Reads the project's Cliewen configuration and selected Markdown, reports findings, and changes no files. Requires Node 22.12+; Git, an evidence report and an OpenSpec subprocess are unnecessary. Standard installation supplies the Mermaid parser.
+
+Local links, optional frontmatter and Mermaid syntax default to advisory checks. Set each category to `enforce` to block or `off` to skip it. The default scope is `docsRoot`; select root documents or active OpenSpec changes explicitly when needed. See [configuration, rules and limits](../configuration.md#documentation-checks-in-development-source).
+
+| Exit | Meaning |
+|---|---|
+| 0 | No blocking findings; advisory warnings may still exist |
+| 1 | An enforced category found an issue or could not finish |
+| 2 | Invalid arguments/configuration, unsupported Node or command failure |
+
+Inspect `categories` and `findings` in JSON. Status distinguishes `passed`, `issues`, `incomplete`, `off` and `not-applicable`; `ok` describes exit policy. No selected files is an explicit empty scope. This command checks mechanical consistency; it does not establish factual correctness or visual rendering, and it does not replace native OpenSpec validation or execution evidence.
 
 ## update
 

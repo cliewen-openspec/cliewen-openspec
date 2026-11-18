@@ -25,4 +25,6 @@ Frontmatter and common locations support discovery without requiring every facil
 
 For projects that install Cliewen, the alpha supplies documentation guidance, a DR template, a configurable docs root, and feature flags. Structural metadata and Mermaid validators for those projects, and generalized decision allocation, remain planned. The naming convention is guidance, not an implemented allocator.
 
+[Check documentation with independent advisory defaults](033-read-only-documentation-checks.md) adds development-source checks for existing frontmatter, scoped project rules, local references and Mermaid syntax. Frontmatter is optional by default; requiring it through an explicit rule remains a project choice. Published packages retain the earlier boundary above.
+
 This repository's documentation build parses its own Mermaid examples, and browser checks verify their rendering under [010: Publish user documentation on GitHub Pages during development](010-publish-user-documentation-early.md) and [011: Prefer Mermaid for diagrams and plain text for file trees](011-mermaid-and-plain-text-diagrams.md). Those maintainer checks do not validate an adopting project's documents.

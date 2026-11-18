@@ -54,7 +54,7 @@ test('store layouts and malformed config fail before recovery while local preced
 });
 
 test('release minimums use numerical stable-version comparisons and declared source routes',()=>{
-  assert.deepEqual(requirements,{node:'20.19.0',openspec:'1.15.0'});
+  assert.deepEqual(requirements,{node:'22.12.0',openspec:'1.15.0'});
   assert.equal(JSON.parse(fs.readFileSync(path.join(source,'package.json'),'utf8')).engines.node,`>=${requirements.node}`);
   for(const [v,min,expected] of [['1.15.0','1.15.0',true],['1.9.0','1.15.0',false],['1.100.0','1.15.0',true],['20.18.99','20.19.0',false],['20.19.0','20.19.0',true],['1.15.0+build.7','1.15.0',true],['1.15.0-beta.1','1.15.0',false],['01.15.0','1.15.0',false],['garbage','1.15.0',false],['1.15','1.15.0',false]])assert.equal(meetsMinimum(v,min),expected,v);
   assert.equal(supportsInstallation('0.1.0'),true);
@@ -99,9 +99,13 @@ test('missing PATH tool is actionable and does not initialize the project',t=>{
 test('an unsupported running Node stops before probing tools or changing project state',t=>{
   const root=fixture(t),before=snapshot(root),descriptor=Object.getOwnPropertyDescriptor(process.versions,'node');
   try {
-    Object.defineProperty(process.versions,'node',{...descriptor,value:'20.18.0'});
-    withPath('',()=>assert.throws(()=>init(root,false,false),/Node 20.18.0.*20.19.0/));
-    assert.deepEqual(snapshot(root),before);
+    write(root,'.cliewen-openspec/transaction.json',JSON.stringify({files:{'docs/authored.md':'must not recover'}}));
+    const pending=snapshot(root);
+    for(const value of ['20.19.0','22.11.0','22.12.0-beta.1']){
+      Object.defineProperty(process.versions,'node',{...descriptor,value});
+      for(const operation of ['init','update'])for(const dry of [true,false])withPath('',()=>assert.throws(()=>lifecycle(root,operation,dry),/requires Node 22.12.0/));
+      assert.deepEqual(snapshot(root),pending);
+    }
   } finally { Object.defineProperty(process.versions,'node',descriptor); }
 });
 

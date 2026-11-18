@@ -4,11 +4,15 @@ Changes that matter to projects using Cliewen for OpenSpec.
 
 ## Unreleased
 
+- Check local Markdown links, optional YAML frontmatter and Mermaid syntax with `cliewen-openspec docs check`. All categories warn by default and can independently block or be disabled; project roots, exclusions and metadata rules are configurable. Checks change no files and report incomplete work explicitly. The Mermaid parser is included. See [configuration and limits](docs/configuration.md#documentation-checks-in-development-source).
+
+- The new package requires Node 22.12+ instead of 20.19+. Init/update reject older runtimes before recovery or installation writes. OpenSpec 1.15.0+ remains supported; already published packages retain their original requirements.
+
 - Optional context-selection guidance helps agents find current specs, decisions and constraints through OpenSpec and existing project records. It defaults to guided, preserves explicit off choices and lesson gates, and offers selected roots, exclusions and an advisory additional-record budget. Existing filenames, folders and frontmatter help select candidates through project conventions. It does not scan files or enforce access boundaries. See [configuration and limits](docs/configuration.md#optional-context-selection-in-development-source).
 
 - Projects can opt in to Git-backed acceptance-ID reservations for concurrent agents, branches, or contributors. Local allocation stays the default and now serializes writers in one worktree. Shared coordination preserves existing IDs and prefix history, fails without local fallback during outages, and supports resuming interrupted reservations. Git discovery failures stop allocation, and competing first-time setup can be retried safely. All participating clients need the new commands. See [setup and recovery](docs/guide/cli.md#ac-coordinate-sync-resume-and-abandon).
 
-- Development now targets repository-local OpenSpec 2.0.0. Init and update reject external-store layouts before changing files or recovering transactions, with an explanation of the supported setup. OpenSpec 2 requires Node 22.12+ when installed through npm; Cliewen's existing minimums remain unchanged. See [upgrading OpenSpec](docs/guide/updating.md#move-to-openspec-2).
+- Development now targets repository-local OpenSpec 2.0.0. Init and update reject external-store layouts before changing files or recovering transactions, with an explanation of the supported setup. See [upgrading OpenSpec](docs/guide/updating.md#move-to-openspec-2).
 
 ## 0.2.0 (2026-11-13)
 

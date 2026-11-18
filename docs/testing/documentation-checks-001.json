@@ -1,0 +1,278 @@
+{
+  "recordedAt": "2026-11-17T23:03:50.275Z",
+  "sourceRevision": "1e632ee7f4920950ca8e0a4d7f93b36eea11b9a6",
+  "sourceDirty": true,
+  "packageVersion": "0.2.0 development source; not a republished release",
+  "requirements": {
+    "node": "22.12.0",
+    "openspec": "1.15.0"
+  },
+  "parsers": {
+    "mermaid": "12.2.0",
+    "markdownIt": "15.0.3",
+    "githubSlugger": "2.0.0",
+    "jsdom": "26.1.0",
+    "yaml": "2.9.1"
+  },
+  "checks": [
+    {
+      "command": "npm test",
+      "platform": "Windows",
+      "node": "24.0.0",
+      "tests": 157,
+      "passed": 157,
+      "failed": 0,
+      "skipped": 0,
+      "output": ".tmp/documentation-full-tests.log"
+    },
+    {
+      "command": "node --test test/documentation.test.mjs test/installation-upgrades.test.mjs",
+      "platform": "Windows",
+      "node": "22.12.0",
+      "tests": 26,
+      "passed": 26,
+      "failed": 0,
+      "skipped": 0,
+      "output": ".tmp/documentation-windows2212-tests.log"
+    },
+    {
+      "command": "node --test test/documentation.test.mjs test/installation-upgrades.test.mjs",
+      "platform": "Linux/WSL, native filesystem dependencies",
+      "node": "22.12.0",
+      "tests": 26,
+      "passed": 25,
+      "failed": 0,
+      "skipped": 1,
+      "output": ".tmp/documentation-linux-native2212-tests.log"
+    },
+    {
+      "command": "node --test test/documentation.test.mjs test/installation-upgrades.test.mjs",
+      "platform": "Linux/WSL, native filesystem dependencies",
+      "node": "22.22.0",
+      "tests": 26,
+      "passed": 25,
+      "failed": 0,
+      "skipped": 1,
+      "output": ".tmp/documentation-linux2222-native-tests.log"
+    },
+    {
+      "command": "real Node 20.19.0 CLI init/update/docs check --json",
+      "exitCodes": [
+        2,
+        2,
+        2
+      ],
+      "pendingJournalUnchanged": true,
+      "output": ".tmp/documentation-node20-rejection.json"
+    },
+    {
+      "command": "npm audit --omit=dev --json",
+      "observedAdvisories": 0,
+      "output": ".tmp/documentation-runtime-audit.json"
+    }
+  ],
+  "retainedFailures": [
+    {
+      "output": ".tmp/documentation-linux2212-tests.log",
+      "platform": "Linux/WSL, Windows-mounted source/dependencies",
+      "passed": 23,
+      "failed": 2,
+      "skipped": 1,
+      "reason": "Two Mermaid initialization attempts reached the unchanged five-second cap; production-installed fixture passed",
+      "disposition": "Same tests pass on native Linux storage; slow-start limitation retained"
+    },
+    {
+      "output": ".tmp/documentation-linux2222-tests.log",
+      "testsExecuted": 0,
+      "reason": "Earlier /tmp fixture was unavailable at follow-up startup",
+      "disposition": "Fresh /var/tmp fixture completed newer-runtime tests"
+    }
+  ],
+  "packedFixture": {
+    "installation": "production-only --omit=dev --ignore-scripts",
+    "openspecInstalled": false,
+    "gitRequired": false,
+    "siteToolsInstalled": false,
+    "allCategoriesPassed": true,
+    "fileHashesUnchanged": true
+  },
+  "guidance": {
+    "nativeSchemas": [
+      "cliewen-delivery",
+      "cliewen-discovery",
+      "cliewen-all"
+    ],
+    "retrievalVerified": true,
+    "agentComplianceObserved": false
+  },
+  "runtimeBinaries": {
+    "win-x64/node.exe": "b3b117a08ee61efee09e6fd523ab33c0c018da1b570bde08e4fd914dc1170ed6",
+    "node-v22.12.0-linux-x64.tar.xz": "22982235e1b71fa8850f82edd09cdae7e3f32df1764a9ec298c72d25ef2c164f"
+  },
+  "inputs": {
+    "package.json": "6e3546d175f5a8285cdf4db5c8d3aaeae94d6ebd8063bec4ad4c12eaeb2fb30a",
+    "package-lock.json": "f027deac2e865f901bdcd65f43999d674263cbae5e22608977bdbb75ef525517",
+    ".github/workflows/test.yml": "ae402400f618263fc77c5824e91d09486ee951a2785eea0ad3241e17bc4f3734",
+    "src/release.ts": "33e9b2fa775ce968313d3d915a6e37f49af824af950953240c2bf3846de9e22a",
+    "src/core.ts": "ba8dfb70e3346e94c4cb0dc1fb949f9bc5874dfa8286a7475fe0bd36dd661d32",
+    "src/cli.ts": "dbfd4c829409b03c99cbacd1e772f725a29b79d087c56b2936097a295392548b",
+    "src/schema-source.ts": "89b512e8d06086c257eb371c4b038c39b04de0fc92433ad970216afeb3d525e6",
+    "src/documentation-settings.ts": "c39ff3b36e6e9ef26fd6743de781528151d51247a35541062eaf2923f296f5b0",
+    "src/documentation.ts": "6c10d2acb0a5920e97147b63824ddcbfb19c06d0c00bc3b56b904f09fd162293",
+    "src/mermaid-check.ts": "28899fb6a419b6eea43fce7de57e5a0c206cbd61b65b9f02ce4f8b171696c9c7",
+    "src/mermaid-worker.ts": "0643a6bc1e230a44bb1ab14900f2a15861cca106e970a897ec2e260b33c81a40",
+    "schemas/base/instructions/documentation-checks.md": "32c114d78c6eb8dc4ad78f32c5634dfb7fe0028ee948404d34f84a2736d8b80d",
+    "test/documentation.test.mjs": "d0a36b92d9656527f8b4a234045541f7b8dca7922cc8d44714743261771532ab",
+    "test/context-selection.test.mjs": "9c2e9c06cfc7e6f24031f1619eae40f60d5ba9f64108ccc56de2d47900aed7c3",
+    "test/installation-upgrades.test.mjs": "141f60da4896617e0d2d0f56d843010ef8ff8faaa66035357384ff948835ee53"
+  },
+  "outputs": {
+    ".tmp/documentation-full-tests.log": "7858a399cf581211ae52c7d570e69be171fa245dd0190875776bf3b17cfe8e34",
+    ".tmp/documentation-windows2212-tests.log": "de829be6e459f2cbd099cffd5f4d940682601b3ba5c3652fe4e41eb8acd8187b",
+    ".tmp/documentation-linux2212-tests.log": "9b5a332c59bf300f4540864f8c46bd5c7d8ff7f601ec0670c21f2d216f9b9f43",
+    ".tmp/documentation-linux-native2212-tests.log": "5371130a06544642d19cdd60baa921c6f1a9a1ceac0e6b2a44e5414e1de4429d",
+    ".tmp/documentation-linux2222-tests.log": "92992c13fcbb17fc6a43aa933650e133473e07bdc3ecd38677b0b9ec559a17bf",
+    ".tmp/documentation-linux2222-native-tests.log": "bf0ac36ccd02dea4e1d46aec079b23710ca90e1845519ea6ed199a90d62d812c",
+    ".tmp/documentation-node20-rejection.json": "561ca2fadc4ee522539041b543b7abf7b5dcc57bae3b94bc223eb4507045e273",
+    ".tmp/documentation-runtime-audit.json": "d6718bd625891314bfc49d9cb28915030fbbb79ca9d4d44b26ed601fac094e53",
+    ".tmp/documentation-final-docs-build.log": "b5aa6aa02adc84c235b4c4591159af634a052c1a77273fa722c90097bcacdee6",
+    ".tmp/documentation-proposal-checks.json": "f7444e96a29d9d0bde01fa446cd9116f331e4390a6710bf4dd0f3b231325f9cb",
+    ".tmp/documentation-final-pack.json": "97e6c5a509c2b69e7337192945721e694192822322229d02780140157c66ce7a"
+  },
+  "limits": [
+    "No new hosted CI, agent calls, full Linux suite or visual-rendering qualification",
+    "Cold/slow parser startup may be incomplete at the documented cap",
+    "Document and report edits after runtime checks use separate final documentation verification",
+    "Published 0.2.0 and native archive remain unchanged"
+  ],
+  "finalDocumentation": {
+    "pages": 13,
+    "localLinks": 526,
+    "diagrams": 5,
+    "cliDefaultsMatch": true,
+    "sourceLinks": {
+      "localTargets": 217,
+      "fragments": 52,
+      "yamlExamples": 14,
+      "errors": []
+    },
+    "limits": [
+      "Focused fragment script covers existing simple heading references; external URLs not requested",
+      "YAML examples are syntax-checked, with documented settings separately covered by runtime fixtures"
+    ]
+  },
+  "finalPack": {
+    "filename": "cliewen-openspec-0.2.0.tgz",
+    "size": 88017,
+    "unpackedSize": 297176,
+    "sha256": "b621ca3590a7d63065670fc372eb8193935eaa024a9a6b5ffe06466b932ce32d",
+    "workerIncluded": true,
+    "guidanceIncluded": true
+  },
+  "testTitleCorrection": {
+    "file": "test/documentation.test.mjs",
+    "priorHash": "d0a36b92d9656527f8b4a234045541f7b8dca7922cc8d44714743261771532ab",
+    "currentHash": "c04d23085e6f8b2782dcd4f15241bd1e105618bda40580447f9ec4da047f34ed",
+    "impact": "Corrected an overbroad test title after execution; assertions and runtime code unchanged"
+  },
+  "reviewCorrections": {
+    "recordedAt": "2026-11-18T16:04:29.836Z",
+    "defects": [
+      "Case-insensitive fragment lookup depended on OS name",
+      "Escaped closing brackets truncated reference labels"
+    ],
+    "initialRegression": {
+      "passed": 1,
+      "failed": 2,
+      "output": ".tmp/documentation-review-repro.log"
+    },
+    "changes": [
+      "Escape-aware parser helper resolves both labels",
+      "Filesystem file/directory identity plus stored entry names selects fragment targets",
+      "Separate hard-link entries retain scope; identity discovery is bounded"
+    ],
+    "checks": [
+      {
+        "command": "npm test",
+        "node": "24.0.0",
+        "platform": "Windows",
+        "passed": 159,
+        "failed": 0,
+        "skipped": 0,
+        "scope": "Full suite before final bounded directory-discovery adjustment",
+        "output": ".tmp/documentation-review-full-tests.log"
+      },
+      {
+        "command": "node --test test/documentation.test.mjs",
+        "node": "22.12.0",
+        "platform": "Windows",
+        "passed": 18,
+        "failed": 0,
+        "skipped": 0,
+        "scope": "Final source, including production-only installation",
+        "output": ".tmp/documentation-review-final-docs-tests.log"
+      },
+      {
+        "command": "node --test --test-name-pattern='reference targets retain|escaped closing brackets|hard-link aliases|exclusions precede' test/documentation.test.mjs",
+        "actualPattern": "reference targets retain|escaped closing brackets|hard-link aliases|exclusions precede",
+        "node": "22.12.0",
+        "platform": "Linux/WSL native filesystem",
+        "passed": 4,
+        "failed": 0,
+        "skipped": 0,
+        "scope": "Final source",
+        "output": ".tmp/documentation-review-linux2212-final.log"
+      },
+      {
+        "command": "openspec validate --all --strict",
+        "passed": 16,
+        "failed": 0,
+        "output": ".tmp/documentation-review-native-validation.log"
+      }
+    ],
+    "macOS": {
+      "nativeRun": false,
+      "coverage": "Actual Windows case-insensitive filesystem with process.platform reported as darwin, plus real Linux case-sensitive behavior"
+    },
+    "fullSuiteCompiledDocumentationHash": "2d6b2e6b0f3fcb4775e679d52c4f5a1e73376645ccf18329ca35b03c0655ea2c",
+    "inputs": {
+      "src/documentation.ts": "5a8aa7e912c90d99e113a4928c9ec4ade89249431240ea3b36de45e189598395",
+      "dist/documentation.js": "5b8073fd6e8db74fc9501b50538440d95f8570bfc6188b80265cd7f67544e34b",
+      "test/documentation.test.mjs": "80bf3f40e6d5f9740f685630abb7fbdb83a1d9f9bad91df0cb659d7edc3020ef",
+      "openspec/changes/check-project-documentation/design.md": "199ad2a7e5ec03fc980db0b86e2b78f9474e88b3f77d389e529318b0862a5153",
+      "openspec/changes/check-project-documentation/specs/documentation-consistency/spec.md": "78049d112ae9e40cdc88a17b445c469f41da197a9b8979d2787a9e48d9f7e222"
+    },
+    "outputs": {
+      ".tmp/documentation-review-repro.log": "830852e9717af35b8b0cfef414684d6e74dfaf7d5f13de464602fa8d8d809c75",
+      ".tmp/documentation-review-regressions.log": "59ff2c75c1dd43ed6b280e3cb7119578655395d8e369bdc69344bdea9a27daaf",
+      ".tmp/documentation-review-full-tests.log": "335ce8fc3eaa1040aab076ccbbe5f9b46194dbad3f201beed40b6f0b941348db",
+      ".tmp/documentation-review-windows2212.log": "0e36cb2249ba36218d14ae3f0dbc5fc7f1a1e2ea285f885a89932878206fa0ba",
+      ".tmp/documentation-review-linux2212.log": "6d927943611b5b4f8ffe7cc05e337df0fbf2ce2a02199cd2ede6f788e171f947",
+      ".tmp/documentation-review-final-docs-tests.log": "c23622854ddeb6413c852e67541439b2c7ead9a8bfe7b5ac86c0a8aa0cbdcfa6",
+      ".tmp/documentation-review-linux2212-final.log": "5325d92189307795de0eafbeb25b0f655d1443ec2ee3d25173e7f9df90cf3e94",
+      ".tmp/documentation-review-native-validation.log": "b1bc26faa85ba484c9957aa8b73fced9d5c1b644af31ffb37766bd72c6c3964e",
+      ".tmp/documentation-review-link-checks.json": "16ec25383ca24b9496cd55806d43da0984611a1f6ffd114dbdea7bf4498ef010",
+      ".tmp/documentation-review-final-pack.json": "af743de55c13c70e53edba5f46006780285a5873098667d41bbfa3bd37d667c5"
+    },
+    "finalPack": {
+      "path": ".tmp/documentation-review-pack/cliewen-openspec-0.2.0.tgz",
+      "sha256": "0a1315fe77798767b61fd2f64f735737b46c1ec14f02745221d7eee9ee1e19a0"
+    },
+    "linkCheck": {
+      "files": 23,
+      "localTargets": 218,
+      "fragments": 52,
+      "yamlExamples": 14,
+      "errors": [],
+      "limits": [
+        "External URLs not tested for availability",
+        "Fragment check is limited to the existing simple ASCII heading references in edited documents",
+        "YAML examples checked for syntax, not against an implemented documentationChecks schema"
+      ]
+    },
+    "limits": [
+      "No new agent calls, hosted CI or native macOS execution",
+      "Original implementation evidence retained; full suite preceded final bounded namespace scan; final focused checks verify that source"
+    ]
+  }
+}

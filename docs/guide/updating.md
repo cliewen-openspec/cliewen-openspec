@@ -9,7 +9,7 @@ Version 0.2.0 adds tool checks and a reviewable upgrade path from published 0.1.
 
 ## Check the requirements
 
-Before installing a package, read its [version requirements](../configuration.md#version-compatibility). Version 0.2.0 checks Node 20.19+ and OpenSpec 1.15.0+ before every init/update, including dry runs. OpenSpec 1.17.0 or 2.0.0 installed through npm needs Node 22.12+ itself. Use a compatible installation rather than assuming Cliewen's Node floor covers every OpenSpec release.
+Before installing a package, read its [version requirements](../configuration.md#version-compatibility). Development source requires Node 22.12+ and OpenSpec 1.15.0+, with the Mermaid parser included for documentation checks. Published 0.2.0 retains Node 20.19+ and lacks that checker. Init/update validate the target package's minimums before recovery or writes, including dry runs. Upgrade Node before installing the new package; resource rollback does not undo an npm installation.
 
 The check prefers the project's OpenSpec npm installation; otherwise it uses PATH. It runs the selected CLI and reports its source and version. A broken or incompatible local installation blocks the operation even if a newer global version exists. Resolve the reported installation before continuing. Cliewen does not install or upgrade OpenSpec for you.
 

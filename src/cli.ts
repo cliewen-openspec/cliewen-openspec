@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import {coordinate, syncIds, resumeIds, abandonRequest} from './ac-coordination.js';
 import path from 'node:path';
+import {checkDocumentation} from './documentation.js';
 import { check, lifecycle, uninstall, nextId, renamePrefix, capabilityForPrefix, recover, version } from './core.js';
 
 const args = process.argv.slice(2);
@@ -22,9 +23,20 @@ try {
   if (change && command !== 'check') throw Error('--change is supported only by check');
   if (failPending && command !== 'check') throw Error('--fail-on-pending is supported only by check');
   if (change && !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(change)) throw Error('Change must be a kebab-case name');
-  if (json && !['init', 'update', 'uninstall', 'check'].includes(command ?? '')) throw Error('--json is supported only by init, update, uninstall, and check');
+  if (json && !['init', 'update', 'uninstall', 'check', 'docs'].includes(command ?? '')) throw Error('--json is supported only by init, update, uninstall, check, and docs check');
   if (capability && (command !== 'ac' || args[0] !== 'next')) throw Error('--capability is supported only by ac next');
-  if (command === 'ac') {
+  if (command === 'docs') {
+    if (args.length !== 1 || args[0] !== 'check') throw Error('Use docs check [--json] [--root PATH]');
+    const result = await checkDocumentation(root);
+    console.log(json ? JSON.stringify(result, null, 2) : [
+      `Documentation: ${result.scope.readFiles} files read; exit policy ${result.ok ? 'passed' : 'blocked'}.`,
+      ...Object.entries(result.categories).map(([category, value]) => `${category}: ${value.status} (${value.mode}; ${value.checked} checked)`),
+      ...result.findings.map(f => `${f.severity.toUpperCase()} ${f.code} ${f.path}${f.line ? ':' + f.line : ''}: ${f.message}`),
+      `Non-local references skipped: ${result.scope.nonLocalReferences}. Mermaid checks syntax only; factual correctness and visual rendering are not assessed.`
+    ].join('\n'));
+    process.exitCode = result.exitCode;
+  }
+  else if (command === 'ac') {
     const action = args.shift();
     if (action === 'coordinate' && args.length===1) console.log(JSON.stringify(coordinate(root,args[0],apply),null,2));
     else if (action === 'sync' && !args.length) console.log(JSON.stringify(syncIds(root),null,2));
@@ -47,7 +59,7 @@ try {
     const findings = check(root, change, failPending); const ok = !findings.some(f => f.severity === 'error');
     console.log(json ? JSON.stringify({ ok, findings }, null, 2) : findings.map(f => `${f.severity.toUpperCase()} ${f.code}: ${f.message}`).join('\n'));
     process.exitCode = ok ? 0 : 1;
-  } else if (!command || command === '--help') console.log('cliewen-openspec\ninit [--default] [--dry-run]\nupdate [--dry-run] [--json]\nuninstall [--default-schema NAME] [--dry-run] [--json]\nac next --capability NAME\nac next PREFIX (registered active prefix only)\nac rename-prefix CAPABILITY PREFIX\nac coordinate REMOTE [--apply] (preview by default)\nac sync\nac resume\nac abandon\ncheck [--change NAME] [--json] [--fail-on-pending]\nrecover\nAll commands accept --root PATH.');
+  } else if (!command || command === '--help') console.log('cliewen-openspec\ninit [--default] [--dry-run]\nupdate [--dry-run] [--json]\nuninstall [--default-schema NAME] [--dry-run] [--json]\nac next --capability NAME\nac next PREFIX (registered active prefix only)\nac rename-prefix CAPABILITY PREFIX\nac coordinate REMOTE [--apply] (preview by default)\nac sync\nac resume\nac abandon\ndocs check [--json]\ncheck [--change NAME] [--json] [--fail-on-pending]\nrecover\nAll commands accept --root PATH.');
   else throw Error(`Unknown command: ${command}`);
 } catch (e) {
   const message = e instanceof Error ? e.message : String(e);

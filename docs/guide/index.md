@@ -61,7 +61,9 @@ Schema instructions request these behaviors. CLI checks validate specific record
 | Project learnings | Optional indexed lessons with retrieval, verification, and retirement guidance; authored notes are preserved |
 | Humanizer | Agent-mediated discovery and use, one status per session, and nonblocking fallback; no automatic installation |
 
-Install `cliewen-openspec@0.2.0` from npm for normal use. [The worked guide](getting-started.md) builds a local tarball to keep its prepared CSV files alongside the package source. The earlier published `0.1.0-alpha.1` remains available but lacks the new quality, learnings, and writing facilities. Its manifest is unsupported by 0.2.0. Cliewen requires OpenSpec 1.15.0+ and Node 20.19+. The current npm guide targets OpenSpec 2.0.0 and needs Node 22.12+. See [version compatibility](../configuration.md#version-compatibility). Package CI uses Node 22 and 24 on Windows and Linux.
+Install `cliewen-openspec@0.2.0` from npm for normal use. [The worked guide](getting-started.md) builds a development tarball, which requires Node 22.12+ and includes unreleased features. Published 0.2.0 retains Node 20.19+ and OpenSpec 1.15.0+ requirements. The earlier `0.1.0-alpha.1` lacks the quality, learnings and writing facilities, and its manifest is unsupported by 0.2.0. See [version compatibility](../configuration.md#version-compatibility).
+
+Development source also provides [documentation checks](cli.md#docs-check) for local references, optional frontmatter and Mermaid syntax. All three warn by default, can be enforced or disabled independently, and preserve authored files. The parser is included; factual correctness and visual rendering remain separate checks.
 
 ## Defaults
 
@@ -75,6 +77,6 @@ The [configuration reference](../configuration.md) lists every accepted setting 
 
 The [0.2.0 release review](../testing/release-candidate-0.2.0.md) records tested compatibility and accepted agent-support limits. Generated specifications and assertions still need substantive review.
 
-Cliewen supports configurable test types and checks declared scenario types against evidence. Existing-registry adapters, general version/config migrations, and structural checks for your project's documentation and Mermaid diagrams remain planned.
+Cliewen supports configurable test types and checks declared scenario types against evidence. Existing-registry adapters and general version/config migrations remain planned. Documentation checks are implemented in development source and are not in published 0.2.0.
 
 Cliewen checks test execution, ID linkage, and revision freshness. Follow [evidence-first verification](../configuration.md#evidence-first-verification) and review assertion quality, failure causes, and evidence sufficiency.

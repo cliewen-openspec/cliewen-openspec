@@ -29,6 +29,8 @@ Detailed commands, conflict cases, and current format limits live in [updating a
 
 ## Accepted upgrade extension
 
+The Node floor below describes the original delivery. [Require Node 22.12+ and include the Mermaid parser](032-node-22-minimum-and-bundled-diagram-checks.md) raises it to 22.12+ in development source with documentation checks. Other lifecycle guarantees remain in force; published releases retain their original requirements.
+
 The owner approved [the adoption and upgrade proposal](../../openspec/changes/archive/2026-11-10-adopt-and-upgrade-projects/proposal.md) on November 10, 2026. Init/update check the running Node and selected OpenSpec CLI before recovery or installation writes. The accepted floors remain Node 20.19.0 and OpenSpec 1.15.0. Each target package explicitly declares supported installed versions instead of deriving migration support from version ordering. Published 0.1.0 and same-target resource refresh are the initial supported routes; unknown formats, alpha versions, and downgrades remain blocked.
 
 Compatibility assessment and shared resource planning now produce reviewable previews with detected tools, installed/target versions, and created/replaced/deleted paths. Existing core return values and CLI output fields remain usable. Project-owned records and identity allocation remain intact; dependencies and native OpenSpec integrations are updated separately by the project.

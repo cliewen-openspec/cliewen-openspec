@@ -25,4 +25,6 @@ The shared guidance reaches delivery, discovery, and combined workflows. It is a
 
 ## Related records
 
+[Check documentation with independent advisory defaults](033-read-only-documentation-checks.md) adds an included syntax parser in development source. The new command has its own modes, separate from `features.mermaid` writing guidance, and reports incomplete work explicitly. It does not establish visual rendering; published 0.2.0 retains the earlier boundary above.
+
 This refines the diagram guidance in [durable documentation](007-durable-documents-and-general-decision-records.md) and follows the documentation approach in [the user documentation decision](010-publish-user-documentation-early.md).
