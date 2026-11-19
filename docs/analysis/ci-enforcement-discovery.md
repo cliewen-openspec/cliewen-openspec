@@ -27,4 +27,4 @@ Compare exact check contexts and optional app IDs against active requirements. R
 
 Avoid prescribing PR use, review counts, merge methods or contributor roles. A solo project and a team choose their own integration policy. Host inspection reports that policy; it does not set it or authorize integration.
 
-The [proposal](../../openspec/changes/inspect-ci-enforcement/proposal.md) and [design](../../openspec/changes/inspect-ci-enforcement/design.md) record the approved contract. The [implementation review](../testing/ci-enforcement-inspection-001.md) covers the resulting command, including corrections for GitHub response handling, executable lookup and request deadlines.
+The archived [proposal](../../openspec/changes/archive/2026-11-19-inspect-ci-enforcement/proposal.md) and [design](../../openspec/changes/archive/2026-11-19-inspect-ci-enforcement/design.md) record the approved contract. The [implementation review](../testing/ci-enforcement-inspection-001.md) covers the resulting command, including corrections for GitHub response handling, executable lookup and request deadlines.

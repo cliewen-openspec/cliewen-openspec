@@ -17,6 +17,6 @@ Report observed, missing and unknown requirements with sources; report bypass vi
 
 ## Status and scope
 
-The owner selected optional CI inspection in [configurable project improvements](028-configurable-improvements-on-openspec-2.md) and approved the [proposal](../../openspec/changes/inspect-ci-enforcement/proposal.md) on November 18, 2026. Development source implements the approved contract. The [implementation review](../testing/ci-enforcement-inspection-001.md) records the six review corrections, the observed GitHub result and verification limits. The [design](../../openspec/changes/inspect-ci-enforcement/design.md) describes the transport and reporting rules.
+The owner selected optional CI inspection in [configurable project improvements](028-configurable-improvements-on-openspec-2.md) and approved the [proposal](../../openspec/changes/archive/2026-11-19-inspect-ci-enforcement/proposal.md) on November 18, 2026. OpenSpec archived the completed change on November 19 after package CI and guide deployment passed. The [implementation review](../testing/ci-enforcement-inspection-001.md) records the corrections, hosted results and verification limits. The [design](../../openspec/changes/archive/2026-11-19-inspect-ci-enforcement/design.md) describes the transport and reporting rules.
 
 This extends [OpenSpec-native planning and closure](023-openspec-native-planning-and-closure.md) without changing OpenSpec ownership or imposing a new integration gate. No new runtime minimum, schema or release is selected.

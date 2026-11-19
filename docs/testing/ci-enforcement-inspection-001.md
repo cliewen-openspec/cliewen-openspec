@@ -30,3 +30,11 @@ The seven targeted regression tests failed against the earlier package on Linux.
 The live checks exercised the missing and contradictory-response paths. Required, inherited, partial-access and bypass behavior were checked with deterministic host responses. The checks do not establish actor-specific effective permissions or agent compliance.
 
 Raw outputs are retained locally under ignored `.tmp/ci-inspection-review-*`. Run `npm test` for the complete suite, or `node --test test/ci-inspection.test.mjs` after a build for the focused checks.
+
+## Hosted CI and archive
+
+[Package CI](https://github.com/cliewen-openspec/cliewen-openspec/actions/runs/44406746698) passed all four jobs for `b38cb2e`. Windows passed 179 tests on both Node 22.12.0 and 24. Linux passed 177 tests on each version, with two Windows-specific skips per job.
+
+[Site CI](https://github.com/cliewen-openspec/cliewen-openspec/actions/runs/44406746678) passed for the same commit. The guide build checked 13 pages, 534 local links, and five diagrams. Browser checks covered all 13 pages on desktop and mobile. GitHub Pages deployment and published-path checks passed.
+
+On November 19, 2026, OpenSpec [archived the change](../../openspec/changes/archive/2026-11-19-inspect-ci-enforcement/proposal.md) and synchronized six requirements into the [permanent specification](../../openspec/specs/ci-enforcement-inspection/spec.md).

@@ -17,8 +17,8 @@
 
 ## Workflow follow-up
 
-- Review the implementation and observations before native archive; retain unavailable or failed checks honestly.
+- Archived on November 19, 2026, after review and green package and site CI. OpenSpec synchronized six requirements.
 - Keep release-trial policy separate; this feature adds no agent matrix or repeated guide trials.
 - Host policy changes, package publication and external outreach follow their existing project authorization.
 
-The [verification record](../../../docs/testing/ci-enforcement-inspection-001.md) covers the 179-test suite, review regressions and live observations.
+The [verification record](../../../../docs/testing/ci-enforcement-inspection-001.md) covers the 179-test suite, review regressions and live observations.

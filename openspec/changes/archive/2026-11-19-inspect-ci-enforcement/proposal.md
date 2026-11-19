@@ -29,6 +29,6 @@ None. Existing local validation, archive and installation contracts remain uncha
 
 ## Impact
 
-CLI, independent configuration, shared workflow guidance and user documentation. GitHub CLI is optional and is not installed automatically. No runtime minimum increase or new schema is proposed. [Discovery](../../../docs/analysis/ci-enforcement-discovery.md) records the current APIs and a live read-only probe; [design](design.md) defines the proposed configuration and report. This proposal does not change host settings or authorize a package release.
+CLI, independent configuration, shared workflow guidance and user documentation. Projects that use inspection supply GitHub CLI. [Discovery](../../../../docs/analysis/ci-enforcement-discovery.md) records the APIs and a live read-only probe. The [design](design.md) defines the configuration and report.
 
-The owner approved this proposal and its concrete contract on November 18, 2026. Implementation follows the [tasks](tasks.md); archive and publication remain separate actions.
+The owner approved the proposal on November 18, 2026. The completed change was archived on November 19 after [review and hosted verification](../../../../docs/testing/ci-enforcement-inspection-001.md).

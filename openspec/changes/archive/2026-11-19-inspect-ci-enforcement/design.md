@@ -2,7 +2,7 @@
 
 ## Context
 
-See [the proposal](proposal.md) for the problem and [discovery](../../../docs/analysis/ci-enforcement-discovery.md) for observations. The CLI already separates documentation checking from local installation/evidence checks. Host inspection needs another independent route because network access, credentials and missing host information have different failure meanings.
+See [the proposal](proposal.md) for the problem and [discovery](../../../../docs/analysis/ci-enforcement-discovery.md) for observations. The CLI already separates documentation checking from local installation/evidence checks. Host inspection needs another independent route because network access, credentials and missing host information have different failure meanings.
 
 ## Goals / Non-Goals
 
