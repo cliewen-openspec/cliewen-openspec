@@ -65,10 +65,10 @@ Init SHALL require an initialized OpenSpec project and preserve existing authore
 - **THEN** init or update rejects the collision without silently adopting it
 
 ### Requirement: Upgrade only supported installation versions
-The target release SHALL declare its supported source versions and manifest representation. Update SHALL support published 0.1.0 and same-release resource refresh, preserving existing ownership checks. Unsupported, malformed, prerelease, or newer installation manifests SHALL fail with guidance and no automatic migration or downgrade. Check and uninstall SHALL interpret manifests supported by the target release consistently with that ownership policy.
+The target release SHALL declare its supported source versions and manifest representation. Update SHALL support published 0.1.0, published 0.2.0, and same-release resource refresh, preserving existing ownership checks. Unsupported, malformed, prerelease, or newer installation manifests SHALL fail with guidance and no automatic migration or downgrade. Check and uninstall SHALL interpret manifests supported by the target release consistently with that ownership policy.
 
-#### Scenario: Upgrade from published 0.1.0
-- **WHEN** a valid supported 0.1.0 installation is updated to the candidate release
+#### Scenario: Upgrade from a supported published version
+- **WHEN** a valid published 0.1.0 or 0.2.0 installation is updated to the candidate release
 - **THEN** unchanged owned resources are refreshed, new resources are added, and unchanged retired resources are removed
 - **AND** authored content, configuration bytes, active and archived changes, reserved acceptance IDs, and allocation continuity are preserved
 

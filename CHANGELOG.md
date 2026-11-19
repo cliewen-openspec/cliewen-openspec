@@ -4,6 +4,8 @@ Changes that matter to projects using Cliewen for OpenSpec.
 
 ## Unreleased
 
+- Update an existing 0.1.0 or 0.2.0 installation to this version while keeping project configuration, authored files and reserved acceptance IDs. [Preview an update](docs/guide/updating.md#install-preview-and-apply).
+
 - Inspect whether your selected GitHub CI checks are required before integration with `cliewen-openspec ci inspect`. Reports distinguish observed, missing and unknown requirements and show bypass visibility separately. Inspection is advisory, needs an explicitly selected repository and checks, and changes no host settings. See [setup and limits](docs/configuration.md#ci-requirement-inspection-in-development-source).
 
 - Check local Markdown links, optional YAML frontmatter and Mermaid syntax with `cliewen-openspec docs check`. All categories warn by default and can independently block or be disabled; project roots, exclusions and metadata rules are configurable. Checks change no files and report incomplete work explicitly. The Mermaid parser is included. See [configuration and limits](docs/configuration.md#documentation-checks-in-development-source).

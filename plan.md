@@ -3,7 +3,7 @@ type: plan
 ---
 # Cliewen for OpenSpec: current work
 
-Version 0.2.0 is published. Its roadmap and organization hosting are complete within the recorded limits. On November 16, 2026, the owner selected the five increments below. Release numbering and publication remain unselected.
+Version 0.2.0 is published. The five increments below are archived. [The local 0.3.0 candidate](docs/releases/0.3.0-preparation.md) bundles their changes and has passed its representative agent trial. Hosted CI for the candidate revision and release acceptance are pending.
 
 ## Next actions
 

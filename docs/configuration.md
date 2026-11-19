@@ -5,7 +5,7 @@ type: reference
 
 Cliewen reads project settings from `.cliewen-openspec/config.yaml`.
 
-This reference describes version `0.2.0`. The earlier published `0.1.0-alpha.1` does not accept the `quality`, `lifecycle`, `learnings`, or `writing` settings below. Use that package's bundled reference when working with the alpha; its installation manifest is unsupported by 0.2.0.
+This reference describes the unpublished `0.3.0` candidate. If you use a published package, consult the reference bundled with that version.
 
 ## Version compatibility
 
@@ -31,7 +31,7 @@ Init/update check the target package's minimums, including previews, before reco
 
 The check uses the project's resolvable OpenSpec npm installation first, otherwise the CLI on PATH, including a standalone executable. It runs that installation's public `--version`; an incompatible or broken selected local installation does not fall back to a global version. Output identifies the source and detected versions. Missing tools, invalid/prerelease versions, execution failure, or a probe exceeding five seconds stop init/update with an actionable error. Cliewen neither downloads nor upgrades OpenSpec during this check.
 
-The 0.2.0 upgrade route accepts published 0.1.0 ownership manifests and the running target version. Further source versions require explicit support; alpha installations, unknown formats, and downgrades remain unsupported. See [updating an installation](guide/updating.md) for package/resource boundaries and preview output; never relabel a manifest to bypass validation.
+The 0.3.0 candidate accepts ownership manifests from 0.1.0, 0.2.0, and 0.3.0. Alpha manifests, unknown formats, and downgrades are rejected. See [updating an installation](guide/updating.md) for preview and apply examples.
 
 ## Documentation checks in development source
 
@@ -443,7 +443,7 @@ Existing filenames and paths are stable public addresses: never rename, move, or
 
 ## Installed resource versions
 
-The `0.1.0` candidate's `init`, `update`, and `uninstall` accept only `0.1.0` installation manifests. `check` reports other manifest versions as unsupported; changing the recorded version by hand does not migrate an installation. Use a fresh project for candidate evaluation. [Update](guide/updating.md) refreshes or repairs owned resources within the supported version while preserving configuration, registry, authored artifacts, and document paths. Adding config settings alone does not replace installed instructions. General version/config/registry migrations are outside this release's scope.
+Run [update](guide/updating.md) to refresh owned resources from a supported manifest version. It preserves project configuration, the registry, and authored files at their existing paths. Adding settings to your config leaves installed instructions in place until you refresh them.
 
 ## Optional archive-session guidance
 

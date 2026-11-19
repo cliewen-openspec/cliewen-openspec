@@ -3,32 +3,34 @@ type: guide
 ---
 # Update an existing installation
 
-Installing a Cliewen npm package updates the CLI, while an existing project keeps its installed schema files. Run `update` to refresh or repair installer-owned schema definitions and templates. The command preserves project configuration, the selected OpenSpec default, authored change artifacts and documents, and the AC registry. Version 0.2.0 accepts `0.1.0` and `0.2.0` manifests; it does not migrate earlier alpha installations.
+Installing a Cliewen npm package updates the CLI. Run `update` to refresh the files Cliewen installed in your project, such as schema definitions and templates. It preserves project configuration, the OpenSpec default, authored changes and documents, and the AC registry.
 
-Version 0.2.0 adds tool checks and a reviewable upgrade path from published 0.1.0. Use the package installation and preview steps below. Supported sources are published 0.1.0 and the running target version; unknown versions, alpha installations, and downgrades are rejected. A future release's compatibility declaration determines which older installations it accepts.
+The unpublished 0.3.0 candidate accepts manifests from 0.1.0, 0.2.0, and the candidate itself. Use the preview below to see which resources it will change. Alpha or unknown manifests and downgrades are rejected.
 
 ## Check the requirements
 
-Before installing a package, read its [version requirements](../configuration.md#version-compatibility). Development source requires Node 22.12+ and OpenSpec 1.15.0+, with the Mermaid parser included for documentation checks. Published 0.2.0 retains Node 20.19+ and lacks that checker. Init/update validate the target package's minimums before recovery or writes, including dry runs. Upgrade Node before installing the new package; resource rollback does not undo an npm installation.
+The 0.3.0 candidate requires Node 22.12+ and OpenSpec 1.15.0+. Init and update check those requirements before changing project files or recovering a transaction. Upgrade Node before installing the candidate. [Version compatibility](../configuration.md#version-compatibility)
 
 The check prefers the project's OpenSpec npm installation; otherwise it uses PATH. It runs the selected CLI and reports its source and version. A broken or incompatible local installation blocks the operation even if a newer global version exists. Resolve the reported installation before continuing. Cliewen does not install or upgrade OpenSpec for you.
 
 ## Install, preview, and apply
 
-First [build the local candidate](getting-started.md#1-build-the-candidate-package). In a project initialized with that candidate, install its tarball and preview the resource update. This example uses the guide's sibling-directory layout; substitute the actual tarball path for another project:
+First [build the local candidate](getting-started.md#1-build-the-candidate-package). In a project with a supported Cliewen installation, install the tarball and preview the resource update. Adjust the path if your project is not beside the source checkout.
+
+If your project already has the candidate CLI, start with the preview.
 
 ```sh
-npm install --save-dev ../cliewen-openspec/cliewen-openspec-0.2.0.tgz
+npm install --save-dev ../cliewen-openspec/cliewen-openspec-0.3.0.tgz
 npx --no-install cliewen-openspec update --dry-run --json
 ```
 
-In 0.2.0 preview output, inspect `installedVersion`, `targetVersion`, and `compatibility` alongside the paths. `creates` lists missing files to add, `replaces` lists existing files to rewrite, and `deletes` lists retired owned resources to remove. `writes` still contains all created/replaced paths. Manifest changes are included. An unchanged installation has empty path lists. Apply repeats compatibility and conflict checks; a preview does not permit overwriting edits made afterward.
+In the preview, check `installedVersion`, `targetVersion`, and `compatibility`. The `creates`, `replaces`, and `deletes` lists describe the proposed file changes. `writes` includes both creations and replacements, including the manifest. Apply repeats compatibility and conflict checks in case files changed after the preview.
 
 Installing the npm package has already changed dependencies and possibly a lockfile. A failed resource preview or resource rollback does not undo npm installation. Review both the dependency diff and the later generated-resource diff.
 
 OpenSpec separately owns generated agent skills and command integrations. If its version changes, review its native update using the preview supported by that installed version (`openspec update --help` lists the available options). Cliewen update does not run that integration refresh, modify delivery preferences, or rewrite active proposal artifacts.
 
-The tarball selects the local 0.2.0 build. For a registry installation, use `npm install --save-dev cliewen-openspec@0.2.0` instead. The npm install changes package metadata and dependencies as usual; the Cliewen update command is a separate operation on installed resources. An unchanged installation reports no resource changes; missing owned files can be repaired.
+The tarball selects the 0.3.0 candidate. The current registry release is available with `npm install --save-dev cliewen-openspec@0.2.0`.
 
 Review the preview's `writes` and `deletes` lists. `writes` includes templates/schema files to create or replace and the ownership manifest when it changes. `deletes` contains only retired installer-owned files. A dry run applies no writes, deletions, or interrupted-transaction recovery.
 
@@ -50,22 +52,23 @@ The existing `.cliewen-openspec/manifest.json` records the hashes of files insta
 
 There is no force option. Review a conflict and retain useful custom instructions in a project-owned location before deliberately restoring an installer-owned file. Do not delete the manifest, registry, or authored artifacts to bypass ownership checks. Custom schemas outside Cliewen's owned paths are preserved.
 
-The command validates manifest ownership paths/hashes and current project config/registry before changing resources. A missing manifest requires `init`; update will not reconstruct ownership from filenames. Published 0.1.0 accepts only its own manifest version. Version 0.2.0 explicitly accepts published 0.1.0 and its running target version, with the source-version limits described above. Alpha versions remain unsupported. Do not edit a manifest version to bypass this check. Omitted policy settings use their defaults without rewriting existing configuration.
+Update validates the manifest's paths and hashes, the project config, and the registry before writing. Use `init` if the manifest is missing. Keep the original manifest version so the CLI can select a supported upgrade path. Omitted policy settings use their defaults without changing the config file.
 
 Test-quality policies default to `review`, so projects may see warnings about incomplete assessments. They become blocking only when you select `enforce`. See [policy configuration](../configuration.md#test-quality-and-lifecycle) to adopt or disable each independently.
 
 ## Recovery and verification
 
-Apply uses the existing transaction journal. Content changes and retired-file deletions are recoverable; the new manifest is published last. If a write fails, rollback restores original files, removed files, and the previous manifest. In version 0.2.0, a normal update checks tool compatibility before recovering a leftover valid journal; a dry run refuses pending recovery without changing anything. Recovery restores the preceding transaction and is reported separately from the resource update. A compatibility failure leaves the journal untouched. Use `recover` to resolve it separately when needed.
+Apply uses a transaction journal and writes the new manifest last. A failed write rolls back the files and manifest. A dry run stops if recovery is pending. A normal update checks tool compatibility before recovering a valid journal and reports recovery separately. Use `recover` if you need to restore the preceding transaction on its own.
 
-After applying, review the Git diff, validate the installed schema you use, and run the project tests:
+After applying, review the Git diff and validate the installed schema you use:
 
 ```sh
 npx --no-install openspec schema validate cliewen-delivery
-npm test
 ```
 
-Use `cliewen-discovery` or `cliewen-all` in the validation command for another workflow. Existing proposals, specs, decisions, tasks, and test titles are not rewritten by update. If a new contract requires metadata such as test types, review and add it in authored files yourself. Defaults for omitted config fields are read by the current CLI; update does not fill them into your config.
+Use `cliewen-discovery` or `cliewen-all` for another workflow. Schema validation checks the installed workflow definition. To validate a change, run `npx --no-install openspec validate CHANGE --strict` with its name. Run the project's usual tests if it has any. For a project without a test command, review the resource diff and run the checks that apply to the affected files.
+
+Use [`docs check`](cli.md#docs-check) to check selected documents after the update. If your project has configured [`ci inspect`](cli.md#ci-inspect), use it to inspect required checks on GitHub. Read the report statuses and findings even when either advisory command exits 0.
 
 Commit the intended inputs before collecting fresh evidence for a delivery change. An old report is not rewritten or removed by update; revision freshness and contract checks can require recollection. Discovery and combined no-delivery outcomes retain their documented review-only evidence behavior. The [evidence guide](../testing/evidence.md) explains collection and scope.
 

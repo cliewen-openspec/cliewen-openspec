@@ -59,7 +59,8 @@ test('release minimums use numerical stable-version comparisons and declared sou
   for(const [v,min,expected] of [['1.15.0','1.15.0',true],['1.9.0','1.15.0',false],['1.100.0','1.15.0',true],['20.18.99','20.19.0',false],['20.19.0','20.19.0',true],['1.15.0+build.7','1.15.0',true],['1.15.0-beta.1','1.15.0',false],['01.15.0','1.15.0',false],['garbage','1.15.0',false],['1.15','1.15.0',false]])assert.equal(meetsMinimum(v,min),expected,v);
   assert.equal(supportsInstallation('0.1.0'),true);
   assert.equal(supportsInstallation(version),true);
-  for(const v of ['0.1.0-alpha.1','0.3.0','9.0.0',null])assert.equal(supportsInstallation(v),false);
+  assert.equal(supportsInstallation('0.2.0'),true);
+  for(const v of ['0.1.0-alpha.1','0.4.0','9.0.0',null])assert.equal(supportsInstallation(v),false);
 });
 
 test('incompatible local tool wins over PATH and blocks writing, preview and recovery',t=>{

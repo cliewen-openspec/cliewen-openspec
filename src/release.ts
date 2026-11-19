@@ -1,6 +1,6 @@
-export const version = '0.2.0';
+export const version = '0.3.0';
 export const requirements = {node: '22.12.0', openspec: '1.15.0'} as const;
-export const supportedInstallations = [...new Set(['0.1.0', version])];
+export const supportedInstallations = ['0.1.0', '0.2.0', version];
 
 export function stableVersion(value: string): number[] | undefined {
   const match = /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:\+[0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*)?$/.exec(value);
