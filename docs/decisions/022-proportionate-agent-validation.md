@@ -38,3 +38,7 @@ The owner subsequently instructed publication of 0.1.0. [The release record](../
 ## Accepted 0.2.0 disposition
 
 On November 12, 2026, after green platform CI, the owner [accepted the 0.2.0 content and recorded agent limitations](../releases/0.2.0-acceptance.md). For this release only, the agreement accepts bounded observations and reviewed focused recovery in place of the outstanding clean fresh end-to-end success for every tool, and credits the focused completion within its limited recovery scope. Original failures remain failures and the three-tool checkpoint is not described as fully passed. The general future trial policy remains unchanged. Publication requires separate authorization.
+
+## 0.3.0 qualification
+
+On November 19, 2026, the owner required independently reviewed evidence for every shipped feature with Codex CLI, Claude Code, and OpenCode before publishing 0.3.0. Record the tested profiles and candidate, the behavior each attempt verified, and the gaps still blocking publication. The [0.3.0 qualification record](../releases/0.3.0-agent-qualification.md) tracks the evidence and blockers. Routine work follows the targeted trial policy above.

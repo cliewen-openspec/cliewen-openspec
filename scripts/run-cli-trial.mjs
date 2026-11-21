@@ -51,7 +51,13 @@ const home = os.homedir();
 const npmGlobal = process.env.APPDATA ? path.join(process.env.APPDATA, 'npm/node_modules') : undefined;
 let exe, args, versionArgs, prefix = [];
 const env = {...process.env, NO_COLOR: '1', OPENSPEC_TELEMETRY: '0', CI: '1'};
-const wrapper = 'Work only in the current project. Keep even temporary helper scripts, probes, and backups inside this project; use a project-local ignored directory when needed, not a shared system temporary directory. Read AGENTS.md and project configuration. Do not read sibling evaluator files, other repositories, credentials, or earlier solutions. Do not spawn additional agents, contact external services, push, or open a PR. Model-provider requests from this CLI are allowed. Use existing local tools and dependencies. Report actual results and inherited instructions.\n\n';
+const gitBoundary = trial.allowProjectLocalAllocator === true
+  ? 'Only Cliewen may write the allocator ref in the disposable bare Git repository inside this project. Do not push any other ref or use any external remote.'
+  : 'Do not push.';
+const hostBoundary = trial.allowProjectLocalTicketReader === true
+  ? 'Use only the supplied project-local ticket reader for the authorized read. Do not contact other external services or write to the ticket system.'
+  : 'Do not contact external services.';
+const wrapper = 'Work only in the current project. Keep even temporary helper scripts, probes, and backups inside this project; use a project-local ignored directory when needed, not a shared system temporary directory. Read AGENTS.md and project configuration. Do not read sibling evaluator files, other repositories, credentials, or earlier solutions. Do not spawn additional agents or open a PR. ' + hostBoundary + ' ' + gitBoundary + ' Model-provider requests from this CLI are allowed. Use existing local tools and dependencies. Report actual results and relevant constraints, following the project\'s handoff guidance.\n\n';
 const prompt = wrapper + (reviewing ? fs.readFileSync(reviewFile, 'utf8') : approvalFile ? fs.readFileSync(approvalFile, 'utf8') : fs.readFileSync(path.join(trial.artifacts, 'prompt.md'), 'utf8'));
 fs.writeFileSync(path.join(dir, 'prompt.txt'), prompt);
 if (reviewing) fs.writeFileSync(path.join(dir, 'inputs-before.json'), beforeReview + '\n');
@@ -63,7 +69,10 @@ if (isCodex) {
 } else if (profile.agent === 'Claude Code' && profile.runner === 'cli') {
   const cli = process.env.CLIEWEN_CLAUDE_CLI ?? path.join(home, '.local/bin', process.platform === 'win32' ? 'claude.exe' : 'claude');
   if (/\.(?:mjs|cjs|js)$/i.test(cli)) { exe = process.execPath; prefix = [cli]; } else exe = cli;
-  args = ['-p', prompt, '--model', profile.model, '--effort', profile.effort, '--output-format', 'stream-json', '--verbose', '--safe-mode', '--no-session-persistence', '--permission-mode', 'dontAsk', '--allowedTools', 'Read,Edit,Write,Bash,PowerShell,Glob,Grep', '--disallowedTools', 'Agent,Task,WebFetch,WebSearch', '--max-budget-usd', String(profile.budgets.reportedCostUSD)];
+  const projectSkill = trial.allowProjectLocalHumanizerSkill === true;
+  const localSettings = projectSkill ? ['--setting-sources', 'project', '--strict-mcp-config'] : ['--safe-mode'];
+  const allowedTools = projectSkill ? 'Read,Edit,Write,Bash,PowerShell,Glob,Grep,Skill' : 'Read,Edit,Write,Bash,PowerShell,Glob,Grep';
+  args = ['-p', prompt, '--model', profile.model, '--effort', profile.effort, '--output-format', 'stream-json', '--verbose', ...localSettings, '--no-session-persistence', '--permission-mode', 'dontAsk', '--allowedTools', allowedTools, '--disallowedTools', 'Agent,Task,WebFetch,WebSearch', '--max-budget-usd', String(profile.budgets.reportedCostUSD)];
   versionArgs = ['--version'];
 } else if (profile.agent === 'OpenCode' && profile.runner === 'cli') {
   const v2 = profile.agentVersion.startsWith('2.');
@@ -72,11 +81,15 @@ if (isCodex) {
   versionArgs = ['--version'];
   if (v2) {
     args = ['run', '--standalone', '--format', 'json', '--model', `${profile.model}#${profile.effort}`, prompt];
-    const denied = ['external_directory', 'subagent', 'question', 'skill', 'webfetch', 'websearch'];
+    const localHumanizer = trial.allowProjectLocalHumanizerSkill === true;
+    const denied = ['external_directory', 'subagent', 'question', ...(localHumanizer ? [] : ['skill']), 'webfetch', 'websearch'];
     const config = {model: profile.model,
-      permissions: [{action: '*', resource: '*', effect: 'allow'}, ...denied.map(action => ({action, resource: '*', effect: 'deny'}))],
+      ...(localHumanizer ? {skills: ['.trial/skills']} : {}),
+      permissions: [{action: '*', resource: '*', effect: 'allow'}, ...denied.map(action => ({action, resource: '*', effect: 'deny'})),
+        ...(localHumanizer ? [{action: 'skill', resource: '*', effect: 'deny'}, {action: 'skill', resource: 'humanizer', effect: 'allow'}] : [])],
       policies: [{action: 'provider.use', resource: '*', effect: 'deny'}, {action: 'provider.use', resource: 'opencode', effect: 'allow'},
         ...['mcp.use', 'skill.use'].map(action => ({action, resource: '*', effect: 'deny'})),
+        ...(localHumanizer ? [{action: 'skill.use', resource: 'humanizer', effect: 'allow'}] : []),
         {action: 'plugin.use', resource: '*', effect: 'deny'}, {action: 'plugin.use', resource: 'opencode.*', effect: 'allow'},
         ...denied.map(action => ({action: 'tool.use', resource: `${action}:*`, effect: 'deny'}))],
       plugins: ['-*', 'opencode.*']};

@@ -3,7 +3,7 @@ type: plan
 ---
 # Cliewen for OpenSpec: current work
 
-Version 0.2.0 is published. The five increments below are archived. [The local 0.3.0 candidate](docs/releases/0.3.0-preparation.md) bundles their changes and has passed its representative agent trial. Hosted CI for the candidate revision and release acceptance are pending.
+Version 0.2.0 is published. The five increments below are archived and bundled in the 0.3.0 candidate. The revised candidate passed the final workflow and hosted CI checks and is ready for [release review](docs/releases/0.3.0-agent-qualification.md).
 
 ## Next actions
 
@@ -29,7 +29,7 @@ All four product improvements need independent configuration, documented default
 | Documentation | All supported categories enabled by default; advisory recommended, with off/enforce options; optional frontmatter, project paths and exclusions | Real broken and valid references, metadata and diagrams; missing frontmatter accepted by default; no mandatory rewriting or renaming |
 | CI enforcement | Off or advisory inspection; selected host, branch and required checks; enforcement only through explicit project policy | Enforced, missing, bypassed and unknown host states; no settings changed by inspection |
 
-Use focused deterministic tests during implementation. Run agent trials only for major workflow changes and the release checkpoint under the existing policy; no automatic tool/model matrix for these increments.
+Use focused deterministic tests during implementation. Run agent trials for major workflow changes and at the release checkpoint. For 0.3.0, apply the release-specific qualification above.
 
 External outreach and another package release require their corresponding owner instructions. Hosting closure does not authorize either.
 

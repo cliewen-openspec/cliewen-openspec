@@ -1,0 +1,4611 @@
+{
+  "recordedAt": "2026-11-21T19:34:03.362Z",
+  "version": "0.3.0",
+  "source": "20b69397e276f97b647a9819f75d399b13e3040f plus local writing-policy changes",
+  "candidateSHA256": "0d5736e80a0ba055a8adf23638f0f6082d8ad8a3a9d9d248e4a6f1e4e0154459",
+  "hostedCI": {
+    "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+    "packageRun": 44554695853,
+    "siteRun": 44554695952,
+    "conclusion": "success"
+  },
+  "revisedHostedCI": {
+    "candidateSHA256": "0d5736e80a0ba055a8adf23638f0f6082d8ad8a3a9d9d248e4a6f1e4e0154459",
+    "verifiedSource": "29491fbc37b4e82e2006a96073612c8244178bb0",
+    "runId": 44940834991,
+    "url": "https://github.com/cliewen-openspec/cliewen-openspec/actions/runs/44940834991",
+    "workflowCommit": "5ec9f829e2b948ba1262a5dc71e4f9e03af84bd9",
+    "jobs": [
+      {
+        "name": "test (ubuntu-latest, 24)",
+        "conclusion": "success"
+      },
+      {
+        "name": "test (windows-latest, 22.12.0)",
+        "conclusion": "success"
+      },
+      {
+        "name": "test (windows-latest, 24)",
+        "conclusion": "success"
+      },
+      {
+        "name": "test (ubuntu-latest, 22.12.0)",
+        "conclusion": "success"
+      }
+    ],
+    "sha256": "0eda2e19d05157c813fc344885fa46275a90fa21a73c72a1641f758f5fa694d6"
+  },
+  "liveCiInspection": {
+    "candidateSHA256": "0d5736e80a0ba055a8adf23638f0f6082d8ad8a3a9d9d248e4a6f1e4e0154459",
+    "visible": {
+      "target": {
+        "host": "github.com",
+        "repository": "robocode-dev/rumble-bots-test",
+        "branch": "main"
+      },
+      "requirement": {
+        "context": "bot-moderation",
+        "appId": 5502585,
+        "status": "observed",
+        "sources": [
+          "ruleset:Repository:robocode-dev/rumble-bots-test:25998965"
+        ]
+      },
+      "bypass": "possible",
+      "file": "C:\\Code\\cliewen-openspec\\.tmp\\release-030-candidate-001\\live-ci-visible-bypass-594e2d7b\\verification.json",
+      "sha256": "4037b2baf74beb06c935cf2441d6f5ea31724b3597ec5b035d31e48e687041fe"
+    },
+    "hidden": {
+      "target": {
+        "host": "github.com",
+        "repository": "openai/codex",
+        "branch": "main"
+      },
+      "requirement": {
+        "context": "cla",
+        "appId": 15368,
+        "status": "observed",
+        "sources": [
+          "ruleset:Repository:openai/codex:6735016"
+        ]
+      },
+      "bypass": "unknown",
+      "file": "C:\\Code\\cliewen-openspec\\.tmp\\release-030-candidate-001\\live-ci-visible-bypass-594e2d7b\\hidden\\verification.json",
+      "sha256": "9b409d24814febc1408228b6efbc7db373f8b38c010f9df699ef417515d81d7b"
+    },
+    "anonymousRuleset": {
+      "ruleset": 25998965,
+      "requiredChecks": [
+        "bot-moderation"
+      ],
+      "bypassFieldPresent": false
+    }
+  },
+  "qualification": "ready-for-release-review",
+  "interpretation": "Automated checks do not by themselves constitute broad feature acceptance or semantic review.",
+  "attempts": [
+    {
+      "scenario": "upgrade-and-documentation",
+      "profile": "claude-release-upgrade-2-1-325",
+      "schema": "cliewen-delivery",
+      "baseline": "9ccbe5871bbe10ac0006f223f4e8160e3f41618e",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "2.1.325 (Claude Code)",
+      "requestedModel": "claude-opus-5-5",
+      "observedModels": [
+        "claude-opus-5-5"
+      ],
+      "durationSeconds": 57.129,
+      "automatedReview": {
+        "passed": true,
+        "file": "docs/testing/release-030-agent-001.json",
+        "sha256": "f6606661f111799dee3c014387916167ea2f4555696d875f621465c072d85556"
+      },
+      "rawRun": {
+        "file": "C:/Code/cliewen-release-030-upgrade-001/artifacts/initial/run.json",
+        "sha256": "4dc1f738630fbef50d8a731b4d6f3b1f871e4b337ea7a51ec1249c691a96b6a3"
+      }
+    },
+    {
+      "scenario": "upgrade-and-documentation",
+      "profile": "codex-release-0-170-0",
+      "schema": "cliewen-delivery",
+      "baseline": "9ccbe5871bbe10ac0006f223f4e8160e3f41618e",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "codex-cli 0.170.0",
+      "requestedModel": "gpt-6.1-sol",
+      "observedModels": [],
+      "durationSeconds": 93.11,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\codex-release-0-170-0\\artifacts\\independent-review.json",
+        "sha256": "b6ac763a7d95bd6da5635b54bf59d1960ca062800ae0fbbd2cd529d914ef505f",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\codex-release-0-170-0\\artifacts\\initial\\run.json",
+        "sha256": "0a435e3784fec20cf1c0f43454598947094f895fdac0d351b60241d824084923"
+      }
+    },
+    {
+      "scenario": "upgrade-and-documentation",
+      "profile": "opencode-2-2-5",
+      "schema": "cliewen-delivery",
+      "baseline": "9ccbe5871bbe10ac0006f223f4e8160e3f41618e",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "opencode v2.2.5",
+      "requestedModel": "opencode/glm-5.3-flash",
+      "observedModels": [],
+      "durationSeconds": 78.54,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\opencode-2-2-5\\artifacts\\independent-review.json",
+        "sha256": "acce504e2ee6d7270ceebdb426df636a87fa0c9adea693e6caf32704bc2daeef",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\opencode-2-2-5\\artifacts\\initial\\run.json",
+        "sha256": "5346d5cd0a80f520d54b1c76f6378a68195fdc87e73ebe1033ba5b64f03ca256"
+      }
+    },
+    {
+      "scenario": "ac-recovery-and-evidence-freshness-001",
+      "profile": "codex-release-0-170-0",
+      "schema": "cliewen-discovery",
+      "baseline": "addc2d1298eda75e756f7929e5ab3681be81b6ed",
+      "candidateSHA256": "0d5736e80a0ba055a8adf23638f0f6082d8ad8a3a9d9d248e4a6f1e4e0154459",
+      "outcome": "completed",
+      "cli": "codex-cli 0.170.0",
+      "requestedModel": "gpt-6.1-sol",
+      "observedModels": [],
+      "durationSeconds": 107.424,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\ac-recovery-and-evidence-freshness-001\\codex-release-0-170-0\\artifacts\\independent-checks.json",
+        "sha256": "b54ea0741a0dd4cf681aa22f33e690c6aa0d8885314ec5300b67d710a60a577d",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\ac-recovery-and-evidence-freshness-001\\codex-release-0-170-0\\artifacts\\initial\\run.json",
+        "sha256": "e12ee6c4c5e87d08f92b537e0c6e5e9ff4a701e3ff1028ebb8211a549402fb46"
+      }
+    },
+    {
+      "scenario": "ac-recovery-and-evidence-freshness-001",
+      "profile": "claude-openspec2-2-1-325",
+      "schema": "cliewen-discovery",
+      "baseline": "4f1e0bab4ce108a5525440bffb16e466eca7e9fc",
+      "candidateSHA256": "0d5736e80a0ba055a8adf23638f0f6082d8ad8a3a9d9d248e4a6f1e4e0154459",
+      "outcome": "completed",
+      "cli": "2.1.325 (Claude Code)",
+      "requestedModel": "claude-opus-5-5",
+      "observedModels": [
+        "claude-opus-5-5"
+      ],
+      "durationSeconds": 62.026,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\ac-recovery-and-evidence-freshness-001\\claude-openspec2-2-1-325\\artifacts\\independent-checks.json",
+        "sha256": "b54ea0741a0dd4cf681aa22f33e690c6aa0d8885314ec5300b67d710a60a577d",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\ac-recovery-and-evidence-freshness-001\\claude-openspec2-2-1-325\\artifacts\\initial\\run.json",
+        "sha256": "4c98317b3dce6ceafbcd990fc2e26301599ba2442708740ce61a4f3ef68f0bc6"
+      }
+    },
+    {
+      "scenario": "ac-recovery-and-evidence-freshness-001",
+      "profile": "opencode-2-2-5",
+      "schema": "cliewen-discovery",
+      "baseline": "a50ac7e1cff487511fac7bbda8341e4f113d751d",
+      "candidateSHA256": "0d5736e80a0ba055a8adf23638f0f6082d8ad8a3a9d9d248e4a6f1e4e0154459",
+      "outcome": "completed",
+      "cli": "opencode v2.2.5",
+      "requestedModel": "opencode/glm-5.3-flash",
+      "observedModels": [],
+      "durationSeconds": 60.502,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\ac-recovery-and-evidence-freshness-001\\opencode-2-2-5\\artifacts\\independent-checks.json",
+        "sha256": "b54ea0741a0dd4cf681aa22f33e690c6aa0d8885314ec5300b67d710a60a577d",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\ac-recovery-and-evidence-freshness-001\\opencode-2-2-5\\artifacts\\initial\\run.json",
+        "sha256": "f0d6a70ae6e8e2f332539ce019b8346375379a0cf03871bd3a8b4239cac98b89"
+      }
+    },
+    {
+      "scenario": "archive-existing-delivery",
+      "profile": "codex-release-0-170-0",
+      "schema": "cliewen-delivery",
+      "baseline": "c183b026edee1fa53aab4349515ebadec012ea2d",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "codex-cli 0.170.0",
+      "requestedModel": "gpt-6.1-sol",
+      "observedModels": [],
+      "durationSeconds": 219.751,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\archive-existing-delivery\\codex-release-0-170-0\\artifacts\\independent-checks.json",
+        "sha256": "a2276730cb4e1537e1c236146852c440bd067c8ae794f6c3d5653a6f510c01b6",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\archive-existing-delivery\\codex-release-0-170-0\\artifacts\\initial\\run.json",
+        "sha256": "d8fb92971bdee765193bd1d313cebc4c2ff8b5ae517c94dd6afbffef7d92bf03"
+      }
+    },
+    {
+      "scenario": "archive-existing-delivery",
+      "profile": "claude-openspec2-2-1-325",
+      "schema": "cliewen-delivery",
+      "baseline": "92bfb35c9418c732c2e075bde9a82c148e8dd532",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "provider-usage-limit",
+      "cli": "2.1.325 (Claude Code)",
+      "requestedModel": "claude-opus-5-5",
+      "observedModels": [
+        "claude-opus-5-5"
+      ],
+      "durationSeconds": 46.809,
+      "automatedReview": {
+        "passed": false,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\archive-existing-delivery\\claude-openspec2-2-1-325\\artifacts\\independent-checks.json",
+        "sha256": "7bea15fbcb1b4f8c558a9382df8adf962416d2b1380e3842255ecad724ca3092",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\archive-existing-delivery\\claude-openspec2-2-1-325\\artifacts\\initial\\run.json",
+        "sha256": "4e33d10f3315a5acab7ef860e27e241c221892c3bb3dae82287617377129055a"
+      }
+    },
+    {
+      "scenario": "archive-existing-delivery",
+      "profile": "opencode-2-2-5",
+      "schema": "cliewen-delivery",
+      "baseline": "5d2ac9966738ba6272c2ca6c59ed14f2a22324f7",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "opencode v2.2.5",
+      "requestedModel": "opencode/glm-5.3-flash",
+      "observedModels": [],
+      "durationSeconds": 487.65,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\archive-existing-delivery\\opencode-2-2-5\\artifacts\\independent-recheck.json",
+        "sha256": "a4afcf944b439c0091e72afe012eb1ca595798c978f558980721662f14098936",
+        "branchObserved": null
+      },
+      "earlierAutomatedReview": {
+        "passed": false,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\archive-existing-delivery\\opencode-2-2-5\\artifacts\\independent-checks.json",
+        "sha256": "db50313fd92e0129b232cdfc021e665e218220a1f0cb145ad647beb1408d5708"
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\archive-existing-delivery\\opencode-2-2-5\\artifacts\\initial\\run.json",
+        "sha256": "6cad24238b0fc769b9e3f44ff5e2d8d310cf5cd6c2cacf934b8999c10745c6cf"
+      }
+    },
+    {
+      "scenario": "archive-existing-delivery-access-restored-001",
+      "profile": "claude-openspec2-2-1-325",
+      "schema": "cliewen-delivery",
+      "baseline": "92bfb35c9418c732c2e075bde9a82c148e8dd532",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "2.1.325 (Claude Code)",
+      "requestedModel": "claude-opus-5-5",
+      "observedModels": [
+        "claude-opus-5-5"
+      ],
+      "durationSeconds": 127.142,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\archive-existing-delivery-access-restored-001\\claude-openspec2-2-1-325\\artifacts\\independent-checks.json",
+        "sha256": "34644ac5cf84ac8712e00530ee06db5d406312d48b75c8cecaff13dd422b5fe3",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\archive-existing-delivery-access-restored-001\\claude-openspec2-2-1-325\\artifacts\\initial\\run.json",
+        "sha256": "64e7dda6ede1eb3e239e7721a5e4e90d6f2c64b66d79a4dcdcee3b70b13cf5d4"
+      }
+    },
+    {
+      "scenario": "archive-existing-delivery-skill-fallback-recheck-001",
+      "profile": "opencode-2-2-5",
+      "schema": "cliewen-delivery",
+      "baseline": "0aa4b74df4b2194a3f5e4cf2a59849ff7f4adecc",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "opencode v2.2.5",
+      "requestedModel": "opencode/glm-5.3-flash",
+      "observedModels": [],
+      "durationSeconds": 28.393,
+      "automatedReview": null,
+      "skillObservation": {
+        "passed": false,
+        "availabilityCorrect": false,
+        "clean": true,
+        "calledCheck": true,
+        "observedStatusMessages": 0
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\archive-existing-delivery-skill-fallback-recheck-001\\opencode-2-2-5\\artifacts\\initial\\run.json",
+        "sha256": "d1cd5c80e6eea7e43d13135b125fcae97da1e04dc0afb223d466cc5f0763f15b"
+      }
+    },
+    {
+      "scenario": "combined-investigation-and-delivery",
+      "profile": "codex-release-0-170-0",
+      "schema": "cliewen-all",
+      "baseline": "5c98135c0dcd77c1caea726c1b8c6aa337f7b81c",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "codex-cli 0.170.0",
+      "requestedModel": "gpt-6.1-sol",
+      "observedModels": [],
+      "durationSeconds": 251.822,
+      "automatedReview": {
+        "passed": false,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-investigation-and-delivery\\codex-release-0-170-0\\artifacts\\independent-checks.json",
+        "sha256": "5fa311233416c60592e19ff216a80a2896826bbe7a2942e325d0e6e5edebbcf1",
+        "branchObserved": null
+      },
+      "effectiveness": [
+        {
+          "name": "control",
+          "tests": 54,
+          "failures": 0,
+          "exitCode": 0,
+          "passed": true
+        },
+        {
+          "name": "omitted-header",
+          "tests": 54,
+          "failures": 4,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "omitted-field",
+          "tests": 54,
+          "failures": 2,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "empty-header",
+          "tests": 54,
+          "failures": 4,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "empty-field",
+          "tests": 54,
+          "failures": 2,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "disabled-header",
+          "tests": 54,
+          "failures": 4,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "disabled-field",
+          "tests": 54,
+          "failures": 2,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "enabled-header",
+          "tests": 54,
+          "failures": 4,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "enabled-field",
+          "tests": 54,
+          "failures": 2,
+          "exitCode": 1,
+          "passed": true
+        }
+      ],
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-investigation-and-delivery\\codex-release-0-170-0\\artifacts\\initial\\run.json",
+        "sha256": "5fa94e9abe081ecf94c9b806686e5d4bb2a35dcaaf46485c0e333d5683372f40"
+      },
+      "approvedContinuation": {
+        "outcome": "completed",
+        "durationSeconds": 309.327,
+        "evidence": {
+          "passed": true,
+          "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-investigation-and-delivery\\codex-release-0-170-0\\artifacts\\approved-continuation-checks.json",
+          "sha256": "37d372a06ad4236f254c259974af20f32cc1b8982272c42fb3e49a7f51741c42"
+        },
+        "rawRun": {
+          "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-investigation-and-delivery\\codex-release-0-170-0\\artifacts\\approved-continuation\\run.json",
+          "sha256": "95f29a9a0bcbb765ede1ad799134e538e0790fa10efbf2865cad60a0aab32db4"
+        }
+      }
+    },
+    {
+      "scenario": "combined-investigation-and-delivery",
+      "profile": "claude-openspec2-2-1-325",
+      "schema": "cliewen-all",
+      "baseline": "5c98135c0dcd77c1caea726c1b8c6aa337f7b81c",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "provider-usage-limit",
+      "cli": "2.1.325 (Claude Code)",
+      "requestedModel": "claude-opus-5-5",
+      "observedModels": [
+        "claude-opus-5-5"
+      ],
+      "durationSeconds": 1.813,
+      "automatedReview": {
+        "passed": false,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-investigation-and-delivery\\claude-openspec2-2-1-325\\artifacts\\independent-checks.json",
+        "sha256": "6adb53df5386fcefa9976a57c990c9ab84b582cb934bf0d5d1f2543c56969a9d",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-investigation-and-delivery\\claude-openspec2-2-1-325\\artifacts\\initial\\run.json",
+        "sha256": "2304e8940dd5096c5fffdec0c697fa7dd8143846239cc22bae05bdb00e662e9a"
+      }
+    },
+    {
+      "scenario": "combined-investigation-and-delivery",
+      "profile": "opencode-2-2-5",
+      "schema": "cliewen-all",
+      "baseline": "5c98135c0dcd77c1caea726c1b8c6aa337f7b81c",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "opencode v2.2.5",
+      "requestedModel": "opencode/glm-5.3-flash",
+      "observedModels": [],
+      "durationSeconds": 461.465,
+      "automatedReview": {
+        "passed": false,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-investigation-and-delivery\\opencode-2-2-5\\artifacts\\independent-checks.json",
+        "sha256": "43b85470a969acf54c5c653ab06f61c750129c85b27bd926acce729b5ebafb9d",
+        "branchObserved": null
+      },
+      "effectiveness": [
+        {
+          "name": "control",
+          "tests": 16,
+          "failures": 0,
+          "exitCode": 0,
+          "passed": true
+        },
+        {
+          "name": "omitted-header",
+          "tests": 16,
+          "failures": 2,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "omitted-field",
+          "tests": 16,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "empty-header",
+          "tests": 16,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "empty-field",
+          "tests": 16,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "disabled-header",
+          "tests": 16,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "disabled-field",
+          "tests": 16,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "enabled-header",
+          "tests": 16,
+          "failures": 2,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "enabled-field",
+          "tests": 16,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        }
+      ],
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-investigation-and-delivery\\opencode-2-2-5\\artifacts\\initial\\run.json",
+        "sha256": "dcfdccdbecf60115a560f854ccf50db248e3097eeabc33c772ffe9e8152decc3"
+      },
+      "approvedContinuation": {
+        "outcome": "completed",
+        "durationSeconds": 321.078,
+        "evidence": {
+          "passed": false,
+          "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-investigation-and-delivery\\opencode-2-2-5\\artifacts\\approved-continuation-checks.json",
+          "sha256": "4ac2015c7684d40efb79a646b48dd8a9a491ff9ff1efe8330536486a26bab051"
+        },
+        "rawRun": {
+          "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-investigation-and-delivery\\opencode-2-2-5\\artifacts\\approved-continuation\\run.json",
+          "sha256": "2c629b44c004d97fec6d1989ad1f2d0be2026a20914a31c749c136b442449403"
+        }
+      }
+    },
+    {
+      "scenario": "combined-investigation-and-delivery-access-restored-001",
+      "profile": "claude-openspec2-2-1-325",
+      "schema": "cliewen-all",
+      "baseline": "5c98135c0dcd77c1caea726c1b8c6aa337f7b81c",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "2.1.325 (Claude Code)",
+      "requestedModel": "claude-opus-5-5",
+      "observedModels": [
+        "claude-opus-5-5"
+      ],
+      "durationSeconds": 165.777,
+      "automatedReview": {
+        "passed": false,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-investigation-and-delivery-access-restored-001\\claude-openspec2-2-1-325\\artifacts\\independent-checks.json",
+        "sha256": "4b424002cdb718bbbd73649fc9d011918b4bdbd3c3986d869deec4f34ebdc78f",
+        "branchObserved": null
+      },
+      "effectiveness": [
+        {
+          "name": "control",
+          "tests": 17,
+          "failures": 0,
+          "exitCode": 0,
+          "passed": true
+        },
+        {
+          "name": "omitted-header",
+          "tests": 17,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "omitted-field",
+          "tests": 17,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "empty-header",
+          "tests": 17,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "empty-field",
+          "tests": 17,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "disabled-header",
+          "tests": 17,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "disabled-field",
+          "tests": 17,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "enabled-header",
+          "tests": 17,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "enabled-field",
+          "tests": 17,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        }
+      ],
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-investigation-and-delivery-access-restored-001\\claude-openspec2-2-1-325\\artifacts\\initial\\run.json",
+        "sha256": "ebe246d1d7935b746c2f2d92ccc725a26128c0afa3272b52177077e48faf2e7c"
+      },
+      "approvedContinuation": {
+        "outcome": "completed",
+        "durationSeconds": 464.441,
+        "evidence": {
+          "passed": true,
+          "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-investigation-and-delivery-access-restored-001\\claude-openspec2-2-1-325\\artifacts\\approved-continuation-checks.json",
+          "sha256": "e1403b7767223a8d7ce72e527e76a8668b0644a034405d60c9d04d16bd5fd6ee"
+        },
+        "rawRun": {
+          "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-investigation-and-delivery-access-restored-001\\claude-openspec2-2-1-325\\artifacts\\approved-continuation\\run.json",
+          "sha256": "7f6d1a202f1380e6d37b2cfab2f67cf4df4d511b1f6bfdb3febabc90b7742f2a"
+        }
+      }
+    },
+    {
+      "scenario": "combined-investigation-and-delivery-instruction-recovery-001",
+      "profile": "opencode-2-2-5",
+      "schema": "cliewen-all",
+      "baseline": "88f0dcb94449dc72e897e18df3db9426623ef801",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "opencode v2.2.5",
+      "requestedModel": "opencode/glm-5.3-flash",
+      "observedModels": [],
+      "durationSeconds": 70.46,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-investigation-and-delivery-instruction-recovery-001\\opencode-2-2-5\\artifacts\\independent-checks.json",
+        "sha256": "209283cd3447160865526d6bb8c47c695002ee0c6299fa9b372e7e445e094b95",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-investigation-and-delivery-instruction-recovery-001\\opencode-2-2-5\\artifacts\\initial\\run.json",
+        "sha256": "f5ae33433a76b817976cdaa60e14da2fec716e1fddcd2857a7d5dc56b776d742"
+      }
+    },
+    {
+      "scenario": "combined-no-delivery",
+      "profile": "codex-release-0-170-0",
+      "schema": "cliewen-all",
+      "baseline": "e8f97f401b2a1d646ace69a279fc8ebfdd1f576d",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "codex-cli 0.170.0",
+      "requestedModel": "gpt-6.1-sol",
+      "observedModels": [],
+      "durationSeconds": 218.304,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-no-delivery\\codex-release-0-170-0\\artifacts\\variant-checks.json",
+        "sha256": "86da553b79c700aa34809161342f7f13b31f8a43b45e9b2bae88fb6d13a874de",
+        "branchObserved": true
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-no-delivery\\codex-release-0-170-0\\artifacts\\initial\\run.json",
+        "sha256": "6618f4c7849732f5a6f84a38d4cf4943bc5b5aa3848d8a31970913eadee9bc97"
+      }
+    },
+    {
+      "scenario": "combined-no-delivery",
+      "profile": "claude-openspec2-2-1-325",
+      "schema": "cliewen-all",
+      "baseline": "e8f97f401b2a1d646ace69a279fc8ebfdd1f576d",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "2.1.325 (Claude Code)",
+      "requestedModel": "claude-opus-5-5",
+      "observedModels": [
+        "claude-opus-5-5"
+      ],
+      "durationSeconds": 245.996,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-no-delivery\\claude-openspec2-2-1-325\\artifacts\\variant-checks.json",
+        "sha256": "2b64bac19a8bb20fa6a5d8de122c775e6960aad58fbea19a9a9b5b9e2623503e",
+        "branchObserved": true
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-no-delivery\\claude-openspec2-2-1-325\\artifacts\\initial\\run.json",
+        "sha256": "ffe8f62c4e661dfda1b28c9a972bbb6c9efb48444b8df117ea1fc0becd5c2a93"
+      }
+    },
+    {
+      "scenario": "combined-no-delivery",
+      "profile": "opencode-2-2-5",
+      "schema": "cliewen-all",
+      "baseline": "e8f97f401b2a1d646ace69a279fc8ebfdd1f576d",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "opencode v2.2.5",
+      "requestedModel": "opencode/glm-5.3-flash",
+      "observedModels": [],
+      "durationSeconds": 358.908,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-no-delivery\\opencode-2-2-5\\artifacts\\variant-checks.json",
+        "sha256": "c5f7a8a0fd55b4cdbc007218eb69b914a2c14e0898dc1bc8aa4dcda4ec379bb7",
+        "branchObserved": true
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-no-delivery\\opencode-2-2-5\\artifacts\\initial\\run.json",
+        "sha256": "73e52071e401cee617eb9bfcc196e00a7c267c3b8ce830d4f82bc26881a0265d"
+      }
+    },
+    {
+      "scenario": "combined-no-delivery-native-archive-001",
+      "profile": "codex-release-0-170-0",
+      "schema": "cliewen-all",
+      "baseline": "3f1f5b304c49146b97365de9c2708b641d7e4b6d",
+      "candidateSHA256": "0d5736e80a0ba055a8adf23638f0f6082d8ad8a3a9d9d248e4a6f1e4e0154459",
+      "outcome": "completed",
+      "cli": "codex-cli 0.170.0",
+      "requestedModel": "gpt-6.1-sol",
+      "observedModels": [],
+      "durationSeconds": 139.612,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-no-delivery-native-archive-001\\codex-release-0-170-0\\artifacts\\independent-checks.json",
+        "sha256": "f3f45ede1b3afa19f44d3322d99cd7878da513cf69796e2616ffad1a246f2423",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-no-delivery-native-archive-001\\codex-release-0-170-0\\artifacts\\initial\\run.json",
+        "sha256": "d016a1cefb6ca1a7a385722ac79438660d28fd76dbed79f0167da2b1f4181ec3"
+      }
+    },
+    {
+      "scenario": "combined-no-delivery-native-archive-001",
+      "profile": "claude-openspec2-2-1-325",
+      "schema": "cliewen-all",
+      "baseline": "6a23dd448fbc6b2ce0d947f7117b94a89d017285",
+      "candidateSHA256": "0d5736e80a0ba055a8adf23638f0f6082d8ad8a3a9d9d248e4a6f1e4e0154459",
+      "outcome": "completed",
+      "cli": "2.1.325 (Claude Code)",
+      "requestedModel": "claude-opus-5-5",
+      "observedModels": [
+        "claude-opus-5-5"
+      ],
+      "durationSeconds": 53.109,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-no-delivery-native-archive-001\\claude-openspec2-2-1-325\\artifacts\\independent-checks.json",
+        "sha256": "f3f45ede1b3afa19f44d3322d99cd7878da513cf69796e2616ffad1a246f2423",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-no-delivery-native-archive-001\\claude-openspec2-2-1-325\\artifacts\\initial\\run.json",
+        "sha256": "f76b2d92926257077b9639c255c93f1f3d76981da3273f3ba12cd5235852dcbc"
+      }
+    },
+    {
+      "scenario": "combined-no-delivery-native-archive-001",
+      "profile": "opencode-2-2-5",
+      "schema": "cliewen-all",
+      "baseline": "613e104fa9c44762ba6f65d2023e66498cdbc55c",
+      "candidateSHA256": "0d5736e80a0ba055a8adf23638f0f6082d8ad8a3a9d9d248e4a6f1e4e0154459",
+      "outcome": "completed",
+      "cli": "opencode v2.2.5",
+      "requestedModel": "opencode/glm-5.3-flash",
+      "observedModels": [],
+      "durationSeconds": 95.458,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-no-delivery-native-archive-001\\opencode-2-2-5\\artifacts\\independent-checks.json",
+        "sha256": "f3f45ede1b3afa19f44d3322d99cd7878da513cf69796e2616ffad1a246f2423",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-no-delivery-native-archive-001\\opencode-2-2-5\\artifacts\\initial\\run.json",
+        "sha256": "1ee0cd53baa4c9fb166a063e01a432689402d53868c6e6d1dfa97d9ef5cd46aa"
+      }
+    },
+    {
+      "scenario": "combined-quality-and-retirement",
+      "profile": "codex-release-0-170-0",
+      "schema": "cliewen-all",
+      "baseline": "9e81a02b93878468f8e0611180364256c180cc01",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "codex-cli 0.170.0",
+      "requestedModel": "gpt-6.1-sol",
+      "observedModels": [],
+      "durationSeconds": 301.883,
+      "automatedReview": {
+        "passed": false,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-quality-and-retirement\\codex-release-0-170-0\\artifacts\\independent-checks.json",
+        "sha256": "ac0e0ea164624e8bc92972c88e245494fcdef2a21d9e0d0daad9f54761afda0c",
+        "branchObserved": null
+      },
+      "reviewStage": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-quality-and-retirement\\codex-release-0-170-0\\artifacts\\review-stage-checks.json",
+        "sha256": "984e8c60f00d0034938f4f6463849390aafbfd441ac8ab9b13e6a4d87e1141bd"
+      },
+      "retirementAudit": {
+        "agent": "Codex CLI",
+        "scenario": "combined-quality-and-retirement",
+        "profile": "codex-release-0-170-0",
+        "revision": "3f9e76b963e89cfd07676e50aecd4f32910ceafc",
+        "directBehaviorPassed": true,
+        "controlPassed": true,
+        "findings": [
+          {
+            "id": "accept-positive-sign",
+            "example": "+1",
+            "detected": true,
+            "assertion": "✖ rejects plus [COUNT-001] [Test-type: Unit] [Case: plus] [Coverage: negative] (0.2965ms)"
+          },
+          {
+            "id": "accept-decimal-notation",
+            "example": "1.0",
+            "detected": true,
+            "assertion": "✖ rejects decimal [COUNT-001] [Test-type: Unit] [Case: decimal] [Coverage: negative] (0.2892ms)"
+          },
+          {
+            "id": "accept-trailing-line-ending",
+            "example": "1\n",
+            "detected": true,
+            "assertion": "✖ rejects newline [COUNT-001] [Test-type: Unit] [Case: newline] [Coverage: negative] (0.3081ms)"
+          },
+          {
+            "id": "accept-leading-zero",
+            "example": "01",
+            "detected": true,
+            "assertion": "✖ rejects leading [COUNT-001] [Test-type: Unit] [Case: leading] [Coverage: negative] (0.427ms)"
+          },
+          {
+            "id": "accept-exponent-notation",
+            "example": "1e2",
+            "detected": true,
+            "assertion": "✖ rejects exponent [COUNT-001] [Test-type: Unit] [Case: exponent] [Coverage: negative] (0.3296ms)"
+          }
+        ],
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-quality-and-retirement\\codex-release-0-170-0\\artifacts\\retirement-audit-2026-11-20\\report.json",
+        "sha256": "3214299203cfaa029c5f27a70b28508ea9dd16de98c12fed33e00f9b0d797eac"
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-quality-and-retirement\\codex-release-0-170-0\\artifacts\\initial\\run.json",
+        "sha256": "35a33944e3320d9380209081a06df682762aa1270a198c8ebfb07bc61a604fb9"
+      },
+      "approvedContinuation": {
+        "outcome": "wall-time-limit",
+        "durationSeconds": 600.181,
+        "evidence": {
+          "passed": true,
+          "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-quality-and-retirement\\codex-release-0-170-0\\artifacts\\approved-continuation-checks.json",
+          "sha256": "aaa057a997bc6c173bf49f826b57d72b0852cd6b2d95fb7ad8da2800b94c9099"
+        },
+        "rawRun": {
+          "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-quality-and-retirement\\codex-release-0-170-0\\artifacts\\approved-continuation\\run.json",
+          "sha256": "f685fceb72414f40f3c8585d69de92b936d09f2bf41c166181a10af81f33c30a"
+        }
+      }
+    },
+    {
+      "scenario": "combined-quality-and-retirement",
+      "profile": "claude-openspec2-2-1-325",
+      "schema": "cliewen-all",
+      "baseline": "9e81a02b93878468f8e0611180364256c180cc01",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "provider-usage-limit",
+      "cli": "2.1.325 (Claude Code)",
+      "requestedModel": "claude-opus-5-5",
+      "observedModels": [
+        "claude-opus-5-5"
+      ],
+      "durationSeconds": 1.776,
+      "automatedReview": {
+        "passed": false,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-quality-and-retirement\\claude-openspec2-2-1-325\\artifacts\\independent-checks.json",
+        "sha256": "5ec8ba0869d1c07bc4b4fe2aa9a0eea878dcc1e7bfcb5cf6dd7ad269a4c11fe7",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-quality-and-retirement\\claude-openspec2-2-1-325\\artifacts\\initial\\run.json",
+        "sha256": "efb389d4e8aa14bf5c59062f2678b1f2e465ff793dc36580747ebf71164188f7"
+      }
+    },
+    {
+      "scenario": "combined-quality-and-retirement",
+      "profile": "opencode-2-2-5",
+      "schema": "cliewen-all",
+      "baseline": "9e81a02b93878468f8e0611180364256c180cc01",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "interrupted",
+      "cli": "opencode v2.2.5",
+      "requestedModel": "opencode/glm-5.3-flash",
+      "automatedReview": null,
+      "effectiveness": null,
+      "interruption": {
+        "observedAt": "2026-11-19T19:54:58.5968260Z",
+        "reason": "The initial trial had no completion record after the Orca restart. No matching runner or agent process remained.",
+        "retry": "combined-quality-and-retirement-restart-001"
+      },
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-quality-and-retirement\\opencode-2-2-5\\artifacts\\initial\\run.json",
+        "sha256": "56dc20c231cc6c0cdfde3b2540c59566879ab45110950b3b116971d5564f12c5"
+      }
+    },
+    {
+      "scenario": "combined-quality-and-retirement-access-restored-001",
+      "profile": "claude-openspec2-2-1-325",
+      "schema": "cliewen-all",
+      "baseline": "9e81a02b93878468f8e0611180364256c180cc01",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "2.1.325 (Claude Code)",
+      "requestedModel": "claude-opus-5-5",
+      "observedModels": [
+        "claude-opus-5-5"
+      ],
+      "durationSeconds": 342.299,
+      "automatedReview": {
+        "passed": false,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-quality-and-retirement-access-restored-001\\claude-openspec2-2-1-325\\artifacts\\independent-checks.json",
+        "sha256": "e7b15e73ab124bd407ab4a080531eab08458ae90428a6948e79ee770b4b0054d",
+        "branchObserved": null
+      },
+      "reviewStage": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-quality-and-retirement-access-restored-001\\claude-openspec2-2-1-325\\artifacts\\review-stage-checks.json",
+        "sha256": "fbe6faea037817ab8ecc215ed25d57971fcde4d83c2691ac89632be04b8bf58e"
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-quality-and-retirement-access-restored-001\\claude-openspec2-2-1-325\\artifacts\\initial\\run.json",
+        "sha256": "ad9a9f6bbd1a1274d58d9400345ee6954d12af29516c010c92f2b0c12d94c6de"
+      },
+      "approvedContinuation": {
+        "outcome": "provider-usage-limit",
+        "durationSeconds": 241.885,
+        "evidence": {
+          "passed": false,
+          "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-quality-and-retirement-access-restored-001\\claude-openspec2-2-1-325\\artifacts\\approved-continuation-checks.json",
+          "sha256": "cb631b678dba039f7958e7ceef87077b45c1f1e29f136e2b829a86b1cb1f3dfb"
+        },
+        "rawRun": {
+          "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-quality-and-retirement-access-restored-001\\claude-openspec2-2-1-325\\artifacts\\approved-continuation\\run.json",
+          "sha256": "36cbc531f98a0810532932bb878179e6332c151fd23efcb4967390d5cf979475"
+        }
+      }
+    },
+    {
+      "scenario": "combined-quality-and-retirement-access-restored-001-archive-recovery-001",
+      "profile": "claude-openspec2-2-1-325",
+      "schema": "cliewen-all",
+      "baseline": "9e81a02b93878468f8e0611180364256c180cc01",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "automatedReview": null,
+      "reviewStage": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-quality-and-retirement-access-restored-001-archive-recovery-001\\claude-openspec2-2-1-325\\artifacts\\review-stage-checks.json",
+        "sha256": "fbe6faea037817ab8ecc215ed25d57971fcde4d83c2691ac89632be04b8bf58e"
+      },
+      "effectiveness": null,
+      "rawRun": null,
+      "approvedContinuation": {
+        "outcome": "completed",
+        "durationSeconds": 292.428,
+        "evidence": {
+          "passed": true,
+          "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-quality-and-retirement-access-restored-001-archive-recovery-001\\claude-openspec2-2-1-325\\artifacts\\approved-continuation-checks.json",
+          "sha256": "043531a16b141d40f7548f2b2554ea6f418eaa19bcce10f5f6385b99482d8189"
+        },
+        "rawRun": {
+          "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-quality-and-retirement-access-restored-001-archive-recovery-001\\claude-openspec2-2-1-325\\artifacts\\approved-continuation\\run.json",
+          "sha256": "ebef45b042271d3c57c6a983ceba3495be66041cd8e56369c824b6c653f71296"
+        }
+      }
+    },
+    {
+      "scenario": "combined-quality-and-retirement-access-restored-001-scoped-recovery-001",
+      "profile": "claude-openspec2-2-1-325",
+      "schema": "cliewen-all",
+      "baseline": "9e81a02b93878468f8e0611180364256c180cc01",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "automatedReview": null,
+      "reviewStage": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-quality-and-retirement-access-restored-001-scoped-recovery-001\\claude-openspec2-2-1-325\\artifacts\\review-stage-checks.json",
+        "sha256": "fbe6faea037817ab8ecc215ed25d57971fcde4d83c2691ac89632be04b8bf58e"
+      },
+      "prearchiveReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-quality-and-retirement-access-restored-001-scoped-recovery-001\\claude-openspec2-2-1-325\\artifacts\\prearchive-review.json",
+        "sha256": "8c6c63cf7db756d880ea63eb703c40edff222b6c737e54aba6472da54a40730e"
+      },
+      "effectiveness": null,
+      "rawRun": null,
+      "approvedContinuation": {
+        "outcome": "completed",
+        "durationSeconds": 264.493,
+        "evidence": null,
+        "rawRun": {
+          "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-quality-and-retirement-access-restored-001-scoped-recovery-001\\claude-openspec2-2-1-325\\artifacts\\approved-continuation\\run.json",
+          "sha256": "1115edb916e875b326a08ea78afc0fe781aede3090fa3ddc14045cbc36183bb7"
+        }
+      }
+    },
+    {
+      "scenario": "combined-quality-and-retirement-restart-001",
+      "profile": "opencode-2-2-5",
+      "schema": "cliewen-all",
+      "baseline": "9e81a02b93878468f8e0611180364256c180cc01",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "opencode v2.2.5",
+      "requestedModel": "opencode/glm-5.3-flash",
+      "observedModels": [],
+      "durationSeconds": 199.787,
+      "automatedReview": {
+        "passed": false,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-quality-and-retirement-restart-001\\opencode-2-2-5\\artifacts\\independent-checks.json",
+        "sha256": "53da9f6a69effd8180b238477f8a834f04e391fd7ea74abc4c3b421af5b4e7dd",
+        "branchObserved": null
+      },
+      "reviewStage": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-quality-and-retirement-restart-001\\opencode-2-2-5\\artifacts\\review-stage-checks.json",
+        "sha256": "cc73066f560a7d3784d8c8e91fa070680bdbe220bd2d66a2c66b91dcf5c2069b"
+      },
+      "retirementAudit": {
+        "agent": "OpenCode",
+        "scenario": "combined-quality-and-retirement-restart-001",
+        "profile": "opencode-2-2-5",
+        "revision": "2896e1f3dc034a6586c2c61f9caa9fd0feb1a33f",
+        "directBehaviorPassed": true,
+        "controlPassed": true,
+        "findings": [
+          {
+            "id": "accept-positive-sign",
+            "example": "+1",
+            "detected": false
+          },
+          {
+            "id": "accept-decimal-notation",
+            "example": "1.0",
+            "detected": false
+          },
+          {
+            "id": "accept-trailing-line-ending",
+            "example": "1\n",
+            "detected": false
+          },
+          {
+            "id": "accept-leading-zero",
+            "example": "01",
+            "detected": true,
+            "assertion": "✖ rejects malformed text [COUNT-001] [Test-type: Unit] [Case: malformed] [Coverage: negative] (0.7347ms)"
+          },
+          {
+            "id": "accept-exponent-notation",
+            "example": "1e2",
+            "detected": true,
+            "assertion": "✖ rejects malformed text [COUNT-001] [Test-type: Unit] [Case: malformed] [Coverage: negative] (0.752ms)"
+          }
+        ],
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-quality-and-retirement-restart-001\\opencode-2-2-5\\artifacts\\retirement-audit-2026-11-20\\report.json",
+        "sha256": "b8bdf689acb7b225d175f4eff48b210e852c223246ab9549558746aa10d2b59a"
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-quality-and-retirement-restart-001\\opencode-2-2-5\\artifacts\\initial\\run.json",
+        "sha256": "c70b3bf6a3f50261bac1eaa7c98aa00f0b8eea771beb609803082c097a9ea6f9"
+      },
+      "approvedContinuation": {
+        "outcome": "wall-time-limit",
+        "durationSeconds": 600.188,
+        "evidence": {
+          "passed": false,
+          "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-quality-and-retirement-restart-001\\opencode-2-2-5\\artifacts\\approved-continuation-checks.json",
+          "sha256": "d162d9a096f5ce7a53cb02f98d3b67594227dcac2dea009cbf3d2df872620422"
+        },
+        "rawRun": {
+          "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-quality-and-retirement-restart-001\\opencode-2-2-5\\artifacts\\approved-continuation\\run.json",
+          "sha256": "2ac14df9d8c14079e1604d145392cbb38b7e76a6c100a40782c5533ecd6291c4"
+        }
+      }
+    },
+    {
+      "scenario": "combined-quality-and-retirement-restart-001-archive-recovery-001",
+      "profile": "opencode-2-2-5",
+      "schema": "cliewen-all",
+      "baseline": "9e81a02b93878468f8e0611180364256c180cc01",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "automatedReview": null,
+      "reviewStage": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-quality-and-retirement-restart-001-archive-recovery-001\\opencode-2-2-5\\artifacts\\review-stage-checks.json",
+        "sha256": "cc73066f560a7d3784d8c8e91fa070680bdbe220bd2d66a2c66b91dcf5c2069b"
+      },
+      "effectiveness": null,
+      "rawRun": null,
+      "approvedContinuation": {
+        "outcome": "completed",
+        "durationSeconds": 197.584,
+        "evidence": {
+          "passed": false,
+          "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-quality-and-retirement-restart-001-archive-recovery-001\\opencode-2-2-5\\artifacts\\approved-continuation-checks.json",
+          "sha256": "584261d6e02db522273b8e5c9a8878a8049bd4db9797a1565487e5af745d12d5"
+        },
+        "rawRun": {
+          "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-quality-and-retirement-restart-001-archive-recovery-001\\opencode-2-2-5\\artifacts\\approved-continuation\\run.json",
+          "sha256": "f85e48739ffee899655e81f40369af8b98219dda4b91c9cc1517204249c847eb"
+        }
+      }
+    },
+    {
+      "scenario": "combined-quality-and-retirement-restart-001-malformed-regression-recovery-001",
+      "profile": "opencode-2-2-5",
+      "schema": "cliewen-all",
+      "baseline": "2896e1f3dc034a6586c2c61f9caa9fd0feb1a33f",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "opencode v2.2.5",
+      "requestedModel": "opencode/glm-5.3-flash",
+      "observedModels": [],
+      "durationSeconds": 146.906,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-quality-and-retirement-restart-001-malformed-regression-recovery-001\\opencode-2-2-5\\artifacts\\independent-checks.json",
+        "sha256": "34190101144a10543ff8741df7dbfce264b3b501968606f60f2846bf2284ac19",
+        "branchObserved": null
+      },
+      "reviewStage": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-quality-and-retirement-restart-001-malformed-regression-recovery-001\\opencode-2-2-5\\artifacts\\review-stage-checks.json",
+        "sha256": "cc73066f560a7d3784d8c8e91fa070680bdbe220bd2d66a2c66b91dcf5c2069b"
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-quality-and-retirement-restart-001-malformed-regression-recovery-001\\opencode-2-2-5\\artifacts\\initial\\run.json",
+        "sha256": "0440f9def45258aea19354c33ba85e11836f1945cd74d64f0a8a8650b121dc22"
+      }
+    },
+    {
+      "scenario": "combined-quality-and-retirement-restart-001-permanent-recovery-001",
+      "profile": "opencode-2-2-5",
+      "schema": "cliewen-all",
+      "baseline": "9e81a02b93878468f8e0611180364256c180cc01",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "automatedReview": null,
+      "reviewStage": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-quality-and-retirement-restart-001-permanent-recovery-001\\opencode-2-2-5\\artifacts\\review-stage-checks.json",
+        "sha256": "cc73066f560a7d3784d8c8e91fa070680bdbe220bd2d66a2c66b91dcf5c2069b"
+      },
+      "effectiveness": null,
+      "rawRun": null,
+      "approvedContinuation": {
+        "outcome": "completed",
+        "durationSeconds": 43.241,
+        "evidence": {
+          "passed": true,
+          "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-quality-and-retirement-restart-001-permanent-recovery-001\\opencode-2-2-5\\artifacts\\approved-continuation-checks.json",
+          "sha256": "4480c9fdfd7ef127b36b298d72e7ef8ee35631750a8e03833fe202a61bdf6582"
+        },
+        "rawRun": {
+          "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-quality-and-retirement-restart-001-permanent-recovery-001\\opencode-2-2-5\\artifacts\\approved-continuation\\run.json",
+          "sha256": "25ac840c38f786140a09b6d03eb4e1a978838a7000f25310a7045c419b3b0f08"
+        }
+      }
+    },
+    {
+      "scenario": "combined-quality-and-retirement-restart-001-scoped-recovery-001",
+      "profile": "opencode-2-2-5",
+      "schema": "cliewen-all",
+      "baseline": "9e81a02b93878468f8e0611180364256c180cc01",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "automatedReview": null,
+      "reviewStage": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-quality-and-retirement-restart-001-scoped-recovery-001\\opencode-2-2-5\\artifacts\\review-stage-checks.json",
+        "sha256": "cc73066f560a7d3784d8c8e91fa070680bdbe220bd2d66a2c66b91dcf5c2069b"
+      },
+      "prearchiveReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-quality-and-retirement-restart-001-scoped-recovery-001\\opencode-2-2-5\\artifacts\\prearchive-review.json",
+        "sha256": "6cc114582116448e6f556d558fd664f3180d3dd3295d23814133d3e33b1b5421"
+      },
+      "effectiveness": null,
+      "rawRun": null,
+      "approvedContinuation": {
+        "outcome": "completed",
+        "durationSeconds": 241.654,
+        "evidence": null,
+        "rawRun": {
+          "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\combined-quality-and-retirement-restart-001-scoped-recovery-001\\opencode-2-2-5\\artifacts\\approved-continuation\\run.json",
+          "sha256": "32131500f5c1540125929428e7ad24067bed80460bf62419bbfdd59c9fa90881"
+        }
+      }
+    },
+    {
+      "scenario": "csv-bom-evidence-first",
+      "profile": "codex-release-0-170-0",
+      "schema": "cliewen-delivery",
+      "baseline": "3cef8390d7605930218119ced18b1fa0e8b9ae40",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "codex-cli 0.170.0",
+      "requestedModel": "gpt-6.1-sol",
+      "observedModels": [],
+      "durationSeconds": 434.425,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\csv-bom-evidence-first\\codex-release-0-170-0\\artifacts\\independent-checks.json",
+        "sha256": "1380746e06a233e24027eb616e2493e6e578f4fe2a7279bec024107345b81802",
+        "branchObserved": null
+      },
+      "effectiveness": [
+        {
+          "name": "control",
+          "tests": 30,
+          "failures": 0,
+          "exitCode": 0,
+          "passed": true
+        },
+        {
+          "name": "omitted-header",
+          "tests": 30,
+          "failures": 4,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "omitted-field",
+          "tests": 30,
+          "failures": 2,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "empty-header",
+          "tests": 30,
+          "failures": 4,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "empty-field",
+          "tests": 30,
+          "failures": 2,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "disabled-header",
+          "tests": 30,
+          "failures": 4,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "disabled-field",
+          "tests": 30,
+          "failures": 2,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "enabled-header",
+          "tests": 30,
+          "failures": 4,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "enabled-field",
+          "tests": 30,
+          "failures": 2,
+          "exitCode": 1,
+          "passed": true
+        }
+      ],
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\csv-bom-evidence-first\\codex-release-0-170-0\\artifacts\\initial\\run.json",
+        "sha256": "f136f4d4a35824de9aa9730096a2dce2f2b2964c49d69ebff194a31606f3e840"
+      }
+    },
+    {
+      "scenario": "csv-bom-evidence-first",
+      "profile": "claude-openspec2-2-1-325",
+      "schema": "cliewen-delivery",
+      "baseline": "3cef8390d7605930218119ced18b1fa0e8b9ae40",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "2.1.325 (Claude Code)",
+      "requestedModel": "claude-opus-5-5",
+      "observedModels": [
+        "claude-opus-5-5"
+      ],
+      "durationSeconds": 518.98,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\csv-bom-evidence-first\\claude-openspec2-2-1-325\\artifacts\\independent-checks.json",
+        "sha256": "740a6142d545d4b553c3304e8ce83c5b46bb398cc11a9f9067af1df96e9605fa",
+        "branchObserved": null
+      },
+      "effectiveness": [
+        {
+          "name": "control",
+          "tests": 18,
+          "failures": 0,
+          "exitCode": 0,
+          "passed": true
+        },
+        {
+          "name": "omitted-header",
+          "tests": 18,
+          "failures": 0,
+          "exitCode": 0,
+          "passed": false
+        },
+        {
+          "name": "omitted-field",
+          "tests": 18,
+          "failures": 0,
+          "exitCode": 0,
+          "passed": false
+        },
+        {
+          "name": "empty-header",
+          "tests": 18,
+          "failures": 2,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "empty-field",
+          "tests": 18,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "disabled-header",
+          "tests": 18,
+          "failures": 2,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "disabled-field",
+          "tests": 18,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "enabled-header",
+          "tests": 18,
+          "failures": 2,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "enabled-field",
+          "tests": 18,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        }
+      ],
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\csv-bom-evidence-first\\claude-openspec2-2-1-325\\artifacts\\initial\\run.json",
+        "sha256": "52f8a8e96fa745e1a56f83eca730130b8a5e4652765e4f76df28aa4e6d5751cc"
+      }
+    },
+    {
+      "scenario": "csv-bom-evidence-first",
+      "profile": "opencode-2-2-5",
+      "schema": "cliewen-delivery",
+      "baseline": "3cef8390d7605930218119ced18b1fa0e8b9ae40",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "wall-time-limit",
+      "cli": "opencode v2.2.5",
+      "requestedModel": "opencode/glm-5.3-flash",
+      "observedModels": [],
+      "durationSeconds": 600.212,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\csv-bom-evidence-first\\opencode-2-2-5\\artifacts\\independent-checks.json",
+        "sha256": "0fbf2eb23800986d6b793fcbf774ba592945fc37515a86135295bf0ee161f073",
+        "branchObserved": null
+      },
+      "effectiveness": [
+        {
+          "name": "control",
+          "tests": 10,
+          "failures": 0,
+          "exitCode": 0,
+          "passed": true
+        },
+        {
+          "name": "omitted-header",
+          "tests": 10,
+          "failures": 0,
+          "exitCode": 0,
+          "passed": false
+        },
+        {
+          "name": "omitted-field",
+          "tests": 10,
+          "failures": 0,
+          "exitCode": 0,
+          "passed": false
+        },
+        {
+          "name": "empty-header",
+          "tests": 10,
+          "failures": 0,
+          "exitCode": 0,
+          "passed": false
+        },
+        {
+          "name": "empty-field",
+          "tests": 10,
+          "failures": 0,
+          "exitCode": 0,
+          "passed": false
+        },
+        {
+          "name": "disabled-header",
+          "tests": 10,
+          "failures": 0,
+          "exitCode": 0,
+          "passed": false
+        },
+        {
+          "name": "disabled-field",
+          "tests": 10,
+          "failures": 0,
+          "exitCode": 0,
+          "passed": false
+        },
+        {
+          "name": "enabled-header",
+          "tests": 10,
+          "failures": 0,
+          "exitCode": 0,
+          "passed": false
+        },
+        {
+          "name": "enabled-field",
+          "tests": 10,
+          "failures": 0,
+          "exitCode": 0,
+          "passed": false
+        }
+      ],
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\csv-bom-evidence-first\\opencode-2-2-5\\artifacts\\initial\\run.json",
+        "sha256": "5cf2ac83af77b0c71326ef16feed103e4c4c7e21cf9662259bcfa888c1e5d7ab"
+      }
+    },
+    {
+      "scenario": "csv-bom-evidence-first-blocker-recovery-001",
+      "profile": "opencode-2-2-5",
+      "schema": "cliewen-delivery",
+      "baseline": "9cc293656fb171d384b2d674aa01c782d27201dd",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "opencode v2.2.5",
+      "requestedModel": "opencode/glm-5.3-flash",
+      "observedModels": [],
+      "durationSeconds": 234.953,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\csv-bom-evidence-first-blocker-recovery-001\\opencode-2-2-5\\artifacts\\independent-checks.json",
+        "sha256": "4650d20f6d3d58371d4bc400c384821242266484d013258f7e750910bcc9d9f4",
+        "branchObserved": null
+      },
+      "effectiveness": [
+        {
+          "name": "control",
+          "tests": 12,
+          "failures": 0,
+          "exitCode": 0,
+          "passed": true
+        },
+        {
+          "name": "omitted-header",
+          "tests": 12,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "omitted-field",
+          "tests": 12,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "empty-header",
+          "tests": 12,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "empty-field",
+          "tests": 12,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "disabled-header",
+          "tests": 12,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "disabled-field",
+          "tests": 12,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "enabled-header",
+          "tests": 12,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "enabled-field",
+          "tests": 12,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        }
+      ],
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\csv-bom-evidence-first-blocker-recovery-001\\opencode-2-2-5\\artifacts\\initial\\run.json",
+        "sha256": "4db7e93762020a4fd8d3060c46a3faafa02ac1fe86b8b60d87ad4ce9341dac52"
+      }
+    },
+    {
+      "scenario": "csv-bom-explicit-interactions",
+      "profile": "claude-openspec2-2-1-325",
+      "schema": "cliewen-delivery",
+      "baseline": "3cef8390d7605930218119ced18b1fa0e8b9ae40",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "provider-usage-limit",
+      "cli": "2.1.325 (Claude Code)",
+      "requestedModel": "claude-opus-5-5",
+      "observedModels": [
+        "claude-opus-5-5"
+      ],
+      "durationSeconds": 1.76,
+      "automatedReview": {
+        "passed": false,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\csv-bom-explicit-interactions\\claude-openspec2-2-1-325\\artifacts\\independent-checks.json",
+        "sha256": "366dbf253c0a9202be514eeb3dd367004fe5e243a27d4c4d2721cf4a90218c2f",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\csv-bom-explicit-interactions\\claude-openspec2-2-1-325\\artifacts\\initial\\run.json",
+        "sha256": "ceeacf467a788a2ac6846e398509e23dfe160ff8c3cff1ca5c1623131f5edd3b"
+      }
+    },
+    {
+      "scenario": "csv-bom-explicit-interactions",
+      "profile": "opencode-2-2-5",
+      "schema": "cliewen-delivery",
+      "baseline": "3cef8390d7605930218119ced18b1fa0e8b9ae40",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "wall-time-limit",
+      "cli": "opencode v2.2.5",
+      "requestedModel": "opencode/glm-5.3-flash",
+      "observedModels": [],
+      "durationSeconds": 600.159,
+      "automatedReview": {
+        "passed": false,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\csv-bom-explicit-interactions\\opencode-2-2-5\\artifacts\\independent-checks.json",
+        "sha256": "edee55ed85f097ddf8b7e431feffd1d3f2c7246106ca7b29f0df310795387eaf",
+        "branchObserved": null
+      },
+      "effectiveness": [
+        {
+          "name": "control",
+          "tests": 17,
+          "failures": 0,
+          "exitCode": 0,
+          "passed": true
+        },
+        {
+          "name": "omitted-header",
+          "tests": 17,
+          "failures": 0,
+          "exitCode": 0,
+          "passed": false
+        },
+        {
+          "name": "omitted-field",
+          "tests": 17,
+          "failures": 0,
+          "exitCode": 0,
+          "passed": false
+        },
+        {
+          "name": "empty-header",
+          "tests": 17,
+          "failures": 0,
+          "exitCode": 0,
+          "passed": false
+        },
+        {
+          "name": "empty-field",
+          "tests": 17,
+          "failures": 0,
+          "exitCode": 0,
+          "passed": false
+        },
+        {
+          "name": "disabled-header",
+          "tests": 17,
+          "failures": 0,
+          "exitCode": 0,
+          "passed": false
+        },
+        {
+          "name": "disabled-field",
+          "tests": 17,
+          "failures": 0,
+          "exitCode": 0,
+          "passed": false
+        },
+        {
+          "name": "enabled-header",
+          "tests": 17,
+          "failures": 0,
+          "exitCode": 0,
+          "passed": false
+        },
+        {
+          "name": "enabled-field",
+          "tests": 17,
+          "failures": 0,
+          "exitCode": 0,
+          "passed": false
+        }
+      ],
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\csv-bom-explicit-interactions\\opencode-2-2-5\\artifacts\\initial\\run.json",
+        "sha256": "c16ba1b37bc553caa809cdc2d0bb32da2b74a4f9c64c2a346dc149a93b471588"
+      }
+    },
+    {
+      "scenario": "csv-bom-explicit-interactions-access-restored-001",
+      "profile": "claude-openspec2-2-1-325",
+      "schema": "cliewen-delivery",
+      "baseline": "3cef8390d7605930218119ced18b1fa0e8b9ae40",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "2.1.325 (Claude Code)",
+      "requestedModel": "claude-opus-5-5",
+      "observedModels": [
+        "claude-opus-5-5"
+      ],
+      "durationSeconds": 424.258,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\csv-bom-explicit-interactions-access-restored-001\\claude-openspec2-2-1-325\\artifacts\\independent-checks.json",
+        "sha256": "45dd4019590179089fc484415fd62cea19945e06f5ddc890ba2f1b453e0668ea",
+        "branchObserved": null
+      },
+      "effectiveness": [
+        {
+          "name": "control",
+          "tests": 23,
+          "failures": 0,
+          "exitCode": 0,
+          "passed": true
+        },
+        {
+          "name": "omitted-header",
+          "tests": 23,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "omitted-field",
+          "tests": 23,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "empty-header",
+          "tests": 23,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "empty-field",
+          "tests": 23,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "disabled-header",
+          "tests": 23,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "disabled-field",
+          "tests": 23,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "enabled-header",
+          "tests": 23,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "enabled-field",
+          "tests": 23,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        }
+      ],
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\csv-bom-explicit-interactions-access-restored-001\\claude-openspec2-2-1-325\\artifacts\\initial\\run.json",
+        "sha256": "1047e384ce380387c6ea34d768527f21dd9e8382fc3d8770037dda9b48e2794b"
+      }
+    },
+    {
+      "scenario": "csv-bom-explicit-interactions-quota-retry-001",
+      "profile": "claude-openspec2-2-1-325",
+      "schema": "cliewen-delivery",
+      "baseline": "3cef8390d7605930218119ced18b1fa0e8b9ae40",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "provider-usage-limit",
+      "cli": "2.1.325 (Claude Code)",
+      "requestedModel": "claude-opus-5-5",
+      "observedModels": [
+        "claude-opus-5-5"
+      ],
+      "durationSeconds": 2.331,
+      "automatedReview": null,
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\csv-bom-explicit-interactions-quota-retry-001\\claude-openspec2-2-1-325\\artifacts\\initial\\run.json",
+        "sha256": "02db0050f5d571bb5d2c193c2102d99e923eafded7ae93673f32ef389a3f9167"
+      }
+    },
+    {
+      "scenario": "csv-bom-final-tests",
+      "profile": "codex-release-0-170-0",
+      "schema": "cliewen-delivery",
+      "baseline": "1b579ddcd45daa990ce3018d6a8c3cd8eb873f24",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "codex-cli 0.170.0",
+      "requestedModel": "gpt-6.1-sol",
+      "observedModels": [],
+      "durationSeconds": 446.479,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\csv-bom-final-tests\\codex-release-0-170-0\\artifacts\\independent-checks.json",
+        "sha256": "ac14872162f777534fb420f068636fadcfbcddfff5fe09b5a21774e660a94ab8",
+        "branchObserved": null
+      },
+      "effectiveness": [
+        {
+          "name": "control",
+          "tests": 46,
+          "failures": 0,
+          "exitCode": 0,
+          "passed": true
+        },
+        {
+          "name": "omitted-header",
+          "tests": 46,
+          "failures": 5,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "omitted-field",
+          "tests": 46,
+          "failures": 3,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "empty-header",
+          "tests": 46,
+          "failures": 10,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "empty-field",
+          "tests": 46,
+          "failures": 6,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "disabled-header",
+          "tests": 46,
+          "failures": 5,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "disabled-field",
+          "tests": 46,
+          "failures": 3,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "enabled-header",
+          "tests": 46,
+          "failures": 5,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "enabled-field",
+          "tests": 46,
+          "failures": 3,
+          "exitCode": 1,
+          "passed": true
+        }
+      ],
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\csv-bom-final-tests\\codex-release-0-170-0\\artifacts\\initial\\run.json",
+        "sha256": "5150b33b88aaaa78b8bd8bd6a4359e8e5f10e1f0026ada0e0e8ef7afbe1d723a"
+      }
+    },
+    {
+      "scenario": "csv-bom-final-tests",
+      "profile": "claude-openspec2-2-1-325",
+      "schema": "cliewen-delivery",
+      "baseline": "1b579ddcd45daa990ce3018d6a8c3cd8eb873f24",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "provider-usage-limit",
+      "cli": "2.1.325 (Claude Code)",
+      "requestedModel": "claude-opus-5-5",
+      "observedModels": [
+        "claude-opus-5-5"
+      ],
+      "durationSeconds": 1.794,
+      "automatedReview": {
+        "passed": false,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\csv-bom-final-tests\\claude-openspec2-2-1-325\\artifacts\\independent-checks.json",
+        "sha256": "715a1fa72da3fd16c822c5753b9ec97781b48ea38e7acb72a40244b92ed07430",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\csv-bom-final-tests\\claude-openspec2-2-1-325\\artifacts\\initial\\run.json",
+        "sha256": "780f447b33a9a3a29c28fa22e13c7adf94837875d05d1d0bc9059705c8edb31c"
+      }
+    },
+    {
+      "scenario": "csv-bom-final-tests",
+      "profile": "opencode-2-2-5",
+      "schema": "cliewen-delivery",
+      "baseline": "1b579ddcd45daa990ce3018d6a8c3cd8eb873f24",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "wall-time-limit",
+      "cli": "opencode v2.2.5",
+      "requestedModel": "opencode/glm-5.3-flash",
+      "observedModels": [],
+      "durationSeconds": 600.165,
+      "automatedReview": {
+        "passed": false,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\csv-bom-final-tests\\opencode-2-2-5\\artifacts\\independent-checks.json",
+        "sha256": "ce43aa99966c9d2502554541550f90086d8f65c08abbd42560dcc68f1747a755",
+        "branchObserved": null
+      },
+      "effectiveness": [
+        {
+          "name": "control",
+          "tests": 15,
+          "failures": 0,
+          "exitCode": 0,
+          "passed": true
+        },
+        {
+          "name": "omitted-header",
+          "tests": 15,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "omitted-field",
+          "tests": 15,
+          "failures": 0,
+          "exitCode": 0,
+          "passed": false
+        },
+        {
+          "name": "empty-header",
+          "tests": 15,
+          "failures": 0,
+          "exitCode": 0,
+          "passed": false
+        },
+        {
+          "name": "empty-field",
+          "tests": 15,
+          "failures": 0,
+          "exitCode": 0,
+          "passed": false
+        },
+        {
+          "name": "disabled-header",
+          "tests": 15,
+          "failures": 0,
+          "exitCode": 0,
+          "passed": false
+        },
+        {
+          "name": "disabled-field",
+          "tests": 15,
+          "failures": 0,
+          "exitCode": 0,
+          "passed": false
+        },
+        {
+          "name": "enabled-header",
+          "tests": 15,
+          "failures": 2,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "enabled-field",
+          "tests": 15,
+          "failures": 0,
+          "exitCode": 0,
+          "passed": false
+        }
+      ],
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\csv-bom-final-tests\\opencode-2-2-5\\artifacts\\initial\\run.json",
+        "sha256": "b6420705387bba4727a4e90c94307a13ee3e407ec32de29e26d45f3dd82022b2"
+      }
+    },
+    {
+      "scenario": "csv-bom-final-tests-access-restored-001",
+      "profile": "claude-openspec2-2-1-325",
+      "schema": "cliewen-delivery",
+      "baseline": "1b579ddcd45daa990ce3018d6a8c3cd8eb873f24",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "2.1.325 (Claude Code)",
+      "requestedModel": "claude-opus-5-5",
+      "observedModels": [
+        "claude-opus-5-5"
+      ],
+      "durationSeconds": 362.84,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\csv-bom-final-tests-access-restored-001\\claude-openspec2-2-1-325\\artifacts\\independent-checks.json",
+        "sha256": "dfd38e0c5bc6a356bbd85ce37799e4bab076d2a1b6eb51c7dda3317fe345ec88",
+        "branchObserved": null
+      },
+      "effectiveness": [
+        {
+          "name": "control",
+          "tests": 18,
+          "failures": 0,
+          "exitCode": 0,
+          "passed": true
+        },
+        {
+          "name": "omitted-header",
+          "tests": 18,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "omitted-field",
+          "tests": 18,
+          "failures": 2,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "empty-header",
+          "tests": 18,
+          "failures": 0,
+          "exitCode": 0,
+          "passed": false
+        },
+        {
+          "name": "empty-field",
+          "tests": 18,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "disabled-header",
+          "tests": 18,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "disabled-field",
+          "tests": 18,
+          "failures": 2,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "enabled-header",
+          "tests": 18,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "enabled-field",
+          "tests": 18,
+          "failures": 2,
+          "exitCode": 1,
+          "passed": true
+        }
+      ],
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\csv-bom-final-tests-access-restored-001\\claude-openspec2-2-1-325\\artifacts\\initial\\run.json",
+        "sha256": "278c32485798350adce9a9ebf66b4649872ef8d74a8d45f3ea51cd348d61abc0"
+      }
+    },
+    {
+      "scenario": "csv-bom-final-tests-claude-header-recovery-001",
+      "profile": "claude-openspec2-2-1-325",
+      "schema": "cliewen-delivery",
+      "baseline": "83fcdc3efd927c140f8430056e361c15bcc20bd6",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "2.1.325 (Claude Code)",
+      "requestedModel": "claude-opus-5-5",
+      "observedModels": [
+        "claude-opus-5-5"
+      ],
+      "durationSeconds": 139.91,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\csv-bom-final-tests-claude-header-recovery-001\\claude-openspec2-2-1-325\\artifacts\\independent-checks.json",
+        "sha256": "abadddb1a3b1594f18ddd68b9e9365a69ba8f267ec95029f7a0b397bf2988a46",
+        "branchObserved": null
+      },
+      "scopeRecheck": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\csv-bom-final-tests-claude-header-recovery-001\\claude-openspec2-2-1-325\\artifacts\\scope-recheck.json",
+        "sha256": "3303e10775236e636630e44ab60283b07365596bd9dba9598647186c6a72a4f1"
+      },
+      "effectiveness": [
+        {
+          "name": "control",
+          "tests": 19,
+          "failures": 0,
+          "exitCode": 0,
+          "passed": true
+        },
+        {
+          "name": "omitted-header",
+          "tests": 19,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "omitted-field",
+          "tests": 19,
+          "failures": 2,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "empty-header",
+          "tests": 19,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "empty-field",
+          "tests": 19,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "disabled-header",
+          "tests": 19,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "disabled-field",
+          "tests": 19,
+          "failures": 2,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "enabled-header",
+          "tests": 19,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "enabled-field",
+          "tests": 19,
+          "failures": 2,
+          "exitCode": 1,
+          "passed": true
+        }
+      ],
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\csv-bom-final-tests-claude-header-recovery-001\\claude-openspec2-2-1-325\\artifacts\\initial\\run.json",
+        "sha256": "7727414c8f2c4447e2f9d2b8c0af6a111d66f5766a8d1b3852509147bc41ad9e"
+      }
+    },
+    {
+      "scenario": "csv-bom-final-tests-focused-assertions-001",
+      "profile": "opencode-2-2-5",
+      "schema": "cliewen-delivery",
+      "baseline": "4844d0b805d95a5a2c20bf7c4b606cfbff93f067",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "opencode v2.2.5",
+      "requestedModel": "opencode/glm-5.3-flash",
+      "observedModels": [],
+      "durationSeconds": 37.517,
+      "automatedReview": null,
+      "effectiveness": [
+        {
+          "name": "control",
+          "tests": 14,
+          "failures": 0,
+          "exitCode": 0,
+          "passed": true
+        },
+        {
+          "name": "omitted-header",
+          "tests": 14,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "omitted-field",
+          "tests": 14,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "empty-header",
+          "tests": 14,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "empty-field",
+          "tests": 14,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "disabled-header",
+          "tests": 14,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "disabled-field",
+          "tests": 14,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "enabled-header",
+          "tests": 14,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "enabled-field",
+          "tests": 14,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        }
+      ],
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\csv-bom-final-tests-focused-assertions-001\\opencode-2-2-5\\artifacts\\initial\\run.json",
+        "sha256": "e18790943f8371124f3454e66d6adbad25e167893ac9789b1bf6f937c4c3ebac"
+      }
+    },
+    {
+      "scenario": "csv-bom-final-tests-scoped-recovery-001",
+      "profile": "opencode-2-2-5",
+      "schema": "cliewen-delivery",
+      "baseline": "83a45b94e065fdb7ce24a837504ac2c5fe6db09f",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "opencode v2.2.5",
+      "requestedModel": "opencode/glm-5.3-flash",
+      "observedModels": [],
+      "durationSeconds": 291.714,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\csv-bom-final-tests-scoped-recovery-001\\opencode-2-2-5\\artifacts\\independent-checks.json",
+        "sha256": "a311a774531343eedca3e1a696566cec5c2dbc9e1b3dc6d7374444c1b5832186",
+        "branchObserved": null
+      },
+      "effectiveness": [
+        {
+          "name": "control",
+          "tests": 21,
+          "failures": 0,
+          "exitCode": 0,
+          "passed": true
+        },
+        {
+          "name": "omitted-header",
+          "tests": 21,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "omitted-field",
+          "tests": 21,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "empty-header",
+          "tests": 21,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "empty-field",
+          "tests": 21,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "disabled-header",
+          "tests": 21,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "disabled-field",
+          "tests": 21,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "enabled-header",
+          "tests": 21,
+          "failures": 2,
+          "exitCode": 1,
+          "passed": true
+        },
+        {
+          "name": "enabled-field",
+          "tests": 21,
+          "failures": 1,
+          "exitCode": 1,
+          "passed": true
+        }
+      ],
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\csv-bom-final-tests-scoped-recovery-001\\opencode-2-2-5\\artifacts\\initial\\run.json",
+        "sha256": "94f13c2c9b389053f8bf4479d9f5f21bc0101db8cefacd3e1e444b0e87ef954a"
+      }
+    },
+    {
+      "scenario": "csv-streaming-investigation",
+      "profile": "codex-release-0-170-0",
+      "schema": "cliewen-discovery",
+      "baseline": "07b5615e1ac258e00068ac5b755f452009437cea",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "codex-cli 0.170.0",
+      "requestedModel": "gpt-6.1-sol",
+      "observedModels": [],
+      "durationSeconds": 267.269,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\csv-streaming-investigation\\codex-release-0-170-0\\artifacts\\independent-checks.json",
+        "sha256": "15525602e686fff37817197ec6a0dc19960daecbaf576551d47cfc358c85793d",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\csv-streaming-investigation\\codex-release-0-170-0\\artifacts\\initial\\run.json",
+        "sha256": "73ded37b27e479cb13601d3b1afb181cf888a452e1b96c1535590663fc70121b"
+      }
+    },
+    {
+      "scenario": "csv-streaming-investigation",
+      "profile": "claude-openspec2-2-1-325",
+      "schema": "cliewen-discovery",
+      "baseline": "07b5615e1ac258e00068ac5b755f452009437cea",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "2.1.325 (Claude Code)",
+      "requestedModel": "claude-opus-5-5",
+      "observedModels": [
+        "claude-opus-5-5"
+      ],
+      "durationSeconds": 212.1,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\csv-streaming-investigation\\claude-openspec2-2-1-325\\artifacts\\independent-checks.json",
+        "sha256": "d8e67456a7d513d6f87f5135c375f4b18db6288b6a0f5a0abed31afdb62c42e7",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\csv-streaming-investigation\\claude-openspec2-2-1-325\\artifacts\\initial\\run.json",
+        "sha256": "35e9425bbe726e5f22cc674380b15d59564cf3558cbe64ba33cccf8459585738"
+      }
+    },
+    {
+      "scenario": "csv-streaming-investigation",
+      "profile": "opencode-2-2-5",
+      "schema": "cliewen-discovery",
+      "baseline": "07b5615e1ac258e00068ac5b755f452009437cea",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "opencode v2.2.5",
+      "requestedModel": "opencode/glm-5.3-flash",
+      "observedModels": [],
+      "durationSeconds": 254.58,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\csv-streaming-investigation\\opencode-2-2-5\\artifacts\\independent-checks.json",
+        "sha256": "17b07e73684388829b1503e9a06f184daffc51041b41f5f8acee1d699cae21e1",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\csv-streaming-investigation\\opencode-2-2-5\\artifacts\\initial\\run.json",
+        "sha256": "aa16879a67efc0e9cbd8fe3d314b64ed10e05600768c53b83ec3f1b81bbfa911"
+      }
+    },
+    {
+      "scenario": "delivery-quality-and-retirement",
+      "profile": "codex-release-0-170-0",
+      "schema": "cliewen-delivery",
+      "baseline": "06df6aa02fb2d9559fc4e0e40848ac663a95ec53",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "codex-cli 0.170.0",
+      "requestedModel": "gpt-6.1-sol",
+      "observedModels": [],
+      "durationSeconds": 398.57,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\delivery-quality-and-retirement\\codex-release-0-170-0\\artifacts\\independent-checks.json",
+        "sha256": "40b6f547fd2e8bf4304fc1453d110e25621ea115de0723c5ab76e2c528c1c076",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\delivery-quality-and-retirement\\codex-release-0-170-0\\artifacts\\initial\\run.json",
+        "sha256": "2c103cb3924152fb26fe133724b516c2ee7041f985315114bacd502a8ec0d64a"
+      }
+    },
+    {
+      "scenario": "delivery-quality-and-retirement",
+      "profile": "claude-openspec2-2-1-325",
+      "schema": "cliewen-delivery",
+      "baseline": "06df6aa02fb2d9559fc4e0e40848ac663a95ec53",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "provider-usage-limit",
+      "cli": "2.1.325 (Claude Code)",
+      "requestedModel": "claude-opus-5-5",
+      "observedModels": [
+        "claude-opus-5-5"
+      ],
+      "durationSeconds": 4.436,
+      "automatedReview": {
+        "passed": false,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\delivery-quality-and-retirement\\claude-openspec2-2-1-325\\artifacts\\independent-checks.json",
+        "sha256": "0290d22a4e04357389f2eaa2ce86dea32997d33bcaae03e11c242d3907f50b9c",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\delivery-quality-and-retirement\\claude-openspec2-2-1-325\\artifacts\\initial\\run.json",
+        "sha256": "f9d485c3ebd2c1da448b4f623e05ec642733d22c879a2f3c77894508b98e1c6e"
+      }
+    },
+    {
+      "scenario": "delivery-quality-and-retirement",
+      "profile": "opencode-2-2-5",
+      "schema": "cliewen-delivery",
+      "baseline": "06df6aa02fb2d9559fc4e0e40848ac663a95ec53",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "wall-time-limit",
+      "cli": "opencode v2.2.5",
+      "requestedModel": "opencode/glm-5.3-flash",
+      "observedModels": [],
+      "durationSeconds": 600.194,
+      "automatedReview": {
+        "passed": false,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\delivery-quality-and-retirement\\opencode-2-2-5\\artifacts\\independent-checks.json",
+        "sha256": "87a799272c50266fa99820b075fc7e714ccac9f6cd2ba46ef3f8c7308b49ec00",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\delivery-quality-and-retirement\\opencode-2-2-5\\artifacts\\initial\\run.json",
+        "sha256": "46bd3eec408cf162b74cd459c846687e5e4a097bd63a78f4d0ca07fd14bd77de"
+      }
+    },
+    {
+      "scenario": "delivery-quality-and-retirement-access-restored-001",
+      "profile": "claude-openspec2-2-1-325",
+      "schema": "cliewen-delivery",
+      "baseline": "06df6aa02fb2d9559fc4e0e40848ac663a95ec53",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "2.1.325 (Claude Code)",
+      "requestedModel": "claude-opus-5-5",
+      "observedModels": [
+        "claude-opus-5-5"
+      ],
+      "durationSeconds": 569.966,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\delivery-quality-and-retirement-access-restored-001\\claude-openspec2-2-1-325\\artifacts\\independent-checks.json",
+        "sha256": "ccdc965f4793673b43a3b8cdfdd534fb4e9dd3536f7b891711c91b8eb6f4908e",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\delivery-quality-and-retirement-access-restored-001\\claude-openspec2-2-1-325\\artifacts\\initial\\run.json",
+        "sha256": "72302d9cae46bfe4d91b566ef8704b923ccf1d6bf0abb6d34d1bf3c957fa00e1"
+      }
+    },
+    {
+      "scenario": "discovery-delivery-handoff",
+      "profile": "codex-release-0-170-0",
+      "schema": "cliewen-discovery",
+      "baseline": "c1a93f3a8d8c8478498e9de69b5ed798d144a3d3",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "codex-cli 0.170.0",
+      "requestedModel": "gpt-6.1-sol",
+      "observedModels": [],
+      "durationSeconds": 289.646,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\discovery-delivery-handoff\\codex-release-0-170-0\\artifacts\\variant-checks.json",
+        "sha256": "38b28dab152710f66073a3208eb215c10bfd0e0726850ab35d98410ae301cca0",
+        "branchObserved": true
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\discovery-delivery-handoff\\codex-release-0-170-0\\artifacts\\initial\\run.json",
+        "sha256": "58a14f1b05f0d263a55426390abc08a291f6eab6a099cfa5f980fad89c45adfb"
+      }
+    },
+    {
+      "scenario": "discovery-delivery-handoff",
+      "profile": "claude-openspec2-2-1-325",
+      "schema": "cliewen-discovery",
+      "baseline": "c1a93f3a8d8c8478498e9de69b5ed798d144a3d3",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "provider-usage-limit",
+      "cli": "2.1.325 (Claude Code)",
+      "requestedModel": "claude-opus-5-5",
+      "observedModels": [
+        "claude-opus-5-5"
+      ],
+      "durationSeconds": 1.938,
+      "automatedReview": {
+        "passed": false,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\discovery-delivery-handoff\\claude-openspec2-2-1-325\\artifacts\\variant-checks.json",
+        "sha256": "facc886e0ee1449549973b5560cd6dd123d2b0033ad27f3f8f6b3616470df307",
+        "branchObserved": false
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\discovery-delivery-handoff\\claude-openspec2-2-1-325\\artifacts\\initial\\run.json",
+        "sha256": "1ca5a799c06858956ae50f21551b0067bf2be9013ae874e44460be6f94e08dd2"
+      }
+    },
+    {
+      "scenario": "discovery-delivery-handoff",
+      "profile": "opencode-2-2-5",
+      "schema": "cliewen-discovery",
+      "baseline": "c1a93f3a8d8c8478498e9de69b5ed798d144a3d3",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "opencode v2.2.5",
+      "requestedModel": "opencode/glm-5.3-flash",
+      "observedModels": [],
+      "durationSeconds": 363.904,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\discovery-delivery-handoff\\opencode-2-2-5\\artifacts\\variant-checks.json",
+        "sha256": "c999543999d8f1ab573b4d912b5ee5f987c834a82d452b0cbc10f778ffca2d4a",
+        "branchObserved": true
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\discovery-delivery-handoff\\opencode-2-2-5\\artifacts\\initial\\run.json",
+        "sha256": "37e4efffce819f3cc1938a041393ff5193169a04b280fe2978d97817592c6a8d"
+      }
+    },
+    {
+      "scenario": "discovery-delivery-handoff-access-restored-001",
+      "profile": "claude-openspec2-2-1-325",
+      "schema": "cliewen-discovery",
+      "baseline": "c1a93f3a8d8c8478498e9de69b5ed798d144a3d3",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "provider-usage-limit",
+      "cli": "2.1.325 (Claude Code)",
+      "requestedModel": "claude-opus-5-5",
+      "observedModels": [
+        "claude-opus-5-5"
+      ],
+      "durationSeconds": 66.098,
+      "automatedReview": null,
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\discovery-delivery-handoff-access-restored-001\\claude-openspec2-2-1-325\\artifacts\\initial\\run.json",
+        "sha256": "d536b15951734497772df278382115fd5c44dfdd5b2b095a2d61c6035f07b9ca"
+      }
+    },
+    {
+      "scenario": "discovery-delivery-handoff-access-restored-001-blocker-recovery-001",
+      "profile": "claude-openspec2-2-1-325",
+      "schema": "cliewen-discovery",
+      "baseline": "0cc962163911ce552b68dbf70a4803e1d81ba4bf",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "provider-usage-limit",
+      "cli": "2.1.325 (Claude Code)",
+      "requestedModel": "claude-opus-5-5",
+      "observedModels": [
+        "claude-opus-5-5"
+      ],
+      "durationSeconds": 1.81,
+      "automatedReview": {
+        "passed": false,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\discovery-delivery-handoff-access-restored-001-blocker-recovery-001\\claude-openspec2-2-1-325\\artifacts\\variant-checks.json",
+        "sha256": "889ffffa33c05c622a4920aef134853475c845648f3a992224aed9ce030a14c1",
+        "branchObserved": false
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\discovery-delivery-handoff-access-restored-001-blocker-recovery-001\\claude-openspec2-2-1-325\\artifacts\\initial\\run.json",
+        "sha256": "ca787be772686bab15ae67094e8123d0066f6cf5b2629df65f99fd94d55d15d6"
+      }
+    },
+    {
+      "scenario": "discovery-delivery-handoff-claude-next-day-recovery-001",
+      "profile": "claude-openspec2-2-1-325",
+      "schema": "cliewen-discovery",
+      "baseline": "0cc962163911ce552b68dbf70a4803e1d81ba4bf",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "2.1.325 (Claude Code)",
+      "requestedModel": "claude-opus-5-5",
+      "observedModels": [
+        "claude-opus-5-5"
+      ],
+      "durationSeconds": 183.4,
+      "automatedReview": {
+        "passed": false,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\discovery-delivery-handoff-claude-next-day-recovery-001\\claude-openspec2-2-1-325\\artifacts\\variant-checks.json",
+        "sha256": "aa325e01b1addd779e3dfcbf37edd7e4d2642276169efc0c450601d4cf051d72",
+        "branchObserved": false
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\discovery-delivery-handoff-claude-next-day-recovery-001\\claude-openspec2-2-1-325\\artifacts\\initial\\run.json",
+        "sha256": "2b83982606dbc00894210778ce47134b4a3c419ea352138d5695b1fe29008e44"
+      }
+    },
+    {
+      "scenario": "discovery-delivery-handoff-claude-next-day-recovery-001-record-recovery",
+      "profile": "claude-openspec2-2-1-325",
+      "schema": "cliewen-discovery",
+      "baseline": "579f0bb8e8207ffd80f38ca5c07226c71d4c6d13",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "2.1.325 (Claude Code)",
+      "requestedModel": "claude-opus-5-5",
+      "observedModels": [
+        "claude-opus-5-5"
+      ],
+      "durationSeconds": 16.562,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\discovery-delivery-handoff-claude-next-day-recovery-001-record-recovery\\claude-openspec2-2-1-325\\artifacts\\variant-checks.json",
+        "sha256": "dfa97f13abf1ca7356080cfe1bfa6ae34ad7c876e5ce083853aaa52290b47776",
+        "branchObserved": true
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\discovery-delivery-handoff-claude-next-day-recovery-001-record-recovery\\claude-openspec2-2-1-325\\artifacts\\initial\\run.json",
+        "sha256": "34c1ca2c233de4e44c566e17f4c8e068d71e2f4233f80299580f89ff2855370a"
+      }
+    },
+    {
+      "scenario": "discovery-no-change",
+      "profile": "codex-release-0-170-0",
+      "schema": "cliewen-discovery",
+      "baseline": "8854a82a0cb1b6d8eb3e269ce553aa7539eb4800",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "codex-cli 0.170.0",
+      "requestedModel": "gpt-6.1-sol",
+      "observedModels": [],
+      "durationSeconds": 290.029,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\discovery-no-change\\codex-release-0-170-0\\artifacts\\variant-checks.json",
+        "sha256": "571ac0674523f3add5fe94f700893f33b28cc9d7173c75112c31cb26c50bfe8e",
+        "branchObserved": true
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\discovery-no-change\\codex-release-0-170-0\\artifacts\\initial\\run.json",
+        "sha256": "f79917713c996de5e97610788ac9e6170dc680c31ba1a6012d08bdd7dd64d196"
+      }
+    },
+    {
+      "scenario": "discovery-no-change",
+      "profile": "claude-openspec2-2-1-325",
+      "schema": "cliewen-discovery",
+      "baseline": "8854a82a0cb1b6d8eb3e269ce553aa7539eb4800",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "provider-usage-limit",
+      "cli": "2.1.325 (Claude Code)",
+      "requestedModel": "claude-opus-5-5",
+      "observedModels": [
+        "claude-opus-5-5"
+      ],
+      "durationSeconds": 36.601,
+      "automatedReview": {
+        "passed": false,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\discovery-no-change\\claude-openspec2-2-1-325\\artifacts\\variant-checks.json",
+        "sha256": "65acac2d51080e2e60c74b47cea8bdcbb259f3517d2843c4680426730745f0fd",
+        "branchObserved": false
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\discovery-no-change\\claude-openspec2-2-1-325\\artifacts\\initial\\run.json",
+        "sha256": "2c27620818a75406887b28c2d6c7b7f4ac59cad18bd39ca27502be23e3e5b82f"
+      }
+    },
+    {
+      "scenario": "discovery-no-change",
+      "profile": "opencode-2-2-5",
+      "schema": "cliewen-discovery",
+      "baseline": "8854a82a0cb1b6d8eb3e269ce553aa7539eb4800",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "opencode v2.2.5",
+      "requestedModel": "opencode/glm-5.3-flash",
+      "observedModels": [],
+      "durationSeconds": 288.61,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\discovery-no-change\\opencode-2-2-5\\artifacts\\variant-checks.json",
+        "sha256": "bb9c891f19488c4f0e788ea011aae393759011cb29e5dbadd2b5b8f8f2286b8d",
+        "branchObserved": true
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\discovery-no-change\\opencode-2-2-5\\artifacts\\initial\\run.json",
+        "sha256": "d5a6cc5843659c571b45001903543a9c50163afb4d2abb489a26bb0e512d86e1"
+      }
+    },
+    {
+      "scenario": "discovery-no-change-access-restored-001",
+      "profile": "claude-openspec2-2-1-325",
+      "schema": "cliewen-discovery",
+      "baseline": "8854a82a0cb1b6d8eb3e269ce553aa7539eb4800",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "2.1.325 (Claude Code)",
+      "requestedModel": "claude-opus-5-5",
+      "observedModels": [
+        "claude-opus-5-5"
+      ],
+      "durationSeconds": 191.607,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\discovery-no-change-access-restored-001\\claude-openspec2-2-1-325\\artifacts\\variant-checks.json",
+        "sha256": "727fe72c4255d28acbc17ad3a3c4413d6f8db5249e786ac684e0d15013accc22",
+        "branchObserved": true
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\discovery-no-change-access-restored-001\\claude-openspec2-2-1-325\\artifacts\\initial\\run.json",
+        "sha256": "50d8e12aa80dbc556f986f585453fd6e680644bfb83b5edc3a1e9282607cf0c6"
+      }
+    },
+    {
+      "scenario": "discovery-no-change-native-archive-001",
+      "profile": "codex-release-0-170-0",
+      "schema": "cliewen-discovery",
+      "baseline": "a92fb182364f4746b1211e71f0920d1765211c0b",
+      "candidateSHA256": "0d5736e80a0ba055a8adf23638f0f6082d8ad8a3a9d9d248e4a6f1e4e0154459",
+      "outcome": "completed",
+      "cli": "codex-cli 0.170.0",
+      "requestedModel": "gpt-6.1-sol",
+      "observedModels": [],
+      "durationSeconds": 128.161,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\discovery-no-change-native-archive-001\\codex-release-0-170-0\\artifacts\\independent-recheck.json",
+        "sha256": "2d3d9d6b05cf3c4d2ea23bf3218ff187cf713bdb3994a7aebc5dc4eabe4c81a2",
+        "branchObserved": null
+      },
+      "earlierAutomatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\discovery-no-change-native-archive-001\\codex-release-0-170-0\\artifacts\\independent-checks.json",
+        "sha256": "2d3d9d6b05cf3c4d2ea23bf3218ff187cf713bdb3994a7aebc5dc4eabe4c81a2"
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\discovery-no-change-native-archive-001\\codex-release-0-170-0\\artifacts\\initial\\run.json",
+        "sha256": "08863119c50c3ae9d9d8d0bdd784e7bbdaefea08ec959ac3ae3768d2af885c05"
+      }
+    },
+    {
+      "scenario": "discovery-no-change-native-archive-001",
+      "profile": "claude-openspec2-2-1-325",
+      "schema": "cliewen-discovery",
+      "baseline": "55e34748e5ba8b3cb9764813d2ef429c7cc56fae",
+      "candidateSHA256": "0d5736e80a0ba055a8adf23638f0f6082d8ad8a3a9d9d248e4a6f1e4e0154459",
+      "outcome": "completed",
+      "cli": "2.1.325 (Claude Code)",
+      "requestedModel": "claude-opus-5-5",
+      "observedModels": [
+        "claude-opus-5-5"
+      ],
+      "durationSeconds": 64.069,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\discovery-no-change-native-archive-001\\claude-openspec2-2-1-325\\artifacts\\independent-recheck.json",
+        "sha256": "2d3d9d6b05cf3c4d2ea23bf3218ff187cf713bdb3994a7aebc5dc4eabe4c81a2",
+        "branchObserved": null
+      },
+      "earlierAutomatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\discovery-no-change-native-archive-001\\claude-openspec2-2-1-325\\artifacts\\independent-checks.json",
+        "sha256": "2d3d9d6b05cf3c4d2ea23bf3218ff187cf713bdb3994a7aebc5dc4eabe4c81a2"
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\discovery-no-change-native-archive-001\\claude-openspec2-2-1-325\\artifacts\\initial\\run.json",
+        "sha256": "e3533a0e2bbbe4583048a22dbb61895e31e771b5ace05c8c5d4932f5a81ec156"
+      }
+    },
+    {
+      "scenario": "discovery-no-change-native-archive-001",
+      "profile": "opencode-2-2-5",
+      "schema": "cliewen-discovery",
+      "baseline": "5b3df015b38e994a51b392eb73856fcbc8ff9796",
+      "candidateSHA256": "0d5736e80a0ba055a8adf23638f0f6082d8ad8a3a9d9d248e4a6f1e4e0154459",
+      "outcome": "completed",
+      "cli": "opencode v2.2.5",
+      "requestedModel": "opencode/glm-5.3-flash",
+      "observedModels": [],
+      "durationSeconds": 68.795,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\discovery-no-change-native-archive-001\\opencode-2-2-5\\artifacts\\independent-recheck.json",
+        "sha256": "2d3d9d6b05cf3c4d2ea23bf3218ff187cf713bdb3994a7aebc5dc4eabe4c81a2",
+        "branchObserved": null
+      },
+      "earlierAutomatedReview": {
+        "passed": false,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\discovery-no-change-native-archive-001\\opencode-2-2-5\\artifacts\\independent-checks.json",
+        "sha256": "df0848b928fb9e7955511b6f56da389f8d66411699bc68fafd421b005acce7f4"
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\discovery-no-change-native-archive-001\\opencode-2-2-5\\artifacts\\initial\\run.json",
+        "sha256": "f82fe41b8f4b29c8a253926607110ebef65e87c493ce6b4b8cde673f373300cc"
+      }
+    },
+    {
+      "scenario": "focused-context",
+      "profile": "codex-release-0-170-0",
+      "schema": "cliewen-delivery",
+      "baseline": "33bfc576ded23ce261a4d7dcc0449af32cc02060",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "codex-cli 0.170.0",
+      "requestedModel": "gpt-6.1-sol",
+      "observedModels": [],
+      "durationSeconds": 89.382,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\focused-context\\codex-release-0-170-0\\artifacts\\independent-checks.json",
+        "sha256": "5a3e912ed0a2232ff69ccb004cff33cbf3a2b6b064a3dc08c3213299a14e8168",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\focused-context\\codex-release-0-170-0\\artifacts\\initial\\run.json",
+        "sha256": "a630d061c30e9ed6998018e10a5d92536186a47a798891049de0591d27b2ce70"
+      }
+    },
+    {
+      "scenario": "focused-context",
+      "profile": "claude-openspec2-2-1-325",
+      "schema": "cliewen-delivery",
+      "baseline": "aa62bbe8b13b02fc172b86e4287ba9b5c14d966b",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "2.1.325 (Claude Code)",
+      "requestedModel": "claude-opus-5-5",
+      "observedModels": [
+        "claude-opus-5-5"
+      ],
+      "durationSeconds": 68.43,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\focused-context\\claude-openspec2-2-1-325\\artifacts\\independent-checks.json",
+        "sha256": "5a3e912ed0a2232ff69ccb004cff33cbf3a2b6b064a3dc08c3213299a14e8168",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\focused-context\\claude-openspec2-2-1-325\\artifacts\\initial\\run.json",
+        "sha256": "18cee419e1158910e613ea2fdcfcef4e1117abef5588d7bfa2331a9c05964797"
+      }
+    },
+    {
+      "scenario": "focused-context",
+      "profile": "opencode-2-2-5",
+      "schema": "cliewen-delivery",
+      "baseline": "7b2464155db6d63df6d84841cee2c8babd39c272",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "opencode v2.2.5",
+      "requestedModel": "opencode/glm-5.3-flash",
+      "observedModels": [],
+      "durationSeconds": 240.242,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\focused-context\\opencode-2-2-5\\artifacts\\independent-checks.json",
+        "sha256": "5a3e912ed0a2232ff69ccb004cff33cbf3a2b6b064a3dc08c3213299a14e8168",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\focused-context\\opencode-2-2-5\\artifacts\\initial\\run.json",
+        "sha256": "b1740a5b4910e57058fb0984231b582948a9954c1966e2b92f2684e19d571c73"
+      }
+    },
+    {
+      "scenario": "humanizer-revision-001-auto-verified",
+      "profile": "opencode-2-2-5",
+      "schema": "cliewen-delivery",
+      "baseline": "eaa0fb8bd4edb8d78059e4963f10beea90ef5775",
+      "candidateSHA256": "0d5736e80a0ba055a8adf23638f0f6082d8ad8a3a9d9d248e4a6f1e4e0154459",
+      "outcome": "completed",
+      "cli": "opencode v2.2.5",
+      "requestedModel": "opencode/glm-5.3-flash",
+      "observedModels": [],
+      "durationSeconds": 27.905,
+      "automatedReview": null,
+      "skillObservation": {
+        "passed": true,
+        "mode": "auto",
+        "standardPassed": true,
+        "nativeLoads": 0,
+        "skillCalls": 1,
+        "reportedUse": false,
+        "unknownCorrect": true,
+        "observedStatusMessages": 1,
+        "mentions": 1,
+        "textParts": 2
+      },
+      "earlierSkillObservation": {
+        "passed": false,
+        "mode": "auto",
+        "standardPassed": true,
+        "nativeLoads": 0,
+        "skillCalls": 1,
+        "reportedUse": false,
+        "unknownCorrect": true,
+        "observedStatusMessages": 1,
+        "mentions": 1,
+        "textParts": 2
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\humanizer-revision-001-auto-verified\\opencode-2-2-5\\artifacts\\initial\\run.json",
+        "sha256": "fb16e49070d1acf5f5f319e8ce96ecd97bf4f3849c8ee3da1affcb018e728287"
+      }
+    },
+    {
+      "scenario": "humanizer-revision-001-off",
+      "profile": "opencode-2-2-5",
+      "schema": "cliewen-delivery",
+      "baseline": "26a53ed435c0c5a4e1d15ef66d60851df97f0407",
+      "candidateSHA256": "0d5736e80a0ba055a8adf23638f0f6082d8ad8a3a9d9d248e4a6f1e4e0154459",
+      "outcome": "completed",
+      "cli": "opencode v2.2.5",
+      "requestedModel": "opencode/glm-5.3-flash",
+      "observedModels": [],
+      "durationSeconds": 63.734,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\humanizer-revision-001-off\\opencode-2-2-5\\artifacts\\independent-checks.json",
+        "sha256": "72e07b99123fa92cff4eeffe5bf08659b8273b2fe9297f9846b1186459721364",
+        "branchObserved": null
+      },
+      "skillObservation": {
+        "passed": false,
+        "mode": "off",
+        "standardPassed": true,
+        "nativeLoads": 0,
+        "skillCalls": 0,
+        "reportedUse": false,
+        "unknownCorrect": false,
+        "observedStatusMessages": 1,
+        "mentions": 2,
+        "textParts": 10
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\humanizer-revision-001-off\\opencode-2-2-5\\artifacts\\initial\\run.json",
+        "sha256": "a38df6656de89efa4096872984b3eb19939948187c8afab82a1f0f9c0f3a9300"
+      }
+    },
+    {
+      "scenario": "humanizer-revision-001-off-handoff-retest",
+      "profile": "opencode-2-2-5",
+      "schema": "cliewen-delivery",
+      "baseline": "b6ac9761760102c63cf2090c52ea0c92a71b39fc",
+      "candidateSHA256": "0d5736e80a0ba055a8adf23638f0f6082d8ad8a3a9d9d248e4a6f1e4e0154459",
+      "outcome": "completed",
+      "cli": "opencode v2.2.5",
+      "requestedModel": "opencode/glm-5.3-flash",
+      "observedModels": [],
+      "durationSeconds": 61.846,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\humanizer-revision-001-off-handoff-retest\\opencode-2-2-5\\artifacts\\independent-checks.json",
+        "sha256": "1d4fb31b3ad96b00a45c9fbfb9eae2ca1d11924f1c85be553e6612c264613904",
+        "branchObserved": null
+      },
+      "skillObservation": {
+        "passed": true,
+        "mode": "off",
+        "standardPassed": true,
+        "nativeLoads": 0,
+        "skillCalls": 0,
+        "reportedUse": false,
+        "unknownCorrect": false,
+        "observedStatusMessages": 0,
+        "mentions": 0,
+        "textParts": 5
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\humanizer-revision-001-off-handoff-retest\\opencode-2-2-5\\artifacts\\initial\\run.json",
+        "sha256": "c090d3297517550f08a4e5d3bcfe3450ead8b8fd65b0a9680a56401b59fb76df"
+      }
+    },
+    {
+      "scenario": "humanizer-revision-001-on",
+      "profile": "opencode-2-2-5",
+      "schema": "cliewen-delivery",
+      "baseline": "1423969b443f766b8da342c940cc5177151a77f3",
+      "candidateSHA256": "0d5736e80a0ba055a8adf23638f0f6082d8ad8a3a9d9d248e4a6f1e4e0154459",
+      "outcome": "completed",
+      "cli": "opencode v2.2.5",
+      "requestedModel": "opencode/glm-5.3-flash",
+      "observedModels": [],
+      "durationSeconds": 65.362,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\humanizer-revision-001-on\\opencode-2-2-5\\artifacts\\independent-checks.json",
+        "sha256": "1bafd35cc437e7eb9ee5aff7324edaba491579352df00840ef47320b6caf8772",
+        "branchObserved": null
+      },
+      "skillObservation": {
+        "passed": true,
+        "mode": "on",
+        "standardPassed": true,
+        "nativeLoads": 1,
+        "skillCalls": 1,
+        "reportedUse": true,
+        "unknownCorrect": false,
+        "observedStatusMessages": 1,
+        "mentions": 2,
+        "textParts": 7
+      },
+      "earlierSkillObservation": {
+        "passed": false,
+        "mode": "on",
+        "standardPassed": true,
+        "nativeLoads": 1,
+        "skillCalls": 1,
+        "reportedUse": true,
+        "unknownCorrect": false,
+        "observedStatusMessages": 2,
+        "textParts": 7
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\humanizer-revision-001-on\\opencode-2-2-5\\artifacts\\initial\\run.json",
+        "sha256": "a9c49f838c3e3a566b45577a444277a6df23f4575053f6dec5e61b4afc0c625e"
+      }
+    },
+    {
+      "scenario": "knowledge-and-writing",
+      "profile": "codex-release-0-170-0",
+      "schema": "cliewen-delivery",
+      "baseline": "f6023933b1487d764ba0148ebbde9745f69f1697",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "codex-cli 0.170.0",
+      "requestedModel": "gpt-6.1-sol",
+      "observedModels": [],
+      "durationSeconds": 91.863,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\knowledge-and-writing\\codex-release-0-170-0\\artifacts\\independent-checks.json",
+        "sha256": "982f3c9bb19b7829c1734650f513375d3a505791daa0e9e299e60361a28c3774",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\knowledge-and-writing\\codex-release-0-170-0\\artifacts\\initial\\run.json",
+        "sha256": "8a12d6480c484840d92b7b6443a587d296cf75aa6e8b98c53302682927c51ec1"
+      }
+    },
+    {
+      "scenario": "knowledge-and-writing",
+      "profile": "claude-openspec2-2-1-325",
+      "schema": "cliewen-delivery",
+      "baseline": "f6023933b1487d764ba0148ebbde9745f69f1697",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "provider-usage-limit",
+      "cli": "2.1.325 (Claude Code)",
+      "requestedModel": "claude-opus-5-5",
+      "observedModels": [
+        "claude-opus-5-5"
+      ],
+      "durationSeconds": 1.736,
+      "automatedReview": {
+        "passed": false,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\knowledge-and-writing\\claude-openspec2-2-1-325\\artifacts\\independent-checks.json",
+        "sha256": "294e810c8114c61cbaf80c4fc81c4d1f82f437b1da03587d312e833e60d0c331",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\knowledge-and-writing\\claude-openspec2-2-1-325\\artifacts\\initial\\run.json",
+        "sha256": "e763b65c9a133598e0a59d07ca2609b23c24a5a27ece94671a6b2abd562452f5"
+      }
+    },
+    {
+      "scenario": "knowledge-and-writing",
+      "profile": "opencode-2-2-5",
+      "schema": "cliewen-delivery",
+      "baseline": "f6023933b1487d764ba0148ebbde9745f69f1697",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "opencode v2.2.5",
+      "requestedModel": "opencode/glm-5.3-flash",
+      "observedModels": [],
+      "durationSeconds": 283.114,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\knowledge-and-writing\\opencode-2-2-5\\artifacts\\independent-checks.json",
+        "sha256": "2bf0023fdab6c42d5a920a0990655996437e53c12bda638ea826187a9ce8e681",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\knowledge-and-writing\\opencode-2-2-5\\artifacts\\initial\\run.json",
+        "sha256": "17ffebbb7e368755def0bbaa3d5b12bcbe522c211e82b6d8e93c4873477b7d66"
+      }
+    },
+    {
+      "scenario": "knowledge-and-writing-host-policy",
+      "profile": "codex-release-0-170-0",
+      "schema": "cliewen-delivery",
+      "baseline": "3acab8c8e0814bbb6c5c393035e74f5e2ae93194",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "codex-cli 0.170.0",
+      "requestedModel": "gpt-6.1-sol",
+      "observedModels": [],
+      "durationSeconds": 143.083,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\knowledge-and-writing-host-policy\\codex-release-0-170-0\\artifacts\\independent-checks.json",
+        "sha256": "8ca0fc191dd9fc979835f81721cb0d0ffcbcb4d45f19ced9b4f8c68479c2451a",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\knowledge-and-writing-host-policy\\codex-release-0-170-0\\artifacts\\initial\\run.json",
+        "sha256": "ddae23f0b5b2b4daa39f1d9bf4e9a210f5726ac5a3fd6f51c8d22543939b8643"
+      }
+    },
+    {
+      "scenario": "knowledge-and-writing-host-policy",
+      "profile": "claude-openspec2-2-1-325",
+      "schema": "cliewen-delivery",
+      "baseline": "3acab8c8e0814bbb6c5c393035e74f5e2ae93194",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "provider-usage-limit",
+      "cli": "2.1.325 (Claude Code)",
+      "requestedModel": "claude-opus-5-5",
+      "observedModels": [
+        "claude-opus-5-5"
+      ],
+      "durationSeconds": 1.739,
+      "automatedReview": {
+        "passed": false,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\knowledge-and-writing-host-policy\\claude-openspec2-2-1-325\\artifacts\\independent-checks.json",
+        "sha256": "3fb82c51de626972146f53c4de30de1ef4959d66f0ee1323c059bc4b75fd0d8e",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\knowledge-and-writing-host-policy\\claude-openspec2-2-1-325\\artifacts\\initial\\run.json",
+        "sha256": "34231d3a33711fc8782c007381b5af8a4171d5d2e39eb8980048c4aa333ea26a"
+      }
+    },
+    {
+      "scenario": "knowledge-and-writing-host-policy",
+      "profile": "opencode-2-2-5",
+      "schema": "cliewen-delivery",
+      "baseline": "3acab8c8e0814bbb6c5c393035e74f5e2ae93194",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "opencode v2.2.5",
+      "requestedModel": "opencode/glm-5.3-flash",
+      "observedModels": [],
+      "durationSeconds": 255.187,
+      "automatedReview": {
+        "passed": false,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\knowledge-and-writing-host-policy\\opencode-2-2-5\\artifacts\\independent-checks.json",
+        "sha256": "ae3dbe75d74732311df4b096516f4e7a8ae3cf546fcea60be081217ac898bea6",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\knowledge-and-writing-host-policy\\opencode-2-2-5\\artifacts\\initial\\run.json",
+        "sha256": "8bbc4723d3869188d2a817897c98696d38bc94e2a2ee24267eeece5a760e5671"
+      }
+    },
+    {
+      "scenario": "knowledge-and-writing-host-policy-clarified-sessions-001",
+      "profile": "opencode-2-2-5",
+      "schema": "cliewen-delivery",
+      "baseline": "0870c97476ae2c0b2e985f6f9cce99b9859d0175",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "opencode v2.2.5",
+      "requestedModel": "opencode/glm-5.3-flash",
+      "observedModels": [],
+      "durationSeconds": 99.991,
+      "automatedReview": {
+        "passed": false,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\knowledge-and-writing-host-policy-clarified-sessions-001\\opencode-2-2-5\\artifacts\\independent-checks.json",
+        "sha256": "6ba31c9450b29e913dde8c5ea907e36f8a5eaeec3f144b1717b9364b5437256b",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\knowledge-and-writing-host-policy-clarified-sessions-001\\opencode-2-2-5\\artifacts\\initial\\run.json",
+        "sha256": "fe99e1363f018f5d9c48ade23a28190d060d2a7d2526a8aaeff3b917a607d533"
+      }
+    },
+    {
+      "scenario": "knowledge-and-writing-host-policy-clarified-sessions-001-record-recovery",
+      "profile": "opencode-2-2-5",
+      "schema": "cliewen-delivery",
+      "baseline": "abc14f3a23f8e29ba622675380b3cbf8f8ed0d63",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "opencode v2.2.5",
+      "requestedModel": "opencode/glm-5.3-flash",
+      "observedModels": [],
+      "durationSeconds": 14.038,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\knowledge-and-writing-host-policy-clarified-sessions-001-record-recovery\\opencode-2-2-5\\artifacts\\independent-checks.json",
+        "sha256": "234bb60d9fcc38505e5b928c3c14b7e68902136b8240df355bc8b5e37583cf85",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\knowledge-and-writing-host-policy-clarified-sessions-001-record-recovery\\opencode-2-2-5\\artifacts\\initial\\run.json",
+        "sha256": "2710fc586371328df183df6f7ddd4c6e12dffc3f41d8858b01e7038f5913b8e2"
+      }
+    },
+    {
+      "scenario": "knowledge-and-writing-maintenance",
+      "profile": "codex-release-0-170-0",
+      "schema": "cliewen-delivery",
+      "baseline": "bc7d42da6d05ed5c81ea066d0e570687e0480d91",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "codex-cli 0.170.0",
+      "requestedModel": "gpt-6.1-sol",
+      "observedModels": [],
+      "durationSeconds": 125.582,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\knowledge-and-writing-maintenance\\codex-release-0-170-0\\artifacts\\independent-checks.json",
+        "sha256": "e0216fa8dd5fae041f29048ca6911958df1f5d49135c6e4a782749c3456077d3",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\knowledge-and-writing-maintenance\\codex-release-0-170-0\\artifacts\\initial\\run.json",
+        "sha256": "3bd60716e8787bd5f6cbdd3271cd1cded464f6dc6720016a6f0ce4ec035fe76d"
+      }
+    },
+    {
+      "scenario": "knowledge-and-writing-maintenance",
+      "profile": "claude-openspec2-2-1-325",
+      "schema": "cliewen-delivery",
+      "baseline": "bc7d42da6d05ed5c81ea066d0e570687e0480d91",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "provider-usage-limit",
+      "cli": "2.1.325 (Claude Code)",
+      "requestedModel": "claude-opus-5-5",
+      "observedModels": [
+        "claude-opus-5-5"
+      ],
+      "durationSeconds": 1.763,
+      "automatedReview": {
+        "passed": false,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\knowledge-and-writing-maintenance\\claude-openspec2-2-1-325\\artifacts\\independent-checks.json",
+        "sha256": "25d6145e753b463c372729e71407a1efade5a23bee6a80c5802249d2386627be",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\knowledge-and-writing-maintenance\\claude-openspec2-2-1-325\\artifacts\\initial\\run.json",
+        "sha256": "c4975de8a02f87040c72d5e1bd8136edaaa7a8022b95c50394395fdfefa9342a"
+      }
+    },
+    {
+      "scenario": "knowledge-and-writing-maintenance",
+      "profile": "opencode-2-2-5",
+      "schema": "cliewen-delivery",
+      "baseline": "bc7d42da6d05ed5c81ea066d0e570687e0480d91",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "opencode v2.2.5",
+      "requestedModel": "opencode/glm-5.3-flash",
+      "observedModels": [],
+      "durationSeconds": 267.821,
+      "automatedReview": {
+        "passed": false,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\knowledge-and-writing-maintenance\\opencode-2-2-5\\artifacts\\independent-checks.json",
+        "sha256": "b90e095644561fc804c4cfa380dfff1a6136ae6e7bfbecf521566d68ecf7fbeb",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\knowledge-and-writing-maintenance\\opencode-2-2-5\\artifacts\\initial\\run.json",
+        "sha256": "62f9eac941bb25c005f326da3097ae1d0a6f313e8db81c4ff9f185e5834c0ec1"
+      }
+    },
+    {
+      "scenario": "knowledge-and-writing-maintenance-blocker-recovery-001",
+      "profile": "opencode-2-2-5",
+      "schema": "cliewen-delivery",
+      "baseline": "7bd3bbe1626e7dd700ef35d4b6c187d5b54f8d66",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "opencode v2.2.5",
+      "requestedModel": "opencode/glm-5.3-flash",
+      "observedModels": [],
+      "durationSeconds": 31.216,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\knowledge-and-writing-maintenance-blocker-recovery-001\\opencode-2-2-5\\artifacts\\independent-checks.json",
+        "sha256": "f8694953b411d83b211cddd2a953e2ff2eb752cb574ef8e235a979eb07469ab7",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\knowledge-and-writing-maintenance-blocker-recovery-001\\opencode-2-2-5\\artifacts\\initial\\run.json",
+        "sha256": "2f35e445b868af51a9154471178c13b1a9d4477f1b780b9b0ec673e9131f46ad"
+      }
+    },
+    {
+      "scenario": "knowledge-and-writing-maintenance-next-day-verified-001",
+      "profile": "claude-openspec2-2-1-325",
+      "schema": "cliewen-delivery",
+      "baseline": "bc7d42da6d05ed5c81ea066d0e570687e0480d91",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "2.1.325 (Claude Code)",
+      "requestedModel": "claude-opus-5-5",
+      "observedModels": [
+        "claude-opus-5-5"
+      ],
+      "durationSeconds": 95.277,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\knowledge-and-writing-maintenance-next-day-verified-001\\claude-openspec2-2-1-325\\artifacts\\independent-recheck.json",
+        "sha256": "af2ed8e3b0002adf7270bf8c01e4c422645eed83808bf0aca8602b53d7ed2e7b",
+        "branchObserved": null
+      },
+      "earlierAutomatedReview": {
+        "passed": false,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\knowledge-and-writing-maintenance-next-day-verified-001\\claude-openspec2-2-1-325\\artifacts\\independent-checks.json",
+        "sha256": "116a195159ad67ec7f1ce96b2774caa0bccc696ab61aeede208a615aa9ca7028"
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\knowledge-and-writing-maintenance-next-day-verified-001\\claude-openspec2-2-1-325\\artifacts\\initial\\run.json",
+        "sha256": "0e1101262e6ba29276e748b523a8b0628a492a5816160aa0c9cab4f275616572"
+      }
+    },
+    {
+      "scenario": "knowledge-and-writing-off",
+      "profile": "codex-release-0-170-0",
+      "schema": "cliewen-delivery",
+      "baseline": "a9b8666df8ee72af10ac383d69faaf2d674d5f76",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "codex-cli 0.170.0",
+      "requestedModel": "gpt-6.1-sol",
+      "observedModels": [],
+      "durationSeconds": 81.834,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\knowledge-and-writing-off\\codex-release-0-170-0\\artifacts\\independent-checks.json",
+        "sha256": "27aeb4ea49271737d39e6ca06050dec03ee6424434c0286084a68bc981aabd92",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\knowledge-and-writing-off\\codex-release-0-170-0\\artifacts\\initial\\run.json",
+        "sha256": "c46394c748fc33ac16096d58c9dbd344f76c4025d693b37181260f1b8770d318"
+      }
+    },
+    {
+      "scenario": "knowledge-and-writing-off",
+      "profile": "claude-openspec2-2-1-325",
+      "schema": "cliewen-delivery",
+      "baseline": "a9b8666df8ee72af10ac383d69faaf2d674d5f76",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "provider-usage-limit",
+      "cli": "2.1.325 (Claude Code)",
+      "requestedModel": "claude-opus-5-5",
+      "observedModels": [
+        "claude-opus-5-5"
+      ],
+      "durationSeconds": 2.047,
+      "automatedReview": {
+        "passed": false,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\knowledge-and-writing-off\\claude-openspec2-2-1-325\\artifacts\\independent-checks.json",
+        "sha256": "be81ab88f1c4c00419c3d99a9bedd1a1f01ec8ecabccba711388d716f5ae8ec8",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\knowledge-and-writing-off\\claude-openspec2-2-1-325\\artifacts\\initial\\run.json",
+        "sha256": "0b3030f673b37474279eb93b6272c048b7b2609cdbfc917a210a00c5eb2d963c"
+      }
+    },
+    {
+      "scenario": "knowledge-and-writing-off",
+      "profile": "opencode-2-2-5",
+      "schema": "cliewen-delivery",
+      "baseline": "a9b8666df8ee72af10ac383d69faaf2d674d5f76",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "opencode v2.2.5",
+      "requestedModel": "opencode/glm-5.3-flash",
+      "observedModels": [],
+      "durationSeconds": 233.222,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\knowledge-and-writing-off\\opencode-2-2-5\\artifacts\\independent-checks.json",
+        "sha256": "102f2af9a2adce75ae22b7f79b2b186095d61f6bd0376bc45fd6ffad4cf6c85c",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\knowledge-and-writing-off\\opencode-2-2-5\\artifacts\\initial\\run.json",
+        "sha256": "11a22327db5e18d511b43c514d55af964a576a95f63cf370b73bb034ef1b2e15"
+      }
+    },
+    {
+      "scenario": "knowledge-and-writing-on",
+      "profile": "codex-release-0-170-0",
+      "schema": "cliewen-delivery",
+      "baseline": "72a6263814c6eb2e2d80d3a6651d9f11d796a89a",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "codex-cli 0.170.0",
+      "requestedModel": "gpt-6.1-sol",
+      "observedModels": [],
+      "durationSeconds": 99.825,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\knowledge-and-writing-on\\codex-release-0-170-0\\artifacts\\independent-checks.json",
+        "sha256": "01d8542a9d44b1832c8eeb27d7db7bb99ed504723bd2a7b40a0e52848fec2bb5",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\knowledge-and-writing-on\\codex-release-0-170-0\\artifacts\\initial\\run.json",
+        "sha256": "b6ed3e8df3978e27c52caa4a04b63aebbaf21bfa092454a8ff9656afddd05598"
+      }
+    },
+    {
+      "scenario": "knowledge-and-writing-on",
+      "profile": "claude-openspec2-2-1-325",
+      "schema": "cliewen-delivery",
+      "baseline": "72a6263814c6eb2e2d80d3a6651d9f11d796a89a",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "provider-usage-limit",
+      "cli": "2.1.325 (Claude Code)",
+      "requestedModel": "claude-opus-5-5",
+      "observedModels": [
+        "claude-opus-5-5"
+      ],
+      "durationSeconds": 1.746,
+      "automatedReview": {
+        "passed": false,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\knowledge-and-writing-on\\claude-openspec2-2-1-325\\artifacts\\independent-checks.json",
+        "sha256": "b8cee6bf6e797afb6eedd852bb0f571f5046a961c13eb42490807872c5af8742",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\knowledge-and-writing-on\\claude-openspec2-2-1-325\\artifacts\\initial\\run.json",
+        "sha256": "e8653c939d77f71f6583160542c71fae6cf1720fbd333d79c34f49dbaee4dfb5"
+      }
+    },
+    {
+      "scenario": "knowledge-and-writing-on",
+      "profile": "opencode-2-2-5",
+      "schema": "cliewen-delivery",
+      "baseline": "72a6263814c6eb2e2d80d3a6651d9f11d796a89a",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "opencode v2.2.5",
+      "requestedModel": "opencode/glm-5.3-flash",
+      "observedModels": [],
+      "durationSeconds": 192.689,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\knowledge-and-writing-on\\opencode-2-2-5\\artifacts\\independent-checks.json",
+        "sha256": "553c859585c86a7f228af1833e0b4204fedbd642a45ce59c8dcb94b24b91dd50",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\knowledge-and-writing-on\\opencode-2-2-5\\artifacts\\initial\\run.json",
+        "sha256": "3e496632738c169e5faf3091f342af64543f6fb53b6f0fbce914cdee98d6eefc"
+      }
+    },
+    {
+      "scenario": "knowledge-and-writing-on-live-host-retry-001",
+      "profile": "claude-openspec2-2-1-325",
+      "schema": "cliewen-delivery",
+      "baseline": "72a6263814c6eb2e2d80d3a6651d9f11d796a89a",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "2.1.325 (Claude Code)",
+      "requestedModel": "claude-opus-5-5",
+      "observedModels": [
+        "claude-opus-5-5"
+      ],
+      "durationSeconds": 87.995,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\knowledge-and-writing-on-live-host-retry-001\\claude-openspec2-2-1-325\\artifacts\\independent-checks.json",
+        "sha256": "b12b7a7f355c623c6fa7140f44d699d013c92eca8670ff539c2df9f711533166",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\knowledge-and-writing-on-live-host-retry-001\\claude-openspec2-2-1-325\\artifacts\\initial\\run.json",
+        "sha256": "5ffe9cc7cf85f71ad81ce259f19350885d58ebacb5ca418db4822d3ee6ed8c7d"
+      }
+    },
+    {
+      "scenario": "knowledge-and-writing-on-local-skill-001",
+      "profile": "opencode-2-2-5",
+      "schema": "cliewen-delivery",
+      "baseline": "dc617d6380dd913cbc5cc96e2f0e9b410a0403a3",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "opencode v2.2.5",
+      "requestedModel": "opencode/glm-5.3-flash",
+      "observedModels": [],
+      "durationSeconds": 111.439,
+      "automatedReview": {
+        "passed": false,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\knowledge-and-writing-on-local-skill-001\\opencode-2-2-5\\artifacts\\independent-checks.json",
+        "sha256": "250fba842dcb38eb5fdc3f989739278561a70ed9ac2bd5dc1c0d1378780b0a8d",
+        "branchObserved": null
+      },
+      "skillObservation": {
+        "passed": false,
+        "loaded": true,
+        "reportedUse": true,
+        "retained": true,
+        "standardPassed": false
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\knowledge-and-writing-on-local-skill-001\\opencode-2-2-5\\artifacts\\initial\\run.json",
+        "sha256": "f4ca009742285b1148f7f27a04213dac9af281ba29dcf4560a1f61c707f0e264"
+      }
+    },
+    {
+      "scenario": "knowledge-and-writing-on-local-skill-001-handoff-recovery",
+      "profile": "opencode-2-2-5",
+      "schema": "cliewen-delivery",
+      "baseline": "64dd80bba9bacc9aa9994e7cdd8b5f29cd1aa2b9",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "opencode v2.2.5",
+      "requestedModel": "opencode/glm-5.3-flash",
+      "observedModels": [],
+      "durationSeconds": 27.286,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\knowledge-and-writing-on-local-skill-001-handoff-recovery\\opencode-2-2-5\\artifacts\\independent-checks.json",
+        "sha256": "3796a20360578b6c13c9d335bceb63b26de172b3010b8fc6b6d804b52316fa33",
+        "branchObserved": null
+      },
+      "skillObservation": {
+        "passed": false,
+        "loaded": true,
+        "reportedUse": true,
+        "retained": true,
+        "standardPassed": true,
+        "observedStatusMessages": 3
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\knowledge-and-writing-on-local-skill-001-handoff-recovery\\opencode-2-2-5\\artifacts\\initial\\run.json",
+        "sha256": "fd322740c7750785e4b4074592415ec269aab73b4fac19c97c0944e19327b954"
+      }
+    },
+    {
+      "scenario": "knowledge-and-writing-on-local-skill-001-off-with-skill-001",
+      "profile": "opencode-2-2-5",
+      "schema": "cliewen-delivery",
+      "baseline": "ff5a8812b242a50827128ca5ed3c3b2e126e954f",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "opencode v2.2.5",
+      "requestedModel": "opencode/glm-5.3-flash",
+      "observedModels": [],
+      "durationSeconds": 114.821,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\knowledge-and-writing-on-local-skill-001-off-with-skill-001\\opencode-2-2-5\\artifacts\\independent-checks.json",
+        "sha256": "245c0c50b9585b86b92b938fc820c6104acfd054ebbb038ae9abb3d289ebf9ae",
+        "branchObserved": null
+      },
+      "skillObservation": {
+        "passed": false,
+        "mode": "off",
+        "standardPassed": true,
+        "nativeLoads": 0,
+        "skillCalls": 0,
+        "reportedUse": true,
+        "observedStatusMessages": 1,
+        "textParts": 2
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\knowledge-and-writing-on-local-skill-001-off-with-skill-001\\opencode-2-2-5\\artifacts\\initial\\run.json",
+        "sha256": "82bb0fd66f6c002c4e0d424fe63385d2955c989b12cf32d029f7436b5f0897b3"
+      }
+    },
+    {
+      "scenario": "knowledge-and-writing-on-local-skill-001-single-reply-001",
+      "profile": "opencode-2-2-5",
+      "schema": "cliewen-delivery",
+      "baseline": "dc617d6380dd913cbc5cc96e2f0e9b410a0403a3",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "opencode v2.2.5",
+      "requestedModel": "opencode/glm-5.3-flash",
+      "observedModels": [],
+      "durationSeconds": 97.409,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\knowledge-and-writing-on-local-skill-001-single-reply-001\\opencode-2-2-5\\artifacts\\independent-checks.json",
+        "sha256": "9ebf64e67a36152692a9f7d337f3da7134c11202832dca08a9d280ffa0a0dc28",
+        "branchObserved": null
+      },
+      "skillObservation": {
+        "passed": false,
+        "mode": "on",
+        "standardPassed": true,
+        "nativeLoads": 1,
+        "skillCalls": 1,
+        "reportedUse": true,
+        "observedStatusMessages": 2,
+        "textParts": 6
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\knowledge-and-writing-on-local-skill-001-single-reply-001\\opencode-2-2-5\\artifacts\\initial\\run.json",
+        "sha256": "0a4f403ae42e902afabfb7e2dc7a4474058892bd031a818adeb03f2fdd5fece4"
+      }
+    },
+    {
+      "scenario": "operator-checks",
+      "profile": "codex-release-0-170-0",
+      "schema": "cliewen-delivery",
+      "baseline": "496706e90a077fd7049f9aa75d42c60188044706",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "codex-cli 0.170.0",
+      "requestedModel": "gpt-6.1-sol",
+      "observedModels": [],
+      "durationSeconds": 117.398,
+      "automatedReview": {
+        "passed": false,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\operator-checks\\codex-release-0-170-0\\artifacts\\independent-checks.json",
+        "sha256": "3c392cda0391606deb570194ff979417d0287c6388bca2ca90f74c8a8e950186",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\operator-checks\\codex-release-0-170-0\\artifacts\\initial\\run.json",
+        "sha256": "477faab5b2b987cc16978e67a41017f81657a987e77559a100c3530b3dc0af90"
+      }
+    },
+    {
+      "scenario": "operator-checks",
+      "profile": "claude-openspec2-2-1-325",
+      "schema": "cliewen-delivery",
+      "baseline": "4cb79ca6e0771d05e2de7af6bf433222f7143f02",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "2.1.325 (Claude Code)",
+      "requestedModel": "claude-opus-5-5",
+      "observedModels": [
+        "claude-opus-5-5"
+      ],
+      "durationSeconds": 99.553,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\operator-checks\\claude-openspec2-2-1-325\\artifacts\\independent-checks.json",
+        "sha256": "5e3b88372f97677e2c4c3055a5a314cd7aec586ebb922d7fe369f5594edbb902",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\operator-checks\\claude-openspec2-2-1-325\\artifacts\\initial\\run.json",
+        "sha256": "f12602f29eb04e3cd9999395697318f1115eed651ea6a6cf96f13923b0ea08e3"
+      }
+    },
+    {
+      "scenario": "operator-checks",
+      "profile": "opencode-2-2-5",
+      "schema": "cliewen-delivery",
+      "baseline": "246352f4afbb2b38a1c31a70a53ab5de54ae64f6",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "opencode v2.2.5",
+      "requestedModel": "opencode/glm-5.3-flash",
+      "observedModels": [],
+      "durationSeconds": 345.575,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\operator-checks\\opencode-2-2-5\\artifacts\\independent-checks.json",
+        "sha256": "f94268738011e17b7117899fd95c097180700cf5a0d53bb0982b014274834f8f",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\operator-checks\\opencode-2-2-5\\artifacts\\initial\\run.json",
+        "sha256": "7fb6bec88d3705884da63515be0cc941c5257c6b266e87729286aacb75bdb01f"
+      }
+    },
+    {
+      "scenario": "operator-lifecycle",
+      "profile": "codex-release-0-170-0",
+      "schema": "cliewen-delivery",
+      "baseline": "496706e90a077fd7049f9aa75d42c60188044706",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "codex-cli 0.170.0",
+      "requestedModel": "gpt-6.1-sol",
+      "observedModels": [],
+      "durationSeconds": 139.671,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\operator-lifecycle\\codex-release-0-170-0\\artifacts\\independent-recheck.json",
+        "sha256": "a2f3aa3eb55975157fb9f37a05bb24bc51985876e0ab16a61f4c1b04691f9baf",
+        "branchObserved": null
+      },
+      "earlierAutomatedReview": {
+        "passed": false,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\operator-lifecycle\\codex-release-0-170-0\\artifacts\\independent-checks.json",
+        "sha256": "010799c03c8cab003a7ece1ff4a945ad14637cb548b89ff6f6ca4ed27d831bc0"
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\operator-lifecycle\\codex-release-0-170-0\\artifacts\\initial\\run.json",
+        "sha256": "336a55525c284b4735b6e42ac6a3abd89b7648e8a617b8f648834e29651a3c74"
+      }
+    },
+    {
+      "scenario": "operator-lifecycle",
+      "profile": "claude-openspec2-2-1-325",
+      "schema": "cliewen-delivery",
+      "baseline": "4cb79ca6e0771d05e2de7af6bf433222f7143f02",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "2.1.325 (Claude Code)",
+      "requestedModel": "claude-opus-5-5",
+      "observedModels": [
+        "claude-opus-5-5"
+      ],
+      "durationSeconds": 143.661,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\operator-lifecycle\\claude-openspec2-2-1-325\\artifacts\\independent-recheck.json",
+        "sha256": "a2f3aa3eb55975157fb9f37a05bb24bc51985876e0ab16a61f4c1b04691f9baf",
+        "branchObserved": null
+      },
+      "earlierAutomatedReview": {
+        "passed": false,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\operator-lifecycle\\claude-openspec2-2-1-325\\artifacts\\independent-checks.json",
+        "sha256": "c526521b7b1cc52ce84fd3826e3b54e724ba4a0cc072b460d4f303f8f2761fd1"
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\operator-lifecycle\\claude-openspec2-2-1-325\\artifacts\\initial\\run.json",
+        "sha256": "6e39a0d3fecc0f78ac356c2463b55429debee417c6087a6b520ddeb17fd7b976"
+      }
+    },
+    {
+      "scenario": "operator-lifecycle",
+      "profile": "opencode-2-2-5",
+      "schema": "cliewen-delivery",
+      "baseline": "246352f4afbb2b38a1c31a70a53ab5de54ae64f6",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "opencode v2.2.5",
+      "requestedModel": "opencode/glm-5.3-flash",
+      "observedModels": [],
+      "durationSeconds": 457.909,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\operator-lifecycle\\opencode-2-2-5\\artifacts\\independent-recheck.json",
+        "sha256": "a2f3aa3eb55975157fb9f37a05bb24bc51985876e0ab16a61f4c1b04691f9baf",
+        "branchObserved": null
+      },
+      "earlierAutomatedReview": {
+        "passed": false,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\operator-lifecycle\\opencode-2-2-5\\artifacts\\independent-checks.json",
+        "sha256": "6204e5fd7ebad13963bd79d5827f9384fbee21b90a0d8c00f46b9fe36bc87408"
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\operator-lifecycle\\opencode-2-2-5\\artifacts\\initial\\run.json",
+        "sha256": "6138bb71b67b498a95f0d48999e47733ba3d92d10795cc1e8e912d1351ca17b7"
+      }
+    },
+    {
+      "scenario": "planning-disabled-ticket-001",
+      "profile": "codex-release-0-170-0",
+      "schema": "cliewen-delivery",
+      "baseline": "fc5bc97ca38d9a3f9c1c67d472993c1a7797909d",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "codex-cli 0.170.0",
+      "requestedModel": "gpt-6.1-sol",
+      "observedModels": [],
+      "durationSeconds": 29.28,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\planning-disabled-ticket-001\\codex-release-0-170-0\\artifacts\\independent-recheck.json",
+        "sha256": "326cd9654ec2ab535736825fc8bf3ddfd18f027a1c1db8d8b874cc874f5a6984",
+        "branchObserved": null
+      },
+      "earlierAutomatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\planning-disabled-ticket-001\\codex-release-0-170-0\\artifacts\\independent-checks.json",
+        "sha256": "326cd9654ec2ab535736825fc8bf3ddfd18f027a1c1db8d8b874cc874f5a6984"
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\planning-disabled-ticket-001\\codex-release-0-170-0\\artifacts\\initial\\run.json",
+        "sha256": "ce9cd939e06fc12ad2b92a2ebbebbc44bbe8d1bf908c4bf54359d8c30949d953"
+      }
+    },
+    {
+      "scenario": "planning-disabled-ticket-001",
+      "profile": "claude-openspec2-2-1-325",
+      "schema": "cliewen-delivery",
+      "baseline": "026f4fa1052a642286b445e75ba3ef9586fe3eb3",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "2.1.325 (Claude Code)",
+      "requestedModel": "claude-opus-5-5",
+      "observedModels": [
+        "claude-opus-5-5"
+      ],
+      "durationSeconds": 19.142,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\planning-disabled-ticket-001\\claude-openspec2-2-1-325\\artifacts\\independent-recheck.json",
+        "sha256": "326cd9654ec2ab535736825fc8bf3ddfd18f027a1c1db8d8b874cc874f5a6984",
+        "branchObserved": null
+      },
+      "earlierAutomatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\planning-disabled-ticket-001\\claude-openspec2-2-1-325\\artifacts\\independent-checks.json",
+        "sha256": "326cd9654ec2ab535736825fc8bf3ddfd18f027a1c1db8d8b874cc874f5a6984"
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\planning-disabled-ticket-001\\claude-openspec2-2-1-325\\artifacts\\initial\\run.json",
+        "sha256": "8087397ffba24279e05c2b715691b40f8f15c5a094ac188217e0ad849e2863bb"
+      }
+    },
+    {
+      "scenario": "planning-disabled-ticket-001",
+      "profile": "opencode-2-2-5",
+      "schema": "cliewen-delivery",
+      "baseline": "9c68c4aff2a9b1efd3b746888ce776732e990a69",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "opencode v2.2.5",
+      "requestedModel": "opencode/glm-5.3-flash",
+      "observedModels": [],
+      "durationSeconds": 13.093,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\planning-disabled-ticket-001\\opencode-2-2-5\\artifacts\\independent-recheck.json",
+        "sha256": "326cd9654ec2ab535736825fc8bf3ddfd18f027a1c1db8d8b874cc874f5a6984",
+        "branchObserved": null
+      },
+      "earlierAutomatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\planning-disabled-ticket-001\\opencode-2-2-5\\artifacts\\independent-checks.json",
+        "sha256": "326cd9654ec2ab535736825fc8bf3ddfd18f027a1c1db8d8b874cc874f5a6984"
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\planning-disabled-ticket-001\\opencode-2-2-5\\artifacts\\initial\\run.json",
+        "sha256": "7e03787272ac6444a124052ef20e834ebf0daa4cfb4956aab3af14c116c855d8"
+      }
+    },
+    {
+      "scenario": "planning-failed-ticket-access-001",
+      "profile": "codex-release-0-170-0",
+      "schema": "cliewen-delivery",
+      "baseline": "51077a7f393cb32798e499249c456dfb2b7bb267",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "codex-cli 0.170.0",
+      "requestedModel": "gpt-6.1-sol",
+      "observedModels": [],
+      "durationSeconds": 41.48,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\planning-failed-ticket-access-001\\codex-release-0-170-0\\artifacts\\independent-recheck.json",
+        "sha256": "cbe86e7172cf10d3d89825593d62b0789f5dd1ed2b2c85e2c20d7ebd77bb412b",
+        "branchObserved": null
+      },
+      "earlierAutomatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\planning-failed-ticket-access-001\\codex-release-0-170-0\\artifacts\\independent-checks.json",
+        "sha256": "cbe86e7172cf10d3d89825593d62b0789f5dd1ed2b2c85e2c20d7ebd77bb412b"
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\planning-failed-ticket-access-001\\codex-release-0-170-0\\artifacts\\initial\\run.json",
+        "sha256": "cddfaba8ee55f7721f6e6ac4647c1aeb51cdb6d35aa6296c2cf047061dc92966"
+      }
+    },
+    {
+      "scenario": "planning-failed-ticket-access-001",
+      "profile": "claude-openspec2-2-1-325",
+      "schema": "cliewen-delivery",
+      "baseline": "dcd04cf5067638cc25f758407417899b19683979",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "2.1.325 (Claude Code)",
+      "requestedModel": "claude-opus-5-5",
+      "observedModels": [
+        "claude-opus-5-5"
+      ],
+      "durationSeconds": 30.339,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\planning-failed-ticket-access-001\\claude-openspec2-2-1-325\\artifacts\\independent-recheck.json",
+        "sha256": "54e35f7883789dbfd62904cf55cf93de79868abbe3928af7944037487317d30f",
+        "branchObserved": null
+      },
+      "earlierAutomatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\planning-failed-ticket-access-001\\claude-openspec2-2-1-325\\artifacts\\independent-checks.json",
+        "sha256": "54e35f7883789dbfd62904cf55cf93de79868abbe3928af7944037487317d30f"
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\planning-failed-ticket-access-001\\claude-openspec2-2-1-325\\artifacts\\initial\\run.json",
+        "sha256": "0862f1b1ee05f2f7831dec97e2f675c6b56b197083e6d15797818e21222d1672"
+      }
+    },
+    {
+      "scenario": "planning-failed-ticket-access-001",
+      "profile": "opencode-2-2-5",
+      "schema": "cliewen-delivery",
+      "baseline": "c355e6e29412036fb560897c111f4e3a10094b99",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "opencode v2.2.5",
+      "requestedModel": "opencode/glm-5.3-flash",
+      "observedModels": [],
+      "durationSeconds": 25.87,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\planning-failed-ticket-access-001\\opencode-2-2-5\\artifacts\\independent-recheck.json",
+        "sha256": "861507d8561e02fc3f2d51e67acea98548a5a7c645fa81ad3086e44d81bf1e57",
+        "branchObserved": null
+      },
+      "earlierAutomatedReview": {
+        "passed": false,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\planning-failed-ticket-access-001\\opencode-2-2-5\\artifacts\\pre-recovery-semantic-check.json",
+        "sha256": "1ea68229e64b947b29ec4001a5efcfa8686280b59eebb97c261a7bf4394da0e0"
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\planning-failed-ticket-access-001\\opencode-2-2-5\\artifacts\\initial\\run.json",
+        "sha256": "fb2de59795883efacf58eab8195cbf25a805fc08f38f51ccdc59260428d09c68"
+      }
+    },
+    {
+      "scenario": "planning-failed-ticket-access-001-handoff-recovery",
+      "profile": "opencode-2-2-5",
+      "schema": "cliewen-delivery",
+      "baseline": "dd18eb92f8b799dde771ffb6354413798d8f58a0",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "opencode v2.2.5",
+      "requestedModel": "opencode/glm-5.3-flash",
+      "observedModels": [],
+      "durationSeconds": 23.507,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\planning-failed-ticket-access-001-handoff-recovery\\opencode-2-2-5\\artifacts\\independent-checks.json",
+        "sha256": "861507d8561e02fc3f2d51e67acea98548a5a7c645fa81ad3086e44d81bf1e57",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\planning-failed-ticket-access-001-handoff-recovery\\opencode-2-2-5\\artifacts\\initial\\run.json",
+        "sha256": "8372f656104805e505b6c0384a181b4d6317cba9db343bd07398c64c104b1929"
+      }
+    },
+    {
+      "scenario": "planning-live-read-only-ticket-001",
+      "profile": "codex-release-0-170-0",
+      "schema": "cliewen-delivery",
+      "baseline": "3d3af8c8f68f57b9c5e3caff0742758ae990bcc3",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "codex-cli 0.170.0",
+      "requestedModel": "gpt-6.1-sol",
+      "observedModels": [],
+      "durationSeconds": 84.558,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\planning-live-read-only-ticket-001\\codex-release-0-170-0\\artifacts\\independent-recheck.json",
+        "sha256": "32aec858eaab0fa6e4a94db82f473e033a6d875e2942d0a0c8e5dd99ef555746",
+        "branchObserved": null
+      },
+      "earlierAutomatedReview": {
+        "passed": false,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\planning-live-read-only-ticket-001\\codex-release-0-170-0\\artifacts\\independent-checks.json",
+        "sha256": "ef71b6bd05a2959994572e9bc98d21d0228145632085c9da34c0e58ddd31f989"
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\planning-live-read-only-ticket-001\\codex-release-0-170-0\\artifacts\\initial\\run.json",
+        "sha256": "8b8fe0a3c16e3ef95a947fc31e37604e1a5b8fc103177bc7828ea49dae95be60"
+      }
+    },
+    {
+      "scenario": "planning-live-read-only-ticket-001",
+      "profile": "claude-openspec2-2-1-325",
+      "schema": "cliewen-delivery",
+      "baseline": "3d3af8c8f68f57b9c5e3caff0742758ae990bcc3",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "2.1.325 (Claude Code)",
+      "requestedModel": "claude-opus-5-5",
+      "observedModels": [
+        "claude-opus-5-5"
+      ],
+      "durationSeconds": 70.172,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\planning-live-read-only-ticket-001\\claude-openspec2-2-1-325\\artifacts\\independent-recheck.json",
+        "sha256": "b104284b2f260f1b6cb55f5031617c52e964ca0e32b9704ae5d38f17efd823fc",
+        "branchObserved": null
+      },
+      "earlierAutomatedReview": {
+        "passed": false,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\planning-live-read-only-ticket-001\\claude-openspec2-2-1-325\\artifacts\\independent-checks.json",
+        "sha256": "4a40c4ea968f09c2d5aafe93c0232df36a62a8da744813fb686ad37a59ca109d"
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\planning-live-read-only-ticket-001\\claude-openspec2-2-1-325\\artifacts\\initial\\run.json",
+        "sha256": "61b2d32516a06a822e760c25ced8fab7e38ee10c0a6a6e765235cdc41e647351"
+      }
+    },
+    {
+      "scenario": "planning-live-read-only-ticket-001",
+      "profile": "opencode-2-2-5",
+      "schema": "cliewen-delivery",
+      "baseline": "3d3af8c8f68f57b9c5e3caff0742758ae990bcc3",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "opencode v2.2.5",
+      "requestedModel": "opencode/glm-5.3-flash",
+      "observedModels": [],
+      "durationSeconds": 108.518,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\planning-live-read-only-ticket-001\\opencode-2-2-5\\artifacts\\independent-recheck.json",
+        "sha256": "da366238e6db7be9c2826cabac54824719bd345bbd87356500d2f3334ff4b545",
+        "branchObserved": null
+      },
+      "earlierAutomatedReview": {
+        "passed": false,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\planning-live-read-only-ticket-001\\opencode-2-2-5\\artifacts\\independent-checks.json",
+        "sha256": "5cb01a519d3fd180675558b1b9591d736640fdb255ae9389d51565845f2a9390"
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\planning-live-read-only-ticket-001\\opencode-2-2-5\\artifacts\\initial\\run.json",
+        "sha256": "85e470176568818e8bf300193f6261a9a7002edd61cac589e7e9d96d63e8c009"
+      }
+    },
+    {
+      "scenario": "planning-live-read-only-ticket-001-handoff-recovery",
+      "profile": "opencode-2-2-5",
+      "schema": "cliewen-delivery",
+      "baseline": "ad10705f4fa5a3712d0dd3c11b2f4e620f7114a0",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "opencode v2.2.5",
+      "requestedModel": "opencode/glm-5.3-flash",
+      "observedModels": [],
+      "durationSeconds": 37.689,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\planning-live-read-only-ticket-001-handoff-recovery\\opencode-2-2-5\\artifacts\\independent-checks.json",
+        "sha256": "da366238e6db7be9c2826cabac54824719bd345bbd87356500d2f3334ff4b545",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\planning-live-read-only-ticket-001-handoff-recovery\\opencode-2-2-5\\artifacts\\initial\\run.json",
+        "sha256": "cb29423a23c86290d746b6f8621280aeaf6e357b41dfa53efd5330cd9b464954"
+      }
+    },
+    {
+      "scenario": "planning-ticket-authentication-denied-001",
+      "profile": "codex-release-0-170-0",
+      "schema": "cliewen-delivery",
+      "baseline": "af86884b67fd5b71efa7c9ff78caab04a8536571",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "codex-cli 0.170.0",
+      "requestedModel": "gpt-6.1-sol",
+      "observedModels": [],
+      "durationSeconds": 48.147,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\planning-ticket-authentication-denied-001\\codex-release-0-170-0\\artifacts\\independent-recheck.json",
+        "sha256": "30fa72d9ac3513fe7e64f4d7754f84d2221801afabf0481067981f8690c17b75",
+        "branchObserved": null
+      },
+      "earlierAutomatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\planning-ticket-authentication-denied-001\\codex-release-0-170-0\\artifacts\\independent-checks.json",
+        "sha256": "30fa72d9ac3513fe7e64f4d7754f84d2221801afabf0481067981f8690c17b75"
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\planning-ticket-authentication-denied-001\\codex-release-0-170-0\\artifacts\\initial\\run.json",
+        "sha256": "5ce664bbae76a8792dcaac6fcefcfea590215e1b0dd35b52084c917a7ee8c89e"
+      }
+    },
+    {
+      "scenario": "planning-ticket-authentication-denied-001",
+      "profile": "claude-openspec2-2-1-325",
+      "schema": "cliewen-delivery",
+      "baseline": "5581ca27012304251f614fa5e18a17ff73b95c91",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "2.1.325 (Claude Code)",
+      "requestedModel": "claude-opus-5-5",
+      "observedModels": [
+        "claude-opus-5-5"
+      ],
+      "durationSeconds": 31.476,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\planning-ticket-authentication-denied-001\\claude-openspec2-2-1-325\\artifacts\\independent-recheck.json",
+        "sha256": "a152ab4fd5845e5cec75af346c7ef4ec5d460832b97e11813677074970deefa1",
+        "branchObserved": null
+      },
+      "earlierAutomatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\planning-ticket-authentication-denied-001\\claude-openspec2-2-1-325\\artifacts\\independent-checks.json",
+        "sha256": "a152ab4fd5845e5cec75af346c7ef4ec5d460832b97e11813677074970deefa1"
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\planning-ticket-authentication-denied-001\\claude-openspec2-2-1-325\\artifacts\\initial\\run.json",
+        "sha256": "fef96c4cd2d36811b0de99cd0b798a833a71bd775ef5f1bba36865f07f1525c1"
+      }
+    },
+    {
+      "scenario": "planning-ticket-authentication-denied-001",
+      "profile": "opencode-2-2-5",
+      "schema": "cliewen-delivery",
+      "baseline": "23ba3fca6fcb8c352956acd7220a04cb69c48a7d",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "opencode v2.2.5",
+      "requestedModel": "opencode/glm-5.3-flash",
+      "observedModels": [],
+      "durationSeconds": 22.7,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\planning-ticket-authentication-denied-001\\opencode-2-2-5\\artifacts\\independent-recheck.json",
+        "sha256": "883edb92061d5f7a3161fb4e9dfeed653bf7245ad40ead578ab2062d046c6dec",
+        "branchObserved": null
+      },
+      "earlierAutomatedReview": {
+        "passed": false,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\planning-ticket-authentication-denied-001\\opencode-2-2-5\\artifacts\\pre-recovery-semantic-check.json",
+        "sha256": "b1cce090e91cf4269f79fc081fa7d7d1f26c24e1fcf9eb9327df6a0ab17d6476"
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\planning-ticket-authentication-denied-001\\opencode-2-2-5\\artifacts\\initial\\run.json",
+        "sha256": "680b84f4428197e237a6b9ab4ad76757a37de94d5e695b6cf9625a4166568d32"
+      }
+    },
+    {
+      "scenario": "planning-ticket-authentication-denied-001-handoff-recovery",
+      "profile": "opencode-2-2-5",
+      "schema": "cliewen-delivery",
+      "baseline": "cd7f65cdf06549a5da2b5176e7b3bd01e78201b2",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "opencode v2.2.5",
+      "requestedModel": "opencode/glm-5.3-flash",
+      "observedModels": [],
+      "durationSeconds": 14.301,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\planning-ticket-authentication-denied-001-handoff-recovery\\opencode-2-2-5\\artifacts\\independent-checks.json",
+        "sha256": "883edb92061d5f7a3161fb4e9dfeed653bf7245ad40ead578ab2062d046c6dec",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\planning-ticket-authentication-denied-001-handoff-recovery\\opencode-2-2-5\\artifacts\\initial\\run.json",
+        "sha256": "d2a252e62ad4a2a4de13a5a558ea9a27b900caab1649bb1ed0ebea1ecd0164a5"
+      }
+    },
+    {
+      "scenario": "planning-ticket-permission-restricted-001",
+      "profile": "codex-release-0-170-0",
+      "schema": "cliewen-delivery",
+      "baseline": "e3b523bd7ff61bc293d3d107da3e3ae47d07f1d7",
+      "candidateSHA256": "0d5736e80a0ba055a8adf23638f0f6082d8ad8a3a9d9d248e4a6f1e4e0154459",
+      "outcome": "completed",
+      "cli": "codex-cli 0.170.0",
+      "requestedModel": "gpt-6.1-sol",
+      "observedModels": [],
+      "durationSeconds": 39.782,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\planning-ticket-permission-restricted-001\\codex-release-0-170-0\\artifacts\\independent-checks.json",
+        "sha256": "cbe41121ea6360f2075d4061dc2a5036ac0c465ba3b486c9e277aa5e14fd7e42",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\planning-ticket-permission-restricted-001\\codex-release-0-170-0\\artifacts\\initial\\run.json",
+        "sha256": "73a5f42e343692f015d54ae0f5f086ef4f766e983440c904d47e45e8b53059cb"
+      }
+    },
+    {
+      "scenario": "planning-ticket-permission-restricted-001",
+      "profile": "claude-openspec2-2-1-325",
+      "schema": "cliewen-delivery",
+      "baseline": "cf2fb266b6a8b828a48ebd90ea7837c5a4cb25c2",
+      "candidateSHA256": "0d5736e80a0ba055a8adf23638f0f6082d8ad8a3a9d9d248e4a6f1e4e0154459",
+      "outcome": "completed",
+      "cli": "2.1.325 (Claude Code)",
+      "requestedModel": "claude-opus-5-5",
+      "observedModels": [
+        "claude-opus-5-5"
+      ],
+      "durationSeconds": 27.057,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\planning-ticket-permission-restricted-001\\claude-openspec2-2-1-325\\artifacts\\independent-checks.json",
+        "sha256": "cbe41121ea6360f2075d4061dc2a5036ac0c465ba3b486c9e277aa5e14fd7e42",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\planning-ticket-permission-restricted-001\\claude-openspec2-2-1-325\\artifacts\\initial\\run.json",
+        "sha256": "043a1fcdc8f43b99c3f4fe941376b8c773876ba01c6204c3201e548396e87695"
+      }
+    },
+    {
+      "scenario": "planning-ticket-permission-restricted-001",
+      "profile": "opencode-2-2-5",
+      "schema": "cliewen-delivery",
+      "baseline": "0b4316fbb98a7475a1e3003bac3bf8d30fadb9cd",
+      "candidateSHA256": "0d5736e80a0ba055a8adf23638f0f6082d8ad8a3a9d9d248e4a6f1e4e0154459",
+      "outcome": "completed",
+      "cli": "opencode v2.2.5",
+      "requestedModel": "opencode/glm-5.3-flash",
+      "observedModels": [],
+      "durationSeconds": 16.169,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\planning-ticket-permission-restricted-001\\opencode-2-2-5\\artifacts\\independent-checks.json",
+        "sha256": "cbe41121ea6360f2075d4061dc2a5036ac0c465ba3b486c9e277aa5e14fd7e42",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\planning-ticket-permission-restricted-001\\opencode-2-2-5\\artifacts\\initial\\run.json",
+        "sha256": "18b3b18fcc69bda9cd1ef06968b91893c3effc38ab864da8d9a0691715fc484e"
+      }
+    },
+    {
+      "scenario": "planning-ticket-permission-restricted-001-handoff-recheck",
+      "profile": "codex-release-0-170-0",
+      "schema": "cliewen-delivery",
+      "baseline": "f9baa51a0d82e99c0fc53b320b2164e36b951d0e",
+      "candidateSHA256": "0d5736e80a0ba055a8adf23638f0f6082d8ad8a3a9d9d248e4a6f1e4e0154459",
+      "outcome": "completed",
+      "cli": "codex-cli 0.170.0",
+      "requestedModel": "gpt-6.1-sol",
+      "observedModels": [],
+      "durationSeconds": 60.408,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\planning-ticket-permission-restricted-001-handoff-recheck\\codex-release-0-170-0\\artifacts\\independent-checks.json",
+        "sha256": "1d9395253954c64ae13d6565d0fbc9d3411f765a1ae78678504b935ddbe7ff68",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\planning-ticket-permission-restricted-001-handoff-recheck\\codex-release-0-170-0\\artifacts\\initial\\run.json",
+        "sha256": "716e178a7ff9757ad35b5c010266386a551b4d9e48f3d741d3e786996b4f7c80"
+      }
+    },
+    {
+      "scenario": "planning-ticket-permission-restricted-001-handoff-recheck",
+      "profile": "claude-openspec2-2-1-325",
+      "schema": "cliewen-delivery",
+      "baseline": "832c0d3736c5388e0d3d0a33c1b40b1af9477a7e",
+      "candidateSHA256": "0d5736e80a0ba055a8adf23638f0f6082d8ad8a3a9d9d248e4a6f1e4e0154459",
+      "outcome": "completed",
+      "cli": "2.1.325 (Claude Code)",
+      "requestedModel": "claude-opus-5-5",
+      "observedModels": [
+        "claude-opus-5-5"
+      ],
+      "durationSeconds": 30.76,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\planning-ticket-permission-restricted-001-handoff-recheck\\claude-openspec2-2-1-325\\artifacts\\independent-checks.json",
+        "sha256": "0d6cfb179f28056d6ab32893c68057295d0b3d204160c8116e4ca0fb5b1bb2cc",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\planning-ticket-permission-restricted-001-handoff-recheck\\claude-openspec2-2-1-325\\artifacts\\initial\\run.json",
+        "sha256": "4eb187992f7d36290190d7823a7f25c5be6156a811c65994d3a043bacac79596"
+      }
+    },
+    {
+      "scenario": "planning-ticket-permission-restricted-001-handoff-recheck",
+      "profile": "opencode-2-2-5",
+      "schema": "cliewen-delivery",
+      "baseline": "f3a12e4fe831b39aa42885d683aa72a8f4fac002",
+      "candidateSHA256": "0d5736e80a0ba055a8adf23638f0f6082d8ad8a3a9d9d248e4a6f1e4e0154459",
+      "outcome": "completed",
+      "cli": "opencode v2.2.5",
+      "requestedModel": "opencode/glm-5.3-flash",
+      "observedModels": [],
+      "durationSeconds": 34.638,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\planning-ticket-permission-restricted-001-handoff-recheck\\opencode-2-2-5\\artifacts\\independent-checks.json",
+        "sha256": "1780fe24752731c609838c3d92fb0448b1b98ba4ea73cef4766b0f82d37e9446",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\planning-ticket-permission-restricted-001-handoff-recheck\\opencode-2-2-5\\artifacts\\initial\\run.json",
+        "sha256": "7dee1bfb458af0d3153af3e8248f2ae7ea5eed00656c7c204921a3094b5c0e28"
+      }
+    },
+    {
+      "scenario": "prototype-scoping",
+      "profile": "codex-release-0-170-0",
+      "schema": "cliewen-discovery",
+      "baseline": "425d5b5e8533b7126bb77a95695809ea3a0d58d3",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "codex-cli 0.170.0",
+      "requestedModel": "gpt-6.1-sol",
+      "observedModels": [],
+      "durationSeconds": 158.841,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\prototype-scoping\\codex-release-0-170-0\\artifacts\\independent-results.json",
+        "sha256": "147e48fabf6a8148348be652f57446150a98d9336a7967ae8b5f4a288da135b4",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\prototype-scoping\\codex-release-0-170-0\\artifacts\\initial\\run.json",
+        "sha256": "e2649085084cc3ddfb227429bd97f2c8c189a2585a281552bdcabfb6a951f69e"
+      }
+    },
+    {
+      "scenario": "prototype-scoping",
+      "profile": "claude-openspec2-2-1-325",
+      "schema": "cliewen-discovery",
+      "baseline": "425d5b5e8533b7126bb77a95695809ea3a0d58d3",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "2.1.325 (Claude Code)",
+      "requestedModel": "claude-opus-5-5",
+      "observedModels": [
+        "claude-opus-5-5"
+      ],
+      "durationSeconds": 126.537,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\prototype-scoping\\claude-openspec2-2-1-325\\artifacts\\independent-results.json",
+        "sha256": "131af61397c38aac9f19387e3fafe9f782babd9a6a7dad291743da4ed2a5680a",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\prototype-scoping\\claude-openspec2-2-1-325\\artifacts\\initial\\run.json",
+        "sha256": "209ca8a3ac07fd18f673fa02e82439def2a2a79aab929ecc9ec62ae1a0e915af"
+      }
+    },
+    {
+      "scenario": "prototype-scoping",
+      "profile": "opencode-2-2-5",
+      "schema": "cliewen-discovery",
+      "baseline": "425d5b5e8533b7126bb77a95695809ea3a0d58d3",
+      "candidateSHA256": "7e5025af5e5b9e0beb04c79f3dbbeacbe2d79ebc3fc83704d6f2f03dbbe2486f",
+      "outcome": "completed",
+      "cli": "opencode v2.2.5",
+      "requestedModel": "opencode/glm-5.3-flash",
+      "observedModels": [],
+      "durationSeconds": 202.233,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\prototype-scoping\\opencode-2-2-5\\artifacts\\independent-recheck.json",
+        "sha256": "25fdc73a3d66af6ef1f1f29b78e14a4a09fdbc46d24ef9cbe1540e67f180cfa2",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\prototype-scoping\\opencode-2-2-5\\artifacts\\initial\\run.json",
+        "sha256": "7a81ce7e73adc9343a1ec41d16f51d80c2c5848e08a3b366dd815cf665040dea"
+      }
+    },
+    {
+      "scenario": "release-030-final-workflow-rechecks-001",
+      "profile": "claude-openspec2-2-1-325",
+      "schema": "cliewen-delivery",
+      "baseline": "d5a9b77dd403b7fdefde059cff3701c745113e94",
+      "candidateSHA256": "0d5736e80a0ba055a8adf23638f0f6082d8ad8a3a9d9d248e4a6f1e4e0154459",
+      "outcome": "completed",
+      "cli": "2.1.325 (Claude Code)",
+      "requestedModel": "claude-opus-5-5",
+      "observedModels": [
+        "claude-opus-5-5"
+      ],
+      "durationSeconds": 84.921,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\release-030-final-workflow-rechecks-001\\claude-openspec2-2-1-325\\artifacts\\independent-checks.json",
+        "sha256": "06ba8a5f842c5b0ac2dcaafc3c87a65afa3005e370d911229d1c045f879eaa61",
+        "branchObserved": null
+      },
+      "skillObservation": {
+        "passed": true,
+        "mode": "on",
+        "nativeLoads": 1,
+        "skillCalls": 1,
+        "observedStatusMessages": 1
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\release-030-final-workflow-rechecks-001\\claude-openspec2-2-1-325\\artifacts\\initial\\run.json",
+        "sha256": "b0d85a93f333694523cca92e93664189ae867b23c7618e68ab9365f05742d429"
+      }
+    },
+    {
+      "scenario": "release-030-final-workflow-rechecks-001",
+      "profile": "codex-release-0-170-0",
+      "schema": "cliewen-delivery",
+      "baseline": "8b942e16fb1393ce44c31261d77f442dcef50c07",
+      "candidateSHA256": "0d5736e80a0ba055a8adf23638f0f6082d8ad8a3a9d9d248e4a6f1e4e0154459",
+      "outcome": "completed",
+      "cli": "codex-cli 0.170.0",
+      "requestedModel": "gpt-6.1-sol",
+      "observedModels": [],
+      "durationSeconds": 89.093,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\release-030-final-workflow-rechecks-001\\codex-release-0-170-0\\artifacts\\independent-checks.json",
+        "sha256": "5a3e912ed0a2232ff69ccb004cff33cbf3a2b6b064a3dc08c3213299a14e8168",
+        "branchObserved": null
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\release-030-final-workflow-rechecks-001\\codex-release-0-170-0\\artifacts\\initial\\run.json",
+        "sha256": "91283d0365d308575a1e2717feefe967ca5d445753eeaee5795fe034bd0c2f57"
+      }
+    },
+    {
+      "scenario": "release-030-final-workflow-rechecks-001",
+      "profile": "opencode-2-2-5",
+      "schema": "cliewen-delivery",
+      "baseline": "d329aec4ef084dfde77408d6e8fed24190aee895",
+      "candidateSHA256": "0d5736e80a0ba055a8adf23638f0f6082d8ad8a3a9d9d248e4a6f1e4e0154459",
+      "outcome": "completed",
+      "cli": "opencode v2.2.5",
+      "requestedModel": "opencode/glm-5.3-flash",
+      "observedModels": [],
+      "durationSeconds": 44.86,
+      "automatedReview": {
+        "passed": true,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\release-030-final-workflow-rechecks-001\\opencode-2-2-5\\artifacts\\independent-recheck.json",
+        "sha256": "5a3e912ed0a2232ff69ccb004cff33cbf3a2b6b064a3dc08c3213299a14e8168",
+        "branchObserved": null
+      },
+      "earlierAutomatedReview": {
+        "passed": false,
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\release-030-final-workflow-rechecks-001\\opencode-2-2-5\\artifacts\\independent-checks.json",
+        "sha256": "84ce4c408fd580e2296fb38fc8cfcf65d4b568ff86ffec8d909d1663ee310265"
+      },
+      "effectiveness": null,
+      "rawRun": {
+        "file": "C:\\Code\\cliewen-release-030-matrix-001\\workflows\\release-030-final-workflow-rechecks-001\\opencode-2-2-5\\artifacts\\initial\\run.json",
+        "sha256": "5c3f06433068fad1f4ee53419c87f9cc9a90b286712909ab3c01e8e8fecd5a2c"
+      }
+    }
+  ]
+}

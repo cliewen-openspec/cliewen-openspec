@@ -4,6 +4,10 @@ Changes that matter to projects using Cliewen for OpenSpec.
 
 ## Unreleased
 
+## 0.3.0 (2026-11-21)
+
+- Separate OpenSpec archive sessions now receive the same [Humanizer guidance](docs/configuration.md#humanizer-and-writing) as the workflows. Enabled modes report the result once, and `off` keeps the handoff free of skill status.
+
 - Update an existing 0.1.0 or 0.2.0 installation to this version while keeping project configuration, authored files and reserved acceptance IDs. [Preview an update](docs/guide/updating.md#install-preview-and-apply).
 
 - Inspect whether your selected GitHub CI checks are required before integration with `cliewen-openspec ci inspect`. Reports distinguish observed, missing and unknown requirements and show bypass visibility separately. Inspection is advisory, needs an explicitly selected repository and checks, and changes no host settings. See [setup and limits](docs/configuration.md#ci-requirement-inspection-in-development-source).

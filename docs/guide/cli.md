@@ -5,7 +5,7 @@ type: reference
 
 Run commands from the project root. All commands accept `--root PATH` to select another project. For example, `npx --no-install cliewen-openspec check --root ../my-project --json`. The examples below omit `npx --no-install` for readability.
 
-This reference covers the unpublished 0.3.0 candidate. Use the bundled reference for an older package.
+This reference covers Cliewen 0.3.0. Use the bundled reference for an older package.
 
 ## init
 
@@ -31,7 +31,7 @@ Init/update check the running Node and selected OpenSpec CLI before recovery or 
 
 ## ci inspect
 
-Available in development source; published 0.2.0 does not provide this command.
+Available in Cliewen 0.3.0 and later.
 
 ```sh
 cliewen-openspec ci inspect
@@ -48,7 +48,7 @@ Init, update and ordinary `check` do not query GitHub for this feature. JSON con
 
 ## docs check
 
-Available in development source; published 0.2.0 does not provide this command.
+Available in Cliewen 0.3.0 and later.
 
 ```sh
 cliewen-openspec docs check

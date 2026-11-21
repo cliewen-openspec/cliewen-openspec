@@ -4,13 +4,13 @@ Durable decisions, living documentation, and evidence for OpenSpec.
 
 Built on [OpenSpec](https://openspec.dev/), using its custom-schema workflows. See [Fission-AI/OpenSpec on GitHub](https://github.com/Fission-AI/OpenSpec) for the engine's source and community.
 
-**Published version `0.2.0`.** Installs `cliewen-delivery`, `cliewen-discovery`, and `cliewen-all`, allocates acceptance IDs, and checks real delivery test evidence through OpenSpec archiving. Discovery supports investigation and recommendation without required production implementation. This checkout builds the unpublished `0.3.0` candidate.
+Cliewen installs `cliewen-delivery`, `cliewen-discovery`, and `cliewen-all`, allocates acceptance IDs, and checks delivery test evidence through OpenSpec archiving.
 
-Version 0.2.0 adds work scoping, optional prototypes and product context, closure guidance, and guidance for automating checks and recording human observations. See [the 0.2.0 release notes](docs/releases/0.2.0-notes.md) for changes and upgrade requirements.
+See [the changelog](CHANGELOG.md) for changes and upgrade requirements.
 
-Development source also provides [optional context-selection guidance](docs/configuration.md#optional-context-selection-in-development-source), enabled in guided mode by default. It helps agents select relevant existing knowledge with native OpenSpec operations and host tools. Its roots, exclusions and budget are advisory; published 0.2.0 does not include this setting.
+Optional [context-selection guidance](docs/configuration.md#optional-context-selection-in-development-source) helps agents find relevant project knowledge using native OpenSpec operations and host tools. Guided mode is enabled by default. Its roots, exclusions, and budget are advisory.
 
-The package also includes [test quality and lifecycle checks](docs/testing/test-quality.md), optional project learnings, and Humanizer guidance. Follow [Your first change](docs/guide/getting-started.md) to build and install its local tarball. The published `0.1.0-alpha.1` is an earlier snapshot and does not include these additions; its manifest is not supported by 0.2.0.
+The package also includes [test quality and lifecycle checks](docs/testing/test-quality.md), optional project learnings, and Humanizer guidance. Follow [Your first change](docs/guide/getting-started.md) for a worked CSV example.
 
 ## Schema collection
 
@@ -20,22 +20,22 @@ The package also includes [test quality and lifecycle checks](docs/testing/test-
 
 `cliewen-base` names the internal shared foundation used to build these bundles. It is not a separately selectable schema. Discovery remains the workflow for investigation and decision-making.
 
-The shared design covers documentation, Decision Records, Mermaid, optional plans and evidence. Evidence is enabled by default. See the [discovery guide](docs/guide/discovery.md) for investigation, a no-change outcome, and delivery handoff. Development source adds [read-only documentation checks](docs/configuration.md#documentation-checks-in-development-source) for local references, optional frontmatter and Mermaid syntax, with independent advisory defaults; published 0.2.0 provides writing guidance.
+Evidence is enabled by default. [Read-only documentation checks](docs/configuration.md#documentation-checks-in-development-source) cover local references, optional frontmatter, and Mermaid syntax. Each check is advisory by default.
 
 Use [the combined workflow](docs/guide/all.md) to investigate and deliver in one change, with a proposed decision and human approval before implementation. Its no-delivery branch uses native `skip_specs`, without fake product requirements.
 
 ## Install
 
-Development source also adds [CI requirement inspection](docs/configuration.md#ci-requirement-inspection-in-development-source). It reports whether selected GitHub checks are required and what information is unavailable, without changing branch policy. Published 0.2.0 does not include it.
+Use [CI requirement inspection](docs/configuration.md#ci-requirement-inspection-in-development-source) to see whether selected GitHub checks are required and what information is unavailable.
 
-Development source requires Node.js 22.12+, OpenSpec 1.15.0+ and Git for the full workflow. Published 0.2.0 retains Node 20.19+ and does not include the new documentation checker. The npm commands below install OpenSpec 2.0.0, which needs Node 22.12+. See [version compatibility](docs/configuration.md#version-compatibility). Windows/Linux CI targets the exact Node 22.12.0 minimum and Node 24.
+The full workflow requires Node.js 22.12+, OpenSpec 1.15.0+, and Git. See [version compatibility](docs/configuration.md#version-compatibility).
 
-In your project, install the versioned packages and initialize OpenSpec:
+In your project, install the packages and initialize OpenSpec:
 
 ```sh
-npm install --save-dev @fission-ai/openspec@2.0.0
+npm install --save-dev @fission-ai/openspec@2
 npx --no-install openspec init
-npm install --save-dev cliewen-openspec@0.2.0
+npm install --save-dev cliewen-openspec
 npx --no-install cliewen-openspec init --default
 npx --no-install openspec new change add-export --schema cliewen-delivery
 ```
@@ -57,7 +57,7 @@ npx --no-install cliewen-openspec ac next --capability export
 
 `--default` explicitly selects delivery for future changes. Omit it to preserve the existing schema. `init --dry-run` previews writes. Use the generated ID in scenario headings and test titles; commit the ID registry along with specs.
 
-The explicit version selects 0.2.0. Earlier alpha installation manifests are unsupported; use a fresh installation rather than editing a manifest version. For the complete CSV example, follow [your first change](docs/guide/getting-started.md).
+For an earlier alpha installation, start with a fresh installation. Its ownership manifest cannot be upgraded.
 
 For an existing installation, install the desired package version and use `cliewen-openspec update --dry-run --json`, then `cliewen-openspec update --json` after reviewing the plan. Update refreshes owned resources from supported manifests, preserving configuration, selected schemas, IDs, and authored files. See [updating an installation](docs/guide/updating.md).
 
@@ -89,7 +89,7 @@ After reviewing the assertions and evidence, archive with OpenSpec. Commit the a
 - [Website](https://cliewen-openspec.github.io/)
 - [Credits](CREDITS.md)
 
-Implemented commands: `init`, `update`, `uninstall`, `ac next`, `ac rename-prefix`, `check` and `recover`. Development source also adds `ac coordinate`, `ac sync`, `ac resume`, and `ac abandon` for [optional parallel allocation](docs/guide/cli.md#ac-coordinate-sync-resume-and-abandon); published 0.2.0 does not include them. Review generated/resource changes before applying them. [Uninstall](docs/guide/uninstalling.md) preserves project data and requires an explicit replacement when removing the selected default. Tests never establish assertion quality automatically.
+Use the [command reference](docs/guide/cli.md) for installation, verification, and [optional parallel allocation](docs/guide/cli.md#ac-coordinate-sync-resume-and-abandon). [Uninstall](docs/guide/uninstalling.md) preserves project data and requires an explicit replacement when removing the selected default.
 
 ## Development checks
 

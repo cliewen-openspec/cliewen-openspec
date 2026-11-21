@@ -5,7 +5,7 @@ type: guide
 
 Cliewen adds project documentation, Decision Records, stable acceptance criterion IDs, and test evidence to an [OpenSpec](https://openspec.dev/) workflow. OpenSpec is the workflow engine; its source and community are at [Fission-AI/OpenSpec on GitHub](https://github.com/Fission-AI/OpenSpec). Use Cliewen when you want an agent to leave behind an explanation of what changed and a record of which scenarios were tested.
 
-Your coding agent writes the artifacts and implementation. Cliewen supplies instructions, templates, configuration, acceptance ID allocation, and evidence checks. Version `0.2.0` provides the three workflows below.
+Your coding agent writes the artifacts and implementation. Cliewen supplies instructions, templates, configuration, acceptance ID allocation, and evidence checks for these three workflows.
 
 [Start with your first change](getting-started.md). It uses a small CSV exporter and ends with an archived change and fresh evidence.
 
@@ -15,7 +15,7 @@ If something fails or the guide is unclear, [report a bug](https://github.com/cl
 
 ## Inspect CI requirements
 
-Development source can [inspect whether selected GitHub CI checks are required](cli.md#ci-inspect), with separate reports for missing requirements and unavailable information. It is advisory and changes no branch policy. Published 0.2.0 does not include this command.
+Cliewen can [inspect whether selected GitHub CI checks are required](cli.md#ci-inspect). The report distinguishes missing requirements from unavailable information. Inspection is advisory and changes no branch policy.
 
 ## Philosophy
 
@@ -65,9 +65,9 @@ Schema instructions request these behaviors. CLI checks validate specific record
 | Project learnings | Optional indexed lessons with retrieval, verification, and retirement guidance; authored notes are preserved |
 | Humanizer | Agent-mediated discovery and use, one status per session, and nonblocking fallback; no automatic installation |
 
-Install `cliewen-openspec@0.2.0` from npm for normal use. [The worked guide](getting-started.md) builds a development tarball, which requires Node 22.12+ and includes unreleased features. Published 0.2.0 retains Node 20.19+ and OpenSpec 1.15.0+ requirements. The earlier `0.1.0-alpha.1` lacks the quality, learnings and writing facilities, and its manifest is unsupported by 0.2.0. See [version compatibility](../configuration.md#version-compatibility).
+Install `cliewen-openspec` from npm for normal use. [The worked guide](getting-started.md) builds a local tarball for its CSV example. See [version compatibility](../configuration.md#version-compatibility) for supported Node and OpenSpec versions.
 
-Development source also provides [documentation checks](cli.md#docs-check) for local references, optional frontmatter and Mermaid syntax. All three warn by default, can be enforced or disabled independently, and preserve authored files. The parser is included; factual correctness and visual rendering remain separate checks.
+[Documentation checks](cli.md#docs-check) cover local references, optional frontmatter, and Mermaid syntax. Each check warns by default and can be enforced or disabled independently. The parser is included. Check factual claims and rendered diagrams separately.
 
 ## Defaults
 
@@ -79,8 +79,8 @@ The [configuration reference](../configuration.md) lists every accepted setting 
 
 ## What is still planned?
 
-The [0.2.0 release review](../testing/release-candidate-0.2.0.md) records tested compatibility and accepted agent-support limits. Generated specifications and assertions still need substantive review.
+The [0.3.0 release qualification](../releases/0.3.0-agent-qualification.md) records what was tested with Codex CLI, Claude Code, and OpenCode. Review generated specifications and assertions against your project's requirements.
 
-Cliewen supports configurable test types and checks declared scenario types against evidence. Existing-registry adapters and general version/config migrations remain planned. Documentation checks are implemented in development source and are not in published 0.2.0.
+Existing-registry adapters and general version/config migrations remain planned.
 
 Cliewen checks test execution, ID linkage, and revision freshness. Follow [evidence-first verification](../configuration.md#evidence-first-verification) and review assertion quality, failure causes, and evidence sufficiency.

@@ -5,13 +5,13 @@ type: reference
 
 Cliewen reads project settings from `.cliewen-openspec/config.yaml`.
 
-This reference describes the unpublished `0.3.0` candidate. If you use a published package, consult the reference bundled with that version.
+This reference describes Cliewen `0.3.0`. For an older package, consult the reference bundled with that version.
 
 ## Version compatibility
 
-Development source requires **Node.js 22.12 or newer** and **OpenSpec 1.15.0 or newer**. Git remains necessary for identity coordination and revision-bound evidence; the new documentation command needs neither Git nor an OpenSpec subprocess. Published 0.1.0 and 0.2.0 retain Node 20.19+ requirements and do not include documentation checks. Current development pins OpenSpec 2.0.0.
+Cliewen 0.3.0 requires **Node.js 22.12 or newer** and **OpenSpec 1.15.0 or newer**. Git remains necessary for identity coordination and revision-bound evidence. The documentation checker runs independently of Git and OpenSpec. Versions 0.1.0 and 0.2.0 retain their Node 20.19+ requirements. The worked guide uses OpenSpec 2.0.0.
 
-Development-source checks now cover repository-local OpenSpec 2.0.0 workflows. This does not change the published 0.2.0 verification record. External stores and multi-repo evidence remain unsupported. Source init/update reject standalone stores and declared external planning layouts before recovery or writes; local specs and changes take precedence when both exist.
+Cliewen 0.3.0 supports repository-local OpenSpec 2.0.0 workflows. External stores and multi-repo evidence remain unsupported. Init and update reject standalone stores and declared external planning layouts before recovery or writes. Local specs and changes take precedence when both exist.
 
 OpenSpec has its own installation requirements:
 

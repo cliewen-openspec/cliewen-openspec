@@ -5,22 +5,20 @@ type: guide
 
 Installing a Cliewen npm package updates the CLI. Run `update` to refresh the files Cliewen installed in your project, such as schema definitions and templates. It preserves project configuration, the OpenSpec default, authored changes and documents, and the AC registry.
 
-The unpublished 0.3.0 candidate accepts manifests from 0.1.0, 0.2.0, and the candidate itself. Use the preview below to see which resources it will change. Alpha or unknown manifests and downgrades are rejected.
+Version 0.3.0 accepts manifests from 0.1.0, 0.2.0, and 0.3.0. Use the preview below to see which resources it will change. Alpha or unknown manifests and downgrades are rejected.
 
 ## Check the requirements
 
-The 0.3.0 candidate requires Node 22.12+ and OpenSpec 1.15.0+. Init and update check those requirements before changing project files or recovering a transaction. Upgrade Node before installing the candidate. [Version compatibility](../configuration.md#version-compatibility)
+Version 0.3.0 requires Node 22.12+ and OpenSpec 1.15.0+. Init and update check those requirements before changing project files or recovering a transaction. Upgrade Node before installing 0.3.0. [Version compatibility](../configuration.md#version-compatibility)
 
 The check prefers the project's OpenSpec npm installation; otherwise it uses PATH. It runs the selected CLI and reports its source and version. A broken or incompatible local installation blocks the operation even if a newer global version exists. Resolve the reported installation before continuing. Cliewen does not install or upgrade OpenSpec for you.
 
 ## Install, preview, and apply
 
-First [build the local candidate](getting-started.md#1-build-the-candidate-package). In a project with a supported Cliewen installation, install the tarball and preview the resource update. Adjust the path if your project is not beside the source checkout.
-
-If your project already has the candidate CLI, start with the preview.
+In a project with a supported Cliewen installation, install 0.3.0 from npm and preview the resource update. If you already installed this version, start with the preview.
 
 ```sh
-npm install --save-dev ../cliewen-openspec/cliewen-openspec-0.3.0.tgz
+npm install --save-dev cliewen-openspec@0.3.0
 npx --no-install cliewen-openspec update --dry-run --json
 ```
 
@@ -29,8 +27,6 @@ In the preview, check `installedVersion`, `targetVersion`, and `compatibility`. 
 Installing the npm package has already changed dependencies and possibly a lockfile. A failed resource preview or resource rollback does not undo npm installation. Review both the dependency diff and the later generated-resource diff.
 
 OpenSpec separately owns generated agent skills and command integrations. If its version changes, review its native update using the preview supported by that installed version (`openspec update --help` lists the available options). Cliewen update does not run that integration refresh, modify delivery preferences, or rewrite active proposal artifacts.
-
-The tarball selects the 0.3.0 candidate. The current registry release is available with `npm install --save-dev cliewen-openspec@0.2.0`.
 
 Review the preview's `writes` and `deletes` lists. `writes` includes templates/schema files to create or replace and the ownership manifest when it changes. `deletes` contains only retired installer-owned files. A dry run applies no writes, deletions, or interrupted-transaction recovery.
 

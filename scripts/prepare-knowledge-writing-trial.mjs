@@ -57,7 +57,8 @@ for(const mode of ['auto','off','on','custom-root','maintenance','host-policy','
         hostCases.push({id:`${writing}-${inventoryState}`,mode:writing,inventoryState,priorRefusal:false});
         if(inventoryState==='absent')hostCases.push({id:`${writing}-absent-refused`,mode:writing,inventoryState,priorRefusal:true});
       }
-      hostCases.push({id:'off-absent',mode:'off',inventoryState:'absent',priorRefusal:false},{id:'off-usable',mode:'off',inventoryState:'usable',priorRefusal:false},{id:'new-session-absent',mode:'auto',inventoryState:'absent',priorRefusal:false,previousSessionDeclined:true});
+      hostCases.push({id:'off-absent',mode:'off',inventoryState:'absent',priorRefusal:false},{id:'off-usable',mode:'off',inventoryState:'usable',priorRefusal:false});
+      for(const priorRefusal of [false,true]) hostCases.push({id:priorRefusal?'new-session-absent-refused':'new-session-absent',mode:'auto',inventoryState:'absent',priorRefusal,previousSessionInventoryState:'usable'});
       fs.writeFileSync(path.join(project,'docs/testing/host-cases.json'),JSON.stringify(hostCases,null,2)+'\n');
     }
     if(mode==='bootstrap'){

@@ -84,7 +84,7 @@ try {
   const check = JSON.parse(run('enforced permanent check', process.execPath, ['node_modules/cliewen-openspec/dist/cli.js', 'check', '--json'])); assert.equal(check.ok, true);
   const probe = `import assert from 'node:assert/strict'; import {parseCount} from './count.mjs';
     for (const n of [0,1,2,99,100,101,1000000,Number.MAX_SAFE_INTEGER]) assert.equal(parseCount(String(n)),n);
-    for (const bad of ['', '01', '-1', '+1', ' 1', '1 ', '1.5', '1e2', 'garbage', 1, null, undefined]) assert.throws(()=>parseCount(bad),TypeError);
+    for (const bad of ['', '01', '-1', '+1', ' 1', '1 ', '1\\n', '1.0', '1.5', '1e2', 'garbage', 1, null, undefined]) assert.throws(()=>parseCount(bad),TypeError);
     assert.throws(()=>parseCount('9007199254740992'),RangeError);`;
   run('independent accepted behavior', process.execPath, ['--input-type=module', '-e', probe]);
   const source = fs.readFileSync(path.join(root, 'count.mjs'));
@@ -94,6 +94,9 @@ try {
     for (const [name, fault] of [
       ['incorrect numeric result', "if(value === '2') return 3;"],
       ['malformed input accepted', "if(value === 'garbage') return 0;"],
+      ['positive sign accepted', "if (typeof value === 'string' && /^\\+[0-9]+$/.test(value)) return Number(value);"],
+      ['decimal notation accepted', "if (typeof value === 'string' && /^[0-9]+\\.[0-9]+$/.test(value)) return Number(value);"],
+      ['trailing line ending accepted', "if (typeof value === 'string' && /^[0-9]+(?:\\r\\n|\\n|\\r)$/.test(value)) return Number(value);"],
       ['zero rejected', "if(value === '0') throw new RangeError('fault');"],
       ['retired limit restored', "if(value === '100') throw new RangeError('fault');"],
       ['unsafe value accepted', "if(value === '9007199254740992') return Number(value);"],
