@@ -1,0 +1,48 @@
+name: Qualify 0.3.0 candidate
+on:
+  push:
+    branches: ['verify/0.3.0-19a6ac45']
+permissions:
+  contents: read
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        node: ['22.12.0', 24]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 30
+    env:
+      OPENSPEC_TELEMETRY: '0'
+      CI: '1'
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          ref: 29491fbc37b4e82e2006a96073612c8244178bb0
+      - name: Use runner storage for Windows fixtures
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          $fixtureTemp = Join-Path $env:RUNNER_TEMP 'cliewen-fixtures'
+          $fixtureCache = Join-Path $env:RUNNER_TEMP 'npm-cache'
+          New-Item -ItemType Directory -Path $fixtureTemp, $fixtureCache -Force | Out-Null
+          @("TEMP=$fixtureTemp", "TMP=$fixtureTemp", "TMPDIR=$fixtureTemp", "npm_config_cache=$fixtureCache") |
+            Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+      - uses: actions/setup-node@v7.1.0
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+      - name: Report runtime and fixture storage
+        run: node -e "console.log(JSON.stringify({node:process.version,platform:process.platform,parallelism:require('node:os').availableParallelism(),temp:require('node:os').tmpdir(),cache:process.env.npm_config_cache??null}))"
+      - run: npm ci
+      - run: npm test
+      - run: node scripts/check-agent-evaluation.mjs
+
+      - name: Verify packed candidate
+        shell: pwsh
+        run: |
+          $bundle = npm pack --ignore-scripts --json | ConvertFrom-Json
+          $hash = (Get-FileHash -LiteralPath $bundle[0].filename).Hash.ToLowerInvariant()
+          if ($hash -ne '0d5736e80a0ba055a8adf23638f0f6082d8ad8a3a9d9d248e4a6f1e4e0154459') { throw "Unexpected tarball SHA-256: $hash" }
+
