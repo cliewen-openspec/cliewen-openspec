@@ -41,16 +41,23 @@ checks.push({label:'not archived',passed:!fs.existsSync(path.join(root,'openspec
 if(maintenance){
   const note=file=>fs.readFileSync(path.join(root,file),'utf8');
   const front=text=>parse(text.match(/^---\r?\n([\s\S]*?)\r?\n---/)?.[1]??'{}');
+  const bodyOf=text=>text.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n/,'').trim();
+  const isVerified=data=>data.status==='verified'&&/^\d{4}-\d{2}-\d{2}$/.test(String(data.lastVerified));
+  let updatedVerifiedNote=false;
   for(const file of editable.filter(f=>!f.endsWith('/README.md'))){
     const original=run('original '+file,'git',['show',`${b.baseline}:${file}`]).stdout;
-    const body=original.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n/,'').trim();
     const text=fs.existsSync(path.join(root,file))?note(file):'';
-    if(!file.endsWith('formatter-bytes.md'))checks.push({label:'historical body retained: '+file,passed:text.includes(body)});
-    const status=front(text).status;
-    checks.push({label:'reviewed status: '+file,passed:status===(file.endsWith('formatter-bytes.md')?'verified':'retired')});
+    const metadata=front(text);
+    const canonical=file.endsWith('formatter-bytes.md');
+    if(canonical){
+      updatedVerifiedNote=isVerified(metadata)&&String(metadata.lastVerified)>=String(front(original).lastVerified)&&bodyOf(text)!==bodyOf(original);
+    }else{
+      checks.push({label:'historical body retained: '+file,passed:text.includes(bodyOf(original))});
+    }
+    checks.push({label:'reviewed status: '+file,passed:metadata.status===(canonical?'verified':'retired')});
   }
   const newNotes=fs.readdirSync(path.join(root,'docs/learnings')).filter(f=>f.endsWith('.md')&&!b.protectedFiles.includes('docs/learnings/'+f));
-  checks.push({label:'new verified note with verification date',passed:newNotes.some(f=>{const data=front(note('docs/learnings/'+f));return data.status==='verified'&&/^\d{4}-\d{2}-\d{2}$/.test(String(data.lastVerified));})});
+  checks.push({label:'dated verified observation in a new or updated note',passed:updatedVerifiedNote||newNotes.some(f=>isVerified(front(note('docs/learnings/'+f))))});
 }
 if(hostPolicy&&fs.existsSync(path.join(root,'docs/testing/host-policy-review.json'))){
   const cases=JSON.parse(fs.readFileSync(path.join(root,'docs/testing/host-cases.json'),'utf8'));

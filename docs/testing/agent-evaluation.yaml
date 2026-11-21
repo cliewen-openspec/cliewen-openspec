@@ -10,6 +10,23 @@ agentTrialPolicy:
 
 # Observed profiles document past runs. Release profiles must be pinned before use.
 profiles:
+  codex-release-0-170-0:
+    readiness: pinned
+    agent: Codex CLI
+    runner: cli
+    model: gpt-6.1-sol
+    agentVersion: 0.170.0
+    provider: openai; existing ChatGPT CLI authentication
+    effort: medium
+    permissions: danger-full-access, approval never; project scope is instructional
+    context: fresh ephemeral process with user config and rules ignored
+    budgets:
+      wallTimeSeconds: 600
+      outputBytes: 67108864
+      reportedCostUSD: null
+      tokenLimit: null
+      billing: existing ChatGPT entitlement; no purchase
+    traceFormat: Codex exec JSONL plus stderr
   codex-release-0-167-1:
     readiness: pinned
     agent: Codex CLI

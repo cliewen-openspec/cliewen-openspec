@@ -69,18 +69,20 @@ test('lifecycle owns only the learning template and preserves disabled authored 
 
 test('every installed schema carries the same host-state and lesson guidance without adding artifacts',t=>{
   const {root}=fixture(t);
+  const policy=fs.readFileSync(new URL('../schemas/base/instructions/humanizer.md',import.meta.url),'utf8').trim().replaceAll('\r\n','\n');
+  const inlinePolicy=policy.split('\n').map(line=>line.trim()).join(' ');
   for(const name of ['delivery','discovery','all']){
     const schema=parse(fs.readFileSync(path.join(root,`openspec/schemas/cliewen-${name}/schema.yaml`),'utf8'));
     for(const item of [...schema.artifacts,schema.apply]){
       assert.match(item.instruction,/learnings.enabled/);
       assert.match(item.instruction,/features.documentation/);
-      assert.match(item.instruction,/writing.humanizer/);
-      assert.match(item.instruction,/Detection without application must never be reported as use/);
-      assert.match(item.instruction,/one brief status per session/);
+      assert.ok(item.instruction.includes(inlinePolicy));
       assert.match(item.instruction,/current project authorities/);
     }
     assert.ok(!schema.artifacts.some(a=>/learning|humanizer/i.test(a.id)));
   }
+  const closure=fs.readFileSync(path.join(root,'.cliewen-openspec/closure.md'),'utf8');
+  assert.ok(closure.includes(policy),'A separate archive session sees the same writing policy');
 });
 
 test('adding the learning template to an older manifest does not adopt an unowned file',t=>{

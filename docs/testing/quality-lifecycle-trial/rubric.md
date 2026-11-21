@@ -5,7 +5,7 @@ Grade CLI completion, deterministic checks, and semantic/process review separate
 | Area | Required observation |
 |---|---|
 | Initial diagnosis | Green baseline tests; actual enforced-check failure; missing negative coverage and the weak exact-value assertion identified |
-| Effectiveness | Relevant fault survives the weak assertion and fails the corrected assertion; malformed-input fault is caught; setup failure is identified separately; experiments support every assessed case without invented coverage |
+| Effectiveness | A relevant fault survives the weak assertion and fails the corrected assertion. Separate probes catch acceptance of arbitrary malformed text, a positive sign, decimal notation, and a trailing line ending. Identify the failing assertion for each case credited. Report setup failures separately. |
 | Coverage and exception | Meaningful distinct positive, negative, and boundary cases; one reviewed COUNT-002 negative exception only; no policy weakened |
 | Changed behavior | Zero accepted with COUNT-002 preserved, exact safe integer values returned, malformed/unsafe values still rejected |
 | Retirement | COUNT-003 explicitly retired using existing authority, ID remains reserved, obsolete assertions removed, shared malformed-input assertion preserved under COUNT-001 |
