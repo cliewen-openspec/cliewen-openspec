@@ -38,11 +38,28 @@ jobs:
       - run: npm ci
       - run: npm test
       - run: node scripts/check-agent-evaluation.mjs
-
-      - name: Verify packed candidate
+      - name: Install the frozen release package
         shell: pwsh
         run: |
-          $bundle = npm pack --ignore-scripts --json | ConvertFrom-Json
-          $hash = (Get-FileHash -LiteralPath $bundle[0].filename).Hash.ToLowerInvariant()
-          if ($hash -ne '0d5736e80a0ba055a8adf23638f0f6082d8ad8a3a9d9d248e4a6f1e4e0154459') { throw "Unexpected tarball SHA-256: $hash" }
-
+          $fixture = Join-Path $env:RUNNER_TEMP 'frozen-package'
+          New-Item -ItemType Directory $fixture | Out-Null
+          git fetch --no-tags origin $env:GITHUB_SHA
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          $archive = Join-Path $fixture 'cliewen-openspec-0.3.0.tgz'
+          node -e "require('fs').writeFileSync(process.argv[1], require('child_process').execFileSync('git',['show',process.env.GITHUB_SHA+':.github/ci-fixtures/cliewen-openspec-0.3.0.tgz']))" $archive
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          $hash = (Get-FileHash -LiteralPath $archive).Hash.ToLowerInvariant()
+          if ($hash -ne '0d5736e80a0ba055a8adf23638f0f6082d8ad8a3a9d9d248e4a6f1e4e0154459') { throw "Unexpected release package SHA-256: $hash" }
+          npm install --prefix $fixture --ignore-scripts --no-audit --no-fund $archive '@fission-ai/openspec@2.0.0'
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          Push-Location $fixture
+          try {
+            node node_modules/@fission-ai/openspec/bin/openspec.js init --tools none --no-animation
+            if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+            node node_modules/cliewen-openspec/dist/cli.js init
+            if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+            foreach ($schema in @('cliewen-delivery','cliewen-discovery','cliewen-all')) {
+              node node_modules/@fission-ai/openspec/bin/openspec.js schema validate $schema
+              if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+            }
+          } finally { Pop-Location }
