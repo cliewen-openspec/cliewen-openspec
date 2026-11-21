@@ -3,7 +3,7 @@ type: plan
 ---
 # Cliewen for OpenSpec: current work
 
-Version 0.2.0 is published. The five increments below are archived and bundled in the 0.3.0 candidate. The revised candidate passed the final workflow and hosted CI checks and is ready for [release review](docs/releases/0.3.0-agent-qualification.md).
+Version 0.3.0 is published. The five increments below are archived and included in the release. [Release verification](docs/releases/0.3.0-preparation.md)
 
 ## Next actions
 
