@@ -9,6 +9,8 @@ Your coding agent writes the artifacts and implementation. Cliewen supplies inst
 
 [Start with your first change](getting-started.md). It uses a small CSV exporter and ends with an archived change and fresh evidence.
 
+The name comes from Old English *cliewen*, a ball of thread. It gave us the word *clue*. In a Cliewen change, you can follow that thread from the behavior you asked for to the tests that check it.
+
 Use the search button to find commands, configuration fields, and guide sections. The appearance switch selects the site's light or dark colors; the default follows your system preference.
 
 If something fails or the guide is unclear, [report a bug](https://github.com/cliewen-openspec/cliewen-openspec/issues/new?template=bug_report.yml) with the command or page and what you expected. You can also [suggest an improvement](https://github.com/cliewen-openspec/cliewen-openspec/issues/new?template=idea.yml) by describing your use case and desired outcome.

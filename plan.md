@@ -3,75 +3,47 @@ type: plan
 ---
 # Cliewen for OpenSpec: current work
 
-Version 0.3.0 is published. The five increments below are archived and included in the release. [Release verification](docs/releases/0.3.0-preparation.md)
+Completed releases are listed in the [changelog](CHANGELOG.md).
 
 ## Next actions
 
-| Order | Work | Completion criterion | Status |
-|---|---|---|---|
-| 1 | Support OpenSpec 2 | Verify repository-local workflows, skill migration and ownership, document compatibility, and refactor only where the new integration requires it | Implemented; 117 tests and CI pass; [one agent attempt](docs/testing/openspec-2-agent-001.md) timed out after a technically passing archived result; archived November 16, 2026 |
-| 2 | Allocate acceptance IDs safely during parallel work | Keep simple local allocation for serialized work; offer explicit coordination for concurrent branches, clones, or agents; prove uniqueness and safe failure | Archived November 17, 2026; [review and limits](docs/testing/ac-coordination-001.md) retains green Windows/Linux CI and review corrections |
-| 3 | Find relevant project context | Reuse native OpenSpec context, then fill demonstrated gaps in finding current specs, decisions, constraints, and learning; show sources and omitted scope | Archived November 17, 2026; [deterministic checks and green CI](docs/testing/context-selection-001.md); [one partially passing agent attempt](docs/testing/context-selection-agent-001.md) retains budget and factual limits |
-| 4 | Check documentation consistency | Configurable checks catch broken local references, invalid supported metadata, and invalid supported diagram syntax without claiming factual correctness | Archived November 18, 2026; [160-test Windows/Linux CI and review corrections](docs/testing/documentation-checks-001.md) pass on Node 22.12.0 and 24; startup and verification limits retained |
-| 5 | Report whether CI checks are enforced | Optional read-only inspection distinguishes required checks, missing enforcement, and unavailable host information; respect the project's integration policy | Archived November 19, 2026, after green Windows/Linux CI and guide deployment. [Review and verification](docs/testing/ci-enforcement-inspection-001.md). |
+1. **Check active criteria for one capability.** Prepare an OpenSpec proposal for `cliewen-openspec check --capability <name>` in the existing Node CLI. Read active criteria from the permanent OpenSpec spec and identify each criterion whose declared verification is missing. Account for retired criteria, shared tests, human verification, and unavailable evidence. Preserve the existing change-scoped check.
+2. **Use the check in the change workflow.** In the same delivery, guide agents to run it when work affects an existing criterion or its verification. Specify when to check pending changes and when the synchronized spec becomes authoritative. Document local use, configuration, and exit codes so any CI runner can use the same command. Each project chooses enforcement independently of team size.
 
-The [OpenSpec 2 discovery](docs/analysis/openspec-2-discovery.md) records observations and the [archived proposal](openspec/changes/archive/2026-11-16-support-openspec-2/proposal.md) scopes the first delivery. Later increments stay here until actionable; do not create dependent proposals in advance.
+Verify the delivery with an archived CSV requirement to preserve input characters. First confirm the intact capability passes. Remove its only test and check that the command identifies the affected criterion. Restore the test, introduce character loss, and confirm the test fails and the evidence check reports the failure.
 
-## Options and verification
+### Next delivery: solo and team setup profiles
 
-All four product improvements need independent configuration, documented defaults, an off path, and preservation of existing project choices. Avoid one global solo/team switch: a solo developer can run concurrent agents, and a team can serialize allocation. Exact settings are design candidates, not shipped configuration.
+Offer an optional solo or team profile during `init`. Use the answer to suggest settings. Ask about concurrent work when recommending ID coordination, and use the project's own review and integration practices when suggesting team settings. Each feature still reads its own configuration.
 
-| Increment | Options to resolve | Useful verification |
-|---|---|---|
-| OpenSpec 2 | Supported 1.x path versus 2.x adoption; repo-local support versus separately scoped stores; native tool integration choices | Packed schema/instruction/apply/archive checks, upgrade preservation, Windows links or copy fallback, compatibility failures before writes |
-| Acceptance IDs | Local serialized allocation or explicit shared coordination; remote authority and offline behavior | Two independent clones reserve concurrently; interrupted reservation, retry, offline failure, and existing ID continuity |
-| Context | Disabled assistance or bounded retrieval; selected roots, depth/size limits, sensitive exclusions | A fixture with relevant and irrelevant records, superseded decisions, broken references, and an essential constraint |
-| Documentation | All supported categories enabled by default; advisory recommended, with off/enforce options; optional frontmatter, project paths and exclusions | Real broken and valid references, metadata and diagrams; missing frontmatter accepted by default; no mandatory rewriting or renaming |
-| CI enforcement | Off or advisory inspection; selected host, branch and required checks; enforcement only through explicit project policy | Enforced, missing, bypassed and unknown host states; no settings changed by inspection |
+Give existing projects a simple way to change profiles in place. A solo developer inviting a teammate should be able to select team, preview the proposed settings, and choose which to apply. Preserve explicit project choices unless the user selects a replacement.
 
-Use focused deterministic tests during implementation. Run agent trials for major workflow changes and at the release checkpoint. For 0.3.0, apply the release-specific qualification above.
+Include a worked solo-to-team example in the user guide and document both profiles and their defaults in the configuration reference. Verify the documented steps on an existing solo project with custom settings, checking that the preview matches the applied changes and that unselected settings retain their values.
 
-External outreach and another package release require their corresponding owner instructions. Hosting closure does not authorize either.
+## Scope review before implementation and archive
 
-## Deferred outreach
+Apply both reviews to the capability-check delivery. Plan a separate schema change to make them routine for delivery work.
 
-The owner approved [the OpenSpec introduction text](docs/community/openspec-introduction.md) on November 16, 2026, and explicitly deferred submission until they judge the project ready. Keep it unsent, with no automatic issue creation or scheduled contact. Refresh release facts and upstream instructions before any future submission authorized by the owner.
+- Before implementation, review the complete proposal, spec changes, design or combined decision, and tasks against the original request and agreed scope. If the plan changes materially, review the affected parts again.
+- Before archive, compare the actual diff, tests, and affected documentation with the reviewed scope and any accepted amendments. Explain necessary supporting edits.
 
-## Completed work
+At either review, report suspected scope creep as a warning. Identify the specific addition, the agreed boundary it appears to cross, and its practical impact. The scope owner can accept it in this change and update the affected artifacts, ask for its removal from the plan or implementation, or move it into one or more follow-up changes. For a split, take the addition out of the current delivery and record the follow-up work in the project's plan or tickets. Prepare each proposal when its work becomes actionable. Record the disposition once so the archive review recognizes accepted amendments. An agent can continue independent in-scope work while a decision is pending.
 
-| Delivery | Authoritative record |
-|---|---|
-| Scope work and plan progressively | [Work-scoping review](docs/testing/work-scoping-001.md) |
-| Maintain useful knowledge around archive | [Closure review](docs/testing/change-closure-001.md) |
-| Adopt and upgrade existing projects | [Installation review](docs/testing/installation-upgrades-001.md) |
-| Explain product intent and journeys | [Product-context review](docs/testing/product-context-001.md) |
-| Support meaningful human review and verification | [Human-verification review](docs/testing/human-verification-001.md) |
-| Publish 0.2.0 with explicit support limits | [Release record](docs/releases/0.2.0-release.md) and [accepted content/limits](docs/releases/0.2.0-acceptance.md) |
-
-Earlier detail remains in archived changes, release records, and [the previous plan in Git history](https://github.com/cliewen-openspec/cliewen-openspec/blob/6997709e3b92c49f22bb2767254d063d5e2e2052/plan.md). The [0.1.0 release record](docs/releases/0.1.0-release.md) preserves the first roadmap's completion. Historical observations do not establish later agent compliance.
-
-## Optional prototype exploration
-
-Completed and accepted; the [prototype review](docs/testing/prototype-experiments-001.md) retains the experiment scope, observations, and limits. Experiments remain optional and user-selected.
-
-## User documentation and GitHub Pages
-
-The [guide overview](docs/guide/index.md#philosophy) explains the shared philosophy and schema purposes. Organization hosting and preserved old links are complete: see [hosting verification](docs/testing/organization-pages-001.md) and [the archived change](openspec/changes/archive/2026-11-16-move-guide-to-organization-pages/proposal.md).
-
-## Rules for subsequent work
-
-Follow [OpenSpec-native planning and closure](docs/decisions/023-openspec-native-planning-and-closure.md). Select a coherent delivery; keep dependent future work in the chosen planning authority and prepare detailed proposals when actionable. Challenge consequential uncertainty proportionately. Routine authorized work proceeds without extra approval gates.
-
-Maintain affected documentation, decisions, and tests with implementation. Respect independent feature settings, existing paths, and evidence freshness. Use concise natural prose, descriptive links, and diagrams where clearer; apply Humanizer to user guides.
-
-Follow [proportionate agent validation](docs/decisions/022-proportionate-agent-validation.md): targeted trials for major changes and at least one representative independently reviewed success per release cycle. The 0.2.0 checkpoint has an explicitly accepted release-specific disposition. It adds no post-release repetition or future model/schema matrix. Preserve failures and support limits; use deterministic checks for small fixes and maintainer tooling.
-
-Keep release-specific tool minimums explicit and check them at init/update. Development source requires OpenSpec 1.15.0+ and Node 22.12+; published packages retain their original floors. See [version compatibility](docs/configuration.md#version-compatibility). Future requirements or upgrade routes must explain compatibility before writes, without silently upgrading OpenSpec or relabeling unsupported manifests.
-
-The owner accepted [Node 22.12+ and an included Mermaid parser](docs/decisions/032-node-22-minimum-and-bundled-diagram-checks.md) for the documentation-check delivery. Development source now implements that floor in package metadata and preflight; published 0.1.0/0.2.0 retain their original requirements. The [implementation review](docs/testing/documentation-checks-001.md) records exact-minimum tests and limitations.
+Verify both points with a CSV export change. An unrelated scheduling task should be caught before coding. A scheduling feature introduced only in the implementation should be caught before archive, even when all export tests pass.
 
 ## Deferred ideas
 
-The [external verification principles](docs/analysis/verification-principles.md) remain candidates to evaluate and keep only where useful. They add no mandatory TDD order, universal human checkpoint, or separate goal document.
+After trying the capability check on a real change, revisit links from active requirements to product goals or decisions and a reusable pre-merge check. Other candidates include project-content migration, acceptance-registry adapters, a document graph, a next-action command, multi-repo evidence, provider-specific ticket integrations, and the [verification practices under consideration](docs/analysis/verification-principles.md).
 
-General project-content migrations, external acceptance-registry adapters, a global document graph, a dedicated next command, multi-repo evidence, and provider-specific ticket integrations remain unselected. Coordinated allocation and context assistance are implemented within the limits above. Track upstream schema/skill delivery changes without automatically changing users' global delivery preferences.
+## Working agreements
+
+Prepare proposals as each delivery becomes actionable. Update affected documentation, decisions, and tests with the implementation. Use focused tests for small changes and targeted agent trials for major workflow changes, with at least one independently reviewed success per release cycle. [Planning and closure](docs/decisions/023-openspec-native-planning-and-closure.md) · [Agent validation](docs/decisions/022-proportionate-agent-validation.md)
+
+Publish the next release when the owner requests it. The [OpenSpec introduction](docs/community/openspec-introduction.md) is approved for future use. Wait for the owner's go-ahead before contacting OpenSpec, then refresh the release facts and submission instructions.
+
+## Historical references
+
+<a id="optional-prototype-exploration"></a>
+<a id="user-documentation-and-github-pages"></a>
+
+Earlier proposals and decisions link here for the [prototype review](docs/testing/prototype-experiments-001.md) and [guide hosting verification](docs/testing/organization-pages-001.md).
