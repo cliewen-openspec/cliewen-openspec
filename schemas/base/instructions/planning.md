@@ -39,3 +39,26 @@ In Delivery and the delivery branch of Combined, review the complete proposal, s
 ## Handle scope findings
 
 In either delivery review, warn about suspected extra work or omissions. Name the request or scope boundary, the specific finding, and its practical impact. Correct a clear in-scope omission and recheck it. The scope owner can accept an addition, remove it from the current change, or defer it to one or more follow-ups. The owner can also narrow or defer a requested item. Record the disposition once in an existing change artifact. Remove deferred work from the current delivery and use the selected planning authority when enabled. Prepare follow-up proposals as their work becomes actionable. Keep unresolved items open and continue independent in-scope work when authorized. Keep a clean review brief.
+
+## Assess implementation readiness
+
+In Delivery and the delivery branch of Combined, assess readiness after the plan review and before implementation. Read readiness.enabled (default true) and readiness.threshold (default 3). With readiness disabled, skip ratings and continue the ordinary workflow.
+
+Rate outcome clarity and feasibility separately. For clarity, consider the requested behavior and constraints. For feasibility, consider the approach, prerequisites, and how you will verify the result. Rate each dimension using the evidence available:
+
+| Score | Basis |
+| --- | --- |
+| 1 | A consequential unknown blocks the work. |
+| 2 | Competing interpretations or an unverified dependency could materially change the result. |
+| 3 | Work can proceed with stated, low-risk assumptions. |
+| 4 | This dimension is clear enough to explain and verify without a material open question. |
+
+Give a short reason for each rating. Use the lower score. If it meets the threshold, proceed with the authorized work. Difficulty alone does not reduce a rating. Routine ready cases need no separate report or approval.
+
+Below the threshold, check relevant available evidence first and pause the affected work. Ask the smallest question that could change the decision when the user needs to decide. For technical uncertainty, use authorized focused discovery or propose a smaller delivery. Reassess after receiving new information. Stop asking when ready or when further questions would add nothing, and report any remaining blocker.
+
+### Resume a ticket after clarification
+
+For a ticket-driven change with planning enabled, reread the ticket before writing or resuming. With authorized write access, record the blocking question, why the answer matters, and the references needed to resume. Use the project's waiting convention. When retrying, reuse the outstanding question and retry only missing updates. If an update is unauthorized, unavailable, or fails, report the question and the exact pending update in the handoff. For local work or when planning is off, use the conversation or existing handoff.
+
+On pickup, read the recorded answer and references, update the affected plan, and reassess readiness. Resume when the threshold is met and existing authorization permits it. Independent authorized work can proceed while this item waits.

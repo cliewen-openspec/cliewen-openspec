@@ -10,12 +10,13 @@ import {fileURLToPath} from 'node:url';
 const source=fileURLToPath(new URL('../',import.meta.url));
 const publishedPackages={
   '0.1.0':'sha512-yYKexy2evtIm+QILxJYjepGUdgSRGK9vRJ6qZddjXgwuu0VCGj9043vuVHilyTILqTvc4Tan6gT2FicSOpliBw==',
-  '0.2.0':'sha512-Gf74vXeqlycLNeh+zitfYa1YCcbPIew+A1wY8mj8eDohN5ifYwNy2ovUR/58AnKckbNgpRyxrYrIddxp1kS65A=='
+  '0.2.0':'sha512-Gf74vXeqlycLNeh+zitfYa1YCcbPIew+A1wY8mj8eDohN5ifYwNy2ovUR/58AnKckbNgpRyxrYrIddxp1kS65A==',
+  '0.3.0':'sha512-KCRGbnpA6G3xhQbUOglGmnidtzWYaK4a4dxUYZ/SVaP3+B//6oOeSPSsyJxhrAJ1prmZth6PVpdfeaVeTVMFtg=='
 };
 const write=(root,file,text)=>{fs.mkdirSync(path.dirname(path.join(root,file)),{recursive:true});fs.writeFileSync(path.join(root,file),text);};
 const hash=file=>createHash('sha256').update(fs.readFileSync(file)).digest('hex');
 
-const routes=[['0.1.0','1.15.0'],['0.1.0','1.17.0'],['0.2.0','2.0.0']];
+const routes=[['0.1.0','1.15.0'],['0.1.0','1.17.0'],['0.2.0','2.0.0'],['0.3.0','2.0.0']];
 for(const [publishedVersion,openspecVersion] of routes)test(`published ${publishedVersion} resources upgrade with OpenSpec ${openspecVersion}`,{timeout:180000},t=>{
   const root=fs.mkdtempSync(path.join(os.tmpdir(),'cliewen-upgrade-consumer-'));
   t.after(()=>fs.rmSync(root,{recursive:true,force:true}));
@@ -53,7 +54,9 @@ for(const [publishedVersion,openspecVersion] of routes)test(`published ${publish
   const before=Object.fromEntries(authored.map(f=>[f,hash(path.join(project,f))]));
   run([npm,'install','--ignore-scripts','--no-audit','--no-fund',path.join(candidate,newPack.filename)],project);
   const preview=cw('update','--dry-run');assert.equal(preview.installedVersion,publishedVersion);assert.equal(preview.targetVersion,newPack.version);
-  assert.equal(preview.compatibility.openspec.version,openspecVersion);assert.ok(preview.creates.includes('.cliewen-openspec/ci-inspection.md'));
+  assert.equal(preview.compatibility.openspec.version,openspecVersion);
+  if (publishedVersion === '0.3.0') assert.ok(preview.replaces.includes('.cliewen-openspec/planning.md'));
+  else assert.ok(preview.creates.includes('.cliewen-openspec/ci-inspection.md'));
   assert.deepEqual(cw('update'),{...preview,dryRun:false});
   for(const [file,digest]of Object.entries(before))assert.equal(hash(path.join(project,file)),digest,file);
   assert.deepEqual(cw('update','--dry-run').writes,[]);assert.equal(cw('check').ok,true);

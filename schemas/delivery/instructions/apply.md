@@ -1,4 +1,5 @@
 For delivery, complete the review under "Review delivery scope before implementation" in .cliewen-openspec/planning.md before starting implementation tasks. Apply the work-scoping review even when optional planning is disabled.
+Then follow "Assess implementation readiness" in the same reference. Read readiness.enabled and readiness.threshold from the project configuration, defaulting to true and 3. When disabled, skip the score and continue with existing scope and approval rules.
 Implement tasks and maintain relevant documents. ${testingApproach} Follow testing.placement (default per-task): run each implementation task's relevant tests and fix failures before moving on.
 End-of-change defers the automated suite to final verification; still perform a suitable check for each task before proceeding.
 Final regression and revision-bound evidence collection still follow implementation in either mode.

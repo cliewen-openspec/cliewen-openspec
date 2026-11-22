@@ -169,6 +169,14 @@ In the development version, Delivery and Combined delivery guide the agent throu
 
 The agent can fix a clear omission within scope. The scope owner can accept an addition, remove it, or defer it. The agent records the choice in the change, so the archive review uses the agreed scope. A pending decision leaves the affected item open, and independent work can continue. Direct `openspec archive` needs a separate request to perform the agent review. [Archive session guidance](#use-the-reference-from-a-separate-archive-session)
 
+## Assess implementation readiness
+
+After reviewing the plan, the agent briefly rates how clear the requested result is and how feasible it is to deliver and verify. With the default threshold of 3 out of 4, a difficult change can proceed if the behavior and verification are clear. When a score falls below the threshold, the agent checks what it already knows and pauses the affected work if it still needs an answer.
+
+For example, a ticket says to export an empty result but leaves the output format open. The agent can ask whether the CSV should contain column headers. With authorized access, it records that question on the ticket and uses the project's waiting status. When an answer arrives, another agent can read it, update the plan, and reassess. If the agent cannot update the ticket, it leaves the question and pending update in the handoff.
+
+[Readiness settings](../configuration.md#implementation-readiness)
+
 ## Keep durable explanations useful
 
 Code comments should explain intent, constraints, or surprising behavior rather than repeat the code. Commit messages should summarize the concrete change, with rationale or consequences in the body when useful. Adapt examples and diagrams to the format; a short comment or commit message rarely needs a diagram. Preserve code behavior, structured data, required syntax, and exact identifiers when editing.

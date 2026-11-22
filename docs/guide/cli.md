@@ -5,7 +5,7 @@ type: reference
 
 Run commands from the project root. All commands accept `--root PATH` to select another project. For example, `npx --no-install cliewen-openspec check --root ../my-project --json`. The examples below omit `npx --no-install` for readability.
 
-This reference covers Cliewen 0.3.0. Use the bundled reference for an older package.
+This reference covers Cliewen 0.4.0. Use the bundled reference for an older package.
 
 ## init
 
@@ -96,7 +96,7 @@ cliewen-openspec update --dry-run --json
 cliewen-openspec update --json
 ```
 
-Refreshes or repairs owned schema files and templates using the installed package. Output contains `dryRun`, `writes`, and `deletes`. It adds new bundle files, replaces unchanged owned content, and deletes unchanged retired owned files. Edited files conflict unless they already match the new package. The 0.3.0 candidate accepts manifests from 0.1.0, 0.2.0, and 0.3.0. See [the update guide](updating.md).
+Refreshes or repairs owned schema files and templates using the installed package. Output contains `dryRun`, `writes`, and `deletes`. It adds new bundle files, replaces unchanged owned content, and deletes unchanged retired owned files. Edited files conflict unless they already match the new package. See [the update guide](updating.md).
 
 Configuration, default schema, AC registry, authored changes/docs, and evidence are preserved. Apply recovers an interrupted transaction first and uses rollback; dry-run does neither. The command has no `--default` or force option. Usage, config, ownership, or write failures exit 2; success exits 0. See [the update guide](updating.md) for the full workflow and conflict rules.
 
