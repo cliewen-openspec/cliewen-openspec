@@ -4,6 +4,8 @@ Changes that matter to projects using Cliewen for OpenSpec.
 
 ## Unreleased
 
+- Check test evidence for one permanent OpenSpec capability with `cliewen-openspec check --capability NAME`. The check names active criteria that lack results, so a green test run can still reveal a missing test. [Collect capability evidence](docs/testing/evidence.md#collect-evidence-for-one-capability)
+
 ## 0.3.0 (2026-11-21)
 
 - Separate OpenSpec archive sessions now receive the same [Humanizer guidance](docs/configuration.md#humanizer-and-writing) as the workflows. Enabled modes report the result once, and `off` keeps the handoff free of skill status.

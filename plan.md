@@ -7,12 +7,7 @@ Completed releases are listed in the [changelog](CHANGELOG.md).
 
 ## Next actions
 
-1. **Check active criteria for one capability.** Prepare an OpenSpec proposal for `cliewen-openspec check --capability <name>` in the existing Node CLI. Read active criteria from the permanent OpenSpec spec and identify each criterion whose declared verification is missing. Account for retired criteria, shared tests, human verification, and unavailable evidence. Preserve the existing change-scoped check.
-2. **Use the check in the change workflow.** In the same delivery, guide agents to run it when work affects an existing criterion or its verification. Specify when to check pending changes and when the synchronized spec becomes authoritative. Document local use, configuration, and exit codes so any CI runner can use the same command. Each project chooses enforcement independently of team size.
-
-Verify the delivery with an archived CSV requirement to preserve input characters. First confirm the intact capability passes. Remove its only test and check that the command identifies the affected criterion. Restore the test, introduce character loss, and confirm the test fails and the evidence check reports the failure.
-
-### Next delivery: solo and team setup profiles
+### Solo and team setup profiles
 
 Offer an optional solo or team profile during `init`. Use the answer to suggest settings. Ask about concurrent work when recommending ID coordination, and use the project's own review and integration practices when suggesting team settings. Each feature still reads its own configuration.
 
@@ -22,7 +17,7 @@ Include a worked solo-to-team example in the user guide and document both profil
 
 ## Scope review before implementation and archive
 
-Apply both reviews to the capability-check delivery. Plan a separate schema change to make them routine for delivery work.
+Plan a schema change to make both reviews routine for delivery work.
 
 - Before implementation, start from the original request and accepted amendments. For each requested outcome and constraint, find where the proposal, spec changes, design or combined decision, and tasks together cover it and how it will be verified. Flag omissions even when those artifacts agree with each other. If the plan changes materially, review the affected parts again.
 - After implementation and before archive, trace each agreed outcome to the delivered behavior and its verification result. Check affected documentation and the actual diff for additional work. Distinguish missing behavior from behavior that still lacks evidence. Preserve the outcome of the review with the archived change.

@@ -427,7 +427,8 @@ export function markdowns(dir: string): string[] {
   if (!fs.existsSync(dir)) return [];
   return fs.readdirSync(dir, { withFileTypes: true }).flatMap(e => e.isDirectory() ? markdowns(path.join(dir, e.name)) : e.isFile() && e.name.endsWith('.md') ? [path.join(dir, e.name)] : []);
 }
-export function scenarios(root: string, change?: string): { id: string; title: string; file: string; testTypes: string[] }[] {
+export function scenarios(root: string, change?: string, capability?: string): { id: string; title: string; file: string; testTypes: string[] }[] {
+  if (change !== undefined && capability !== undefined) throw Error('Choose either --change or --capability');
   if (change && !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(change)) throw Error('Change must be a kebab-case name');
   let folder = change ? local(root, `openspec/changes/${change}/specs`) : local(root, 'openspec/specs');
   const metadata = change ? local(root, `openspec/changes/${change}/.openspec.yaml`) : undefined;
@@ -437,7 +438,15 @@ export function scenarios(root: string, change?: string): { id: string; title: s
   }
   if (change && !fs.existsSync(folder)) throw Error(`Change specs do not exist: ${change}`);
   const out: { id: string; title: string; file: string; testTypes: string[] }[] = [];
-  for (const file of markdowns(folder)) {
+  let files: string[];
+  if (capability === undefined) files = markdowns(folder);
+  else {
+    if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(capability)) throw Error('Capability must be a kebab-case name');
+    const spec = local(root, `openspec/specs/${capability}/spec.md`);
+    if (!fs.existsSync(spec)) throw Error(`Permanent capability spec does not exist: ${capability}`);
+    files = [spec];
+  }
+  for (const file of files) {
     let fence = false, removed = false;
     let current: (typeof out)[number] | undefined;
     for (const line of read(file).split(/\r?\n/)) {
@@ -454,12 +463,14 @@ export function scenarios(root: string, change?: string): { id: string; title: s
       if (current && type) current.testTypes.push(type[1]);
     }
   }
+  if (capability !== undefined && !out.length) throw Error(`No active scenarios in permanent capability: ${capability}`);
   return out;
 }
 export function git(root: string, args: string[]): string { return execFileSync('git', ['-C', root, ...args], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }).trim(); }
-export function check(root: string, change?: string, failPending = false): Finding[] {
+export function check(root: string, change?: string, failPending = false, capability?: string): Finding[] {
   const findings: Finding[] = []; const add = (code: string, message: string, severity: Finding['severity'] = 'error') => findings.push({ code, severity, message });
   const c = config(root);
+  const selected = capability === undefined ? undefined : scenarios(root, change, capability);
   if (fs.existsSync(local(root, `${state}/transaction.json`))) add('interrupted-transaction', 'Run recover before continuing');
   const mp = local(root, `${state}/manifest.json`);
   if (!fs.existsSync(mp)) add('not-installed', 'Run init');
@@ -504,7 +515,7 @@ export function check(root: string, change?: string, failPending = false): Findi
     if ([c.testing.quality.coverage.mode, c.testing.quality.effectiveness.mode, c.testing.lifecycle.mode].includes('review')) add('quality-evidence-unavailable', 'Test policy review remains advisory: enable evidence for execution-backed assessment.', 'warning');
     return findings;
   }
-  const specs = scenarios(root, change); const ids = new Set<string>();
+  const specs = selected ?? scenarios(root, change); const ids = new Set<string>();
   for (const s of specs) { if (!s.id) add('missing-ac-id', `${s.file}: ${s.title}`); else if (ids.has(s.id)) add('duplicate-ac-id', s.id); else ids.add(s.id); }
   for (const s of specs) {
     if (s.testTypes.length !== 1 || !s.testTypes[0]) add('invalid-scenario-test-type', `${s.file}: ${s.id || s.title} requires exactly one nonempty Test-type line`);
@@ -515,11 +526,13 @@ export function check(root: string, change?: string, failPending = false): Findi
   const report = JSON.parse(read(reportPath));
   if (!report || report.version !== 1 || typeof report.revision !== 'string' || !/^[a-f0-9]{40,64}$/.test(report.revision) || !Array.isArray(report.results)) throw Error('Invalid evidence report: expected version 1, full revision and results');
   if (report.scope !== undefined) {
-    keys(report.scope, ['change'], 'evidence scope');
-    if (typeof report.scope.change !== 'string' || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(report.scope.change)) throw Error('Invalid evidence scope: expected a kebab-case change name');
-    if (report.scope.change !== change) add('evidence-scope-mismatch', `Report is scoped to ${report.scope.change}; check ${change ? `requests ${change}` : 'requests permanent specs'}`);
+    keys(report.scope, ['change', 'capability'], 'evidence scope');
+    const entries = Object.entries(report.scope);
+    if (entries.length !== 1 || typeof entries[0][1] !== 'string' || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(entries[0][1])) throw Error('Invalid evidence scope: expected one kebab-case change or capability name');
+    const [kind, name] = entries[0];
+    if (name !== (kind === 'change' ? change : capability)) add('evidence-scope-mismatch', `Report is scoped to ${kind} ${name}. Collect evidence for the requested scope.`);
     if (report.execution === undefined) throw Error('Scoped evidence requires the complete test runner exit code');
-  }
+  } else if (capability !== undefined) add('evidence-scope-mismatch', `Collect evidence with --capability ${capability}.`);
   if (report.execution !== undefined && (!report.execution || !Number.isInteger(report.execution.exitCode))) throw Error('Invalid evidence execution result');
   if (report.execution?.exitCode !== undefined && report.execution.exitCode !== 0) add('runner-failed', `Test runner exited ${report.execution.exitCode}`);
   try {
@@ -542,7 +555,7 @@ export function check(root: string, change?: string, failPending = false): Findi
     if (r.outcome === 'manual') add('manual-verification', `${key}: ${r.reason ?? 'No review result recorded'}`, 'warning');
   }
   for (const id of ids) if (!seen.has(id)) add('missing-evidence', id);
-  findings.push(...checkQuality(root, c, specs, report, change, local));
+  findings.push(...checkQuality(root, c, specs, report, change, local, capability));
   add('sufficiency-not-assessed', 'Execution and linkage do not prove assertion quality; review the assertions against the scenarios.', 'info');
   return findings;
 }

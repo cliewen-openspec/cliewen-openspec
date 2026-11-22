@@ -29,7 +29,9 @@ Use a small table in the acceptance plan when it helps. Explain why combinations
 
 ## Record what you reviewed
 
-For a change named `add-count`, author `.cliewen-openspec/reviews/change-add-count.yaml`. For permanent specs, use `.cliewen-openspec/reviews/specs.yaml`. These are project documents, preserved by update and uninstall.
+For a change named `add-count`, author `.cliewen-openspec/reviews/change-add-count.yaml`. For all permanent specs, use `.cliewen-openspec/reviews/specs.yaml`. For a capability named `count`, use `.cliewen-openspec/reviews/capability-count.yaml` with `scope: {capability: count}`. Update and uninstall preserve these project documents.
+
+Capability lifecycle review checks criteria from the selected capability at the baseline and at HEAD. Include the permanent spec inputs used to verify references to other capabilities. Use a whole-project check when remapping a test to a criterion in another capability so the review can check its replacement evidence.
 
 The record contains `version: 1`, matching `scope` (`{change: add-count}` or `{specs: true}`), a full Git `baseline` commit, an `inputs` mapping, and `effectiveness`, `lifecycle`, and `exceptions` lists. Unknown fields are rejected. The baseline must be available locally and an ancestor of HEAD.
 

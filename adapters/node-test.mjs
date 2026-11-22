@@ -16,16 +16,21 @@ try {
   if (fs.existsSync(output)) fs.unlinkSync(output);
   const files = [];
   let change;
+  let capability;
   const args = process.argv.slice(2);
   for (let i = 0; i < args.length; i++) {
     if (args[i] === '--change') {
       if (change !== undefined || !args[i + 1] || args[i + 1].startsWith('-')) throw Error('Pass --change NAME once');
       change = args[++i];
+    } else if (args[i] === '--capability') {
+      if (capability !== undefined || !args[i + 1] || args[i + 1].startsWith('-')) throw Error('Pass --capability NAME once');
+      capability = args[++i];
     } else if (args[i].startsWith('-')) throw Error(`Unknown adapter option: ${args[i]}`);
     else files.push(args[i]);
   }
   if (!files.length) throw Error('Pass explicit test file paths');
-  const selected = change === undefined ? undefined : new Set(scenarios(process.cwd(), change).map(s => s.id));
+  const scope = capability !== undefined ? { capability } : change !== undefined ? { change } : undefined;
+  const selected = scope && new Set(scenarios(process.cwd(), change, capability).map(s => s.id));
   let removedRequirements = 0, activeRequirements = 0;
   if (selected?.size === 0) for (const file of markdowns(local(process.cwd(), `openspec/changes/${change}/specs`))) {
     let fence = '', section = '';
@@ -38,7 +43,7 @@ try {
     }
   }
   const retirementOnly = selected?.size === 0 && removedRequirements > 0 && activeRequirements === 0;
-  if (selected && ((!selected.size && !retirementOnly) || selected.has(''))) throw Error('Selected change requires scenarios with AC IDs');
+  if (selected && ((!selected.size && !retirementOnly) || selected.has(''))) throw Error('Selected scope requires scenarios with AC IDs');
   const run = spawnSync(process.execPath, ['--test', '--test-reporter=tap', ...files], { encoding: 'utf8' });
   if (run.error) throw run.error;
   process.stdout.write(run.stdout ?? ''); process.stderr.write(run.stderr ?? '');
@@ -58,8 +63,8 @@ try {
   }
   if (git('rev-parse', 'HEAD') !== revision || git('status', '--porcelain', '--untracked-files=all')) throw Error('Test execution changed repository inputs; evidence cannot be attributed to the original revision.');
   if (run.status === null) throw Error('Test runner did not complete; no report produced');
-  if (!results.length && !retirementOnly) throw Error('No AC-tagged test results found for the selected scope; no report produced');
+  if (!results.length && !retirementOnly && capability === undefined) throw Error('No AC-tagged test results found for the selected scope; no report produced');
   fs.mkdirSync(path.dirname(output), { recursive: true });
-  fs.writeFileSync(output, JSON.stringify({ version: 1, revision, ...(change === undefined ? {} : { scope: { change } }), execution: { exitCode: run.status }, results }, null, 2) + '\n');
+  fs.writeFileSync(output, JSON.stringify({ version: 1, revision, scope, execution: { exitCode: run.status }, results }, null, 2) + '\n');
   process.exitCode = run.status === 0 ? 0 : 1;
 } catch (e) { console.error(e.message); process.exitCode = 2; }

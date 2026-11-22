@@ -51,7 +51,7 @@ type Scenario = {id: string; file: string; testTypes: string[]};
 type Resolve = (root: string, relative: string) => string;
 const git = (root: string, ...args: string[]) => execFileSync('git', ['-C', root, ...args], {stdio: ['ignore', 'pipe', 'pipe'], maxBuffer: 32 * 1024 * 1024});
 
-export function checkQuality(root: string, config: Config, specs: Scenario[], report: any, change: string | undefined, resolve: Resolve): Finding[] {
+export function checkQuality(root: string, config: Config, specs: Scenario[], report: any, change: string | undefined, resolve: Resolve, capability?: string): Finding[] {
   const findings: Finding[] = [];
   const modes: Record<Policy, Mode> = {coverage: config.testing.quality.coverage.mode, effectiveness: config.testing.quality.effectiveness.mode, lifecycle: config.testing.lifecycle.mode};
   const add = (policy: Policy, code: string, message: string) => {
@@ -59,7 +59,8 @@ export function checkQuality(root: string, config: Config, specs: Scenario[], re
   };
   if (Object.values(modes).every(value => value === 'off')) return findings;
   const ids = new Set(specs.map(s => s.id));
-  const recordPath = `.cliewen-openspec/reviews/${change ? `change-${change}` : 'specs'}.yaml`;
+  const recordName = capability !== undefined ? `capability-${capability}` : change ? `change-${change}` : 'specs';
+  const recordPath = `.cliewen-openspec/reviews/${recordName}.yaml`;
   let review: any;
   let usable = false;
   try {
@@ -72,7 +73,9 @@ export function checkQuality(root: string, config: Config, specs: Scenario[], re
       if (committed !== fs.readFileSync(file, 'utf8').replaceAll('\r\n', '\n')) throw Error('test-review-stale: commit the reviewed record before collecting evidence');
       only(review, ['version', 'scope', 'baseline', 'inputs', 'effectiveness', 'lifecycle', 'exceptions'], 'test review');
       if (review.version !== 1 || !object(review.inputs) || !Object.keys(review.inputs).length || ![review.effectiveness, review.lifecycle, review.exceptions].every(Array.isArray)) throw Error('Expected version 1, nonempty inputs, and effectiveness/lifecycle/exceptions lists');
-      if (!object(review.scope) || Object.keys(review.scope).length !== 1 || (change ? review.scope.change !== change : review.scope.specs !== true)) throw Error('test-review-scope-mismatch');
+      const scopeMatches = object(review.scope) && Object.keys(review.scope).length === 1 &&
+        (capability !== undefined ? review.scope.capability === capability : change ? review.scope.change === change : review.scope.specs === true);
+      if (!scopeMatches) throw Error('test-review-scope-mismatch');
       if (typeof review.baseline !== 'string' || !/^[a-f0-9]{40,64}$/.test(review.baseline)) throw Error('baseline must be a full Git commit ID');
       git(root, 'merge-base', '--is-ancestor', review.baseline, 'HEAD');
       const required = ['.cliewen-openspec/config.yaml', ...specs.map(s => s.file.replaceAll('\\', '/'))];
@@ -159,12 +162,12 @@ export function checkQuality(root: string, config: Config, specs: Scenario[], re
   function checkLifecycle() {
     if (modes.lifecycle === 'off') return;
     // Scenario projection and baseline comparison are performed without changing OpenSpec files.
-    try { lifecycleReview(root, review, change, ids, report, add, waived, resolve); }
+    try { lifecycleReview(root, review, change, ids, report, add, waived, resolve, capability); }
     catch (error) { add('lifecycle', 'lifecycle-unresolved', String(error)); }
   }
 }
 
-function lifecycleReview(root: string, review: any, change: string | undefined, ids: Set<string>, report: any, add: (p: Policy, code: string, message: string) => void, waived: (p: Policy, id: string) => boolean, resolve: Resolve) {
+function lifecycleReview(root: string, review: any, change: string | undefined, ids: Set<string>, report: any, add: (p: Policy, code: string, message: string) => void, waived: (p: Policy, id: string) => boolean, resolve: Resolve, capability?: string) {
   type Requirement = {operation: string; context: string; scenarios: Map<string, string>};
   const requirements = (source: string) => {
     const result = new Map<string, Requirement>();
@@ -213,7 +216,8 @@ function lifecycleReview(root: string, review: any, change: string | undefined, 
     }
     return result;
   };
-  const baseline = flatten(tree(review.baseline));
+  const baselineTree = tree(review.baseline);
+  const baseline = flatten(baselineTree);
   const targetTree = tree('HEAD');
   if (change) {
     const folder = `openspec/changes/${change}/specs`;
@@ -238,13 +242,21 @@ function lifecycleReview(root: string, review: any, change: string | undefined, 
     }
   }
   const target = flatten(targetTree);
-  const required = new Set([...baseline.keys()].filter(id => !target.has(id) || baseline.get(id) !== target.get(id)));
+  const selected = new Set(ids);
+  if (capability !== undefined) {
+    for (const requirement of baselineTree.get(`${capability}/spec.md`)?.values() ?? []) {
+      for (const id of requirement.scenarios.keys()) selected.add(id);
+    }
+  }
+  const required = new Set([...baseline.keys()].filter(id =>
+    (capability === undefined || selected.has(id)) && (!target.has(id) || baseline.get(id) !== target.get(id))));
   const dispositions = new Set<string>();
   for (const entry of review.lifecycle) {
     try {
       only(entry, ['scenario', 'change', 'reason', 'status', 'tests', 'retirement'], 'lifecycle');
       if (!text(entry.scenario) || dispositions.has(entry.scenario) || !['unchanged', 'modified', 'retired'].includes(entry.change) || !text(entry.reason) || !['proposed', 'reviewed'].includes(entry.status) || !Array.isArray(entry.tests)) throw Error('Invalid or duplicate lifecycle disposition');
       dispositions.add(entry.scenario);
+      if (capability !== undefined && !selected.has(entry.scenario)) throw Error('Lifecycle disposition is outside the selected capability');
       if (!baseline.has(entry.scenario)) throw Error('Lifecycle scenario must exist at baseline');
       const isRetired = !target.has(entry.scenario);
       if (isRetired !== (entry.change === 'retired') || (!isRetired && (baseline.get(entry.scenario) !== target.get(entry.scenario)) !== (entry.change === 'modified'))) throw Error('Disposition differs from observed scenario change');
@@ -265,6 +277,7 @@ function lifecycleReview(root: string, review: any, change: string | undefined, 
         const replacements = test.action === 'remap' ? test.replacementScenarios : test.remainingScenarios;
         if (test.action === 'remap' && (!Array.isArray(replacements) || !replacements.length)) throw Error('Remapping needs replacement scenarios');
         if (test.action !== 'remap' && test.replacementScenarios !== undefined) throw Error('Replacement scenarios require remap');
+        if (capability !== undefined && test.action === 'remap' && replacements.some((id: string) => !ids.has(id))) throw Error('Use a whole-project check for cross-capability remapping');
         for (const id of replacements ?? []) if (!target.has(id) || ((test.action === 'remap' || ids.has(id)) && !report.results.some((row: any) => row.scenario === id && row.outcome === 'passed'))) throw Error('Remapped or in-scope obligations require target scenarios and passing evidence');
       }
       if (entry.status !== 'reviewed') add('lifecycle', 'lifecycle-unresolved', `${entry.scenario}: review its disposition.`);

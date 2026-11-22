@@ -144,11 +144,12 @@ To return to local allocation, finish or abandon pending requests, run `ac sync`
 
 ```sh
 cliewen-openspec check --change add-csv-export --json
+cliewen-openspec check --capability export --json
 cliewen-openspec check --json
 cliewen-openspec check --change add-csv-export --fail-on-pending
 ```
 
-With `--change`, checks that change's active delta scenarios; removed scenarios are excluded. Without it, checks permanent specs. The report must be scoped to the selected scenarios; unrelated IDs are unknown references. `--json` returns `ok` and findings. Without it, the command prints readable severity/code/message lines.
+Use `--change` to check a pending delta, or `--capability` to check one permanent spec. With neither option, the check covers all permanent specs. Collect a matching report first. `--json` returns `ok` and findings. [Collect evidence for one capability](../testing/evidence.md#collect-evidence-for-one-capability)
 
 Installation and registry checks remain active when evidence is explicitly disabled. Evidence errors include missing reports, failed/skipped tests, missing/unknown/duplicate references, stale revisions, and dirty working trees. Pending with a reason is a warning unless `--fail-on-pending` is set. Manual verification is a warning. See [the report contract](../testing/evidence.md).
 

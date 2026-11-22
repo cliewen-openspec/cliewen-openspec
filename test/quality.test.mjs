@@ -31,9 +31,9 @@ function fixture(t, policies = {}, existing = '') {
   const positive = {scenario: 'COUNT-001', test: 'parses one', testType: 'Unit', outcome: 'passed', caseId: 'one', coverage: 'positive'};
   const negative = {...positive, test: 'rejects invalid', caseId: 'invalid', coverage: 'negative'};
   const record = {version: 1, scope: {specs: true}, baseline, inputs: {}, effectiveness: [], lifecycle: [], exceptions: []};
-  const saveReview = (scope = '.cliewen-openspec/reviews/specs.yaml') => {
+  const saveReview = (scope = '.cliewen-openspec/reviews/specs.yaml', extraInputs = []) => {
     git('add', '.');
-    record.inputs = Object.fromEntries(['.cliewen-openspec/config.yaml', 'openspec/specs/count/spec.md', 'count.cjs', 'count.test.cjs', ...(fs.existsSync(path.join(root, 'retirement.md')) ? ['retirement.md'] : []), ...(fs.existsSync(path.join(root, 'openspec/changes/retire/specs/count/spec.md')) ? ['openspec/changes/retire/specs/count/spec.md'] : [])].map(file => [file, createHash('sha256').update(git('show', `:${file}`)).digest('hex')]));
+    record.inputs = Object.fromEntries(['.cliewen-openspec/config.yaml', 'openspec/specs/count/spec.md', 'count.cjs', 'count.test.cjs', ...(fs.existsSync(path.join(root, 'retirement.md')) ? ['retirement.md'] : []), ...(fs.existsSync(path.join(root, 'openspec/changes/retire/specs/count/spec.md')) ? ['openspec/changes/retire/specs/count/spec.md'] : []), ...extraInputs].map(file => [file, createHash('sha256').update(git('show', `:${file}`)).digest('hex')]));
     write(scope, stringify(record)); commit();
   };
   const collect = (rows = [positive, negative], extra = {}) => {
@@ -43,6 +43,79 @@ function fixture(t, policies = {}, existing = '') {
   const errors = (change) => findings(change).filter(f => f.severity === 'error');
   return {root, write, git, commit, settings, positive, negative, record, saveReview, collect, findings, errors};
 }
+
+test('capability check detects lost CSV evidence and an actual character-loss regression', t => {
+  const f = fixture(t);
+  const cli = fileURLToPath(new URL('../dist/cli.js', import.meta.url));
+  const adapter = fileURLToPath(new URL('../adapters/node-test.mjs', import.meta.url));
+  const run = (command, args, expected) => {
+    const env = {...process.env}; delete env.NODE_TEST_CONTEXT;
+    const result = spawnSync(process.execPath, [command, ...args], {cwd: f.root, encoding: 'utf8', env, timeout: 30000});
+    assert.equal(result.status, expected, result.stderr || result.stdout);
+    return result.stdout;
+  };
+  const collect = expected => run(adapter, ['--capability', 'export', 'csv.test.cjs', 'count.test.cjs'], expected);
+  const verify = expected => JSON.parse(run(cli, ['check', '--capability', 'export', '--json'], expected)).findings;
+  const exportTest = "test('keeps characters [CSV-001] [Test-type: Unit]', () => assert.equal(csv('aé'), 'aé'));\n";
+  const harness = "const {test} = require('node:test'); const assert = require('node:assert/strict'); const csv = require('./csv.cjs');\n";
+  f.write('openspec/specs/export/spec.md', requirement('CSV-001'));
+  f.write('openspec/changes/archive/2026-11-22-add-export/specs/export/spec.md', requirement('CSV-001'));
+  f.write('openspec/specs/empty/spec.md', '# Empty capability\n');
+  f.write('csv.cjs', 'module.exports = value => value;\n');
+  f.write('csv.test.cjs', harness + exportTest + "test('smoke', () => {});\n");
+  f.commit();
+  collect(0);
+  assert.equal(verify(0).some(finding => finding.severity === 'error'), false);
+  assert.ok(check(f.root).some(finding => finding.code === 'evidence-scope-mismatch'));
+  assert.ok(check(f.root, undefined, false, 'count').some(finding => finding.code === 'evidence-scope-mismatch'));
+  assert.ok(JSON.parse(run(cli, ['check', '--capability', 'empty', '--json'], 2)).error.includes('No active scenarios'));
+  assert.ok(JSON.parse(run(cli, ['check', '--capability', 'missing', '--json'], 2)).error.includes('does not exist'));
+  run(cli, ['check', '--capability', 'export', '--change', 'example'], 2);
+  f.write('csv.test.cjs', harness + "test('smoke', () => {});\n");
+  assert.ok(verify(1).some(finding => finding.code === 'unverifiable-evidence'));
+  f.commit();
+  assert.ok(verify(1).some(finding => finding.code === 'stale-evidence'));
+  collect(0);
+  assert.ok(verify(1).some(finding => finding.code === 'missing-evidence' && finding.message === 'CSV-001'));
+  f.write('csv.test.cjs', harness + exportTest);
+  f.write('csv.cjs', 'module.exports = value => value.slice(0, -1);\n');
+  f.commit();
+  collect(1);
+  assert.ok(verify(1).some(finding => finding.code === 'test-failed'));
+  f.write('csv.cjs', 'module.exports = value => value;\n');
+  f.write('count.cjs', 'module.exports = () => 0;\n');
+  f.commit();
+  collect(1);
+  assert.ok(verify(1).some(finding => finding.code === 'runner-failed'));
+  const row = {scenario: 'CSV-001', test: 'inspect export', testType: 'Unit'};
+  f.collect([{...row, outcome: 'manual'}], {scope: {capability: 'export'}});
+  assert.ok(verify(0).some(finding => finding.code === 'manual-verification'));
+  f.collect([{...row, outcome: 'pending', reason: 'Waiting for fixture'}], {scope: {capability: 'export'}});
+  assert.ok(verify(0).some(finding => finding.code === 'pending'));
+  run(cli, ['check', '--capability', 'export', '--fail-on-pending'], 1);
+});
+
+test('capability lifecycle review checks retirements and protects cross-capability assertions', t => {
+  const f = fixture(t, {lifecycle: 'enforce'}, requirement('COUNT-001') + requirement('COUNT-002'));
+  const otherSpec = 'openspec/specs/export/spec.md';
+  f.write(otherSpec, requirement('CSV-001') + requirement('CSV-002'));
+  f.record.baseline = f.commit();
+  f.write('openspec/specs/count/spec.md', requirement('COUNT-001'));
+  f.write(otherSpec, requirement('CSV-001'));
+  f.write('retirement.md', 'The owner accepted retirement of COUNT-002.\n');
+  f.record.scope = {capability: 'count'};
+  const verify = () => {
+    f.saveReview('.cliewen-openspec/reviews/capability-count.yaml', [otherSpec]);
+    f.collect([f.positive], {scope: {capability: 'count'}});
+    return check(f.root, undefined, false, 'count').filter(finding => finding.severity === 'error');
+  };
+  assert.ok(verify().some(finding => finding.code === 'retirement-unaccepted' && finding.message.includes('COUNT-002')));
+  const shared = {file: 'count.test.cjs', test: 'shared parser checks', action: 'retain', remainingScenarios: ['CSV-001']};
+  f.record.lifecycle = [{scenario: 'COUNT-002', change: 'retired', reason: 'Removed count limit.', status: 'reviewed', retirement: {status: 'accepted', source: 'retirement.md'}, tests: [shared]}];
+  assert.deepEqual(verify(), []);
+  shared.action = 'remove';
+  assert.ok(verify().some(finding => finding.code === 'active-test-removal'));
+});
 
 test('quality configuration merges defaults, validates nested values, and requires evidence for enforcement', t => {
   const f = fixture(t);

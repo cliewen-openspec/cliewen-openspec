@@ -70,7 +70,7 @@ For `cliewen-all`, check first validates decision frontmatter and the outcome br
 | `test-failed`, `test-skipped`, or `runner-failed` | Inspect real test output, fix failures, and collect a new report; do not edit a report to claim a pass |
 | `missing-ac-id` or `missing-evidence` | Check scenario headings and bracketed IDs in test titles; supply a test result for each selected scenario |
 | `unknown-ac-reference` | Use the matching `--change` scope or collect a report containing only the scenarios being checked |
-| `evidence-scope-mismatch` | Collect for the requested change and pass the same name to `check`; after archive, recollect without the adapter's `--change` for permanent specs |
+| `evidence-scope-mismatch` | Use the same scope for collection and checking. After synchronization, collect fresh evidence for the permanent spec scope you want to check. |
 | `duplicate-ac-id` or `duplicate-test-result` | Inspect duplicate scenario identities or repeated test result entries before recollecting |
 | `pending-without-reason` | Record why execution is pending; use `--fail-on-pending` when pending work must block |
 | `owned-file-modified` | Review edits to installer-owned files; update replaces unmodified owned content and rejects conflicting local edits. See the update guide |
@@ -82,6 +82,19 @@ For `cliewen-all`, check first validates decision frontmatter and the outcome br
 A `manual` result is reported as a warning and does not become automated proof. The current format records free-text context, not a reviewed-sufficiency verdict. A pending result with a reason also remains a warning unless explicitly made blocking.
 
 Each selected scenario requires exactly one nonempty `Test-type` line. Each result requires `testType`, including pending and manual results. Types must belong to `testing.types` and match the scenario exactly. Findings are `invalid-scenario-test-type`, `missing-test-type`, `unknown-test-type`, and `test-type-mismatch`. Fix the scenario or test metadata, commit, and recollect evidence. Reports without types must be regenerated. The report envelope remains version 1 with stricter result checks.
+
+## Collect evidence for one capability
+
+The development version can check one capability once its permanent spec includes the requirements you want to verify. For example, run these commands on a clean Git revision containing `openspec/specs/export/spec.md`:
+
+```text
+node node_modules/cliewen-openspec/adapters/node-test.mjs --capability export test/export.test.mjs
+cliewen-openspec check --capability export --json
+```
+
+The adapter records `scope: {"capability":"export"}`, the tested revision, and the full runner exit code. A failure anywhere in the supplied test files blocks the check. If the run produces no tagged results for export, the report lets the checker name the criteria that lack evidence.
+
+Use the same capability name for both commands. The most recent collection replaces the configured report. After synchronization or archive changes the tested revision, commit the intended edits and collect again. CI can use the check's exit code directly. [Exit codes](../guide/cli.md#check)
 
 The adapter records explicit metadata; it cannot establish whether a test actually exercises the claimed boundary. Review that boundary and task descriptions alongside assertions. See [test-type configuration](../configuration.md#test-types).
 

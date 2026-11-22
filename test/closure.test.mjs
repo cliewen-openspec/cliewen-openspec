@@ -69,7 +69,7 @@ test('all apply branches expose closure without adding an artifact or policy set
   for (const d of ['openspec/specs', 'openspec/changes']) fs.mkdirSync(path.join(root, d), {recursive: true});
   init(root, false, false);
   const text = read(root, reference);
-  for (const phrase of ['For other schemas, continue their native workflow', 'features.documentation', 'features.decisions', 'learnings.enabled', 'With planning disabled, skip ticket access', 'Off skips its matching policy', 'shared active assertions', 'explicit accepted retirement', 'no synthetic product execution evidence', 'before retrying', 'without the Node adapter\'s --change flag', 'concrete pending update']) assert.ok(text.includes(phrase), phrase);
+  for (const phrase of ['For other schemas, continue their native workflow', 'features.documentation', 'features.decisions', 'learnings.enabled', 'With planning disabled, skip ticket access', 'Off skips its matching policy', 'shared active assertions', 'explicit accepted retirement', 'no synthetic product execution evidence', 'before retrying', '--capability NAME on both the Node adapter and check', 'whole-project scope', 'concrete pending update']) assert.ok(text.includes(phrase), phrase);
   for (const name of ['delivery', 'discovery', 'all']) {
     const schema = parse(read(root, `openspec/schemas/cliewen-${name}/schema.yaml`));
     assert.ok(schema.apply.instruction.includes(reference));

@@ -2,7 +2,9 @@
 
 ## Why
 
-After a change is archived, a later edit can remove the only test for a requirement. The existing evidence check can cover all permanent specs. A developer working on CSV export needs to check just the active export scenarios and see which criterion lost its evidence.
+Suppose the CSV export spec says that exporting zero rows must still produce a header. Later, someone removes the only test for that case. The remaining tests can all pass, leaving the header requirement untested.
+
+Today, you can check for missing evidence across all permanent specs. This change lets you check CSV export on its own and see which export requirement is missing a test result.
 
 ## What Changes
 
