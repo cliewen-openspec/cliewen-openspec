@@ -393,12 +393,70 @@ function requireLocalPlanning(root: string): void {
   });
   if (standalone || (pointer && !localDirs)) throw Error('External OpenSpec stores are not supported by Cliewen init/update. Use a repository-local OpenSpec project with its own specs and changes; cross-repository acceptance identities and evidence require separate support. No files changed.');
 }
-export function lifecycle(root: string, operation: 'init' | 'update', dryRun = false, makeDefault = false): LifecycleResult {
+export type SetupProfile = 'solo' | 'team';
+export function setupProfile(value: string): SetupProfile {
+  if (value !== 'solo' && value !== 'team') throw Error('Choose a solo or team profile');
+  return value;
+}
+
+const profileFile = `${state}/setup-profile.json`;
+const settingsFile = `${state}/config.yaml`;
+export function profileSnapshot(root: string, existingOnly = false) {
+  if (existingOnly) {
+    if (fs.existsSync(local(root, `${state}/transaction.json`))) throw Error('Run recover before previewing a profile.');
+    ownedManifest(root, 'update');
+    if (!fs.existsSync(local(root, settingsFile))) throw Error('Project settings are missing. Run init before switching profiles.');
+  }
+  const optional = (file: string) => {
+    const target = local(root, file);
+    return fs.existsSync(target) ? read(target) : undefined;
+  };
+  const settings = optional(settingsFile);
+  const stored = optional(profileFile);
+  const coordination = optional(`${state}/ac-coordination.json`);
+  const record = stored === undefined ? null : JSON.parse(stored);
+  if (stored !== undefined && (record?.version !== 1 || !['solo', 'team'].includes(record.profile))) throw Error(`Invalid setup profile in ${profileFile}`);
+  return {
+    settings, stored, current: record?.profile as SetupProfile | undefined,
+    review: settings === undefined ? defaults().features.review : config(root).features.review,
+    coordinated: coordination !== undefined && JSON.parse(coordination)?.mode === 'git'
+  };
+}
+
+type ProfileSelection = {profile: SetupProfile; enableReview: boolean; basis: ReturnType<typeof profileSnapshot>};
+function profileWrites(root: string, selection: ProfileSelection): Record<string, string> {
+  const {profile, enableReview, basis} = selection;
+  if (!isDeepStrictEqual(profileSnapshot(root), basis)) throw Error('Project settings changed after preview. Preview the profile again.');
+  const writes: Record<string, string> = {};
+  if (basis.current !== profile) writes[profileFile] = JSON.stringify({version: 1, profile}, null, 2) + '\n';
+  if (enableReview && !basis.review) {
+    const doc = parseDocument(basis.settings ?? '{}');
+    const expected = doc.toJS();
+    expected.features.review = true;
+    doc.setIn(['features', 'review'], true);
+    if (!isDeepStrictEqual(doc.toJS(), expected)) throw Error('Enabling review would also change other YAML values. Resolve shared aliases first.');
+    writes[settingsFile] = doc.toString();
+  }
+  return writes;
+}
+
+export function applyProfile(root: string, selection: ProfileSelection): string[] {
+  return withStateLock(root, () => {
+    if (fs.existsSync(local(root, `${state}/transaction.json`))) throw Error('Run recover before applying a profile.');
+    ownedManifest(root, 'update');
+    const writes = profileWrites(root, selection);
+    transaction(root, writes);
+    return Object.keys(writes);
+  });
+}
+
+export function lifecycle(root: string, operation: 'init' | 'update', dryRun = false, makeDefault = false, profile?: ProfileSelection): LifecycleResult {
   const tools = compatibility(root);
   requireLocalPlanning(root);
-  return dryRun ? applyLifecycle(root, operation, dryRun, makeDefault, tools) : withStateLock(root, () => applyLifecycle(root, operation, dryRun, makeDefault, tools));
+  const run = () => applyLifecycle(root, operation, dryRun, makeDefault, tools, profile);
+  return dryRun ? run() : withStateLock(root, run);
 }
-function applyLifecycle(root: string, operation: 'init' | 'update', dryRun: boolean, makeDefault: boolean, tools: Compatibility): LifecycleResult {
+function applyLifecycle(root: string, operation: 'init' | 'update', dryRun: boolean, makeDefault: boolean, tools: Compatibility, profile?: ProfileSelection): LifecycleResult {
   const pending = fs.existsSync(local(root, `${state}/transaction.json`));
   if (pending && dryRun) throw Error('Interrupted transaction exists; run recover before preview. No preview files changed.');
   if (pending) recover(root);
@@ -406,6 +464,7 @@ function applyLifecycle(root: string, operation: 'init' | 'update', dryRun: bool
     const mp = local(root, `${state}/manifest.json`);
     const installedVersion = fs.existsSync(mp) ? ownedManifest(root, 'update').version : null;
     const changes = operation === 'init' ? planInit(root, makeDefault) : planUpdate(root);
+    if (profile) Object.assign(changes, profileWrites(root, profile));
     const writes = Object.keys(changes).filter(file => changes[file] !== null);
     const result: LifecycleResult = {writes, deletes: Object.keys(changes).filter(file => changes[file] === null), creates: writes.filter(file => !fs.existsSync(local(root, file))), replaces: writes.filter(file => fs.existsSync(local(root, file))), installedVersion, targetVersion: version, compatibility: tools, recoveredTransaction: pending};
     transaction(root, changes, dryRun);

@@ -141,6 +141,14 @@ Valid advisory reports exit 0 even for missing or unknown requirements; invalid 
 
 Requests have a 10-second deadline and a 1 MiB response limit, with 60 seconds for the inspection, at most 10 pages of 100 effective rules and 32 ruleset-detail requests. Truncated, refused, malformed or contradictory results leave affected coverage unknown. Required-workflow rules, other hosts and actor-specific permissions are outside supported coverage. No project file, host setting or persistent report is written. See [the command reference](guide/cli.md#ci-inspect).
 
+## Setup profiles
+
+The development CLI offers optional solo and team profiles. A new project starts with local acceptance ID allocation, per-task test guidance, evidence enabled, advisory test quality and lifecycle findings, and CI configured separately. Choosing later uses these defaults for a new project and keeps current settings in an existing one.
+
+The solo profile asks whether multiple clones or worktrees allocate IDs at the same time. The team profile uses the same concurrency question and can suggest enabling review guidance when the team reviews changes together. Both start with the same effective settings. Settings only change when you select a recommendation.
+
+The selected profile is stored in the project-owned `.cliewen-openspec/setup-profile.json`. Init, update, and uninstall preserve it when you make no new profile selection. [Switch an existing project from solo to team](guide/cli.md#choose-or-change-a-setup-profile)
+
 ## Full defaults
 
 This is the complete configuration written by `init`. Omitted fields use these values; unknown settings and invalid values fail validation. Changes apply when the next operation reads the config. They do not rewrite existing proposals or task lists.

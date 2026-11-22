@@ -4,6 +4,8 @@ Changes that matter to projects using Cliewen for OpenSpec.
 
 ## Unreleased
 
+- Choose a solo or team setup profile during initialization and revisit it as your project grows. Preview the switch and select which recommendations to apply. [Set up a profile or switch to team](docs/guide/cli.md#choose-or-change-a-setup-profile)
+
 - Check test evidence for one permanent OpenSpec capability with `cliewen-openspec check --capability NAME`. The check names active criteria that lack results, so a green test run can still reveal a missing test. [Collect capability evidence](docs/testing/evidence.md#collect-evidence-for-one-capability)
 
 ## 0.3.0 (2026-11-21)

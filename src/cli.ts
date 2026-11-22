@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 import {coordinate, syncIds, resumeIds, abandonRequest} from './ac-coordination.js';
 import path from 'node:path';
-import { check, lifecycle, uninstall, nextId, renamePrefix, capabilityForPrefix, recover, version } from './core.js';
+import { applyProfile, check, lifecycle, uninstall, nextId, renamePrefix, capabilityForPrefix, recover, version } from './core.js';
+import {selectSetupProfile} from './setup-profile.js';
 
 const args = process.argv.slice(2);
 const wantsJson = args.includes('--json');
@@ -14,15 +15,23 @@ try {
   const capability = option('--capability');
   const replacement = option('--default-schema');
   const apply = flag('--apply');
+  const profile = option('--profile');
+  const concurrent = flag('--concurrent');
+  const sharedReview = flag('--shared-review');
+  const enableReview = flag('--enable-review');
   const command = args.shift();
-  if (apply && (command !== 'ac' || args[0] !== 'coordinate')) throw Error('--apply is supported only by ac coordinate');
+  if (apply && command !== 'profile' && (command !== 'ac' || args[0] !== 'coordinate')) throw Error('--apply is supported only by profile and ac coordinate');
+  if (profile !== undefined && command !== 'init') throw Error('--profile is supported only by init');
+  if ((concurrent || sharedReview || enableReview) && command !== 'init' && command !== 'profile') throw Error('Setup options are supported only by init and profile');
+  if ((concurrent || sharedReview || enableReview) && command === 'init' && profile === undefined) throw Error('Use setup options with --profile solo or --profile team');
+  if (enableReview && (!sharedReview || (command === 'profile' && !apply))) throw Error('--enable-review requires --shared-review and an applying command');
   if (dry && !['init', 'update', 'uninstall'].includes(command ?? '')) throw Error('--dry-run is supported only by init, update, and uninstall');
   if (replacement !== undefined && command !== 'uninstall') throw Error('--default-schema is supported only by uninstall');
   if (makeDefault && command !== 'init') throw Error('--default is supported only by init');
   if (change && command !== 'check') throw Error('--change is supported only by check');
   if (failPending && command !== 'check') throw Error('--fail-on-pending is supported only by check');
   if (change && !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(change)) throw Error('Change must be a kebab-case name');
-  if (json && !['init', 'update', 'uninstall', 'check', 'docs', 'ci'].includes(command ?? '')) throw Error('--json is supported only by init, update, uninstall, check, docs check, and ci inspect');
+  if (json && !['init', 'profile', 'update', 'uninstall', 'check', 'docs', 'ci'].includes(command ?? '')) throw Error('--json is supported only by init, profile, update, uninstall, check, docs check, and ci inspect');
   if (capability && command !== 'check' && (command !== 'ac' || args[0] !== 'next')) throw Error('--capability is supported only by check and ac next');
   if (command === 'ci') {
     if (args.length !== 1 || args[0] !== 'inspect') throw Error('Use ci inspect [--json] [--root PATH]');
@@ -56,9 +65,21 @@ try {
       renamePrefix(root, args[0], args[1]); console.log(`Prefix updated for ${args[0]}: ${args[1]}`);
     } else throw Error('Use ac next --capability NAME, ac rename-prefix CAPABILITY PREFIX, ac coordinate REMOTE [--apply], ac sync, ac resume, or ac abandon');
   }
+  else if (command === 'profile') {
+    if (args.length !== 1) throw Error('Use profile solo|team [--apply]');
+    const interactive = apply && !json && Boolean(process.stdin.isTTY && process.stdout.isTTY);
+    const result = await selectSetupProfile(root, args[0], {interactive, concurrent, sharedReview, enableReview, existingOnly: true});
+    if (!result) throw Error('Choose a solo or team profile');
+    const writes = apply ? applyProfile(root, result.selection) : [];
+    console.log(JSON.stringify({dryRun: !apply, ...result.summary, writes}, null, 2));
+  }
   else if (args.length) throw Error(`Unexpected arguments: ${args.join(' ')}`);
   else if (command === '--version') console.log(version);
-  else if (command === 'init') console.log(JSON.stringify({ dryRun: dry, ...lifecycle(root, 'init', dry, makeDefault) }, null, 2));
+  else if (command === 'init') {
+    const interactive = !dry && !json && Boolean(process.stdin.isTTY && process.stdout.isTTY);
+    const result = await selectSetupProfile(root, profile, {interactive, concurrent, sharedReview, enableReview});
+    console.log(JSON.stringify({dryRun: dry, ...lifecycle(root, 'init', dry, makeDefault, result?.selection), setupProfile: result?.summary}, null, 2));
+  }
   else if (command === 'update') console.log(JSON.stringify({dryRun: dry, ...lifecycle(root, 'update', dry)}, null, 2));
   else if (command === 'uninstall') console.log(JSON.stringify({dryRun: dry, ...uninstall(root, dry, replacement)}, null, 2));
   else if (command === 'recover') { if (!dry) recover(root); console.log('Recovery complete'); }
@@ -66,7 +87,7 @@ try {
     const findings = check(root, change, failPending, capability); const ok = !findings.some(f => f.severity === 'error');
     console.log(json ? JSON.stringify({ ok, findings }, null, 2) : findings.map(f => `${f.severity.toUpperCase()} ${f.code}: ${f.message}`).join('\n'));
     process.exitCode = ok ? 0 : 1;
-  } else if (!command || command === '--help') console.log('cliewen-openspec\ninit [--default] [--dry-run]\nupdate [--dry-run] [--json]\nuninstall [--default-schema NAME] [--dry-run] [--json]\nac next --capability NAME\nac next PREFIX (registered active prefix only)\nac rename-prefix CAPABILITY PREFIX\nac coordinate REMOTE [--apply] (preview by default)\nac sync\nac resume\nac abandon\ndocs check [--json]\nci inspect [--json]\ncheck [--change NAME | --capability NAME] [--json] [--fail-on-pending]\nrecover\nAll commands accept --root PATH.');
+  } else if (!command || command === '--help') console.log('cliewen-openspec\ninit [--default] [--dry-run] [--profile solo|team]\nprofile solo|team [--concurrent] [--shared-review] [--apply [--enable-review]] [--json]\nupdate [--dry-run] [--json]\nuninstall [--default-schema NAME] [--dry-run] [--json]\nac next --capability NAME\nac next PREFIX (registered active prefix only)\nac rename-prefix CAPABILITY PREFIX\nac coordinate REMOTE [--apply] (preview by default)\nac sync\nac resume\nac abandon\ndocs check [--json]\nci inspect [--json]\ncheck [--change NAME | --capability NAME] [--json] [--fail-on-pending]\nrecover\nAll commands accept --root PATH.');
   else throw Error(`Unknown command: ${command}`);
 } catch (e) {
   const message = e instanceof Error ? e.message : String(e);

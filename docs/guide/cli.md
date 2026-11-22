@@ -29,6 +29,28 @@ Development source additionally installs `.cliewen-openspec/context-selection.md
 
 Init/update check the running Node and selected OpenSpec CLI before recovery or installation writes, including previews. Development source requires Node 22.12+ and stable OpenSpec 1.15.0+; published 0.2.0 retains Node 20.19+. The project's npm installation takes precedence over PATH. See [version compatibility](../configuration.md#version-compatibility) for selection, timeout, and runtime limits.
 
+## Choose or change a setup profile
+
+In the development version, interactive `init` asks how you work on the project. Choose **Solo**, **Team**, or **Choose later**. For a script, pass the profile explicitly or omit it to keep the ordinary setup. Previews and JSON mode run without prompts.
+
+```sh
+cliewen-openspec init --profile solo --json
+```
+
+When a teammate joins a project where you had turned off review guidance, preview the switch and ask for recommendations for shared review:
+
+```sh
+cliewen-openspec profile team --shared-review --json
+```
+
+The preview shows the profile change and recommends enabling `features.review`. Apply just those two choices with:
+
+```sh
+cliewen-openspec profile team --shared-review --apply --enable-review --json
+```
+
+To save just the profile in a script, run `cliewen-openspec profile team --apply --json`. To select settings interactively, run `cliewen-openspec profile team --apply` in a terminal. If separate clones or worktrees allocate IDs concurrently, answer yes when asked or pass `--concurrent` to see how to preview Git coordination. [Profile defaults and storage](../configuration.md#setup-profiles)
+
 ## ci inspect
 
 Available in Cliewen 0.3.0 and later.
