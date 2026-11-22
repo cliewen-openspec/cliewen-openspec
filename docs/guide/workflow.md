@@ -156,7 +156,18 @@ Describe the desired behavior and where you want the agent to stop. The installe
 
 > Create a change proposal for CSV export with a header, explicit column order, escaped commas and quotation marks, and header-only output for an empty list. Use the existing change `add-csv-export`. Stop after proposal, specs, design, and tasks so I can review them before implementation.
 
-Review the input scope, scenarios, and task checks. Once you are satisfied, authorize implementation. With the defaults, every implementation task gets its relevant tests and must pass before the next task begins. Plan acceptance cases before implementation and follow [evidence-first verification](../configuration.md#evidence-first-verification).
+Once you are satisfied, authorize implementation. With the defaults, every implementation task gets its relevant tests and must pass before the next task begins. Plan acceptance cases before implementation and follow [evidence-first verification](../configuration.md#evidence-first-verification).
+
+## Review delivery scope
+
+In the development version, Delivery and Combined delivery guide the agent through two scope reviews. The first compares the complete plan with the original request and any accepted amendments. The second compares the actual diff, tests, and affected documentation with that same scope before archive.
+
+| Finding | Before implementation | Before archive |
+| --- | --- | --- |
+| Missing requirement | The plan omits headers for an empty CSV export. | The export returns an empty file, or there is no evidence that it returns headers. |
+| Extra behavior | A task adds scheduled exports to a request for manual exports. | The diff adds a scheduler that the approved plan did not mention. |
+
+The agent can fix a clear omission within scope. The scope owner can accept an addition, remove it, or defer it. The agent records the choice in the change, so the archive review uses the agreed scope. A pending decision leaves the affected item open, and independent work can continue. Direct `openspec archive` needs a separate request to perform the agent review. [Archive session guidance](#use-the-reference-from-a-separate-archive-session)
 
 ## Keep durable explanations useful
 

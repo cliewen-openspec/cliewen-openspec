@@ -5,19 +5,9 @@ type: plan
 
 Completed releases are listed in the [changelog](CHANGELOG.md).
 
-## Next actions
-
-### Solo and team setup profiles
-
-Offer an optional solo or team profile during `init`. Use the answer to suggest settings. Ask about concurrent work when recommending ID coordination, and use the project's own review and integration practices when suggesting team settings. Each feature still reads its own configuration.
-
-Give existing projects a simple way to change profiles in place. A solo developer inviting a teammate should be able to select team, preview the proposed settings, and choose which to apply. Preserve explicit project choices unless the user selects a replacement.
-
-Include a worked solo-to-team example in the user guide and document both profiles and their defaults in the configuration reference. Verify the documented steps on an existing solo project with custom settings, checking that the preview matches the applied changes and that unselected settings retain their values.
-
 ## Scope review before implementation and archive
 
-Plan a schema change to make both reviews routine for delivery work.
+Review the [proposal for both delivery reviews](openspec/changes/review-delivery-scope/proposal.md).
 
 - Before implementation, start from the original request and accepted amendments. For each requested outcome and constraint, find where the proposal, spec changes, design or combined decision, and tasks together cover it and how it will be verified. Flag omissions even when those artifacts agree with each other. If the plan changes materially, review the affected parts again.
 - After implementation and before archive, trace each agreed outcome to the delivered behavior and its verification result. Check affected documentation and the actual diff for additional work. Distinguish missing behavior from behavior that still lacks evidence. Preserve the outcome of the review with the archived change.

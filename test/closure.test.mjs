@@ -69,11 +69,20 @@ test('all apply branches expose closure without adding an artifact or policy set
   for (const d of ['openspec/specs', 'openspec/changes']) fs.mkdirSync(path.join(root, d), {recursive: true});
   init(root, false, false);
   const text = read(root, reference);
+  const planning = read(root, '.cliewen-openspec/planning.md');
+  for (const phrase of ['original request and accepted amendments', 'materially changed plan', 'In either delivery review', 'Keep unresolved items open']) assert.ok(planning.includes(phrase), phrase);
+  for (const phrase of ['actual diff, tests, and affected documentation', 'missing behavior from missing or unavailable evidence', 'Preserve the review outcome']) assert.ok(text.includes(phrase), phrase);
   for (const phrase of ['For other schemas, continue their native workflow', 'features.documentation', 'features.decisions', 'learnings.enabled', 'With planning disabled, skip ticket access', 'Off skips its matching policy', 'shared active assertions', 'explicit accepted retirement', 'no synthetic product execution evidence', 'before retrying', '--capability NAME on both the Node adapter and check', 'whole-project scope', 'concrete pending update']) assert.ok(text.includes(phrase), phrase);
   for (const name of ['delivery', 'discovery', 'all']) {
     const schema = parse(read(root, `openspec/schemas/cliewen-${name}/schema.yaml`));
     assert.ok(schema.apply.instruction.includes(reference));
     assert.ok(!schema.artifacts.some(a => a.id === 'closure'));
+    const scopeReview = schema.apply.instruction.indexOf('Review delivery scope before implementation');
+    assert.equal(scopeReview >= 0, name !== 'discovery', name);
+    if (name === 'all') {
+      assert.ok(schema.apply.instruction.indexOf('For outcome: no-change or further-investigation') < scopeReview);
+      assert.ok(schema.apply.instruction.includes('Outcome-specific instructions here determine whether the delivery guidance that follows applies.'));
+    }
   }
 });
 
@@ -116,7 +125,10 @@ for (const version of ['1.15.0', '1.17.0', '2.0.0']) test(`packed closure guidan
       write(root, `${base}/design.md`, '# Design\nFixture behavior.\n');
       write(root, `${base}/tasks.md`, '# Tasks\n- [ ] Check fixture.\n');
       write(root, `${base}/specs/example/spec.md`, '## Purpose\nProvide an example capability for checking native archive behavior.\n\n## ADDED Requirements\n\n### Requirement: Example\nThe system SHALL preserve an example requirement.\n\n#### Scenario: Example result\n- **WHEN** the example is requested\n- **THEN** it is returned\n');
-      assert.ok(JSON.parse(ospec('instructions', 'apply', '--change', name, '--json')).instruction.includes(reference));
+      const apply = JSON.parse(ospec('instructions', 'apply', '--change', name, '--json'));
+      assert.ok(apply.instruction.includes(reference));
+      assert.ok(apply.instruction.includes('Review delivery scope before implementation'));
+      assert.ok(read(root, reference).includes('actual diff, tests, and affected documentation'));
       write(root, `${base}/tasks.md`, '# Tasks\n- [x] Check fixture.\n');
       ospec('archive', name, '--yes');
       assert.ok(read(root, 'openspec/specs/example/spec.md').includes('Example result'));

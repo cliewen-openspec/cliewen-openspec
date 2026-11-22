@@ -31,3 +31,11 @@ Discover suitable ticket access through the host's exposed MCP servers, connecto
 If discovery is unavailable, report availability as unknown. If a tool is missing, inaccessible, or fails, report what was actually observed, explain the needed connection when known, and provide links or concrete pending manual updates. Do not claim an unperformed update succeeded or infer that a hidden integration does not exist. Do not install integrations or change host configuration automatically.
 
 Use descriptive OpenSpec kebab-case change names. Preserve original ticket IDs and descriptive links in proposal content when applicable, and preserve existing names and paths.
+
+## Review delivery scope before implementation
+
+In Delivery and the delivery branch of Combined, review the complete proposal, spec changes, design or combined decision, and tasks before the first implementation task. Start from the original request and accepted amendments. For each requested outcome and constraint, find where the plan addresses it and how it will be verified. Then check whether any planned work goes beyond the request. Agreement among the artifacts can still leave a requirement out. If the request or an amendment is unavailable, state what you checked and what context you still need. Repeat this review for the affected parts of a materially changed plan.
+
+## Handle scope findings
+
+In either delivery review, warn about suspected extra work or omissions. Name the request or scope boundary, the specific finding, and its practical impact. Correct a clear in-scope omission and recheck it. The scope owner can accept an addition, remove it from the current change, or defer it to one or more follow-ups. The owner can also narrow or defer a requested item. Record the disposition once in an existing change artifact. Remove deferred work from the current delivery and use the selected planning authority when enabled. Prepare follow-up proposals as their work becomes actionable. Keep unresolved items open and continue independent in-scope work when authorized. Keep a clean review brief.
