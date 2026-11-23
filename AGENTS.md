@@ -1,5 +1,13 @@
 # Repository conventions
 
+## Maintainer workflow
+
+Track active work in `openspec/changes/`. Use the installed Delivery schema for understood changes, Discovery for investigation, and Combined for work that needs both. Open proposals as work becomes actionable. Keep accepted behavior in `openspec/specs/` and completed changes in the OpenSpec archive. Record useful lessons from using the installed workflow in the change or the relevant durable documentation.
+
+Update affected documentation, decisions, and tests with the implementation. Use focused deterministic checks for small changes and targeted agent trials for major workflow changes. Each release cycle needs at least one independently reviewed success. See [Decision 022: Use targeted agent trials for major changes and each release](docs/decisions/022-proportionate-agent-validation.md).
+
+Publish releases when the owner requests it. The [OpenSpec introduction](docs/community/openspec-introduction.md) is approved for future use. Wait for the owner's go-ahead before contacting OpenSpec, then refresh the release facts and submission instructions.
+
 Write all repository content in US English, including documentation, examples, prompts, comments, and user-facing messages. Conversation with a user may use the user's preferred language.
 
 Apply these writing rules to all text you create or edit, including plain-text files, Markdown, change proposals, specs, tasks, code comments, docstrings, commit messages, pull-request descriptions, user-facing messages, and conversational replies. Adapt the explanation to the intended reader and format without assuming knowledge of the conversation. Lead change descriptions with the problem, resulting behavior, and practical impact. Use plain language and concrete examples; explain unfamiliar terms. Include technical details when they explain behavior, constraints, risks, or tradeoffs. Link references using their ID and descriptive title, explaining relevance where needed. State each fact once and link to supporting detail. Remove filler and repetition while preserving requirements, acceptance criteria, important exceptions, and required artifact sections. Preserve machine-readable syntax and exact identifiers. PR descriptions include relevant validation and limitations. Review clarity and brevity before finishing; there is no fixed word limit.

@@ -3,7 +3,7 @@ type: analysis
 ---
 # Find out whether CI checks are required
 
-A passing workflow establishes a result for tested code. It does not establish that the host requires that check before integration. The fifth [roadmap increment](../../plan.md) addresses this gap with optional read-only inspection.
+A passing workflow establishes a result for tested code. It does not establish that the host requires that check before integration. The fifth [roadmap increment](https://github.com/cliewen-openspec/cliewen-openspec/blob/d3df28640f6c9fe5f29b4b49fdaca0190b165563/plan.md) addresses this gap with optional read-only inspection.
 
 ## Observations
 

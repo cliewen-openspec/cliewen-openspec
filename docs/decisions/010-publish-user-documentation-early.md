@@ -19,4 +19,4 @@ Keep one authoritative Markdown source for each explanation and reuse it in the 
 
 Provide task-oriented getting-started guides, configuration and CLI references, evidence troubleshooting, tested compatibility, and release notes. Clearly distinguish implemented behavior from planned features and user workflows from contributor evaluation infrastructure. Build and validate documentation in CI and exercise documented commands against the actual packed package before release.
 
-The current source implements the expanded site, configuration/default checks, local link and Mermaid checks, browser navigation/render checks, and a packed-installation replay of the CSV guide. Deployment follows the Pages workflow on main. Scope and acceptance criteria live in [the implementation plan](../../plan.md#user-documentation-and-github-pages).
+The current source implements the expanded site, configuration/default checks, local link and Mermaid checks, browser navigation/render checks, and a packed-installation replay of the CSV guide. Deployment follows the Pages workflow on main. See the [guide hosting verification](../testing/organization-pages-001.md).

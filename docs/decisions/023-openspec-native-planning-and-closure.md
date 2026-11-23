@@ -23,7 +23,7 @@ Around archive, maintain relevant durable documentation, decisions, test lifecyc
 
 ## Acceptance and consequences
 
-The owner confirmed OpenSpec's conventions as the governing principle and instructed implementation of the replacement roadmap on November 10, 2026. This accepts the direction, not a claim that the planned capabilities already ship. The [roadmap](../../plan.md) defines ordered increments; each selected delivery receives its own current design and verification.
+The owner confirmed OpenSpec's conventions as the governing principle and instructed implementation of the replacement roadmap on November 10, 2026. This accepts the direction, not a claim that the planned capabilities already ship. The [roadmap](https://github.com/cliewen-openspec/cliewen-openspec/blob/671de75f6bea5e1e4e5020ed4c08d5bbc9ca19a9/plan.md) defined the original delivery order. Each selected delivery has its own OpenSpec change and verification.
 
 This refines [Decision 007: Keep durable knowledge in lightweight Markdown records](007-durable-documents-and-general-decision-records.md) and preserves [Decision 015: Keep combined investigation and delivery behind explicit agreement](015-combined-workflow-and-approval-boundaries.md). Neither is superseded.
 

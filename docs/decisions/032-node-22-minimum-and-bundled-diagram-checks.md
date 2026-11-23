@@ -17,7 +17,7 @@ This replaces the Node 20.19+ floor for that delivery in [installation ownership
 
 ## Acceptance and implementation boundary
 
-The owner accepted this direction and the [documentation-check proposal](../../openspec/changes/archive/2026-11-18-check-project-documentation/proposal.md) on November 17, 2026. Development source now declares Node 22.12+ in package metadata, init/update preflight and the documentation command, with the parser included. The [roadmap](../../plan.md) tracks verification and closure. Published packages retain their original minimums.
+The owner accepted this direction and the [documentation-check proposal](../../openspec/changes/archive/2026-11-18-check-project-documentation/proposal.md) on November 17, 2026. Development source now declares Node 22.12+ in package metadata, init/update preflight and the documentation command, with the parser included. The [roadmap](https://github.com/cliewen-openspec/cliewen-openspec/blob/d3df28640f6c9fe5f29b4b49fdaca0190b165563/plan.md) recorded verification and closure. Published packages retain their original minimums.
 
 Implementation must update the package engine, init/update compatibility checks, guide, changelog and affected tests together. Reject an unsupported runtime before recovery or installation writes. Verify the packed dependency set and diagram parsing on Node 22.12.0 and a newer supported runtime on Windows/Linux; a higher version in CI alone does not verify the exact minimum. Preserve existing configuration and files. Publication remains a separate action.
 

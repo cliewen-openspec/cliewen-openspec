@@ -1,6 +1,6 @@
 # Practice mapping
 
-This supersedes the earlier configuration-only mapping. See the [implementation plan](../plan.md).
+This supersedes the earlier configuration-only mapping. See the [permanent specifications](../openspec/specs/) for accepted behavior.
 
 | Practice | Owner / carrier | Validation boundary |
 |---|---|---|

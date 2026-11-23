@@ -89,7 +89,7 @@ After reviewing the assertions and evidence, archive with OpenSpec. Commit the a
 - [Changelog](CHANGELOG.md)
 - [Project configuration](docs/configuration.md)
 - [Pilot reference prompt](docs/testing/pilot-prompt.md)
-- [Implementation plan](plan.md)
+- [OpenSpec changes](openspec/changes/) and [permanent specifications](openspec/specs/)
 - [Practice mapping](docs/cliewen-mapping.md)
 - [Architecture](docs/architecture/README.md)
 - [Website](https://cliewen-openspec.github.io/)

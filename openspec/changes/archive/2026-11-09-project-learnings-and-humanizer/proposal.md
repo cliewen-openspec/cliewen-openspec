@@ -2,7 +2,7 @@
 
 ## Why
 
-Agents can repeat mistakes when useful observations remain in an earlier session. Projects also need a choice about external writing skills while retaining clear prose as a baseline. This implements priority 5 of [the approved plan](../../../../plan.md) under [accepted decision 020](../../../../docs/decisions/020-optional-learnings-and-humanizer.md).
+Agents can repeat mistakes when useful observations remain in an earlier session. Projects also need a choice about external writing skills while retaining clear prose as a baseline. This implements priority 5 of [the approved plan](https://github.com/cliewen-openspec/cliewen-openspec/blob/84da6f5e1eea7d8626e1e604ec3bfc754fae3352/plan.md) under [accepted decision 020](../../../../docs/decisions/020-optional-learnings-and-humanizer.md).
 
 ## What Changes
 

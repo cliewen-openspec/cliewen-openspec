@@ -39,4 +39,4 @@ The most consequential uncertainty is whether safe migration preserves customize
 
 ## Follow-up
 
-The [proposal](../../openspec/changes/archive/2026-11-16-support-openspec-2/proposal.md) captures the first delivery. The [roadmap](../../plan.md) orders configurable allocation, context, documentation checks, and CI inspection after it. No release, external outreach, or changes to other repositories follow from this discovery.
+The [proposal](../../openspec/changes/archive/2026-11-16-support-openspec-2/proposal.md) captures the first delivery. The [roadmap](https://github.com/cliewen-openspec/cliewen-openspec/blob/d3df28640f6c9fe5f29b4b49fdaca0190b165563/plan.md) placed configurable allocation, context, documentation checks, and CI inspection after it. No release, external outreach, or changes to other repositories follow from this discovery.

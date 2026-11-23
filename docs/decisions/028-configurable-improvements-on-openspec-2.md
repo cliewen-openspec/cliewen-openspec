@@ -21,7 +21,7 @@ Use discovery where consequential uncertainty remains. Prefer native OpenSpec ca
 
 The owner selected all four improvements, prioritized allocation above context and documentation, and made OpenSpec 2 support the first priority on November 16, 2026. The owner also authorized installation of 2.0.0. This accepts direction and ordering, not unreviewed configuration names, a new minimum version, multi-repo support, or publication.
 
-The [roadmap](../../plan.md) owns scope and progress. The [initial discovery](../analysis/openspec-2-discovery.md) distinguishes observed compatibility from remaining checks. This extends [OpenSpec-native planning and closure](023-openspec-native-planning-and-closure.md) without superseding it.
+The [roadmap](https://github.com/cliewen-openspec/cliewen-openspec/blob/d3df28640f6c9fe5f29b4b49fdaca0190b165563/plan.md) recorded scope and progress. The [initial discovery](../analysis/openspec-2-discovery.md) distinguishes observed compatibility from remaining checks. This extends [OpenSpec-native planning and closure](023-openspec-native-planning-and-closure.md) without superseding it.
 
 ## Implementation checkpoint
 

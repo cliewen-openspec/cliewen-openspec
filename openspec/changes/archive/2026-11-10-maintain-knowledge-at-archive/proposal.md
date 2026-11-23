@@ -28,7 +28,7 @@ None. Existing planning, learnings, quality/lifecycle, and evidence requirements
 
 Shared apply instructions, one manifest-owned closure reference, installer ownership tests, user documentation, and unreleased changelog. Existing feature settings control the matching responsibilities. Projects opt in to native operation guidance by merging an example into their own OpenSpec configuration. No schema graph or report format changes are required.
 
-Roadmap priority 2 in [the project plan](../../../../plan.md) owns this work. [Decision 023: Extend OpenSpec through its conventions](../../../../docs/decisions/023-openspec-native-planning-and-closure.md) establishes the design boundary. OpenSpec continues to own archive and synchronization; project policy governs approval, integration, and ticket completion.
+Roadmap priority 2 in [the project plan](https://github.com/cliewen-openspec/cliewen-openspec/blob/671de75f6bea5e1e4e5020ed4c08d5bbc9ca19a9/plan.md) owns this work. [Decision 023: Extend OpenSpec through its conventions](../../../../docs/decisions/023-openspec-native-planning-and-closure.md) establishes the design boundary. OpenSpec continues to own archive and synchronization; project policy governs approval, integration, and ticket completion.
 
 ## Approval
 

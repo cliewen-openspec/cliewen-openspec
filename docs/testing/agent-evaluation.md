@@ -31,7 +31,7 @@ The [combined scoping and archive trial](combined-scoping-closure-001.md) demons
 
 The counts and outstanding repetitions in older reports describe the former matrix. Decision 022 retires that quota without changing any observed outcome.
 
-The [remaining checks before 0.1.0](release-gaps.md) preserve that release's acceptance scope and historical findings. Use the [current roadmap](../../plan.md) and the latest linked trial reviews for new work; the reports below preserve observations on their original inputs.
+The [remaining checks before 0.1.0](release-gaps.md) preserve that release's acceptance scope and historical findings. Use the [active OpenSpec changes](../../openspec/changes/) and the latest linked trial reviews for current work. The reports below preserve observations on their original inputs.
 
 [Four preserved primary passes remain usable](release-pass-review-001.md) records expanded checks and semantic review of the four latest-candidate passes. All remain credited as existing attempts; no fresh agent execution or repetition is added.
 
