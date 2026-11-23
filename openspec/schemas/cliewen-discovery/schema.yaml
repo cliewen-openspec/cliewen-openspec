@@ -1,0 +1,1065 @@
+name: cliewen-discovery
+version: 1
+description: Investigation and decision handoff without required production implementation
+artifacts:
+  - id: proposal
+    generates: proposal.md
+    description: Question, scope, and investigation limits
+    template: proposal.md
+    requires: []
+    instruction: "Read .cliewen-openspec/config.yaml before applying
+      feature-specific guidance. Before broad document reads or content
+      searches, resolve the learning policy and select any relevant notes from
+      their index as described below. Do not preload the learning collection as
+      general project context. Disabled facilities impose no additional work.
+      Read relevant existing specs, documents and accepted Decision Records.
+      Never invent intent. For all text you create or edit, including plain-text
+      files, Markdown, proposals, specs, tasks, code comments, docstrings,
+      commit messages, pull-request descriptions, user-facing messages, and
+      conversational replies, adapt the explanation to the intended reader and
+      format without assuming knowledge of the conversation. Lead change
+      descriptions with the problem, resulting behavior, and practical impact.
+      Use plain language, concrete examples, and only details needed to
+      understand behavior, constraints, risks, or tradeoffs. Write natural prose
+      using the fewest words that preserve meaning and required detail, whether
+      or not a writing skill is available. Explain unfamiliar terms. Link
+      references with their ID and descriptive title, and explain their
+      relevance when needed; avoid unexplained IDs. For example, write
+      \"Decision 002: Distinguish the shared base from selectable workflows\",
+      not just \"Decision 002\"; preserve exact IDs in machine-readable fields.
+      State each fact once and link to supporting detail. Remove filler and
+      repetition without losing requirements, acceptance criteria, important
+      exceptions, or required artifact sections. Code comments explain intent,
+      constraints, or surprising behavior instead of restating code. Commit
+      messages summarize the concrete change, adding rationale or consequences
+      in the body when useful. Use diagrams only where the format supports them
+      and they improve understanding. Preserve code behavior, structured data,
+      required syntax, and exact identifiers. Apply the same diagram guidance
+      across these texts. For PR descriptions, include relevant validation and
+      limitations. Before handing off authored or edited documents, resolve
+      local Markdown links relative to each containing file, verify existing
+      targets and any fragments with available link/render checks, and correct
+      broken links. A proposal under openspec/changes/CHANGE/ reaches
+      project-root docs/ with ../../../docs/, not ../../../../docs/. Describe
+      planned files as planned paths until they exist instead of making broken
+      links. Report the checks actually run and any unchecked link limits;
+      passing tests alone does not validate document links. Check documented
+      defaults, allowed inputs, and examples against the implementation and
+      accepted requirements. Exercise the examples and boundary values covered
+      by a claim; correct contradictions before finishing. Distinguish the
+      accepted contract from observed behavior on a particular runtime. Before
+      claiming that an input cannot work based on an implementation detail,
+      probe a relevant counterexample or state that the restriction is
+      unverified. Describe values at the boundary actually checked: producing
+      text does not establish its encoded bytes or downstream behavior. Name the
+      verification command actually run and what it establishes. Artifact
+      validation, installation health, test execution, and assertion review
+      check different things; do not substitute one result for another. For
+      unspecified inputs or unverified behavior, state the limit instead of
+      promising an outcome. Ground motivation and problem claims in the request,
+      inspected project sources, or observed results. Mark an unverified
+      hypothesis explicitly; do not turn plausible background knowledge into an
+      observed project problem. Before using universal claims such as \"never
+      starts with\", \"exactly one\", or \"no marker\", check supported caller
+      content that could already contain the character or pattern. Describe what
+      the operation adds or changes separately from content it must preserve. A
+      downstream benefit inferred from technical background remains a hypothesis
+      unless inspected evidence supports it; the request for an option is
+      sufficient motivation on its own. When a request only asks for an option
+      or capability, that request is sufficient motivation. Do not attribute
+      consumer failures, business needs, or other inferred reasons to the
+      requester. Label relevant technical background as unverified context
+      rather than as a reported project defect or the requester's stated reason.
+      Review clarity and brevity before finishing; do not impose a fixed word
+      limit. Before requesting a decision on a proposal, Decision Record, PR, or
+      handoff, check that an unfamiliar reader can understand the problem,
+      user-visible change, scope boundaries, and decision needed without the
+      conversation or implementation code. Remove repeated detail and use
+      descriptive links to supporting specs. Preserve required artifact
+      sections, requirements, acceptance criteria, and important exceptions.
+      Follow existing diagram settings; use a diagram with a short explanation
+      when clearer, without requiring one or repeating each step in prose. This
+      is agent review, not automatic proof of readability. Read
+      writing.humanizer (default auto; values auto, on, off). With off, skip
+      this policy and continue with baseline writing and independent host
+      requirements. Omit all Humanizer mentions from the handoff, including a
+      note that it was disabled or skipped. Do not look for, invoke, or suggest
+      installing the skill under this policy.  With auto or on, inspect the
+      host's exposed skill inventory. Use a usable Humanizer skill, including a
+      namespaced one. Read and apply its instructions before claiming use. Keep
+      skill discovery and loading in tool calls with no user-facing progress
+      announcement. Do not scan global directories.  Include one brief status
+      per session in the first writing handoff. Use the outcome you observed:  -
+      Humanizer used. Say this only after reading and applying the skill. -
+      Humanizer detected but inaccessible. Use this when the host identifies the
+      skill and you cannot invoke it. - Humanizer absent. Use this when the
+      exposed inventory confirms absence. In the same status, link to
+      https://github.com/blader/humanizer#installation and current host
+      instructions unless the user previously declined. - Humanizer availability
+      unknown. Use this when no inventory is available. A failed load of a
+      guessed name does not establish whether the skill exists.  Check the
+      handoff before sending it. If this is the first writing handoff under auto
+      or on, include the observed status even when availability is unknown. Keep
+      it out of project artifacts and omit it in later replies once reported. On
+      explicitly requests use but remains nonblocking when unavailable. Continue
+      with baseline guidance in every fallback. Never install/update skills,
+      enable plugins, or modify global configuration automatically. Re-evaluate
+      in a new session; no persistent machine-wide detection cache is required.
+      Apply the skill to all authored prose, including proposals, specs, tasks,
+      guides, comments, docstrings, commit and PR descriptions, messages, and
+      replies. Preserve code behavior, requirements, commands, identifiers,
+      examples, links, and structured syntax. Check factual claims after
+      rewriting; stylistic editing does not establish correctness. See the
+      installed docs/configuration.md for defaults and limits. Read
+      learnings.enabled (default false), learnings.directory (default learnings,
+      relative to docsRoot), and features.documentation. If learnings are
+      disabled or documentation guidance is disabled, skip lesson retrieval and
+      maintenance; preserve authored files. When active, read only the
+      collection's index first, in a separate tool call from note contents. Use
+      its scope and status to select relevant active note paths, then open those
+      selected files. Do not batch the index with notes, glob-read the
+      collection, or include unselected notes in broad content searches.
+      Filename listings are allowed. If the index lacks enough detail, ask for
+      clarification or report that limitation; do not resolve it by reading
+      everything. A missing index is an empty collection; do not create an empty
+      directory or require a lesson for every task. Skip unrelated and retired
+      note contents during ordinary work. For an explicit lesson-maintenance
+      task, select the affected current and historical notes from the index
+      first; reading a retired note to review its history does not make its
+      advice authoritative. Preserve unrelated notes. Check applicable notes
+      against current specs, accepted decisions, and source evidence. Tentative
+      notes need verification; retired notes do not guide work. Even verified
+      lessons never override current project authorities. Reference an
+      established knowledge authority elsewhere instead of copying it. At
+      closure, retain only useful reusable observations. Use the installed
+      .cliewen-openspec/templates/learning.md for new notes, while preserving
+      existing formats and paths. Record situation, observed mistake,
+      evidence/source, correction, scope, limits, and last verification when
+      verified. Link the note from the existing index, or create a short
+      README.md index with title, scope, status, and link when a first useful
+      note exists. Merge duplicates by linking a canonical note and retiring old
+      ones in place with reasons. Retire stale guidance without deleting its
+      history; promote recurring lessons into suitable tests, rules, or durable
+      documents. Never invent evidence or turn lessons into new requirements or
+      approval authority. This is agent guidance, not a structural or factual
+      content validator. When features.mermaid is enabled (default true), prefer
+      embedded Mermaid for sequences, states, dependencies, and workflows when a
+      diagram explains them more clearly than prose. Use ASCII or plain text in
+      fenced text blocks when clearer, especially for file and directory trees
+      and small sketches, or when Mermaid cannot render. Plain text remains
+      available when Mermaid guidance is disabled. Keep a short explanation
+      beside diagrams and maintain one authoritative representation with the
+      surrounding text. Prefer informative illustrations or diagrams when they
+      replace a longer explanation; include a concise caption or accessible
+      description of the main point without repeating every detail in prose.
+      Preserve useful existing project conventions. Do not require a diagram
+      when prose or a table is clearer. When reviewing changed Markdown, use
+      cliewen-openspec docs check with the project's documentationChecks
+      settings and existing document paths when the CLI is available.
+      Local-link, metadata and Mermaid checks default to advisory; honor each
+      category's off/advisory/enforce choice. Do not enable disabled checks or
+      broaden configured roots/exclusions silently. These checks audit authored
+      content; they do not authorize retrieving disabled lessons as guidance. No
+      new durable report is required. Report category statuses and relevant
+      findings, including changed files outside selected scope, unavailable
+      tooling and unsupported fragments. Exit 0 with advisory findings does not
+      establish valid documentation. The command checks local references,
+      optional YAML frontmatter and supported Mermaid grammar; native OpenSpec
+      validation, factual review and visual verification remain separate. If the
+      CLI is unavailable, use available focused checks and state their limits
+      without claiming the Cliewen command ran. Assess whether the work needs an
+      OpenSpec change from intended behavior, requirements, design impact, and
+      uncertainty, following OpenSpec conventions. A small correction restoring
+      unchanged accepted behavior can use relevant verification without a new
+      proposal. Reassess if investigation reveals new behavior or material
+      design choices. Scope each change as a coherent result that can be
+      understood and verified together. Small implementation tasks do not each
+      need a proposal; independent changes can proceed in parallel. When
+      splitting an oversized proposal, retain rationale and deferred obligations
+      in the project's planning authority when enabled, and reconcile the
+      current proposal, specs, design, and tasks so deferred work is not
+      reported as delivered. Before a consequential commitment, identify its
+      riskiest assumption, a credible alternative, the cheapest useful
+      investigation, and a stop or revision condition where the reviewer reads
+      the choice. Ask whether meeting every criterion could still fail the
+      intended user. Routine understood work needs no challenge report or
+      explanation for its absence. On resumption or contradictory evidence,
+      reassess goals, dependencies, and the next delivery. Surface mismatches
+      and options and obtain direction for material changes in agreed scope
+      before continuing affected work. Ordinary replanning does not
+      automatically need a Decision Record. For consequential unresolved
+      choices, suggest optional grill-me when useful. Availability alone does
+      not request an interview. On user request, use the host's exposed
+      skill-loading mechanism to read grill-me and its grilling dependency
+      before following their instructions. If unavailable, inaccessible, or
+      declined, continue ordinary scoping and report relevant limits; do not
+      install skills automatically. Confirm shared understanding before acting
+      and preserve agreed conclusions in the relevant proposal, plan, or
+      decision. Existing approval boundaries still apply. For material
+      uncertainty that needs something concrete to try, read
+      .cliewen-openspec/prototyping.md. Suggest a bounded prototype only when
+      useful; the user chooses it and understood work proceeds normally. Keep
+      native explore read-only for code and continue an agreed experiment
+      through the selected investigative change. Use
+      .cliewen-openspec/product-context.md for relevant product intent and
+      cross-capability journeys during scoping, design, investigation, and
+      review. Detect drift from the agreed outcome and distinguish in-scope
+      corrections from new wishes through existing scope rules; optional records
+      follow documentation/planning settings and routine work gains no new
+      prerequisite. Before requesting any manual step, assess whether available
+      authorized tools can perform it reliably. Automate feasible checks, setup,
+      and evidence collection while preserving verification quality and
+      authorization. A previously manual procedure is not sufficient reason to
+      ask a person to repeat it. Complete authorized preparation and explain the
+      specific remaining need for human judgment, access, or authority; request
+      only that contribution. Reassess when tools or access change. If
+      automation fails or access is unavailable, report the actual limitation
+      and smallest remaining action without claiming success or treating the
+      limitation as permanent. When useful human observations exist, preserve
+      the supplied attribution, checked behavior or scenario, tested version,
+      relevant environment and steps, actual results or problems, and limits.
+      Keep unavailable details explicitly unknown. Faithfully summarize actual
+      feedback; label illustrative examples and agent observations by their real
+      origin. Automated checks cannot establish a real user's subjective
+      experience. If no human feedback was collected, say so when relevant
+      rather than inventing it or adding a routine gate. Reuse an existing
+      investigation, review, task note, ticket, or handoff for observations with
+      descriptive references to the checked behavior. Optional durable
+      documentation follows features.documentation and existing paths; when
+      disabled, create no optional observation document but keep the handoff
+      accurate. External records follow features.planning and existing
+      access/authorization rules. Preserve an observation's original tested
+      context when relevant behavior changes, identify it as historical, and
+      assess whether the changed behavior needs another check. Keep observation,
+      change approval, and release authorization distinct. Positive feedback
+      does not authorize unrelated scope or publication. Human involvement
+      follows concrete verification needs and project policy; routine
+      sufficiently verified authorized work proceeds independently. Discovery
+      findings use existing investigation records without fabricated product ACs
+      or execution evidence. For existing manual execution results, reason can
+      contain a concise observation or descriptive reference. Preserve the
+      version-1 report contract: scenario identities, configured test types,
+      scope, revision freshness, and manual-verification warnings still apply. A
+      durable historical observation does not satisfy current revision-bound
+      evidence. Never replace automated failures with a manual claim or report
+      an unperformed check as passed. These instructions cannot authenticate
+      feedback or establish automated proof. Read contextSelection.mode (default
+      guided). When off, request no extra context-selection pass or handoff.
+      When guided, first resolve the learning policy and its separate
+      index-first gate, then read .cliewen-openspec/context-selection.md for
+      native-first selection. This setting is independent of planning and
+      documentation maintenance and does not disable required native spec
+      reading or change learning gates. Read .cliewen-openspec/planning.md for
+      optional planning guidance; features.planning controls its
+      planning-specific requests. For relevant integration/review work with
+      ciInspection configured and enabled, read
+      .cliewen-openspec/ci-inspection.md for advisory host inspection; this adds
+      no integration authorization. State the question to investigate, why it
+      matters, constraints, and what is outside scope. Define what information
+      would support a decision and time or cost limits for the investigation;
+      ask the user for material limits that are missing instead of inventing
+      them. Identify existing specs, relevant documents, and decisions by
+      descriptive links. Do not promise a production change or allocate
+      behavioral AC IDs for unanswered questions."
+  - id: investigation
+    generates: investigation.md
+    description: Alternatives, observations, and uncertainty
+    template: investigation.md
+    requires:
+      - proposal
+    instruction: "Read .cliewen-openspec/config.yaml before applying
+      feature-specific guidance. Before broad document reads or content
+      searches, resolve the learning policy and select any relevant notes from
+      their index as described below. Do not preload the learning collection as
+      general project context. Disabled facilities impose no additional work.
+      Read relevant existing specs, documents and accepted Decision Records.
+      Never invent intent. For all text you create or edit, including plain-text
+      files, Markdown, proposals, specs, tasks, code comments, docstrings,
+      commit messages, pull-request descriptions, user-facing messages, and
+      conversational replies, adapt the explanation to the intended reader and
+      format without assuming knowledge of the conversation. Lead change
+      descriptions with the problem, resulting behavior, and practical impact.
+      Use plain language, concrete examples, and only details needed to
+      understand behavior, constraints, risks, or tradeoffs. Write natural prose
+      using the fewest words that preserve meaning and required detail, whether
+      or not a writing skill is available. Explain unfamiliar terms. Link
+      references with their ID and descriptive title, and explain their
+      relevance when needed; avoid unexplained IDs. For example, write
+      \"Decision 002: Distinguish the shared base from selectable workflows\",
+      not just \"Decision 002\"; preserve exact IDs in machine-readable fields.
+      State each fact once and link to supporting detail. Remove filler and
+      repetition without losing requirements, acceptance criteria, important
+      exceptions, or required artifact sections. Code comments explain intent,
+      constraints, or surprising behavior instead of restating code. Commit
+      messages summarize the concrete change, adding rationale or consequences
+      in the body when useful. Use diagrams only where the format supports them
+      and they improve understanding. Preserve code behavior, structured data,
+      required syntax, and exact identifiers. Apply the same diagram guidance
+      across these texts. For PR descriptions, include relevant validation and
+      limitations. Before handing off authored or edited documents, resolve
+      local Markdown links relative to each containing file, verify existing
+      targets and any fragments with available link/render checks, and correct
+      broken links. A proposal under openspec/changes/CHANGE/ reaches
+      project-root docs/ with ../../../docs/, not ../../../../docs/. Describe
+      planned files as planned paths until they exist instead of making broken
+      links. Report the checks actually run and any unchecked link limits;
+      passing tests alone does not validate document links. Check documented
+      defaults, allowed inputs, and examples against the implementation and
+      accepted requirements. Exercise the examples and boundary values covered
+      by a claim; correct contradictions before finishing. Distinguish the
+      accepted contract from observed behavior on a particular runtime. Before
+      claiming that an input cannot work based on an implementation detail,
+      probe a relevant counterexample or state that the restriction is
+      unverified. Describe values at the boundary actually checked: producing
+      text does not establish its encoded bytes or downstream behavior. Name the
+      verification command actually run and what it establishes. Artifact
+      validation, installation health, test execution, and assertion review
+      check different things; do not substitute one result for another. For
+      unspecified inputs or unverified behavior, state the limit instead of
+      promising an outcome. Ground motivation and problem claims in the request,
+      inspected project sources, or observed results. Mark an unverified
+      hypothesis explicitly; do not turn plausible background knowledge into an
+      observed project problem. Before using universal claims such as \"never
+      starts with\", \"exactly one\", or \"no marker\", check supported caller
+      content that could already contain the character or pattern. Describe what
+      the operation adds or changes separately from content it must preserve. A
+      downstream benefit inferred from technical background remains a hypothesis
+      unless inspected evidence supports it; the request for an option is
+      sufficient motivation on its own. When a request only asks for an option
+      or capability, that request is sufficient motivation. Do not attribute
+      consumer failures, business needs, or other inferred reasons to the
+      requester. Label relevant technical background as unverified context
+      rather than as a reported project defect or the requester's stated reason.
+      Review clarity and brevity before finishing; do not impose a fixed word
+      limit. Before requesting a decision on a proposal, Decision Record, PR, or
+      handoff, check that an unfamiliar reader can understand the problem,
+      user-visible change, scope boundaries, and decision needed without the
+      conversation or implementation code. Remove repeated detail and use
+      descriptive links to supporting specs. Preserve required artifact
+      sections, requirements, acceptance criteria, and important exceptions.
+      Follow existing diagram settings; use a diagram with a short explanation
+      when clearer, without requiring one or repeating each step in prose. This
+      is agent review, not automatic proof of readability. Read
+      writing.humanizer (default auto; values auto, on, off). With off, skip
+      this policy and continue with baseline writing and independent host
+      requirements. Omit all Humanizer mentions from the handoff, including a
+      note that it was disabled or skipped. Do not look for, invoke, or suggest
+      installing the skill under this policy.  With auto or on, inspect the
+      host's exposed skill inventory. Use a usable Humanizer skill, including a
+      namespaced one. Read and apply its instructions before claiming use. Keep
+      skill discovery and loading in tool calls with no user-facing progress
+      announcement. Do not scan global directories.  Include one brief status
+      per session in the first writing handoff. Use the outcome you observed:  -
+      Humanizer used. Say this only after reading and applying the skill. -
+      Humanizer detected but inaccessible. Use this when the host identifies the
+      skill and you cannot invoke it. - Humanizer absent. Use this when the
+      exposed inventory confirms absence. In the same status, link to
+      https://github.com/blader/humanizer#installation and current host
+      instructions unless the user previously declined. - Humanizer availability
+      unknown. Use this when no inventory is available. A failed load of a
+      guessed name does not establish whether the skill exists.  Check the
+      handoff before sending it. If this is the first writing handoff under auto
+      or on, include the observed status even when availability is unknown. Keep
+      it out of project artifacts and omit it in later replies once reported. On
+      explicitly requests use but remains nonblocking when unavailable. Continue
+      with baseline guidance in every fallback. Never install/update skills,
+      enable plugins, or modify global configuration automatically. Re-evaluate
+      in a new session; no persistent machine-wide detection cache is required.
+      Apply the skill to all authored prose, including proposals, specs, tasks,
+      guides, comments, docstrings, commit and PR descriptions, messages, and
+      replies. Preserve code behavior, requirements, commands, identifiers,
+      examples, links, and structured syntax. Check factual claims after
+      rewriting; stylistic editing does not establish correctness. See the
+      installed docs/configuration.md for defaults and limits. Read
+      learnings.enabled (default false), learnings.directory (default learnings,
+      relative to docsRoot), and features.documentation. If learnings are
+      disabled or documentation guidance is disabled, skip lesson retrieval and
+      maintenance; preserve authored files. When active, read only the
+      collection's index first, in a separate tool call from note contents. Use
+      its scope and status to select relevant active note paths, then open those
+      selected files. Do not batch the index with notes, glob-read the
+      collection, or include unselected notes in broad content searches.
+      Filename listings are allowed. If the index lacks enough detail, ask for
+      clarification or report that limitation; do not resolve it by reading
+      everything. A missing index is an empty collection; do not create an empty
+      directory or require a lesson for every task. Skip unrelated and retired
+      note contents during ordinary work. For an explicit lesson-maintenance
+      task, select the affected current and historical notes from the index
+      first; reading a retired note to review its history does not make its
+      advice authoritative. Preserve unrelated notes. Check applicable notes
+      against current specs, accepted decisions, and source evidence. Tentative
+      notes need verification; retired notes do not guide work. Even verified
+      lessons never override current project authorities. Reference an
+      established knowledge authority elsewhere instead of copying it. At
+      closure, retain only useful reusable observations. Use the installed
+      .cliewen-openspec/templates/learning.md for new notes, while preserving
+      existing formats and paths. Record situation, observed mistake,
+      evidence/source, correction, scope, limits, and last verification when
+      verified. Link the note from the existing index, or create a short
+      README.md index with title, scope, status, and link when a first useful
+      note exists. Merge duplicates by linking a canonical note and retiring old
+      ones in place with reasons. Retire stale guidance without deleting its
+      history; promote recurring lessons into suitable tests, rules, or durable
+      documents. Never invent evidence or turn lessons into new requirements or
+      approval authority. This is agent guidance, not a structural or factual
+      content validator. When features.mermaid is enabled (default true), prefer
+      embedded Mermaid for sequences, states, dependencies, and workflows when a
+      diagram explains them more clearly than prose. Use ASCII or plain text in
+      fenced text blocks when clearer, especially for file and directory trees
+      and small sketches, or when Mermaid cannot render. Plain text remains
+      available when Mermaid guidance is disabled. Keep a short explanation
+      beside diagrams and maintain one authoritative representation with the
+      surrounding text. Prefer informative illustrations or diagrams when they
+      replace a longer explanation; include a concise caption or accessible
+      description of the main point without repeating every detail in prose.
+      Preserve useful existing project conventions. Do not require a diagram
+      when prose or a table is clearer. When reviewing changed Markdown, use
+      cliewen-openspec docs check with the project's documentationChecks
+      settings and existing document paths when the CLI is available.
+      Local-link, metadata and Mermaid checks default to advisory; honor each
+      category's off/advisory/enforce choice. Do not enable disabled checks or
+      broaden configured roots/exclusions silently. These checks audit authored
+      content; they do not authorize retrieving disabled lessons as guidance. No
+      new durable report is required. Report category statuses and relevant
+      findings, including changed files outside selected scope, unavailable
+      tooling and unsupported fragments. Exit 0 with advisory findings does not
+      establish valid documentation. The command checks local references,
+      optional YAML frontmatter and supported Mermaid grammar; native OpenSpec
+      validation, factual review and visual verification remain separate. If the
+      CLI is unavailable, use available focused checks and state their limits
+      without claiming the Cliewen command ran. Assess whether the work needs an
+      OpenSpec change from intended behavior, requirements, design impact, and
+      uncertainty, following OpenSpec conventions. A small correction restoring
+      unchanged accepted behavior can use relevant verification without a new
+      proposal. Reassess if investigation reveals new behavior or material
+      design choices. Scope each change as a coherent result that can be
+      understood and verified together. Small implementation tasks do not each
+      need a proposal; independent changes can proceed in parallel. When
+      splitting an oversized proposal, retain rationale and deferred obligations
+      in the project's planning authority when enabled, and reconcile the
+      current proposal, specs, design, and tasks so deferred work is not
+      reported as delivered. Before a consequential commitment, identify its
+      riskiest assumption, a credible alternative, the cheapest useful
+      investigation, and a stop or revision condition where the reviewer reads
+      the choice. Ask whether meeting every criterion could still fail the
+      intended user. Routine understood work needs no challenge report or
+      explanation for its absence. On resumption or contradictory evidence,
+      reassess goals, dependencies, and the next delivery. Surface mismatches
+      and options and obtain direction for material changes in agreed scope
+      before continuing affected work. Ordinary replanning does not
+      automatically need a Decision Record. For consequential unresolved
+      choices, suggest optional grill-me when useful. Availability alone does
+      not request an interview. On user request, use the host's exposed
+      skill-loading mechanism to read grill-me and its grilling dependency
+      before following their instructions. If unavailable, inaccessible, or
+      declined, continue ordinary scoping and report relevant limits; do not
+      install skills automatically. Confirm shared understanding before acting
+      and preserve agreed conclusions in the relevant proposal, plan, or
+      decision. Existing approval boundaries still apply. For material
+      uncertainty that needs something concrete to try, read
+      .cliewen-openspec/prototyping.md. Suggest a bounded prototype only when
+      useful; the user chooses it and understood work proceeds normally. Keep
+      native explore read-only for code and continue an agreed experiment
+      through the selected investigative change. Use
+      .cliewen-openspec/product-context.md for relevant product intent and
+      cross-capability journeys during scoping, design, investigation, and
+      review. Detect drift from the agreed outcome and distinguish in-scope
+      corrections from new wishes through existing scope rules; optional records
+      follow documentation/planning settings and routine work gains no new
+      prerequisite. Before requesting any manual step, assess whether available
+      authorized tools can perform it reliably. Automate feasible checks, setup,
+      and evidence collection while preserving verification quality and
+      authorization. A previously manual procedure is not sufficient reason to
+      ask a person to repeat it. Complete authorized preparation and explain the
+      specific remaining need for human judgment, access, or authority; request
+      only that contribution. Reassess when tools or access change. If
+      automation fails or access is unavailable, report the actual limitation
+      and smallest remaining action without claiming success or treating the
+      limitation as permanent. When useful human observations exist, preserve
+      the supplied attribution, checked behavior or scenario, tested version,
+      relevant environment and steps, actual results or problems, and limits.
+      Keep unavailable details explicitly unknown. Faithfully summarize actual
+      feedback; label illustrative examples and agent observations by their real
+      origin. Automated checks cannot establish a real user's subjective
+      experience. If no human feedback was collected, say so when relevant
+      rather than inventing it or adding a routine gate. Reuse an existing
+      investigation, review, task note, ticket, or handoff for observations with
+      descriptive references to the checked behavior. Optional durable
+      documentation follows features.documentation and existing paths; when
+      disabled, create no optional observation document but keep the handoff
+      accurate. External records follow features.planning and existing
+      access/authorization rules. Preserve an observation's original tested
+      context when relevant behavior changes, identify it as historical, and
+      assess whether the changed behavior needs another check. Keep observation,
+      change approval, and release authorization distinct. Positive feedback
+      does not authorize unrelated scope or publication. Human involvement
+      follows concrete verification needs and project policy; routine
+      sufficiently verified authorized work proceeds independently. Discovery
+      findings use existing investigation records without fabricated product ACs
+      or execution evidence. For existing manual execution results, reason can
+      contain a concise observation or descriptive reference. Preserve the
+      version-1 report contract: scenario identities, configured test types,
+      scope, revision freshness, and manual-verification warnings still apply. A
+      durable historical observation does not satisfy current revision-bound
+      evidence. Never replace automated failures with a manual claim or report
+      an unperformed check as passed. These instructions cannot authenticate
+      feedback or establish automated proof. Read contextSelection.mode (default
+      guided). When off, request no extra context-selection pass or handoff.
+      When guided, first resolve the learning policy and its separate
+      index-first gate, then read .cliewen-openspec/context-selection.md for
+      native-first selection. This setting is independent of planning and
+      documentation maintenance and does not disable required native spec
+      reading or change learning gates. Read .cliewen-openspec/planning.md for
+      optional planning guidance; features.planning controls its
+      planning-specific requests. For relevant integration/review work with
+      ciInspection configured and enabled, read
+      .cliewen-openspec/ci-inspection.md for advisory host inspection; this adds
+      no integration authorization. Compare plausible alternatives, including
+      keeping the existing system when relevant. Consider extending an existing
+      API alongside replacing it; do not assume an additive option requires
+      rewriting existing callers or tests. Distinguish facts, hypotheses,
+      observed results, and remaining uncertainty. With evidence enabled, record
+      sources and actual experiments: command or method, input or revision,
+      observed outcome, and limitations. Label experiments not run and explain
+      why; never invent observations. Check that the measuring method actually
+      observes the claimed quantity before using its numbers. For example, an
+      interval cannot sample heap during synchronous work that blocks the event
+      loop; verify that samples were taken during the operation. Distinguish
+      peak memory from retained memory after garbage collection. If a
+      measurement is invalid, report that quantity as unmeasured and revise
+      conclusions that depended on it; an approximate label does not make it
+      valid. Keep experiments isolated and respect the proposal's limits. Obtain
+      agreement before production changes, purchases, or external actions
+      outside the authorized investigation. Discovery evidence supports a
+      recommendation, not claims about unimplemented product behavior. Preserve
+      existing AC identities and product specs. For an agreed prototype, read
+      .cliewen-openspec/prototyping.md, work inside the proposal's experimental
+      limits, and retain actual observations, feedback, uncertainty, and code
+      disposition in this investigation. Neither a useful result nor a prototype
+      request authorizes production implementation."
+  - id: decision
+    generates: decision.md
+    description: Recommendation and delivery or no-change handoff
+    template: decision.md
+    requires:
+      - investigation
+    instruction: "Read .cliewen-openspec/config.yaml before applying
+      feature-specific guidance. Before broad document reads or content
+      searches, resolve the learning policy and select any relevant notes from
+      their index as described below. Do not preload the learning collection as
+      general project context. Disabled facilities impose no additional work.
+      Read relevant existing specs, documents and accepted Decision Records.
+      Never invent intent. For all text you create or edit, including plain-text
+      files, Markdown, proposals, specs, tasks, code comments, docstrings,
+      commit messages, pull-request descriptions, user-facing messages, and
+      conversational replies, adapt the explanation to the intended reader and
+      format without assuming knowledge of the conversation. Lead change
+      descriptions with the problem, resulting behavior, and practical impact.
+      Use plain language, concrete examples, and only details needed to
+      understand behavior, constraints, risks, or tradeoffs. Write natural prose
+      using the fewest words that preserve meaning and required detail, whether
+      or not a writing skill is available. Explain unfamiliar terms. Link
+      references with their ID and descriptive title, and explain their
+      relevance when needed; avoid unexplained IDs. For example, write
+      \"Decision 002: Distinguish the shared base from selectable workflows\",
+      not just \"Decision 002\"; preserve exact IDs in machine-readable fields.
+      State each fact once and link to supporting detail. Remove filler and
+      repetition without losing requirements, acceptance criteria, important
+      exceptions, or required artifact sections. Code comments explain intent,
+      constraints, or surprising behavior instead of restating code. Commit
+      messages summarize the concrete change, adding rationale or consequences
+      in the body when useful. Use diagrams only where the format supports them
+      and they improve understanding. Preserve code behavior, structured data,
+      required syntax, and exact identifiers. Apply the same diagram guidance
+      across these texts. For PR descriptions, include relevant validation and
+      limitations. Before handing off authored or edited documents, resolve
+      local Markdown links relative to each containing file, verify existing
+      targets and any fragments with available link/render checks, and correct
+      broken links. A proposal under openspec/changes/CHANGE/ reaches
+      project-root docs/ with ../../../docs/, not ../../../../docs/. Describe
+      planned files as planned paths until they exist instead of making broken
+      links. Report the checks actually run and any unchecked link limits;
+      passing tests alone does not validate document links. Check documented
+      defaults, allowed inputs, and examples against the implementation and
+      accepted requirements. Exercise the examples and boundary values covered
+      by a claim; correct contradictions before finishing. Distinguish the
+      accepted contract from observed behavior on a particular runtime. Before
+      claiming that an input cannot work based on an implementation detail,
+      probe a relevant counterexample or state that the restriction is
+      unverified. Describe values at the boundary actually checked: producing
+      text does not establish its encoded bytes or downstream behavior. Name the
+      verification command actually run and what it establishes. Artifact
+      validation, installation health, test execution, and assertion review
+      check different things; do not substitute one result for another. For
+      unspecified inputs or unverified behavior, state the limit instead of
+      promising an outcome. Ground motivation and problem claims in the request,
+      inspected project sources, or observed results. Mark an unverified
+      hypothesis explicitly; do not turn plausible background knowledge into an
+      observed project problem. Before using universal claims such as \"never
+      starts with\", \"exactly one\", or \"no marker\", check supported caller
+      content that could already contain the character or pattern. Describe what
+      the operation adds or changes separately from content it must preserve. A
+      downstream benefit inferred from technical background remains a hypothesis
+      unless inspected evidence supports it; the request for an option is
+      sufficient motivation on its own. When a request only asks for an option
+      or capability, that request is sufficient motivation. Do not attribute
+      consumer failures, business needs, or other inferred reasons to the
+      requester. Label relevant technical background as unverified context
+      rather than as a reported project defect or the requester's stated reason.
+      Review clarity and brevity before finishing; do not impose a fixed word
+      limit. Before requesting a decision on a proposal, Decision Record, PR, or
+      handoff, check that an unfamiliar reader can understand the problem,
+      user-visible change, scope boundaries, and decision needed without the
+      conversation or implementation code. Remove repeated detail and use
+      descriptive links to supporting specs. Preserve required artifact
+      sections, requirements, acceptance criteria, and important exceptions.
+      Follow existing diagram settings; use a diagram with a short explanation
+      when clearer, without requiring one or repeating each step in prose. This
+      is agent review, not automatic proof of readability. Read
+      writing.humanizer (default auto; values auto, on, off). With off, skip
+      this policy and continue with baseline writing and independent host
+      requirements. Omit all Humanizer mentions from the handoff, including a
+      note that it was disabled or skipped. Do not look for, invoke, or suggest
+      installing the skill under this policy.  With auto or on, inspect the
+      host's exposed skill inventory. Use a usable Humanizer skill, including a
+      namespaced one. Read and apply its instructions before claiming use. Keep
+      skill discovery and loading in tool calls with no user-facing progress
+      announcement. Do not scan global directories.  Include one brief status
+      per session in the first writing handoff. Use the outcome you observed:  -
+      Humanizer used. Say this only after reading and applying the skill. -
+      Humanizer detected but inaccessible. Use this when the host identifies the
+      skill and you cannot invoke it. - Humanizer absent. Use this when the
+      exposed inventory confirms absence. In the same status, link to
+      https://github.com/blader/humanizer#installation and current host
+      instructions unless the user previously declined. - Humanizer availability
+      unknown. Use this when no inventory is available. A failed load of a
+      guessed name does not establish whether the skill exists.  Check the
+      handoff before sending it. If this is the first writing handoff under auto
+      or on, include the observed status even when availability is unknown. Keep
+      it out of project artifacts and omit it in later replies once reported. On
+      explicitly requests use but remains nonblocking when unavailable. Continue
+      with baseline guidance in every fallback. Never install/update skills,
+      enable plugins, or modify global configuration automatically. Re-evaluate
+      in a new session; no persistent machine-wide detection cache is required.
+      Apply the skill to all authored prose, including proposals, specs, tasks,
+      guides, comments, docstrings, commit and PR descriptions, messages, and
+      replies. Preserve code behavior, requirements, commands, identifiers,
+      examples, links, and structured syntax. Check factual claims after
+      rewriting; stylistic editing does not establish correctness. See the
+      installed docs/configuration.md for defaults and limits. Read
+      learnings.enabled (default false), learnings.directory (default learnings,
+      relative to docsRoot), and features.documentation. If learnings are
+      disabled or documentation guidance is disabled, skip lesson retrieval and
+      maintenance; preserve authored files. When active, read only the
+      collection's index first, in a separate tool call from note contents. Use
+      its scope and status to select relevant active note paths, then open those
+      selected files. Do not batch the index with notes, glob-read the
+      collection, or include unselected notes in broad content searches.
+      Filename listings are allowed. If the index lacks enough detail, ask for
+      clarification or report that limitation; do not resolve it by reading
+      everything. A missing index is an empty collection; do not create an empty
+      directory or require a lesson for every task. Skip unrelated and retired
+      note contents during ordinary work. For an explicit lesson-maintenance
+      task, select the affected current and historical notes from the index
+      first; reading a retired note to review its history does not make its
+      advice authoritative. Preserve unrelated notes. Check applicable notes
+      against current specs, accepted decisions, and source evidence. Tentative
+      notes need verification; retired notes do not guide work. Even verified
+      lessons never override current project authorities. Reference an
+      established knowledge authority elsewhere instead of copying it. At
+      closure, retain only useful reusable observations. Use the installed
+      .cliewen-openspec/templates/learning.md for new notes, while preserving
+      existing formats and paths. Record situation, observed mistake,
+      evidence/source, correction, scope, limits, and last verification when
+      verified. Link the note from the existing index, or create a short
+      README.md index with title, scope, status, and link when a first useful
+      note exists. Merge duplicates by linking a canonical note and retiring old
+      ones in place with reasons. Retire stale guidance without deleting its
+      history; promote recurring lessons into suitable tests, rules, or durable
+      documents. Never invent evidence or turn lessons into new requirements or
+      approval authority. This is agent guidance, not a structural or factual
+      content validator. When features.mermaid is enabled (default true), prefer
+      embedded Mermaid for sequences, states, dependencies, and workflows when a
+      diagram explains them more clearly than prose. Use ASCII or plain text in
+      fenced text blocks when clearer, especially for file and directory trees
+      and small sketches, or when Mermaid cannot render. Plain text remains
+      available when Mermaid guidance is disabled. Keep a short explanation
+      beside diagrams and maintain one authoritative representation with the
+      surrounding text. Prefer informative illustrations or diagrams when they
+      replace a longer explanation; include a concise caption or accessible
+      description of the main point without repeating every detail in prose.
+      Preserve useful existing project conventions. Do not require a diagram
+      when prose or a table is clearer. When reviewing changed Markdown, use
+      cliewen-openspec docs check with the project's documentationChecks
+      settings and existing document paths when the CLI is available.
+      Local-link, metadata and Mermaid checks default to advisory; honor each
+      category's off/advisory/enforce choice. Do not enable disabled checks or
+      broaden configured roots/exclusions silently. These checks audit authored
+      content; they do not authorize retrieving disabled lessons as guidance. No
+      new durable report is required. Report category statuses and relevant
+      findings, including changed files outside selected scope, unavailable
+      tooling and unsupported fragments. Exit 0 with advisory findings does not
+      establish valid documentation. The command checks local references,
+      optional YAML frontmatter and supported Mermaid grammar; native OpenSpec
+      validation, factual review and visual verification remain separate. If the
+      CLI is unavailable, use available focused checks and state their limits
+      without claiming the Cliewen command ran. Assess whether the work needs an
+      OpenSpec change from intended behavior, requirements, design impact, and
+      uncertainty, following OpenSpec conventions. A small correction restoring
+      unchanged accepted behavior can use relevant verification without a new
+      proposal. Reassess if investigation reveals new behavior or material
+      design choices. Scope each change as a coherent result that can be
+      understood and verified together. Small implementation tasks do not each
+      need a proposal; independent changes can proceed in parallel. When
+      splitting an oversized proposal, retain rationale and deferred obligations
+      in the project's planning authority when enabled, and reconcile the
+      current proposal, specs, design, and tasks so deferred work is not
+      reported as delivered. Before a consequential commitment, identify its
+      riskiest assumption, a credible alternative, the cheapest useful
+      investigation, and a stop or revision condition where the reviewer reads
+      the choice. Ask whether meeting every criterion could still fail the
+      intended user. Routine understood work needs no challenge report or
+      explanation for its absence. On resumption or contradictory evidence,
+      reassess goals, dependencies, and the next delivery. Surface mismatches
+      and options and obtain direction for material changes in agreed scope
+      before continuing affected work. Ordinary replanning does not
+      automatically need a Decision Record. For consequential unresolved
+      choices, suggest optional grill-me when useful. Availability alone does
+      not request an interview. On user request, use the host's exposed
+      skill-loading mechanism to read grill-me and its grilling dependency
+      before following their instructions. If unavailable, inaccessible, or
+      declined, continue ordinary scoping and report relevant limits; do not
+      install skills automatically. Confirm shared understanding before acting
+      and preserve agreed conclusions in the relevant proposal, plan, or
+      decision. Existing approval boundaries still apply. For material
+      uncertainty that needs something concrete to try, read
+      .cliewen-openspec/prototyping.md. Suggest a bounded prototype only when
+      useful; the user chooses it and understood work proceeds normally. Keep
+      native explore read-only for code and continue an agreed experiment
+      through the selected investigative change. Use
+      .cliewen-openspec/product-context.md for relevant product intent and
+      cross-capability journeys during scoping, design, investigation, and
+      review. Detect drift from the agreed outcome and distinguish in-scope
+      corrections from new wishes through existing scope rules; optional records
+      follow documentation/planning settings and routine work gains no new
+      prerequisite. Before requesting any manual step, assess whether available
+      authorized tools can perform it reliably. Automate feasible checks, setup,
+      and evidence collection while preserving verification quality and
+      authorization. A previously manual procedure is not sufficient reason to
+      ask a person to repeat it. Complete authorized preparation and explain the
+      specific remaining need for human judgment, access, or authority; request
+      only that contribution. Reassess when tools or access change. If
+      automation fails or access is unavailable, report the actual limitation
+      and smallest remaining action without claiming success or treating the
+      limitation as permanent. When useful human observations exist, preserve
+      the supplied attribution, checked behavior or scenario, tested version,
+      relevant environment and steps, actual results or problems, and limits.
+      Keep unavailable details explicitly unknown. Faithfully summarize actual
+      feedback; label illustrative examples and agent observations by their real
+      origin. Automated checks cannot establish a real user's subjective
+      experience. If no human feedback was collected, say so when relevant
+      rather than inventing it or adding a routine gate. Reuse an existing
+      investigation, review, task note, ticket, or handoff for observations with
+      descriptive references to the checked behavior. Optional durable
+      documentation follows features.documentation and existing paths; when
+      disabled, create no optional observation document but keep the handoff
+      accurate. External records follow features.planning and existing
+      access/authorization rules. Preserve an observation's original tested
+      context when relevant behavior changes, identify it as historical, and
+      assess whether the changed behavior needs another check. Keep observation,
+      change approval, and release authorization distinct. Positive feedback
+      does not authorize unrelated scope or publication. Human involvement
+      follows concrete verification needs and project policy; routine
+      sufficiently verified authorized work proceeds independently. Discovery
+      findings use existing investigation records without fabricated product ACs
+      or execution evidence. For existing manual execution results, reason can
+      contain a concise observation or descriptive reference. Preserve the
+      version-1 report contract: scenario identities, configured test types,
+      scope, revision freshness, and manual-verification warnings still apply. A
+      durable historical observation does not satisfy current revision-bound
+      evidence. Never replace automated failures with a manual claim or report
+      an unperformed check as passed. These instructions cannot authenticate
+      feedback or establish automated proof. Read contextSelection.mode (default
+      guided). When off, request no extra context-selection pass or handoff.
+      When guided, first resolve the learning policy and its separate
+      index-first gate, then read .cliewen-openspec/context-selection.md for
+      native-first selection. This setting is independent of planning and
+      documentation maintenance and does not disable required native spec
+      reading or change learning gates. Read .cliewen-openspec/planning.md for
+      optional planning guidance; features.planning controls its
+      planning-specific requests. For relevant integration/review work with
+      ciInspection configured and enabled, read
+      .cliewen-openspec/ci-inspection.md for advisory host inspection; this adds
+      no integration authorization. Summarize the recommendation and reasoning,
+      linking to the investigation evidence instead of copying it. Record status
+      proposed until a human agrees; do not infer acceptance from completing
+      artifacts. Choose an explicit outcome: delivery handoff, no change, or
+      further investigation. Explain remaining uncertainty and consequences. For
+      delivery, describe the intended behavior, constraints, open questions, and
+      links to carry into a separate cliewen-delivery change; do not silently
+      change this change's schema or invent an implementation plan. For no
+      change, explain why the current system is sufficient and any condition
+      that would reopen the question. When decisions are enabled and the choice
+      matters beyond this investigation, create or update a durable record under
+      configured docsRoot/decisions using the shared Decision Record template.
+      Preserve existing filenames and ID authorities; for new projects use
+      sequential filenames padded to at least three digits. Link to the
+      authoritative record and preserve human acceptance requirements. Disabling
+      decisions removes the extra durable-record work, not this artifact from
+      the schema graph."
+apply:
+  requires:
+    - decision
+  tracks: null
+  instruction: "Read .cliewen-openspec/config.yaml before applying
+    feature-specific guidance. Before broad document reads or content searches,
+    resolve the learning policy and select any relevant notes from their index
+    as described below. Do not preload the learning collection as general
+    project context. Disabled facilities impose no additional work. Read
+    relevant existing specs, documents and accepted Decision Records. Never
+    invent intent. For all text you create or edit, including plain-text files,
+    Markdown, proposals, specs, tasks, code comments, docstrings, commit
+    messages, pull-request descriptions, user-facing messages, and
+    conversational replies, adapt the explanation to the intended reader and
+    format without assuming knowledge of the conversation. Lead change
+    descriptions with the problem, resulting behavior, and practical impact. Use
+    plain language, concrete examples, and only details needed to understand
+    behavior, constraints, risks, or tradeoffs. Write natural prose using the
+    fewest words that preserve meaning and required detail, whether or not a
+    writing skill is available. Explain unfamiliar terms. Link references with
+    their ID and descriptive title, and explain their relevance when needed;
+    avoid unexplained IDs. For example, write \"Decision 002: Distinguish the
+    shared base from selectable workflows\", not just \"Decision 002\"; preserve
+    exact IDs in machine-readable fields. State each fact once and link to
+    supporting detail. Remove filler and repetition without losing requirements,
+    acceptance criteria, important exceptions, or required artifact sections.
+    Code comments explain intent, constraints, or surprising behavior instead of
+    restating code. Commit messages summarize the concrete change, adding
+    rationale or consequences in the body when useful. Use diagrams only where
+    the format supports them and they improve understanding. Preserve code
+    behavior, structured data, required syntax, and exact identifiers. Apply the
+    same diagram guidance across these texts. For PR descriptions, include
+    relevant validation and limitations. Before handing off authored or edited
+    documents, resolve local Markdown links relative to each containing file,
+    verify existing targets and any fragments with available link/render checks,
+    and correct broken links. A proposal under openspec/changes/CHANGE/ reaches
+    project-root docs/ with ../../../docs/, not ../../../../docs/. Describe
+    planned files as planned paths until they exist instead of making broken
+    links. Report the checks actually run and any unchecked link limits; passing
+    tests alone does not validate document links. Check documented defaults,
+    allowed inputs, and examples against the implementation and accepted
+    requirements. Exercise the examples and boundary values covered by a claim;
+    correct contradictions before finishing. Distinguish the accepted contract
+    from observed behavior on a particular runtime. Before claiming that an
+    input cannot work based on an implementation detail, probe a relevant
+    counterexample or state that the restriction is unverified. Describe values
+    at the boundary actually checked: producing text does not establish its
+    encoded bytes or downstream behavior. Name the verification command actually
+    run and what it establishes. Artifact validation, installation health, test
+    execution, and assertion review check different things; do not substitute
+    one result for another. For unspecified inputs or unverified behavior, state
+    the limit instead of promising an outcome. Ground motivation and problem
+    claims in the request, inspected project sources, or observed results. Mark
+    an unverified hypothesis explicitly; do not turn plausible background
+    knowledge into an observed project problem. Before using universal claims
+    such as \"never starts with\", \"exactly one\", or \"no marker\", check
+    supported caller content that could already contain the character or
+    pattern. Describe what the operation adds or changes separately from content
+    it must preserve. A downstream benefit inferred from technical background
+    remains a hypothesis unless inspected evidence supports it; the request for
+    an option is sufficient motivation on its own. When a request only asks for
+    an option or capability, that request is sufficient motivation. Do not
+    attribute consumer failures, business needs, or other inferred reasons to
+    the requester. Label relevant technical background as unverified context
+    rather than as a reported project defect or the requester's stated reason.
+    Review clarity and brevity before finishing; do not impose a fixed word
+    limit. Before requesting a decision on a proposal, Decision Record, PR, or
+    handoff, check that an unfamiliar reader can understand the problem,
+    user-visible change, scope boundaries, and decision needed without the
+    conversation or implementation code. Remove repeated detail and use
+    descriptive links to supporting specs. Preserve required artifact sections,
+    requirements, acceptance criteria, and important exceptions. Follow existing
+    diagram settings; use a diagram with a short explanation when clearer,
+    without requiring one or repeating each step in prose. This is agent review,
+    not automatic proof of readability. Read writing.humanizer (default auto;
+    values auto, on, off). With off, skip this policy and continue with baseline
+    writing and independent host requirements. Omit all Humanizer mentions from
+    the handoff, including a note that it was disabled or skipped. Do not look
+    for, invoke, or suggest installing the skill under this policy.  With auto
+    or on, inspect the host's exposed skill inventory. Use a usable Humanizer
+    skill, including a namespaced one. Read and apply its instructions before
+    claiming use. Keep skill discovery and loading in tool calls with no
+    user-facing progress announcement. Do not scan global directories.  Include
+    one brief status per session in the first writing handoff. Use the outcome
+    you observed:  - Humanizer used. Say this only after reading and applying
+    the skill. - Humanizer detected but inaccessible. Use this when the host
+    identifies the skill and you cannot invoke it. - Humanizer absent. Use this
+    when the exposed inventory confirms absence. In the same status, link to
+    https://github.com/blader/humanizer#installation and current host
+    instructions unless the user previously declined. - Humanizer availability
+    unknown. Use this when no inventory is available. A failed load of a guessed
+    name does not establish whether the skill exists.  Check the handoff before
+    sending it. If this is the first writing handoff under auto or on, include
+    the observed status even when availability is unknown. Keep it out of
+    project artifacts and omit it in later replies once reported. On explicitly
+    requests use but remains nonblocking when unavailable. Continue with
+    baseline guidance in every fallback. Never install/update skills, enable
+    plugins, or modify global configuration automatically. Re-evaluate in a new
+    session; no persistent machine-wide detection cache is required. Apply the
+    skill to all authored prose, including proposals, specs, tasks, guides,
+    comments, docstrings, commit and PR descriptions, messages, and replies.
+    Preserve code behavior, requirements, commands, identifiers, examples,
+    links, and structured syntax. Check factual claims after rewriting;
+    stylistic editing does not establish correctness. See the installed
+    docs/configuration.md for defaults and limits. Read learnings.enabled
+    (default false), learnings.directory (default learnings, relative to
+    docsRoot), and features.documentation. If learnings are disabled or
+    documentation guidance is disabled, skip lesson retrieval and maintenance;
+    preserve authored files. When active, read only the collection's index
+    first, in a separate tool call from note contents. Use its scope and status
+    to select relevant active note paths, then open those selected files. Do not
+    batch the index with notes, glob-read the collection, or include unselected
+    notes in broad content searches. Filename listings are allowed. If the index
+    lacks enough detail, ask for clarification or report that limitation; do not
+    resolve it by reading everything. A missing index is an empty collection; do
+    not create an empty directory or require a lesson for every task. Skip
+    unrelated and retired note contents during ordinary work. For an explicit
+    lesson-maintenance task, select the affected current and historical notes
+    from the index first; reading a retired note to review its history does not
+    make its advice authoritative. Preserve unrelated notes. Check applicable
+    notes against current specs, accepted decisions, and source evidence.
+    Tentative notes need verification; retired notes do not guide work. Even
+    verified lessons never override current project authorities. Reference an
+    established knowledge authority elsewhere instead of copying it. At closure,
+    retain only useful reusable observations. Use the installed
+    .cliewen-openspec/templates/learning.md for new notes, while preserving
+    existing formats and paths. Record situation, observed mistake,
+    evidence/source, correction, scope, limits, and last verification when
+    verified. Link the note from the existing index, or create a short README.md
+    index with title, scope, status, and link when a first useful note exists.
+    Merge duplicates by linking a canonical note and retiring old ones in place
+    with reasons. Retire stale guidance without deleting its history; promote
+    recurring lessons into suitable tests, rules, or durable documents. Never
+    invent evidence or turn lessons into new requirements or approval authority.
+    This is agent guidance, not a structural or factual content validator. When
+    features.mermaid is enabled (default true), prefer embedded Mermaid for
+    sequences, states, dependencies, and workflows when a diagram explains them
+    more clearly than prose. Use ASCII or plain text in fenced text blocks when
+    clearer, especially for file and directory trees and small sketches, or when
+    Mermaid cannot render. Plain text remains available when Mermaid guidance is
+    disabled. Keep a short explanation beside diagrams and maintain one
+    authoritative representation with the surrounding text. Prefer informative
+    illustrations or diagrams when they replace a longer explanation; include a
+    concise caption or accessible description of the main point without
+    repeating every detail in prose. Preserve useful existing project
+    conventions. Do not require a diagram when prose or a table is clearer. When
+    reviewing changed Markdown, use cliewen-openspec docs check with the
+    project's documentationChecks settings and existing document paths when the
+    CLI is available. Local-link, metadata and Mermaid checks default to
+    advisory; honor each category's off/advisory/enforce choice. Do not enable
+    disabled checks or broaden configured roots/exclusions silently. These
+    checks audit authored content; they do not authorize retrieving disabled
+    lessons as guidance. No new durable report is required. Report category
+    statuses and relevant findings, including changed files outside selected
+    scope, unavailable tooling and unsupported fragments. Exit 0 with advisory
+    findings does not establish valid documentation. The command checks local
+    references, optional YAML frontmatter and supported Mermaid grammar; native
+    OpenSpec validation, factual review and visual verification remain separate.
+    If the CLI is unavailable, use available focused checks and state their
+    limits without claiming the Cliewen command ran. Assess whether the work
+    needs an OpenSpec change from intended behavior, requirements, design
+    impact, and uncertainty, following OpenSpec conventions. A small correction
+    restoring unchanged accepted behavior can use relevant verification without
+    a new proposal. Reassess if investigation reveals new behavior or material
+    design choices. Scope each change as a coherent result that can be
+    understood and verified together. Small implementation tasks do not each
+    need a proposal; independent changes can proceed in parallel. When splitting
+    an oversized proposal, retain rationale and deferred obligations in the
+    project's planning authority when enabled, and reconcile the current
+    proposal, specs, design, and tasks so deferred work is not reported as
+    delivered. Before a consequential commitment, identify its riskiest
+    assumption, a credible alternative, the cheapest useful investigation, and a
+    stop or revision condition where the reviewer reads the choice. Ask whether
+    meeting every criterion could still fail the intended user. Routine
+    understood work needs no challenge report or explanation for its absence. On
+    resumption or contradictory evidence, reassess goals, dependencies, and the
+    next delivery. Surface mismatches and options and obtain direction for
+    material changes in agreed scope before continuing affected work. Ordinary
+    replanning does not automatically need a Decision Record. For consequential
+    unresolved choices, suggest optional grill-me when useful. Availability
+    alone does not request an interview. On user request, use the host's exposed
+    skill-loading mechanism to read grill-me and its grilling dependency before
+    following their instructions. If unavailable, inaccessible, or declined,
+    continue ordinary scoping and report relevant limits; do not install skills
+    automatically. Confirm shared understanding before acting and preserve
+    agreed conclusions in the relevant proposal, plan, or decision. Existing
+    approval boundaries still apply. For material uncertainty that needs
+    something concrete to try, read .cliewen-openspec/prototyping.md. Suggest a
+    bounded prototype only when useful; the user chooses it and understood work
+    proceeds normally. Keep native explore read-only for code and continue an
+    agreed experiment through the selected investigative change. Use
+    .cliewen-openspec/product-context.md for relevant product intent and
+    cross-capability journeys during scoping, design, investigation, and review.
+    Detect drift from the agreed outcome and distinguish in-scope corrections
+    from new wishes through existing scope rules; optional records follow
+    documentation/planning settings and routine work gains no new prerequisite.
+    Before requesting any manual step, assess whether available authorized tools
+    can perform it reliably. Automate feasible checks, setup, and evidence
+    collection while preserving verification quality and authorization. A
+    previously manual procedure is not sufficient reason to ask a person to
+    repeat it. Complete authorized preparation and explain the specific
+    remaining need for human judgment, access, or authority; request only that
+    contribution. Reassess when tools or access change. If automation fails or
+    access is unavailable, report the actual limitation and smallest remaining
+    action without claiming success or treating the limitation as permanent.
+    When useful human observations exist, preserve the supplied attribution,
+    checked behavior or scenario, tested version, relevant environment and
+    steps, actual results or problems, and limits. Keep unavailable details
+    explicitly unknown. Faithfully summarize actual feedback; label illustrative
+    examples and agent observations by their real origin. Automated checks
+    cannot establish a real user's subjective experience. If no human feedback
+    was collected, say so when relevant rather than inventing it or adding a
+    routine gate. Reuse an existing investigation, review, task note, ticket, or
+    handoff for observations with descriptive references to the checked
+    behavior. Optional durable documentation follows features.documentation and
+    existing paths; when disabled, create no optional observation document but
+    keep the handoff accurate. External records follow features.planning and
+    existing access/authorization rules. Preserve an observation's original
+    tested context when relevant behavior changes, identify it as historical,
+    and assess whether the changed behavior needs another check. Keep
+    observation, change approval, and release authorization distinct. Positive
+    feedback does not authorize unrelated scope or publication. Human
+    involvement follows concrete verification needs and project policy; routine
+    sufficiently verified authorized work proceeds independently. Discovery
+    findings use existing investigation records without fabricated product ACs
+    or execution evidence. For existing manual execution results, reason can
+    contain a concise observation or descriptive reference. Preserve the
+    version-1 report contract: scenario identities, configured test types,
+    scope, revision freshness, and manual-verification warnings still apply. A
+    durable historical observation does not satisfy current revision-bound
+    evidence. Never replace automated failures with a manual claim or report an
+    unperformed check as passed. These instructions cannot authenticate feedback
+    or establish automated proof. Read contextSelection.mode (default guided).
+    When off, request no extra context-selection pass or handoff. When guided,
+    first resolve the learning policy and its separate index-first gate, then
+    read .cliewen-openspec/context-selection.md for native-first selection. This
+    setting is independent of planning and documentation maintenance and does
+    not disable required native spec reading or change learning gates. Read
+    .cliewen-openspec/planning.md for optional planning guidance;
+    features.planning controls its planning-specific requests. For relevant
+    integration/review work with ciInspection configured and enabled, read
+    .cliewen-openspec/ci-inspection.md for advisory host inspection; this adds
+    no integration authorization. Review and close the investigation or prepare
+    its handoff. This workflow does not authorize production implementation.
+    Review sources, actual experiment observations, unresolved uncertainty,
+    recommendation, and human decision status. Preserve proposed status until a
+    human agrees. It is valid to end with no code change. If delivery is agreed,
+    create a separate cliewen-delivery change and link the investigation and
+    decision. Before archive, preserve useful durable knowledge and resolve any
+    temporary experiment cleanup. Use OpenSpec archive with --skip-specs after
+    human review when no product spec deltas are intended. Cliewen check
+    --change on a discovery change checks installation and registry health only
+    and reports discovery-review-required; it does not validate investigation
+    completeness or product test evidence. Before and after native OpenSpec
+    archive, read .cliewen-openspec/closure.md and apply its investigation
+    guidance and existing feature settings."

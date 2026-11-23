@@ -1,1 +1,5 @@
-schema: spec-driven
+schema: cliewen-delivery
+operations:
+  archive:
+    guidance:
+      - For changes using cliewen-delivery, cliewen-discovery, or cliewen-all, read .cliewen-openspec/config.yaml and .cliewen-openspec/closure.md and apply the relevant closure guidance before and after archive.

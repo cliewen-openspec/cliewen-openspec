@@ -1,0 +1,28 @@
+{
+  "version": "0.4.0",
+  "files": {
+    ".cliewen-openspec/templates/decision.md": "ede7f369e224f8995fb8869069fc484b2b8c3b306c52d25532a701f4f0ad32c4",
+    "openspec/schemas/cliewen-delivery/schema.yaml": "a0fe5813fa6c8adb9e61ad5b62041483d4235c46af2bd5e325fa26ec20d9f61f",
+    "openspec/schemas/cliewen-delivery/templates/proposal.md": "399e6fd1656176052a0af3f6cf0aca7cad1061e54ccc4e77d600f3c371009a7f",
+    "openspec/schemas/cliewen-delivery/templates/spec.md": "690c90c3c0172bcbf0b835215624081029b5dda389ef632e956690cbbc844a44",
+    "openspec/schemas/cliewen-delivery/templates/design.md": "ea33a57e7971f7e09325afc000fad90c1f757709616d6a8e6fc05754b8b3e0af",
+    "openspec/schemas/cliewen-delivery/templates/tasks.md": "8564f6bd4d1ba9c4b708655d77cce1f4a3eb29f7881a3bd89795a7e6542be60e",
+    "openspec/schemas/cliewen-discovery/schema.yaml": "ea7f50e3a807815ad383cd3cb52d37b01c006aba1bfc89ce4f761164f911e638",
+    "openspec/schemas/cliewen-discovery/templates/proposal.md": "914427e23c1934f9840b13446319790c0eceaa5c9a56c2be33df96c6d51021d6",
+    "openspec/schemas/cliewen-discovery/templates/investigation.md": "062a7842bfb90f03c6ff6137207179fe66ca45889b4d2c185b2a711f3902bdc7",
+    "openspec/schemas/cliewen-discovery/templates/decision.md": "d89118b3a1b3d9a1c1b0df76f0f6176abd8d51785adcd677e68a28b226c4a914",
+    "openspec/schemas/cliewen-all/schema.yaml": "7679ff56a835c3b377c40db9d33925f9c81d6ef7dce022d6447f114074e38d9e",
+    "openspec/schemas/cliewen-all/templates/proposal.md": "924d0b9831ca680be5e488146d5b7c0ef1deaa4aa48c73debaaacbabbd00b0a4",
+    "openspec/schemas/cliewen-all/templates/investigation.md": "062a7842bfb90f03c6ff6137207179fe66ca45889b4d2c185b2a711f3902bdc7",
+    "openspec/schemas/cliewen-all/templates/decision.md": "ff1ef12a860c28bba6a3f321e46a2f8ebbbb1fb1c4a2acfe0680bad90abe5513",
+    "openspec/schemas/cliewen-all/templates/spec.md": "690c90c3c0172bcbf0b835215624081029b5dda389ef632e956690cbbc844a44",
+    "openspec/schemas/cliewen-all/templates/tasks.md": "3f67ac5e81d3bf086d5b7b6ea71e3913f9fd6b8d4183dda75c8a40f16f78d54b",
+    ".cliewen-openspec/templates/learning.md": "3a3094ff8d0c100ec83eb38fab7b046ad31577842076e66d53df079b70dff560",
+    ".cliewen-openspec/planning.md": "413e45c798ddfc9d3375e501c5f78406627d12fde639f7784dee9864a274c4ea",
+    ".cliewen-openspec/closure.md": "53cadf633a40700706e9138a9f92d51c61b48366898303a7aca61cc5af6758b9",
+    ".cliewen-openspec/prototyping.md": "9d9e92505e9c7424852e3ee89b155d2456af50b2cfa5d3dcd5875894d7c211c9",
+    ".cliewen-openspec/product-context.md": "e30d7820b56ba3a0e90b8e7c47fa78cb45e25c2c01e9f81002536991e1161ac3",
+    ".cliewen-openspec/context-selection.md": "529336485f9a682cdac0d06decad97f8416b24c46d57284c1c7944084b6bc375",
+    ".cliewen-openspec/ci-inspection.md": "cd8f0ede05e4957b7ea9fbe6ef5ffe56c6224154df689ddee46cafc8432cd9d3"
+  }
+}

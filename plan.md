@@ -7,13 +7,11 @@ Completed releases are listed in the [changelog](CHANGELOG.md).
 
 ## Next action
 
-Review the [0.4.0 release evidence](docs/releases/0.4.0-preparation.md) before publication.
+Use the installed Cliewen workflow on the next real change and record any friction in this plan.
 
 ## Adopt Cliewen in this repository after 0.4.0
 
-After version 0.4.0 is published, install the latest stable OpenSpec and run its native `init` in this repository with project-local skills. OpenSpec 2.1.1 uses `--scope project` for that choice. Preserve the existing specs, archives, and project-owned settings. Use the published Cliewen for OpenSpec 0.4.0 package to install Delivery, Discovery, and Combined with the solo setup profile.
-
-Verify the installed versions, all three schemas, and the saved profile. Use the installed workflow on the next real change and record any friction in the plan. Tell contributors in the README that this repository uses the same published schemas and workflow they can install.
+The repository uses OpenSpec 2.1.1 with project-local skills and the three schemas installed from the published Cliewen for OpenSpec 0.4.0 package. The setup profile is solo and Delivery is the default. See the [release evidence](docs/releases/0.4.0-preparation.md) and the [repository workflow](README.md#how-this-repository-works).
 
 ## Deferred ideas
 

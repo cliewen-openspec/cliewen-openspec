@@ -1,0 +1,59 @@
+ciInspection:
+  mode: advisory
+  host: github
+  repository: null
+  branch: null
+  requiredChecks: []
+documentationChecks:
+  roots: []
+  exclude: []
+  links: advisory
+  metadata: advisory
+  mermaid: advisory
+  metadataRules: []
+contextSelection:
+  mode: guided
+  roots: []
+  exclude: []
+  maxFiles: 8
+readiness:
+  enabled: true
+  threshold: 3
+docsRoot: docs
+learnings:
+  enabled: false
+  directory: learnings
+writing:
+  humanizer: auto
+features:
+  documentation: true
+  decisions: true
+  mermaid: true
+  planning: true
+  review: true
+  evidence: true
+evidence:
+  report: .cliewen-openspec/evidence.json
+ac:
+  capabilities: {}
+  padding: 3
+testing:
+  quality:
+    coverage:
+      mode: review
+      minimumCases:
+        positive: 1
+        negative: 1
+        boundary: 0
+    effectiveness:
+      mode: review
+  lifecycle:
+    mode: review
+  placement: per-task
+  types:
+    Unit:
+      description: Isolated behavior without external dependencies
+    Integration:
+      description: Interaction between components or dependencies
+    E2E:
+      description: Complete user or system workflow

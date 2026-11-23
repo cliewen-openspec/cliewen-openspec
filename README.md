@@ -24,6 +24,12 @@ Evidence is enabled by default. [Read-only documentation checks](docs/configurat
 
 Use [the combined workflow](docs/guide/all.md) to investigate and deliver in one change, with a proposed decision and human approval before implementation. Its no-delivery branch uses native `skip_specs`, without fake product requirements.
 
+## How this repository works
+
+This repository uses Cliewen's published schemas and the solo setup profile. Delivery is the default for understood changes. Contributors can also choose Discovery to investigate a question or Combined to investigate and deliver in one change. OpenSpec skills are installed in the repository for Codex, Claude Code, and OpenCode.
+
+Use Node.js 22.20 or newer for this repository's OpenSpec tool, then run `npm ci`. See the [workflow guide](docs/guide/workflow.md).
+
 ## Install
 
 Use [CI requirement inspection](docs/configuration.md#ci-requirement-inspection-in-development-source) to see whether selected GitHub checks are required and what information is unavailable.
