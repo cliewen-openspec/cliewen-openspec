@@ -173,7 +173,9 @@ The agent can fix a clear omission within scope. The scope owner can accept an a
 
 After reviewing the plan, the agent briefly rates how clear the requested result is and how feasible it is to deliver and verify. With the default threshold of 3 out of 4, a difficult change can proceed if the behavior and verification are clear. When a score falls below the threshold, the agent checks what it already knows and pauses the affected work if it still needs an answer.
 
-For example, a ticket says to export an empty result but leaves the output format open. The agent can ask whether the CSV should contain column headers. With authorized access, it records that question on the ticket and uses the project's waiting status. When an answer arrives, another agent can read it, update the plan, and reassess. If the agent cannot update the ticket, it leaves the question and pending update in the handoff.
+For example, a ticket says to export an empty result but leaves the output format open. The agent can ask whether the CSV should contain column headers. With authorized access, it records the question, the OpenSpec change, and the paths to Cliewen's planning and configuration files on the ticket. It uses the project's waiting status.
+
+When an answer arrives, the next agent reads it on the ticket and updates the empty-export requirement and its test. The existing nonempty export stays as specified. If a ticket update is unavailable, the agent leaves the question and the pending update in the handoff.
 
 [Readiness settings](../configuration.md#implementation-readiness)
 

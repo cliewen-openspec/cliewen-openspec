@@ -71,6 +71,7 @@ test('all apply branches expose closure without adding an artifact or policy set
   const text = read(root, reference);
   const planning = read(root, '.cliewen-openspec/planning.md');
   for (const phrase of ['Assess implementation readiness', 'Use the lower score', 'retry only missing updates']) assert.ok(planning.includes(phrase), phrase);
+  for (const phrase of ['exact repository-relative paths to .cliewen-openspec/planning.md and .cliewen-openspec/config.yaml', 'without asking again or posting it back', 'Update only the outcomes, constraints, and verification that the answer settles']) assert.ok(planning.includes(phrase), phrase);
   for (const phrase of ['original request and accepted amendments', 'materially changed plan', 'In either delivery review', 'Keep unresolved items open']) assert.ok(planning.includes(phrase), phrase);
   for (const phrase of ['actual diff, tests, and affected documentation', 'missing behavior from missing or unavailable evidence', 'Preserve the review outcome']) assert.ok(text.includes(phrase), phrase);
   for (const phrase of ['For other schemas, continue their native workflow', 'features.documentation', 'features.decisions', 'learnings.enabled', 'With planning disabled, skip ticket access', 'Off skips its matching policy', 'shared active assertions', 'explicit accepted retirement', 'no synthetic product execution evidence', 'before retrying', '--capability NAME on both the Node adapter and check', 'whole-project scope', 'concrete pending update']) assert.ok(text.includes(phrase), phrase);
