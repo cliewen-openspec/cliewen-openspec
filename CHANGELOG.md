@@ -4,6 +4,8 @@ Changes that matter to projects using Cliewen for OpenSpec.
 
 ## Unreleased
 
+## 0.4.0 (2026-11-23)
+
 - Delivery agents assess whether the request and verification are clear enough to start. When a decision is missing, the agent can leave the question on an existing ticket so another agent can resume after the answer. Projects can adjust the threshold or turn the assessment off. [Readiness settings](docs/configuration.md#implementation-readiness)
 
 - Delivery guidance now asks agents to review the full plan before coding and the actual changes before archive. It helps catch unrequested work, missed requirements, and missing verification. [Review delivery scope](docs/guide/workflow.md#review-delivery-scope)
