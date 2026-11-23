@@ -7,6 +7,19 @@ Installing a Cliewen npm package updates the CLI. Run `update` to refresh the fi
 
 Version 0.4.0 accepts manifests from 0.1.0 through 0.4.0. Use the preview below to see which resources it will change. Alpha or unknown manifests and downgrades are rejected.
 
+## See whether an update is available
+
+From your project root, run:
+
+```sh
+npm ls cliewen-openspec --depth=0
+npm view cliewen-openspec@latest version
+```
+
+The first command shows the CLI version installed in your project. The second queries npm for the version tagged `latest`. The `version` field in `.cliewen-openspec/manifest.json` records the version of the files installed by Cliewen. Check it if you have already updated the CLI and want to know whether the project files still need an update.
+
+Choose a compatible version, then use the installation and preview steps below with that version. The preview shows what that CLI would change in your project.
+
 ## Check the requirements
 
 Version 0.4.0 requires Node 22.12+ and OpenSpec 1.15.0+. Init and update check those requirements before changing project files or recovering a transaction. Upgrade Node before installing 0.4.0. [Version compatibility](../configuration.md#version-compatibility)

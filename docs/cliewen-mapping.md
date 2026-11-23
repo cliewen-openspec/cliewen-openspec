@@ -1,50 +1,48 @@
 # Practice mapping
 
-This supersedes the earlier configuration-only mapping. See the [permanent specifications](../openspec/specs/) for accepted behavior.
+This comparison covers Cliewen [0.33.1](https://github.com/cliewen/cliewen/blob/f70e97c63236f640b58202448cbf921274972fe5/CHANGELOG.md) and Cliewen for OpenSpec 0.4.0, with extension sources reviewed at `3393174`. It groups related acceptance criteria by what a maintainer or agent can do. The findings come from repository sources and specifications.
 
-| Practice | Owner / carrier | Validation boundary |
-|---|---|---|
-| Change lifecycle and behavioral specs | OpenSpec | Native validation, sync and archive |
-| Delivery, discovery and combined workflow | Schemas from shared definitions | Schema validation and workflow fixtures |
-| Durable architecture/design | Shared docs and maintenance instructions | Metadata/links; factual accuracy reviewed |
-| Decision Records | Decisions folder; category/status frontmatter | Status/replacement links; humans accept |
-| Mermaid | Embedded Markdown diagrams | Syntax/rendered examples; meaning reviewed |
-| Vision/goals | Optional documents; inferred intent unconfirmed | Human confirmation, never invented at installation |
-| Plans/milestones | Repo plans or ticket system | Handoff links, no duplicate status source |
-| Acceptance identities | Registry adapter or persistent high-water marks | Duplicates, unknown/retired references, no reuse |
-| Test types and behavioral boundaries | Scenarios and evidence metadata | Structure checked, adequacy reviewed |
-| Execution evidence | Repository adapters and neutral JSON | Linkage, outcomes and freshness separate |
-| Positive/negative/boundary cases | Evidence declarations and focused review | Markers do not prove assertion quality |
-| Independent review | Optional fresh-context procedure | Retained findings; no mandatory platform |
-| Documentation impact | Proposal/tasks/apply/archive instructions | Advisory guidance versus deterministic checks |
-| Safe installation | Manifest and transaction journal | Conflict, rollback, idempotence, removal tests |
+**Covered** means the same practical outcome is available. **Partial** identifies a remaining difference. **Gap** means the extension has no equivalent. **Out of scope** identifies behavior assigned to project policy. The rows name when a check depends on an agent following guidance.
 
-## Compatibility and limits
+## Capability inventory
 
-Reuse Intent Engineering conventions, AC IDs, tags and scripts. Neither iec nor Cliewen runtime is required. Existing ADRs may stay in place during adoption. Specs own behavior; durable docs describe decisions and implemented architecture.
+| Cliewen capability | Outcome in Cliewen for OpenSpec |
+| --- | --- |
+| [CAP-001 Onboarding](https://github.com/cliewen/cliewen/blob/f70e97c63236f640b58202448cbf921274972fe5/docs/capabilities/CAP-001-onboarding/criteria.md) | Covered for safe adoption and managed upgrades. OpenSpec initializes the project and generates agent integrations. The extension previews managed writes, checks compatibility and ownership, and preserves authored files. Cliewen's corpus scaffolding and GitHub workflow caller are specific to its own workflow. [installation upgrades](../openspec/specs/installation-upgrades/spec.md) |
+| [CAP-002 Validation](https://github.com/cliewen/cliewen/blob/f70e97c63236f640b58202448cbf921274972fe5/docs/capabilities/CAP-002-validate/criteria.md) | Partial. Native validation covers changes and specs. Extension tools check acceptance evidence, supported local links, configured metadata, and Mermaid syntax. Cliewen additionally checks typed artifact relationships, index drift, milestone states, and provenance across its corpus. [documentation consistency](../openspec/specs/documentation-consistency/spec.md) · [evidence first verification](../openspec/specs/evidence-first-verification/spec.md) · [test quality policy](../openspec/specs/test-quality-policy/spec.md) · [test lifecycle](../openspec/specs/test-lifecycle/spec.md) |
+| [CAP-003 Brownfield extraction](https://github.com/cliewen/cliewen/blob/f70e97c63236f640b58202448cbf921274972fe5/docs/capabilities/CAP-003-extract/criteria.md) | Gap. Safe adoption preserves existing OpenSpec content. Cliewen can rehearse conversion from an existing project and check criterion parity, source fingerprints, imported changes, and the disposition of existing evidence. [installation upgrades](../openspec/specs/installation-upgrades/spec.md) |
+| [CAP-004 Release and distribution](https://github.com/cliewen/cliewen/blob/f70e97c63236f640b58202448cbf921274972fe5/docs/capabilities/CAP-004-ship/criteria.md) | Covered for versioned packages and managed updates. npm supplies the CLI and OpenSpec supplies agent integrations. Release discovery is partial. External reference checking is a gap. See the command comparison below. [installation upgrades](../openspec/specs/installation-upgrades/spec.md) |
+| [CAP-005 Index generation](https://github.com/cliewen/cliewen/blob/f70e97c63236f640b58202448cbf921274972fe5/docs/capabilities/CAP-005-indexes/criteria.md) | Gap. OpenSpec can list changes and specs. Cliewen also regenerates marked sections in Markdown indexes while preserving curated descriptions. [project context selection](../openspec/specs/project-context-selection/spec.md) |
+| [CAP-006 Routing and handoffs](https://github.com/cliewen/cliewen/blob/f70e97c63236f640b58202448cbf921274972fe5/docs/capabilities/CAP-006-collaborative-handoffs/criteria.md) | Covered by guidance for scoping work, reassessing plans on resumption, challenging assumptions, recording useful lessons, and preserving human observations. Partial for integration safety. CI inspection reports observed GitHub enforcement. Branch publication and Git review policy belong to the project. [work scoping](../openspec/specs/work-scoping/spec.md) · [project learnings](../openspec/specs/project-learnings/spec.md) · [human verification](../openspec/specs/human-verification/spec.md) · [ci enforcement inspection](../openspec/specs/ci-enforcement-inspection/spec.md) |
+| [CAP-007 Focused context](https://github.com/cliewen/cliewen/blob/f70e97c63236f640b58202448cbf921274972fe5/docs/capabilities/CAP-007-focused-context/criteria.md) | Partial. Agents use native OpenSpec retrieval and select documents by scope and available metadata. Cliewen can resolve an ID to a deterministic dependency slice with a depth limit and report what the limit held back. [project context selection](../openspec/specs/project-context-selection/spec.md) |
+| [CAP-008 Local verification](https://github.com/cliewen/cliewen/blob/f70e97c63236f640b58202448cbf921274972fe5/docs/capabilities/CAP-008-local-verification/criteria.md) | Covered for rerunnable local checks. Project-owned runners execute tests and the extension checks evidence, including evidence for one permanent capability at a given revision. Each project supplies its runner and adapter. [evidence first verification](../openspec/specs/evidence-first-verification/spec.md) |
+| [CAP-009 Product intent](https://github.com/cliewen/cliewen/blob/f70e97c63236f640b58202448cbf921274972fe5/docs/capabilities/CAP-009-product-intent/criteria.md) | Partial. Agent guidance links existing intent and cross-capability journeys to permanent specs. Cliewen also checks vision and use-case structure and reports which capabilities and plans serve each goal. [product context](../openspec/specs/product-context/spec.md) |
+| [CAP-010 Team-safe identity allocation](https://github.com/cliewen/cliewen/blob/f70e97c63236f640b58202448cbf921274972fe5/docs/capabilities/CAP-010-team-safe-identity-allocation/criteria.md) | Covered for recoverable Git-coordinated AC reservations across clones and worktrees. Partial for the broader ledger. Cliewen tracks more artifact types, supports batch handoff without allocator write access, and backfills declared historical IDs, including draft criteria. [acceptance id coordination](../openspec/specs/acceptance-id-coordination/spec.md) |
+| [CAP-012 Local acceptance](https://github.com/cliewen/cliewen/blob/f70e97c63236f640b58202448cbf921274972fe5/docs/capabilities/CAP-012-local-acceptance/criteria.md) | Out of scope. Cliewen can record a human decision on an exact candidate and base and integrate it. OpenSpec handles spec sync and archive. Each project controls Git integration. The revision-bound evidence check can independently establish which revision a test result applies to. [change closure](../openspec/specs/change-closure/spec.md) · [evidence first verification](../openspec/specs/evidence-first-verification/spec.md) |
+| [CAP-013 Readable references](https://github.com/cliewen/cliewen/blob/f70e97c63236f640b58202448cbf921274972fe5/docs/capabilities/CAP-013-readable-references/criteria.md) | Covered by guidance for prose and handoffs. Partial for tool output. Cliewen also resolves explicitly local subjects to readable names in diagnostics while retaining structured IDs. [factual writing](../openspec/specs/factual-writing/spec.md) |
 
-No global artifact graph, automatic Git/merge policy, merge-bound acceptance record, mandatory independent review, automatic migration or guarantee of semantic test correctness. Completed plans are not mechanically immutable. Parallel ID allocations can collide and must be checked. Unknown references alone do not establish why a scenario disappeared.
 
-## Direct transition from cliewen.dev
+## Additional CLI behavior
 
-The owner reported no current users and waived backward compatibility on November 3, 2026. [Decision 021: Ship 0.1.0 first and use a direct transition](decisions/021-first-release-and-direct-transition.md) removes user migration and old-address preservation as first-release obligations. The new package uses OpenSpec's workflow and does not depend on the old `clue` binary.
+The [Cliewen operations guide](https://github.com/cliewen/cliewen/blob/f70e97c63236f640b58202448cbf921274972fe5/guide/operations.md) describes these commands and reports.
 
-| Legacy Cliewen capability | OpenSpec-based disposition |
-|---|---|
-| Durable system corpus, goals, decisions, and explanations | Keep useful documentation practices through shared instructions and optional project documents; no fixed corpus graph validator |
-| `clue` changes, digest, and local/PR acceptance | Use OpenSpec changes, spec synchronization, and archive; no replacement for `clue accept` or automatic merge policy |
-| `.clue/evidence.yaml`, producers, classified references, and fingerprints | Use Cliewen's neutral execution reports and reference Node adapter; no automatic evidence-format conversion |
-| Shared identity ledger and Git coordination | Native per-capability allocation is available; adapters for an existing ledger and distributed allocation remain planned |
-| `clue context`, `next`, release checks, external-reference reports, and generated skills | No equivalent command suite is claimed; OpenSpec owns agent integrations and workflow context |
-| Binary/plugin installation and cliewen.dev installer URLs | The new product uses npm and project-local schemas; no legacy command or installer compatibility promise |
+| Cliewen behavior | Outcome in Cliewen for OpenSpec |
+| --- | --- |
+| `latest` and cached update notices | **Partial.** npm can report the published version. The extension previews what the CLI version you run will change. Cliewen also checks for updates automatically. [Update guide](guide/updating.md) |
+| `next` and `next --all` | **Partial.** OpenSpec reports active changes and their status. The agent uses the project's tickets or plan for priorities and dependencies. The extension has no cross-change command that reports the next milestone. [Project planning](../openspec/specs/project-planning/spec.md) |
+| `refs` and `refs --apply` | **Gap.** The extension checks local references. Cliewen also reports external addresses as reachable, restricted, redirected, gone, or unreachable and can apply redirect repairs. [Documentation consistency](../openspec/specs/documentation-consistency/spec.md) |
+| `validate --coverage` and evidence producers | **Partial.** The extension checks scoped execution evidence and configured test categories. Its report binds results to a revision, and it ships a Node reference adapter. Cliewen aggregates producer exports and fingerprints declared test, exporter, and discovery inputs. [Evidence contract](../openspec/specs/evidence-first-verification/spec.md) |
+| Reports for intent, reality gaps, context size, and index rows | **Gap** for the CLI reports. The extension provides agent guidance for product intent, project learning, and focused document selection. [Product context](../openspec/specs/product-context/spec.md) · [Project learnings](../openspec/specs/project-learnings/spec.md) |
+| `scaffold`, `migrate`, and change digest | **Partial.** Native setup, spec sync and archive, and the extension's update preview cover setup and managed updates. Cliewen's corpus conversion is a separate capability. [Installation and upgrades](../openspec/specs/installation-upgrades/spec.md) · [Change closure](../openspec/specs/change-closure/spec.md) |
 
-The comparison was refreshed against [Cliewen v0.32.0's README](https://github.com/cliewen/cliewen/blob/v0.32.0/README.md) and [operations guide](https://github.com/cliewen/cliewen/blob/v0.32.0/guide/operations.md). The clean local checkout was `fa0f45f`; this is a capability review, not an executed legacy migration or a comparative benchmark. The [first-release checklist](plans/first-release.md) owns transition execution and readiness.
+## Ideas to revisit
 
-## Sources
+1. **Check evidence at merge time.** The capability-level CSV test confirms that the existing check rejects an old report after a new commit. The remaining question is how projects should run that check on the candidate their CI will merge.
+2. **Follow a product goal to permanent specs.** Try tracing a real user journey after archive. If the connection is hard to recover, start with descriptive links from the existing goal or journey to the relevant specs.
+3. **Reassess a resumed ticket.** The guidance already calls for this. A targeted trial can check whether an agent notices that another change solved part of a ticket while it waited for clarification, preserves the remaining work, and surfaces material scope changes.
+4. **Explain how to check for updates.** The [update guide](guide/updating.md#see-whether-an-update-is-available) shows how to compare the installed CLI with npm and preview managed changes using the intended version.
 
-Original research: Cliewen v0.31.0 (`dc12a58`) and OpenSpec 1.14.1. Revised decisions reflect project planning; revalidate released-package compatibility before claiming support.
+5. **Check external documentation links.** Start with a read-only report for the guide. Distinguish confirmed broken destinations from redirects, restricted pages, and temporary failures. Keep network availability out of merge requirements.
+6. **Find the next actionable ticket.** Once the software factory has a real queue, use the project's selected ticket system for priority and blockers. Return the next eligible ticket, or explain why none is ready. Leave ticket status with its owner.
 
-- [OpenSpec customization](https://github.com/Fission-AI/OpenSpec/blob/main/docs/customization.md)
-- [Intent Engineering](https://intent-engineering-for-coding-agents.github.io/book/)
-- [AC IDs and coverage](https://intent-engineering-for-coding-agents.github.io/book/quality/ac-ids-coverage.html)
-- [Credits](../CREDITS.md)
+Open a proposal when an idea becomes actionable. [Decision 021 on the direct transition](decisions/021-first-release-and-direct-transition.md) and [Decision 023 on OpenSpec conventions](decisions/023-openspec-native-planning-and-closure.md) explain the project boundaries.
