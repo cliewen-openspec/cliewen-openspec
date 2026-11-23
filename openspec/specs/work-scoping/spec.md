@@ -60,3 +60,45 @@ The guidance SHALL reassess goals, dependencies, and the next delivery on resump
 #### Scenario: Dependency no longer holds
 - **WHEN** new evidence invalidates the next delivery's premise
 - **THEN** guidance surfaces the mismatch and options before continuing affected work
+
+### Requirement: Review the complete delivery plan
+
+Delivery guidance SHALL ask the agent to review all completed planning artifacts against the original request and accepted amendments before implementation. It SHALL ask the agent to repeat the review for any materially changed part of the plan.
+
+#### Scenario: The plan omits an agreed requirement
+
+- **WHEN** the artifacts agree with one another but omit a requested outcome, constraint, or way to verify it
+- **THEN** the agent guidance calls for a warning identifying the missing item and its impact
+- **AND** the agent can correct a clear omission within scope and review it again
+
+#### Scenario: The plan adds behavior outside the request
+
+- **WHEN** an artifact introduces a material addition beyond the reviewed scope
+- **THEN** the guidance asks the agent to flag the addition and seek a disposition from the scope owner
+- **AND** independent work within the agreed scope may continue
+
+#### Scenario: The original request is unavailable
+
+- **WHEN** the agent lacks the original request or cannot confirm a material amendment
+- **THEN** guidance asks it to disclose the gap and identify the specific context needed to finish the review
+
+### Requirement: Assess implementation readiness
+
+Delivery guidance SHALL assess outcome clarity and delivery feasibility separately before implementation. Cliewen SHALL default to an enabled assessment with threshold 3, independent of setup profile, and allow projects to change the threshold or disable the assessment.
+
+#### Scenario: Difficult work is well understood
+
+- **WHEN** both reasoned scores meet the threshold
+- **THEN** authorized work proceeds through its existing workflow without extra approval or a separate report
+
+#### Scenario: A material uncertainty lowers one score
+
+- **WHEN** either score is below the threshold
+- **THEN** the agent checks available evidence before asking for input and pauses the work affected by the uncertainty
+- **AND** the agent reassesses using the answer or a focused investigation
+- **AND** the agent stops asking once ready or when further questions cannot resolve the blocker
+
+#### Scenario: Project turns the assessment off
+
+- **WHEN** readiness is disabled
+- **THEN** the agent skips ratings and follows the ordinary workflow and existing authorization rules

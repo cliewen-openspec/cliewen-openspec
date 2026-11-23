@@ -5,13 +5,13 @@ type: reference
 
 Cliewen reads project settings from `.cliewen-openspec/config.yaml`.
 
-This reference describes Cliewen `0.3.0`. For an older package, consult the reference bundled with that version.
+This reference describes Cliewen `0.4.0`. For an older package, consult the reference bundled with that version.
 
 ## Version compatibility
 
-Cliewen 0.3.0 requires **Node.js 22.12 or newer** and **OpenSpec 1.15.0 or newer**. Git remains necessary for identity coordination and revision-bound evidence. The documentation checker runs independently of Git and OpenSpec. Versions 0.1.0 and 0.2.0 retain their Node 20.19+ requirements. The worked guide uses OpenSpec 2.0.0.
+Cliewen 0.4.0 requires **Node.js 22.12 or newer** and **OpenSpec 1.15.0 or newer**. Git remains necessary for identity coordination and revision-bound evidence. The documentation checker runs independently of Git and OpenSpec. Versions 0.1.0 and 0.2.0 retain their Node 20.19+ requirements. The worked guide uses OpenSpec 2.0.0.
 
-Cliewen 0.3.0 supports repository-local OpenSpec 2.0.0 workflows. External stores and multi-repo evidence remain unsupported. Init and update reject standalone stores and declared external planning layouts before recovery or writes. Local specs and changes take precedence when both exist.
+Cliewen supports repository-local OpenSpec 2.0.0 workflows. External stores and multi-repo evidence remain unsupported. Init and update reject standalone stores and declared external planning layouts before recovery or writes. Local specs and changes take precedence when both exist.
 
 OpenSpec has its own installation requirements:
 
@@ -31,7 +31,7 @@ Init/update check the target package's minimums, including previews, before reco
 
 The check uses the project's resolvable OpenSpec npm installation first, otherwise the CLI on PATH, including a standalone executable. It runs that installation's public `--version`; an incompatible or broken selected local installation does not fall back to a global version. Output identifies the source and detected versions. Missing tools, invalid/prerelease versions, execution failure, or a probe exceeding five seconds stop init/update with an actionable error. Cliewen neither downloads nor upgrades OpenSpec during this check.
 
-The 0.3.0 candidate accepts ownership manifests from 0.1.0, 0.2.0, and 0.3.0. Alpha manifests, unknown formats, and downgrades are rejected. See [updating an installation](guide/updating.md) for preview and apply examples.
+Version 0.4.0 accepts ownership manifests from 0.1.0 through 0.4.0. Alpha manifests, unknown formats, and downgrades are rejected. See [updating an installation](guide/updating.md) for preview and apply examples.
 
 ## Documentation checks in development source
 
@@ -149,6 +149,18 @@ The solo profile asks whether multiple clones or worktrees allocate IDs at the s
 
 The selected profile is stored in the project-owned `.cliewen-openspec/setup-profile.json`. Init, update, and uninstall preserve it when you make no new profile selection. [Switch an existing project from solo to team](guide/cli.md#choose-or-change-a-setup-profile)
 
+## Implementation readiness
+
+By default, before implementation the agent rates outcome clarity and delivery feasibility from 1 to 4. It uses the lower score and a threshold of 3. Solo and team projects use the same settings. Change the threshold to an integer from 2 through 4, or set `readiness.enabled` to `false` to skip the assessment.
+
+```yaml
+readiness:
+  enabled: true
+  threshold: 3
+```
+
+[How an agent handles an unanswered question](guide/workflow.md#assess-implementation-readiness)
+
 ## Full defaults
 
 This is the complete configuration written by `init`. Omitted fields use these values; unknown settings and invalid values fail validation. Changes apply when the next operation reads the config. They do not rewrite existing proposals or task lists.
@@ -173,6 +185,9 @@ contextSelection:
   roots: []
   exclude: []
   maxFiles: 8
+readiness:
+  enabled: true
+  threshold: 3
 docsRoot: docs
 learnings:
   enabled: false

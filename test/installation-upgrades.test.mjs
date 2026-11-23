@@ -60,7 +60,9 @@ test('release minimums use numerical stable-version comparisons and declared sou
   assert.equal(supportsInstallation('0.1.0'),true);
   assert.equal(supportsInstallation(version),true);
   assert.equal(supportsInstallation('0.2.0'),true);
-  for(const v of ['0.1.0-alpha.1','0.4.0','9.0.0',null])assert.equal(supportsInstallation(v),false);
+  assert.equal(supportsInstallation('0.3.0'),true);
+  const [major, minor] = version.split('.').map(Number);
+  for(const v of ['0.1.0-alpha.1',`${major}.${minor + 1}.0`,'9.0.0',null])assert.equal(supportsInstallation(v),false);
 });
 
 test('incompatible local tool wins over PATH and blocks writing, preview and recovery',t=>{

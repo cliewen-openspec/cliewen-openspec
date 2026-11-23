@@ -5,8 +5,32 @@ import os from 'node:os';
 import path from 'node:path';
 import { spawnSync, execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { init, check, nextId, recover, local, config, defaults, scenarios } from '../dist/core.js';
+import { init, update, check, nextId, recover, local, config, defaults, scenarios } from '../dist/core.js';
 function fixture(t) { const root = fs.mkdtempSync(path.join(os.tmpdir(), 'cliewen-')); t.after(() => fs.rmSync(root, { recursive: true, force: true })); for (const p of ['openspec/specs','openspec/changes']) fs.mkdirSync(path.join(root,p), {recursive:true}); return root; }
+
+test('readiness defaults apply to fresh and existing projects and remain independent of setup profiles', t => {
+  const root = fixture(t);
+  init(root, false, false);
+  const settings = path.join(root, '.cliewen-openspec/config.yaml');
+  const profile = path.join(root, '.cliewen-openspec/setup-profile.json');
+  assert.deepEqual(config(root).readiness, {enabled: true, threshold: 3});
+  fs.writeFileSync(settings, 'features:\n  planning: false\n');
+  for (const value of ['solo', 'team']) {
+    fs.writeFileSync(profile, JSON.stringify({version: 1, profile: value}));
+    assert.deepEqual(config(root).readiness, {enabled: true, threshold: 3});
+  }
+  for (const threshold of [2, 3, 4]) {
+    const custom = `# Project choices\nreadiness: {enabled: false, threshold: ${threshold}}\n`;
+    fs.writeFileSync(settings, custom);
+    assert.deepEqual(config(root).readiness, {enabled: false, threshold});
+    update(root);
+    assert.equal(fs.readFileSync(settings, 'utf8'), custom);
+  }
+  for (const value of ['null', '{enabled: "false"}', '{threshold: 1}', '{threshold: 5}', '{threshold: 3.5}', '{threshold: "3"}', '{unknown: true}']) {
+    fs.writeFileSync(settings, `readiness: ${value}\n`);
+    assert.throws(() => config(root), /readiness/);
+  }
+});
 
 test('test types replace defaults and reject incomplete definitions', t => {
   const root = fixture(t); init(root, false, false);
