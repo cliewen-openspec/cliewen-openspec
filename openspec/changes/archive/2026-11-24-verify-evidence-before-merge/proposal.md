@@ -14,4 +14,4 @@ A report collected on commit A should pass for A and fail for commit B. Fresh ev
 
 ## Existing knowledge
 
-The [evidence specification](../../specs/evidence-first-verification/spec.md) binds a report to the checked revision. The scoped CSV test already verifies rejection of stale evidence.
+The [evidence specification](../../../specs/evidence-first-verification/spec.md) binds a report to the checked revision. The scoped CSV test already verifies rejection of stale evidence.

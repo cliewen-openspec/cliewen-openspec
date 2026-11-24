@@ -96,6 +96,21 @@ The adapter records `scope: {"capability":"export"}`, the tested revision, and t
 
 Use the same capability name for both commands. The most recent collection replaces the configured report. After synchronization or archive changes the tested revision, commit the intended edits and collect again. CI can use the check's exit code directly. [Exit codes](../guide/cli.md#check)
 
+## Check evidence before merge
+
+Have CI check out the integration candidate selected by your host and set `CANDIDATE_SHA` to its full commit SHA. Install dependencies with `npm ci`. Then run this shell step in the clean checkout. Replace `export` and the test file with the capability and tests your project uses.
+
+```sh
+set -eu
+test "$(git rev-parse HEAD)" = "${CANDIDATE_SHA:?Set CANDIDATE_SHA to the CI candidate commit}"
+node node_modules/cliewen-openspec/adapters/node-test.mjs --capability export test/export.test.mjs
+npx --no-install cliewen-openspec check --capability export --fail-on-pending --json
+```
+
+The first check stops the job if CI checked out the wrong commit. The adapter runs the tests and writes fresh evidence for that checkout. Cliewen then checks the report, rejects stale evidence, and treats pending results as failures. Read any advisory findings separately.
+
+On GitHub Actions, when using the default checkout for an open `pull_request` or `merge_group` event, set `CANDIDATE_SHA` from `GITHUB_SHA`. The former tests GitHub's pull request merge revision. The latter tests the merge queue candidate. If you use a merge queue, run the required check on `merge_group` as well. Make the job a required check through your project's merge policy. The evidence identifies the tested candidate. A squash, rebase, or other operation that creates a different final commit requires a new run if you need evidence for that commit. [GitHub Actions events](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows) · [Required checks and merge queues](https://docs.github.com/en/pull-requests/how-tos/merge-and-close-pull-requests/troubleshooting-required-status-checks)
+
 The adapter records explicit metadata; it cannot establish whether a test actually exercises the claimed boundary. Review that boundary and task descriptions alongside assertions. See [test-type configuration](../configuration.md#test-types).
 
 Execution reports establish observed outcomes and revision freshness. Follow [evidence-first verification](../configuration.md#evidence-first-verification) to plan acceptance cases, assess assertion quality, and maintain tests. Historical recorder logs are preserved but no longer gate completion.
