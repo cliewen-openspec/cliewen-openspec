@@ -94,6 +94,28 @@ test('local tool probing is bounded and rejects broken selected packages',t=>{
   assert.throws(()=>compatibility(broken),/cannot be resolved/);
 });
 
+test('empty version output retries with a regular file and still validates the result', t => {
+  const root = fixture(t);
+  const versionOnlyToFile = body => `if (require('node:fs').fstatSync(1).isFile()) { ${body} }`;
+  localTool(root, versionOnlyToFile("console.log('1.17.0')"));
+  const before = snapshot(root);
+  assert.equal(lifecycle(root, 'init', true).compatibility.openspec.version, '1.17.0');
+  assert.deepEqual(snapshot(root), before);
+
+  for (const [script, expected] of [
+    ['', /unsupported/],
+    [versionOnlyToFile("console.log('1.14.9')"), /unsupported/],
+    [versionOnlyToFile("console.log('1.17.0'); process.exitCode = 1;"), /probe failed/],
+    [versionOnlyToFile("console.log(' '.repeat(65536) + '1.17.0')"), /probe failed/],
+    [`${versionOnlyToFile("console.log('1.17.0')")} else { console.log('invalid'); }`, /"invalid" is unsupported/],
+  ]) {
+    localTool(root, script);
+    const unchanged = snapshot(root);
+    assert.throws(() => lifecycle(root, 'init', false), expected);
+    assert.deepEqual(snapshot(root), unchanged);
+  }
+});
+
 test('missing PATH tool is actionable and does not initialize the project',t=>{
   const root=fixture(t),before=snapshot(root);
   withPath('',()=>assert.throws(()=>init(root,false,false),/OpenSpec not found.*1.15.0/));assert.deepEqual(snapshot(root),before);

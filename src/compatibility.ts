@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import {createRequire} from 'node:module';
 import {execFileSync} from 'node:child_process';
@@ -6,6 +7,8 @@ import {requirements, meetsMinimum} from './release.js';
 
 type Command = {file: string; args: string[]; source: string};
 export type Compatibility = {node: {version: string; minimum: string}; openspec: {version: string; minimum: string; source: string}};
+const versionProbeTimeout = 5000;
+const versionOutputLimit = 65536;
 
 function npmCommand(root: string): Command | undefined {
   let entry: string;
@@ -60,6 +63,40 @@ function pathCommand(): Command | undefined {
   }
 }
 
+function probeVersion(command: Command, root: string): string {
+  const deadline = performance.now() + versionProbeTimeout;
+  const args = [...command.args, '--version'];
+  const options = {cwd: root, windowsHide: true, env: {...process.env, OPENSPEC_TELEMETRY: '0', CI: '1'}};
+  const output = execFileSync(command.file, args, {
+    ...options, encoding: 'utf8', timeout: versionProbeTimeout, maxBuffer: versionOutputLimit,
+    stdio: ['ignore', 'pipe', 'pipe'],
+  }).trim();
+  if (output) return output;
+
+  // In some sandboxes Node exits successfully without writing to captured
+  // stdout. A regular file lets the same CLI emit its version synchronously.
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'cliewen-openspec-version-'));
+  const capture = path.join(directory, 'stdout');
+  try {
+    const file = fs.openSync(capture, 'wx+', 0o600);
+    try {
+      const remaining = Math.floor(deadline - performance.now());
+      if (remaining < 1) throw Error('OpenSpec version probe timed out');
+      execFileSync(command.file, args, {...options, timeout: remaining, stdio: ['ignore', file, 'ignore']});
+      const {size} = fs.fstatSync(file);
+      if (size > versionOutputLimit) throw Error('OpenSpec version output exceeds the capture limit');
+      const bytes = Buffer.alloc(size);
+      if (fs.readSync(file, bytes, 0, size, 0) !== size) throw Error('OpenSpec version capture changed while reading');
+      return bytes.toString('utf8').trim();
+    } finally {
+      fs.closeSync(file);
+    }
+  } finally {
+    fs.rmSync(capture, {force: true});
+    fs.rmdirSync(directory);
+  }
+}
+
 export function compatibility(root: string): Compatibility {
   const node = process.versions.node;
   if (!meetsMinimum(node, requirements.node)) throw Error(`Node ${node} is unsupported; requires Node ${requirements.node}+. Install a compatible Node runtime and rerun init/update.`);
@@ -67,7 +104,7 @@ export function compatibility(root: string): Compatibility {
   if (!command) throw Error(`OpenSpec not found; requires OpenSpec ${requirements.openspec}+ and Node ${requirements.node}+. Install a compatible project-local @fission-ai/openspec package or expose its standalone CLI on PATH, then rerun init/update.`);
   let output: string;
   try {
-    output = execFileSync(command.file, [...command.args, '--version'], {cwd: root, encoding: 'utf8', timeout: 5000, maxBuffer: 65536, windowsHide: true, stdio: ['ignore', 'pipe', 'pipe'], env: {...process.env, OPENSPEC_TELEMETRY: '0', CI: '1'}}).trim();
+    output = probeVersion(command, root);
   } catch {
     throw Error(`OpenSpec version probe failed or exceeded 5 seconds (${command.source}); requires OpenSpec ${requirements.openspec}+ runnable on Node ${node}. Repair the selected installation or its Node runtime and rerun init/update.`);
   }

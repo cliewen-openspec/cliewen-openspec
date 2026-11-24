@@ -49,6 +49,12 @@ npx --no-install cliewen-openspec update --json
 
 Update does not accept `--default`; it preserves `openspec/config.yaml` byte-for-byte. All commands accept `--root PATH` if you need to select a different project. An unchanged installation reports empty `writes` and `deletes` lists.
 
+### Apply an update from a restricted workspace
+
+An agent can preview an update in a workspace that protects Git metadata. Applying the update needs write access to the Git metadata directory because Cliewen uses the same lock for updates, recovery, and acceptance ID allocation. In the tested Codex CLI workspace sandbox, the preview succeeds and apply stops at this lock.
+
+After reviewing the preview, run `npx --no-install cliewen-openspec update --json` in the same checkout from a host terminal or CI job with the required Git metadata access. The command repeats the preflight before writing. The agent can then continue with the updated project files.
+
 ## Ownership and conflicts
 
 The existing `.cliewen-openspec/manifest.json` records the hashes of files installed by Cliewen. Update checks every conflict before applying its resource changes:
