@@ -14,4 +14,4 @@ Record what can be traced, where the trail ends, and what a reader would need to
 
 ## Existing knowledge
 
-The [product context specification](../../specs/product-context/spec.md) already directs agents to reuse relevant intent and link journeys to specs.
+The [product context specification](../../../specs/product-context/spec.md) already directs agents to reuse relevant intent and link journeys to specs.

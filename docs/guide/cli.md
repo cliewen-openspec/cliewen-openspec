@@ -43,13 +43,13 @@ When a teammate joins a project where you had turned off review guidance, previe
 cliewen-openspec profile team --shared-review --json
 ```
 
-The preview shows the profile change and recommends enabling `features.review`. Apply just those two choices with:
+The preview shows the profile change and recommends enabling `features.review`. Apply just those two choices with the command below. [Requirements for switching profiles](../../openspec/specs/project-setup-profiles/spec.md#requirement-change-profiles-in-an-existing-project)
 
 ```sh
 cliewen-openspec profile team --shared-review --apply --enable-review --json
 ```
 
-To save just the profile in a script, run `cliewen-openspec profile team --apply --json`. To select settings interactively, run `cliewen-openspec profile team --apply` in a terminal. If separate clones or worktrees allocate IDs concurrently, answer yes when asked or pass `--concurrent` to see how to preview Git coordination. [Profile defaults and storage](../configuration.md#setup-profiles)
+To save just the profile in a script, run `cliewen-openspec profile team --apply --json`. To select settings interactively, run `cliewen-openspec profile team --apply` in a terminal. If separate clones or worktrees allocate IDs concurrently, answer yes when asked or pass `--concurrent` to see how to preview Git coordination. [Profile defaults and storage](../configuration.md#setup-profiles) · [Requirements for reserving IDs across clones](../../openspec/specs/acceptance-id-coordination/spec.md#requirement-durable-atomic-reservations)
 
 ## ci inspect
 
