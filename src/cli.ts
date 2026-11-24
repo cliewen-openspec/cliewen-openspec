@@ -41,14 +41,21 @@ try {
     process.exitCode = result.exitCode;
   }
   else if (command === 'docs') {
-    if (args.length !== 1 || args[0] !== 'check') throw Error('Use docs check [--json] [--root PATH]');
+    const external = flag('--external-links');
+    if (args.length !== 1 || args[0] !== 'check') throw Error('Use docs check [--external-links] [--json] [--root PATH]');
     const {checkDocumentation} = await import('./documentation.js');
-    const result = await checkDocumentation(root);
+    const result = await checkDocumentation(root, external);
+    const report = result.externalLinks;
     console.log(json ? JSON.stringify(result, null, 2) : [
       `Documentation: ${result.scope.readFiles} files read; exit policy ${result.ok ? 'passed' : 'blocked'}.`,
       ...Object.entries(result.categories).map(([category, value]) => `${category}: ${value.status} (${value.mode}; ${value.checked} checked)`),
       ...result.findings.map(f => `${f.severity.toUpperCase()} ${f.code} ${f.path}${f.line ? ':' + f.line : ''}: ${f.message}`),
-      `Non-local references skipped: ${result.scope.nonLocalReferences}. Mermaid checks syntax only; factual correctness and visual rendering are not assessed.`
+      `Non-local references ${report ? 'outside local check' : 'skipped'}: ${result.scope.nonLocalReferences}. Mermaid checks syntax only; factual correctness and visual rendering are not assessed.`,
+      ...(report ? [
+        `External links (advisory): ${report.results.length} destinations reported; ${report.omittedReferences} references omitted.`,
+        ...(report.collectionIncomplete ? ['External link collection was incomplete.'] : []),
+        ...report.results.map(entry => `${entry.status} ${entry.url}${entry.httpStatus ? ` (HTTP ${entry.httpStatus})` : ''}${entry.reason ? ` — ${entry.reason}` : ''} — ${entry.sources.map(source => `${source.path}:${source.line}`).join(', ')}`),
+      ] : []),
     ].join('\n'));
     process.exitCode = result.exitCode;
   }
@@ -87,7 +94,7 @@ try {
     const findings = check(root, change, failPending, capability); const ok = !findings.some(f => f.severity === 'error');
     console.log(json ? JSON.stringify({ ok, findings }, null, 2) : findings.map(f => `${f.severity.toUpperCase()} ${f.code}: ${f.message}`).join('\n'));
     process.exitCode = ok ? 0 : 1;
-  } else if (!command || command === '--help') console.log('cliewen-openspec\ninit [--default] [--dry-run] [--profile solo|team]\nprofile solo|team [--concurrent] [--shared-review] [--apply [--enable-review]] [--json]\nupdate [--dry-run] [--json]\nuninstall [--default-schema NAME] [--dry-run] [--json]\nac next --capability NAME\nac next PREFIX (registered active prefix only)\nac rename-prefix CAPABILITY PREFIX\nac coordinate REMOTE [--apply] (preview by default)\nac sync\nac resume\nac abandon\ndocs check [--json]\nci inspect [--json]\ncheck [--change NAME | --capability NAME] [--json] [--fail-on-pending]\nrecover\nAll commands accept --root PATH.');
+  } else if (!command || command === '--help') console.log('cliewen-openspec\ninit [--default] [--dry-run] [--profile solo|team]\nprofile solo|team [--concurrent] [--shared-review] [--apply [--enable-review]] [--json]\nupdate [--dry-run] [--json]\nuninstall [--default-schema NAME] [--dry-run] [--json]\nac next --capability NAME\nac next PREFIX (registered active prefix only)\nac rename-prefix CAPABILITY PREFIX\nac coordinate REMOTE [--apply] (preview by default)\nac sync\nac resume\nac abandon\ndocs check [--external-links] [--json]\nci inspect [--json]\ncheck [--change NAME | --capability NAME] [--json] [--fail-on-pending]\nrecover\nAll commands accept --root PATH.');
   else throw Error(`Unknown command: ${command}`);
 } catch (e) {
   const message = e instanceof Error ? e.message : String(e);

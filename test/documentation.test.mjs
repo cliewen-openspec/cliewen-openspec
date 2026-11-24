@@ -186,12 +186,13 @@ test('parser initialization failures and hangs are incomplete with a real subpro
   assert.deepEqual(r.outcomes,['incomplete']);assert.ok(performance.now()-started>=4900);assert.ok(performance.now()-started<10000);
 });
 
-test('Markdown and Mermaid parsing do not execute HTML or fetch local resources',async t=>{
+test('Markdown and Mermaid parsing do not execute HTML or fetch local resources [DOCS-001] [Test-type: Integration] [Case: offline] [Coverage: negative]',async t=>{
   let requests=0;const server=createServer((_q,response)=>{requests++;response.end('resource');});
   await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));t.after(()=>server.close());
   const root=fixture(t,{mermaid:'enforce'}),url=`http://127.0.0.1:${server.address().port}/image`;
-  write(root,'docs/diagrams.md',`<script>fetch('${url}')</script>\n<img src="${url}">\n\n\`\`\`mermaid\nflowchart LR\n A["<img src='${url}'>"] --> B\n\`\`\`\n`);
+  write(root,'docs/diagrams.md',`[External image](${url})\n\n<script>fetch('${url}')</script>\n<img src="${url}">\n\n\`\`\`mermaid\nflowchart LR\n A["<img src='${url}'>"] --> B\n\`\`\`\n`);
   const r=await checkDocumentation(root);assert.equal(r.mermaidParserVersion,'12.2.0');assert.equal(requests,0);assert.equal(r.exitCode,0);
+  assert.equal(Object.hasOwn(r, 'externalLinks'), false);
 });
 
 test('CLI keeps warnings distinct from blocking findings and usage errors without Git or OpenSpec',t=>{
@@ -216,4 +217,29 @@ test('packed documentation command includes its parsers in production-only insta
   assert.equal(result.mermaidParserVersion,'12.2.0');for(const value of Object.values(result.categories))assert.equal(value.status,'passed');
   for(const name of ['@fission-ai/openspec','vitepress','playwright'])assert.equal(fs.existsSync(path.join(root,'node_modules',name)),false,name);
   assert.equal(fs.existsSync(path.join(root,'.git')),false);assert.deepEqual(snapshot(root),before);
+});
+
+test('external CLI report honors Markdown scope and existing exit policy [DOCS-001] [Test-type: Integration] [Case: opt-in] [Coverage: positive]', t => {
+  const root = fixture(t, {links: 'enforce', roots: ['docs'], exclude: ['docs/excluded']});
+  write(root, 'docs/guide.md', '# Guide\n\n[Local destination](http://127.0.0.1/)\n\n![Local image][image]\n\n[image]: http://127.0.0.1/#image\n\n`[example](http://10.0.0.1/)`\n');
+  write(root, 'docs/excluded/hidden.md', '[Excluded](http://192.168.0.1/)');
+  const run = (...args) => {
+    const result = spawnSync(process.execPath, [cli, 'docs', 'check', '--root', root, '--json', ...args], {encoding: 'utf8', timeout: 10000});
+    assert.ifError(result.error);
+    return {exit: result.status, report: JSON.parse(result.stdout)};
+  };
+  const before = snapshot(root);
+  assert.equal(Object.hasOwn(run().report, 'externalLinks'), false);
+  const checked = run('--external-links');
+  assert.equal(checked.exit, 0);
+  assert.deepEqual(checked.report.externalLinks.results.map(({url, status, sources}) => ({url, status, sources})), [
+    {url: 'http://127.0.0.1/', status: 'skipped', sources: [{path: 'docs/guide.md', line: 3}, {path: 'docs/guide.md', line: 5}]},
+  ]);
+  assert.deepEqual(snapshot(root), before);
+  write(root, 'docs/guide.md', '[Missing local file](missing.md)\n\n[Private](http://10.0.0.1/)');
+  assert.equal(run('--external-links').exit, 1);
+  settingsAt(root, {roots: ['absent']});
+  const incomplete = run('--external-links');
+  assert.equal(incomplete.exit, 0);
+  assert.equal(incomplete.report.externalLinks.collectionIncomplete, true);
 });

@@ -7,6 +7,7 @@ import {config, local} from './core.js';
 import {requirements, meetsMinimum} from './release.js';
 import {documentationCategories, type DocumentationCategory, type DocumentationMode} from './documentation-settings.js';
 import {checkDiagrams, type DiagramInput} from './mermaid-check.js';
+import type {ExternalLinks} from './external-links.js';
 
 type Status = 'passed' | 'issues' | 'incomplete' | 'off' | 'not-applicable';
 type DocFinding = {code: string; category: DocumentationCategory; severity: 'warning' | 'error'; path: string; line?: number; message: string; incomplete: boolean};
@@ -92,11 +93,12 @@ function document(file: string, source: string): Document {
   return {path: file, body, offset, metadata, metadataClosed, tokens, headings, customAnchors};
 }
 
-export async function checkDocumentation(root: string) {
+export async function checkDocumentation(root: string, includeExternal = false) {
   if (!meetsMinimum(process.versions.node, requirements.node)) throw Error(`Node ${process.versions.node} is unsupported; requires Node ${requirements.node}+. Install a compatible Node runtime.`);
   root = path.resolve(root);
   const c = config(root), settings = c.documentationChecks;
   const roots = settings.roots.length ? settings.roots : [slash(path.posix.normalize(slash(c.docsRoot)))];
+  const external = includeExternal ? new (await import('./external-links.js')).ExternalLinks() : undefined;
   const findings: DocFinding[] = [];
   const categories = Object.fromEntries(documentationCategories.map(category => [category, {mode: settings[category], status: settings[category] === 'off' ? 'off' : 'not-applicable', checked: 0}])) as Record<DocumentationCategory, {mode: DocumentationMode; status: Status; checked: number}>;
   const scope = {roots, exclude: settings.exclude, selectedFiles: 0, readFiles: 0, excludedPaths: 0, reservedPaths: 0, nonLocalReferences: 0};
@@ -104,16 +106,19 @@ export async function checkDocumentation(root: string) {
     if (settings[category] === 'off') return;
     findings.push({category, code, path: file, line, message, incomplete, severity: settings[category] === 'enforce' ? 'error' : 'warning'});
   };
-  const unavailable = (file: string, code: string, message: string) => {for (const category of documentationCategories) add(category, code, file, message, undefined, true);};
-  const result = (parserVersion: string | null = null) => {
+  const unavailable = (file: string, code: string, message: string) => {
+    if (external) external.collectionIncomplete = true;
+    for (const category of documentationCategories) add(category, code, file, message, undefined, true);
+  };
+  const result = (parserVersion: string | null = null, externalLinks?: Awaited<ReturnType<ExternalLinks['report']>>) => {
     for (const category of documentationCategories) if (settings[category] !== 'off') {
       const own = findings.filter(f => f.category === category);
       categories[category].status = own.some(f => f.incomplete) ? 'incomplete' : own.length ? 'issues' : categories[category].checked ? 'passed' : 'not-applicable';
     }
     const exitCode = findings.some(f => f.severity === 'error') ? 1 : 0;
-    return {ok: exitCode === 0, exitCode, scope, limits: documentationLimits, categories, anchorDialect: 'github-slugger', mermaidParserVersion: parserVersion, findings};
+    return {ok: exitCode === 0, exitCode, scope, limits: documentationLimits, categories, anchorDialect: 'github-slugger', mermaidParserVersion: parserVersion, findings, ...(externalLinks && {externalLinks})};
   };
-  if (documentationCategories.every(category => settings[category] === 'off')) return result();
+  if (!external && documentationCategories.every(category => settings[category] === 'off')) return result();
   const selected = new Set<string>(), visited = new Set<string>();
   const pending = [...roots].sort().reverse();
   let entries = 0, stopped = false;
@@ -166,6 +171,13 @@ export async function checkDocumentation(root: string) {
   }
   const diagrams: DiagramInput[] = [];
   for (const doc of documents.values()) {
+    if (external) {
+      if (!doc.metadataClosed) external.collectionIncomplete = true;
+      for (const {child, line} of inlineTokens(doc)) {
+        if (child.type === 'link_open') external.add(String(child.attrGet('href') ?? ''), {path: doc.path, line});
+        if (child.type === 'image') external.add(String(child.attrGet('src') ?? ''), {path: doc.path, line});
+      }
+    }
     if (!doc.metadataClosed) for (const category of ['links', 'mermaid'] as const) add(category, 'docs-body-unchecked', doc.path, 'Unclosed frontmatter leaves the Markdown body boundary unknown.', 1, true);
     if (settings.metadata !== 'off') {
       categories.metadata.checked++;
@@ -198,17 +210,23 @@ export async function checkDocumentation(root: string) {
     if (outcome === 'invalid') add('mermaid', 'docs-mermaid-syntax', diagram.path, 'Mermaid syntax is invalid for the included parser.', diagram.line);
     if (outcome === 'incomplete') add('mermaid', 'docs-mermaid-unavailable', diagram.path, 'Mermaid parsing did not complete; check the installation or the documented limits.', diagram.line, true);
   });
-  return result(parsed.version);
+  return result(parsed.version, await external?.report());
+}
+
+function* inlineTokens(doc: Document) {
+  for (const token of doc.tokens) {
+    const line = (token.map?.[0] ?? 0) + doc.offset + 1;
+    for (const child of token.children ?? []) yield {child, line};
+  }
 }
 
 type AddFinding = (category: DocumentationCategory, code: string, file: string, message: string, line?: number, incomplete?: boolean) => void;
 function checkLinks(doc: Document, root: string, identities: Map<string, Document>, directories: Map<string, string[]>, category: {checked: number}, scope: {nonLocalReferences: number}, add: AddFinding) {
   category.checked++;
-  for (const token of doc.tokens) for (const child of token.children ?? []) {
-    if (child.type === 'docs_reference_missing') {add('links', 'docs-reference-undefined', doc.path, 'Explicit Markdown reference has no definition.', (token.map?.[0] ?? 0) + doc.offset + 1); continue;}
+  for (const {child, line} of inlineTokens(doc)) {
+    if (child.type === 'docs_reference_missing') {add('links', 'docs-reference-undefined', doc.path, 'Explicit Markdown reference has no definition.', line); continue;}
     if (!['link_open', 'image'].includes(child.type)) continue;
     const href = String(child.attrGet(child.type === 'image' ? 'src' : 'href') ?? '');
-    const line = (token.map?.[0] ?? 0) + doc.offset + 1;
     if (/^(?:[a-z][a-z\d+.-]*:|\/)/i.test(href)) {scope.nonLocalReferences++; continue;}
     const hash = href.indexOf('#'), query = href.indexOf('?');
     const end = Math.min(...[hash, query, href.length].filter(n => n >= 0));

@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "capabilities": {
+    "documentation-consistency": {
+      "prefix": "DOCS",
+      "previousPrefixes": [],
+      "highWater": 3
+    }
+  },
+  "unassignedPrefixes": {}
+}

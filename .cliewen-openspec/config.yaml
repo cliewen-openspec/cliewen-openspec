@@ -35,7 +35,8 @@ features:
 evidence:
   report: .cliewen-openspec/evidence.json
 ac:
-  capabilities: {}
+  capabilities:
+    documentation-consistency: DOCS
   padding: 3
 testing:
   quality:

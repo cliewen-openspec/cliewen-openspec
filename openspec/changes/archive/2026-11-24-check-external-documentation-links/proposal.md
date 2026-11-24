@@ -22,4 +22,4 @@ None.
 
 ## Impact
 
-Affects the documentation checker and its CLI guide. See the [current documentation checks](../../specs/documentation-consistency/spec.md).
+Affects the documentation checker and its CLI guide. See the [documentation consistency specification](../../../specs/documentation-consistency/spec.md).

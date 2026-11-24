@@ -89,6 +89,21 @@ Local links, optional frontmatter and Mermaid syntax default to advisory checks.
 
 Inspect `categories` and `findings` in JSON. Status distinguishes `passed`, `issues`, `incomplete`, `off` and `not-applicable`; `ok` describes exit policy. No selected files is an explicit empty scope. This command checks mechanical consistency; it does not establish factual correctness or visual rendering, and it does not replace native OpenSpec validation or execution evidence.
 
+### Check external links
+
+The development version can check public HTTP and HTTPS destinations from the same selected Markdown files. Run it when reviewing or maintaining external links:
+
+```sh
+cliewen-openspec docs check --external-links
+cliewen-openspec docs check --external-links --json
+```
+
+The report lists each destination once with its source files and lines. A successful response is reachable. A redirect is reported without following it. HTTP 404 and 410 mean missing, while 401, 403, and 451 mean restricted. Rate limits, server errors, and connection failures are inconclusive. The check skips credential-bearing URLs, non-default ports, and destinations without an eligible public address.
+
+The report covers Markdown links and images. URL fragments and raw HTML are outside its scope. It uses HEAD, with a GET fallback for servers that return 405 or 501, and discards the response body. It probes up to 100 destinations from up to 1,000 references, with six probes at once, four seconds per destination and 20 seconds for the network phase. URLs longer than 4,096 bytes are omitted. JSON includes these limits, source collection status, and any omitted references under `externalLinks`.
+
+External results are advisory. The existing local checks still determine the exit code. Run the command without the flag for an offline check.
+
 ## update
 
 ```sh

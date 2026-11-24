@@ -1,0 +1,162 @@
+version: 1
+scope:
+  change: check-external-documentation-links
+baseline: b9d867486f52769bd57009ae6081005899f4554c
+inputs:
+  .cliewen-openspec/ac-registry.json: 173c4c085a635f6860265c063b86cdfee7a2179c68775c0fc48d4b7c5a9e7b11
+  .cliewen-openspec/config.yaml: 96136686ac08b54e19f0f1e55a385b71d7efdd5aa12aa68272261f2b8598f1e3
+  adapters/node-test.mjs: ab3fd1f733ca54601b138641d3631ba768740055d7363d29b0fce696f5516f8b
+  openspec/changes/check-external-documentation-links/.openspec.yaml: 4df8fd37b22737a38499287b6f900bf0823bc80b6e76254cf417be45db22cd69
+  openspec/changes/check-external-documentation-links/specs/documentation-consistency/spec.md: 628c04a3935fd6c93862171f5e4b1fd536f2254d8b5dc56778b917822299a898
+  openspec/changes/check-external-documentation-links/tasks.md: 4240c58afd74a0fb474627f0d3f58cc04d6d44052a54b7a0125393e706db431c
+  openspec/specs/acceptance-id-coordination/spec.md: 0884478db685abe4474e0dad655c92367f69f8bbc7545e4526e66d9fd2d47ae8
+  openspec/specs/change-closure/spec.md: d4c805ada6bd91bbb16715d65483689ccf6f0bece673bfbae455300795cbaf2b
+  openspec/specs/ci-enforcement-inspection/spec.md: a7877035471aceba7a5ecbec755354b11fa8a41508395c8f2c4ff3dd736f0e5c
+  openspec/specs/documentation-consistency/spec.md: 38fe0f169b701115b652378145df4485f417e2393818d24faff0964dad4da4d7
+  openspec/specs/evidence-first-verification/spec.md: cd59975ff454c9374b6d35ea639e3f57a8c5708f9c5faa5ed3af887ea7e76459
+  openspec/specs/factual-writing/spec.md: 07c5e0a8eff313763bcf9f874435a890ce9fc5b57557783eac269b04136b7db4
+  openspec/specs/human-verification/spec.md: f839abc505f700061b26da58ab803ecc40879bbe1e954bc04b2bbcaef079230c
+  openspec/specs/installation-upgrades/spec.md: a1443165686a9101f0840c04a234cdfaa31df3071ff44070472c7866e827db7c
+  openspec/specs/optional-humanizer/spec.md: 593af1de6bc9aef381ed3b0c8d74a224e37dda8603ebf06050c164ec0a064bbf
+  openspec/specs/product-context/spec.md: 3abd148b6d3497ab3ae23171c0f9be54e9b648aa85eea30eb3fe6b4602c062e8
+  openspec/specs/project-context-selection/spec.md: 359150f3993e905f8d1f018f434d0c8b65a4f9bf07ce8dcb7e71ff21c8f5f0f3
+  openspec/specs/project-learnings/spec.md: 924a15147396ac71bef873da4e6922460bf229fa9614f1a70b637108539096a2
+  openspec/specs/project-planning/spec.md: 6ba1b2f4653704647ad381d19f829e17dd86fdcb7aea26f19e7d5fadf0686835
+  openspec/specs/project-setup-profiles/spec.md: 00b682be9e81c1a7b7eb1c24a7b3fedb9268bdd9083b2f236e1387b61c36fe95
+  openspec/specs/prototype-experiments/spec.md: 425f14af7474e5a5016ccd15d0238b58a82658f8ed772f34a5c564670a8d8030
+  openspec/specs/test-lifecycle/spec.md: 8fc00bac245403f9bb164a6c38e8b4d576d6f6dcb6a90cc3f5b4741f6b5a7d5a
+  openspec/specs/test-quality-policy/spec.md: d0168f2dc0cc58b738671cf508e778f1bcb7842f7386db5548849be56bf94b00
+  openspec/specs/work-scoping/spec.md: eca07326b15c24066fd61f08d68ab6b645add524211bf0c8b943a0c8e802ab1b
+  package-lock.json: 56219c0350a8a0cb2dca37ed8536ee626c72ea39c2c27fcb316f81d52b76e8ac
+  package.json: 37c361d82b445910324eac5918c79cad5a9ff1fde3b4e64423947271a89a3ca0
+  src/cli.ts: f418232aad65c6201ca4f926dd90f092005978fa8f473631da3ea821c48c2ec5
+  src/core.ts: ffd0f0d72a85b1f826b62661cc46a97a9116f7c48f4d9ba4d1628946e37c1a61
+  src/documentation-settings.ts: c39ff3b36e6e9ef26fd6743de781528151d51247a35541062eaf2923f296f5b0
+  src/documentation.ts: aeabbf5552e75ca383175497156654058a8accd1a1b7a5876d8b34c97bba01fb
+  src/external-links.ts: 034570a00f6e83953967dbf88f4eb240cff19e8758d1ffc5a090142e77f538f3
+  src/mermaid-check.ts: 28899fb6a419b6eea43fce7de57e5a0c206cbd61b65b9f02ce4f8b171696c9c7
+  test/documentation.test.mjs: 736d2ad0b291713adbfaaed787ef941b249a1ca7c44f629e926469c8e8491389
+  test/external-links.test.mjs: 2f58b3b8a3d173526d04dbfae5a5ffbeaab88d20afbbe905fea7d89988340156
+effectiveness:
+  - scenario: DOCS-001
+    cases:
+      - offline
+    testFiles:
+      - test/documentation.test.mjs
+    sourceFiles:
+      - src/documentation.ts
+    method: controlled-fault
+    assertion: The ordinary check omits the external report and does not contact the local fixture.
+    defect: Enable external collection without checking the flag.
+    command:
+      - node
+      - --test
+      - --test-reporter=tap
+      - --test-name-pattern
+      - Markdown and Mermaid parsing do not execute
+      - test/documentation.test.mjs
+    observation: The absent-report assertion failed.
+    failureKind: behavior
+    status: reviewed
+  - scenario: DOCS-001
+    cases:
+      - opt-in
+    testFiles:
+      - test/documentation.test.mjs
+    sourceFiles:
+      - src/documentation.ts
+    method: controlled-fault
+    assertion: The CLI adds the external report only on opt-in.
+    defect: Enable external collection without checking the flag.
+    command:
+      - node
+      - --test
+      - --test-reporter=tap
+      - --test-name-pattern
+      - external CLI report
+      - test/documentation.test.mjs
+    observation: The default CLI report unexpectedly contained external results.
+    failureKind: behavior
+    status: reviewed
+  - scenario: DOCS-002
+    cases:
+      - response-status
+    testFiles:
+      - test/external-links.test.mjs
+    sourceFiles:
+      - src/external-links.ts
+    method: controlled-fault
+    assertion: A 404 result is classified as missing.
+    defect: Report missing HTTP responses as reachable.
+    command:
+      - node
+      - --test
+      - --test-reporter=tap
+      - --test-name-pattern
+      - classifies HTTP outcomes
+      - test/external-links.test.mjs
+    observation: The expected missing status was replaced by reachable.
+    failureKind: behavior
+    status: reviewed
+  - scenario: DOCS-002
+    cases:
+      - head-fallback
+    testFiles:
+      - test/external-links.test.mjs
+    sourceFiles:
+      - src/external-links.ts
+    method: controlled-fault
+    assertion: A server that rejects HEAD can still report a successful GET.
+    defect: Disable the GET fallback after an unsupported HEAD request.
+    command:
+      - node
+      - --test
+      - --test-reporter=tap
+      - --test-name-pattern
+      - falls back to GET
+      - test/external-links.test.mjs
+    observation: The probe returned an inconclusive status where the test expected reachable.
+    failureKind: behavior
+    status: reviewed
+  - scenario: DOCS-003
+    cases:
+      - address-safety
+    testFiles:
+      - test/external-links.test.mjs
+    sourceFiles:
+      - src/external-links.ts
+    method: controlled-fault
+    assertion: A private destination is skipped before any HTTP request.
+    defect: Choose the first DNS address without filtering it.
+    command:
+      - node
+      - --test
+      - --test-reporter=tap
+      - --test-name-pattern
+      - skips nonpublic destinations
+      - test/external-links.test.mjs
+    observation: The probe attempted to call the test transport with a prohibited destination and failed the skipped-status assertion.
+    failureKind: behavior
+    status: reviewed
+  - scenario: DOCS-003
+    cases:
+      - bounded-report
+    testFiles:
+      - test/external-links.test.mjs
+    sourceFiles:
+      - src/external-links.ts
+    method: controlled-fault
+    assertion: The destination limit is applied before adding another probe.
+    defect: Allow one destination beyond the documented limit.
+    command:
+      - node
+      - --test
+      - --test-reporter=tap
+      - --test-name-pattern
+      - deduplicates fragments
+      - test/external-links.test.mjs
+    observation: The probe count exceeded the configured limit.
+    failureKind: behavior
+    status: reviewed
+lifecycle: []
+exceptions: []

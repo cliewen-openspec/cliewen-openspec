@@ -4,6 +4,8 @@ Changes that matter to projects using Cliewen for OpenSpec.
 
 ## Unreleased
 
+- Check external links in selected Markdown with `cliewen-openspec docs check --external-links`. The report shows where each link appears and distinguishes missing pages, redirects, restricted access, and inconclusive responses. External results are advisory. [Check external links](docs/guide/cli.md#check-external-links)
+
 ## 0.4.0 (2026-11-23)
 
 - Delivery agents assess whether the request and verification are clear enough to start. When a decision is missing, the agent can leave the question on an existing ticket so another agent can resume after the answer. Projects can adjust the threshold or turn the assessment off. [Readiness settings](docs/configuration.md#implementation-readiness)
