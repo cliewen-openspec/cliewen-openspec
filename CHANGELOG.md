@@ -6,6 +6,12 @@ Changes that matter to projects using Cliewen for OpenSpec.
 
 - Check external links in selected Markdown with `cliewen-openspec docs check --external-links`. The report shows where each link appears and distinguishes missing pages, redirects, restricted access, and inconclusive responses. External results are advisory. [Check external links](docs/guide/cli.md#check-external-links)
 
+- Run test evidence checks on the commit your CI selects for merge. The guide shows how to catch a checkout mismatch and verify fresh results on the merge candidate. [Check evidence before merge](docs/testing/evidence.md#check-evidence-before-merge)
+
+- Compare your installed CLI with the version published on npm, then preview which project files an update would change. [Check for updates](docs/guide/updating.md#see-whether-an-update-is-available)
+
+- See which files Delivery, Discovery, and Combined use, with an example of each workflow. [Compare the schemas](docs/guide/index.md#choose-a-schema-for-the-uncertainty)
+
 ## 0.4.0 (2026-11-23)
 
 - Delivery agents assess whether the request and verification are clear enough to start. When a decision is missing, the agent can leave the question on an existing ticket so another agent can resume after the answer. Projects can adjust the threshold or turn the assessment off. [Readiness settings](docs/configuration.md#implementation-readiness)
