@@ -161,6 +161,17 @@ readiness:
 
 [How an agent handles an unanswered question](guide/workflow.md#assess-implementation-readiness)
 
+## Release notes at change closure
+
+In the development version, the agent checks by default whether delivered changes warrant a release note during the pre-archive review. Set `releaseNotes.path` to an existing repository-relative file or directory to select a destination explicitly. For example:
+
+```yaml
+releaseNotes:
+  path: VERSIONS.md
+```
+
+With the default `path: null`, the agent follows project instructions or looks for an existing changelog. Set `releaseNotes.mode: off` to skip this review. Turning off `features.documentation` also skips it. [Release notes when closing a change](guide/workflow.md#release-notes-when-closing-a-change)
+
 ## Full defaults
 
 This is the complete configuration written by `init`. Omitted fields use these values; unknown settings and invalid values fail validation. Changes apply when the next operation reads the config. They do not rewrite existing proposals or task lists.
@@ -194,6 +205,9 @@ learnings:
   directory: learnings
 writing:
   humanizer: auto
+releaseNotes:
+  mode: auto
+  path: null
 features:
   documentation: true
   decisions: true

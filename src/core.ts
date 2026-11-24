@@ -1,5 +1,5 @@
 import {withStateLock} from './state-lock.js';
-import {documentationDefaults, documentationSettings, type DocumentationSettings} from './documentation-settings.js';
+import {documentationDefaults, documentationPath, documentationSettings, type DocumentationSettings} from './documentation-settings.js';
 import {ciDefaults, ciSettings, type CISettings} from './ci-settings.js';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -21,7 +21,7 @@ import {compatibility, type Compatibility} from './compatibility.js';
 export {version} from './release.js';
 const state = '.cliewen-openspec';
 const features = ['documentation', 'decisions', 'mermaid', 'planning', 'review', 'evidence'];
-export type Config = { ciInspection: CISettings; documentationChecks: DocumentationSettings; contextSelection: {mode: 'off' | 'guided'; roots: string[]; exclude: string[]; maxFiles: number}; readiness: { enabled: boolean; threshold: number }; docsRoot: string; learnings: {enabled: boolean; directory: string}; writing: {humanizer: 'auto' | 'on' | 'off'}; features: Record<string, boolean>; evidence: { report: string }; ac: { capabilities: Record<string, string>; padding: number }; testing: QualitySettings & { placement: 'per-task' | 'end-of-change'; types: Record<string, { description: string }> } };
+export type Config = { ciInspection: CISettings; documentationChecks: DocumentationSettings; contextSelection: {mode: 'off' | 'guided'; roots: string[]; exclude: string[]; maxFiles: number}; readiness: { enabled: boolean; threshold: number }; docsRoot: string; learnings: {enabled: boolean; directory: string}; writing: {humanizer: 'auto' | 'on' | 'off'}; releaseNotes: {mode: 'auto' | 'off'; path: string | null}; features: Record<string, boolean>; evidence: { report: string }; ac: { capabilities: Record<string, string>; padding: number }; testing: QualitySettings & { placement: 'per-task' | 'end-of-change'; types: Record<string, { description: string }> } };
 export type Finding = { code: string; severity: 'error' | 'warning' | 'info'; message: string };
 export function local(root: string, relative: string): string {
   if (!relative || path.isAbsolute(relative) || path.win32.parse(relative).root || relative.split(/[\\/]/).includes('..')) throw Error(`Unsafe repository path: ${relative}`);
@@ -43,7 +43,7 @@ const normalize = (s: string) => s.replace(/\r\n/g, '\n');
 const hash = (s: string) => createHash('sha256').update(normalize(s)).digest('hex');
 const read = (p: string) => fs.readFileSync(p, 'utf8');
 export function defaults(): Config {
-  return { ciInspection: ciDefaults(), documentationChecks: documentationDefaults(), contextSelection: {mode: 'guided', roots: [], exclude: [], maxFiles: 8}, readiness: {enabled: true, threshold: 3}, docsRoot: 'docs', learnings: {enabled: false, directory: 'learnings'}, writing: {humanizer: 'auto'}, features: Object.fromEntries(features.map(f => [f, true])), evidence: { report: '.cliewen-openspec/evidence.json' }, ac: { capabilities: {}, padding: 3 }, testing: { ...qualityDefaults(), placement: 'per-task', types: {
+  return { ciInspection: ciDefaults(), documentationChecks: documentationDefaults(), contextSelection: {mode: 'guided', roots: [], exclude: [], maxFiles: 8}, readiness: {enabled: true, threshold: 3}, docsRoot: 'docs', learnings: {enabled: false, directory: 'learnings'}, writing: {humanizer: 'auto'}, releaseNotes: {mode: 'auto', path: null}, features: Object.fromEntries(features.map(f => [f, true])), evidence: { report: '.cliewen-openspec/evidence.json' }, ac: { capabilities: {}, padding: 3 }, testing: { ...qualityDefaults(), placement: 'per-task', types: {
     Unit: { description: 'Isolated behavior without external dependencies' },
     Integration: { description: 'Interaction between components or dependencies' },
     E2E: { description: 'Complete user or system workflow' }
@@ -55,7 +55,7 @@ function keys(o: unknown, allowed: string[], label: string): asserts o is Record
 }
 export function config(root: string): Config {
   const p = local(root, `${state}/config.yaml`);
-  const raw = parse(read(p)); keys(raw, ['docsRoot', 'learnings', 'writing', 'features', 'evidence', 'ac', 'testing', 'contextSelection', 'documentationChecks', 'ciInspection', 'readiness'], 'config');
+  const raw = parse(read(p)); keys(raw, ['docsRoot', 'learnings', 'writing', 'releaseNotes', 'features', 'evidence', 'ac', 'testing', 'contextSelection', 'documentationChecks', 'ciInspection', 'readiness'], 'config');
   const c = defaults();
   c.documentationChecks = documentationSettings(raw.documentationChecks);
   c.ciInspection = ciSettings(raw.ciInspection);
@@ -84,6 +84,20 @@ export function config(root: string): Config {
     if (raw.writing.humanizer !== undefined) {
       if (!['auto', 'on', 'off'].includes(raw.writing.humanizer)) throw Error('writing.humanizer must be auto, on, or off');
       c.writing.humanizer = raw.writing.humanizer;
+    }
+  }
+  if (raw.releaseNotes !== undefined) {
+    keys(raw.releaseNotes, ['mode', 'path'], 'releaseNotes');
+    const {mode = c.releaseNotes.mode, path: destination = c.releaseNotes.path} = raw.releaseNotes;
+    if (mode !== 'auto' && mode !== 'off') throw Error('releaseNotes.mode must be auto or off');
+    c.releaseNotes.mode = mode;
+    if (destination !== null) {
+      const relative = documentationPath(destination, 'releaseNotes.path');
+      if (relative === '.' || relative.toLowerCase().split('/').some(part => ['.git', 'node_modules', state].includes(part))) {
+        throw Error('releaseNotes.path must name a project-owned file or directory');
+      }
+      local(root, relative);
+      c.releaseNotes.path = relative;
     }
   }
   if (raw.ac !== undefined) {

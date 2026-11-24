@@ -12,6 +12,14 @@ Use the shared manual-step and observation guidance in .cliewen-openspec/plannin
 
 With features.documentation enabled, reconcile affected explanations, architecture/design documents, examples, and links with the delivered result, using docsRoot and existing paths. With features.decisions enabled, maintain relevant Decision Records and their genuine acceptance status. Disabled facilities impose no matching optional work and preserve authored files.
 
+**Release notes.** If features.documentation is false or releaseNotes.mode is off, skip release note work. Otherwise use releaseNotes.mode (default auto) during delivery closure. Assess what actually changed for users, including meaningful guide changes. Routine internal work and discovery or combined outcomes without delivery require no note.
+
+For a change worth noting, use releaseNotes.path when set. Otherwise follow the project's documented release-note convention. If neither identifies a destination, check the repository root and docsRoot for likely existing changelog or version history files. File names and formats vary. Use a clear existing destination and insertion point without asking again. Respect project conventions for per-change notes and release-time aggregation. Keep reads and writes within allowed project paths and avoid symbolic links or managed resources.
+
+Describe the effect on users in the project's format. Add or revise the entry for this change in its intended pending section or fragment. Check for an existing entry before writing, including when resuming. Preserve surrounding entries, published history, and unrelated edits.
+
+If multiple destinations fit, the insertion point is unclear, or the project edits the history only at release time, prepare a short draft and follow the stated process or ask where it belongs. If a configured target is missing or unavailable, report it and ask rather than switching targets. If no release-note practice exists, suggest creating CHANGELOG.md for the user-facing change and wait for agreement before creating it. Offer releaseNotes.mode: off for a standing decline. A missing or deferred note does not block archive.
+
 For affected product intent or journeys, follow .cliewen-openspec/product-context.md. Reconcile enabled documentation with actual behavior and keep desired outcomes distinct from implementation and observed user results. Surface drift or additional wishes through existing scope rules; archive does not authorize them or establish user success.
 
 With learnings.enabled and features.documentation enabled, follow the installed learning guidance: read the index before selecting notes, verify against current authority, retain only reusable evidence-backed observations, and merge or retire stale guidance in place. Otherwise skip learning retrieval and maintenance.

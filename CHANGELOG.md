@@ -12,6 +12,8 @@ Changes that matter to projects using Cliewen for OpenSpec.
 
 - See which files Delivery, Discovery, and Combined use, with an example of each workflow. [Compare the schemas](docs/guide/index.md#choose-a-schema-for-the-uncertainty)
 
+- During agent-led closure, record user-facing changes in the project's existing changelog or release notes. The agent follows the local format and asks before creating a changelog. Set a destination explicitly or turn the review off. [Release notes when closing a change](docs/guide/workflow.md#release-notes-when-closing-a-change)
+
 ## 0.4.0 (2026-11-23)
 
 - Delivery agents assess whether the request and verification are clear enough to start. When a decision is missing, the agent can leave the question on an existing ticket so another agent can resume after the answer. Projects can adjust the threshold or turn the assessment off. [Readiness settings](docs/configuration.md#implementation-readiness)

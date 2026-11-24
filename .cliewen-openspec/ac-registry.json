@@ -5,6 +5,16 @@
       "prefix": "DOCS",
       "previousPrefixes": [],
       "highWater": 3
+    },
+    "project-release-notes": {
+      "prefix": "NOTE",
+      "previousPrefixes": [],
+      "highWater": 1
+    },
+    "change-closure": {
+      "prefix": "CLOSE",
+      "previousPrefixes": [],
+      "highWater": 1
     }
   },
   "unassignedPrefixes": {}

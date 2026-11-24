@@ -264,6 +264,16 @@ Before archive, compare the actual delivery with its agreed scope, maintain affe
 
 A delivery follows its existing test and evidence contract. Discovery and combined no-delivery outcomes retain actual findings, uncertainty, and cleanup results. They do not need product test results for behavior that was never implemented.
 
+### Release notes when closing a change
+
+In the development version, the agent checks what changed for users before archiving a delivery. A new CLI option or a corrected usage example may deserve a short entry. An internal refactor that leaves user behavior unchanged usually needs no note.
+
+The agent follows your project's release-note convention. For example, it can add an entry under `Unreleased` in `CHANGELOG.md` or use a clear pending section in `VERSIONS.md`. If a note already covers the change, it updates that entry. Teams that keep one note per change can point to their existing notes directory.
+
+When the destination is unclear or notes are collected at release time, the agent can give you a draft to place. If the project has no release-note practice, the agent may suggest creating `CHANGELOG.md` for a user-facing change and waits for your agreement before creating it. You can archive with a note still pending.
+
+This runs as part of agent-led closure. A direct `openspec archive` command does not run the review. To specify a destination or turn the review off, see [release note settings](../configuration.md#release-notes-at-change-closure).
+
 ### Use the reference from a separate archive session
 
 OpenSpec 1.15.0, 1.17.0, and 2.0.0 expose advisory archive inputs. For a repository-local Cliewen installation, add this entry to `openspec/config.yaml` if you want the archive skill to find the reference independently:

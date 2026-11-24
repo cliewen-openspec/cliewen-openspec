@@ -6,7 +6,7 @@ import path from 'node:path';
 import {spawnSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import {parse} from 'yaml';
-import {init, update, uninstall} from '../dist/core.js';
+import {config, init, update, uninstall} from '../dist/core.js';
 
 const project = fileURLToPath(new URL('../', import.meta.url));
 const reference = '.cliewen-openspec/closure.md';
@@ -64,12 +64,59 @@ test('closure reference has exact ownership and safe install/update/uninstall se
   assert.equal(read(root, '.agents/skills/openspec-archive/SKILL.md'), 'Existing OpenSpec skill\n');
 });
 
-test('all apply branches expose closure without adding an artifact or policy setting', t => {
+test('release note defaults and explicit targets preserve project files [NOTE-001] [Test-type: Unit] [Case: configure] [Coverage: positive]', t => {
+  const root = temporary(t);
+  for (const d of ['openspec/specs', 'openspec/changes']) fs.mkdirSync(path.join(root, d), {recursive: true});
+  const settings = '.cliewen-openspec/config.yaml';
+  const legacy = '# Existing settings\nfeatures: {review: false}\n';
+  write(root, settings, legacy);
+  write(root, 'VERSIONS.md', 'Next version\n');
+  write(root, 'docs/changes/README.md', 'One entry per change\n');
+  init(root, false, false);
+  assert.deepEqual(config(root).releaseNotes, {mode: 'auto', path: null});
+  update(root, true);
+  update(root);
+  assert.equal(read(root, settings), legacy);
+
+  for (const [yaml, expected] of [
+    ['releaseNotes: {path: VERSIONS.md}', {mode: 'auto', path: 'VERSIONS.md'}],
+    ['releaseNotes: {mode: auto, path: docs/changes/}', {mode: 'auto', path: 'docs/changes'}],
+    ['releaseNotes: {mode: off, path: VERSIONS.md}', {mode: 'off', path: 'VERSIONS.md'}],
+  ]) {
+    write(root, settings, yaml);
+    assert.deepEqual(config(root).releaseNotes, expected);
+    update(root);
+    assert.equal(read(root, settings), yaml);
+    assert.equal(read(root, 'VERSIONS.md'), 'Next version\n');
+    assert.equal(read(root, 'docs/changes/README.md'), 'One entry per change\n');
+  }
+});
+
+test('release note configuration rejects ambiguous or unsafe paths [NOTE-001] [Test-type: Unit] [Case: invalid-settings] [Coverage: negative]', t => {
+  const root = temporary(t);
+  const settings = '.cliewen-openspec/config.yaml';
+  const unsafe = [
+    'null', '[]', '{mode: always}', '{file: VERSIONS.md}', '{path: 4}', '{path: "."}',
+    '{path: "../VERSIONS.md"}', '{path: "/VERSIONS.md"}', '{path: "C:VERSIONS.md"}',
+    '{path: "docs/*"}', '{path: ".git/config"}', '{path: ".cliewen-openspec/closure.md"}',
+  ];
+  for (const value of unsafe) {
+    const yaml = 'releaseNotes: ' + value;
+    write(root, settings, yaml);
+    assert.throws(() => config(root), /releaseNotes/);
+    assert.equal(read(root, settings), yaml);
+  }
+});
+
+test('all apply branches expose shared closure guidance [CLOSE-001] [Test-type: Integration] [Case: installed-guidance] [Coverage: positive]', t => {
   const root = temporary(t);
   for (const d of ['openspec/specs', 'openspec/changes']) fs.mkdirSync(path.join(root, d), {recursive: true});
   init(root, false, false);
   const text = read(root, reference);
   const planning = read(root, '.cliewen-openspec/planning.md');
+  for (const phrase of ['what actually changed for users', 'use releaseNotes.path when set', 'File names and formats vary', 'without asking again', 'Check for an existing entry before writing', 'preserve surrounding entries']) {
+    assert.ok(text.toLowerCase().includes(phrase.toLowerCase()), phrase);
+  }
   for (const phrase of ['Assess implementation readiness', 'Use the lower score', 'retry only missing updates']) assert.ok(planning.includes(phrase), phrase);
   for (const phrase of ['exact repository-relative paths to .cliewen-openspec/planning.md and .cliewen-openspec/config.yaml', 'without asking again or posting it back', 'Update only the outcomes, constraints, and verification that the answer settles']) assert.ok(planning.includes(phrase), phrase);
   for (const phrase of ['original request and accepted amendments', 'materially changed plan', 'In either delivery review', 'Keep unresolved items open']) assert.ok(planning.includes(phrase), phrase);
@@ -87,6 +134,18 @@ test('all apply branches expose closure without adding an artifact or policy set
       assert.ok(schema.apply.instruction.includes('Outcome-specific instructions here determine whether the delivery guidance that follows applies.'));
     }
   }
+});
+
+test('closure guidance skips disabled and no-delivery paths and keeps unresolved notes advisory [CLOSE-001] [Test-type: Integration] [Case: no-note] [Coverage: negative]', t => {
+  const root = temporary(t);
+  for (const d of ['openspec/specs', 'openspec/changes']) fs.mkdirSync(path.join(root, d), {recursive: true});
+  init(root, false, false);
+  const text = read(root, reference);
+  assert.match(text, /features\.documentation is false or releaseNotes\.mode is off, skip release note work/);
+  assert.match(text, /combined outcomes without delivery require no note/);
+  assert.match(text, /wait for agreement before creating it/);
+  assert.match(text, /missing or deferred note does not block archive/);
+  assert.equal(fs.existsSync(path.join(root, 'CHANGELOG.md')), false);
 });
 
 for (const version of ['1.15.0', '1.17.0', '2.0.0']) test(`packed closure guidance and native archive on OpenSpec ${version}`, {timeout: 120000}, t => {

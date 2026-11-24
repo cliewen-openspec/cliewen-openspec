@@ -37,6 +37,8 @@ evidence:
 ac:
   capabilities:
     documentation-consistency: DOCS
+    project-release-notes: NOTE
+    change-closure: CLOSE
   padding: 3
 testing:
   quality:
