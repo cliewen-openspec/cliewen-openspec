@@ -6,7 +6,9 @@ Track active work in `openspec/changes/`. Use the installed Delivery schema for 
 
 Update affected documentation, decisions, and tests with the implementation. Use focused deterministic checks for small changes and targeted agent trials for major workflow changes. Each release cycle needs at least one independently reviewed success. See [Decision 022: Use targeted agent trials for major changes and each release](docs/decisions/022-proportionate-agent-validation.md).
 
-Publish releases when the owner requests it. The [OpenSpec introduction](docs/community/openspec-introduction.md) is approved for future use. Wait for the owner's go-ahead before contacting OpenSpec, then refresh the release facts and submission instructions.
+Publish releases when the owner requests it. After each npm publication, install that exact published version in a temporary directory and run its CLI against this repository. Preview `update --dry-run --json`, review the managed writes, and apply `update --json`. Verify the installation manifest matches the published version and a second preview has no pending writes. Preserve the solo profile, project configuration, and authored files. Commit the refreshed installation to `main` before marking the release complete.
+
+The [OpenSpec introduction](docs/community/openspec-introduction.md) is approved for future use. Wait for the owner's go-ahead before contacting OpenSpec, then refresh the release facts and submission instructions.
 
 Write all repository content in US English, including documentation, examples, prompts, comments, and user-facing messages. Conversation with a user may use the user's preferred language.
 

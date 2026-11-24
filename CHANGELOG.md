@@ -4,6 +4,8 @@ Changes that matter to projects using Cliewen for OpenSpec.
 
 ## Unreleased
 
+## 0.5.0 (2026-11-24)
+
 - Check external links in selected Markdown with `cliewen-openspec docs check --external-links`. The report shows where each link appears and distinguishes missing pages, redirects, restricted access, and inconclusive responses. External results are advisory. [Check external links](docs/guide/cli.md#check-external-links)
 
 - Run test evidence checks on the commit your CI selects for merge. The guide shows how to catch a checkout mismatch and verify fresh results on the merge candidate. [Check evidence before merge](docs/testing/evidence.md#check-evidence-before-merge)
