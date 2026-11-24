@@ -14,4 +14,4 @@ Given an ordered queue, the selection should identify an eligible ticket and exp
 
 ## Existing knowledge
 
-The [project planning specification](../../specs/project-planning/spec.md) keeps priority and ticket state in the project's selected planning authority.
+The [project planning specification](../../../specs/project-planning/spec.md) keeps priority and ticket state in the project's selected planning authority.
