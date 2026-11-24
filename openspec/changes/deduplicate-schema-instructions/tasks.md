@@ -1,0 +1,3 @@
+- [x] 1. Share testing guidance expansion across Delivery and Combined.
+- [x] 2. Compare the before and after installations. All 17 schema and template files match byte for byte.
+- [x] 3. Run the full repository test suite. All 196 tests passed.
