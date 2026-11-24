@@ -31,13 +31,23 @@ OpenSpec owns changes, behavioral specs, synchronization, and archive. Your proj
 
 ### Choose a schema for the uncertainty
 
-| Schema | Use it when | What it helps you establish |
-|---|---|---|
-| [Delivery: `cliewen-delivery`](workflow.md) | The change is understood well enough to specify and implement | Expected behavior, chosen design, implementation tasks, and verification |
-| [Discovery: `cliewen-discovery`](discovery.md) | A question or consequential uncertainty needs investigation | Findings and a recommendation: keep the system, investigate further, or prepare delivery |
-| [Combined: `cliewen-all`](all.md) | You want investigation and any resulting delivery in one change | A decision before implementation, followed by delivery or explicit no-delivery closure |
+OpenSpec creates the change directory and its `.openspec.yaml` metadata. The agent writes the files below as the workflow progresses.
 
-The combined workflow uses the decision as its design source. Delivery requires agreement on that decision; the workflow can also end without product implementation. `cliewen-base` is the shared internal foundation, not a selectable schema.
+| Schema | Use it when | Files in the change directory |
+|---|---|---|
+| [Delivery: `cliewen-delivery`](workflow.md) | The change is understood well enough to specify and implement | `proposal.md`, `specs/<capability>/spec.md`, `design.md`, `tasks.md` |
+| [Discovery: `cliewen-discovery`](discovery.md) | You need findings and a recommendation before deciding what to build | `proposal.md`, `investigation.md`, `decision.md` |
+| [Combined: `cliewen-all`](all.md) | Investigation and any resulting delivery belong in one change | `proposal.md`, `investigation.md`, `decision.md`, `specs/<capability>/spec.md`, `tasks.md` |
+
+Discovery is complete with its three files. If the recommendation calls for implementation, start a separate Delivery change with its own `tasks.md`.
+
+Combined records the design in `decision.md` and needs agreement on the decision before implementation. When Combined ends without delivery, `skip_specs: true` skips the specs and `tasks.md` records closure work. Delivery can also skip spec files when the work leaves accepted behavior unchanged.
+
+#### Examples
+
+- **Delivery · Add CSV export.** The spec says which columns to export and how to escape fields. The tasks pair each behavior with a test. [CSV spec](../examples/csv/change/specs/csv-export/spec.md) · [Implementation tasks](../examples/csv/change/tasks.md)
+- **Discovery · Decide whether to add a cache.** The proposal asks whether a cache would help. The investigation compares the current path with caching, and the decision records the recommendation. [Cache investigation example](discovery.md)
+- **Combined · Decide whether to add an optional CSV encoding marker.** The investigation compares API choices. If you approve delivery, the spec describes when to emit the marker and the tasks cover implementation and tests. If you keep the existing behavior, the tasks record how the investigation was closed. [Combined CSV example](all.md)
 
 ### Automate work and make limits visible
 
@@ -51,9 +61,6 @@ Schema instructions request these behaviors. CLI checks validate specific record
 
 | Feature | What you can use |
 |---|---|
-| Delivery schema | Proposal, specs, design, and tasks templates with guidance for documentation and verification |
-| Discovery schema | Proposal, investigation, and decision templates for research, no-change conclusions, or delivery handoff |
-| Combined schema | One proposal and decision/design source, then product specs/tasks or native skip_specs with closure tasks |
 | Installation | Preview writes, preserve the existing default schema, or explicitly select delivery |
 | Update | Refresh owned schemas/templates from a supported manifest with conflict checks, preview, and rollback; [guide](updating.md) |
 | Uninstall | Remove unchanged owned resources, preserve project data, and explicitly replace a removed default; [guide](uninstalling.md) |
