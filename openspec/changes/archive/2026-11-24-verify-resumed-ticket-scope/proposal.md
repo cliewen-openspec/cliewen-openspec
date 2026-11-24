@@ -14,4 +14,4 @@ The agent should use the recorded answer, identify the work already delivered, r
 
 ## Existing knowledge
 
-The [work-scoping specification](../../specs/work-scoping/spec.md) already requires reassessment on resumption. The [planning specification](../../specs/project-planning/spec.md) describes how clarification is preserved.
+The [work-scoping specification](../../../specs/work-scoping/spec.md) already requires reassessment on resumption. The [planning specification](../../../specs/project-planning/spec.md) describes how clarification is preserved.
