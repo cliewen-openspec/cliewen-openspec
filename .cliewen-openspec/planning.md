@@ -10,6 +10,14 @@ Read learnings.enabled (default false) and features.documentation. If either dis
 
 After resolving this policy and selecting any relevant lessons, gather the remaining context needed for the task. Planning may be disabled while learning guidance remains enabled; its planning opt-out below does not skip this context policy.
 
+## Gap analysis
+
+Compare the observed current state (as-is) with the desired outcome (to-be) when the transition is uncertain. Cite evidence for the current state, identify gaps and dependencies, and describe viable steps, tradeoffs, and open questions. Routine work with a clear path needs no separate analysis.
+
+Use the change investigation for findings specific to one change. When future changes will reuse the comparison and features.documentation is enabled, update the relevant existing analysis or create one under the configured docsRoot/analysis. Follow established project paths. Link the analysis from affected changes. With documentation disabled, keep necessary findings in the change.
+
+Update or create durable design documentation when the target changes the system design. Use the existing design location or docsRoot/design. If a consequential choice needs a decision record and features.decisions is enabled, use the project's decision process and docsRoot/decisions convention. Human agreement is required for acceptance. Create only the records the change needs.
+
 ## Optional product context
 
 For an optional focused selection pass, read contextSelection.mode (default guided). After resolving the learning policy above, guided mode uses .cliewen-openspec/context-selection.md. Off adds no pass or handoff. This choice is independent of features.planning and documentation maintenance; existing lesson gates still apply.
@@ -66,6 +74,7 @@ On pickup, retrieve the named change's native apply instructions and read the ex
 ## Work scoping
 
 Assess whether the work needs an OpenSpec change from intended behavior, requirements, design impact, and uncertainty, following OpenSpec conventions. A small correction restoring unchanged accepted behavior can use relevant verification without a new proposal. Reassess if investigation reveals new behavior or material design choices.
+When a gap between current behavior and the intended outcome could change scope, design, or delivery order, use the gap analysis guidance in .cliewen-openspec/planning.md.
 Scope each change as a coherent result that can be understood and verified together. Small implementation tasks do not each need a proposal; independent changes can proceed in parallel. When splitting an oversized proposal, retain rationale and deferred obligations in the project's planning authority when enabled, and reconcile the current proposal, specs, design, and tasks so deferred work is not reported as delivered.
 Before a consequential commitment, identify its riskiest assumption, a credible alternative, the cheapest useful investigation, and a stop or revision condition where the reviewer reads the choice. Ask whether meeting every criterion could still fail the intended user. Routine understood work needs no challenge report or explanation for its absence.
 On resumption or contradictory evidence, reassess goals, dependencies, and the next delivery. Surface mismatches and options and obtain direction for material changes in agreed scope before continuing affected work. Ordinary replanning does not automatically need a Decision Record.

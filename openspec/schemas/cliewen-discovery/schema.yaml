@@ -172,18 +172,20 @@ artifacts:
       uncertainty, following OpenSpec conventions. A small correction restoring
       unchanged accepted behavior can use relevant verification without a new
       proposal. Reassess if investigation reveals new behavior or material
-      design choices. Scope each change as a coherent result that can be
-      understood and verified together. Small implementation tasks do not each
-      need a proposal; independent changes can proceed in parallel. When
-      splitting an oversized proposal, retain rationale and deferred obligations
-      in the project's planning authority when enabled, and reconcile the
-      current proposal, specs, design, and tasks so deferred work is not
-      reported as delivered. Before a consequential commitment, identify its
-      riskiest assumption, a credible alternative, the cheapest useful
-      investigation, and a stop or revision condition where the reviewer reads
-      the choice. Ask whether meeting every criterion could still fail the
-      intended user. Routine understood work needs no challenge report or
-      explanation for its absence. On resumption or contradictory evidence,
+      design choices. When a gap between current behavior and the intended
+      outcome could change scope, design, or delivery order, use the gap
+      analysis guidance in .cliewen-openspec/planning.md. Scope each change as a
+      coherent result that can be understood and verified together. Small
+      implementation tasks do not each need a proposal; independent changes can
+      proceed in parallel. When splitting an oversized proposal, retain
+      rationale and deferred obligations in the project's planning authority
+      when enabled, and reconcile the current proposal, specs, design, and tasks
+      so deferred work is not reported as delivered. Before a consequential
+      commitment, identify its riskiest assumption, a credible alternative, the
+      cheapest useful investigation, and a stop or revision condition where the
+      reviewer reads the choice. Ask whether meeting every criterion could still
+      fail the intended user. Routine understood work needs no challenge report
+      or explanation for its absence. On resumption or contradictory evidence,
       reassess goals, dependencies, and the next delivery. Surface mismatches
       and options and obtain direction for material changes in agreed scope
       before continuing affected work. Ordinary replanning does not
@@ -432,18 +434,20 @@ artifacts:
       uncertainty, following OpenSpec conventions. A small correction restoring
       unchanged accepted behavior can use relevant verification without a new
       proposal. Reassess if investigation reveals new behavior or material
-      design choices. Scope each change as a coherent result that can be
-      understood and verified together. Small implementation tasks do not each
-      need a proposal; independent changes can proceed in parallel. When
-      splitting an oversized proposal, retain rationale and deferred obligations
-      in the project's planning authority when enabled, and reconcile the
-      current proposal, specs, design, and tasks so deferred work is not
-      reported as delivered. Before a consequential commitment, identify its
-      riskiest assumption, a credible alternative, the cheapest useful
-      investigation, and a stop or revision condition where the reviewer reads
-      the choice. Ask whether meeting every criterion could still fail the
-      intended user. Routine understood work needs no challenge report or
-      explanation for its absence. On resumption or contradictory evidence,
+      design choices. When a gap between current behavior and the intended
+      outcome could change scope, design, or delivery order, use the gap
+      analysis guidance in .cliewen-openspec/planning.md. Scope each change as a
+      coherent result that can be understood and verified together. Small
+      implementation tasks do not each need a proposal; independent changes can
+      proceed in parallel. When splitting an oversized proposal, retain
+      rationale and deferred obligations in the project's planning authority
+      when enabled, and reconcile the current proposal, specs, design, and tasks
+      so deferred work is not reported as delivered. Before a consequential
+      commitment, identify its riskiest assumption, a credible alternative, the
+      cheapest useful investigation, and a stop or revision condition where the
+      reviewer reads the choice. Ask whether meeting every criterion could still
+      fail the intended user. Routine understood work needs no challenge report
+      or explanation for its absence. On resumption or contradictory evidence,
       reassess goals, dependencies, and the next delivery. Surface mismatches
       and options and obtain direction for material changes in agreed scope
       before continuing affected work. Ordinary replanning does not
@@ -708,18 +712,20 @@ artifacts:
       uncertainty, following OpenSpec conventions. A small correction restoring
       unchanged accepted behavior can use relevant verification without a new
       proposal. Reassess if investigation reveals new behavior or material
-      design choices. Scope each change as a coherent result that can be
-      understood and verified together. Small implementation tasks do not each
-      need a proposal; independent changes can proceed in parallel. When
-      splitting an oversized proposal, retain rationale and deferred obligations
-      in the project's planning authority when enabled, and reconcile the
-      current proposal, specs, design, and tasks so deferred work is not
-      reported as delivered. Before a consequential commitment, identify its
-      riskiest assumption, a credible alternative, the cheapest useful
-      investigation, and a stop or revision condition where the reviewer reads
-      the choice. Ask whether meeting every criterion could still fail the
-      intended user. Routine understood work needs no challenge report or
-      explanation for its absence. On resumption or contradictory evidence,
+      design choices. When a gap between current behavior and the intended
+      outcome could change scope, design, or delivery order, use the gap
+      analysis guidance in .cliewen-openspec/planning.md. Scope each change as a
+      coherent result that can be understood and verified together. Small
+      implementation tasks do not each need a proposal; independent changes can
+      proceed in parallel. When splitting an oversized proposal, retain
+      rationale and deferred obligations in the project's planning authority
+      when enabled, and reconcile the current proposal, specs, design, and tasks
+      so deferred work is not reported as delivered. Before a consequential
+      commitment, identify its riskiest assumption, a credible alternative, the
+      cheapest useful investigation, and a stop or revision condition where the
+      reviewer reads the choice. Ask whether meeting every criterion could still
+      fail the intended user. Routine understood work needs no challenge report
+      or explanation for its absence. On resumption or contradictory evidence,
       reassess goals, dependencies, and the next delivery. Surface mismatches
       and options and obtain direction for material changes in agreed scope
       before continuing affected work. Ordinary replanning does not
@@ -971,11 +977,13 @@ apply:
     impact, and uncertainty, following OpenSpec conventions. A small correction
     restoring unchanged accepted behavior can use relevant verification without
     a new proposal. Reassess if investigation reveals new behavior or material
-    design choices. Scope each change as a coherent result that can be
-    understood and verified together. Small implementation tasks do not each
-    need a proposal; independent changes can proceed in parallel. When splitting
-    an oversized proposal, retain rationale and deferred obligations in the
-    project's planning authority when enabled, and reconcile the current
+    design choices. When a gap between current behavior and the intended outcome
+    could change scope, design, or delivery order, use the gap analysis guidance
+    in .cliewen-openspec/planning.md. Scope each change as a coherent result
+    that can be understood and verified together. Small implementation tasks do
+    not each need a proposal; independent changes can proceed in parallel. When
+    splitting an oversized proposal, retain rationale and deferred obligations
+    in the project's planning authority when enabled, and reconcile the current
     proposal, specs, design, and tasks so deferred work is not reported as
     delivered. Before a consequential commitment, identify its riskiest
     assumption, a credible alternative, the cheapest useful investigation, and a
