@@ -1,0 +1,2 @@
+- [x] 1. Implement the configuration and installed guidance, and document the default and follow-up scope.
+- [x] 2. Test older configurations, invalid limits, the installed policy, and the candidate package.

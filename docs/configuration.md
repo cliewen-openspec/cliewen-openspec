@@ -198,6 +198,8 @@ contextSelection:
   roots: []
   exclude: []
   maxFiles: 8
+review:
+  maxRounds: 1
 readiness:
   enabled: true
   threshold: 3
@@ -272,6 +274,7 @@ This requires two positive and one negative case per scenario. It does not count
 | `features.decisions` | `true` | Guidance for considering and recording durable decisions |
 | `features.mermaid` | `true` | Guidance to use embedded Mermaid where useful |
 | `features.planning` | `true` | Enables planning-authority discovery, ticket access guidance, and plan maintenance; does not require a plan |
+| `review.maxRounds` | `1` | Maximum review rounds, including the first. Use a positive whole number. |
 | `features.review` | `true` | Uses a suitable host review command or skill when available, with direct diff review as the fallback. A separate reviewer remains optional |
 | `features.evidence` | `true` | Scenario-ID and execution-report checks |
 | `evidence.report` | `.cliewen-openspec/evidence.json` | Repository-local path to the execution report |

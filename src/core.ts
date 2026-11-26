@@ -21,7 +21,7 @@ import {compatibility, type Compatibility} from './compatibility.js';
 export {version} from './release.js';
 const state = '.cliewen-openspec';
 const features = ['documentation', 'decisions', 'mermaid', 'planning', 'review', 'evidence'];
-export type Config = { ciInspection: CISettings; documentationChecks: DocumentationSettings; contextSelection: {mode: 'off' | 'guided'; roots: string[]; exclude: string[]; maxFiles: number}; readiness: { enabled: boolean; threshold: number }; docsRoot: string; learnings: {enabled: boolean; directory: string}; writing: {humanizer: 'auto' | 'on' | 'off'}; releaseNotes: {mode: 'auto' | 'off'; path: string | null}; features: Record<string, boolean>; evidence: { report: string }; ac: { capabilities: Record<string, string>; padding: number }; testing: QualitySettings & { placement: 'per-task' | 'end-of-change'; types: Record<string, { description: string }> } };
+export type Config = { review: {maxRounds: number}; ciInspection: CISettings; documentationChecks: DocumentationSettings; contextSelection: {mode: 'off' | 'guided'; roots: string[]; exclude: string[]; maxFiles: number}; readiness: { enabled: boolean; threshold: number }; docsRoot: string; learnings: {enabled: boolean; directory: string}; writing: {humanizer: 'auto' | 'on' | 'off'}; releaseNotes: {mode: 'auto' | 'off'; path: string | null}; features: Record<string, boolean>; evidence: { report: string }; ac: { capabilities: Record<string, string>; padding: number }; testing: QualitySettings & { placement: 'per-task' | 'end-of-change'; types: Record<string, { description: string }> } };
 export type Finding = { code: string; severity: 'error' | 'warning' | 'info'; message: string };
 export function local(root: string, relative: string): string {
   if (!relative || path.isAbsolute(relative) || path.win32.parse(relative).root || relative.split(/[\\/]/).includes('..')) throw Error(`Unsafe repository path: ${relative}`);
@@ -43,7 +43,7 @@ const normalize = (s: string) => s.replace(/\r\n/g, '\n');
 const hash = (s: string) => createHash('sha256').update(normalize(s)).digest('hex');
 const read = (p: string) => fs.readFileSync(p, 'utf8');
 export function defaults(): Config {
-  return { ciInspection: ciDefaults(), documentationChecks: documentationDefaults(), contextSelection: {mode: 'guided', roots: [], exclude: [], maxFiles: 8}, readiness: {enabled: true, threshold: 3}, docsRoot: 'docs', learnings: {enabled: false, directory: 'learnings'}, writing: {humanizer: 'auto'}, releaseNotes: {mode: 'auto', path: null}, features: Object.fromEntries(features.map(f => [f, true])), evidence: { report: '.cliewen-openspec/evidence.json' }, ac: { capabilities: {}, padding: 3 }, testing: { ...qualityDefaults(), placement: 'per-task', types: {
+  return { review: {maxRounds: 1}, ciInspection: ciDefaults(), documentationChecks: documentationDefaults(), contextSelection: {mode: 'guided', roots: [], exclude: [], maxFiles: 8}, readiness: {enabled: true, threshold: 3}, docsRoot: 'docs', learnings: {enabled: false, directory: 'learnings'}, writing: {humanizer: 'auto'}, releaseNotes: {mode: 'auto', path: null}, features: Object.fromEntries(features.map(f => [f, true])), evidence: { report: '.cliewen-openspec/evidence.json' }, ac: { capabilities: {}, padding: 3 }, testing: { ...qualityDefaults(), placement: 'per-task', types: {
     Unit: { description: 'Isolated behavior without external dependencies' },
     Integration: { description: 'Interaction between components or dependencies' },
     E2E: { description: 'Complete user or system workflow' }
@@ -55,10 +55,16 @@ function keys(o: unknown, allowed: string[], label: string): asserts o is Record
 }
 export function config(root: string): Config {
   const p = local(root, `${state}/config.yaml`);
-  const raw = parse(read(p)); keys(raw, ['docsRoot', 'learnings', 'writing', 'releaseNotes', 'features', 'evidence', 'ac', 'testing', 'contextSelection', 'documentationChecks', 'ciInspection', 'readiness'], 'config');
+  const raw = parse(read(p)); keys(raw, ['docsRoot', 'learnings', 'writing', 'releaseNotes', 'features', 'evidence', 'ac', 'testing', 'contextSelection', 'documentationChecks', 'ciInspection', 'readiness', 'review'], 'config');
   const c = defaults();
   c.documentationChecks = documentationSettings(raw.documentationChecks);
   c.ciInspection = ciSettings(raw.ciInspection);
+  if (raw.review !== undefined) {
+    keys(raw.review, ['maxRounds'], 'review');
+    const {maxRounds = c.review.maxRounds} = raw.review;
+    if (!Number.isSafeInteger(maxRounds) || maxRounds < 1) throw Error('review.maxRounds must be a positive safe integer');
+    c.review = {maxRounds};
+  }
   if (raw.readiness !== undefined) {
     keys(raw.readiness, ['enabled', 'threshold'], 'readiness');
     const {enabled = c.readiness.enabled, threshold = c.readiness.threshold} = raw.readiness;

@@ -224,3 +224,26 @@ for (const [criterion, title, coverage, phrases] of [
     for (const phrase of phrases) assert.ok(guidance.includes(phrase), phrase);
   });
 }
+
+test('review round budget and installed follow-up guidance [CLOSE-004] [Test-type: Integration] [Case: bounded-rounds] [Coverage: positive]', t => {
+  const root = temporary(t);
+  for (const dir of ['openspec/specs', 'openspec/changes']) fs.mkdirSync(path.join(root, dir), {recursive: true});
+  write(root, 'openspec/config.yaml', 'schema: spec-driven\n');
+  init(root, false, false);
+  assert.equal(config(root).review.maxRounds, 1);
+  const settings = '.cliewen-openspec/config.yaml';
+  for (const text of ['{}', 'review: {}']) {
+    write(root, settings, text);
+    assert.equal(config(root).review.maxRounds, 1);
+  }
+  write(root, settings, 'review: {maxRounds: 3}');
+  assert.equal(config(root).review.maxRounds, 3);
+  for (const value of ['0', '-1', '1.5', 'null', '"3"', 'true', '9007199254740992']) {
+    write(root, settings, 'review: {maxRounds: ' + value + '}');
+    assert.throws(() => config(root), /review.maxRounds/);
+  }
+  const guidance = read(root, reference);
+  for (const phrase of ['including the first round', 'review-only request', 'Low findings alone never trigger', 'delta since the previous round', 'no new qualifying fixes', 'last-round fixes as awaiting review']) {
+    assert.ok(guidance.includes(phrase), phrase);
+  }
+});

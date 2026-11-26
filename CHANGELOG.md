@@ -7,6 +7,7 @@ Changes that matter to projects using Cliewen for OpenSpec.
 ## 0.6.0 (2026-11-26)
 
 - Agents can use a gap analysis to plan a transition and link the affected designs and decisions. Routine changes need no extra document.
+- Set `review.maxRounds` to allow follow-up reviews of fixes to consequential findings. The default is one review. [Review rounds](docs/guide/workflow.md#limit-follow-up-code-reviews)
 - Code reviews use a host review command or skill when it covers the requested changes. Agents can review local edits directly when the host only supports pull requests.
 
 ## 0.5.0 (2026-11-24)

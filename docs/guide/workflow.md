@@ -264,6 +264,17 @@ Before archive, compare the actual delivery with its agreed scope, maintain affe
 
 A delivery follows its existing test and evidence contract. Discovery and combined no-delivery outcomes retain actual findings, uncertainty, and cleanup results. They do not need product test results for behavior that was never implemented.
 
+### Limit follow-up code reviews
+
+The default is one review of the requested changes, including their intent. To allow up to three rounds, add this setting to `.cliewen-openspec/config.yaml`:
+
+```yaml
+review:
+  maxRounds: 3
+```
+
+If you authorize fixes, the agent addresses confirmed medium, high, and blocking findings and tests the fixes. Each remaining round reviews just the changes made since the previous review. The agent groups minor findings for your decision. A clean diff or minor findings alone end the review immediately. If a fix lands after the final review, the handoff identifies which tests ran and which edits still await review.
+
 ### Release notes when closing a change
 
 In the development version, the agent checks what changed for users before archiving a delivery. A new CLI option or a corrected usage example may deserve a short entry. An internal refactor that leaves user behavior unchanged usually needs no note.

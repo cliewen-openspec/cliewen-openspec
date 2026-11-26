@@ -1,0 +1,1 @@
+Use one positive integer, review.maxRounds, including the first round. The agent tracks the reviewed working state at each round because a commit range alone cannot distinguish successive uncommitted fixes. Reuse existing host selection and authorization rules.
