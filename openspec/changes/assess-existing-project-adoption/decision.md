@@ -2,6 +2,6 @@
 type: decision
 status: proposed
 ---
-# Further investigation
+# Proposed delivery handoff
 
-First exercise a synthetic criterion with two required verification types, one missing result, and a legacy single-type control. The [analysis](../../../docs/analysis/existing-project-adoption.md) explains why that model affects adapters and incremental enforcement. Implementation and transfer of ID ownership remain subject to project decisions.
+The six-case experiment shows that the current declaration rule blocks both complete and incomplete multi-type evidence. Propose a focused delivery change for required verification types per criterion, preserving the single-type control. The [analysis](../../../docs/analysis/existing-project-adoption.md) explains why that model affects adapters and incremental enforcement. Implementation and transfer of ID ownership remain subject to project decisions.
