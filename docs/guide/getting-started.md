@@ -9,7 +9,7 @@ The commands follow a prepared example without a coding agent. For an agent-auth
 
 ## 1. Build the candidate package
 
-This walkthrough builds a local `0.5.0` tarball and uses the CSV examples from the same checkout. To use the release in your own project, install `cliewen-openspec@0.5.0` from npm.
+This walkthrough builds a local `0.6.0` tarball and uses the CSV examples from the same checkout. To use the release in your own project, install `cliewen-openspec@0.6.0` from npm.
 
 From an empty parent directory, clone the source repository and build the package:
 
@@ -20,7 +20,7 @@ npm pkg get version
 git rev-parse HEAD
 ```
 
-Expect version `"0.5.0"`. Record the Git revision, then build the package:
+Expect version `"0.6.0"`. Record the Git revision, then build the package:
 
 ```sh
 npm ci
@@ -28,7 +28,7 @@ npm test
 npm pack
 ```
 
-Continue once the tests pass and `npm pack` produces `cliewen-openspec-0.5.0.tgz`. The commands below assume the clone and pilot are sibling directories.
+Continue once the tests pass and `npm pack` produces `cliewen-openspec-0.6.0.tgz`. The commands below assume the clone and pilot are sibling directories.
 
 ## 2. Create the pilot
 
@@ -41,7 +41,7 @@ cd cliewen-pilot
 git init -b main
 npm init -y
 npm install --save-dev @fission-ai/openspec@2.0.0
-npm install --save-dev ../cliewen-openspec/cliewen-openspec-0.5.0.tgz
+npm install --save-dev ../cliewen-openspec/cliewen-openspec-0.6.0.tgz
 node -e "require('node:fs').writeFileSync('.gitignore', 'node_modules/\n')"
 ```
 
@@ -135,7 +135,7 @@ npx --no-install cliewen-openspec check --change add-csv-export --json
 
 The adapter runs every test in the file again and writes `.cliewen-openspec/evidence.json`, ignored by Git. Open it and compare its `revision` with `git rev-parse HEAD`; `scope.change` should be `add-csv-export` (the `scope` value is an object). Failures outside the selected change still block verification.
 
-With version `0.5.0` and the unchanged reference example, expect exit 0 and `"ok": true` with these warnings:
+With version `0.6.0` and the unchanged reference example, expect exit 0 and `"ok": true` with these warnings:
 
 | Code | Count | Reason |
 |---|---|---|

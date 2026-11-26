@@ -4,6 +4,11 @@ Changes that matter to projects using Cliewen for OpenSpec.
 
 ## Unreleased
 
+## 0.6.0 (2026-11-26)
+
+- Agents can use a gap analysis to plan a transition and link the affected designs and decisions. Routine changes need no extra document.
+- Code reviews use a host review command or skill when it covers the requested changes. Agents can review local edits directly when the host only supports pull requests.
+
 ## 0.5.0 (2026-11-24)
 
 - Check external links in selected Markdown with `cliewen-openspec docs check --external-links`. The report shows where each link appears and distinguishes missing pages, redirects, restricted access, and inconclusive responses. External results are advisory. [Check external links](docs/guide/cli.md#check-external-links)

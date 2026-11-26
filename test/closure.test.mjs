@@ -210,3 +210,17 @@ for (const version of ['1.15.0', '1.17.0', '2.0.0']) test(`packed closure guidan
   }
   assert.deepEqual(fs.readdirSync(path.join(root, 'openspec/specs')).filter(n => n !== '.gitkeep'), ['example']);
 });
+
+for (const [criterion, title, coverage, phrases] of [
+  ['CLOSE-002', 'host-review', 'positive', ['available host review command or skill', 'covers that diff', "fits the project's permissions"]],
+  ['CLOSE-003', 'local-fallback', 'boundary', ['including local edits', 'Otherwise review the requested diff directly', 'scope, method, concrete findings, and coverage limits']],
+]) {
+  test(`installed review routing [${criterion}] [Test-type: Integration] [Case: ${title}] [Coverage: ${coverage}]`, t => {
+    const root = temporary(t);
+    for (const dir of ['openspec/specs', 'openspec/changes']) fs.mkdirSync(path.join(root, dir), {recursive: true});
+    write(root, 'openspec/config.yaml', 'schema: spec-driven\n');
+    init(root, false, false);
+    const guidance = read(root, reference);
+    for (const phrase of phrases) assert.ok(guidance.includes(phrase), phrase);
+  });
+}

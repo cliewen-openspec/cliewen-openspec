@@ -10,6 +10,14 @@ Read learnings.enabled (default false) and features.documentation. If either dis
 
 After resolving this policy and selecting any relevant lessons, gather the remaining context needed for the task. Planning may be disabled while learning guidance remains enabled; its planning opt-out below does not skip this context policy.
 
+## Gap analysis
+
+Compare the observed current state (as-is) with the desired outcome (to-be) when the transition is uncertain. Cite evidence for the current state, identify gaps and dependencies, and describe viable steps, tradeoffs, and open questions. Routine work with a clear path needs no separate analysis.
+
+Use the change investigation for findings specific to one change. When future changes will reuse the comparison and features.documentation is enabled, update the relevant existing analysis or create one under the configured docsRoot/analysis. Follow established project paths. Link the analysis from affected changes. With documentation disabled, keep necessary findings in the change.
+
+Update or create durable design documentation when the target changes the system design. Use the existing design location or docsRoot/design. If a consequential choice needs a decision record and features.decisions is enabled, use the project's decision process and docsRoot/decisions convention. Human agreement is required for acceptance. Create only the records the change needs.
+
 ## Optional product context
 
 For an optional focused selection pass, read contextSelection.mode (default guided). After resolving the learning policy above, guided mode uses .cliewen-openspec/context-selection.md. Off adds no pass or handoff. This choice is independent of features.planning and documentation maintenance; existing lesson gates still apply.

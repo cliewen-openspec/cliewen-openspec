@@ -5,11 +5,11 @@ type: reference
 
 Cliewen reads project settings from `.cliewen-openspec/config.yaml`.
 
-This reference describes Cliewen `0.5.0`. For an older package, consult the reference bundled with that version.
+This reference describes Cliewen `0.6.0`. For an older package, consult the reference bundled with that version.
 
 ## Version compatibility
 
-Cliewen 0.5.0 requires **Node.js 22.12 or newer** and **OpenSpec 1.15.0 or newer**. Git remains necessary for identity coordination and revision-bound evidence. The documentation checker runs independently of Git and OpenSpec. Versions 0.1.0 and 0.2.0 retain their Node 20.19+ requirements. The worked guide uses OpenSpec 2.0.0.
+Cliewen 0.6.0 requires **Node.js 22.12 or newer** and **OpenSpec 1.15.0 or newer**. Git remains necessary for identity coordination and revision-bound evidence. The documentation checker runs independently of Git and OpenSpec. Versions 0.1.0 and 0.2.0 retain their Node 20.19+ requirements. The worked guide uses OpenSpec 2.0.0.
 
 Cliewen supports repository-local OpenSpec 2.0.0 workflows. External stores and multi-repo evidence remain unsupported. Init and update reject standalone stores and declared external planning layouts before recovery or writes. Local specs and changes take precedence when both exist.
 
@@ -31,7 +31,7 @@ Init/update check the target package's minimums, including previews, before reco
 
 The check uses the project's resolvable OpenSpec npm installation first, otherwise the CLI on PATH, including a standalone executable. It runs that installation's public `--version`; an incompatible or broken selected local installation does not fall back to a global version. Output identifies the source and detected versions. Missing tools, invalid/prerelease versions, execution failure, or a probe exceeding five seconds stop init/update with an actionable error. Cliewen neither downloads nor upgrades OpenSpec during this check.
 
-Version 0.5.0 accepts ownership manifests from 0.1.0 through 0.5.0. Alpha manifests, unknown formats, and downgrades are rejected. See [updating an installation](guide/updating.md) for preview and apply examples.
+Version 0.6.0 accepts ownership manifests from 0.1.0 through 0.6.0. Alpha manifests, unknown formats, and downgrades are rejected. See [updating an installation](guide/updating.md) for preview and apply examples.
 
 ## Documentation checks in development source
 
@@ -104,6 +104,8 @@ Use filenames, folder roles, headings and indexes alongside existing frontmatter
 These settings guide the agent; they do not enforce file access, measure actual reads, establish complete retrieval or prove that the agent found every applicable constraint. Explicit confidentiality restrictions still apply. See [context selection in the workflow](guide/workflow.md#select-relevant-project-knowledge).
 
 ## Optional product context in development
+
+When a gap analysis will guide scope, design, or delivery order, the agent compares the current state with the intended outcome and records options in the change. With `features.documentation` enabled, reusable analyses can live under `docsRoot/analysis`. Existing analysis and design paths take precedence. Decision records follow `features.decisions` and the project approval process.
 
 Version 0.2.0 installs `.cliewen-openspec/product-context.md` for product intent, useful cross-capability journeys, and detection of drift or scope creep. Published 0.1.0 does not contain this reference. There is no new configuration field or required artifact. `features.documentation` controls optional records under `docsRoot` or existing project paths; `features.planning` independently controls planning authority and ticket access. Disabled facilities add no corresponding work and preserve authored content. Existing supplied context still informs normal scoping. See [product intent and journeys](guide/workflow.md#keep-the-users-outcome-in-view) for an illustrative example and limits.
 
@@ -270,7 +272,7 @@ This requires two positive and one negative case per scenario. It does not count
 | `features.decisions` | `true` | Guidance for considering and recording durable decisions |
 | `features.mermaid` | `true` | Guidance to use embedded Mermaid where useful |
 | `features.planning` | `true` | Enables planning-authority discovery, ticket access guidance, and plan maintenance; does not require a plan |
-| `features.review` | `true` | Makes review guidance available; a separate reviewer remains optional |
+| `features.review` | `true` | Uses a suitable host review command or skill when available, with direct diff review as the fallback. A separate reviewer remains optional |
 | `features.evidence` | `true` | Scenario-ID and execution-report checks |
 | `evidence.report` | `.cliewen-openspec/evidence.json` | Repository-local path to the execution report |
 

@@ -14,7 +14,12 @@
     "change-closure": {
       "prefix": "CLOSE",
       "previousPrefixes": [],
-      "highWater": 1
+      "highWater": 3
+    },
+    "work-scoping": {
+      "prefix": "SCOPE",
+      "previousPrefixes": [],
+      "highWater": 3
     }
   },
   "unassignedPrefixes": {}

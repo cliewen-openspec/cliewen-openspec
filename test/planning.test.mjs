@@ -80,3 +80,16 @@ test('pre-change reference resolves learning policy before planning and the docu
   assert.ok(entry.includes('independently of features.planning'));
   assert.equal(fs.existsSync(path.join(root, 'docs/learnings')), false);
 });
+
+for (const [criterion, title, coverage, phrases] of [
+  ['SCOPE-001', 'transition', 'positive', ['as-is', 'to-be', 'gaps and dependencies', 'docsRoot/analysis', 'docsRoot/design', 'Human agreement']],
+  ['SCOPE-002', 'routine', 'negative', ['Routine work with a clear path needs no separate analysis']],
+  ['SCOPE-003', 'disabled', 'boundary', ['With documentation disabled, keep necessary findings in the change']],
+]) {
+  test(`installed gap analysis guidance [${criterion}] [Test-type: Integration] [Case: ${title}] [Coverage: ${coverage}]`, t => {
+    const root = fixture(t);
+    init(root, false, false);
+    const guidance = read(root, reference);
+    for (const phrase of phrases) assert.ok(guidance.includes(phrase), phrase);
+  });
+}
