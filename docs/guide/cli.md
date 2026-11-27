@@ -49,7 +49,7 @@ The preview shows the profile change and recommends enabling `features.review`. 
 cliewen-openspec profile team --shared-review --apply --enable-review --json
 ```
 
-To save just the profile in a script, run `cliewen-openspec profile team --apply --json`. To select settings interactively, run `cliewen-openspec profile team --apply` in a terminal. If separate clones or worktrees allocate IDs concurrently, answer yes when asked or pass `--concurrent` to see how to preview Git coordination. [Profile defaults and storage](../configuration.md#setup-profiles) · [Requirements for reserving IDs across clones](../../openspec/specs/acceptance-id-coordination/spec.md#requirement-durable-atomic-reservations)
+To save just the profile in a script, run `cliewen-openspec profile team --apply --json`. To select settings interactively, run `cliewen-openspec profile team --apply` in a terminal. If separate clones or worktrees allocate IDs concurrently, answer yes when asked or pass `--concurrent` to see how to preview Git coordination. [Profile defaults and storage](../configuration.md#setup-profiles) Â· [Requirements for reserving IDs across clones](../../openspec/specs/acceptance-id-coordination/spec.md#requirement-durable-atomic-reservations)
 
 ## ci inspect
 
@@ -176,6 +176,10 @@ After an interrupted request, `resume` reconciles its existing result before req
 State writes hold an exclusive local lock. After a crash, a leftover lock blocks new writers rather than being stolen automatically. The error gives its path. Stop all Cliewen writers for that worktree before removing only that stale lock, then resume the request. Git projects keep runtime files under Git metadata; non-Git local projects use a machine-temporary directory identified by the error.
 
 To return to local allocation, finish or abandon pending requests, run `ac sync`, and change the project-owned coordination file to `{"version":1,"mode":"local"}`. Commit that choice. This ends cross-clone uniqueness protection; serialize subsequent work. Ordinary init, update and uninstall preserve this file and do not change the shared ref.
+
+## evidence compose
+
+Use `evidence compose REPORT REPORT [...] [--json]` to write the configured evidence report from two or more original reports. Use repository-relative paths and collect every input for the same revision and scope. See [combine reports from different runners](../testing/evidence.md#combine-reports-from-different-runners).
 
 ## check
 

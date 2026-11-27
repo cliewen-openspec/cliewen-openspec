@@ -31,9 +31,16 @@ try {
   if (change && command !== 'check') throw Error('--change is supported only by check');
   if (failPending && command !== 'check') throw Error('--fail-on-pending is supported only by check');
   if (change && !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(change)) throw Error('Change must be a kebab-case name');
-  if (json && !['init', 'profile', 'update', 'uninstall', 'check', 'docs', 'ci'].includes(command ?? '')) throw Error('--json is supported only by init, profile, update, uninstall, check, docs check, and ci inspect');
+  if (json && !['init', 'profile', 'update', 'uninstall', 'check', 'docs', 'ci', 'evidence'].includes(command ?? '')) throw Error('--json is supported only by init, profile, update, uninstall, check, docs check, ci inspect, and evidence compose');
   if (capability && command !== 'check' && (command !== 'ac' || args[0] !== 'next')) throw Error('--capability is supported only by check and ac next');
-  if (command === 'ci') {
+  if (command === 'evidence') {
+    if (args.shift() !== 'compose' || args.some(file => file.startsWith('--'))) throw Error('Use evidence compose REPORT REPORT [...]');
+    const {composeExecutionEvidence} = await import('./evidence-compose.js');
+    const result = composeExecutionEvidence(root, args);
+    console.log(json ? JSON.stringify(result, null, 2) : `Combined ${result.sources.length} reports into ${result.report}. Runner result: ${result.exitCode}.`);
+    process.exitCode = result.exitCode === 0 ? 0 : 1;
+  }
+  else if (command === 'ci') {
     if (args.length !== 1 || args[0] !== 'inspect') throw Error('Use ci inspect [--json] [--root PATH]');
     const {inspectCI, ciSummary} = await import('./ci-inspection.js');
     const result = inspectCI(root);
@@ -94,7 +101,7 @@ try {
     const findings = check(root, change, failPending, capability); const ok = !findings.some(f => f.severity === 'error');
     console.log(json ? JSON.stringify({ ok, findings }, null, 2) : findings.map(f => `${f.severity.toUpperCase()} ${f.code}: ${f.message}`).join('\n'));
     process.exitCode = ok ? 0 : 1;
-  } else if (!command || command === '--help') console.log('cliewen-openspec\ninit [--default] [--dry-run] [--profile solo|team]\nprofile solo|team [--concurrent] [--shared-review] [--apply [--enable-review]] [--json]\nupdate [--dry-run] [--json]\nuninstall [--default-schema NAME] [--dry-run] [--json]\nac next --capability NAME\nac next PREFIX (registered active prefix only)\nac rename-prefix CAPABILITY PREFIX\nac coordinate REMOTE [--apply] (preview by default)\nac sync\nac resume\nac abandon\ndocs check [--external-links] [--json]\nci inspect [--json]\ncheck [--change NAME | --capability NAME] [--json] [--fail-on-pending]\nrecover\nAll commands accept --root PATH.');
+  } else if (!command || command === '--help') console.log('cliewen-openspec\ninit [--default] [--dry-run] [--profile solo|team]\nprofile solo|team [--concurrent] [--shared-review] [--apply [--enable-review]] [--json]\nupdate [--dry-run] [--json]\nuninstall [--default-schema NAME] [--dry-run] [--json]\nac next --capability NAME\nac next PREFIX (registered active prefix only)\nac rename-prefix CAPABILITY PREFIX\nac coordinate REMOTE [--apply] (preview by default)\nac sync\nac resume\nac abandon\ndocs check [--external-links] [--json]\nci inspect [--json]\nevidence compose REPORT REPORT [...] [--json]\ncheck [--change NAME | --capability NAME] [--json] [--fail-on-pending]\nrecover\nAll commands accept --root PATH.');
   else throw Error(`Unknown command: ${command}`);
 } catch (e) {
   const message = e instanceof Error ? e.message : String(e);

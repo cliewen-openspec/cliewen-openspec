@@ -94,6 +94,19 @@ On Windows with Maven's batch launcher, use `cmd.exe /d /c mvn.cmd -B test` afte
 
 The adapter expects direct Surefire `TEST-*.xml` files from a single command. Keep retries disabled and ensure each mapped class and test name identifies one execution. The adapter records the full runner exit code even if a failing test has no acceptance mapping. Missing or malformed reports, ambiguous identities, and repository changes during execution fail collection and leave no usable report. To test an incomplete run, pass `-Dtest=CheckoutUnitTest` to Maven. The adapter records the executed unit test and the checker reports missing `Slice` evidence.
 
+## Combine reports from different runners
+
+The development CLI can compose original version 1 reports from separate test commands. Retain each input under a distinct Git-ignored path. Every report must identify the current clean Git commit and use the same scope. For example, collect both source reports with capability scope `checkout`:
+
+```sh
+cliewen-openspec evidence compose .tmp/unit.json .tmp/slice.json
+cliewen-openspec check --capability checkout --json
+```
+
+The command writes to the configured `evidence.report` path. Keep that path Git-ignored and separate from the inputs. The combined report retains the test results, and its `sources` list records each original file, SHA-256, runner exit code, and result count. Results are grouped in source order.
+
+Composition exits 0 when every runner exited zero. It exits 1 when a runner failed and still writes the report so `check` can report the failure. Invalid inputs exit 2. The command rejects stale revisions, different scopes, duplicate test identities for the same acceptance ID, and already combined inputs. After it confirms the output is safe to replace, it invalidates any previous report before reading the sources.
+
 ## Collect evidence for one change
 
 Pass `--change NAME` once to the Node adapter, followed by explicit test file paths. It runs every test in those files, then includes only results whose AC IDs appear in the selected change's delta specs. This supports files containing both existing tests and tests for the current change. The flag selects report results, not which tests execute.
@@ -163,7 +176,7 @@ npx --no-install cliewen-openspec check --capability export --fail-on-pending --
 
 The first check stops the job if CI checked out the wrong commit. The adapter runs the tests and writes fresh evidence for that checkout. Cliewen then checks the report, rejects stale evidence, and treats pending results as failures. Read any advisory findings separately.
 
-On GitHub Actions, when using the default checkout for an open `pull_request` or `merge_group` event, set `CANDIDATE_SHA` from `GITHUB_SHA`. The former tests GitHub's pull request merge revision. The latter tests the merge queue candidate. If you use a merge queue, run the required check on `merge_group` as well. Make the job a required check through your project's merge policy. The evidence identifies the tested candidate. A squash, rebase, or other operation that creates a different final commit requires a new run if you need evidence for that commit. [GitHub Actions events](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows) · [Required checks and merge queues](https://docs.github.com/en/pull-requests/how-tos/merge-and-close-pull-requests/troubleshooting-required-status-checks)
+On GitHub Actions, when using the default checkout for an open `pull_request` or `merge_group` event, set `CANDIDATE_SHA` from `GITHUB_SHA`. The former tests GitHub's pull request merge revision. The latter tests the merge queue candidate. If you use a merge queue, run the required check on `merge_group` as well. Make the job a required check through your project's merge policy. The evidence identifies the tested candidate. A squash, rebase, or other operation that creates a different final commit requires a new run if you need evidence for that commit. [GitHub Actions events](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows) Â· [Required checks and merge queues](https://docs.github.com/en/pull-requests/how-tos/merge-and-close-pull-requests/troubleshooting-required-status-checks)
 
 The adapter records explicit metadata; it cannot establish whether a test actually exercises the claimed boundary. Review that boundary and task descriptions alongside assertions. See [test-type configuration](../configuration.md#test-types).
 

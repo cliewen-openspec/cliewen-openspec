@@ -4,6 +4,8 @@ Changes that matter to projects using Cliewen for OpenSpec.
 
 ## Unreleased
 
+- Combine revision-matched evidence from different test runners and retain each runner exit code. [Combine reports](docs/testing/evidence.md#combine-reports-from-different-runners)
+
 ## 0.7.0 (2026-11-27)
 
 - See how a project-owned Surefire adapter can collect JUnit evidence for Spring Boot slice tests. [JUnit evidence](docs/testing/evidence.md#collect-junit-evidence-from-maven-surefire)
