@@ -1,8 +1,8 @@
 {
-  "version": "0.6.0",
+  "version": "0.7.0",
   "files": {
     ".cliewen-openspec/templates/decision.md": "ede7f369e224f8995fb8869069fc484b2b8c3b306c52d25532a701f4f0ad32c4",
-    "openspec/schemas/cliewen-delivery/schema.yaml": "39c9b1c9cb8f8cdf9ea2950827cd2d53e5e4fa02e6d6580a77671be04cddee77",
+    "openspec/schemas/cliewen-delivery/schema.yaml": "bf837db5c31c4b6cf90fc2b8501cca607c732fb44d387b31e87a24c6f06cdb29",
     "openspec/schemas/cliewen-delivery/templates/proposal.md": "399e6fd1656176052a0af3f6cf0aca7cad1061e54ccc4e77d600f3c371009a7f",
     "openspec/schemas/cliewen-delivery/templates/spec.md": "690c90c3c0172bcbf0b835215624081029b5dda389ef632e956690cbbc844a44",
     "openspec/schemas/cliewen-delivery/templates/design.md": "ea33a57e7971f7e09325afc000fad90c1f757709616d6a8e6fc05754b8b3e0af",
@@ -11,7 +11,7 @@
     "openspec/schemas/cliewen-discovery/templates/proposal.md": "914427e23c1934f9840b13446319790c0eceaa5c9a56c2be33df96c6d51021d6",
     "openspec/schemas/cliewen-discovery/templates/investigation.md": "062a7842bfb90f03c6ff6137207179fe66ca45889b4d2c185b2a711f3902bdc7",
     "openspec/schemas/cliewen-discovery/templates/decision.md": "d89118b3a1b3d9a1c1b0df76f0f6176abd8d51785adcd677e68a28b226c4a914",
-    "openspec/schemas/cliewen-all/schema.yaml": "b6678c43e82cf75b135cc02e7864297bf72fbde6ec61698aaf0aa558b9f63c90",
+    "openspec/schemas/cliewen-all/schema.yaml": "20284cd0cf0d36a591723fc342a6ce9ca1ba2b866e43935b4f7f97d6406edd0d",
     "openspec/schemas/cliewen-all/templates/proposal.md": "924d0b9831ca680be5e488146d5b7c0ef1deaa4aa48c73debaaacbabbd00b0a4",
     "openspec/schemas/cliewen-all/templates/investigation.md": "062a7842bfb90f03c6ff6137207179fe66ca45889b4d2c185b2a711f3902bdc7",
     "openspec/schemas/cliewen-all/templates/decision.md": "ff1ef12a860c28bba6a3f321e46a2f8ebbbb1fb1c4a2acfe0680bad90abe5513",

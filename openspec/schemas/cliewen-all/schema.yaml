@@ -1108,19 +1108,19 @@ artifacts:
       #### Scenario headings with WHEN/THEN steps. New capabilities need a
       meaningful ## Purpose. MODIFIED must copy the entire existing requirement
       and all scenarios. With evidence enabled, preserve stable bracketed AC IDs
-      and Test-type. Each scenario requires exactly one Test-type line using a
-      name from testing.types (defaults Unit, Integration, E2E); configured
-      types replace the defaults. Read their descriptions and choose the
-      required verification boundary. Do not assume one type substitutes for
-      another. Use ac.capabilities in config to map the OpenSpec capability name
-      (its specs directory name) to a stable prefix, such as EXPORT or EXP.
-      Register new capability mappings before allocating with cliewen-openspec
-      ac next --capability NAME. Choose a recognizable abbreviation with the
-      user if it is not established; never silently assign an existing or
-      historical prefix to another capability. Use ac.padding (default 3).
-      Rename established prefixes only with cliewen-openspec ac rename-prefix
-      CAPABILITY PREFIX; the sequence continues and old IDs remain unchanged.
-      Changed meaning needs review and a new ID; do not renumber wording edits."
+      and Test-type. Give each scenario one Test-type line per required
+      verification boundary. Use distinct names from testing.types (defaults
+      Unit, Integration, E2E). Configured names replace the defaults. When
+      several types are required, collect a passing result for each. Use
+      ac.capabilities in config to map the OpenSpec capability name (its specs
+      directory name) to a stable prefix, such as EXPORT or EXP. Register new
+      capability mappings before allocating with cliewen-openspec ac next
+      --capability NAME. Choose a recognizable abbreviation with the user if it
+      is not established; never silently assign an existing or historical prefix
+      to another capability. Use ac.padding (default 3). Rename established
+      prefixes only with cliewen-openspec ac rename-prefix CAPABILITY PREFIX;
+      the sequence continues and old IDs remain unchanged. Changed meaning needs
+      review and a new ID; do not renumber wording edits."
   - id: tasks
     generates: tasks.md
     description: Delivery tasks or genuine closure checks
@@ -1460,18 +1460,19 @@ artifacts:
       check before continuing. Include relevant documentation with each task.
       Identify the concrete test, its configured type, and the verification
       boundary for each implementation task. With the Node adapter, tag mapped
-      test titles with one AC ID and one [Test-type: NAME] tag matching the
-      scenario. Other adapters must export the declared type as testType. With
-      evidence enabled, name the AC IDs served and record execution outcomes for
-      the tested revision. Review whether assertions prove the scenario at the
-      declared boundary, including relevant negative and boundary cases.
-      Separate review is optional. Do not require post-implementation evidence
-      before implementation. Archive is an untracked follow-up. After writing
-      tasks and before executing them, retrieve the active change's OpenSpec
-      apply instructions with --json and read their contextFiles.
-      Artifact-generation instructions do not replace apply instructions. If
-      apply is blocked, resolve its prerequisites and retrieve it again before
-      work; retain the response when the project requires instruction records."
+      test titles with one AC ID and one [Test-type: NAME] tag identifying the
+      boundary that test verifies. Plan a test for each required type. Other
+      adapters must export the declared type as testType. With evidence enabled,
+      name the AC IDs served and record execution outcomes for the tested
+      revision. Review whether assertions prove the scenario at the declared
+      boundary, including relevant negative and boundary cases. Separate review
+      is optional. Do not require post-implementation evidence before
+      implementation. Archive is an untracked follow-up. After writing tasks and
+      before executing them, retrieve the active change's OpenSpec apply
+      instructions with --json and read their contextFiles. Artifact-generation
+      instructions do not replace apply instructions. If apply is blocked,
+      resolve its prerequisites and retrieve it again before work; retain the
+      response when the project requires instruction records."
 apply:
   requires:
     - tasks
