@@ -24,7 +24,7 @@
     "evidence-first-verification": {
       "prefix": "EVID",
       "previousPrefixes": [],
-      "highWater": 1
+      "highWater": 2
     }
   },
   "unassignedPrefixes": {}

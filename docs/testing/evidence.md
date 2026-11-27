@@ -42,6 +42,46 @@ Allowed outcomes: passed, failed, skipped, pending and manual. Pending requires 
 
 `check --change NAME` checks active delta scenarios (REMOVED scenarios are excluded). Without it, check all permanent specs. OpenSpec retains responsibility for semantic merging. After archive changes the tree, commit and regenerate evidence without the adapter's `--change` before checking permanent specs.
 
+## Collect JUnit evidence from Maven Surefire
+
+The development package includes `adapters/junit-surefire.mjs`. It starts your test command and gives it a fresh report directory through `CLIEWEN_JUNIT_REPORTS`. Configure Maven Surefire in `pom.xml` to write there:
+
+```xml
+<plugin>
+  <groupId>org.apache.maven.plugins</groupId>
+  <artifactId>maven-surefire-plugin</artifactId>
+  <configuration>
+    <reportsDirectory>${env.CLIEWEN_JUNIT_REPORTS}</reportsDirectory>
+  </configuration>
+</plugin>
+```
+
+Commit a mapping file. Copy the exact `classname` and `name` from each Surefire `testcase` element, including any invocation suffix for a parameterized test. Use a configured `testType` and the acceptance ID the assertion verifies. `caseId` and `coverage` can carry the existing quality metadata.
+
+```json
+[
+  {
+    "classname": "example.CheckoutSliceTest",
+    "name": "returnsTotal",
+    "scenario": "CART-001",
+    "testType": "Slice",
+    "caseId": "mvc-response",
+    "coverage": "positive"
+  }
+]
+```
+
+Copy the [checkout fixture](../examples/junit-surefire/pom.xml) into its own Git repository and install the development package there. The fixture supplies the OpenSpec criterion, the test types, and the mappings. Run `npx cliewen-openspec init` and commit the project inputs before collecting evidence:
+
+```sh
+node node_modules/cliewen-openspec/adapters/junit-surefire.mjs --mapping junit-mapping.json --capability checkout -- mvn -B test
+npx cliewen-openspec check --capability checkout --json
+```
+
+On Windows with Maven's batch launcher, use `cmd.exe /d /c mvn.cmd -B test` after the separator. Use `--change NAME` to select a change or omit the selection to collect evidence for permanent specs. Run the checker with the same selection.
+
+The adapter expects direct Surefire `TEST-*.xml` files from a single command. Keep retries disabled and ensure each mapped class and test name identifies one execution. The adapter records the full runner exit code even if a failing test has no acceptance mapping. Missing or malformed reports, ambiguous identities, and repository changes during execution fail collection and leave no usable report. To test an incomplete run, pass `-Dtest=CheckoutUnitTest` to Maven. The adapter records the executed unit test and the checker reports missing `Slice` evidence.
+
 ## Collect evidence for one change
 
 Pass `--change NAME` once to the Node adapter, followed by explicit test file paths. It runs every test in those files, then includes only results whose AC IDs appear in the selected change's delta specs. This supports files containing both existing tests and tests for the current change. The flag selects report results, not which tests execute.

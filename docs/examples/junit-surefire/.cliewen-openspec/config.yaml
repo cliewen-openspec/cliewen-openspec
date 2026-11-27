@@ -1,0 +1,9 @@
+ac:
+  capabilities:
+    checkout: CART
+testing:
+  types:
+    Unit:
+      description: Checkout calculation without Spring
+    Slice:
+      description: Spring MVC controller with a web test slice

@@ -1,0 +1,4 @@
+[
+  {"classname": "example.CheckoutUnitTest", "name": "calculatesTotal", "scenario": "CART-001", "testType": "Unit", "caseId": "calculation", "coverage": "positive"},
+  {"classname": "example.CheckoutSliceTest", "name": "returnsTotal", "scenario": "CART-001", "testType": "Slice", "caseId": "mvc-response", "coverage": "positive"}
+]
