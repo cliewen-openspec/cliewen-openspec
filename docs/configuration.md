@@ -5,11 +5,11 @@ type: reference
 
 Cliewen reads project settings from `.cliewen-openspec/config.yaml`.
 
-This reference describes Cliewen `0.6.0`. For an older package, consult the reference bundled with that version.
+This reference describes Cliewen `0.7.0`. For an older package, consult the reference bundled with that version.
 
 ## Version compatibility
 
-Cliewen 0.6.0 requires **Node.js 22.12 or newer** and **OpenSpec 1.15.0 or newer**. Git remains necessary for identity coordination and revision-bound evidence. The documentation checker runs independently of Git and OpenSpec. Versions 0.1.0 and 0.2.0 retain their Node 20.19+ requirements. The worked guide uses OpenSpec 2.0.0.
+Cliewen 0.7.0 requires **Node.js 22.12 or newer** and **OpenSpec 1.15.0 or newer**. Git remains necessary for identity coordination and revision-bound evidence. The documentation checker runs independently of Git and OpenSpec. Versions 0.1.0 and 0.2.0 retain their Node 20.19+ requirements. The worked guide uses OpenSpec 2.0.0.
 
 Cliewen supports repository-local OpenSpec 2.0.0 workflows. External stores and multi-repo evidence remain unsupported. Init and update reject standalone stores and declared external planning layouts before recovery or writes. Local specs and changes take precedence when both exist.
 
@@ -31,7 +31,7 @@ Init/update check the target package's minimums, including previews, before reco
 
 The check uses the project's resolvable OpenSpec npm installation first, otherwise the CLI on PATH, including a standalone executable. It runs that installation's public `--version`; an incompatible or broken selected local installation does not fall back to a global version. Output identifies the source and detected versions. Missing tools, invalid/prerelease versions, execution failure, or a probe exceeding five seconds stop init/update with an actionable error. Cliewen neither downloads nor upgrades OpenSpec during this check.
 
-Version 0.6.0 accepts ownership manifests from 0.1.0 through 0.6.0. Alpha manifests, unknown formats, and downgrades are rejected. See [updating an installation](guide/updating.md) for preview and apply examples.
+Version 0.7.0 accepts ownership manifests from 0.1.0 through 0.7.0. Alpha manifests, unknown formats, and downgrades are rejected. See [updating an installation](guide/updating.md) for preview and apply examples.
 
 ## Documentation checks in development source
 

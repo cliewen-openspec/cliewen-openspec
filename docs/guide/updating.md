@@ -5,7 +5,7 @@ type: guide
 
 Installing a Cliewen npm package updates the CLI. Run `update` to refresh the files Cliewen installed in your project, such as schema definitions and templates. It preserves project configuration, the OpenSpec default, authored changes and documents, and the AC registry.
 
-Version 0.6.0 accepts manifests from 0.1.0 through 0.6.0. Use the preview below to see which resources it will change. Alpha or unknown manifests and downgrades are rejected.
+Version 0.7.0 accepts manifests from 0.1.0 through 0.7.0. Use the preview below to see which resources it will change. Alpha or unknown manifests and downgrades are rejected.
 
 ## See whether an update is available
 
@@ -22,16 +22,16 @@ Choose a compatible version, then use the installation and preview steps below w
 
 ## Check the requirements
 
-Version 0.6.0 requires Node 22.12+ and OpenSpec 1.15.0+. Init and update check those requirements before changing project files or recovering a transaction. Upgrade Node before installing 0.6.0. [Version compatibility](../configuration.md#version-compatibility)
+Version 0.7.0 requires Node 22.12+ and OpenSpec 1.15.0+. Init and update check those requirements before changing project files or recovering a transaction. Upgrade Node before installing 0.7.0. [Version compatibility](../configuration.md#version-compatibility)
 
 The check prefers the project's OpenSpec npm installation; otherwise it uses PATH. It runs the selected CLI and reports its source and version. A broken or incompatible local installation blocks the operation even if a newer global version exists. Resolve the reported installation before continuing. Cliewen does not install or upgrade OpenSpec for you.
 
 ## Install, preview, and apply
 
-In a project with a supported Cliewen installation, install 0.6.0 from npm and preview the resource update. If you already installed this version, start with the preview.
+In a project with a supported Cliewen installation, install 0.7.0 from npm and preview the resource update. If you already installed this version, start with the preview.
 
 ```sh
-npm install --save-dev cliewen-openspec@0.6.0
+npm install --save-dev cliewen-openspec@0.7.0
 npx --no-install cliewen-openspec update --dry-run --json
 ```
 

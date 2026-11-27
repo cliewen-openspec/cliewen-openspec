@@ -4,6 +4,8 @@ Changes that matter to projects using Cliewen for OpenSpec.
 
 ## Unreleased
 
+## 0.7.0 (2026-11-27)
+
 - See how a project-owned Surefire adapter can collect JUnit evidence for Spring Boot slice tests. [JUnit evidence](docs/testing/evidence.md#collect-junit-evidence-from-maven-surefire)
 
 - Require several test types for one acceptance criterion by declaring each on a separate `Test-type:` line. The checker reports which types still need a passing result. [Execution evidence](docs/testing/evidence.md)

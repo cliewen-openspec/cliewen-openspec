@@ -83,7 +83,7 @@ Commit a mapping file. Copy the exact `classname` and `name` from each Surefire 
 ]
 ```
 
-Copy the [checkout fixture](../examples/junit-surefire/pom.xml) into its own Git repository and install the development build of Cliewen there for multiple required test types. The fixture supplies the OpenSpec criterion, the test types, and the mappings. Run `npx cliewen-openspec init` and commit the project inputs before collecting evidence:
+Copy the [checkout fixture](../examples/junit-surefire/pom.xml) into its own Git repository and install Cliewen there. The fixture supplies the OpenSpec criterion, the test types, and the mappings. Run `npx cliewen-openspec init` and commit the project inputs before collecting evidence:
 
 ```sh
 node junit-surefire.mjs --mapping junit-mapping.json --capability checkout -- mvn -B test
@@ -133,7 +133,7 @@ For `cliewen-all`, check first validates decision frontmatter and the outcome br
 
 A `manual` result is reported as a warning and does not become automated proof. The current format records free-text context, not a reviewed-sufficiency verdict. A pending result with a reason also remains a warning unless explicitly made blocking.
 
-Declare each required type on its own `Test-type: NAME` line. Support for multiple required types is available in the development package. Names must be distinct and configured in `testing.types`. Each result carries one `testType`, including pending and manual results. The report remains version 1.
+Declare each required type on its own `Test-type: NAME` line. Names must be distinct and configured in `testing.types`. Each result carries one `testType`, including pending and manual results. The report remains version 1.
 
 For a single-type scenario, all mapped results must match the declared type. For a scenario declaring both `Test-type: Unit` and `Test-type: Integration`, the checker requires a passing result for each. It reports `missing-test-type-evidence` with the criterion ID and the type still owed. A configured supplemental type can accompany the required results. Only passed results at required types count toward verification and the existing per-criterion coverage quotas. Failed and skipped tests and runner failures still block the check.
 
