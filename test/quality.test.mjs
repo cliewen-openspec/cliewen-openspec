@@ -254,3 +254,61 @@ test('Node adapter exports optional case tags without losing malformed metadata 
   run(['--change', 'retire', 'count.test.cjs'], 2);
   assert.equal(fs.existsSync(path.join(f.root, '.cliewen-openspec/evidence.json')), false);
 });
+
+test('each required type needs passing execution evidence [EVID-001] [Test-type: Integration] [Case: required-boundaries] [Coverage: positive]', t => {
+  const f = fixture(t, {coverage: 'review'});
+  const cli = fileURLToPath(new URL('../dist/cli.js', import.meta.url));
+  const adapter = fileURLToPath(new URL('../adapters/node-test.mjs', import.meta.url));
+  function run(command, args, expected) {
+    const env = {...process.env};
+    delete env.NODE_TEST_CONTEXT;
+    const result = spawnSync(process.execPath, [command, ...args], {cwd: f.root, encoding: 'utf8', env, timeout: 30000});
+    assert.equal(result.status, expected, result.stderr || result.stdout);
+    return result.stdout;
+  }
+  const spec = requirement('COUNT-001');
+  const original = fs.readFileSync(path.join(f.root, 'count.test.cjs'), 'utf8');
+  const integration = `test('stores [COUNT-001] [Test-type: Integration] [Case: stored] [Coverage: negative]', () => {
+    const filesystem = require('node:fs');
+    const file = '.cliewen-openspec/total.tmp';
+    try {
+      filesystem.writeFileSync(file, String(count('0')));
+      assert.equal(filesystem.readFileSync(file, 'utf8'), '0');
+    } finally {
+      filesystem.rmSync(file, {force: true});
+    }
+  });\n`;
+  const missing = 'missing-test-type-evidence';
+  for (const [label, types, extraTest, runnerExit, expectedErrors] of [
+    ['single type', 'Unit', '', 0, []],
+    ['missing Integration', 'Unit\nTest-type: Integration', '', 0, [missing]],
+    ['both passed', 'Unit\nTest-type: Integration', integration, 0, []],
+    ['Integration skipped', 'Unit\nTest-type: Integration', integration.replace('test(', 'test.skip('), 0, [missing, 'test-skipped']],
+    ['Integration failed', 'Unit\nTest-type: Integration', integration.replace(", '0');", ", '1');"), 1, [missing, 'runner-failed', 'test-failed']],
+    ['supplement only', 'Unit\nTest-type: Integration', integration.replace('Integration]', 'E2E]'), 0, [missing]],
+    ['supplement plus required types', 'Unit\nTest-type: Integration', integration + integration.replace('Integration]', 'E2E]').replace('Case: stored', 'Case: extra'), 0, []],
+    ['duplicate declaration', 'Unit\nTest-type: Unit', '', 0, ['invalid-scenario-test-type']],
+    ['blank declaration', 'Unit\nTest-type:', '', 0, ['invalid-scenario-test-type', 'unknown-test-type']],
+    ['unknown declaration', 'Unit\nTest-type: Storage', '', 0, ['unknown-test-type']],
+  ]) {
+    f.write('openspec/specs/count/spec.md', spec.replace('Test-type: Unit', 'Test-type: ' + types));
+    f.write('count.test.cjs', original + extraTest);
+    f.commit();
+    run(adapter, ['--capability', 'count', 'count.test.cjs'], runnerExit);
+    const {findings} = JSON.parse(run(cli, ['check', '--capability', 'count', '--json'], Number(Boolean(expectedErrors.length))));
+    assert.deepEqual(findings.filter(finding => finding.severity === 'error').map(finding => finding.code).sort(), [...expectedErrors].sort(), label);
+    if (expectedErrors.includes(missing)) {
+      assert.equal(findings.find(finding => finding.code === missing).message, 'COUNT-001: no passing result for required type Integration', label);
+    }
+    if (label === 'both passed') {
+      assert.ok(!findings.some(finding => finding.code === 'coverage-minimum-unmet'), label);
+      for (const outcome of ['pending', 'manual']) {
+        f.collect([f.positive, {...f.negative, testType: 'Integration', outcome, reason: 'Awaiting verification'}]);
+        assert.deepEqual(f.errors().map(finding => finding.code), [missing], outcome);
+      }
+    }
+    if (label === 'supplement only') {
+      assert.ok(findings.some(finding => finding.code === 'coverage-minimum-unmet' && finding.message.includes('negative')), label);
+    }
+  }
+});

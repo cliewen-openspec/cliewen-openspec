@@ -81,7 +81,9 @@ For `cliewen-all`, check first validates decision frontmatter and the outcome br
 
 A `manual` result is reported as a warning and does not become automated proof. The current format records free-text context, not a reviewed-sufficiency verdict. A pending result with a reason also remains a warning unless explicitly made blocking.
 
-Each selected scenario requires exactly one nonempty `Test-type` line. Each result requires `testType`, including pending and manual results. Types must belong to `testing.types` and match the scenario exactly. Findings are `invalid-scenario-test-type`, `missing-test-type`, `unknown-test-type`, and `test-type-mismatch`. Fix the scenario or test metadata, commit, and recollect evidence. Reports without types must be regenerated. The report envelope remains version 1 with stricter result checks.
+Declare each required type on its own `Test-type: NAME` line. Names must be distinct and configured in `testing.types`. Each result carries one `testType`, including pending and manual results. The report remains version 1.
+
+For a single-type scenario, all mapped results must match the declared type. For a scenario declaring both `Test-type: Unit` and `Test-type: Integration`, the checker requires a passing result for each. It reports `missing-test-type-evidence` with the criterion ID and the type still owed. A configured supplemental type can accompany the required results. Only passed results at required types count toward verification and the existing per-criterion coverage quotas. Failed and skipped tests and runner failures still block the check.
 
 ## Collect evidence for one capability
 

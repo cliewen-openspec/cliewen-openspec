@@ -40,6 +40,7 @@ ac:
     project-release-notes: NOTE
     work-scoping: SCOPE
     change-closure: CLOSE
+    evidence-first-verification: EVID
   padding: 3
 testing:
   quality:

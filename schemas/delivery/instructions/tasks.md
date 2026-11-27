@@ -4,7 +4,7 @@ Do not defer these tests to a final testing phase.
 Documentation-only tasks may use an appropriate validation check instead.
 In end-of-change mode, group the automated suite in a final verification section with explicit task-to-test links; each task still needs a suitable completion check before continuing.
 Include relevant documentation with each task.
-Identify the concrete test, its configured type, and the verification boundary for each implementation task. With the Node adapter, tag mapped test titles with one AC ID and one [Test-type: NAME] tag matching the scenario. Other adapters must export the declared type as testType.
+Identify the concrete test, its configured type, and the verification boundary for each implementation task. With the Node adapter, tag mapped test titles with one AC ID and one [Test-type: NAME] tag identifying the boundary that test verifies. Plan a test for each required type. Other adapters must export the declared type as testType.
 With evidence enabled, name the AC IDs served and record execution outcomes for the tested revision.
 Review whether assertions prove the scenario at the declared boundary, including relevant negative and boundary cases.
 Separate review is optional.

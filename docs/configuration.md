@@ -356,7 +356,7 @@ testing:
       description: A complete workflow against a deployed system
 ```
 
-Each scenario needs exactly one `Test-type: Component` line beneath its heading. With the Node adapter, give each mapped test a title such as `exports rows [EXPORT-001] [Test-type: Component]`. Tasks should name the concrete test, type, and verification boundary. The checker requires evidence `testType` to match the scenario's declared type exactly; it does not assume one type substitutes for another. Task descriptions and the actual quality of the test boundary still require review.
+Declare one `Test-type: NAME` line for each required boundary. Give each mapped Node test one AC tag and one type tag, for example `exports rows [EXPORT-001] [Test-type: Component]`. When a scenario declares several types, the checker requires passing results at each boundary. Tasks should name the tests and explain what each boundary verifies.
 
 For existing projects, add types to scenarios and test titles, commit the inputs, then regenerate evidence. Older reports without `testType` fail the check and are not automatically upgraded. Evidence opt-out skips these checks. Testing types do not change per-task placement or verification quality.
 

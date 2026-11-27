@@ -4,6 +4,8 @@ Changes that matter to projects using Cliewen for OpenSpec.
 
 ## Unreleased
 
+- Require several test types for one acceptance criterion by declaring each on a separate `Test-type:` line. The checker reports which types still need a passing result. [Execution evidence](docs/testing/evidence.md)
+
 ## 0.6.0 (2026-11-26)
 
 - Agents can use a gap analysis to plan a transition and link the affected designs and decisions. Routine changes need no extra document.

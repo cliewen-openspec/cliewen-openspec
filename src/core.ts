@@ -603,8 +603,11 @@ export function check(root: string, change?: string, failPending = false, capabi
   }
   const specs = selected ?? scenarios(root, change); const ids = new Set<string>();
   for (const s of specs) { if (!s.id) add('missing-ac-id', `${s.file}: ${s.title}`); else if (ids.has(s.id)) add('duplicate-ac-id', s.id); else ids.add(s.id); }
+  const requiredTypes = new Map(specs.map(s => [s.id, s.testTypes]));
   for (const s of specs) {
-    if (s.testTypes.length !== 1 || !s.testTypes[0]) add('invalid-scenario-test-type', `${s.file}: ${s.id || s.title} requires exactly one nonempty Test-type line`);
+    if (!s.testTypes.length || s.testTypes.includes('') || new Set(s.testTypes).size !== s.testTypes.length) {
+      add('invalid-scenario-test-type', `${s.file}: ${s.id || s.title} requires nonempty, distinct Test-type lines`);
+    }
     for (const type of s.testTypes) if (!Object.hasOwn(c.testing.types, type)) add('unknown-test-type', `${s.id}: ${type}`);
   }
   const reportPath = local(root, c.evidence.report);
@@ -626,6 +629,7 @@ export function check(root: string, change?: string, failPending = false, capabi
     if (git(root, ['status', '--porcelain', '--untracked-files=all'])) add('unverifiable-evidence', 'Working tree is not clean');
   } catch { add('unverifiable-evidence', 'Cannot establish Git revision'); }
   const seen = new Set<string>(); const tests = new Set<string>();
+  const passedTypes = new Map<string, Set<string>>();
   for (const r of report.results) {
     if (!r || typeof r.scenario !== 'string' || typeof r.test !== 'string' || !r.test || !['passed','failed','skipped','pending','manual'].includes(r.outcome)) throw Error('Invalid evidence result');
     const key = `${r.scenario}:${r.test}`; if (tests.has(key)) add('duplicate-test-result', key); tests.add(key);
@@ -633,14 +637,28 @@ export function check(root: string, change?: string, failPending = false, capabi
     if (typeof r.testType !== 'string' || !r.testType.trim()) add('missing-test-type', key);
     else if (!Object.hasOwn(c.testing.types, r.testType)) add('unknown-test-type', `${key}: ${r.testType}`);
     else {
-      const scenario = specs.find(s => s.id === r.scenario);
-      if (scenario?.testTypes.length === 1 && scenario.testTypes[0] !== r.testType) add('test-type-mismatch', `${key}: expected ${scenario.testTypes[0]}, received ${r.testType}`);
+      const types = requiredTypes.get(r.scenario);
+      if (types?.length === 1 && types[0] !== r.testType) add('test-type-mismatch', `${key}: expected ${types[0]}, received ${r.testType}`);
+      if (r.outcome === 'passed' && types?.includes(r.testType)) {
+        const passed = passedTypes.get(r.scenario) ?? new Set<string>();
+        passed.add(r.testType);
+        passedTypes.set(r.scenario, passed);
+      }
     }
     if (r.outcome === 'failed' || r.outcome === 'skipped') add(`test-${r.outcome}`, key);
     if (r.outcome === 'pending') { if (typeof r.reason !== 'string' || !r.reason.trim()) add('pending-without-reason', key); add('pending', `${key}: ${r.reason ?? ''}`, failPending ? 'error' : 'warning'); }
     if (r.outcome === 'manual') add('manual-verification', `${key}: ${r.reason ?? 'No review result recorded'}`, 'warning');
   }
-  for (const id of ids) if (!seen.has(id)) add('missing-evidence', id);
+  for (const id of ids) {
+    if (!seen.has(id)) add('missing-evidence', id);
+    const types = requiredTypes.get(id) ?? [];
+    if (types.length <= 1) continue;
+    for (const type of new Set(types)) {
+      if (Object.hasOwn(c.testing.types, type) && !passedTypes.get(id)?.has(type)) {
+        add('missing-test-type-evidence', `${id}: no passing result for required type ${type}`);
+      }
+    }
+  }
   findings.push(...checkQuality(root, c, specs, report, change, local, capability));
   add('sufficiency-not-assessed', 'Execution and linkage do not prove assertion quality; review the assertions against the scenarios.', 'info');
   return findings;

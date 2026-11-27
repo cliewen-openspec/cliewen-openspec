@@ -20,6 +20,11 @@
       "prefix": "SCOPE",
       "previousPrefixes": [],
       "highWater": 3
+    },
+    "evidence-first-verification": {
+      "prefix": "EVID",
+      "previousPrefixes": [],
+      "highWater": 1
     }
   },
   "unassignedPrefixes": {}

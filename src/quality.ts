@@ -125,7 +125,7 @@ export function checkQuality(root: string, config: Config, specs: Scenario[], re
       add('coverage', 'coverage-case-invalid', `${row.scenario}: ${row.test}; case IDs must be unique slugs and categories positive, negative, or boundary.`); continue;
     }
     const scenario = specs.find(s => s.id === row.scenario);
-    if (!fresh || row.outcome !== 'passed' || scenario?.testTypes.length !== 1 || scenario.testTypes[0] !== row.testType || !Object.hasOwn(config.testing.types, row.testType)) continue;
+    if (!fresh || row.outcome !== 'passed' || !scenario?.testTypes.includes(row.testType) || !Object.hasOwn(config.testing.types, row.testType)) continue;
     const count = counts.get(row.scenario) ?? {positive: 0, negative: 0, boundary: 0};
     count[row.coverage as Category]++; counts.set(row.scenario, count);
     const set = cases.get(row.scenario) ?? new Set(); set.add(row.caseId); cases.set(row.scenario, set);

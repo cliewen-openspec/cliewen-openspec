@@ -46,10 +46,10 @@ test('test types replace defaults and reject incomplete definitions', t => {
 
 test('scenario types stay scoped to their scenario and ignore fences and removals', t => {
   const root = fixture(t); init(root, false, false);
-  fs.writeFileSync(path.join(root, 'openspec/specs/example.md'), '## ADDED Requirements\n### Requirement: Example\n#### Scenario: First [EX-001]\nTest-type: Unit\n```text\nTest-type: Fake\n```\n#### Scenario: Missing [EX-002]\n### Requirement: Next\nTest-type: Integration\n#### Scenario: Duplicate [EX-003]\nTest-type: Unit\nTest-type: Integration\n## REMOVED Requirements\n#### Scenario: Removed [EX-004]\nTest-type: Unknown\n');
+  fs.writeFileSync(path.join(root, 'openspec/specs/example.md'), '## ADDED Requirements\n### Requirement: Example\n#### Scenario: First [EX-001]\nTest-type: Unit\n```text\nTest-type: Fake\n```\n#### Scenario: Missing [EX-002]\n### Requirement: Next\nTest-type: Integration\n#### Scenario: Two boundaries [EX-003]\nTest-type: Unit\nTest-type: Integration\n## REMOVED Requirements\n#### Scenario: Removed [EX-004]\nTest-type: Unknown\n');
   assert.deepEqual(scenarios(root).map(s => s.testTypes), [['Unit'], [], ['Unit', 'Integration']]);
   const codes = check(root).map(f => f.code);
-  assert.equal(codes.filter(code => code === 'invalid-scenario-test-type').length, 2);
+  assert.equal(codes.filter(code => code === 'invalid-scenario-test-type').length, 1);
 });
 test('repository paths reject drive-relative, absolute and escaping paths', t => {
   const root = fixture(t);
