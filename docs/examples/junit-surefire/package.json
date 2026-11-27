@@ -1,1 +1,7 @@
-{"name":"cliewen-checkout-verification-example","private":true}
+{
+  "name": "cliewen-checkout-verification-example",
+  "private": true,
+  "devDependencies": {
+    "jsdom": "26.1.0"
+  }
+}

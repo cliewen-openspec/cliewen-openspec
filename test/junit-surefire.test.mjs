@@ -7,7 +7,8 @@ import {spawnSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import {init} from '../dist/core.js';
 
-const adapter = fileURLToPath(new URL('../adapters/junit-surefire.mjs', import.meta.url));
+const project = fileURLToPath(new URL('../', import.meta.url));
+const adapterSource = path.join(project, 'docs', 'examples', 'junit-surefire', 'junit-surefire.mjs');
 const cli = fileURLToPath(new URL('../dist/cli.js', import.meta.url));
 
 test('Surefire execution verifies Unit and Slice separately [EVID-002] [Test-type: Integration] [Case: two-boundaries] [Coverage: positive]', t => {
@@ -24,6 +25,13 @@ test('Surefire execution verifies Unit and Slice separately [EVID-002] [Test-typ
     return run.stdout.trim();
   }
 
+  const adapter = path.join(root, 'junit-surefire.mjs');
+  fs.copyFileSync(adapterSource, adapter);
+  write('.gitignore', '/node_modules/\n');
+  const dependencies = path.join(root, 'node_modules');
+  fs.mkdirSync(dependencies);
+  fs.symlinkSync(project, path.join(dependencies, 'cliewen-openspec'), 'junction');
+  fs.symlinkSync(path.join(project, 'node_modules', 'jsdom'), path.join(dependencies, 'jsdom'), 'junction');
   fs.mkdirSync(path.join(root, 'openspec', 'changes'), {recursive: true});
   write('openspec/config.yaml', 'schema: spec-driven\n');
   write('openspec/specs/cart/spec.md', '#### Scenario: Checkout total [CART-001]\nTest-type: Unit\nTest-type: Slice\n');

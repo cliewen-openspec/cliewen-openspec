@@ -4,7 +4,7 @@ import os from 'node:os';
 import path from 'node:path';
 import {execFileSync, spawnSync} from 'node:child_process';
 import {JSDOM} from 'jsdom';
-import {config, local, scenarios} from '../dist/core.js';
+import {config, local, scenarios} from 'cliewen-openspec/dist/core.js';
 
 const root = process.cwd();
 const git = (...args) => execFileSync('git', args, {encoding: 'utf8'}).trim();

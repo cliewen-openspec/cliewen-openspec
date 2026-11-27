@@ -18,7 +18,7 @@
   "files": [
     "dist",
     "schemas",
-    "adapters",
+    "adapters/node-test.mjs",
     "README.md",
     "CHANGELOG.md",
     "LICENSE",

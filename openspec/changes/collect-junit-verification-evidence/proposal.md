@@ -4,7 +4,7 @@ Projects running Java tests need revision-bound Cliewen evidence for acceptance 
 
 ## What Changes
 
-Ship a reference adapter that runs a supplied test command and reads fresh Maven Surefire XML. Projects map executed tests to acceptance criteria and configured verification types.
+Document the adapter contract and provide a repository example that runs a supplied test command and reads fresh Maven Surefire XML. Projects map executed tests to acceptance criteria and configured verification types.
 
 ## Capabilities
 
@@ -14,4 +14,4 @@ Ship a reference adapter that runs a supplied test command and reads fresh Maven
 
 ## Impact
 
-Adds a packaged adapter, a usage example, and deterministic coverage. The evidence format stays at version 1.
+Adds a checkout example and deterministic coverage. Projects keep framework-specific collectors with their tests. The evidence format stays at version 1.

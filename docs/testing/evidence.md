@@ -3,13 +3,11 @@ type: testing
 ---
 # Execution evidence and review
 
-Version `0.2.0` provides the execution checks below and [test quality and lifecycle checks](test-quality.md), using optional case metadata in the same version-1 report. Policies default to advisory review. Case counts and reviewed statuses do not establish semantic correctness.
+Cliewen checks test execution against acceptance criteria using a revision-bound evidence report. Optional case metadata supports [test quality and lifecycle checks](test-quality.md), which default to advisory review.
 
-The candidate supports `init`, `update`, `uninstall`, `ac next`, `ac rename-prefix`, `check`, and `recover`, and installs `cliewen-delivery`, `cliewen-discovery`, and `cliewen-all`. Package CI exercises OpenSpec 1.15.0 on Windows and Linux. Existing-registry adapters, structural checks for your project's documentation and Mermaid, and independent review tooling remain planned.
+Set up OpenSpec and Cliewen using [Your first change](../guide/getting-started.md), or follow the [update guide](../guide/updating.md) for an existing Cliewen installation. Run `cliewen-openspec init --default` to select Delivery as the default schema. Omit `--default` to preserve your current choice. Use `init --dry-run` to preview changes.
 
-Initialize OpenSpec first, then install the local `cliewen-openspec-0.2.0.tgz` built in [Your first change](../guide/getting-started.md). Run `cliewen-openspec init --default` to explicitly select delivery; omit `--default` to preserve the existing schema. `--root PATH` supports an explicit target, and `init --dry-run` makes no changes. The earlier npm alpha is not the package exercised by this contract.
-
-Register a capability-to-prefix mapping, then allocate IDs using `cliewen-openspec ac next --capability export`. Keep the committed `.cliewen-openspec/ac-registry.json`; numbers are never reclaimed. This initial allocator supports sequential work; parallel branches must resolve collisions. Do not use it alongside another allocator until an adapter exists.
+Register a capability-to-prefix mapping, then allocate IDs using `cliewen-openspec ac next --capability export`. Keep `.cliewen-openspec/ac-registry.json` under version control so Cliewen preserves allocated numbers. If an existing allocator owns your IDs, keep using it as the authority. See [guidance for existing projects](../guide/existing-projects.md).
 
 `ac.capabilities` maps each OpenSpec capability to its prefix. `ac.padding` controls minimum digit width (default 3). Use `ac rename-prefix CAPABILITY PREFIX` to change an established prefix while retaining its sequence and historical references. See [configuration](../configuration.md) for prefix selection and the default per-task testing workflow.
 
@@ -17,7 +15,7 @@ Register a capability-to-prefix mapping, then allocate IDs using `cliewen-opensp
 
 Cliewen defines the [version 1 evidence format](#report-format) and ships the `check` command. The checker uses the report to verify the selected acceptance criteria, their required test types, and the Git revision. It also checks the runner's recorded exit code.
 
-An adapter collects actual test outcomes from its runner and writes the report. Cliewen ships the Node test runner adapter as a reference. The development package also includes the [JUnit adapter for Maven Surefire](#collect-junit-evidence-from-maven-surefire). Your team or a third party can supply an adapter for another runner using the same format.
+An adapter collects actual test outcomes from its runner and writes the report. Cliewen ships the Node test runner adapter as a reference. Your team or a third party can use the same format for another runner. The [Maven Surefire example](#collect-junit-evidence-from-maven-surefire) shows how to collect JUnit evidence in a project.
 
 The project defines its test types in `testing.types` and maps tests to acceptance criteria. For example, a project can register `Slice` and map a Spring MVC test to that type in its Surefire mapping file.
 
@@ -58,7 +56,7 @@ Allowed outcomes: passed, failed, skipped, pending and manual. Pending requires 
 
 ## Collect JUnit evidence from Maven Surefire
 
-The development package includes `adapters/junit-surefire.mjs`. It starts your test command and gives it a fresh report directory through `CLIEWEN_JUNIT_REPORTS`. Configure Maven Surefire in `pom.xml` to write there:
+The repository's checkout example includes its own `junit-surefire.mjs` script. It starts your test command and gives it a fresh report directory through `CLIEWEN_JUNIT_REPORTS`. Configure Maven Surefire in `pom.xml` to write there:
 
 ```xml
 <plugin>
@@ -85,10 +83,10 @@ Commit a mapping file. Copy the exact `classname` and `name` from each Surefire 
 ]
 ```
 
-Copy the [checkout fixture](../examples/junit-surefire/pom.xml) into its own Git repository and install the development package there. The fixture supplies the OpenSpec criterion, the test types, and the mappings. Run `npx cliewen-openspec init` and commit the project inputs before collecting evidence:
+Copy the [checkout fixture](../examples/junit-surefire/pom.xml) into its own Git repository and install the development build of Cliewen there for multiple required test types. The fixture supplies the OpenSpec criterion, the test types, and the mappings. Run `npx cliewen-openspec init` and commit the project inputs before collecting evidence:
 
 ```sh
-node node_modules/cliewen-openspec/adapters/junit-surefire.mjs --mapping junit-mapping.json --capability checkout -- mvn -B test
+node junit-surefire.mjs --mapping junit-mapping.json --capability checkout -- mvn -B test
 npx cliewen-openspec check --capability checkout --json
 ```
 
@@ -108,7 +106,7 @@ Without the adapter flag, collection retains all mapped results and omits `scope
 
 The adapter exits 0 when the runner passes, 1 when it fails with reportable results, and 2 for collection errors. Missing change specs, invalid names or options, no selected scenarios, no matching results, and incomplete runner execution are collection errors. Once collection starts from valid clean inputs and an ignored output path, an earlier report is removed before scope validation and execution, so failed recollection cannot reuse a previous pass. Scenario completeness and exact test-type matching remain the checker's responsibility.
 
-The candidate validates installation version/hashes, registry state, execution evidence, and configured test-policy records. It does not authenticate the semantic quality or approval of a review. Enabling documentation features supplies schema guidance, not document-structure validators. The schema does not add a post-implementation artifact as an apply prerequisite. Archive is deliberately performed with OpenSpec, after reviewing evidence.
+`check` validates installation ownership and file hashes, registry state, execution evidence, and configured test policies. It does not authenticate the semantic quality or approval of a review. Enabling documentation features supplies schema guidance, not document-structure validators. The schema does not add a post-implementation artifact as an apply prerequisite. Archive is deliberately performed with OpenSpec, after reviewing evidence.
 
 For `cliewen-discovery` changes, `check --change NAME` reads the schema selection from OpenSpec metadata and checks installation and registry health only. With evidence enabled, it reports `discovery-review-required` instead of requesting a product test report. Review research sources, actual observations, uncertainty, and the recommendation yourself. An `ok: true` result does not validate discovery documents or prove product behavior. See [the discovery guide](../guide/discovery.md).
 
@@ -135,13 +133,13 @@ For `cliewen-all`, check first validates decision frontmatter and the outcome br
 
 A `manual` result is reported as a warning and does not become automated proof. The current format records free-text context, not a reviewed-sufficiency verdict. A pending result with a reason also remains a warning unless explicitly made blocking.
 
-Declare each required type on its own `Test-type: NAME` line. Names must be distinct and configured in `testing.types`. Each result carries one `testType`, including pending and manual results. The report remains version 1.
+Declare each required type on its own `Test-type: NAME` line. Support for multiple required types is available in the development package. Names must be distinct and configured in `testing.types`. Each result carries one `testType`, including pending and manual results. The report remains version 1.
 
 For a single-type scenario, all mapped results must match the declared type. For a scenario declaring both `Test-type: Unit` and `Test-type: Integration`, the checker requires a passing result for each. It reports `missing-test-type-evidence` with the criterion ID and the type still owed. A configured supplemental type can accompany the required results. Only passed results at required types count toward verification and the existing per-criterion coverage quotas. Failed and skipped tests and runner failures still block the check.
 
 ## Collect evidence for one capability
 
-The development version can check one capability once its permanent spec includes the requirements you want to verify. For example, run these commands on a clean Git revision containing `openspec/specs/export/spec.md`:
+You can check one capability once its permanent spec includes the requirements you want to verify. For example, run these commands on a clean Git revision containing `openspec/specs/export/spec.md`:
 
 ```text
 node node_modules/cliewen-openspec/adapters/node-test.mjs --capability export test/export.test.mjs

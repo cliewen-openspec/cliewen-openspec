@@ -22,6 +22,8 @@ test('packed installation → OpenSpec change → real test evidence → archive
   const npm=process.env.npm_execpath; assert.ok(npm,'Run through npm test');
   const pack=JSON.parse(run(process.execPath,[npm,'pack','--json','--ignore-scripts','--pack-destination',root],0,project));
   assert.ok(!pack[0].files.some(file => /^dist\/tdd\./.test(file.path)), 'Retired recorder outputs must not ship');
+  const packagedAdapters = pack[0].files.map(file => file.path).filter(file => file.startsWith('adapters/'));
+  assert.deepEqual(packagedAdapters, ['adapters/node-test.mjs']);
   const tar=path.join(root,pack[0].filename);
   write('package.json',JSON.stringify({private:true,type:'module'}));
   run(process.execPath,[npm,'install','--ignore-scripts','--no-audit','--no-fund',tar,'@fission-ai/openspec@1.17.0']);

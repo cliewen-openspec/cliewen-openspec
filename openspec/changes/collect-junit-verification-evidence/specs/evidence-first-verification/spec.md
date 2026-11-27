@@ -1,8 +1,8 @@
 ## ADDED Requirements
 
-### Requirement: Collect JUnit verification evidence
+### Requirement: Accept evidence from project-owned test adapters
 
-Cliewen SHALL provide a reference adapter that maps completed Surefire test cases to configured types and acceptance IDs. The adapter SHALL collect reports from the current invocation and preserve the full runner exit code and tested Git revision.
+Cliewen SHALL accept version 1 evidence from project-owned test adapters. The repository SHALL demonstrate the contract with a Surefire example that maps completed test cases to configured types and acceptance IDs and preserves the runner exit code and tested revision. The npm package SHALL ship the Node reference adapter.
 
 #### Scenario: Collect unit and slice results [EVID-002]
 Test-type: Integration
