@@ -13,7 +13,17 @@ Register a capability-to-prefix mapping, then allocate IDs using `cliewen-opensp
 
 `ac.capabilities` maps each OpenSpec capability to its prefix. `ac.padding` controls minimum digit width (default 3). Use `ac rename-prefix CAPABILITY PREFIX` to change an established prefix while retaining its sequence and historical references. See [configuration](../configuration.md) for prefix selection and the default per-task testing workflow.
 
-After implementing and committing the project inputs, run the reference adapter with explicit Node test paths:
+## Who provides test adapters?
+
+Cliewen defines the [version 1 evidence format](#report-format) and ships the `check` command. The checker uses the report to verify the selected acceptance criteria, their required test types, and the Git revision. It also checks the runner's recorded exit code.
+
+An adapter collects actual test outcomes from its runner and writes the report. Cliewen ships the Node test runner adapter as a reference. The development package also includes the [JUnit adapter for Maven Surefire](#collect-junit-evidence-from-maven-surefire). Your team or a third party can supply an adapter for another runner using the same format.
+
+The project defines its test types in `testing.types` and maps tests to acceptance criteria. For example, a project can register `Slice` and map a Spring MVC test to that type in its Surefire mapping file.
+
+## Collect evidence with the Node adapter
+
+After implementing and committing the project inputs, run the Node adapter with explicit test paths:
 
 ```text
 node node_modules/cliewen-openspec/adapters/node-test.mjs --change add-export test/export.test.mjs
@@ -25,6 +35,10 @@ Finish README changes, task notes, results, and any PR draft before the final co
 Report the final tested revision and check result in the terminal handoff or an ignored file. A tracked record can describe an earlier tested revision, labeled as historical. Writing the latest revision into that record and committing it creates another revision that needs fresh evidence.
 
 Tests use titles such as `exports rows [EXPORT-001] [Test-type: Unit]`. The reference adapter supports one AC tag and requires exactly one configured test-type tag per mapped test title. It records the declared type, real Node TAP results, and the runner exit code, so failures outside mapped tests also block the check. Reports must be Git-ignored and untracked. The adapter rejects dirty input revisions and changes during execution, and invalidates older evidence when a new run starts. A crash cannot leave an earlier passing report usable.
+
+## Report format
+
+An adapter records the full Git commit, the actual result of each mapped test, and the runner's full exit code. Include the selected change or capability when collecting a scoped report. A failed runner must remain visible even when every mapped test passed. Write a report only when it can be attributed to the tested revision, and invalidate earlier evidence when starting a new collection.
 
 ```json
 {
